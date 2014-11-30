@@ -81,14 +81,12 @@ class WCV_Vendor_Signup
 		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
 			global $woocommerce;
 
-			if ( function_exists( 'wc_clear_messages' ) ) wc_clear_messages(); else {
-				$woocommerce->clear_messages();
-			}
+			wc_clear_notices(); 
 
 			if ( user_can( $user_id, 'manage_options' ) ) {
-				if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'Application denied. You are an administrator.', 'wcvendors' ) ); else $woocommerce->add_error( __( 'Application denied. You are an administrator.', 'wcvendors' ) );
+				wc_add_notice( __( 'Application denied. You are an administrator.', 'wcvendors' ), 'error' );
 			} else {
-				if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Your application has been submitted.', 'wcvendors' ) ); else $woocommerce->add_message( __( 'Your application has been submitted.', 'wcvendors' ) );
+				wc_add_notice( __( 'Your application has been submitted.', 'wcvendors' ), 'notice' );
 
 				$manual = WC_Vendors::$pv_options->get_option( 'manual_vendor_registration' );
 				$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
@@ -123,10 +121,8 @@ class WCV_Vendor_Signup
 		if ( !isset( $_POST[ 'apply_for_vendor' ] ) ) return false;
 
 		if ( $this->terms_page && !isset( $_POST[ 'agree_to_terms' ] ) ) {
-			if ( function_exists( 'wc_clear_messages' ) ) wc_clear_messages(); else {
-				$woocommerce->clear_messages();
-			}
-			if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ); else $woocommerce->add_error( __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) );
+			wc_clear_notices(); 
+			wc_add_notice( __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ), 'error' ); 
 		} else if ( isset( $_POST[ 'apply_for_vendor_submit' ] ) ) {
 			self::save_pending( get_current_user_id() );
 		}

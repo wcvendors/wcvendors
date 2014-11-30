@@ -366,7 +366,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		try {
 			$response = $service->Pay( $payRequest );
 		} catch ( Exception $ex ) {
-			if ( function_exists( 'wc_add_error' ) ) wc_add_error( sprintf( __( 'Error: %s', 'wcvendors' ), $ex->getMessage() ) ); else $woocommerce->add_error( sprintf( __( 'Error: %s', 'wcvendors' ), $ex->getMessage() ) );
+			wc_add_notice( sprintf( __( 'Error: %s', 'wcvendors' ), $ex->getMessage() ), 'error' );
 
 			return false;
 		}
@@ -376,7 +376,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 
 		if ( $ack != 'SUCCESS' ) {
 			$order->update_status( 'cancelled', sprintf( __( 'Error ID: %s. %s', 'wcvendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ) );
-			if ( function_exists( 'wc_add_error' ) ) wc_add_error( sprintf( __( 'Error ID: %s. %s', 'wcvendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ) ); else $woocommerce->add_error( sprintf( __( 'Error ID: %s. %s', 'wcvendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ) );
+			wc_add_notice( sprintf( __( 'Error ID: %s. %s', 'wcvendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'error' );
 
 			return false;
 		}
@@ -480,7 +480,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		try {
 			$response = $service->SetPaymentOptions( $setPaymentOptionsRequest );
 		} catch ( Exception $ex ) {
-			if ( function_exists( 'wc_add_error' ) ) wc_add_error( sprintf( __( 'Error: %s', 'wcvendors' ), $ex->getMessage() ) ); else $woocommerce->add_error( sprintf( __( 'Error: %s', 'wcvendors' ), $ex->getMessage() ) );
+			wc_add_notice( sprintf( __( 'Error: %s', 'wcvendors' ), $ex->getMessage() ), 'error' );
 
 			return false;
 		}
@@ -489,7 +489,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$ack = strtoupper( $response->responseEnvelope->ack );
 		if ( $ack != "SUCCESS" ) {
 			$order->update_status( 'cancelled', __( sprintf( 'Error ID: %s. %s', $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'wcvendors' ) );
-			if ( function_exists( 'wc_add_error' ) ) wc_add_error( sprintf( 'Error ID: %s. %s', $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ) ); else $woocommerce->add_error( sprintf( 'Error ID: %s. %s', $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ) );
+			wc_add_notice( sprintf( 'Error ID: %s. %s', $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'error' );
 
 			return false;
 		}

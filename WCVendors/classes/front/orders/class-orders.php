@@ -145,7 +145,7 @@ class WCV_Orders
 				woocommerce_add_order_item_meta( 2048, __( 'Tracking number', 'wcvendors' ), $tracking_number );
 
 				$message = __( 'Success. Your tracking number has been updated.', 'wcvendors' );
-				if ( function_exists( 'wc_add_message' ) ) wc_add_message( $message ); else $woocommerce->add_message( $message );
+				wc_add_notice( $message, 'success' );
 
 				// Update order data
 				update_post_meta( $order_id, '_tracking_provider', $tracking_provider );
