@@ -380,5 +380,40 @@ class WCV_Vendors
 		return $is_pending;
 	}
 
+	/* 
+	* 	Is this a vendor product ? 
+	* 	@param uknown $role 
+	*/ 
+	public static function is_vendor_product($role) { 
 
+		return ($role === 'Vendor') ? true : false; 
+
+		// if ($role === 'Vendor') { 
+		// 	return true; 
+		// } else { 
+		// 	return false; 
+		// }
+	}
+
+	/* 
+	*	Is this the vendors shop archive page ? 
+	*/
+	public static function is_vendor_page() { 
+
+		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
+		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
+
+		return $vendor_id ? true : false; 
+
+	}
+
+	/* 
+	*	Is this a vendor single product page ? 
+	*/
+	public static function is_vendor_product_page($vendor_id) { 
+
+		$vendor_product = WCV_Vendors::is_vendor_product( get_user_role($vendor_id) ); 
+		return $vendor_product ? true : false; 
+
+	}
 }

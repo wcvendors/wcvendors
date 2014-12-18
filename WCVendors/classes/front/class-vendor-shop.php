@@ -13,23 +13,32 @@ class WCV_Vendor_Shop
 
 	public static $seller_info;
 
-
 	/**
 	 * init
 	 */
 	function __construct()
 	{
+
 		add_filter( 'product_enquiry_send_to', array( 'WCV_Vendor_Shop', 'product_enquiry_compatibility' ), 10, 2 );
 
 		add_action( 'woocommerce_product_query', array( $this, 'vendor_shop_query' ), 10, 2 );
 		add_filter( 'init', array( $this, 'add_rewrite_rules' ), 0 );
 
-		add_action( 'woocommerce_before_main_content', array( $this, 'shop_description' ), 20 );
+		add_action( 'woocommerce_before_main_content', array( 'WCV_Vendor_Shop', 'shop_description' ), 30 );
 		add_filter( 'woocommerce_product_tabs', array( 'WCV_Vendor_Shop', 'seller_info_tab' ) );
 		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
 
 		// Add sold by to product loop before add to cart
 		add_action( 'woocommerce_after_shop_loop_item', array('WCV_Vendor_Shop', 'template_loop_sold_by'), 9 );
+
+		// Remove Page Title if on Vendor Shop 
+		add_filter ( 'woocommerce_show_page_title', array('WCV_Vendor_Shop', 'remove_vendor_title') ); 
+
+		// Add a vendor header 
+		if (WC_Vendors::$pv_options->get_option( 'shop_headers_enabled' ) ) { 
+			add_action( 'woocommerce_before_main_content', array('WCV_Vendor_Shop', 'vendor_main_header'), 20 ); 
+			add_action( 'woocommerce_before_single_product', array('WCV_Vendor_Shop', 'vendor_mini_header')); 
+		}
 
 	}
 
@@ -158,7 +167,7 @@ class WCV_Vendor_Shop
 	/* 
 		Adding sold by to product loop
 	*/
-	public function template_loop_sold_by($product_id) { 
+	public static function template_loop_sold_by($product_id) { 
 		$author     = WCV_Vendors::get_vendor_from_product( $product_id );
 		$sold_by = WCV_Vendors::is_vendor( $author )
 			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $author), WCV_Vendors::get_vendor_shop_name( $author ) )
@@ -166,5 +175,70 @@ class WCV_Vendor_Shop
 		echo '<small>' . apply_filters('wcvendors_sold_by_in_loop', __( 'Sold by: ', 'wcvendors' )). $sold_by . '</small> <br />';
 	}
 
+
+	/* 
+	* Remove the Page title from Archive-Product while on a vendor Page
+	*/ 
+	public static function remove_vendor_title() { 
+		if ( WCV_Vendors::is_vendor_page() ) { 
+			return false; 
+		}
+	}
+
+	/* 
+	* 	Display a vendor header at the top of the vendors product archive page
+	*/
+	public static function vendor_main_header() { 
+
+		// Remove the basic shop description from the loop 
+		remove_action( 'woocommerce_before_main_content', array('WCV_Vendor_Shop', 'shop_description' ), 30);
+
+		if (WCV_Vendors::is_vendor_page()) { 
+			$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
+			$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop ); 
+			$shop_name =  get_user_meta( $vendor_id, 'pv_shop_name', true );
+
+			// Shop description 
+			$has_html    = get_user_meta( $vendor_id, 'pv_shop_html_enabled', true );
+			$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
+			$description = do_shortcode( get_user_meta( $vendor_id, 'pv_shop_description', true ) );
+			$shop_description =  ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
+			
+			wc_get_template( 'vendor-main-header.php', array(
+													'shop_name'			=> $shop_name, 
+													'vendor_id' 		=> $vendor_id, 
+													'shop_description'	=> $shop_description
+											   ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/front/' );
+
+		}
+	}
+
+
+	/* 
+	* 	Display a vendor header at the top of the single-product page 
+	*/
+	public static function vendor_mini_header() { 
+
+		global $product; 
+
+		if (WCV_Vendors::is_vendor_product_page($product->post->post_author)) { 
+			
+			$vendor = get_userdata( $product->post->post_author ); 
+			$vendor_shop_link = site_url( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) .'/' .$vendor->pv_shop_slug ); 
+
+			$has_html    =  $vendor->pv_shop_html_enabled;
+			$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
+			$description = do_shortcode( $vendor->pv_shop_description );
+			$shop_description =  ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
+			
+			wc_get_template( 'vendor-mini-header.php', array(
+													'vendor'			=> $vendor, 
+													'vendor_shop_link' 	=> $vendor_shop_link, 
+													'shop_description'	=> $shop_description, 
+													'shop_name'			=> $vendor->pv_shop_name, 
+											   ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/front/' );
+
+		}
+	}
 
 }

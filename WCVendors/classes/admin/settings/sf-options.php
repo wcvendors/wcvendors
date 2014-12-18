@@ -60,6 +60,15 @@ $options[ ] = array(
 	'std'  => 'vendors/',
 );
 
+$options[ ] = array(
+	'name' => __( 'Shop Headers', 'wcvendors' ),
+	'desc' => __( 'Enable vendor shop headers', 'wcvendors' ),
+	'tip'  => __( 'This will override the HTML Shop description output on product-archive pages.', 'wcvendors' ),
+	'id'   => 'shop_headers_enabled',
+	'type' => 'checkbox',
+	'std'  => true,
+);
+
 $options[ ] = array( 'name' => __( 'Products', 'wcvendors' ), 'type' => 'heading' );
 $options[ ] = array( 'name' => __( 'Product Add Page', 'wcvendors' ), 'type' => 'title', 'desc' => __( 'Configure what to hide from all vendors when adding a product', 'wcvendors' ) );
 
