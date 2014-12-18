@@ -385,14 +385,7 @@ class WCV_Vendors
 	* 	@param uknown $role 
 	*/ 
 	public static function is_vendor_product($role) { 
-
 		return ($role === 'Vendor') ? true : false; 
-
-		// if ($role === 'Vendor') { 
-		// 	return true; 
-		// } else { 
-		// 	return false; 
-		// }
 	}
 
 	/* 
@@ -416,4 +409,5 @@ class WCV_Vendors
 		return $vendor_product ? true : false; 
 
 	}
+
 }
