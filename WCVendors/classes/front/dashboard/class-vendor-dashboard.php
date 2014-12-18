@@ -18,10 +18,7 @@ class WCV_Vendor_Dashboard
 	function __construct()
 	{
 		add_shortcode( 'wcv_shop_settings', array( $this, 'display_vendor_settings' ) );
-
-		if ( $can_view_sales = WC_Vendors::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
-			add_shortcode( 'wcv_vendor_dashboard', array( $this, 'display_vendor_products' ) );
-		}
+		add_shortcode( 'wcv_vendor_dashboard', array( $this, 'display_vendor_products' ) );
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );
 		add_action( 'init', array( $this, 'save_vendor_settings' ) );
@@ -167,6 +164,8 @@ class WCV_Vendor_Dashboard
 													'submit_link'   => $submit_link,
 											   ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 
+		if ( $can_view_sales = WC_Vendors::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
+
 		woocommerce_get_template( 'reports.php', array(
 													  'start_date'      => $start_date,
 													  'end_date'        => $end_date,
@@ -175,7 +174,7 @@ class WCV_Vendor_Dashboard
 													  'datepicker'      => $datepicker,
 													  'can_view_orders' => $can_view_orders,
 												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
-
+		}
 		woocommerce_get_template( 'orders.php', array(
 													  'start_date'      => $start_date,
 													  'end_date'        => $end_date,
