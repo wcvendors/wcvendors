@@ -253,7 +253,7 @@ class WCV_Vendor_Shop
 
         $vendor_id = $cart_item_values[ 'data' ]->post->post_author;
         $sold_by = WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_shop_name( $vendor_id ) ): get_bloginfo( 'name' );
-        woocommerce_add_order_item_meta($item_id, __('Sold by', 'wcvendors'), $sold_by);
+        woocommerce_add_order_item_meta($item_id, apply_filters('wcvendors_sold_by_in_email', __('Sold by', 'wcvendors')), $sold_by);
 
 	}
 
