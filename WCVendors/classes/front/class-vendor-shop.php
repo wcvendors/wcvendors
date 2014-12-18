@@ -34,6 +34,9 @@ class WCV_Vendor_Shop
 		// Remove Page Title if on Vendor Shop 
 		add_filter ( 'woocommerce_show_page_title', array('WCV_Vendor_Shop', 'remove_vendor_title') ); 
 
+		// Show vendor on all sales related emails 
+		add_action('woocommerce_add_order_item_meta', array('WC_Vednors', 'add_vendor_to_order_item_meta'), 10, 2);
+
 		// Add a vendor header 
 		if (WC_Vendors::$pv_options->get_option( 'shop_headers_enabled' ) ) { 
 			add_action( 'woocommerce_before_main_content', array('WCV_Vendor_Shop', 'vendor_main_header'), 20 ); 
@@ -239,6 +242,19 @@ class WCV_Vendor_Shop
 											   ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/front/' );
 
 		}
+	}
+
+	/* 
+	*	Add Vendor to Order item Meta 
+	* 	Thanks to Asbjoern Andersen for the code 
+	*
+	*/ 
+	public function add_vendor_to_order_item_meta( $item_id, $cart_item_values ){
+
+        $vendor_id = $cart_item_values[ 'data' ]->post->post_author;
+        $sold_by = WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_shop_name( $vendor_id ) ): get_bloginfo( 'name' );
+        woocommerce_add_order_item_meta($item_id, __('Sold by', 'wcvendors'), $sold_by);
+
 	}
 
 }
