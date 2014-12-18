@@ -1,5 +1,16 @@
 Changelog for WC Vendors
 
+Version 1.3.0
+
+* Added: show vendor on all emails #29
+* Fixed: Critical issue #58
+* Added: Vendor header templates #65
+* Added: Vendor to QuickEdit #12
+* Fixed: Updating notices to use 2.1 Notice API #62
+* Added: wcvendors_registration_checkbox filter to denied.php template view
+* Added: wcvendors_vendor_registration_checkbox filter to filter "Apply to become a vendor?" at registration.
+* Added: wcvendors_vendor_registration_checkbox to filter "Apply to become a vendor?"
+
 Version 1.2.0
 
 * Added new filters to change sold by text see Knowledge base for details
