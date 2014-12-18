@@ -66,6 +66,7 @@ if ( is_woocommerce_activated() ) {
 			add_action( 'plugins_loaded', array( $this, 'load_settings' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_core' ) ); 
+			add_action( 'current_screen', array( $this, 'include_assets' ) ); 
 			
 			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
@@ -163,6 +164,19 @@ if ( is_woocommerce_activated() ) {
 			new WCV_Emails;
 			new WCV_Vendor_Signup;
 			new WCV_Shortcodes; 
+		}
+
+		/** 
+		*	Load plugin assets 
+		*/ 
+		public function include_assets(){
+
+			$screen = get_current_screen(); 
+
+			if ( in_array( $screen->id, array( 'edit-product' ) ) ) {
+				wp_enqueue_script( 'wcv_quick-edit', wcv_assets_url. '/js/wcv-admin-quick-edit.js', array('jquery') );
+			}
+
 		}
 
 
