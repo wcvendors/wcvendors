@@ -157,7 +157,7 @@ class WCV_Vendor_Dashboard
 		do_action( 'wcvendors_before_dashboard' );
 
 		wc_print_notices();
-		woocommerce_get_template( 'links.php', array(
+		wc_get_template( 'links.php', array(
 													'shop_page'     => urldecode($shop_page),
 													'settings_page' => $settings_page,
 													'can_submit'    => $can_submit,
@@ -166,7 +166,7 @@ class WCV_Vendor_Dashboard
 
 		if ( $can_view_sales = WC_Vendors::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
 
-		woocommerce_get_template( 'reports.php', array(
+		wc_get_template( 'reports.php', array(
 													  'start_date'      => $start_date,
 													  'end_date'        => $end_date,
 													  'vendor_products' => $vendor_products,
@@ -175,7 +175,7 @@ class WCV_Vendor_Dashboard
 													  'can_view_orders' => $can_view_orders,
 												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 		}
-		woocommerce_get_template( 'orders.php', array(
+		wc_get_template( 'orders.php', array(
 													  'start_date'      => $start_date,
 													  'end_date'        => $end_date,
 													  'vendor_products' => $vendor_products,
@@ -217,7 +217,7 @@ class WCV_Vendor_Dashboard
 		$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 
 		ob_start();
-		woocommerce_get_template( 'settings.php', array(
+		wc_get_template( 'settings.php', array(
 													   'description'      => $description,
 													   'global_html'      => $global_html,
 													   'has_html'         => $has_html,
@@ -245,7 +245,7 @@ class WCV_Vendor_Dashboard
 
 		} else if ( !WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 
-			woocommerce_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
+			wc_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 
 			return false;
 

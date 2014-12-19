@@ -98,7 +98,7 @@ class WCV_Orders
 	{
 		if ( !WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			ob_start();
-			woocommerce_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
+			wc_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 
 			return ob_get_clean();
 		}
@@ -181,10 +181,10 @@ class WCV_Orders
 		ob_start();
 		// Show the Export CSV button
 		if ( $this->can_export_csv ) {
-			woocommerce_get_template( 'csv-export.php', array(), 'wc-product-vendor/orders/', wcv_plugin_dir . 'views/orders/' );
+			wc_get_template( 'csv-export.php', array(), 'wc-product-vendor/orders/', wcv_plugin_dir . 'views/orders/' );
 		}
 
-		woocommerce_get_template( 'orders.php', array(
+		wc_get_template( 'orders.php', array(
 													 'headers'        => $headers,
 													 'body'           => $all[ 'body' ],
 													 'items'          => $all[ 'items' ],

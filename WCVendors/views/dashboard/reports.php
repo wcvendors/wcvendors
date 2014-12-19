@@ -3,7 +3,7 @@
 <?php
 
 if ( $datepicker !== 'false' ) {
-	woocommerce_get_template( 'date-picker.php', array(
+	wc_get_template( 'date-picker.php', array(
 													  'start_date' => $start_date,
 													  'end_date'   => $end_date,
 												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );

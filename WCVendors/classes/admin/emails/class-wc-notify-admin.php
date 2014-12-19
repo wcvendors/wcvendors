@@ -85,7 +85,7 @@ class WC_Email_Notify_Admin extends WC_Email
 	function get_content_html()
 	{
 		ob_start();
-		woocommerce_get_template( $this->template_html, array(
+		wc_get_template( $this->template_html, array(
 															 'product_name'  => $this->product_name,
 															 'vendor_name'   => $this->vendor_name,
 															 'post_id'       => $this->post_id,
@@ -105,7 +105,7 @@ class WC_Email_Notify_Admin extends WC_Email
 	function get_content_plain()
 	{
 		ob_start();
-		woocommerce_get_template( $this->template_plain, array(
+		wc_get_template( $this->template_plain, array(
 															  'product_name'  => $this->product_name,
 															  'vendor_name'   => $this->vendor_name,
 															  'post_id'       => $this->post_id,

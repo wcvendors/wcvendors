@@ -46,7 +46,7 @@ global $woocommerce; ?>
 
 			<?php foreach ( $order_items as $item ) {
 
-				woocommerce_get_template( 'table-body.php', array(
+				wc_get_template( 'table-body.php', array(
 																 'item'     => $item,
 																 'count'    => $count,
 																 'order_id' => $order_id,
@@ -56,7 +56,7 @@ global $woocommerce; ?>
 
 			if ( !empty( $order[ 'comments' ] ) ) {
 				$customer_note = $order[ 'comments' ];
-				woocommerce_get_template( 'customer-note.php', array(
+				wc_get_template( 'customer-note.php', array(
 																	'customer_note' => $customer_note,
 															   ), 'wc-product-vendor/orders/customer-note/', wcv_plugin_dir . 'views/orders/customer-note/' );
 			}
@@ -91,13 +91,13 @@ global $woocommerce; ?>
 					endif;
 
 					if ( $can_view_comments && !empty( $comments ) ) {
-						woocommerce_get_template( 'existing-comments.php', array(
+						wc_get_template( 'existing-comments.php', array(
 																				'comments' => $comments,
 																		   ), 'wc-product-vendor/orders/comments/', wcv_plugin_dir . 'views/orders/comments/' );
 					}
 
 					if ( $can_add_comments ) {
-						woocommerce_get_template( 'add-new-comment.php', array(
+						wc_get_template( 'add-new-comment.php', array(
 																			  'order_id'   => $order_id,
 																			  'product_id' => $product_id,
 																		 ), 'wc-product-vendor/orders/comments/', wcv_plugin_dir . 'views/orders/comments/' );
@@ -116,7 +116,7 @@ global $woocommerce; ?>
 
 					<div class="order-tracking">
 						<?php
-						woocommerce_get_template( 'shipping-form.php', array(
+						wc_get_template( 'shipping-form.php', array(
 																			'order_id'       => $order_id,
 																			'product_id'     => $product_id,
 																			'providers'      => $providers,
