@@ -5,7 +5,7 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.2.0
 License: GPLv2 or later
 
