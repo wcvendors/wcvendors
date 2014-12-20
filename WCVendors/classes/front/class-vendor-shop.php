@@ -34,8 +34,8 @@ class WCV_Vendor_Shop
 		// Remove Page Title if on Vendor Shop 
 		add_filter ( 'woocommerce_show_page_title', array('WCV_Vendor_Shop', 'remove_vendor_title') ); 
 
-		// Show vendor on all sales related emails 
-		add_action('woocommerce_add_order_item_meta', array('WC_Vednors', 'add_vendor_to_order_item_meta'), 10, 2);
+		// Show vendor on all sales related invoices 
+		add_action( 'woocommerce_add_order_item_meta', array('WCV_Vendor_Shop', 'add_vendor_to_order_item_meta'), 10, 2 );
 
 		// Add a vendor header 
 		if (WC_Vendors::$pv_options->get_option( 'shop_headers_enabled' ) ) { 
@@ -249,11 +249,11 @@ class WCV_Vendor_Shop
 	* 	Thanks to Asbjoern Andersen for the code 
 	*
 	*/ 
-	public function add_vendor_to_order_item_meta( $item_id, $cart_item_values ){
+	public static function add_vendor_to_order_item_meta( $item_id, $values, $cart_item_key ){
 
-        $vendor_id = $cart_item_values[ 'data' ]->post->post_author;
-        $sold_by = WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_shop_name( $vendor_id ) ): get_bloginfo( 'name' );
-        woocommerce_add_order_item_meta($item_id, apply_filters('wcvendors_sold_by_in_email', __('Sold by', 'wcvendors')), $sold_by);
+		$vendor_id = $cart_item_values[ 'data' ]->post->post_author;
+      	$sold_by = WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_shop_name( $vendor_id ) ): get_bloginfo( 'name' );
+        wc_add_order_item_meta( $item_id, apply_filters('wcvendors_sold_by_in_email', __('Sold by', 'wcvendors')), $sold_by);
 
 	}
 
