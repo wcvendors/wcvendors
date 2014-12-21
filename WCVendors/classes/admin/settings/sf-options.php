@@ -66,7 +66,7 @@ $options[ ] = array(
 	'tip'  => __( 'This will override the HTML Shop description output on product-archive pages.', 'wcvendors' ),
 	'id'   => 'shop_headers_enabled',
 	'type' => 'checkbox',
-	'std'  => true,
+	'std'  => false,
 );
 
 $options[ ] = array( 'name' => __( 'Products', 'wcvendors' ), 'type' => 'heading' );
