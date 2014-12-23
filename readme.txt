@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.1
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -58,7 +58,11 @@ No Upgrade required at this time.
 
 == Changelog ==
 
-## Version 1.3.0  - December 22, 2014 ##
+## Version 1.3.1 - December 23, 2014 ##
+
+* Fixed: Sold by in invoices 
+
+## Version 1.3.0 - December 22, 2014 ##
  
 * Added: show vendor on all emails #29
 * Fixed: Critical issue #58
