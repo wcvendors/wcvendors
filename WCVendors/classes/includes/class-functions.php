@@ -36,8 +36,8 @@ if ( !function_exists( 'is_edd_activated' ) ) {
 *
 *  Get User Role 
 */
-if (!function_exists('get_user_role')) { 
-	function get_user_role($user_id) { 
+if (!function_exists('wcv_get_user_role')) { 
+	function wcv_get_user_role($user_id) { 
 		global $wp_roles;
 		$user = new WP_User($user_id);
 		$roles = $user->roles;
