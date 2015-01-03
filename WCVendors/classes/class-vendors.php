@@ -405,7 +405,7 @@ class WCV_Vendors
 	*/
 	public static function is_vendor_product_page($vendor_id) { 
 
-		$vendor_product = WCV_Vendors::is_vendor_product( get_user_role($vendor_id) ); 
+		$vendor_product = WCV_Vendors::is_vendor_product( wcv_get_user_role($vendor_id) ); 
 		return $vendor_product ? true : false; 
 
 	}
