@@ -25,8 +25,8 @@ class WCV_Vendor_Reports
 			add_filter( 'woocommerce_reports_top_sellers_order_items', array( $this, 'filter_products' ) );
 			add_filter( 'woocommerce_reports_top_earners_order_items', array( $this, 'filter_products' ) );
 		}
+		
 	}
-
 
 	/**
 	 * Show only reports that are useful to a vendor
@@ -46,39 +46,20 @@ class WCV_Vendor_Reports
 			'woocommerce_monthly_taxes',
 			'woocommerce_category_sales',
 			'woocommerce_coupon_sales',
-		);
+		);		
 
-		// WC 2.1
-		if ( version_compare( $woocommerce->version, '2.1', '<' ) ) {
+		$reports = $tabs[ 'orders' ][ 'reports' ];
 
-			$charts = $tabs[ 'sales' ][ 'charts' ];
-			foreach ( $charts as $key => $chart ) {
-				if ( in_array( $chart[ 'function' ], $remove ) ) {
-					unset( $tabs[ 'sales' ][ 'charts' ][ $key ] );
-				}
+		foreach ( $reports as $key => $chart ) {
+			if ( $key == 'coupon_usage' ) {
+				unset( $tabs[ 'orders' ][ 'reports' ][ $key ] );
 			}
-
-			// These are admin tabs
-			$return = array(
-				'sales' => $tabs[ 'sales' ]
-			);
-
-		} else {
-
-			// Only removes coupon usage in WC 2.1
-			$reports = $tabs[ 'orders' ][ 'reports' ];
-			foreach ( $reports as $key => $chart ) {
-				if ( $key == 'coupon_usage' ) {
-					unset( $tabs[ 'orders' ][ 'reports' ][ $key ] );
-				}
-			}
-
-			// These are admin tabs
-			$return = array(
-				'orders' => $tabs[ 'orders' ]
-			);
-
 		}
+
+		// These are admin tabs
+		$return = array(
+			'orders' => $tabs[ 'orders' ]
+		);
 
 		return $return;
 	}
