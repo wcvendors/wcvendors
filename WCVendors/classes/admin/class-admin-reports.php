@@ -237,7 +237,7 @@ class WCV_Admin_Reports
 				?>
 			</select>
 
-			<?php if ( $_GET[ 'chart' ] == 2 ) { ?>
+			<?php if ( $_GET[ 'report' ] == 2 ) { ?>
 
 				<select id="product_ids" name="product_ids[]" class="ajax_chosen_select_products" multiple="multiple"
 						data-placeholder="<?php _e( 'Year', 'wcvendors' ); ?>"
