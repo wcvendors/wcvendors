@@ -30,7 +30,7 @@ class WCV_Shortcodes {
 		add_shortcode( 'wcv_best_selling_products', array( $this, 'best_selling_products'));
 
 		// List of paginated vendors 
-		  add_shortcode( 'wcv_vendors', array( $this, 'wcv_vendors' ) );
+		  add_shortcode( 'wcv_vendorslist', array( $this, 'wcv_vendors' ) );
 
 	}
 
