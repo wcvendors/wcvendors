@@ -69,7 +69,7 @@
 									'placeholder' => '',
 									'description' => '',
 									'value'       => get_post_meta( $order_id, '_custom_tracking_provider', true )
-							   ), $order_id );
+							   ) );
 
 	woocommerce_wp_text_input( array(
 									'id'          => 'tracking_number',
@@ -77,7 +77,7 @@
 									'placeholder' => '',
 									'description' => '',
 									'value'       => get_post_meta( $order_id, '_tracking_number', true )
-							   ), $order_id );
+							   ) );
 
 	woocommerce_wp_text_input( array(
 									'id'          => 'custom_tracking_link',
@@ -85,7 +85,7 @@
 									'placeholder' => 'http://',
 									'description' => '',
 									'value'       => get_post_meta( $order_id, '_custom_tracking_link', true )
-							   ), $order_id );
+							   ) );
 
 	woocommerce_wp_text_input( array(
 									'type'        => 'date',
@@ -95,7 +95,7 @@
 									'description' => '',
 									'class'       => 'date-picker-field',
 									'value'       => ( $date = get_post_meta( $order_id, '_date_shipped', true ) ) ? date( 'Y-m-d', $date ) : ''
-							   ), $order_id );
+							   ) );
 
 	// Live preview
 	echo '<p class="preview_tracking_link">' . __( 'Preview:', 'wc_shipment_tracking' ) . ' <a href="" target="_blank">' . __( 'Click here to track your shipment', 'wc_shipment_tracking' ) . '</a></p>';

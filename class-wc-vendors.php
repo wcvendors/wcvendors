@@ -148,6 +148,10 @@ if ( is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-page.php';
 			require_once wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php';
 
+			if ( !function_exists( 'woocommerce_wp_text_input' ) && !is_admin() ) {
+				include_once(WC()->plugin_path() . '/includes/admin/wc-meta-box-functions.php');
+			}
+
 			new WCV_Vendor_Shop;
 			new WCV_Vendor_Cart;
 			new WCV_Commission;
