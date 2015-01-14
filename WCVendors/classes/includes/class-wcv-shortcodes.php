@@ -28,6 +28,10 @@ class WCV_Shortcodes {
 		add_shortcode( 'wcv_top_rated_products', array( $this, 'top_rated_products'));
 		// Best Selling product 
 		add_shortcode( 'wcv_best_selling_products', array( $this, 'best_selling_products'));
+
+		// List of paginated vendors 
+		  add_shortcode( 'wcv_vendors', array( $this, 'wcv_vendors' ) );
+
 	}
 
 	public static function get_vendor ( $slug ) { 
@@ -423,6 +427,79 @@ class WCV_Shortcodes {
 		wp_reset_postdata();
 
 		return '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
+	}
+
+	/**
+	  * 	list of vendors 
+	  * 
+	  * 	@param $atts shortcode attributs 
+	*/
+	public function wcv_vendors( $atts ) {
+
+		$html = ''; 
+		
+	  	extract( shortcode_atts( array(
+				'per_page'      => '12',
+				'columns'       => '4'
+			), $atts ) );
+
+	  	$paged      = (get_query_var('paged')) ? get_query_var('paged') : 1;   
+	  	$offset     = ($paged - 1) * $per_page;
+
+	  	// Get all the vendors 
+	  	$vendors = get_users( array('role' => 'vendor') ); 
+
+	  	// Get the paged vendors 
+	  	$args = array ( 
+	  		'role' => 'vendor', 
+	  		'offset' => $offset, 
+	  		'number' => $per_page
+	  	);
+	  	$paged_vendors = get_users( $args ); 
+
+	  	// Pagination values 
+	  	$total_vendors = count($vendors);  
+		$total_vendors_paged = count($paged_vendors);  
+		$total_pages = intval($total_vendors / $per_page) + 1;
+	    
+	   	ob_start();
+
+	    // Loop through all vendors and output a simple link to their vendor pages
+	    foreach ($paged_vendors as $vendor) {
+	      
+	      // Check that the vendor has products 
+	      $vendor_products  = WCV_Vendors::get_vendor_products( $vendor->ID );
+
+	      // Ensure the vendor has a shop name and products 
+	      if (!empty($vendor->pv_shop_slug) && !empty($vendor_products)) { 
+
+	      	wc_get_template( 'vendor-list.php', array(
+	      												'shop_link'			=> WCV_Vendors::get_vendor_shop_page($vendor->ID), 
+														'shop_name'			=> $vendor->pv_shop_name, 
+														'vendor_id' 		=> $vendor->ID, 
+														'shop_description'	=> $vendor->pv_shop_description, 
+												), 'wc-product-vendor/front/', wcv_plugin_dir . 'views/front/' );
+	     	}
+
+	    } // End foreach 
+	   	
+	   	$html .= '<ul class="wcv_vendorlist">' . ob_get_clean() . '</ul>';
+
+	    if ($total_vendors > $total_vendors_paged) {  
+			$html .= '<div class="wcv_pagination">';  
+			  $current_page = max( 1, get_query_var('paged') );  
+			  $html .= paginate_links( 	array(  
+			        'base' => get_pagenum_link(1) . '%_%',  
+			        'format' => 'page/%#%/',  
+			        'current' => $current_page,  
+			        'total' => $total_pages,  
+			        'prev_next'    => false,  
+			        'type'         => 'list',  
+			    ));  
+			$html .= '</div>'; 
+		}
+
+	    return $html; 
 	}
 
 }
