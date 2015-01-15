@@ -1,7 +1,14 @@
 Changelog for WC Vendors
 
-Version 1.4.1
+Version 1.4.0
 
+* Added: product category + vendor shortcode [wcv_product_category category="category" vendor="vendorname"]
+* Added: Tracking number support via WooThemes Shipment Tracking plugin
+* Added: Google Maps for delivery address on front end
+* Fixed: woocommerce_wp_text_input via merged pull request from svenl77
+* Added: Vendor List shortcode [wcv_vendorlist] + template for styling see KB for full details 
+* Fixed: Report not showing Commission by Product
+* Fixed: Paths in language files
 
 Version 1.3.1
 

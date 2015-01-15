@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.1
-Stable tag: 1.4.1
+Stable tag: 1.4.0
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,16 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+## Version 1.4.0 - January 16th, 2015 ## 
+
+* Added: product category + vendor shortcode [wcv_product_category category="category" vendor="vendorname"]
+* Added: Tracking number support via WooThemes Shipment Tracking plugin
+* Added: Google Maps for delivery address on front end
+* Fixed: woocommerce_wp_text_input via merged pull request from svenl77
+* Added: Vendor List shortcode [wcv_vendorlist] + template for styling see KB for full details 
+* Fixed: Report not showing Commission by Product
+* Fixed: Paths in language files
 
 ## Version 1.3.1 - December 23, 2014 ##
 
