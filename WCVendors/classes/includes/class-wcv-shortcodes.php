@@ -28,9 +28,10 @@ class WCV_Shortcodes {
 		add_shortcode( 'wcv_top_rated_products', array( $this, 'top_rated_products'));
 		// Best Selling product 
 		add_shortcode( 'wcv_best_selling_products', array( $this, 'best_selling_products'));
-
+		// List products in a category shortcode
+		add_shortcode( 'wcv_product_category', array( $this, 'product_category'));
 		// List of paginated vendors 
-		  add_shortcode( 'wcv_vendorslist', array( $this, 'wcv_vendors' ) );
+		add_shortcode( 'wcv_vendorslist', array( $this, 'wcv_vendors' ) );
 
 	}
 
@@ -428,6 +429,95 @@ class WCV_Shortcodes {
 
 		return '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
 	}
+
+	/**
+	 * List products in a category shortcode
+	 *
+	 * @access public
+	 * @param array $atts
+	 * @return string
+	 */
+	public static function product_category( $atts ) {
+		global $woocommerce_loop;
+
+		extract( shortcode_atts( array(
+			'vendor'   => '', 
+			'per_page' => '12',
+			'columns'  => '4',
+			'orderby'  => 'title',
+			'order'    => 'desc',
+			'category' => '',  // Slugs
+			'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+		), $atts ) );
+
+		if ( ! $category ) {
+			return '';
+		}
+
+		// Default ordering args
+		$ordering_args = WC()->query->get_catalog_ordering_args( $orderby, $order );
+
+		$args = array(
+			'post_type'				=> 'product',
+			'post_status' 			=> 'publish',
+			'author'				=>  self::get_vendor($vendor),
+			'ignore_sticky_posts'	=> 1,
+			'orderby' 				=> $ordering_args['orderby'],
+			'order' 				=> $ordering_args['order'],
+			'posts_per_page' 		=> $per_page,
+			'meta_query' 			=> array(
+				array(
+					'key' 			=> '_visibility',
+					'value' 		=> array('catalog', 'visible'),
+					'compare' 		=> 'IN'
+				)
+			),
+			'tax_query' 			=> array(
+				array(
+					'taxonomy' 		=> 'product_cat',
+					'terms' 		=> array_map( 'sanitize_title', explode( ',', $category ) ),
+					'field' 		=> 'slug',
+					'operator' 		=> $operator
+				)
+			)
+		);
+
+		if ( isset( $ordering_args['meta_key'] ) ) {
+			$args['meta_key'] = $ordering_args['meta_key'];
+		}
+
+		ob_start();
+
+		$products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
+
+		$woocommerce_loop['columns'] = $columns;
+
+		if ( $products->have_posts() ) : ?>
+
+			<?php woocommerce_product_loop_start(); ?>
+
+				<?php while ( $products->have_posts() ) : $products->the_post(); ?>
+
+					<?php wc_get_template_part( 'content', 'product' ); ?>
+
+				<?php endwhile; // end of the loop. ?>
+
+			<?php woocommerce_product_loop_end(); ?>
+
+		<?php endif;
+
+		woocommerce_reset_loop();
+		wp_reset_postdata();
+
+		$return = '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
+
+		// Remove ordering query arguments
+		WC()->query->remove_ordering_args();
+
+		return $return;
+	}
+
+
 
 	/**
 	  * 	list of vendors 
