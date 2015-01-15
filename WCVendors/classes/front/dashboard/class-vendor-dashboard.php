@@ -55,6 +55,41 @@ class WCV_Vendor_Dashboard
 			return;
 		}
 
+		if ( isset( $_POST[ 'update_tracking' ] ) ) {
+			$order_id   = (int) $_POST[ 'order_id' ];
+			$product_id = (int) $_POST[ 'product_id' ];
+
+			$tracking_provider        = woocommerce_clean( $_POST[ 'tracking_provider' ] );
+			$custom_tracking_provider = woocommerce_clean( $_POST[ 'custom_tracking_provider' ] );
+			$custom_tracking_link     = woocommerce_clean( $_POST[ 'custom_tracking_link' ] );
+			$tracking_number          = woocommerce_clean( $_POST[ 'tracking_number' ] );
+			$date_shipped             = woocommerce_clean( strtotime( $_POST[ 'date_shipped' ] ) );
+
+			$order    = new WC_Order( $order_id );
+			$products = $order->get_items();
+			foreach ( $products as $key => $value ) {
+				if ( $value[ 'product_id' ] == $product_id || $value[ 'variation_id' ] == $product_id ) {
+					$order_item_id = $key;
+					break;
+				}
+			}
+			if ( $order_item_id ) {
+				woocommerce_delete_order_item_meta( 2048, __( 'Tracking number', 'wcvendors' ) );
+				woocommerce_add_order_item_meta( 2048, __( 'Tracking number', 'wcvendors' ), $tracking_number );
+
+				$message = __( 'Success. Your tracking number has been updated.', 'wcvendors' );
+				wc_add_notice( $message, 'success' );
+
+				// Update order data
+				update_post_meta( $order_id, '_tracking_provider', $tracking_provider );
+				update_post_meta( $order_id, '_custom_tracking_provider', $custom_tracking_provider );
+				update_post_meta( $order_id, '_tracking_number', $tracking_number );
+				update_post_meta( $order_id, '_custom_tracking_link', $custom_tracking_link );
+				update_post_meta( $order_id, '_date_shipped', $date_shipped );
+			}
+
+		}
+
 		if ( empty( $_POST[ 'vendor_application_submit' ] ) ) {
 			return false;
 		}
@@ -151,7 +186,21 @@ class WCV_Vendor_Dashboard
 		$order_summary   = WCV_Queries::get_orders_for_products( $products );
 		$shop_page       = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
 
-		wp_enqueue_style( 'pv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
+		wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
+
+		// WC Shipment Tracking Providers
+		global $WC_Shipment_Tracking;
+
+		$providers      = !empty( $WC_Shipment_Tracking->providers ) ? $WC_Shipment_Tracking->providers : false;
+		$provider_array = array();
+
+		if ( $providers ) {
+			foreach ( $providers as $providerss ) {
+				foreach ( $providerss as $provider => $format ) {
+					$provider_array[ sanitize_title( $provider ) ] = urlencode( $format );
+				}
+			}
+		}
 
 		ob_start();
 		do_action( 'wcvendors_before_dashboard' );
@@ -175,12 +224,15 @@ class WCV_Vendor_Dashboard
 													  'can_view_orders' => $can_view_orders,
 												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 		}
+
 		wc_get_template( 'orders.php', array(
 													  'start_date'      => $start_date,
 													  'end_date'        => $end_date,
 													  'vendor_products' => $vendor_products,
 													  'order_summary'   => $order_summary,
 													  'datepicker'      => $datepicker,
+													  'providers'      => $providers,
+													  'provider_array' => $provider_array,
 													  'can_view_orders' => $can_view_orders,
 												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 		do_action( 'wcvendors_after_dashboard' );

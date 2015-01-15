@@ -12,10 +12,20 @@ jQuery(function () {
 
         jQuery("#view-items-" + id).fadeToggle();
     });
+
+    jQuery('a.view-order-tracking').on('click', function (e) {
+        e.preventDefault();
+        var id = jQuery(this).attr('id');
+        jQuery("#view-tracking-" + id).fadeToggle(); 
+    });
 });
 </script>
 
 <h2><?php _e( 'Orders', 'wcvendors' ); ?></h2>
+
+<?php global $woocommerce; ?>
+
+<?php if ( function_exists( 'wc_print_notices' ) ) { wc_print_notices(); } ?>
 
 <table class="table table-condensed table-vendor-sales-report">
 	<thead>
@@ -55,7 +65,7 @@ jQuery(function () {
 
 				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo woocommerce_price( $total ); ?></td>
 				<td><?php echo $order->order_date; ?></td>
-				<td><a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a> | <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a></td>
+				<td><a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a> | <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a> <?php if ( $providers ) : ?>  <a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?></td>
 			</tr>
 
 			<tr id="view-items-<?php echo $order->id; ?>" style="display:none;">
@@ -75,6 +85,24 @@ jQuery(function () {
 
 				</td>
 			</tr>
+
+			<?php if ( $providers ) : ?>
+			<tr id="view-tracking-<?php echo $order->id; ?>" style="display:none;"> 
+				<td colspan="5">
+					<div class="order-tracking">
+						<?php
+						wc_get_template( 'shipping-form.php', array(
+																			'order_id'       => $order->id,
+																			'product_id'     => $product_id,
+																			'providers'      => $providers,
+																			'provider_array' => $provider_array,
+																	   ), 'wc-product-vendor/orders/shipping/', wcv_plugin_dir . 'views/orders/shipping/' );
+						?>
+					</div>
+
+				</td>
+			</tr>
+			<?php endif; ?>
 
 		<?php endforeach; ?>
 
