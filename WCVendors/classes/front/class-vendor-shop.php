@@ -207,11 +207,15 @@ class WCV_Vendor_Shop
 			$description = do_shortcode( get_user_meta( $vendor_id, 'pv_shop_description', true ) );
 			$shop_description =  ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
 			
+			do_action('wcv_before_main_header', $vendor_id); 
+
 			wc_get_template( 'vendor-main-header.php', array(
 													'shop_name'			=> $shop_name, 
 													'vendor_id' 		=> $vendor_id, 
 													'shop_description'	=> $shop_description
 											   ), 'wc-product-vendor/front/', wcv_plugin_dir . 'views/front/' );
+
+			do_action('wcv_after_main_header', $vendor_id); 
 
 		}
 	}
@@ -234,12 +238,16 @@ class WCV_Vendor_Shop
 			$description = do_shortcode( $vendor->pv_shop_description );
 			$shop_description =  ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
 			
+			do_action('wcv_before_mini_header', $vendor_id);
+
 			wc_get_template( 'vendor-mini-header.php', array(
 													'vendor'			=> $vendor, 
 													'vendor_shop_link' 	=> $vendor_shop_link, 
 													'shop_description'	=> $shop_description, 
 													'shop_name'			=> $vendor->pv_shop_name, 
 											   ), 'wc-product-vendor/front/', wcv_plugin_dir . 'views/front/' );
+			
+			do_action('wcv_after_mini_header', $vendor_id); 
 
 		}
 	}
