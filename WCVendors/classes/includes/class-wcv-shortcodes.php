@@ -31,7 +31,7 @@ class WCV_Shortcodes {
 		// List products in a category shortcode
 		add_shortcode( 'wcv_product_category', array( $this, 'product_category'));
 		// List of paginated vendors 
-		add_shortcode( 'wcv_vendorslist', array( $this, 'wcv_vendors' ) );
+		add_shortcode( 'wcv_vendorslist', array( $this, 'wcv_vendorslist' ) );
 
 	}
 
@@ -524,7 +524,7 @@ class WCV_Shortcodes {
 	  * 
 	  * 	@param $atts shortcode attributs 
 	*/
-	public function wcv_vendors( $atts ) {
+	public function wcv_vendorslist( $atts ) {
 
 		$html = ''; 
 		
@@ -573,7 +573,7 @@ class WCV_Shortcodes {
 
 	    } // End foreach 
 	   	
-	   	$html .= '<ul class="wcv_vendorlist">' . ob_get_clean() . '</ul>';
+	   	$html .= '<ul class="wcv_vendorslist">' . ob_get_clean() . '</ul>';
 
 	    if ($total_vendors > $total_vendors_paged) {  
 			$html .= '<div class="wcv_pagination">';  
