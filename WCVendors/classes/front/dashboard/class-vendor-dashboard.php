@@ -149,7 +149,7 @@ class WCV_Vendor_Dashboard
 
 
 	/**
-	 * [pv_recent_vendor_sales] shortcode
+	 * [wcv_vendor_dashboard] shortcode
 	 *
 	 * @param array $atts
 	 *
