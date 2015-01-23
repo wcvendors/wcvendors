@@ -517,7 +517,22 @@ class WCV_Shortcodes {
 		return $return;
 	}
 
+	/**
+	*	vendors_with_products - Get vendors with products pubilc or private 
+	*	@param array $query 	
+	*/
+	private function vendors_with_products( $query ) {
 
+	    if ( isset( $query->query_vars['query_id'] ) && 'vendors_with_products' == $query->query_vars['query_id'] ) {  
+	        $query->query_from = $query->query_from . ' LEFT OUTER JOIN (
+	                SELECT post_author, COUNT(*) as post_count
+	                FROM wp_posts
+	                WHERE post_type = "product" AND (post_status = "publish" OR post_status = "private")
+	                GROUP BY post_author
+	            ) p ON (wp_users.ID = p.post_author)';
+	        $query->query_where = $query->query_where . ' AND post_count  > 0 ';  
+	    } 
+	}
 
 	/**
 	  * 	list of vendors 
@@ -529,6 +544,8 @@ class WCV_Shortcodes {
 		$html = ''; 
 		
 	  	extract( shortcode_atts( array(
+	  			'orderby' 		=> 'registered',
+	  			'order'			=> 'ASC',
 				'per_page'      => '12',
 				'columns'       => '4'
 			), $atts ) );
@@ -536,19 +553,39 @@ class WCV_Shortcodes {
 	  	$paged      = (get_query_var('paged')) ? get_query_var('paged') : 1;   
 	  	$offset     = ($paged - 1) * $per_page;
 
-	  	// Get all the vendors 
-	  	$vendors = get_users( array('role' => 'vendor') ); 
+	  	// Hook into the user query to modify the query to return users that have at least one product 
+	  	add_action( 'pre_user_query', array( $this, 'vendors_with_products' ) );
+
+	  	// Get all vendors 
+	  	$vendor_total_args = array ( 
+	  		'role' 				=> 'vendor', 
+	  		'meta_key' 			=> 'pv_shop_slug', 
+  			'meta_value'   		=> '',
+			'meta_compare' 		=> '>',
+			'orderby' 			=> $orderby,
+  			'order'				=> $order,
+	  		'query_id'			=> 'vendors_with_products',
+	  	);
+	  	$vendor_query = New WP_User_Query( $vendor_total_args ); 
+	  	$all_vendors =$vendor_query->get_results(); 
 
 	  	// Get the paged vendors 
-	  	$args = array ( 
-	  		'role' => 'vendor', 
-	  		'offset' => $offset, 
-	  		'number' => $per_page
+	  	$vendor_paged_args = array ( 
+	  		'role' 				=> 'vendor', 
+	  		'meta_key' 			=> 'pv_shop_slug', 
+  			'meta_value'   		=> '',
+			'meta_compare' 		=> '>',
+			'orderby' 			=> $orderby,
+  			'order'				=> $order,
+	  		'offset' 			=> $offset, 
+	  		'number' 			=> $per_page, 
+	  		'query_id'			=> 'vendors_with_products',
 	  	);
-	  	$paged_vendors = get_users( $args ); 
+	  	$vendor_paged_query = New WP_User_Query( $vendor_paged_args ); 
+	  	$paged_vendors = $vendor_query->get_results(); 
 
-	  	// Pagination values 
-	  	$total_vendors = count($vendors);  
+	  	// Pagination calcs 
+		$total_vendors = count($all_vendors);  
 		$total_vendors_paged = count($paged_vendors);  
 		$total_pages = intval($total_vendors / $per_page) + 1;
 	    
@@ -556,21 +593,12 @@ class WCV_Shortcodes {
 
 	    // Loop through all vendors and output a simple link to their vendor pages
 	    foreach ($paged_vendors as $vendor) {
-	      
-	      // Check that the vendor has products 
-	      $vendor_products  = WCV_Vendors::get_vendor_products( $vendor->ID );
-
-	      // Ensure the vendor has a shop name and products 
-	      if (!empty($vendor->pv_shop_slug) && !empty($vendor_products)) { 
-
-	      	wc_get_template( 'vendor-list.php', array(
+	       wc_get_template( 'vendor-list.php', array(
 	      												'shop_link'			=> WCV_Vendors::get_vendor_shop_page($vendor->ID), 
 														'shop_name'			=> $vendor->pv_shop_name, 
 														'vendor_id' 		=> $vendor->ID, 
 														'shop_description'	=> $vendor->pv_shop_description, 
 												), 'wc-product-vendor/front/', wcv_plugin_dir . 'views/front/' );
-	     	}
-
 	    } // End foreach 
 	   	
 	   	$html .= '<ul class="wcv_vendorslist">' . ob_get_clean() . '</ul>';
