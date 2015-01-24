@@ -521,7 +521,7 @@ class WCV_Shortcodes {
 	*	vendors_with_products - Get vendors with products pubilc or private 
 	*	@param array $query 	
 	*/
-	private function vendors_with_products( $query ) {
+	public function vendors_with_products( $query ) {
 
 	    if ( isset( $query->query_vars['query_id'] ) && 'vendors_with_products' == $query->query_vars['query_id'] ) {  
 	        $query->query_from = $query->query_from . ' LEFT OUTER JOIN (
