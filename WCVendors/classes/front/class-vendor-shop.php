@@ -238,7 +238,7 @@ class WCV_Vendor_Shop
 			$description = do_shortcode( $vendor->pv_shop_description );
 			$shop_description =  ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
 			
-			do_action('wcv_before_mini_header', $vendor_id);
+			do_action('wcv_before_mini_header', $vendor->ID);
 
 			wc_get_template( 'vendor-mini-header.php', array(
 													'vendor'			=> $vendor, 
@@ -247,7 +247,7 @@ class WCV_Vendor_Shop
 													'shop_name'			=> $vendor->pv_shop_name, 
 											   ), 'wc-product-vendor/front/', wcv_plugin_dir . 'views/front/' );
 			
-			do_action('wcv_after_mini_header', $vendor_id); 
+			do_action('wcv_after_mini_header', $vendor->ID); 
 
 		}
 	}
