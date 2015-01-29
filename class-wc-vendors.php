@@ -35,12 +35,6 @@ if ( is_woocommerce_activated() ) {
 	/* Define an absolute path to our plugin directory. */
 	if ( !defined( 'wcv_plugin_dir' ) ) define( 'wcv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/' );
 	if ( !defined( 'wcv_assets_url' ) ) define( 'wcv_assets_url', trailingslashit( plugins_url( 'WCVendors/assets', __FILE__ ) ) );
-
-	$domain = 'wcvendors';
-    // The "plugin_locale" filter is also used in load_plugin_textdomain()
-    $locale = apply_filters('plugin_locale', get_locale(), $domain);
-
-    load_textdomain($domain, WP_LANG_DIR.'/wc-vendors/'.$domain.'-'.$locale.'.mo');
 	load_plugin_textdomain( 'wcvendors', false, dirname( plugin_basename( __FILE__ ) ) . '/WCVendors/languages/' );
 
 
