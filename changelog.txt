@@ -1,5 +1,10 @@
 Changelog for WC Vendors
 
+Version 1.4.1
+
+* Fixed: Language file loading issue 
+* Added: New actions for main and mini headers (before and after)
+
 Version 1.4.0
 
 * Added: product category + vendor shortcode [wcv_product_category category="category" vendor="vendorname"]
