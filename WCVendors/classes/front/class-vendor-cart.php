@@ -30,7 +30,7 @@ class WCV_Vendor_Cart
 	 *
 	 * @return unknown
 	 */
-	public function sold_by( $values, $cart_item )
+	public static function sold_by( $values, $cart_item )
 	{
 		$author_id = $cart_item[ 'data' ]->post->post_author;
 		$sold_by   = WCV_Vendors::is_vendor( $author_id )
