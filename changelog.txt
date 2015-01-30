@@ -3,7 +3,10 @@ Changelog for WC Vendors
 Version 1.4.1
 
 * Fixed: Language file loading issue 
-* Added: New actions for main and mini headers (before and after)
+* Fixed: Static function calls in commision class for php 5.6
+* Fixed: Static call in Vendor Cart 
+* Added: New language files for de_AT, de_DE (thanks to theHubi), it_IT (thanks to Nicole)
+* Added: New actions for main and mini headers (before and after see KB)
 
 Version 1.4.0
 

@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.1
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,14 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+## Version 1.4.1 - January 30th, 2015 
+
+* Fixed: Language file loading issue 
+* Fixed: Static function calls in commision class for php 5.6
+* Fixed: Static call in Vendor Cart 
+* Added: New language files for de_AT, de_DE (thanks to theHubi), it_IT (thanks to Nicole)
+* Added: New actions for main and mini headers (before and after see KB)
 
 ## Version 1.4.0 - January 16th, 2015 ## 
 
