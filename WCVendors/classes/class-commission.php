@@ -94,7 +94,7 @@ class WCV_Commission
 	 *
 	 * @param int $order_id
 	 */
-	public function log_commission_due( $order_id )
+	public static function log_commission_due( $order_id )
 	{
 		global $woocommerce;
 
@@ -227,6 +227,9 @@ class WCV_Commission
 	 */
 	public static function get_commission_rate( $product_id )
 	{
+
+		$commission = 0; 
+
 		$parent = get_post_ancestors( $product_id );
 		if ( $parent ) $product_id = $parent[ 0 ];
 
@@ -279,7 +282,7 @@ class WCV_Commission
 	 *
 	 * @return unknown
 	 */
-	public function insert_new_commission( $orders = array() )
+	public static function insert_new_commission( $orders = array() )
 	{
 		global $wpdb;
 
