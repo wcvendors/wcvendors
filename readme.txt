@@ -58,15 +58,15 @@ No Upgrade required at this time.
 
 == Changelog ==
 
-## Version 1.4.1 - January 30th, 2015 
+= Version 1.4.1 - January 30th, 2015 =
 
 * Fixed: Language file loading issue 
-* Fixed: Static function calls in commision class for php 5.6
+* Fixed: Static function calls in commission class for php 5.6
 * Fixed: Static call in Vendor Cart 
 * Added: New language files for de_AT, de_DE (thanks to theHubi), it_IT (thanks to Nicole)
 * Added: New actions for main and mini headers (before and after see KB)
 
-## Version 1.4.0 - January 16th, 2015 ## 
+= Version 1.4.0 - January 16th, 2015 = 
 
 * Added: product category + vendor shortcode [wcv_product_category category="category" vendor="vendorname"]
 * Added: Tracking number support via WooThemes Shipment Tracking plugin
@@ -76,11 +76,11 @@ No Upgrade required at this time.
 * Fixed: Report not showing Commission by Product
 * Fixed: Paths in language files
 
-## Version 1.3.1 - December 23, 2014 ##
+= Version 1.3.1 - December 23, 2014 =
 
 * Fixed: Sold by in invoices 
 
-## Version 1.3.0 - December 22, 2014 ##
+= Version 1.3.0 - December 22, 2014 =
  
 * Added: show vendor on all emails #29
 * Fixed: Critical issue #58
@@ -91,7 +91,7 @@ No Upgrade required at this time.
 * Added: wcvendors_vendor_registration_checkbox filter to filter "Apply to become a vendor?" at registration.
 * Added: wcvendors_vendor_registration_checkbox to filter "Apply to become a vendor?"
 
-## Version 1.2.0  - November 14, 2014 ##
+= Version 1.2.0  - November 14, 2014 =
  
 * Added new filters to change sold by text see Knowledge base for details
 * Added sold by to product loop for archive-product.php, see knowledge base on how to disable or change this
@@ -104,17 +104,17 @@ No Upgrade required at this time.
 * Fixed Orders view errors
 * Fixing call to incorrect method #45
 
-## Version 1.1.5 - October 29, 2014 ##
+= Version 1.1.5 - October 29, 2014 =
 
 * Fixed orders view to remove incorrect call to woocommerce print messages
 
-## version 1.1.4 (First release on WordPress.org) - October 14, 2014 ##
+= Version 1.1.4 (First release on WordPress.org) - October 14, 2014 =
 
 * Resolved shipping bug
 * Commission totals are now properly displayed on the WooCommerce / WC Vendors / Payments tab
 * Number of internal bug fixes
 
-## Version 1.1.3 (Initial Public Release) - August 09, 2014 ##
+= Version 1.1.3 (Initial Public Release) - August 09, 2014 =
 
 * Numerous bug fixes
 * New Shortcodes:  These new shortcodes are based on the WooCommerce included shortcodes.  They have been modified to show output based on the vendor you specify.  All other arguments to the shortcodes from WooCommerce will also work on these shortcodes.
