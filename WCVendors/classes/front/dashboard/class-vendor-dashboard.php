@@ -38,6 +38,7 @@ class WCV_Vendor_Dashboard
 				foreach ($shippers as $key => $value) {
 					if ( $value == $user_id ) {
 						unset($shippers[$key]);
++						do_action('wcvendors_vendor_unship', $order_id, $user_id);
 						wc_add_notice( __( 'Order unmarked shipped.', 'wcvendors' ), 'success');
 						break;
 					}
@@ -48,6 +49,7 @@ class WCV_Vendor_Dashboard
 				if ( !empty( $mails ) ) {
 					$mails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
 				}
++				do_action('wcvendors_vendor_ship', $order_id, $user_id);
 				wc_add_notice( __( 'Order marked shipped.', 'wcvendors' ), 'success' );
 			}
 
