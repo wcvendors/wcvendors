@@ -39,7 +39,7 @@ class WCV_Vendor_Dashboard
 					if ( $value == $user_id ) {
 						unset($shippers[$key]);
 +						do_action('wcvendors_vendor_unship', $order_id, $user_id);
-						wc_add_notice( __( 'Order unmarked shipped.', 'wcvendors' ), 'success');
+						wc_add_notice( __( 'Order unmarked shipped.  <br><br>Caution:  Clicking Reload in your browser will mark the order as shipped and email the buyer again, potentially spamming them.', 'wcvendors' ), 'success');
 						break;
 					}
 				}
@@ -50,7 +50,7 @@ class WCV_Vendor_Dashboard
 					$mails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
 				}
 +				do_action('wcvendors_vendor_ship', $order_id, $user_id);
-				wc_add_notice( __( 'Order marked shipped.', 'wcvendors' ), 'success' );
+				wc_add_notice( __( 'Order marked shipped.  <br><br>Caution:  Clicking Reload in your browser will unmark the order as shipped.', 'wcvendors' ), 'success' );
 			}
 
 			update_post_meta( $order_id, 'wc_pv_shipped', $shippers );
