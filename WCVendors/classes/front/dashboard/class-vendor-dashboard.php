@@ -76,8 +76,8 @@ class WCV_Vendor_Dashboard
 				}
 			}
 			if ( $order_item_id ) {
-				woocommerce_delete_order_item_meta( 2048, __( 'Tracking number', 'wcvendors' ) );
-				woocommerce_add_order_item_meta( 2048, __( 'Tracking number', 'wcvendors' ), $tracking_number );
+				woocommerce_delete_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ) );
+				woocommerce_add_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ), $tracking_number );
 
 				$message = __( 'Success. Your tracking number has been updated.', 'wcvendors' );
 				wc_add_notice( $message, 'success' );
