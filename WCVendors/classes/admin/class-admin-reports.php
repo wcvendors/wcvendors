@@ -113,12 +113,12 @@ class WCV_Admin_Reports
 
 		<form method="post" action="">
 			<p><label for="from"><?php _e( 'From:', 'wcvendors' ); ?></label> 
-			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $start_date ) ); ?>" name="start_date" class="range_datepicker from" id="from" />
+			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $start_date ) ); ?>" name="start_date" class="range_datepicker from" />
 			<label for="to"><?php _e( 'To:', 'wcvendors' ); ?></label> 
-			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $end_date ) ); ?>" name="end_date" class="range_datepicker to" id="to" />
+			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $end_date ) ); ?>" name="end_date" class="range_datepicker to" />
 			<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/></p>
 		</form>
-
+		
 		<div id="poststuff" class="woocommerce-reports-wrap">
 			<div class="woocommerce-reports-sidebar">
 				<div class="postbox">
@@ -152,9 +152,8 @@ class WCV_Admin_Reports
 						<?php
 						$commission = $wpdb->get_results( "
 								SELECT * FROM {$wpdb->prefix}pv_commission
-								WHERE     time >= '" . $after . "'
-								AND     time <= '" . $before . "'
 								ORDER BY time DESC
+								LIMIT 20
 							" );
 
 						if ( sizeof( $commission ) > 0 ) {
