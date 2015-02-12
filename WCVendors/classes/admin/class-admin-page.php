@@ -100,7 +100,7 @@ class WCV_Admin_Setup
 	/**
 	 *
 	 */
-	public function add_options()
+	public static function add_options()
 	{
 		global $PV_Admin_Page;
 
