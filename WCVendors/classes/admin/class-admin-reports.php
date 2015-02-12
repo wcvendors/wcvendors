@@ -112,21 +112,13 @@ class WCV_Admin_Reports
 		?>
 
 		<form method="post" action="">
-			<p><label for="from"><?php _e( 'From:', 'wcvendors' ); ?></label> <input type="text"
-																							 name="start_date" id="from"
-																							 readonly="readonly"
-																							 value="<?php echo esc_attr( date( 'Y-m-d', $start_date ) ); ?>"/>
-				<label for="to"><?php _e( 'To:', 'wcvendors' ); ?></label> <input type="text" name="end_date"
-																						  id="to" readonly="readonly"
-																						  value="<?php echo esc_attr( date( 'Y-m-d', $end_date ) ); ?>"/>
-				<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/></p>
+			<p><label for="from"><?php _e( 'From:', 'wcvendors' ); ?></label> 
+			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $start_date ) ); ?>" name="start_date" class="range_datepicker from" />
+			<label for="to"><?php _e( 'To:', 'wcvendors' ); ?></label> 
+			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $end_date ) ); ?>" name="end_date" class="range_datepicker to" />
+			<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/></p>
 		</form>
-		<script type="text/javascript">
-			jQuery(function () {
-				<?php woocommerce_datepicker_js(); ?>
-			});
-		</script>
-
+		
 		<div id="poststuff" class="woocommerce-reports-wrap">
 			<div class="woocommerce-reports-sidebar">
 				<div class="postbox">
