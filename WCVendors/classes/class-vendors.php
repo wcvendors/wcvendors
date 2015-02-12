@@ -74,14 +74,14 @@ class WCV_Vendors
 	 *
 	 * @return unknown
 	 */
-	function get_vendor_dues_from_order( $order, $group = true )
+	public static function get_vendor_dues_from_order( $order, $group = true )
 	{
 		global $woocommerce;
 
-		$give_tax       = WC_Vendors::$pv_options->get_option( 'give_tax' );
-		$receiver       = array();
-		$shipping_given = 0;
-		$tax_given      = 0;
+		$give_tax       	= WC_Vendors::$pv_options->get_option( 'give_tax' );
+		$receiver      		= array();
+		$shipping_given 	= 0;
+		$tax_given      	= 0;
 
 		WCV_Shipping::$pps_shipping_costs = array();
 
