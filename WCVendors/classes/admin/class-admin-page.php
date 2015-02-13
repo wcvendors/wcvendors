@@ -311,6 +311,10 @@ class WCV_Admin_Page extends WP_List_Table
 			<div class="alignleft actions"><?php
 			$this->months_dropdown( 'commission' );
 			submit_button( __( 'Filter' ), false, false, false, array( 'id' => "post-query-submit", 'name' => 'do-filter' ) );
+			?></div>
+			<div class="alignleft actions"><?php
+			$this->status_dropdown( 'commission' );
+			submit_button( __( 'Filter' ), false, false, false, array( 'id' => "post-query-submit", 'name' => 'do-filter' ) );
 			?></div><?php
 		}
 	}
@@ -361,6 +365,27 @@ class WCV_Admin_Page extends WP_List_Table
 				);
 			}
 			?>
+		</select>
+	<?php
+	}
+
+	/**
+	 * Display a status dropdown for filtering items
+	 *
+	 * @since  3.1.0
+	 * @access protected
+	 *
+	 * @param unknown $post_type
+	 */
+	function status_dropdown( $post_type )
+	{
+		$com_status = isset( $_POST[ 'com_status' ] ) ? $_POST[ 'com_status' ] : '';
+		?>
+		<select name="com_status">
+			<option<?php selected( $com_status, '' ); ?> value=''><?php _e( 'Show all Statuses', 'wcvendors' ); ?></option>
+			<option<?php selected( $com_status, 'due' ); ?> value="due">Due</option>
+			<option<?php selected( $com_status, 'paid' ); ?> value="paid">Paid</option>
+			<option<?php selected( $com_status, 'reversed' ); ?> value="reversed">Reversed</option>
 		</select>
 	<?php
 	}
@@ -482,6 +507,9 @@ class WCV_Admin_Page extends WP_List_Table
 
 		$orderby = !empty( $_REQUEST[ 'orderby' ] ) ? esc_attr( $_REQUEST[ 'orderby' ] ) : 'time';
 		$order   = ( !empty( $_REQUEST[ 'order' ] ) && $_REQUEST[ 'order' ] == 'asc' ) ? 'ASC' : 'DESC';
+		$com_status = !empty( $_REQUEST[ 'com_status' ] ) ? esc_attr( $_REQUEST[ 'com_status' ] ) : '';
+		$status_sql = '';
+		$time_sql = ''; 
 
 		/**
 		 * Init column headers
@@ -511,6 +539,22 @@ class WCV_Admin_Page extends WP_List_Table
 			$sql .= $time_sql;
 		}
 
+		if ( !empty( $_POST[ 'com_status' ] ) ) { 
+
+			if ( $time_sql == '' ) { 
+				$status_sql = " 
+					WHERE status = '$com_status'
+				"; 
+			} else { 
+				$status_sql = " 
+					AND status = '$com_status'
+				";
+			}
+			
+
+			$sql .= $status_sql; 
+		}
+
 		$max = $wpdb->get_var( $sql );
 
 		$sql = "
@@ -519,6 +563,10 @@ class WCV_Admin_Page extends WP_List_Table
 
 		if ( !empty( $_POST[ 'm' ] ) ) {
 			$sql .= $time_sql;
+		}
+
+		if ( !empty( $_POST['com_status'] ) ) { 
+			$sql .= $status_sql;
 		}
 
 		$sql .= "
