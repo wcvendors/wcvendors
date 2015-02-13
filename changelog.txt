@@ -1,5 +1,16 @@
 Changelog for WC Vendors
 
+Version 1.4.2 
+
+* Added: Commission status sort to commissions page 
+* Fixed: Recent Commissions limit of 20 now works on selected date range
+* Fixed: Report By product in WC2.3 
+* Fixed: Vendor Report date selector in wp-admin 
+* Fixed: Tracking plugin Order Meta
+* Added: New filter wcvendors_dashboard_google_maps_link
+* Fixed: Formatting error for Google maps link
+* Added: New actions in vendor-dashboard wcvendors_vendor_unship, wcvendors_vendor_ship (thanks Nathan H) 
+
 Version 1.4.1
 
 * Fixed: Language file loading issue 

@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.1
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,17 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.4.2 - Feburary 13th 2015 =
+
+* Added: Commission status sort to commissions page 
+* Fixed: Recent Commissions limit of 20 now works on selected date range
+* Fixed: Report By product in WC2.3 
+* Fixed: Vendor Report date selector in wp-admin 
+* Fixed: Tracking plugin Order Meta
+* Added: New filter wcvendors_dashboard_google_maps_link
+* Fixed: Formatting error for Google maps link
+* Added: New actions in vendor-dashboard wcvendors_vendor_unship, wcvendors_vendor_ship (thanks Nathan H) 
 
 = Version 1.4.1 - January 30th, 2015 =
 
