@@ -237,7 +237,7 @@ class WCV_Admin_Reports
 						<input type="hidden" class="wc-product-search" style="width:203px;" name="product_ids[]" data-placeholder="<?php _e( 'Search for a product&hellip;', 'woocommerce' ); ?>" data-action="woocommerce_json_search_products_and_variations" />
 			<?php } else { ?>
 						<select id="product_ids" name="product_ids[]" class="ajax_chosen_select_products" multiple="multiple"
-						data-placeholder="<?php _e( 'Year', 'wcvendors' ); ?>"
+						data-placeholder="<?php _e( 'Type in a product name to start searching...', 'wcvendors' ); ?>"
 						style="width: 400px;"></select>
 					<script type="text/javascript">
 						jQuery(function () {
