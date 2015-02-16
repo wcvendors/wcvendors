@@ -62,7 +62,7 @@ No Upgrade required at this time.
 
 * Fixed: Placeholder on Product Reports
 
-= Version 1.4.2 - Feburary 13th 2015 =
+= Version 1.4.2 - February 13th 2015 =
 
 * Added: Commission status sort to commissions page 
 * Fixed: Recent Commissions limit of 20 now works on selected date range
