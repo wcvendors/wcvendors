@@ -58,6 +58,7 @@ No Upgrade required at this time.
 
 == Changelog ==
 
+
 = Version 1.4.3 - February 16th 2015 =
 
 * Fixed: Placeholder on Product Reports
