@@ -523,13 +523,15 @@ class WCV_Shortcodes {
 	*/
 	public function vendors_with_products( $query ) {
 
+		global $wpdb; 
+
 	    if ( isset( $query->query_vars['query_id'] ) && 'vendors_with_products' == $query->query_vars['query_id'] ) {  
 	        $query->query_from = $query->query_from . ' LEFT OUTER JOIN (
 	                SELECT post_author, COUNT(*) as post_count
-	                FROM wp_posts
+	                FROM '.$wpdb->prefix.'posts
 	                WHERE post_type = "product" AND (post_status = "publish" OR post_status = "private")
 	                GROUP BY post_author
-	            ) p ON (wp_users.ID = p.post_author)';
+	            ) p ON ('.$wpdb->prefix.'_users.ID = p.post_author)';
 	        $query->query_where = $query->query_where . ' AND post_count  > 0 ';  
 	    } 
 	}
