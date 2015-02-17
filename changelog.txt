@@ -1,5 +1,9 @@
 Changelog for WC Vendors
 
+Version 1.4.4
+
+* Fixed: Hardcoded table in wcv_vendorslist shortcode 
+
 Version 1.4.3
 
 * Fixed: Placeholder on Product Reports
