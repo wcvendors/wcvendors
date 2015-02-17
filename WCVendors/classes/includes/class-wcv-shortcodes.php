@@ -531,7 +531,7 @@ class WCV_Shortcodes {
 	                FROM '.$wpdb->prefix.'posts
 	                WHERE post_type = "product" AND (post_status = "publish" OR post_status = "private")
 	                GROUP BY post_author
-	            ) p ON ('.$wpdb->prefix.'_users.ID = p.post_author)';
+	            ) p ON ('.$wpdb->prefix.'users.ID = p.post_author)';
 	        $query->query_where = $query->query_where . ' AND post_count  > 0 ';  
 	    } 
 	}
