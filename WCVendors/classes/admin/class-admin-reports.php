@@ -23,7 +23,7 @@ class WCV_Admin_Reports
 	 */
 	function __construct( $debug = false )
 	{
-		add_filter( 'woocommerce_reports_charts', array( $this, 'reports_tab' ) );
+		add_filter( 'woocommerce_admin_reports', array( $this, 'reports_tab' ) );
 	}
 
 	/**
