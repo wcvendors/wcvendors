@@ -145,7 +145,7 @@ class WCV_Shipping
 		global $woocommerce;
 
 		if ( is_checkout() ) {
-			$woocommerce->clear_product_transients();
+			wc_delete_product_transients();
 		}
 	}
 
