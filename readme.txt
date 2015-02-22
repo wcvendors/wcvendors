@@ -5,8 +5,8 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.1
-Stable tag: 1.4.4
+Tested up to: 4.1.1
+Stable tag: 1.4.5
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,15 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.4.5 - February 22nd 2015 = 
+
+* Updated: select2 3.5.2 for settings api
+* Fixed: Replaced Chosen with Select2 #102
+* Fixed: Table Rate Shipping issue #103
+* Fixed: Featured column issue #100
+* Updated: Filter call for report
+* Fixed: Call to depreciated function #98
 
 = Version 1.4.4 - February 17th 2015 =
 

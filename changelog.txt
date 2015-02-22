@@ -1,5 +1,14 @@
 Changelog for WC Vendors
 
+Version 1.4.5 
+
+* Updated: select2 3.5.2 for settings api
+* Fixed: Replaced Chosen with Select2 #102
+* Fixed: Table Rate Shipping issue #103
+* Fixed: Featured column issue #100
+* Updated: Filter call for report
+* Fixed: Call to depreciated function #98
+
 Version 1.4.4
 
 * Fixed: Hardcoded table in wcv_vendorslist shortcode 
