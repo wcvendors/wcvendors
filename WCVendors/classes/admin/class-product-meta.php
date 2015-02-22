@@ -117,9 +117,10 @@ class WCV_Product_Meta
 		}
 		$output .= "</select>";
 
-		// Convert this selectbox with jQuery Chosen
-		$output .= '<script type="text/javascript">jQuery(function() {jQuery("#' . $id . '").chosen();});</script>';
-
+		// Convert this selectbox with select2
+		$output .= '
+		<script type="text/javascript">jQuery(function() { jQuery("#' . $id . '").select2().focus(); } );</script>';		
+		
 		return $output;
 	}
 
