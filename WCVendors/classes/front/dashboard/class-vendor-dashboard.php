@@ -34,23 +34,15 @@ class WCV_Vendor_Dashboard
 			$order_id = $_GET['wc_pv_mark_shipped'];
 			$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
 
-			if( in_array($user_id, $shippers)) {
-				foreach ($shippers as $key => $value) {
-					if ( $value == $user_id ) {
-						unset($shippers[$key]);
-+						do_action('wcvendors_vendor_unship', $order_id, $user_id);
-						wc_add_notice( __( 'Order unmarked shipped.  <br><br>Caution:  Clicking Reload in your browser will mark the order as shipped and email the buyer again, potentially spamming them.', 'wcvendors' ), 'success');
-						break;
-					}
-				}
-			} else {
+			// If not in the shippers array mark as shipped otherwise do nothing. 
+			if( !in_array($user_id, $shippers)) {
 				$shippers[] = $user_id;
 				$mails = $woocommerce->mailer()->get_emails();
 				if ( !empty( $mails ) ) {
 					$mails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
 				}
-+				do_action('wcvendors_vendor_ship', $order_id, $user_id);
-				wc_add_notice( __( 'Order marked shipped.  <br><br>Caution:  Clicking Reload in your browser will unmark the order as shipped.', 'wcvendors' ), 'success' );
+				do_action('wcvendors_vendor_ship', $order_id, $user_id);
+				wc_add_notice( __( 'Order marked shipped.', 'wcvendors' ), 'success' );
 			}
 
 			update_post_meta( $order_id, 'wc_pv_shipped', $shippers );
