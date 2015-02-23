@@ -19,59 +19,19 @@ class WCV_Install
 	{
 		$db_version = WC_Vendors::$pv_options->get_option( 'db_version' );
 
-		// 1.0 install
+		// Initial Install 
 		if ( version_compare( $db_version, '1.0', '<' ) ) {
-			$this->install_prdtvendor();
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.2' );
-		}
-
-		// 1.0.1 allows vendors to upload roles
-		if ( version_compare( $db_version, '1.0.1', '<' ) ) {
-			$this->add_new_roles();
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.0.1' );
-		}
-
-		// 1.3.0 add a 'vendor dashboard' page
-		if ( version_compare( $db_version, '1.3.0', '<' ) ) {
-			$this->create_new_pages();
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.3.0' );
-		}
-
-		// 1.3.2 adds 'qty' to the pv_commission table
-		if ( version_compare( $db_version, '1.3.2', '<' ) ) {
-			$this->update_to( '1.3.2' );
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.3.2' );
-		}
-
-		// 1.4.0 adds 'pending_vendor' role
-		if ( version_compare( $db_version, '1.4.0', '<' ) ) {
-			$this->update_to( '1.4.0' );
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.0' );
-			flush_rewrite_rules();
-		}
-
-		if ( version_compare( $db_version, '1.4.2', '<' ) ) {
-			$this->update_to( '1.4.2' );
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.2' );
-		}
-
-		if ( version_compare( $db_version, '1.4.3', '<' ) ) {
-			$this->update_to( '1.4.3' );
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.3' );
-		}
-
-		if ( version_compare( $db_version, '1.4.5', '<' ) ) {
-			$this->update_to( '1.4.5' );
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.5' );
+			$this->install_wcvendor();
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.5.0' );
 		}
 
 	}
 
 
 	/**
-	 * Grouped functions for installing the Product Vendor plugin
+	 * Grouped functions for installing the WC Vendor plugin
 	 */
-	private function install_prdtvendor()
+	private function install_wcvendor()
 	{
 		// Clear the cron
 		wp_clear_scheduled_hook( 'pv_schedule_mass_payments' );
@@ -208,7 +168,7 @@ class WCV_Install
 
 
 	/**
-	 *
+	 * Depreciated 
 	 *
 	 * @param unknown $version
 	 */
