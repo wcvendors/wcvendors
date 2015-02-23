@@ -89,7 +89,7 @@ class WCV_Admin_Setup
 	 *
 	 * @return unknown
 	 */
-	public function set_table_option( $status, $option, $value )
+	public static function set_table_option( $status, $option, $value )
 	{
 		if ( $option == 'commission_per_page' ) {
 			return $value;
