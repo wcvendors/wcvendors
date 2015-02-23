@@ -63,6 +63,8 @@ class WC_Email_Notify_Admin extends WC_Email
 			return;
 		}
 
+		if ( !$this->is_enabled() ) return;
+
 		$this->find[ ]      = '{product_name}';
 		$this->product_name = $post->post_title;
 		$this->replace[ ]   = $this->product_name;
