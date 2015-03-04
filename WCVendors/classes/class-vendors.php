@@ -79,6 +79,7 @@ class WCV_Vendors
 		global $woocommerce;
 
 		$give_tax       	= WC_Vendors::$pv_options->get_option( 'give_tax' );
+		$give_shipping 	= WC_Vendors::$pv_options->get_option( 'give_shipping' );
 		$receiver      		= array();
 		$shipping_given 	= 0;
 		$tax_given      	= 0;
@@ -92,19 +93,19 @@ class WCV_Vendors
 			$is_vendor  = WCV_Vendors::is_vendor( $author );
 			$commission = $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
 			$tax        = !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
-			// Check if shipping is enabled 
-			if ( get_option('woocommerce_calc_shipping') === 'no' ) { $shipping = 0; } else { 
-					$shipping   = WCV_Shipping::get_shipping_due( $order->id, $product, $author );
+			// Check if shipping is enabled
+			if ( get_option('woocommerce_calc_shipping') === 'no' ) { $shipping = 0; } else {
+					$shipping = WCV_Shipping::get_shipping_due( $order->id, $product, $author );
 			}
 
 			if ( $is_vendor ) {
 
-				$shipping_given += $shipping;
+				$shipping_given += $give_shipping ? $shipping : 0;
 				$tax_given += $give_tax ? $tax : 0;
 
 				$give = 0;
 				$give += !empty( $receiver[ $author ][ 'total' ] ) ? $receiver[ $author ][ 'total' ] : 0;
-				$give += $shipping;
+				$give += $give_shipping ? $shipping : 0;
 				$give += $commission;
 				$give += $give_tax ? $tax : 0;
 
@@ -113,7 +114,7 @@ class WCV_Vendors
 					$receiver[ $author ] = array(
 						'vendor_id'  => (int) $author,
 						'commission' => !empty( $receiver[ $author ][ 'commission' ] ) ? $receiver[ $author ][ 'commission' ] + $commission : $commission,
-						'shipping'   => !empty( $receiver[ $author ][ 'shipping' ] ) ? $receiver[ $author ][ 'shipping' ] + $shipping : $shipping,
+						'shipping'   => $give_shipping ? ( !empty( $receiver[ $author ][ 'shipping' ] ) ? $receiver[ $author ][ 'shipping' ] + $shipping : $shipping) : 0,
 						'tax'        => $give_tax ? ( !empty( $receiver[ $author ][ 'tax' ] ) ? $receiver[ $author ][ 'tax' ] + $tax : $tax ) : 0,
 						'qty'        => !empty( $receiver[ $author ][ 'qty' ] ) ? $receiver[ $author ][ 'qty' ] + $product[ 'qty' ] : $product[ 'qty' ],
 						'total'      => $give,
@@ -125,10 +126,10 @@ class WCV_Vendors
 						'vendor_id'  => (int) $author,
 						'product_id' => $product_id,
 						'commission' => $commission,
-						'shipping'   => $shipping,
+						'shipping'   => $give_shipping ? $shipping : 0,
 						'tax'        => $give_tax ? $tax : 0,
 						'qty'        => $product[ 'qty' ],
-						'total'      => $shipping + $commission + ( $give_tax ? $tax : 0 ),
+						'total'      => ($give_shipping ? $shipping : 0) + $commission + ( $give_tax ? $tax : 0 ),
 					);
 
 				}
