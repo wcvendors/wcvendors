@@ -6,7 +6,7 @@ $options[ ] = array( 'name' => __( 'General options', 'wcvendors' ), 'type' => '
 
 $options[ ] = array(
 	'name'     => __( 'Default commission (%)', 'wcvendors' ),
-	'desc'     => __( 'The default rate the vendor receives for each product. If a product has a commission rate already set, this value will be ignored for that product.', 'wcvendors' ),
+	'desc'     => __( 'The default rate you pay each vendor for a product sale. If a product has a commission rate already set, this value will be ignored for that product.', 'wcvendors' ),
 	'id'       => 'default_commission',
 	'css'      => 'width:70px;',
 	'type'     => 'number',
@@ -19,7 +19,7 @@ $options[ ] = array(
 $options[ ] = array(
 	'name' => __( 'Registration', 'wcvendors' ),
 	'desc' => __( 'Allow users or guests to apply to become a vendor', 'wcvendors' ),
-	'tip'  => __( 'This will show a checkbox on the My Account page\'s registration form asking if the user would like to apply to be a vendor. Also, on the Vendor Dashboard, users can apply to become a vendor.', 'wcvendors' ),
+	'tip'  => __( 'This will show a checkbox on the My Account page\'s registration form asking if the user would like to apply to be a vendor. Also, on the Vendor Dashboard, users can still apply to become a vendor even if this is disabled.', 'wcvendors' ),
 	'id'   => 'show_vendor_registration',
 	'type' => 'checkbox',
 	'std'  => true,
@@ -46,7 +46,7 @@ $options[ ] = array( 'name' => __( 'Shop options', 'wcvendors' ), 'type' => 'tit
 
 $options[ ] = array(
 	'name' => __( 'Shop HTML', 'wcvendors' ),
-	'desc' => __( 'Enable HTML for a vendor\'s shop description by default', 'wcvendors' ),
+	'desc' => __( 'Enable HTML for a vendor\'s shop description by default.  You can enable or disable this per vendor by editing the vendors username.', 'wcvendors' ),
 	'id'   => 'shop_html_enabled',
 	'type' => 'checkbox',
 	'std'  => true,
@@ -63,7 +63,7 @@ $options[ ] = array(
 $options[ ] = array(
 	'name' => __( 'Shop Headers', 'wcvendors' ),
 	'desc' => __( 'Enable vendor shop headers', 'wcvendors' ),
-	'tip'  => __( 'This will override the HTML Shop description output on product-archive pages.', 'wcvendors' ),
+	'tip'  => __( 'This will override the HTML Shop description output on product-archive pages.  In order to customize the shop headers visit wcvendors.com and read the article in the Knowledgebase titled Cnanging the Vendor Templates.', 'wcvendors' ),
 	'id'   => 'shop_headers_enabled',
 	'type' => 'checkbox',
 	'std'  => false,
@@ -74,7 +74,7 @@ $options[ ] = array( 'name' => __( 'Product Add Page', 'wcvendors' ), 'type' => 
 
 $options[ ] = array(
 	'name'     => __( 'Left side panel', 'wcvendors' ),
-	'desc'     => __( 'Hide these areas of the add product page for vendors', 'wcvendors' ),
+	'desc'     => __( 'CHECKING these boxes will HIDE these areas of the add product page for vendors', 'wcvendors' ),
 	'id'       => 'hide_product_panel',
 	'options'  => array(
 		'inventory'      => 'Inventory',
@@ -89,7 +89,7 @@ $options[ ] = array(
 
 $options[ ] = array(
 	'name'     => __( 'Types', 'wcvendors' ),
-	'desc'     => __( 'Hide these product types from the vendor', 'wcvendors' ),
+	'desc'     => __( 'CHECKING these boxes will HIDE these product types from the vendor', 'wcvendors' ),
 	'id'       => 'hide_product_types',
 	'options'  => array(
 		'simple'   => 'Simple',
@@ -103,7 +103,7 @@ $options[ ] = array(
 
 $options[ ] = array(
 	'name'     => __( 'Type options', 'wcvendors' ),
-	'desc'     => __( 'Hide these product options from the vendor', 'wcvendors' ),
+	'desc'     => __( 'CHECKING these boxes will HIDE these product options from the vendor', 'wcvendors' ),
 	'id'       => 'hide_product_type_options',
 	'options'  => array(
 		'virtual'      => 'Virtual',
@@ -276,7 +276,7 @@ $options[ ] = array(
 $options[ ] = array(
 	'name' => __( 'Instant pay', 'wcvendors' ),
 	'desc' => __( 'Instantly pay vendors their commission when an order is made', 'wcvendors' ),
-	'tip'  => __( 'For this to work, customers must checkout with the PayPal Adaptive Payments gateway. Using other gateways will not pay vendors instantly', 'wcvendors' ),
+	'tip'  => __( 'For this to work, customers must checkout with the PayPal Adaptive Payments gateway. Using any other gateways will not pay vendors instantly', 'wcvendors' ),
 	'id'   => 'instapay',
 	'type' => 'checkbox',
 	'std'  => true,
