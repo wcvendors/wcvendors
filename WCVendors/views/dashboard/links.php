@@ -1,18 +1,12 @@
-<h2><?php _e( 'Control Center', 'wcvendors' ); ?></h2>
+<center>
 <p>
-	<b><?php _e( 'My shop', 'wcvendors' ); ?></b><br/>
-	<a href="<?php echo $shop_page; ?>"><?php echo $shop_page; ?></a>
-</p>
-<p>
-	<b><?php _e( 'My settings', 'wcvendors' ); ?></b><br/>
-	<a href="<?php echo $settings_page; ?>"><?php echo $settings_page; ?></a>
-</p>
+        <a href="<?php echo $shop_page; ?>" class="button">View Your Store</a>
+        <a href="<?php echo $settings_page; ?>" class="button">Store Settings</a>
 
 <?php if ( $can_submit ) { ?>
-	<p>
-		<b><?php _e( 'Submit a product', 'wcvendors' ); ?></b><br/>
-		<a target="_TOP" href="<?php echo $submit_link; ?>"><?php echo $submit_link; ?></a>
-	</p>
+                <a target="_TOP" href="<?php echo $submit_link; ?>" class="button">Add New Product</a>
+                <a target="_TOP" href="<?php echo $edit_link; ?>" class="button">Edit Products</a>
 <?php } ?>
+</center>
 
 <hr>

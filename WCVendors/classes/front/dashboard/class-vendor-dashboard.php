@@ -160,6 +160,7 @@ class WCV_Vendor_Dashboard
 		$settings_page   = get_permalink( WC_Vendors::$pv_options->get_option( 'shop_settings_page' ) );
 		$can_submit      = WC_Vendors::$pv_options->get_option( 'can_submit_products' );
 		if ( $can_submit ) $submit_link = admin_url( 'post-new.php?post_type=product' );
+		if ( $can_submit ) $edit_link = admin_url( 'edit.php?post_type=product' );
 
 		if ( !$this->can_view_vendor_page() ) {
 			return false;
@@ -205,6 +206,7 @@ class WCV_Vendor_Dashboard
 													'settings_page' => $settings_page,
 													'can_submit'    => $can_submit,
 													'submit_link'   => $submit_link,
+													'edit_link'		=> $edit_link,
 											   ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 
 		if ( $can_view_sales = WC_Vendors::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
