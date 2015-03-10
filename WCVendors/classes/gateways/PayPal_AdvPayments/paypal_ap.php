@@ -340,7 +340,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$actionType   = 'CREATE';
 		$cancelUrl    = $order->get_cancel_order_url();
 		$currencyCode = get_woocommerce_currency();
-		$returnUrl    = add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order->id, get_permalink( apply_filters( 'woocommerce_get_checkout_redirect_page_id', woocommerce_get_page_id( 'thanks' ) ) ) ) );
+		$returnUrl    = add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order->id, $order->get_checkout_order_received_url() ) );
 
 		$payRequest = new PayRequest( new RequestEnvelope( "en_US" ), $actionType, $cancelUrl, $currencyCode, $receiverList, $returnUrl );
 
