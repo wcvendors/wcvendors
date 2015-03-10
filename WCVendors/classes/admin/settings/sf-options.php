@@ -42,6 +42,15 @@ $options[ ] = array(
 	'std'  => false,
 );
 
+$options[ ] = array(
+	'name' => __( 'Shipping', 'wcvendors' ),
+	'desc' => __( 'Give vendors any shipping collected per-product', 'wcvendors' ),
+	'tip'  => __( 'The shipping collected on a vendor\'s product will be given to him in its entirety', 'wcvendors' ),
+	'id'   => 'give_shipping',
+	'type' => 'checkbox',
+	'std'  => true,
+);
+
 $options[ ] = array( 'name' => __( 'Shop options', 'wcvendors' ), 'type' => 'title', 'desc' => __( ' ', 'wcvendors' ) );
 
 $options[ ] = array(
