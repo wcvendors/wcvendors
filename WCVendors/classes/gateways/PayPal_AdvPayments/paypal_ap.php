@@ -356,16 +356,6 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			'wc-api'           	=> 'WC_PayPalAP',
 			'paypal_chain_ipn'	=> '1',
 			'order_id'         	=> $order_id,
-			// 'first_name'    	=> $order->billing_first_name,
-			// 'last_name'     	=> $order->billing_last_name,
-			// 'company'       	=> $order->billing_company,
-			// 'address1'      	=> $order->billing_address_1,
-			// 'address2'      	=> $order->billing_address_2,
-			// 'city'          	=> $order->billing_city,
-			// 'state'         	=> $this->get_paypal_state( $order->billing_country, $order->billing_state ),
-			// 'zip'           	=> $order->billing_postcode,
-			// 'country'       	=> $order->billing_country,
-			// 'email'         	=> $order->billing_email
 		);
 
 		$payRequest->ipnNotificationUrl                = str_replace( 'https:', 'http:', add_query_arg( $args, home_url( '/' ) ) );
@@ -547,20 +537,4 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		);
 
 	}
-
-	function get_paypal_state( $cc, $state ) {
-		if ( 'US' === $cc ) {
-			return $state;
-		}
-
-		$states = WC()->countries->get_states( $cc );
-
-		if ( isset( $states[ $state ] ) ) {
-			return $states[ $state ];
-		}
-
-		return $state;
-	}
-
-
 }
