@@ -1,5 +1,18 @@
 Changelog for WC Vendors
 
+Version 1.5.0
+
+* Added: Spanish translation 
+* Added: CSS class for sold by (classes same as filters in those files)
+* Fixed: Paypal return URL for 
+* Added: Vendor Dashboard UI Improvements
+* Added: WC Vendors Test Gateway
+* Updated: ToolTips to be more helpful
+* Added: Admin option for not giving shipping cost to vendor
+* Fixed: Disable notify admin 
+* Fixed: Mark as shipped/unshipped 
+* Fixed: Duplicate column name 
+
 Version 1.4.5 
 
 * Updated: select2 3.5.2 for settings api

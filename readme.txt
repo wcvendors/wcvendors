@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.4.5
+Stable tag: 1.5.0
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,19 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.5.0 - March 10th 2015 = 
+
+* Added: Spanish translation 
+* Added: CSS class for sold by (classes same as filters in those files)
+* Fixed: Paypal return URL for 
+* Added: Vendor Dashboard UI Improvements
+* Added: WC Vendors Test Gateway
+* Updated: ToolTips to be more helpful
+* Added: Admin option for not giving shipping cost to vendor
+* Fixed: Disable notify admin 
+* Fixed: Mark as shipped/unshipped 
+* Fixed: Duplicate column name 
 
 = Version 1.4.5 - February 22nd 2015 = 
 
