@@ -62,7 +62,7 @@ No Upgrade required at this time.
 
 * Added: Spanish translation 
 * Added: CSS class for sold by (classes same as filters in those files)
-* Fixed: Paypal return URL for 
+* Fixed: Paypal return URL  
 * Added: Vendor Dashboard UI Improvements
 * Added: WC Vendors Test Gateway
 * Updated: ToolTips to be more helpful
