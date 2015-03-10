@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @author 		WC Vendors Ben Agresta
  */
  
- function add_wcvendors_test_gateway( $methods )
+function add_wcvendors_test_gateway( $methods )
 {
         $methods[ ] = 'WC_Gateway_WCV_Gateway_Test';
-
         return $methods;
 }
+add_filter( 'woocommerce_payment_gateways', 'add_wcvendors_test_gateway' );
 
 class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
 
