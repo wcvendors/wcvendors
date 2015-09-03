@@ -37,7 +37,7 @@ class WCV_Vendor_Dashboard
 			$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
 			$order = new WC_Order( $order_id ); 
 
-			// If not in the shippers array mark as shipped otherwise do nothing. 
+			// If not in the shippers array mark as shipped otherwise do unmark as shipped. 
 			if( !in_array($user_id, $shippers)) {
 				$shippers[] = $user_id;
 				$mails = $woocommerce->mailer()->get_emails();
@@ -47,6 +47,8 @@ class WCV_Vendor_Dashboard
 				do_action('wcvendors_vendor_ship', $order_id, $user_id);
 				wc_add_notice( __( 'Order marked shipped.', 'wcvendors' ), 'success' );
 				$order->add_order_note( apply_filters( 'wcvendors_vendor_shipped_note', __( $shop_name . ' has marked as shipped. ', 'wcvendors') ), $user_id ) ; 
+			} elseif ( false != ( $key = array_search( $user_id, $shippers) ) ) {
+				unset( $shippers[$key] ); // Remove user from the shippers array
 			}
 
 			update_post_meta( $order_id, 'wc_pv_shipped', $shippers );
