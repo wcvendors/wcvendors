@@ -196,7 +196,7 @@ class WCV_Vendor_Dashboard
 		// WC Shipment Tracking Providers
 		if ( class_exists( 'WC_Shipment_Tracking' ) ) {
 			$WC_Shipment_Tracking 				= new WC_Shipment_Tracking(); 
-			$providers 							= $WC_Shipment_Tracking->get_providers();
+			$providers 							= (method_exists($WC_Shipment_Tracking, 'get_providers')) ? $WC_Shipment_Tracking->get_providers() : $WC_Shipment_Tracking->providers;
 			$provider_array = array();
 			foreach ( $providers as $all_providers ) {
 				foreach ( $all_providers as $provider => $format ) {

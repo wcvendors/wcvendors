@@ -7,6 +7,12 @@ This is WC Vendors, a fork of Matt Gates WordPress Product Vendor plugin.
 This has been forked due to the original author abandoning support for the plugin. We aim to implement bug fixes, maintain backwards compatibility and introduce new features. 
 
 Using the ever popular WooCommerce as the basis create your own market place and support multi-vendor WooCommerce.  Start to act like envato, eBay (buy now), Amazon and more. This will allow your customers to apply to be a vendor and create their own store from within your WooCommerce store. 
+
+## This Fork
+This fork was created for development towards increasing WC Vendors' compatibility with other WooCommerce plugin(s) and adding other generally useful features which may or may not be merged into the main project's svn.
+Plugin(s) include:
+ * WooCommerce PDF Invoices & Packing Slips - https://wordpress.org/plugins/woocommerce-pdf-invoices-packing-slips/
+ 
 	
 ## WC Vendors Features
 

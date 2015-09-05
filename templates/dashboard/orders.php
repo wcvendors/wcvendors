@@ -2,7 +2,7 @@
 jQuery(function () {
     jQuery('a.view-items').on('click', function (e) {
         e.preventDefault();
-        var id = jQuery(this).attr('id');
+        var id = jQuery(this).closest('tr').data('order-id');
 
         if ( jQuery(this).text() == "<?php _e('Hide items', 'wcvendors'); ?>" ) {
         	jQuery(this).text("<?php _e('View items', 'wcvendors'); ?>");
@@ -15,7 +15,7 @@ jQuery(function () {
 
     jQuery('a.view-order-tracking').on('click', function (e) {
         e.preventDefault();
-        var id = jQuery(this).attr('id');
+         var id = jQuery(this).closest('tr').data('order-id');
         jQuery("#view-tracking-" + id).fadeToggle(); 
     });
 });
@@ -66,17 +66,49 @@ jQuery(function () {
 			
 			?>
 
-			<tr>
+			<tr id="order-<?php echo $order->id; ?>" data-order-id="<?php echo $order->id; ?>">
 				<td><?php echo $order->get_order_number(); ?></td>
 				<td><?php echo apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' ); ?></td>
 				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo woocommerce_price( $total ); ?></td>
 				<td><?php echo $order->order_date; ?></td>
 				<td>
-				<a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a>
-				<?php if ( $needs_shipping ) { ?> <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a> <?php } ?>
-				<?php if ( $providers && $needs_shipping && class_exists( 'WC_Shipment_Tracking' ) ) : ?><a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?>
-
+                <?php
+				$order_actions = array(
+					'view'		=> array(
+						'class' 	=> 'view-items',
+						'content'	=> __('View items', 'wcvendors'),
+					)
+				);
+				if ( $needs_shipping ) {
+					$order_actions['shipped'] = array(
+						'class' 	=> 'mark-shipped',
+						'content'	=> ($shipped) ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'),
+						'url'		=> '?wc_pv_mark_shipped=' . $order->id
+					);
+				}
+				if ( $providers && $needs_shipping && class_exists( 'WC_Shipment_Tracking' ) ) {
+					$order_actions['tracking'] = array(
+						'class'		=> 'view-order-tracking',
+						'content'	=> __( 'Tracking', 'wcvendors' )
+					);
+				}
 				
+				$order_actions = apply_filters( 'wcvendors_order_actions', $order_actions, $order );          
+				
+				if ($order_actions) {
+					$output = array();
+					foreach ($order_actions as $key => $data) {
+						$output[] = sprintf(
+							'<a href="%s" id="%s" class="%s">%s</a>',
+							(isset($data['url'])) ? $data['url'] : '#',
+							(isset($data['id'])) ? $data['id'] : $key . '-' . $order->id,
+							(isset($data['class'])) ? $data['class'] : '',
+							$data['content']
+						);
+					}
+					echo implode(' | ', $output);
+				}
+				?>
 				</td>
 			</tr>
 
@@ -86,7 +118,7 @@ jQuery(function () {
 					$product_id = '';
 					foreach ($valid as $key => $item):
 						$product_id = $item['product_id']; 
-						$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
+						$item_meta = new WC_Order_Item_Meta( $item );
 						$item_meta = $item_meta->display( false, true ); ?>
 						<?php echo $item['qty'] . 'x ' . $item['name']; ?>
 
