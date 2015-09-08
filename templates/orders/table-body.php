@@ -1,5 +1,5 @@
 <?php
-$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
+$item_meta = new WC_Order_Item_Meta( $item );
 $item_meta = $item_meta->display( false, true );
 
 if ($count > 1) : ?>

@@ -55,7 +55,7 @@ class PPLoggingManager
 	public function log( $message, $level = PPLoggingLevel::INFO )
 	{
 		if ( $this->isLoggingEnabled && ( $level <= $this->loggingLevel ) ) {
-			error_log( $this->loggerName . ": $message\n", 3, $this->loggerFile );
+			error_log( $this->loggerName . ": $message\n" );
 		}
 	}
 
