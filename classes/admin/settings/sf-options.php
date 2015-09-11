@@ -244,6 +244,15 @@ $options[ ] = array(
 	'std'  => false,
 );
 
+$options[ ] = array(
+	'name' => __( 'Admin', 'wcvendors' ),
+	'desc' => __( 'Allow dashboard access', 'wcvendors' ),
+	'tip'  => __( 'Unchecking this will prevent vendors from being able to view the dashboard and redirects them to their profile page if activated. Admin notices are also hidden.', 'wcvendors' ),
+	'id'   => 'allow_dashboard',
+	'type' => 'checkbox',
+	'std'  => false,
+);
+
 $options[ ] = array( 'name' => __( 'Pages', 'wcvendors' ), 'type' => 'heading' );
 $options[ ] = array( 'name' => __( 'Page configuration', 'wcvendors' ), 'type' => 'title', 'desc' => '' );
 

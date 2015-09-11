@@ -43,8 +43,9 @@ class WCV_Admin_Users
 			// Filter user attachments so they only see their own attachements 
 			add_action( 'ajax_query_attachments_args', array( $this, 'show_user_attachment_ajax' ) ); 
 		 	add_filter( 'parse_query', array( $this, 'show_user_attachment_page' ) );
-
-			add_action( 'admin_menu', array( $this, 'remove_menu_page' ), 99 );
+			
+			if (!WC_Vendors::$pv_options->get_option( 'allow_dashboard' ))
+				add_action( 'admin_menu', array( $this, 'remove_menu_page' ), 99 );
 			add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 99 );
 			add_filter( 'product_type_selector', array( $this, 'filter_product_types' ), 99, 2 );
 			add_filter( 'product_type_options', array( $this, 'filter_product_type_options' ), 99 );
