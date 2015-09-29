@@ -28,6 +28,7 @@ Class WCV_Vendor_Admin_Dashboard {
 		$shop_description = true; 
 		$description = get_user_meta( $user_id, 'pv_shop_description', true );
 		$seller_info = get_user_meta( $user_id, 'pv_seller_info', true );
+    $seller_video = get_user_meta( $user_id, 'pv_seller_video', true );
 		$has_html    = get_user_meta( $user_id, 'pv_shop_html_enabled', true );
 		$shop_page   = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
 		$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
@@ -75,7 +76,11 @@ Class WCV_Vendor_Admin_Dashboard {
 			if ( isset( $_POST[ 'pv_shop_description' ] ) ) {
 				update_user_meta( $user_id, 'pv_shop_description', $_POST[ 'pv_shop_description' ] );
 			}
-
+      
+      if ( isset( $_POST[ 'pv_seller_video' ] ) ) {
+				update_user_meta( $user_id, 'pv_seller_video', $_POST[ 'pv_seller_video' ] );
+			}
+      
 			if ( isset( $_POST[ 'pv_seller_info' ] ) ) {
 				update_user_meta( $user_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
 			}

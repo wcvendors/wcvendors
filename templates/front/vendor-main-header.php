@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 *   $shop_name : 		Store/Shop Name (From Vendor Dashboard Shop Settings)
 *   $shop_description : Shop Description (completely sanitized) (From Vendor Dashboard Shop Settings)
 *   $seller_info : 		Seller Info(From Vendor Dashboard Shop Settings)
+*   $shop_video : Display Vendor Video
 *	$vendor_email :		Vendors email address
 *	$vendor_login : 	Vendors user_login name
 *	$vendor_shop_link : URL to the vendors store

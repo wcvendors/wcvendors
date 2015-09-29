@@ -44,7 +44,29 @@
 	</td>
 	</tr>
 	<?php do_action( 'wcvendors_settings_after_seller_info' ); ?>
-	<?php if ( $shop_description !== 'false' ) { ?>
+  
+  
+  <tr>
+	<th><?php echo apply_filters( 'wcvendors_seller_video_label', __( 'Seller Video', 'wcvendors' ) ); ?></th>
+	<td class="seller_video_editor">
+  
+  <?php
+
+		if ( $global_html || $has_html ) {
+			$old_post          = $GLOBALS[ 'post' ];
+			$GLOBALS[ 'post' ] = 0;
+			wp_editor( $seller_video, 'pv_seller_video' );
+			$GLOBALS[ 'post' ] = $old_post;
+		} else {
+			?><textarea  rows="2" id="pv_seller_video_unhtml" style="width:95%;" name="pv_shop_video"><?php echo $seller_video; ?></textarea>
+  <?php
+		}
+		?>
+		<p class="description"><?php _e( 'Place your <b>embed share code from YouTube</b> here. This is displayed on your Seller Page.', 'wcvendors' ); ?></p>
+	</td>
+	</tr>
+	<?php do_action( 'wcvendors_settings_after_seller_video' ); ?>
+	<?php if ( $seller_video !== 'false' ) { ?>
 	<tr>
 	<th><?php _e( 'Shop Description', 'wcvendors' ); ?></th>
 	<td><?php

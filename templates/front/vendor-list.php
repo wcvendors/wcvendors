@@ -5,6 +5,7 @@
 *   $shop_description : pv_shop_description (completely sanitized)
 *   $shop_link : the vendor shop link 
 *   $vendor_id  : current vendor id for customization 
+*   $shop_video : Display Vendor Video
 */
 ?>
 
