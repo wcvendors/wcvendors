@@ -437,7 +437,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				$products = ''; 
 
 				foreach ($valid as $key => $item) { 
-							$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
+							$item_meta = new WC_Order_Item_Meta( $item );
 							// $item_meta = $item_meta->display( false, true ); 
 							$item_meta = $item_meta->get_formatted( ); 
 							$products .= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
@@ -450,8 +450,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
 				$shipped = in_array($user_id, $shippers) ? 'Yes' : 'No' ; 
 
-				$sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id' =>get_current_user_id() ) ); 
-				$total = $sum[0]->line_total; 
+				$sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id' =>get_current_user_id(), 'dates' => array() ) ); 
+				$total = (!empty($sum)) ? $sum[0]->line_total : 0;
 
 				$comment_output = '';
 
