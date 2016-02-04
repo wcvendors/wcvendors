@@ -266,6 +266,15 @@ $options[ ] = array(
 	'std'  => false,
 );
 
+$options[ ] = array(
+	'name' => __( 'Misc', 'wcvendors' ),
+	'desc' => __( 'Restrict access to dashboard', 'wcvendors' ),
+	'tip'  => __( 'If enabled, vendors will not be allowed to access the WordPress dashboard screen (found at yoursite.com/wp-admin)', 'wcvendors' ),
+	'id'   => 'restrict_dashboard',
+	'type' => 'checkbox',
+	'std'  => true,
+);
+
 $options[ ] = array( 'name' => __( 'Pages', 'wcvendors' ), 'type' => 'heading' );
 $options[ ] = array( 'name' => __( 'Page configuration', 'wcvendors' ), 'type' => 'title', 'desc' => '' );
 

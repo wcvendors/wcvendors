@@ -174,21 +174,8 @@ class WCV_Queries
 			FROM {$wpdb->prefix}pv_commission
 
 			WHERE   product_id IN ('" . implode( "','", $product_ids ) . "')
-		";
-		
-		if ( !empty( $args[ 'dates' ][ 'after' ] ) ) {
-			$sql .= "
-				AND     time >= '" . $args[ 'dates' ][ 'after' ] . "'
-			";
-		}
-		
-		if ( !empty( $args[ 'dates' ][ 'before' ] ) ) {
-			$sql .= "
-				AND     time <= '" . $args[ 'dates' ][ 'before' ] . "'
-			";
-		}
-		
-		$sql .= "
+			AND     time >= '" . $args[ 'dates' ][ 'after' ] . "'
+			AND     time <= '" . $args[ 'dates' ][ 'before' ] . "'
 			AND     status != 'reversed'
 		";
 
@@ -239,8 +226,21 @@ class WCV_Queries
 			FROM {$wpdb->prefix}pv_commission
 
 			WHERE   order_id IN ('" . implode( "','", $order_ids ) . "')
-			AND     time >= '" . $args[ 'dates' ][ 'after' ] . "'
-			AND     time <= '" . $args[ 'dates' ][ 'before' ] . "'
+		";
+		
+		if ( !empty( $args[ 'dates' ][ 'after' ] ) ) {
+			$sql .= "
+				AND     time >= '" . $args[ 'dates' ][ 'after' ] . "'
+			";
+		}
+		
+		if ( !empty( $args[ 'dates' ][ 'before' ] ) ) {
+			$sql .= "
+				AND     time <= '" . $args[ 'dates' ][ 'before' ] . "'
+			";
+		}
+				
+		$sql .= "
 			AND     status != 'reversed'
 		";
 
