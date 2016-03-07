@@ -51,7 +51,7 @@ class WCV_Vendor_Signup
 				   id="agree_to_terms" <?php checked( isset( $_POST[ 'agree_to_terms' ] ), true ) ?> type="checkbox"
 				   name="agree_to_terms" value="1"/>
 			<label for="agree_to_terms"
-				   class="checkbox"><?php printf( __( 'I have read and accepted the <a href="%s">terms and conditions</a>', 'wcvendors' ), get_permalink( $this->terms_page ) ); ?></label>
+				   class="checkbox"><?php printf( __( 'I have read and accepted the <a target="top" href="%s">terms and conditions</a>', 'wcvendors' ), get_permalink( $this->terms_page ) ); ?></label>
 		</p>
 
 		<script type="text/javascript">

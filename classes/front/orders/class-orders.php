@@ -32,7 +32,7 @@ class WCV_Orders
 	public function check_access()
 	{
 		if ( is_page( WC_Vendors::$pv_options->get_option( 'orders_page' ) ) && !is_user_logged_in() ) {
-			wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ) );
+			wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ), 303 );
 			exit;
 		}
 	}

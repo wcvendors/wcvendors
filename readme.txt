@@ -5,8 +5,8 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.3.1
-Stable tag: 1.8.0
+Tested up to: 4.4.2
+Stable tag: 1.8.6
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -45,21 +45,23 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 * Knowledgebase full of great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc, @ <a href="https://www.wcvendors.com/knowledgebase/">www.wcvendors.com/knowledgebase/</A>
 * ....and much more!
 
-
-The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/">WC Vendors Pro</a>
-*<strong>Pro Dashboard</strong> making your vendors sales reports a piece of cake</li>
-*<strong>Fully featured front-end product add/edit capabilities</strong></li>
-*<strong>eBay style feedback</strong> system for Vendor Ratings</li>
-*<strong>Shipment Tracking</strong> for Vendors to enter tracking numbers</li>
-*<strong>Multiple commission types</strong> such as percentage, percentage + fee, fixed fee, and even fixed fee + fee.</li>
-*<strong>Vendor-Only coupons</strong> that vendors can create to make their own coupons for only their products</li>
-*<strong>Vendor Stores</strong> post types, which give Vendors their own true actual store</li>
-*Vendor <strong>store banners, avatars/icons</strong> and extra information fully customizable</li>
-*<strong>Social module</strong> for adding facebook/twitter/google+ and many more</li>
-*Extended <strong>Order Notes</strong></li>
-*<strong>Insanely customizable template system</strong> to configure, tweak and style your store and dashboard any way you see fit.</li>
-*MUCH MORE TO COME including <strong>WooThemes Bookings</strong> support, <strong>Shipping Modules</strong> so vendors can configure shipping prices, <strong>Variable Product</strong> support, integration with even more Woo plugins, and good features that you, the customer, ask us to code! <strong>Pro will always be continually updated with new features</strong>, just as you have grown to expect from WC Vendors Free</li>
-*<strong>INSANELY FAST SUPPORT</strong> on our <a href="https://www.wcvendors.com/help/forum/wc-vendors-pro-support/">Pro Help Forum</a></li>
+= WC Vendors Pro =
+* The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/">WC Vendors Pro</a>
+* <strong>Pro Dashboard</strong> making your vendors sales reports a piece of cake</li>
+* <strong>Fully featured front-end product add/edit capabilities</strong></li>
+* <strong>eBay style feedback</strong> system for Vendor Ratings</li>
+* <strong>Shipment Tracking</strong> for Vendors to enter tracking numbers</li>
+* <strong>Vendor Shipping</strong> so vendors can enter flat rates for national/shipping, or country/state table rate shipping and receive the shipping fees from each sale.
+* <strong>Multiple commission types</strong> such as percentage, percentage + fee, fixed fee, and even fixed fee + fee.</li>
+* <strong>Vendor-Only coupons</strong> that vendors can create to make their own coupons for only their products</li>
+* <strong>Vendor Stores</strong> post types, which give Vendors their own true actual store</li>
+* Vendor <strong>store banners, avatars/icons</strong> and extra information fully customizable</li>
+* <strong>Social module</strong> for adding facebook/twitter/google+ and many more</li>
+* Extended <strong>Order Notes</strong></li>
+* <strong>Insanely customizable template system</strong> to configure, tweak and style your store and dashboard any way you see fit.</li>
+* MUCH MORE TO COME including <strong>WooThemes Bookings</strong> support, <strong>Variable Product</strong> support, integration with even more Woo plugins, and good features that you, the customer, ask us to code! <strong>Pro will always be continually updated with new features</strong>, just as you have grown to expect from WC Vendors Free</li>
+* <strong>INSANELY FAST SUPPORT</strong> on our <a href="https://www.wcvendors.com/help/forum/wc-vendors-pro-support/">Pro Help Forum</a></li>
+* There's more features to Pro than listed here!
 
 
 = Translations =
@@ -76,6 +78,7 @@ We currently ship WC Vendors free with the following language translations. If y
 * Portuguese
 * Persian
 * French
+* ...and more
 
 == Installation ==
 1. Download and install from WordPress.org.
@@ -112,6 +115,52 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.8.6 - 31st of January 2016 = 
+
+* Fixed: Critical issue with paypal loading classes incorrectly
+
+= Version 1.8.5 - 26th January 2016 = 
+
+* Fixed: Issue with PayPal on some sites - Rolled back issue #247
+* Fixed: Reverted ticket #216 for email conflicts
+* Added: New KnowledgeBase URL
+
+= Version 1.8.4 - 25th January 2016 = 
+
+* Added: Removed fields from users that aren't vendors
+* Added: actions to hook into approve/deny vendor
+* Added: Ability to integrate with any order status for emails #216
+* Added: Terms & Conditions Opens in New Tab #246
+* Updated: Added trigger for on-hold to processing/completed for Notify Vendor Email #238
+* Updated: Settings page helper text and clarifications
+* Fixed: Sold by formatting issue #248
+* Fixed: wp_redirect caches with W3 Total Cache #237
+* Fixed: Bug in single page settings generator
+* Fixed: Category title missing bug #213
+* Fixed: Undefined index for non vendor users
+* Merge: pull request #247 from archonic/hotfix/oauth-class-exists
+
+= Version 1.8.3 - 18th December 2015 = 
+
+* Fixed: Fatal Error on activation Merge pull request #235 from oleggen/patch-1
+* Added: Seller info label option
+
+
+= Version 1.8.2 - 17th December 2015 = 
+
+* Added: Sold By label option
+* Added: New Vendor Commission Totals Report #234
+* Fixed: Added 'Shipped' if marked as shipped #233
+* Fixed: Renamed internal function to stop theme and plugin clash
+
+= Version 1.8.1 - 17th November 2015 = 
+
+* Added: New options updated action for settings
+* Added: New plugin activation hook for testing woocommerce active 
+* Added: vendor id to get shipping due  filter
+* Added: Warning on settings page if user registration in WooCommerce is not enabled
+* Added: Russian Translations thanks Natalia
 
 = Version 1.8.0 - 31st October 2015 = 
 

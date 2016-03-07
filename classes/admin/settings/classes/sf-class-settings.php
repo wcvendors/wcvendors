@@ -759,6 +759,8 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				$selected = ( $value !== false ) ? $value : $std;
 
+				if ( $value == 0 ) $selected = $std; 
+
 				$args = array(
 					'name'       => $name,
 					'id'         => $id,

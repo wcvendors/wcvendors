@@ -69,7 +69,7 @@ if ( !class_exists( 'SF_Format_Options' ) ) {
 			$header_types = apply_filters( $this->id . '_options_header_types', array( 'heading', 'title' ) );
 
 			extract( $setting );
-
+			
 			$description = $desc && !$grouped && $type != 'checkbox'
 				? '<br /><small>' . $desc . '</small>'
 				: '<label for="' . $id . '"> ' . $desc . '</label>';

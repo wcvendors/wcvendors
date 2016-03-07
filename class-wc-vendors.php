@@ -2,24 +2,41 @@
 
 /**
  * Plugin Name:         WC Vendors
- * Plugin URI:          http://wcvendors.com
+ * Plugin URI:          https://www.wcvendors.com
  * Description:         Allow vendors to sell their own products and receive a commission for each sale. 
  * Author:              WC Vendors
- * Author URI:          http://wcvendors.com
+ * Author URI:          https://www.wcvendors.com
  *
- * Version:             1.8.0
+ * Version:             1.8.6
  * Requires at least:   4.0.0
- * Tested up to:        4.3.1
+ * Tested up to:        4.4.1
  *
  * Text Domain:         wcvendors
  * Domain Path:         /languages/
  *
  * @category            Plugin
  * @copyright           Copyright © 2012 Matt Gates
- * @copyright           Copyright © 2015 WC Vendors
+ * @copyright           Copyright © 2016 WC Vendors
  * @author              Matt Gates, WC Vendors
  * @package             WCVendors
  */
+
+
+/**
+ *   Plugin activation hook 
+ */
+function wcvendors_activate() {
+
+	/**
+	 *  Requires woocommerce to be installed and active 
+	 */
+	if ( !class_exists( 'WooCommerce' ) ) { 
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+		wp_die( __( 'WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again.', 'wcvendors' ) );
+	}
+} // wcvendors_activate()
+
+register_activation_hook( __FILE__, 'wcvendors_activate' );
 
 
 /**
@@ -30,7 +47,7 @@ require_once trailingslashit( dirname( __FILE__ ) ) . 'classes/includes/class-fu
 /**
  * Check if WooCommerce is active
  */
-if ( is_woocommerce_activated() ) {
+if ( wcv_is_woocommerce_activated() ) {
 
 	/* Define an absolute path to our plugin directory. */
 	if ( !defined( 'wcv_plugin_dir' ) ) 		define( 'wcv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . '/' );
@@ -79,7 +96,8 @@ if ( is_woocommerce_activated() ) {
 			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
 			// Start a PHP session, if not yet started
-			if ( !session_id() ) session_start();
+			/* this line will initialize session to early and for each page
+			if ( !session_id() ) session_start();*/
 		}
 
 
@@ -88,7 +106,7 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function invalid_wc_version()
 		{
-			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce v2.2.0.', 'wcvendors' ) . '</p></div>';
+			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce v2.4.0.', 'wcvendors' ) . '</p></div>';
 		}
 
 
@@ -104,10 +122,9 @@ if ( is_woocommerce_activated() ) {
 			global $woocommerce;
 
 			// WC 2.0.1 is required
-			if ( version_compare( $woocommerce->version, '2.2', '<' ) ) {
+			if ( version_compare( $woocommerce->version, '2.4', '<' ) ) {
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
 				deactivate_plugins( plugin_basename( __FILE__ ) );
-
 				return false;
 			}
 
@@ -261,6 +278,9 @@ if ( is_woocommerce_activated() ) {
 					update_option( WC_Vendors::$id . '_flush_rules', true );
 				}
 			}
+
+			do_action( 'wcvendors_option_updates', $options, $tabname ); 
+
 		}
 
 
@@ -288,7 +308,7 @@ if ( is_woocommerce_activated() ) {
 			if ( $file == wcv_plugin_base ) {
 
 				$row_meta = array(
-	                            'docs' 		=> '<a href="http://www.wcvendors.com/knowledgebase/" target="_blank">'.__( 'Documentation/KB', 'wcvendors' ).'</a>',
+	                            'docs' 		=> '<a href="http://www.wcvendors.com/kb/" target="_blank">'.__( 'Documentation/KB', 'wcvendors' ).'</a>',
 	                            'help' 		=> '<a href="http://www.wcvendors.com/help/" target="_blank">'.__( 'Help Forums', 'wcvendors').'</a>',
 	                            'support' 	=> '<a href="http://www.wcvendors.com/contact-us/" target="_blank">'.__( 'Paid Support', 'wcvendors' ).'</a>'
 	                        );

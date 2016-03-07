@@ -32,7 +32,7 @@ class WCV_Vendor_Applicants
 
 
 	/**
-	 *
+	 * 
 	 */
 	public function user_row_actions_commit()
 	{
@@ -44,11 +44,13 @@ class WCV_Vendor_Applicants
 				case 'approve_vendor':
 					$role = 'vendor';
 					add_action( 'admin_notices', array( $this, 'approved' ) );
+					do_action( 'wcvendors_approve_vendor', $wp_user_object ); 
 					break;
 
 				case 'deny_vendor':
 					$role = 'subscriber';
 					add_action( 'admin_notices', array( $this, 'denied' ) );
+					do_action( 'wcvendors_deny_vendor', $wp_user_object ); 
 					break;
 
 				default:

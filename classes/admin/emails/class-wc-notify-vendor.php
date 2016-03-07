@@ -33,13 +33,23 @@ class WC_Email_Notify_Vendor extends WC_Email
 		$this->template_html  = 'vendor-new-order.php';
 		$this->template_plain = 'vendor-new-order.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
-
+		
+		// #216 is broken.  Code below is from that.  The filter is probably the culprit.
+		//$completed_statuses = apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ); // #216
+		//foreach ( $completed_statuses as $status ) {
+		//add_action( 'woocommerce_order_status_pending_to_{$status}_notification', array( $this, 'trigger' ) );
+		//add_action( 'woocommerce_order_status_failed_to_{$status}_notification', array( $this, 'trigger' ) );
+		//add_action( 'woocommerce_order_status_on-hold_to_{$status}_notification', array( $this, 'trigger' ) );
+		//}
+		// end #216
+		
 		// Triggers for this email
 		add_action( 'woocommerce_order_status_pending_to_processing_notification', array( $this, 'trigger' ) );
 		add_action( 'woocommerce_order_status_pending_to_completed_notification', array( $this, 'trigger' ) );
 		add_action( 'woocommerce_order_status_failed_to_processing_notification', array( $this, 'trigger' ) );
 		add_action( 'woocommerce_order_status_failed_to_completed_notification', array( $this, 'trigger' ) );
-
+		add_action( 'woocommerce_order_status_on-hold_to_processing_notification', array( $this, 'trigger' ) ); // Added in 1.8.4
+		add_action( 'woocommerce_order_status_on-hold_to_completed_notification', array( $this, 'trigger' ) ); // Added in 1.8.4
 		$this->recipient = get_option( 'admin_email' );
 
 		// Call parent constuctor

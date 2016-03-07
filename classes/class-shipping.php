@@ -92,7 +92,7 @@ class WCV_Shipping
 			}
 		}
 
-		$shipping_costs = apply_filters( 'wcvendors_shipping_due', $shipping_costs, $order_id, $product );
+		$shipping_costs = apply_filters( 'wcvendors_shipping_due', $shipping_costs, $order_id, $product, $author );
 
 		return $shipping_costs;
 	}

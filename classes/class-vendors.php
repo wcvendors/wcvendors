@@ -88,6 +88,7 @@ class WCV_Vendors
 
 		foreach ( $order->get_items() as $key => $product ) {
 
+
 			$product_id 				= !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
 			$author     				= WCV_Vendors::get_vendor_from_product( $product_id );
 			$give_tax_override 			= get_user_meta( $author, 'wcv_give_vendor_tax', true ); 
@@ -104,9 +105,11 @@ class WCV_Vendors
 					$shipping = $shipping_costs['amount']; 
 					$shipping_tax = $shipping_costs['tax']; 
 			}
+	
+			$_product = new WC_Product( $product['product_id'] ); 
 
 			// Add line item tax and shipping taxes together 
-			$total_tax = (float) $tax + (float) $shipping_tax; 
+			$total_tax = ( $_product->is_taxable() ) ? (float) $tax + (float) $shipping_tax : 0; 
 
 			// Tax override on a per vendor basis
 			if ( $give_tax_override ) $give_tax = true; 

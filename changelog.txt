@@ -1,5 +1,51 @@
 Changelog for WC Vendors
 
+Version 1.8.6 
+
+* Fixed: Critical issue with paypal loading classes incorrectly
+
+Version 1.8.5 
+
+* Fixed: Issue with PayPal on some sites - Rolled back issue #247
+* Fixed: Reverted ticket #216 for email conflicts
+* Added: New KnowledgeBase URL
+
+Version 1.8.4 
+
+* Added: Removed fields from users that aren't vendors
+* Added: actions to hook into approve/deny vendor
+* Added: Ability to integrate with any order status for emails #216
+* Added: Terms & Conditions Opens in New Tab #246
+* Updated: Added trigger for on-hold to processing/completed for Notify Vendor Email #238
+* Updated: Settings page helper text and clarifications
+* Fixed: Sold by formatting issue #248
+* Fixed: wp_redirect caches with W3 Total Cache #237
+* Fixed: Bug in single page settings generator
+* Fixed: Category title missing bug #213
+* Fixed: Undefined index for non vendor users
+* Merge: pull request #247 from archonic/hotfix/oauth-class-exists
+
+
+Version 1.8.3 
+
+* Fixed: Fatal Error on activation Merge pull request #235 from oleggen/patch-1
+* Added: Seller info label option
+
+Version 1.8.2
+
+* Added: Sold By label option
+* Added: New Vendor Commission Totals Report #234
+* Fixed: Added 'Shipped' if marked as shipped #233 can be found on WooCommerce > Reports > WC Vendors > Commission Totals
+* Fixed: Renamed internal function to stop theme and plugin clash
+
+Version 1.8.1 
+
+* Added: New options updated action for settings
+* Added: New plugin activation hook for testing woocommerce active 
+* Added: vendor id to get shipping due  filter
+* Added: Warning on settings page if user registration in WooCommerce is not enabled
+* Added: Russian Translations thanks Natalia
+
 Version 1.8.0 
 
 * Fixed: Mark $0.00 commissions as paid instead of due #205

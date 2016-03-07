@@ -85,7 +85,15 @@ jQuery(function () {
 						'content'	=> __('Mark shipped', 'wcvendors'),
 						'url'		=> '?wc_pv_mark_shipped=' . $order->id
 					);
-				}
+				} 
+				if ( $shipped ) {    
+					$order_actions[ 'shipped' ] = array(
+					'class' 	=> 'mark-shipped',
+					'content'	=> __('Shipped', 'wcvendors'),
+					'url'		=> '#'
+					);
+				} 
+
 				if ( $providers && $needs_shipping && class_exists( 'WC_Shipment_Tracking' ) ) {
 					$order_actions['tracking'] = array(
 						'class'		=> 'view-order-tracking',

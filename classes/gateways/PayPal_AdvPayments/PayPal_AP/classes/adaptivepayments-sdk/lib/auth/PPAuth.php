@@ -1,38 +1,4 @@
 <?php
-//PayPal specific modification starts
-//Method to be called for generating signature
-require_once( "AuthUtil.php" );
-class AuthSignature
-{
-
-	public function genSign( $key, $secret, $token, $tokenSecret, $httpMethod, $endpoint )
-	{
-
-
-		$authServer  = new OAuthServer( new MockOAuthDataStore() );
-		$hmac_method = new OAuthSignatureMethod_HMAC_SHA1();
-		$authServer->add_signature_method( $hmac_method );
-
-		$sig_method   = $hmac_method;
-		$authConsumer = new OAuthConsumer( $key, $secret, null );
-		$authToken    = null;
-		$authToken    = new OAuthToken( $token, $tokenSecret );
-
-		//$params is the query param array which is required only in the httpMethod is "GET"
-
-		$params = array();
-		//set the Query parameters to $params if httpMethod is "GET"
-
-		$acc_req = OAuthRequest::from_consumer_and_token( $authConsumer, $authToken, $httpMethod, $endpoint, $params );
-
-		$acc_req->sign_request( $sig_method, $authConsumer, $authToken );
-		$response = OAuthutil::parseQueryString( $acc_req );
-
-		return $response;
-
-	}
-}
-
 //PayPal specific modification ends
 /* Generic exception class
  */
@@ -854,37 +820,40 @@ if ( !class_exists( 'OAuthServer' ) ) {
 	}
 }
 
-class OAuthDataStore
-{
-	function lookup_consumer( $consumer_key )
+// if ( !class_exists( 'OAuthDataStore' ) ) { // If you experience clashes with other OAuthDataStore classes, uncommenting this line and the closing curly brace
+// at the end of the class declaration MAY help you.
+	class OAuthDataStore
 	{
-		// implement me
-	}
+		function lookup_consumer( $consumer_key )
+		{
+			// implement me
+		}
 
-	function lookup_token( $consumer, $token_type, $token )
-	{
-		// implement me
-	}
+		function lookup_token( $consumer, $token_type, $token )
+		{
+			// implement me
+		}
 
-	function lookup_nonce( $consumer, $token, $nonce, $timestamp )
-	{
-		// implement me
-	}
+		function lookup_nonce( $consumer, $token, $nonce, $timestamp )
+		{
+			// implement me
+		}
 
-	function new_request_token( $consumer, $callback = null )
-	{
-		// return a new token attached to this consumer
-	}
+		function new_request_token( $consumer, $callback = null )
+		{
+			// return a new token attached to this consumer
+		}
 
-	function new_access_token( $token, $consumer, $verifier = null )
-	{
-		// return a new access token attached to this consumer
-		// for the user associated with this token if the request token
-		// is authorized
-		// should also invalidate the request token
-	}
+		function new_access_token( $token, $consumer, $verifier = null )
+		{
+			// return a new access token attached to this consumer
+			// for the user associated with this token if the request token
+			// is authorized
+			// should also invalidate the request token
+		}
 
-}
+	}
+// }  // This is the curly brace to uncomment
 
 if ( !class_exists( 'OAuthUtil' ) ) {
 	class OAuthUtil
@@ -1070,4 +1039,39 @@ if ( !class_exists( 'OAuthUtil' ) ) {
 		}
 	}
 }
+//PayPal specific modification starts
+//Method to be called for generating signature
+require_once( "AuthUtil.php" );
+class AuthSignature
+{
+
+	public function genSign( $key, $secret, $token, $tokenSecret, $httpMethod, $endpoint )
+	{
+
+
+		$authServer  = new OAuthServer( new MockOAuthDataStore() );
+		$hmac_method = new OAuthSignatureMethod_HMAC_SHA1();
+		$authServer->add_signature_method( $hmac_method );
+
+		$sig_method   = $hmac_method;
+		$authConsumer = new OAuthConsumer( $key, $secret, null );
+		$authToken    = null;
+		$authToken    = new OAuthToken( $token, $tokenSecret );
+
+		//$params is the query param array which is required only in the httpMethod is "GET"
+
+		$params = array();
+		//set the Query parameters to $params if httpMethod is "GET"
+
+		$acc_req = OAuthRequest::from_consumer_and_token( $authConsumer, $authToken, $httpMethod, $endpoint, $params );
+
+		$acc_req->sign_request( $sig_method, $authConsumer, $authToken );
+		$response = OAuthutil::parseQueryString( $acc_req );
+
+		return $response;
+
+	}
+}
+
+
 ?>

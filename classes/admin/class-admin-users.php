@@ -363,6 +363,8 @@ class WCV_Admin_Users
 	{
 		if ( !current_user_can( 'edit_user', $vendor_id ) ) return false;
 
+		if ( ! WCV_Vendors::is_vendor(  $vendor_id ) ) { return; } 
+
 		$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
 		if ( empty( $users ) || $users[ 0 ]->ID == $vendor_id ) {
 			update_user_meta( $vendor_id, 'pv_shop_name', $_POST[ 'pv_shop_name' ] );
@@ -388,6 +390,11 @@ class WCV_Admin_Users
 	 */
 	public function show_extra_profile_fields( $user )
 	{
+
+		if ( ! WCV_Vendors::is_vendor( $user->ID ) && ! WCV_Vendors::is_pending( $user->ID ) ) { 
+			return; 
+		} 
+
 		?>
 		<h3><?php _e( 'WC Vendors', 'wcvendors' ); ?></h3>
 		<table class="form-table">
