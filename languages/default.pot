@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Vendors\n"
-"POT-Creation-Date: 2016-01-25 15:08+1000\n"
+"POT-Creation-Date: 2016-03-14 16:10+1000\n"
 "PO-Revision-Date: 2015-04-24 09:29+1000\n"
 "Last-Translator: \n"
 "Language-Team: WC Vendors <support@wcvendors.com>\n"
@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 
 #: ../class-wc-vendors.php:81 ../classes/admin/class-admin-reports.php:41
-#: ../classes/admin/class-admin-users.php:397
+#: ../classes/admin/class-admin-users.php:399
 msgid "WC Vendors"
 msgstr ""
 
@@ -319,54 +319,54 @@ msgstr ""
 msgid "No commissions found."
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:407
+#: ../classes/admin/class-admin-users.php:409
 msgid "Enable HTML for the shop description"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:413
+#: ../classes/admin/class-admin-users.php:415
 msgid "Shop name"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:420
+#: ../classes/admin/class-admin-users.php:422
 msgid "PayPal E-mail"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:421
+#: ../classes/admin/class-admin-users.php:423
 msgid "required"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:428
+#: ../classes/admin/class-admin-users.php:430
 msgid "Commission rate"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:429
+#: ../classes/admin/class-admin-users.php:431
 #: ../classes/admin/class-product-meta.php:174
 msgid "Leave blank for default"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:435
+#: ../classes/admin/class-admin-users.php:437
 msgid "Give Tax"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:440
+#: ../classes/admin/class-admin-users.php:442
 msgid "Tax override for vendor"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:446
+#: ../classes/admin/class-admin-users.php:448
 msgid "Give Shipping"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:451
+#: ../classes/admin/class-admin-users.php:453
 msgid "Shipping override for vendor"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:457
+#: ../classes/admin/class-admin-users.php:459
 #: ../classes/admin/views/html-vendor-settings-page.php:30
 #: ../templates/dashboard/settings/seller-info.php:3
 msgid "Seller info"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:462
+#: ../classes/admin/class-admin-users.php:464
 msgid "Shop description"
 msgstr ""
 
@@ -393,7 +393,7 @@ msgid "That shop name is already taken. Your shop name must be unique."
 msgstr ""
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:87
-#: ../classes/admin/settings/classes/sf-class-settings.php:366
+#: ../classes/admin/settings/classes/sf-class-settings.php:368
 #: ../classes/front/dashboard/class-vendor-dashboard.php:133
 msgid "Settings saved."
 msgstr ""
@@ -499,7 +499,7 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:123
 #: ../classes/admin/emails/class-wc-notify-admin.php:134
 #: ../classes/admin/emails/class-wc-notify-shipped.php:163
-#: ../classes/admin/emails/class-wc-notify-vendor.php:256
+#: ../classes/admin/emails/class-wc-notify-vendor.php:258
 #: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:62
 msgid "Enable/Disable"
 msgstr ""
@@ -507,7 +507,7 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:125
 #: ../classes/admin/emails/class-wc-notify-admin.php:136
 #: ../classes/admin/emails/class-wc-notify-shipped.php:165
-#: ../classes/admin/emails/class-wc-notify-vendor.php:258
+#: ../classes/admin/emails/class-wc-notify-vendor.php:260
 msgid "Enable this email notification"
 msgstr ""
 
@@ -527,14 +527,14 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:136
 #: ../classes/admin/emails/class-wc-notify-admin.php:147
 #: ../classes/admin/emails/class-wc-notify-shipped.php:169
-#: ../classes/admin/emails/class-wc-notify-vendor.php:262
+#: ../classes/admin/emails/class-wc-notify-vendor.php:264
 msgid "Subject"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:138
 #: ../classes/admin/emails/class-wc-notify-admin.php:149
 #: ../classes/admin/emails/class-wc-notify-shipped.php:171
-#: ../classes/admin/emails/class-wc-notify-vendor.php:264
+#: ../classes/admin/emails/class-wc-notify-vendor.php:266
 #, php-format
 msgid ""
 "This controls the email subject line. Leave blank to use the default "
@@ -544,14 +544,14 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:143
 #: ../classes/admin/emails/class-wc-notify-admin.php:154
 #: ../classes/admin/emails/class-wc-notify-shipped.php:176
-#: ../classes/admin/emails/class-wc-notify-vendor.php:269
+#: ../classes/admin/emails/class-wc-notify-vendor.php:271
 msgid "Email Heading"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:145
 #: ../classes/admin/emails/class-wc-notify-admin.php:156
 #: ../classes/admin/emails/class-wc-notify-shipped.php:178
-#: ../classes/admin/emails/class-wc-notify-vendor.php:271
+#: ../classes/admin/emails/class-wc-notify-vendor.php:273
 #, php-format
 msgid ""
 "This controls the main heading contained within the email notification. "
@@ -561,35 +561,35 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:150
 #: ../classes/admin/emails/class-wc-notify-admin.php:161
 #: ../classes/admin/emails/class-wc-notify-shipped.php:183
-#: ../classes/admin/emails/class-wc-notify-vendor.php:276
+#: ../classes/admin/emails/class-wc-notify-vendor.php:278
 msgid "Email type"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:152
 #: ../classes/admin/emails/class-wc-notify-admin.php:163
 #: ../classes/admin/emails/class-wc-notify-shipped.php:185
-#: ../classes/admin/emails/class-wc-notify-vendor.php:278
+#: ../classes/admin/emails/class-wc-notify-vendor.php:280
 msgid "Choose which format of email to send."
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:156
 #: ../classes/admin/emails/class-wc-notify-admin.php:167
 #: ../classes/admin/emails/class-wc-notify-shipped.php:189
-#: ../classes/admin/emails/class-wc-notify-vendor.php:282
+#: ../classes/admin/emails/class-wc-notify-vendor.php:284
 msgid "Plain text"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:157
 #: ../classes/admin/emails/class-wc-notify-admin.php:168
 #: ../classes/admin/emails/class-wc-notify-shipped.php:190
-#: ../classes/admin/emails/class-wc-notify-vendor.php:283
+#: ../classes/admin/emails/class-wc-notify-vendor.php:285
 msgid "HTML"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:158
 #: ../classes/admin/emails/class-wc-notify-admin.php:169
 #: ../classes/admin/emails/class-wc-notify-shipped.php:191
-#: ../classes/admin/emails/class-wc-notify-vendor.php:284
+#: ../classes/admin/emails/class-wc-notify-vendor.php:286
 msgid "Multipart"
 msgstr ""
 
@@ -647,20 +647,20 @@ msgstr ""
 msgid "[{blogname}] New customer order ({order_number}) - {order_date}"
 msgstr ""
 
-#: ../classes/admin/emails/class-wc-notify-vendor.php:111
+#: ../classes/admin/emails/class-wc-notify-vendor.php:113
 msgid "Commission Subtotal:"
 msgstr ""
 
-#: ../classes/admin/emails/class-wc-notify-vendor.php:117
+#: ../classes/admin/emails/class-wc-notify-vendor.php:119
 msgid "Tax Subtotal:"
 msgstr ""
 
-#: ../classes/admin/emails/class-wc-notify-vendor.php:125
+#: ../classes/admin/emails/class-wc-notify-vendor.php:127
 msgid "Shipping Subtotal:"
 msgstr ""
 
 #: ../classes/admin/settings/classes/sf-class-format-options.php:211
-#: ../classes/admin/settings/classes/sf-class-settings.php:778
+#: ../classes/admin/settings/classes/sf-class-settings.php:780
 msgid "Select a page..."
 msgstr ""
 
@@ -669,17 +669,32 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../classes/admin/settings/classes/sf-class-settings.php:300
+#: ../classes/admin/settings/classes/sf-class-settings.php:302
 msgid "Could not load settings at: "
 msgstr ""
 
-#: ../classes/admin/settings/classes/sf-class-settings.php:300
+#: ../classes/admin/settings/classes/sf-class-settings.php:302
 msgid "Error - WP Settings Framework"
 msgstr ""
 
-#: ../classes/admin/settings/classes/sf-class-settings.php:482
+#: ../classes/admin/settings/classes/sf-class-settings.php:484
 #, php-format
 msgid "Save %s changes"
+msgstr ""
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:837
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:837
+#, php-format
+msgid "Add %s"
+msgstr ""
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:837
+#, php-format
+msgid "Upload an image for the %s"
 msgstr ""
 
 #: ../classes/admin/settings/sf-options.php:5
@@ -831,7 +846,7 @@ msgid "The sold by label used on the site and emails."
 msgstr ""
 
 #: ../classes/admin/settings/sf-options.php:107
-msgid "Sold By: "
+msgid "Sold By"
 msgstr ""
 
 #: ../classes/admin/settings/sf-options.php:111
@@ -1253,10 +1268,6 @@ msgstr ""
 
 #: ../classes/class-install.php:165
 msgid "Vendor Dashboard"
-msgstr ""
-
-#: ../classes/front/class-vendor-shop.php:287
-msgid "Sold by"
 msgstr ""
 
 #: ../classes/front/dashboard/class-vendor-dashboard.php:48
@@ -1717,18 +1728,18 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: ../templates/emails/notify-vendor-shipped.php:50
-#: ../templates/emails/vendor-new-order.php:50
+#: ../templates/emails/notify-vendor-shipped.php:56
+#: ../templates/emails/vendor-new-order.php:56
 msgid "Customer details"
 msgstr ""
 
-#: ../templates/emails/notify-vendor-shipped.php:53
-#: ../templates/emails/vendor-new-order.php:53
+#: ../templates/emails/notify-vendor-shipped.php:59
+#: ../templates/emails/vendor-new-order.php:59
 msgid "Email:"
 msgstr ""
 
-#: ../templates/emails/notify-vendor-shipped.php:56
-#: ../templates/emails/vendor-new-order.php:56
+#: ../templates/emails/notify-vendor-shipped.php:62
+#: ../templates/emails/vendor-new-order.php:62
 msgid "Tel:"
 msgstr ""
 

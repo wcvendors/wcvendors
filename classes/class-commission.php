@@ -293,13 +293,13 @@ class WCV_Commission
 	 *
 	 * @return float
 	 */
-	public static function calculate_commission( $product_price, $product_id, $order )
+	public static function calculate_commission( $product_price, $product_id, $order, $qty )
 	{
 		$commission_rate = WCV_Commission::get_commission_rate( $product_id );
 		$commission      = $product_price * ( $commission_rate / 100 );
 		$commission      = round( $commission, 2 );
 
-		return apply_filters( 'wcv_commission_rate', $commission, $product_id, $product_price, $order );
+		return apply_filters( 'wcv_commission_rate', $commission, $product_id, $product_price, $order, $qty );
 	}
 
 

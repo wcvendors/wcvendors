@@ -88,13 +88,12 @@ class WCV_Vendors
 
 		foreach ( $order->get_items() as $key => $product ) {
 
-
 			$product_id 				= !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
 			$author     				= WCV_Vendors::get_vendor_from_product( $product_id );
 			$give_tax_override 			= get_user_meta( $author, 'wcv_give_vendor_tax', true ); 
 			$give_shipping_override 	= get_user_meta( $author, 'wcv_give_vendor_shipping', true ); 
 			$is_vendor  				= WCV_Vendors::is_vendor( $author );
-			$commission 				= $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
+			$commission 				= $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order, $product[ 'qty' ] ) : 0;
 			$tax        				= !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
 			
 			// Check if shipping is enabled

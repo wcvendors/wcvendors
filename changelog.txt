@@ -1,5 +1,18 @@
 Changelog for WC Vendors
 
+Version 1.8.7
+
+* Added: New qty argument to commission calculations
+* Added: Image uploader settings type
+* Added: New commission function for payment gateways
+* Fixed: Prefixed all btn css classes to stop theme collision
+* Fixed: Sold By:Name spaces issue #256
+* Fixed: Show extended fields for vendor and pending vendor roles
+* Fixed: Check if product is taxable
+* Fixed: Depreciated function calls in email templates
+* Fixed: Commission giving tax on none taxable items #251
+* Fixed: Sold by label issues with WC 2.5 #250
+
 Version 1.8.6 
 
 * Fixed: Critical issue with paypal loading classes incorrectly

@@ -196,6 +196,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 			if (is_admin() || $pagenow === 'wc_prd_vendor') { 
 				wp_register_script( 'bootstrap-tooltip', $this->assets_url . 'js/bootstrap-tooltip.js', array( 'jquery' ), '1.0' );
 				wp_register_script( 'select2', $this->assets_url . 'js/select2/select2.min.js', array( 'jquery' ), '3.5.2' );
+				wp_register_script( 'wcvendors-media', $this->assets_url . 'js/wcvendors-media.js', array( 'jquery' ), '1.0' );
 				wp_register_script( 'sf-scripts', $this->assets_url . 'js/sf-jquery.js', array( 'jquery' ), '1.0' );
 				wp_register_style( 'select2', $this->assets_url . 'js/select2/select2.css' );
 				wp_register_style( 'sf-styles', $this->assets_url . 'css/sf-styles.css' );
@@ -221,6 +222,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 			wp_enqueue_script( 'bootstrap-tooltip' );
 			wp_enqueue_script( 'select2' );
+			wp_enqueue_script( 'wcvendors-media' );
 			wp_enqueue_script( 'sf-scripts' );
 
 			wp_enqueue_style( 'wp-color-picker' );
@@ -824,6 +826,18 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 				wp_editor( $value, $id, array( 'textarea_name' => $name ) );
 				echo $description;
 				break;
+
+			case 'image': 
+				
+				if ( empty ( $value ) ) $value = $std; 
+
+				?>	
+				<img class="wcv-image-container-<?php echo $id; ?>" src="<?php echo $value; ?>" alt="" style="max-width:100%;" />
+				<br />
+	        	<input id="wcv-add-<?php echo $id; ?>" type="button" class="<?php echo $class; ?>" value="<?php echo sprintf( __( 'Update %s', 'wcvendors' ), strtolower( $title ) ); ?>" data-id="<?php echo $id; ?>" data-save_button="<?php echo sprintf( __( 'Add %s', 'wcvendors' ), $title ); ?>" data-window_title="<?php echo sprintf( __( 'Add %s', 'wcvendors' ), strtolower( $title ) ); ?>" data-upload_notice="<?php echo sprintf( __( 'Upload an image for the %s', 'wcvendors' ), strtolower( $title ) ); ?>" />
+				<input type="hidden" name="<?php echo $name; ?>" id="<?php echo $id; ?>" value="<?php echo $value; ?>">
+				<?php 
+				break; 
 
 			default :
 				do_action( $this->id . '_options_type_' . $type, $setting );

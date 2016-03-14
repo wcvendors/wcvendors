@@ -286,7 +286,7 @@ class WCV_Vendor_Shop
 		$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
       	$sold_by 		= WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
 
-        wc_add_order_item_meta( $item_id, apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by);
+        wc_add_order_item_meta( $item_id, apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by ); 
 	}
 
 }

@@ -27,6 +27,7 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 			add_filter( 'geczy_sanitize_checkbox', array( 'SF_Sanitize', 'sanitize_checkbox' ), 10, 2 );
 			add_filter( 'geczy_sanitize_radio', array( 'SF_Sanitize', 'sanitize_enum' ), 10, 2 );
 			add_filter( 'geczy_sanitize_select', array( 'SF_Sanitize', 'sanitize_enum' ), 10, 2 );
+			add_filter( 'geczy_sanitize_image', array( 'SF_Sanitize', 'sanitize_image_url' ), 10, 2 );
 			add_filter( 'geczy_sanitize_single_select_page', array( 'SF_Sanitize', 'sanitize_select_pages' ), 10, 2 );
 		}
 
@@ -151,6 +152,22 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 			$output = get_page( $input ) ? (int) $input : 0;
 
 			return $output;
+		}
+
+
+
+		/**
+		 * Image uploader
+		 *
+		 * @param url $input
+		 *
+		 * @return int
+		 */
+		public static function sanitize_image_url( $input, $option ) { 
+
+			$output = $input; 
+			return $output; 
+
 		}
 
 
