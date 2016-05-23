@@ -330,10 +330,13 @@ class WCV_Admin_Users
 	public function remove_menu_page()
 	{
 		global $pagenow,  $woocommerce;
+		
+		remove_all_actions( 'admin_notices' );
+		
+		if (WC_Vendors::$pv_options->get_option( 'restrict_dashboard' ) == false) return;
 
 		remove_menu_page( 'index.php' ); /* Hides Dashboard menu */
 		remove_menu_page( 'separator1' ); /* Hides separator under Dashboard menu*/
-		remove_all_actions( 'admin_notices' );
 
 		if ( $pagenow == 'index.php' ) {
 			wp_redirect( admin_url( 'profile.php' ) );
