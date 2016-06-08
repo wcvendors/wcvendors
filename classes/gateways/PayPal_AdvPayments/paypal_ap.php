@@ -29,6 +29,13 @@ class WC_PaypalAP extends WC_Payment_Gateway
 	public static $pluginDir;
 
 	/**
+	 * In chained mode?
+	 * @var bool
+	 * @requires Sole vendor per checkout
+	 */
+	public $is_chained = false;
+
+	/**
 	 *
 	 */
 	public function __construct()
@@ -65,6 +72,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		add_action( 'woocommerce_api_wc_paypalap', array( $this, 'paypal_ap_ipn' ) );
 
 		$this->debug_me = false;
+		$this->is_chained = apply_filters('wcv_is_chained', $this->is_chained);
 	}
 
 
@@ -299,22 +307,25 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$response = array(); 
 
 		// Process the payment and split as required  
-		if ( $this->instapay ) { 
-
+		if ( $this->instapay || $this->is_chained ) {
 			$receivers = WCV_Vendors::get_vendor_dues_from_order( $order );
 			$i        = 0;
+			if ( $this->is_chained && (count($receivers) > 2) ) {
+				$this->is_chained = false; // not sole vendor, revert to parallel
+			}
 			
 			foreach ( $receivers as $author => $values ) {
 				if ( empty( $values[ 'total' ] ) ) continue;
 
+				$is_main = ($values[ 'vendor_id' ] == 1);
+
 				$response[ $i ]            = new Receiver();
-				$response[ $i ]->email     = $values[ 'vendor_id' ] == 1 ? $this->main_paypal : WCV_Vendors::get_vendor_paypal( $values[ 'vendor_id' ] );
-				$response[ $i ]->amount    = round( $values[ 'total' ], 2);
-				$response[ $i ]->primary   = false;
+				$response[ $i ]->email     = $is_main ? $this->main_paypal : WCV_Vendors::get_vendor_paypal( $values[ 'vendor_id' ] );
+				$response[ $i ]->amount    = ($this->is_chained && !$is_main) ? $order->order_total : round( $values[ 'total' ], 2);
+				$response[ $i ]->primary   = ($this->is_chained && !$is_main);
 				$response[ $i ]->invoiceId = $order->id;
 				$i++;
 			}
-
 		} else { 
 			// Send all monies to the site admin
 			$single_receiver            = new Receiver();
@@ -322,7 +333,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			$single_receiver->amount    = $order->get_total(); 
 			$single_receiver->primary   = false;
 			$single_receiver->invoiceId = $order->id;
-			// Set a single reciever for the transaction 
+			// Set a single receiver for the transaction 
 			$response[] = $single_receiver; 
 		}
 
@@ -365,7 +376,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		//
 		// ------------------------------------------------------------------
 
-		$payRequest->feesPayer = 'EACHRECEIVER';
+		$payRequest->feesPayer = $this->is_chained ? 'PRIMARYRECEIVER' : 'EACHRECEIVER';
 
 		$args = array(
 			'wc-api'           	=> 'WC_PayPalAP',
