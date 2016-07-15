@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: WC-Vendors\n"
 "Report-Msgid-Bugs-To: Woocommerce <info@Woocommerce.com>\n"
 "POT-Creation-Date: 2015-02-18 22:58-0500\n"
-"PO-Revision-Date: 2015-02-18 23:55-0500\n"
+"PO-Revision-Date: 2016-03-14 17:44+0100\n"
 "Last-Translator: TWF <info@themes-wordpress-francais.com>\n"
 "Language-Team: TWF <info@themes-wordpress-francais.com>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
@@ -67,15 +67,15 @@ msgstr "Date"
 
 #: classes/admin/class-admin-page.php:294
 msgid "Mark paid"
-msgstr "Indiquer Payer"
+msgstr "Marquer payée"
 
 #: classes/admin/class-admin-page.php:295
 msgid "Mark due"
-msgstr "Indiquer A Payer"
+msgstr "Marquer à payer"
 
 #: classes/admin/class-admin-page.php:296
 msgid "Mark reversed"
-msgstr "Indiquer reverser"
+msgstr "Marquer reversée"
 
 #: classes/admin/class-admin-page.php:313 classes/admin/class-admin-page.php:317
 msgid "Filter"
@@ -180,7 +180,7 @@ msgstr "Pas encore de commission"
 
 #: classes/admin/class-admin-reports.php:228
 msgid "Show:"
-msgstr "Montrer:"
+msgstr "Montrer&nbsp;:"
 
 #: classes/admin/class-admin-reports.php:237
 msgid "Search for a product&hellip;"
@@ -209,11 +209,11 @@ msgstr "Livraison"
 
 #: classes/admin/class-admin-reports.php:342
 msgid "Reversed"
-msgstr "Reverser"
+msgstr "Reversée"
 
 #: classes/admin/class-admin-reports.php:343
 msgid "Paid"
-msgstr "Payer"
+msgstr "Payée"
 
 #: classes/admin/class-admin-users.php:359
 msgid "Enable HTML for the shop description"
@@ -229,7 +229,7 @@ msgstr "E-Mail Paypal"
 
 #: classes/admin/class-admin-users.php:373
 msgid "required"
-msgstr "required"
+msgstr "requis"
 
 #: classes/admin/class-admin-users.php:380
 msgid "Commission rate"
@@ -266,7 +266,7 @@ msgstr "Le vendeur a été <b>accepté</b>."
 
 #: classes/admin/class-vendor-applicants.php:96
 msgid "Pending Vendors"
-msgstr "Vendeur en attente"
+msgstr "Vendeurs en attente"
 
 #: classes/admin/emails/class-emails.php:55
 #: classes/admin/emails/class-wc-approve-vendor.php:70
@@ -284,7 +284,7 @@ msgstr "refusé"
 #: classes/admin/emails/class-emails.php:87 classes/front/class-vendor-cart.php:60
 #: classes/front/class-vendor-shop.php:178
 msgid "Sold by: "
-msgstr "Vendu par:"
+msgstr "Vendu par&nbsp;:"
 
 #: classes/admin/emails/class-wc-approve-vendor.php:28
 msgid "Vendor Application"
@@ -418,7 +418,7 @@ msgstr "[{blogname}] Nouveau produit soumis par {vendor_name} - {product_name}"
 
 #: classes/admin/emails/class-wc-notify-shipped.php:28
 msgid "Vendor has shipped"
-msgstr "Le vendeur à expédié"
+msgstr "Le vendeur a expédié"
 
 #: classes/admin/emails/class-wc-notify-shipped.php:29
 msgid "An email is sent when a vendor has marked one of their orders as shipped."
@@ -434,7 +434,7 @@ msgstr "[{blogname}] Votre commande ({order_number} du {order_date}) a été exp
 
 #: classes/admin/emails/class-wc-notify-shipped.php:112
 msgid "Subtotal:"
-msgstr "Sous-total:"
+msgstr "Sous-total&nbsp;:"
 
 #: classes/admin/emails/class-wc-notify-vendor.php:27
 msgid "Notify vendors"
@@ -454,11 +454,11 @@ msgstr "[{blogname}] Nouvelle Commande {order_number}) - {order_date}"
 
 #: classes/admin/emails/class-wc-notify-vendor.php:103
 msgid "Commission Subtotal:"
-msgstr "Sous-Total Commission :"
+msgstr "Sous-Total Commission&nbsp;:"
 
 #: classes/admin/emails/class-wc-notify-vendor.php:110
 msgid "Shipping Subtotal:"
-msgstr "Sous-total livraison:"
+msgstr "Sous-total livraison&nbsp;:"
 
 #: classes/admin/settings/classes/sf-class-format-options.php:211
 #: classes/admin/settings/classes/sf-class-settings.php:773
@@ -540,8 +540,8 @@ msgid ""
 "With this unchecked, all vendor applications are automatically accepted. Otherwise, you "
 "must approve each manually."
 msgstr ""
-"Avec cette cochée, toutes les actions de vendeurs sont automatiquement acceptés. Sinon, "
-"vous devez approuver chacune manuellement."
+"Avec cette case cochée, toutes les actions des vendeurs sont automatiquement acceptés. "
+"Sinon, vous devez les approuver chacune manuellement."
 
 #: classes/admin/settings/sf-options.php:37
 msgid "Taxes"
@@ -652,7 +652,7 @@ msgstr "Autorisations"
 
 #: classes/admin/settings/sf-options.php:137
 msgid "General permissions used around the shop"
-msgstr "Autorisations générales utiliséespour la boutique"
+msgstr "Autorisations générales utilisées pour la boutique"
 
 #: classes/admin/settings/sf-options.php:140 classes/class-install.php:205
 #: views/dashboard/orders.php:24
@@ -743,7 +743,7 @@ msgstr ""
 
 #: classes/admin/settings/sf-options.php:207
 msgid "Edit live products"
-msgstr "Editer produit en ligne"
+msgstr "Modifier les produits directement"
 
 #: classes/admin/settings/sf-options.php:208
 msgid ""
@@ -753,11 +753,11 @@ msgid ""
 msgstr ""
 "Les vendeurs peuvent modifier un produit approuvé après qu'il soit en ligne. Il n'y a pas "
 "d'approbation ou d'examen après la modification d'un produit vivant. Cela pourrait être "
-"dangereux avec les vendeurs malveillants. Soyez vigileant."
+"dangereux avec les vendeurs malveillants. Soyez vigilent."
 
 #: classes/admin/settings/sf-options.php:215
 msgid "Submit products live without requiring approval"
-msgstr "Soumettre Produits en ligne sans approbation"
+msgstr "Soumettre les produits directement sans approbation"
 
 #: classes/admin/settings/sf-options.php:216
 msgid ""
@@ -765,8 +765,7 @@ msgid ""
 "dangerous with malicious vendors, so take caution."
 msgstr ""
 "Les vendeurs peuvent soumettre produits sans révision ou l'approbation d'un administrateur "
-"de la boutique. Cela pourrait être dangereux avec les vendeurs malveillants. Soyez "
-"vigileant."
+"de la boutique. Cela pourrait être dangereux avec les vendeurs malveillants. Soyez vigilent."
 
 #: classes/admin/settings/sf-options.php:222
 msgid "Pages"
@@ -814,15 +813,15 @@ msgstr ""
 
 #: classes/admin/settings/sf-options.php:250
 msgid "Vendor terms"
-msgstr "Termes du vendeur"
+msgstr "Conditions de vente du vendeur"
 
 #: classes/admin/settings/sf-options.php:251
 msgid ""
 "These terms are shown to a user when submitting an application to become a vendor.<br/>If "
 "left blank, no terms will be shown to the applicant."
 msgstr ""
-"Ces termes sont présentés à l'utilisateur lors de la soumission d'une demande pour devenir "
-"un fournisseur. <br/> Si laissé vide, aucun terme seront affichés au demandeur."
+"Ces conditions sont présentés à l'utilisateur lors de la soumission d'une demande pour "
+"devenir un fournisseur. <br/> Si laissé vide, aucun terme seront affichés au demandeur."
 
 #: classes/admin/settings/sf-options.php:269
 msgid "Payments"
@@ -871,15 +870,15 @@ msgstr ""
 
 #: classes/admin/settings/sf-options.php:292
 msgid "Weekly"
-msgstr "Par semaine"
+msgstr "Toute les semaines"
 
 #: classes/admin/settings/sf-options.php:293
 msgid "Biweekly"
-msgstr "Par 2 semaines"
+msgstr "Tous les 15 jours"
 
 #: classes/admin/settings/sf-options.php:294
 msgid "Monthly"
-msgstr "Par mois"
+msgstr "Tous les mois"
 
 #: classes/admin/settings/sf-options.php:295
 msgid "Manual"
@@ -898,33 +897,33 @@ msgid ""
 "Send the WooCommerce admin an email each time a payment has been made via the payment "
 "schedule options above"
 msgstr ""
-"Envoyer a l'admin WooCommerce un email chaque fois qu'un paiement a été effectué via les "
-"options du calendrier de paiement ci-dessus"
+"Envoyer a l'administrateur WooCommerce un email chaque fois qu'un paiement a été effectué "
+"via les options du calendrier de paiement ci-dessus"
 
 #: classes/class-cron.php:87
 #, php-format
 msgid "Payment total: %s"
-msgstr "Total a payer: %s"
+msgstr "Total à payer&nbsp;: %s"
 
 #: classes/class-cron.php:148
 msgid "Once Weekly"
-msgstr "Chaque semaine"
+msgstr "Une fois par semaine"
 
 #: classes/class-cron.php:153
 msgid "Once every two weeks"
-msgstr "Aux 2 semaines"
+msgstr "Une fois tous les 15 jours"
 
 #: classes/class-cron.php:158
 msgid "Once a month"
-msgstr "Chaque mois"
+msgstr "Une fois par mois"
 
 #: classes/class-install.php:99 classes/class-install.php:253
 msgid "Pending Vendor"
-msgstr "Vendeur En Attente"
+msgstr "Vendeur en attente"
 
 #: classes/class-install.php:204
 msgid "Vendor Dashboard"
-msgstr "Tableau de bord Du vendeur"
+msgstr "Tableau de bord du vendeur"
 
 #: classes/class-install.php:206
 msgid "Shop Settings"
@@ -940,8 +939,8 @@ msgid ""
 "order as shipped and email the buyer again, potentially spamming them."
 msgstr ""
 "Commande envoyée.  <br><br>Attension:  Si vous rechargez la page la commande peut être "
-"marquée envoyée et le courriel pour le vendeur peut être envoyé une nouvelle fois, ceci "
-"peut être considéré comme du spam."
+"marquée comme envoyée et le courriel pour le vendeur peut être envoyé une nouvelle fois, "
+"ceci peut être considéré comme du spam."
 
 #: classes/front/dashboard/class-vendor-dashboard.php:53
 msgid ""
@@ -972,7 +971,7 @@ msgstr "Ce nom de la boutique est déjà pris. Votre nom de la boutique doit êt
 
 #: classes/front/orders/class-export-csv.php:37
 msgid "Extra data"
-msgstr "Extra data"
+msgstr "Données suplémentaires"
 
 #: classes/front/orders/class-export-csv.php:38 views/dashboard/reports.php:18
 #: views/emails/admin-new-order.php:23 views/emails/notify-vendor-shipped.php:23
@@ -984,7 +983,7 @@ msgid ""
 "You haven't selected a product's orders to view! Please go back to the Vendor Dashboard and "
 "click Show Orders on the product you'd like to view."
 msgstr ""
-"Vous n'avez pas choisi les commandes d'un produit a voir ! S'il vous plaît revenir au "
+"Vous n'avez pas choisi les commandes d'un produit a voir ! S'il vous plaît revenez au "
 "tableau de bord du vendeur et cliquez sur Afficher les commandes du produit que vous "
 "souhaitez consulter."
 
@@ -1088,7 +1087,7 @@ msgstr "Contrôle la description que voit l'utilisateur lors de la commande."
 
 #: classes/gateways/PayPal_AdvPayments/paypal_ap.php:161
 msgid "Pay via PayPal!"
-msgstr "Payer via Paypal!"
+msgstr "Payer via Paypal&nbsp;!"
 
 #: classes/gateways/PayPal_AdvPayments/paypal_ap.php:172
 msgid "Live Credentials"
@@ -1192,12 +1191,11 @@ msgstr "Erreur ID: %s. %s"
 
 #: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:115
 msgid "No vendors found to pay. Maybe they haven't set a PayPal address?"
-msgstr ""
-"Pas de vendeurs trouvés à payer. Peut-être qu'ils n'ont pas défini une adresse PayPal?"
+msgstr "Pas de vendeurs à payer. Peut-être qu'ils n'ont pas défini une adresse PayPal&nbsp;?"
 
 #: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:164
 msgid "All due commission has been paid for."
-msgstr "Toutes les commissions ont été payée."
+msgstr "Toutes les commissions ont été payées."
 
 #: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:170
 msgid ""
@@ -1206,18 +1204,18 @@ msgid ""
 "commission as paid from the Commissions page."
 msgstr ""
 "Toutes les commission ont été payé, mais je ne pouvais pas le faire disparaître de leurs "
-"profils en raison d'une erreur interne. Les commissions seront toujours listé comme a "
-"payer. S'il vous plaît marquer manuellement les commissions comme payés à la page des "
+"profils en raison d'une erreur interne. Les commissions seront toujours listé comme à "
+"payer. S'il vous plaît marquer manuellement les commissions comme payées à la page des "
 "commissions."
 
 #: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:205
 msgid "WooCommerce: Mass payments for vendors update"
-msgstr "WooCommerce: mise à jour des paiements groupés des vendeurs"
+msgstr "WooCommerce : mise à jour des paiements groupés des vendeurs"
 
 #: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:207
 msgid "Hello! A payment was just triggered to mass pay all vendors their due commission."
 msgstr ""
-"Bonjour! Un paiement a été déclenché pour payer tous les vendeurs leurs commissions dues."
+"Bonjour ! Un paiement a été déclenché pour payer à tous les vendeurs leurs commissions dues."
 
 #: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:208
 #, php-format
@@ -1240,7 +1238,7 @@ msgid ""
 "email telling you that your account is approved!"
 msgstr ""
 "Votre compte vendeur n'est pas encore approuvé. Quand il y sera, vous recevrez un email "
-"vous indiquant que votre compte est approuvé!"
+"vous indiquant que votre compte est approuvé !"
 
 #: views/dashboard/denied.php:12
 msgid ""
@@ -1248,7 +1246,7 @@ msgid ""
 "this page!"
 msgstr ""
 "Votre compte n'est pas configuré comme vendeur. <br />Si vous souhaitez vous inscrire, "
-"merci compléter cette page!"
+"merci compléter cette page !"
 
 #: views/dashboard/denied.php:53
 msgid "Submit"
@@ -1272,7 +1270,7 @@ msgstr "Soumettre un produit"
 
 #: views/dashboard/orders.php:7 views/dashboard/orders.php:10
 msgid "Hide items"
-msgstr "Masquer les items"
+msgstr "Masquer les articles"
 
 #: views/dashboard/orders.php:8 views/dashboard/orders.php:67
 msgid "View items"
@@ -1375,11 +1373,11 @@ msgstr "Détails client"
 
 #: views/emails/admin-new-order.php:53 views/emails/notify-vendor-shipped.php:53
 msgid "Email:"
-msgstr "Courriel:"
+msgstr "Courriel&nbsp;:"
 
 #: views/emails/admin-new-order.php:56 views/emails/notify-vendor-shipped.php:56
 msgid "Tel:"
-msgstr "Tél:"
+msgstr "Tél&nbsp;:"
 
 #: views/emails/application-status.php:5
 #, php-format
@@ -1414,7 +1412,7 @@ msgstr "Soumis par: %s"
 #: views/emails/new-product.php:10
 #, php-format
 msgid "Edit product: %s"
-msgstr "Editer produit: %s"
+msgstr "Modifier le produit: %s"
 
 #: views/emails/notify-vendor-shipped.php:13
 msgid ""
@@ -1422,7 +1420,7 @@ msgid ""
 "follows:"
 msgstr ""
 "Un vendeur a marqué une partie de votre commande comme envoyée. Les articles envoyés sont "
-"les suivants:"
+"les suivants&nbsp;:"
 
 #: views/orders/comments/add-new-comment.php:11
 msgid "Add comment"
@@ -1460,23 +1458,23 @@ msgstr "Fournisseur personnalisé"
 
 #: views/orders/shipping/shipping-form.php:68
 msgid "Provider Name:"
-msgstr "Nom du fournisseur:"
+msgstr "Nom du fournisseur&nbsp;:"
 
 #: views/orders/shipping/shipping-form.php:76
 msgid "Tracking number:"
-msgstr "Numéro de suivi:"
+msgstr "Numéro de suivi&nbsp;:"
 
 #: views/orders/shipping/shipping-form.php:84
 msgid "Tracking link:"
-msgstr "Lien de suivi:"
+msgstr "Lien de suivi&nbsp;:"
 
 #: views/orders/shipping/shipping-form.php:93
 msgid "Date shipped:"
-msgstr "Date de l'expédition:"
+msgstr "Date de l'expédition&nbsp;:"
 
 #: views/orders/shipping/shipping-form.php:101
 msgid "Preview:"
-msgstr "Aperçu:"
+msgstr "Aperçu&nbsp;:"
 
 #: views/orders/shipping/shipping-form.php:101
 msgid "Click here to track your shipment"
@@ -1493,7 +1491,7 @@ msgstr "Marquer comme envoyé"
 #: views/orders/table-body.php:25
 #, php-format
 msgid "Quantity: %d"
-msgstr "Quantité: %d"
+msgstr "Quantité&nbsp;: %d"
 
 #~ msgid "Product Vendor"
 #~ msgstr "Product Vendor"

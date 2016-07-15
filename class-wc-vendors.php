@@ -50,6 +50,52 @@ require_once trailingslashit( dirname( __FILE__ ) ) . 'classes/includes/class-fu
  */
 if ( wcv_is_woocommerce_activated() ) {
 
+
+
+	add_action( 'manage_shop_order_posts_custom_column', 'manage_commissions_column_content', 10, 2 );
+	add_filter( 'manage_edit-shop_order_columns', 'add_commissions_column_head', 10 );
+	function add_commissions_column_head($columns) {
+
+		if (array_key_exists('order_total', $columns)) {
+			$pos = array_search('order_total', array_keys($columns));
+			$columns = array_merge(
+        array_slice($columns, 0, $pos+1),
+        array('commissions' => __('Commissions', 'wcvendors')),
+        array_slice($columns, $pos+1)
+      );
+		} else {
+			$columns['commissions'] = __('Commissions', 'wcvendors');
+		}
+
+	  return $columns;
+	}
+	function manage_commissions_column_content( $column, $order_id )	{
+		if ('commissions' == $column) {
+			$order = new WC_Order( $order_id );
+			$dues  = WCV_Vendors::get_vendor_dues_from_order( $order, false );
+			foreach ( $dues as $vendor_id => $details ) {/*
+				$commission = 0;
+				$shipping = 0;
+				$tax = 0;*/
+				$total = 0;
+				foreach ($details as $value) {/*
+					$commission += $value['commission'];
+					$shipping += $value['shipping'];
+					$tax += $value['tax'];*/
+					$total += $value['total'];
+				}
+				echo sprintf("%01.2f&nbsp;€ ", $total);
+
+				$vendor = get_user_by('id', $vendor_id);
+				echo __('for', 'wcvendors').' <a href="/wp-admin/user-edit.php?user_id='.$vendor_id.'">'.$vendor->display_name.'</a>';
+				echo '<br />';
+			}
+		}
+	}
+
+
+
+
 	/* Define an absolute path to our plugin directory. */
 	if ( !defined( 'wcv_plugin_dir' ) ) 		define( 'wcv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . '/' );
 	if ( !defined( 'wcv_assets_url' ) ) 		define( 'wcv_assets_url', trailingslashit( plugins_url( 'assets', __FILE__ ) ) );
