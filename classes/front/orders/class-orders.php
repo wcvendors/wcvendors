@@ -20,6 +20,7 @@ class WCV_Orders
 		$this->can_view_orders = WC_Vendors::$pv_options->get_option( 'can_show_orders' );
 		$this->can_export_csv  = WC_Vendors::$pv_options->get_option( 'can_export_csv' );
 		$this->can_view_emails = WC_Vendors::$pv_options->get_option( 'can_view_order_emails' );
+		$this->can_view_phone = WC_Vendors::$pv_options->get_option( 'can_view_order_phone' );
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );
 		// add_action( 'template_redirect', array( $this, 'display_product_orders' ) );
@@ -215,12 +216,16 @@ class WCV_Orders
 			'city'    => __( 'City', 'wcvendors' ),
 			'state'   => __( 'State', 'wcvendors' ),
 			'zip'     => __( 'Zip', 'wcvendors' ),
-			'email'   => __( 'Email address', 'wcvendors' ),
+			'email'   => __( 'Email Address', 'wcvendors' ),
+			'phone'   => __( 'Phone Number' , 'wcvendors' ),
 			'date'    => __( 'Date', 'wcvendors' ),
 		);
 
 		if ( !$this->can_view_emails ) {
 			unset( $headers[ 'email' ] );
+		}
+		if ( !$this->can_view_phone ) {
+			unset( $headers[ 'phone' ] );
 		}
 
 		return $headers;
@@ -252,12 +257,16 @@ class WCV_Orders
 				'state'        => $order->shipping_state,
 				'zip'          => $order->shipping_postcode,
 				'email'        => $order->billing_email,
+				'phone'        => $order->billing_phone,
 				'date'         => $order->order_date,
 				'comments'     => wptexturize( $order->customer_note ),
 			);
 
 			if ( !$this->can_view_emails ) {
 				unset( $body[ $i ][ 'email' ] );
+			}
+			if ( !$this->can_view_phone ) {
+				unset( $body[ $i ][ 'phone' ] );
 			}
 
 			$items[ $i ][ 'total_qty' ] = 0;
