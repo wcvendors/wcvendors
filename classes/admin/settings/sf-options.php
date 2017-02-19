@@ -226,6 +226,14 @@ $options[ ] = array(
 );
 
 $options[ ] = array(
+	'desc' => __( 'View phone numbers', 'wcvendors' ),
+	'tip'  => __( 'While viewing order details on the frontend, you can disable or enable phone numbers', 'wcvendors' ),
+	'id'   => 'can_view_order_phone',
+	'type' => 'checkbox',
+	'std'  => false,
+);
+
+$options[ ] = array(
 	'desc' => __( 'Export a CSV file of orders for a product', 'wcvendors' ),
 	'tip'  => __( 'Vendors could export orders for a product on the frontend', 'wcvendors' ),
 	'id'   => 'can_export_csv',
