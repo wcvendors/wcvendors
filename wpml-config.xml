@@ -69,6 +69,8 @@
       <key name="commission_amount"/>
       <key name="commission_fee"/>
       <key name="sold_by"/>
+	  <!-- kas5986 - shop location map modify  -->
+      <key name="vendor_shop_google_api"/>
     </key>
   </admin-texts>
 </wpml-config>

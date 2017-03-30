@@ -25,6 +25,15 @@
 	</td>
 	</tr>
 	<?php do_action( 'wcvendors_settings_after_shop_name' ); ?>
+	<!-- Kas5986 store location modify - start -->
+	<tr>
+	<th><?php _e( 'Shop Location', 'wcvendors' ); ?></th>
+	<td><input type="text" name="pv_shop_location" id="pv_shop_location" placeholder="Latitude,Longitude" value="<?php echo get_user_meta( $user_id, 'pv_shop_location', true ); ?>"/>
+		<p class="description"><?php _e( 'Paste your store location comma saperated "Latitude, Longitude" in this  field.', 'wcvendors' ); ?></p>
+	</td>
+	</tr>
+	<?php do_action( 'wcvendors_settings_after_shop_location' ); ?>
+	<!-- kas5986 store location modify - end -->
 
 	<tr>
 	<th><?php echo apply_filters( 'wcvendors_seller_info_label', __( 'Seller info', 'wcvendors' ) ); ?></th>

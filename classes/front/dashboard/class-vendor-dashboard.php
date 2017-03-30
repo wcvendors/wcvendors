@@ -125,6 +125,11 @@ class WCV_Vendor_Dashboard
 				}
 			}
 
+			//kas5986 - shop location modify 
+			if ( isset( $_POST[ 'pv_shop_location' ] ) ) {
+				update_user_meta( $user_id, 'pv_shop_location', $_POST[ 'pv_shop_location' ] );
+			}
+
 			if ( isset( $_POST[ 'pv_shop_description' ] ) ) {
 				update_user_meta( $user_id, 'pv_shop_description', $_POST[ 'pv_shop_description' ] );
 			}

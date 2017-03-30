@@ -224,6 +224,9 @@ class WCV_Vendor_Shop
 			$vendor_shop 		= urldecode( get_query_var( 'vendor_shop' ) );
 			$vendor_id   		= WCV_Vendors::get_vendor_id( $vendor_shop ); 
 			$shop_name 			=  get_user_meta( $vendor_id, 'pv_shop_name', true );
+			
+			//kas5986 - shop location modify
+			$shop_location 			=  get_user_meta( $vendor_id, 'pv_shop_location', true );
 
 			// Shop description 
 			$has_html    		= get_user_meta( $vendor_id, 'pv_shop_html_enabled', true );
@@ -242,6 +245,8 @@ class WCV_Vendor_Shop
 													'vendor'			=> $vendor,
 													'vendor_id' 		=> $vendor_id, 
 													'shop_name'			=> $shop_name, 
+													//kas5986 - shop location modify 
+													'shop_location'			=> $shop_location, 
 													'shop_description'	=> $shop_description, 
 													'seller_info'		=> $seller_info, 
 													'vendor_email'		=> $vendor_email,
@@ -267,6 +272,8 @@ class WCV_Vendor_Shop
 			$vendor_id   		= $product->post->post_author;
 			$vendor_shop_link 	= site_url( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) .'/' .$vendor->pv_shop_slug ); 
 			$shop_name 			= get_user_meta( $vendor_id, 'pv_shop_name', true );
+			//kas5986 - shop location modify  
+			$shop_location 			= get_user_meta( $vendor_id, 'pv_shop_location', true );
 			$has_html    		= $vendor->pv_shop_html_enabled;
 			$global_html 		= WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 			$description 		= do_shortcode( $vendor->pv_shop_description );
@@ -282,9 +289,13 @@ class WCV_Vendor_Shop
 													'vendor_id'			=> $vendor_id,
 													'vendor_shop_link' 	=> $vendor_shop_link, 
 													'shop_name'			=> $vendor->pv_shop_name, 
+													//kas5986 - shop  location modify 
+													'shop_location'			=> $vendor->pv_shop_location, 
 													'shop_description'	=> $shop_description, 
 													'seller_info'		=> $seller_info, 
 													'shop_name'			=> $shop_name,
+													//kas5986 - shop location modify 
+													'shop_location'			=> $shop_location,
 													'vendor_email'		=> $vendor_email,
 													'vendor_login'		=> $vendor_login,
 											   ), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/' );

@@ -20,6 +20,13 @@
 											   ), 'wc-vendors/dashboard/settings/', wcv_plugin_dir . 'templates/dashboard/settings/' );
 
 	do_action( 'wcvendors_settings_after_shop_name' );
+	
+	//kas5986 - shop location modify
+	wc_get_template( 'location_map.php', array(
+													'user_id' => $user_id,
+											   ), 'wc-vendors/dashboard/settings/', wcv_plugin_dir . 'templates/dashboard/settings/' );
+
+	do_action( 'wcvendors_settings_after_shop_location' );
 
 	wc_get_template( 'seller-info.php', array(
 													  'global_html' => $global_html,
