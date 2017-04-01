@@ -1,9 +1,11 @@
 <!-- added by kas5986 for shop locations ..3/30/2017 -->
-
 <?php 
-//kas5986 - shop location modify ... you can move this to right place i was not understanding what is right place for it.
+/**
+ * kas5986 - shop location modify...
+ * Google map api - not getting any idea where to put this to show on both dashboard 
+ * and shop page you can move this to  right place for now just to test is it working 
+ */
 wp_enqueue_script( 'google_map', 'https://maps.googleapis.com/maps/api/js?key='.WC_Vendors::$pv_options->get_option('vendor_shop_google_api').'&libraries=places&callback=initMap', array('jquery') );
-
 ?>
 
 
