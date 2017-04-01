@@ -4,7 +4,7 @@
 *   $shop_name : pv_shop_name
 *   $shop_description : pv_shop_description (completely sanitized)
 *   $shop_link : the vendor shop link 
-*   $shop_location : pv_shop_name - modified by kas5986
+*   $shop_location : pv_shop_location - modified by kas5986
 *   $vendor_id  : current vendor id for customization 
 */
 ?>
