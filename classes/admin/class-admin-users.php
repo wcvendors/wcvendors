@@ -355,6 +355,9 @@ class WCV_Admin_Users
 			update_user_meta( $vendor_id, 'pv_shop_name', $_POST[ 'pv_shop_name' ] );
 			update_user_meta( $vendor_id, 'pv_shop_slug', sanitize_title( $_POST[ 'pv_shop_name' ] ) );
 		}
+		
+		// kas5986 shop location lat,long field
+		update_user_meta( $vendor_id, 'pv_shop_location', $_POST[ 'pv_shop_location' ] );
 
 		update_user_meta( $vendor_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
 		update_user_meta( $vendor_id, 'pv_shop_html_enabled', isset( $_POST[ 'pv_shop_html_enabled' ] ) );
@@ -403,6 +406,16 @@ class WCV_Admin_Users
 				</td>
 			</tr>
 			<?php do_action( 'wcvendors_admin_after_shop_name', $user ); ?>
+			<!-- Kas5986 store location modify - start -->
+			<tr>
+				<th><label for="pv_shop_location"><?php _e( 'Shop Location', 'wcvendors' ); ?></label></th>
+				<td><input type="text" name="pv_shop_location" id="pv_shop_location"
+						   value="<?php echo get_user_meta( $user->ID, 'pv_shop_location', true ); ?>" class="regular-text">
+						   <p class="description"><?php _e( 'Paste your store location comma saperated "Latitude, Longitude" in this  field.', 'wcvendors' ); ?></p>
+				</td>
+			</tr>
+			<?php do_action( 'wcvendors_settings_after_shop_location',$user ); ?>
+			<!-- kas5986 store location modify - end -->
 			<tr>
 				<th><label for="pv_paypal"><?php _e( 'PayPal E-mail', 'wcvendors' ); ?> <span
 							class="description">(<?php _e( 'required', 'wcvendors' ); ?>)</span></label></th>

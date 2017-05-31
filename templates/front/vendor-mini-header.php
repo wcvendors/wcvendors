@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 *   $vendor : 			For pulling additional user details from vendor account.  This is an array.
 *   $vendor_id  : 		current vendor user id number
 *   $shop_name : 		Store/Shop Name (From Vendor Dashboard Shop Settings)
+*   $shop_location : 	shop locaiton map lat,long - modified by kas5986
 *   $shop_description : Shop Description (completely sanitized) (From Vendor Dashboard Shop Settings)
 *   $seller_info : 		Seller Info(From Vendor Dashboard Shop Settings)
 *	$vendor_email :		Vendors email address

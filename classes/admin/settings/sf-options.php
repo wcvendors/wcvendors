@@ -75,6 +75,17 @@ $options[ ] = array(
 	'std'  => 'vendors/',
 );
 
+//kas5986 - shop location modify
+$options[ ] = array(
+	'name' => __( 'Google Map API', 'wcvendors' ),
+	'desc' => __( '<a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">API Key</a>  is needed to display map on store page', 'wcvendors' ),
+	'id'   => 'vendor_shop_google_api',
+	'type' => 'text',
+	'std'  => '',
+);
+
+
+
 $options[ ] = array(
 	'name' => __( 'Shop Headers', 'wcvendors' ),
 	'desc' => __( 'Enable vendor shop headers', 'wcvendors' ),
