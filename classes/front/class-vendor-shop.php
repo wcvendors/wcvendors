@@ -231,6 +231,7 @@ class WCV_Vendor_Shop
 			$description 		= do_shortcode( get_user_meta( $vendor_id, 'pv_shop_description', true ) );
 			$shop_description 	= ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
 			$seller_info 		= ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );
+      $shop_video = do_shortcode( get_user_meta( $vendor_id, 'pv_seller_video', true ) );
 			$vendor				= get_userdata( $vendor_id );
 			$vendor_email		= $vendor->user_email;
 			$vendor_login		= $vendor->user_login;
@@ -243,7 +244,8 @@ class WCV_Vendor_Shop
 													'vendor_id' 		=> $vendor_id, 
 													'shop_name'			=> $shop_name, 
 													'shop_description'	=> $shop_description, 
-													'seller_info'		=> $seller_info, 
+													'seller_info'		=> $seller_info,
+                          'shop_video'		=> $shop_video, 
 													'vendor_email'		=> $vendor_email,
 													'vendor_login'		=> $vendor_login,
 											   ), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/' );
@@ -272,6 +274,7 @@ class WCV_Vendor_Shop
 			$description 		= do_shortcode( $vendor->pv_shop_description );
 			$shop_description 	= ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
 			$seller_info 		= ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );
+      $shop_video = do_shortcode( get_user_meta( $vendor_id, 'pv_seller_video', true ) );
 			$vendor_email		= $vendor->user_email;
 			$vendor_login		= $vendor->user_login;
 			
@@ -285,6 +288,7 @@ class WCV_Vendor_Shop
 													'shop_description'	=> $shop_description, 
 													'seller_info'		=> $seller_info, 
 													'shop_name'			=> $shop_name,
+                          'shop_video'		=> $shop_video,
 													'vendor_email'		=> $vendor_email,
 													'vendor_login'		=> $vendor_login,
 											   ), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/' );
