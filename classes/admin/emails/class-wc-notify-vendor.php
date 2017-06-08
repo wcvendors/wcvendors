@@ -195,8 +195,9 @@ class WC_Email_Notify_Vendor extends WC_Email
 					if ( 'yes' == $settings[ 'commission_display' ] ){ 
 
 						$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id(); 
-
-						$commission_due = WCV_Commission::get_commission_due( $order_id, $product[ 'product_id' ], $author );
+						//Check if it's variation - bug fix
+						empty($product[ 'variation_id' ]) ? $product_id=$product[ 'product_id' ] : $product_id=$product[ 'variation_id' ];
+						$commission_due = WCV_Commission::get_commission_due( $order_id, $product_id, $author );
 
 						$items[ $key ][ 'line_subtotal' ] = $commission_due;
 						$items[ $key ][ 'line_total' ]    = $commission_due;
