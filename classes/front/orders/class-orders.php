@@ -280,7 +280,7 @@ class WCV_Orders
 
 		foreach ( $orders as $i => $order ) {
 			$i          		= $order->order_id;
-			$order      		= new WC_Order ( $i );
+			$order      		= wc_get_order( $i );
 			$order_date 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created(); 
 
 			$shipping_first_name = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_first_name 	: $order->get_shipping_first_name(); 

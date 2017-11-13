@@ -112,7 +112,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 
 		$order_id = (int) $_GET[ 'order_id' ];
 
-		$order = new WC_Order( $order_id );
+		$order = wc_get_order( $order_id );
 		if ( !$order ) return false;
 
 		if ( $_POST[ 'status' ] !== 'COMPLETED' ) {
@@ -349,7 +349,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 
 		$this->include_paypal_sdk();
 		$this->logger 	= new PPLoggingManager( 'Pay' );
-		$order        	= new WC_Order( $order_id );
+		$order        	= wc_get_order( $order_id );
 		$order_id 	  	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();  	
 		$order_key 	  	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_key : $order->get_order_key();  
 		$customer_note 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->customer_note : $order->get_customer_note(); 	
@@ -478,7 +478,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		global $woocommerce;
 
 		$this->include_paypal_sdk();
-		$order = new WC_Order( $order_id );
+		$order = wc_get_order( $order_id );
 
 		// Create request
 		$setPaymentOptionsRequest         = new SetPaymentOptionsRequest( new RequestEnvelope( "en_US" ) );
@@ -540,7 +540,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 	{
 		global $woocommerce;
 
-		$order   = new WC_Order( $order_id );
+		$order   = wc_get_order( $order_id );
 		$pay_key = $this->paypalap_check_form( $order_id );
 
 		if ( !empty( $woocommerce->errors ) ) return false;

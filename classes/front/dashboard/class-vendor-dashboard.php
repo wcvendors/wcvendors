@@ -71,7 +71,7 @@ class WCV_Vendor_Dashboard
 			$tracking_number          = wc_clean( $_POST[ 'tracking_number' ] );
 			$date_shipped             = wc_clean( strtotime( $_POST[ 'date_shipped' ] ) );
 
-			$order    = new WC_Order( $order_id );
+			$order    = wc_get_order( $order_id );
 			$products = $order->get_items();
 			foreach ( $products as $key => $value ) {
 				if ( $value[ 'product_id' ] == $product_id || $value[ 'variation_id' ] == $product_id ) {

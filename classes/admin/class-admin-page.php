@@ -374,8 +374,8 @@ class WCV_Admin_Page extends WP_List_Table
 				}
                 return '<a href="' . admin_url( 'post.php?post=' . $product_id . '&action=edit' ) . '">' . get_the_title( $product_id ) . '</a> (<span title="' . get_the_title( $product_id ) .' has sold ' . $wcv_total_sales . ' times total.">' . $wcv_total_sales  . '</span>)';
 			case 'order_id' :
-				if ( get_post_status( $item->order_id) ){ 
-					$order 	= new WC_Order( $item->order_id ); 
+				$order = wc_get_order( $item->order_id );
+				if ( $order ) {
 					return '<a href="' . admin_url( 'post.php?post=' . $item->order_id . '&action=edit' ) . '">' . $order->get_order_number() . '</a>';
 				} else { 
 					return $item->order_id; 

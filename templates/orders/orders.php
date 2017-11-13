@@ -73,7 +73,7 @@
 				$comments = array();
 
 				if ( $can_view_comments ) {
-					$order    = new WC_Order( $order_id );
+					$order    = wc_get_order( $order_id );
 					$comments = $order->get_customer_order_notes();
 				}
 				?>
