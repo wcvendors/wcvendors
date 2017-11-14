@@ -510,8 +510,8 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$this->logger->error( "Received SetPaymentOptionsResponse:" );
 		$ack = strtoupper( $response->responseEnvelope->ack );
 		if ( $ack != "SUCCESS" ) {
-			$order->update_status( 'cancelled', sprintf( __( 'Error ID: %s. %s', $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'wcvendors' ) );
-			wc_add_notice( sprintf( 'Error ID: %s. %s', $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'error' );
+			$order->update_status( 'cancelled', sprintf( __( 'Error ID: %d. %s', 'wcvendors'), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ) );
+			wc_add_notice( sprintf( __( 'Error ID: %d. %s', 'wcvendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'error' );
 
 			return false;
 		}
