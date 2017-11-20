@@ -467,7 +467,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 			foreach ( $_orders as $order ) {
 
-				$order 			= new WC_Order( $order->order_id );
+				$order 			= wc_get_order( $order->order_id );
 				$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();  	
 				$valid_items 	= WCV_Queries::get_products_for_order( $order_id );
 				$valid 			= array();

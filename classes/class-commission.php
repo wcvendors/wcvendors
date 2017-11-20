@@ -112,7 +112,7 @@ class WCV_Commission
 	{
 		global $woocommerce;
 
-		$order = new WC_Order( $order_id );
+		$order = wc_get_order( $order_id );
 		$dues  = WCV_Vendors::get_vendor_dues_from_order( $order, false );
 
 		foreach ( $dues as $vendor_id => $details ) {

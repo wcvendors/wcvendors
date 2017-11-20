@@ -36,7 +36,7 @@ class WCV_Export_CSV
 	        // Remove order to redo
 	        unset( $body[ $i ] );  
 
-	        $order = new WC_Order( $i );
+	        $order = wc_get_order( $i );
 
 			foreach ( $items[ $i ][ 'items' ] as $item ) {
 

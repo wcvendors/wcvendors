@@ -139,7 +139,7 @@ msgstr ""
 
 #: classes/admin/class-admin-page.php:186
 msgid "Select a Vendor"
-msgstr "Se"
+msgstr "Selecione um Vendedor"
 
 #: classes/admin/class-admin-page.php:378,
 #: classes/admin/class-admin-reports.php:177,

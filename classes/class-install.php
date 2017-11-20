@@ -230,7 +230,7 @@ class WCV_Install
 				$results = $wpdb->get_results( $sql );
 				foreach ( $results as $key => $value ) {
 
-					$order = new WC_Order( $value->order_id );
+					$order = wc_get_order( $value->order_id );
 
 					foreach ( $order->get_items() as $o_key => $o_value ) {
 

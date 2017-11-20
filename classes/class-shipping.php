@@ -111,7 +111,7 @@ class WCV_Shipping
 		$settings = get_option( 'woocommerce_per_product_settings' ); 
 		$taxable = $settings['tax_status']; 
 
-		$order = new WC_Order( $order_id );
+		$order = wc_get_order( $order_id );
 
 		$shipping_country 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_country 	: $order->get_shipping_country();
 		$shipping_state 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_state 	: $order->get_shipping_state();
@@ -313,7 +313,7 @@ class WCV_Shipping
 			return false;
 		}
 
-		$order = new WC_Order( $order_id );
+		$order = wc_get_order( $order_id );
 
 		foreach ( $woocommerce->session->trs2_shipping_rates as $key => $shipping_rates ) {
 

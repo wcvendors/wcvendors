@@ -50,7 +50,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 	 */
 	function trigger( $order_id, $vendor_id )
 	{
-		$this->object = new WC_Order( $order_id );
+		$this->object = wc_get_order( $order_id );
 		$this->current_vendor = $vendor_id;
 		$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->order_date : $this->object->get_date_created(); 
 

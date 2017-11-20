@@ -44,7 +44,7 @@ class WCV_Submit_Comment
 		}
 
 		// Only submit if the order has the product belonging to this vendor
-		$found_order = new WC_Order ( $found_order->order_id );
+		$found_order = wc_get_order( $found_order->order_id );
 		$valid_order = false;
 		foreach ( $found_order->get_items() as $item ) {
 			if ( $item[ 'product_id' ] == $product_id ) {
