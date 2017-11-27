@@ -21,6 +21,8 @@ class WCV_Emails
 	{
 		add_filter( 'woocommerce_email_classes', array( $this, 'check_items' ) );
 		add_filter( 'woocommerce_resend_order_emails_available', array( $this, 'order_action' ) );
+		add_filter( 'woocommerce_order_actions', array( $this, 'order_actions' ) ); 
+		add_action( 'woocommerce_order_action_send_vvendor_new_order', array( $this, 'order_actions_save') ); 
 		add_filter( 'woocommerce_order_product_title', array( 'WCV_Emails', 'show_vendor_in_email' ), 10, 2 );
 		add_action( 'set_user_role', array( $this, 'application_status_email' ), 10, 2 );
 		add_action( 'transition_post_status', array( $this, 'trigger_new_product' ), 10, 3 );
@@ -100,11 +102,12 @@ class WCV_Emails
 	 * @param unknown $available_emails
 	 *
 	 * @return unknown
+	 * @deprecriated v1.9.13
 	 */
 	public function order_action( $available_emails )
 	{
-		$available_emails[ ] = 'vendor_new_order';
 
+		$available_emails[ ] = 'vendor_new_order';
 		return $available_emails;
 	}
 
@@ -146,6 +149,25 @@ class WCV_Emails
 		}
 
 		return $emails; 
+
+	}
+
+	/**
+	*	Filter hook for order actions meta box 
+	*
+	*/ 
+	public function order_actions( $order_actions ){ 
+		$order_actions[ 'send_vvendor_new_order' ] = __( 'Resend vendor new order notification', 'wcvendors' ); 
+		return $order_actions; 
+	}
+
+	/** 
+	* 	Action hook : trigger the notify vendor email 
+	*
+	*/ 
+	public function order_actions_save( $order ){ 
+
+		WC()->mailer()->emails[ 'WC_Email_Notify_Vendor' ]->trigger( $order->get_id(), $order );
 
 	}
 
