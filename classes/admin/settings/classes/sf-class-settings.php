@@ -440,7 +440,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		{
 			?>
 			<div class="wrap">
-			<?php screen_icon(); ?><h2><?php echo $this->title; ?></h2>
+			<h2><?php echo $this->title; ?></h2>
 
 			<h2 class="nav-tab-wrapper">
 			<?php echo $this->display_tabs(); ?>
