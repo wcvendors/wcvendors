@@ -1,6 +1,6 @@
 ## WC Vendors 
 
-https://www.WCVendors.com/
+https://www.wcvendors.com/
 
 Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
 	
@@ -44,4 +44,4 @@ Features to be added include:
 
 ## Contact us
 
-Drop by and say hello!  https://www.WCVendors.com/
+Drop by and say hello!  https://www.wcvendors.com/

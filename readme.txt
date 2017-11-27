@@ -16,6 +16,11 @@ Create your own marketplace and allow vendors to sell just like etsy, Envato, eB
 
 This plugin has been around since 2011 and remains still the #1 multi vendor plugin on the market.  It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.  Many have tried to imitate, only to put all the useful features in their paid versions.  Don't fall for that trick!  We are an American (Ben & Anna) and Australian (Jamie) based team of developers, and this plugin is all we do.  Give it a try!  After all, the price is right and we're here when you need us.
 
+== Announcements == 
+
+* WC Vendors version 2 developement has begun. 
+* PayPal has depreciated Adaptive Payments as of September 1st 2017. This will soon cease to function. We are currently working on a new extension to allow scheduled payments but there is no solution for instant payments with PayPal moving forward at this time
+
 = Features =
 * ALL FEATURES LISTED HERE ARE INCLUDED IN THE FREE PLUGIN!
 * Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/">Stripe</a>. NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement. 
@@ -94,17 +99,17 @@ We currently ship WC Vendors free with the following language translations. If y
 
 = What version of WooCommerce do you support ? =
 
-The latest version of WooCommerce.  We don't provide support for old versions of WooCommerce.  Whatever version is current, WC Vendors will work with.  If you have an old version of WooCommerce, this probably will work still, but we won't guarantee it. :-)
+We require a minimum of WooCommerce 3.0 to work. Any version prior to this will not work. We encourage you to be running the latest WordPress and WooCommerce at all times. 
 
 = What version of php has been tested ? =
 
-PHP 5.4 and above is required.  Tested all the way to the latest PHP 7!
+PHP 5.6 and above is required.  Tested all the way to the latest PHP 7!
 
 = Where do I get help ? =
 
 You can post a support question on the support tab - https://wordpress.org/support/plugin/wc-vendors
 
-Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/ and Docs http://docs.wcvendors.com/
+Also be sure to visit our documentation http://docs.wcvendors.com/
 
 == Screenshots ==
 
