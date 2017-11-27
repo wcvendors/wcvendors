@@ -1,5 +1,25 @@
 Changelog for WC Vendors
 
+Version 1.9.13
+
+* Added: Notice for depreciated gateway
+* Added: A filter for role change: Denied Vendor #351
+* Added: WooCommerce tested header for new WooCommerce Status page
+* Added: Filter for vendor signup form so it can be overriden
+* Added: "Approve" Vendor action on Pending Vendors Page #372
+* Updated: Brazillian Port wcvendors-pt_BR.po
+* Fixed: Re-Send email options in admin/orders are not available after WooCommerce update #383
+* Fixed: depreciated screen_icon method call
+* Fixed: Use wc_get_order instead of new WC_Order #382
+* Fixed: Post called incorrectly #378
+* Fixed: Get correct product name in commission table if variation deleted
+* Fixed: Commissions reversed when order deleted
+* Fixed: mistake in vendor_shop_query
+* Fixed: Return 404 if vendor doesn't exist
+* Fixed: The shop name background doesn’t scale with shop image #366
+* Fixed: Depreciated functions #368 thanks @stodorovic
+* Fixed: Changed how customer address is displayed based on Woo Options. Thanks @debain
+
 Version 1.9.12 
 
 * Added: For hook for vendor order content

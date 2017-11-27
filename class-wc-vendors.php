@@ -1,18 +1,18 @@
 <?php
 
 /**
- * Plugin Name:         WC Vendors
- * Plugin URI:          https://www.wcvendors.com
- * Description:         Allow vendors to sell their own products and receive a commission for each sale. 
- * Author:              WC Vendors
- * Author URI:          https://www.wcvendors.com
- * GitHub Plugin URI:   https://github.com/wcvendors/wcvendors
+ * Plugin Name:          WC Vendors
+ * Plugin URI:           https://www.wcvendors.com
+ * Description:          Allow vendors to sell their own products and receive a commission for each sale. 
+ * Author:               WC Vendors
+ * Author URI:           https://www.wcvendors.com
+ * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:             1.9.12
- * Requires at least:   4.4.0
- * Tested up to:        4.8.0
+ * Version:              1.9.13
+ * Requires at least:    4.4.0
+ * Tested up to:         4.9.0
  * WC requires at least: 3.0.0
- * WC tested up to: 3.2.0
+ * WC tested up to: 	 3.2.5
  *
  * Text Domain:         wcvendors
  * Domain Path:         /languages/
@@ -74,7 +74,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	if ( !defined( 'wcv_plugin_dir_path' ) )	define( 'wcv_plugin_dir_path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 
-	define('WCV_VERSION', '1.9.12' ); 
+	define('WCV_VERSION', '1.9.13' ); 
 
 	/**
 	 * Main Product Vendor class

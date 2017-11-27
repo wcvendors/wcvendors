@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.4.0
 Tested up to: 4.9.0
-Stable tag: 1.9.12
+Stable tag: 1.9.13
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
