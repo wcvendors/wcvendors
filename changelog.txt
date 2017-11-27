@@ -7,7 +7,8 @@ Version 1.9.13
 * Added: WooCommerce tested header for new WooCommerce Status page
 * Added: Filter for vendor signup form so it can be overriden
 * Added: "Approve" Vendor action on Pending Vendors Page #372
-* Updated: Brazillian Port wcvendors-pt_BR.po
+* Updated: Brazillian Port wcvendors-pt_BR.pot
+* Fixed: Moved sprintf must be outside #381 thanks CasperBraske
 * Fixed: Re-Send email options in admin/orders are not available after WooCommerce update #383
 * Fixed: depreciated screen_icon method call
 * Fixed: Use wc_get_order instead of new WC_Order #382
