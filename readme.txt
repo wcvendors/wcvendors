@@ -23,13 +23,13 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 
 = Features =
 * ALL FEATURES LISTED HERE ARE INCLUDED IN THE FREE PLUGIN!
-* Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/">Stripe</a>. NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement. 
+* Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/">Stripe</a>. NOTE (September 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement. 
 * Or, pay commission on a schedule. Daily, weekly, biweekly, monthly, or manually using any payment provider you choose.
 * Vendors can submit products for admin review, or send new products live to the site immediately.
 * Vendors can view live sales and reports for their products
 * Vendors can comment on their orders (eg, to inform customers of a tracking number)
 * Vendors can export their orders to a CSV file
-* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay ) NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
+* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay ) NOTE (September 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 * WPML Compatible
 * Vendors can sell all product types
 * Vendors manage their own media gallery/library
