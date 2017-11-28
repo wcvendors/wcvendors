@@ -12,9 +12,9 @@ License: GPLv2 or later
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
 
 == Description ==
-Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
+Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store. 
 
-This plugin has been around since 2011 and remains still the #1 multi vendor plugin on the market.  It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.  Many have tried to imitate, only to put all the useful features in their paid versions.  Don't fall for that trick!  We are an American (Ben & Anna) and Australian (Jamie) based team of developers, and this plugin is all we do.  Give it a try!  After all, the price is right and we're here when you need us.
+WC Vendors was released to the market in October of 2014 having gotten its roots from from Product Vendors by Matt Gates dating back to 2011. We are the number one multi vendor marketplace plugin for WordPress and WooCommerce on the market. It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.  Many have tried to imitate, only to put all the useful features in their paid versions.  We are a small team of three with an Australian, Jamie the lead developer and two Americans Ben and Anna our customer support team. Give it a try!  After all, the price is right and we're here when you need us.
 
 == Announcements == 
 
@@ -46,9 +46,8 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 * Shipping Management through Per Product Shipping and Multiple Packages (and more coming soon!)
 * Tax Management to give or not give vendors tax for each order
 * Test Checkout Gateway included for testing your store before it goes live
-* Documentation with great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc, @ <a href="https://www.wcvendors.com/knowledgebase/">www.wcvendors.com/knowledgebase/</a> and <a href="http://docs.wcvendors.com/">http://docs.wcvendors.com/</a> 
+* Documentation with great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc can be found on our documentation site here <a href="http://docs.wcvendors.com/">http://docs.wcvendors.com/</a> 
 * ....and much more!
-* We are NOT compatible with WordPress MultiSite. We have no intentions of supporting this feature any time soon. 
 
 = WC Vendors Pro =
 * The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/">WC Vendors Pro</a>
@@ -111,6 +110,11 @@ You can post a support question on the support tab - https://wordpress.org/suppo
 
 Also be sure to visit our documentation http://docs.wcvendors.com/
 
+= Does WC Vendors work with Multisite ? = 
+
+WC Vendors does not work with multisite WordPress. There are no plans to support this. 
+
+
 == Screenshots ==
 
 1. General options - Configure default commission, how members can register and more.
@@ -125,6 +129,27 @@ Also be sure to visit our documentation http://docs.wcvendors.com/
 No Upgrade required at this time.
 
 == Changelog ==
+= Version 1.9.13 - 28th November 2017
+
+* Added: Notice for depreciated gateway
+* Added: A filter for role change: Denied Vendor #351
+* Added: WooCommerce tested header for new WooCommerce Status page
+* Added: Filter for vendor signup form so it can be overriden
+* Added: "Approve" Vendor action on Pending Vendors Page #372
+* Updated: Brazillian Port wcvendors-pt_BR.pot
+* Fixed: Moved sprintf must be outside #381 thanks CasperBraske
+* Fixed: Re-Send email options in admin/orders are not available after WooCommerce update #383
+* Fixed: depreciated screen_icon method call
+* Fixed: Use wc_get_order instead of new WC_Order #382
+* Fixed: Post called incorrectly #378
+* Fixed: Get correct product name in commission table if variation deleted
+* Fixed: Commissions reversed when order deleted
+* Fixed: mistake in vendor_shop_query
+* Fixed: Return 404 if vendor doesn't exist
+* Fixed: The shop name background doesn’t scale with shop image #366
+* Fixed: Depreciated functions #368 thanks @stodorovic
+* Fixed: Changed how customer address is displayed based on Woo Options. Thanks @debain
+
 = Version 1.9.12 - June 26 2017
 
 * Added: For hook for vendor order content
