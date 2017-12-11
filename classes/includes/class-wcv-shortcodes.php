@@ -120,7 +120,7 @@ class WCV_Shortcodes {
 			'order'     => 'asc'
 		), $atts ) );
 
-
+		$meta_query = WC()->query->get_meta_query();
 
 		$args = array(
 			'post_type'				=> 'product',
@@ -130,13 +130,7 @@ class WCV_Shortcodes {
 			'orderby' 				=> $orderby,
 			'order' 				=> $order,
 			'posts_per_page' 		=> -1,
-			'meta_query' 			=> array(
-				array(
-					'key' 		=> '_visibility',
-					'value' 	=> array('catalog', 'visible'),
-					'compare' 	=> 'IN'
-				)
-			)
+			'meta_query' 			=> $meta_query
 		);
 
 		if ( isset( $atts['skus'] ) ) {

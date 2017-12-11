@@ -14,11 +14,10 @@ The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a
 == Description ==
 Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store. 
 
-WC Vendors was released to the market in October of 2014 having gotten its roots from from Product Vendors by Matt Gates dating back to 2011. We are the number one multi vendor marketplace plugin for WordPress and WooCommerce on the market. It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.  Many have tried to imitate, only to put all the useful features in their paid versions.  We are a small team of three with an Australian, Jamie the lead developer and two Americans Ben and Anna our customer support team. Give it a try!  After all, the price is right and we're here when you need us.
+WC Vendors was released to the market in October of 2014 having gotten its roots from Product Vendors by Matt Gates dating back to 2011. We are the number one multi vendor marketplace plugin for WordPress and WooCommerce. It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.  Many have tried to imitate, only to put all the useful features in their paid versions.  We are a small team of three with an Australian, Jamie the lead developer and two Americans Ben and Anna our customer support team. Give it a try!  After all, the price is right and we're here when you need us.
 
 == Announcements == 
 
-* WC Vendors version 2 developement has begun. 
 * PayPal has depreciated Adaptive Payments as of September 1st 2017. This will soon cease to function. We are currently working on a new extension to allow scheduled payments but there is no solution for instant payments with PayPal moving forward at this time
 
 = Features =
