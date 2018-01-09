@@ -320,11 +320,14 @@ class WCV_Vendor_Shop
 	*/ 
 	public static function add_vendor_to_order_item_meta_legacy( $item_id, $cart_item) {	
 
-		$vendor_id 		= $cart_item[ 'data' ]->post->post_author; 
-		$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
-      	$sold_by 		= WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
+		if ( WC_Vendors::$pv_options->get_option( 'sold_by' ) ) { 
 
-        wc_add_order_item_meta( $item_id, apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by ); 
+			$vendor_id 		= $cart_item[ 'data' ]->post->post_author; 
+			$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
+	      	$sold_by 		= WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
+
+	        wc_add_order_item_meta( $item_id, apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by ); 
+	    }
 	}
 
 
@@ -336,15 +339,18 @@ class WCV_Vendor_Shop
 	 */
 	public function add_vendor_to_order_item_meta( $item, $cart_item_key, $values ) {
 
-		$cart      		= WC()->cart->get_cart();
-		$cart_item 		= $cart[ $cart_item_key ]; 
-		$product_id 	= $cart_item[ 'product_id'];
-		$post 			= get_post( $product_id ); 
-		$vendor_id 		= $post->post_author;  
-		$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
-		$sold_by 		= WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
+		if ( WC_Vendors::$pv_options->get_option( 'sold_by' ) ) { 
 
-		$item->add_meta_data( apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by );
+			$cart      		= WC()->cart->get_cart();
+			$cart_item 		= $cart[ $cart_item_key ]; 
+			$product_id 	= $cart_item[ 'product_id'];
+			$post 			= get_post( $product_id ); 
+			$vendor_id 		= $post->post_author;  
+			$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
+			$sold_by 		= WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
+
+			$item->add_meta_data( apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by );
+		}
 
 
 	} // add_vendor_to_order_item_meta() 
