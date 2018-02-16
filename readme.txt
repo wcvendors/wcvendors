@@ -4,6 +4,7 @@ Tags: commission rate,  e-commerce, ecommerce, ebay, free, marketplace, multi se
 Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
+Text Domain: wcvendors
 Requires at least: 4.4.0
 Tested up to: 4.9.0
 Stable tag: 1.9.13
@@ -12,17 +13,17 @@ License: GPLv2 or later
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
 
 == Description ==
-Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store. 
+Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
 
 WC Vendors was released to the market in October of 2014 having gotten its roots from Product Vendors by Matt Gates dating back to 2011. We are the number one multi vendor marketplace plugin for WordPress and WooCommerce. It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.  Many have tried to imitate, only to put all the useful features in their paid versions.  We are a small team of three with an Australian, Jamie the lead developer and two Americans Ben and Anna our customer support team. Give it a try!  After all, the price is right and we're here when you need us.
 
-== Announcements == 
+== Announcements ==
 
 * PayPal has depreciated Adaptive Payments as of September 1st 2017. This will soon cease to function. We are currently working on a new extension to allow scheduled payments but there is no solution for instant payments with PayPal moving forward at this time
 
 = Features =
 * ALL FEATURES LISTED HERE ARE INCLUDED IN THE FREE PLUGIN!
-* Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/">Stripe</a>. NOTE (September 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement. 
+* Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/">Stripe</a>. NOTE (September 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 * Or, pay commission on a schedule. Daily, weekly, biweekly, monthly, or manually using any payment provider you choose.
 * Vendors can submit products for admin review, or send new products live to the site immediately.
 * Vendors can view live sales and reports for their products
@@ -45,7 +46,7 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 * Shipping Management through Per Product Shipping and Multiple Packages (and more coming soon!)
 * Tax Management to give or not give vendors tax for each order
 * Test Checkout Gateway included for testing your store before it goes live
-* Documentation with great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc can be found on our documentation site here <a href="http://docs.wcvendors.com/">http://docs.wcvendors.com/</a> 
+* Documentation with great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc can be found on our documentation site here <a href="http://docs.wcvendors.com/">http://docs.wcvendors.com/</a>
 * ....and much more!
 
 = WC Vendors Pro =
@@ -70,12 +71,12 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 
 = Translations =
 
-We currently ship WC Vendors free with the following language translations. If you would like translate WC Vendors into your language we would be more than happy to include it in our next release. You can submit a pull request on our github page or you can email your completed translation to translate@wcvendors.com. 
+We currently ship WC Vendors free with the following language translations. If you would like translate WC Vendors into your language we would be more than happy to include it in our next release. You can submit a pull request on our github page or you can email your completed translation to translate@wcvendors.com.
 
 * English
 * Austrian German
 * German
-* Chinese 
+* Chinese
 * Japanese (thanks Shohei Tanaka)
 * Brazilian Portuguese
 * Italian
@@ -97,7 +98,7 @@ We currently ship WC Vendors free with the following language translations. If y
 
 = What version of WooCommerce do you support ? =
 
-We require a minimum of WooCommerce 3.0 to work. Any version prior to this will not work. We encourage you to be running the latest WordPress and WooCommerce at all times. 
+We require a minimum of WooCommerce 3.0 to work. Any version prior to this will not work. We encourage you to be running the latest WordPress and WooCommerce at all times.
 
 = What version of php has been tested ? =
 
@@ -109,20 +110,20 @@ You can post a support question on the support tab - https://wordpress.org/suppo
 
 Also be sure to visit our documentation http://docs.wcvendors.com/
 
-= Does WC Vendors work with Multisite ? = 
+= Does WC Vendors work with Multisite ? =
 
-WC Vendors does not work with multisite WordPress. There are no plans to support this. 
+WC Vendors does not work with multisite WordPress. There are no plans to support this.
 
 
 == Screenshots ==
 
 1. General options - Configure default commission, how members can register and more.
-2. Product options page - allows you to hide specific options on the add new product window from vendors. 
-3. Capabilities options - restrict what your vendors can see and do. 
-4. Pages options - configure what pages will load the relevant vendor templates. These can be customised. 
-5. User paypment info - define how your vendors get paid and when. 
+2. Product options page - allows you to hide specific options on the add new product window from vendors.
+3. Capabilities options - restrict what your vendors can see and do.
+4. Pages options - configure what pages will load the relevant vendor templates. These can be customised.
+5. User paypment info - define how your vendors get paid and when.
 6. WC Vendors Paypal Adaptive payments setup. NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
-7. Email template options for the relevant WC Vendor emails. 
+7. Email template options for the relevant WC Vendor emails.
 
 == Upgrade Notice ==
 No Upgrade required at this time.
@@ -159,13 +160,13 @@ No Upgrade required at this time.
 * Fixed: Variations showing $0 price in emails thanks damanmehta
 * Fixed: Prevent PHP notice for getting non-existing vendor name from JeroenSormani/master
 
-= Version 1.9.11 - 25th April 2017 = 
+= Version 1.9.11 - 25th April 2017 =
 
 * Fixed: Correct product id being parsed to shipping function
 * Fixed: Payment method notice due to direct access to object property
 * Fixed: Sold by incorrectly showing in cart for variations
 
-= Version 1.9.10 - 10th April 2017 = 
+= Version 1.9.10 - 10th April 2017 =
 
 * Fixed: Terms & Conditions Checkbox is not functioning normally #348
 * Fixed: Apply to Become a Vendor Checkbox is Missing with WC 3.0 + WC Vendors 1.9.9 #349
@@ -175,7 +176,7 @@ No Upgrade required at this time.
 * Fixed: Incorrect reference to billing email in notification email
 * Updated: Removed Sales reports from backend
 
-= Version 1.9.9 - 14th March 2017 = 
+= Version 1.9.9 - 14th March 2017 =
 
 * Added: Filters to vendor admin dashboard class for custom columns #339
 * Added: Vendor shop name to the <title> tag on products archive page
@@ -190,31 +191,31 @@ No Upgrade required at this time.
 * Fixed: Login form not displayed if get variable set
 * Fixed: Depreciated action in product edit screen
 
-Templates Updated: 
+Templates Updated:
 	templates/emails/vendor-new-order.php
-	templates/emails/notify-vendor-shipped.php 
+	templates/emails/notify-vendor-shipped.php
 	templates/order/orders.php
 
 = Version 1.9.8 - 18th January 2017 =
 
-* Fixed: Paypal adaptive payments url changes 
+* Fixed: Paypal adaptive payments url changes
 * Added: Store Vendor ID in vendor child order #326
-* Added: 100% Japanese translations thanks to Shohei Tanaka 
+* Added: 100% Japanese translations thanks to Shohei Tanaka
 
 = Version 1.9.7 - 13 December 2016 =
 
 * Fixed: Capabilities Fix for Resetting Roles #329
 
-= Version 1.9.6 - 4th November 2016 = 
+= Version 1.9.6 - 4th November 2016 =
 
 * Added: Commission Query Functions #321
 * Added: Template for sold by in shop loop #324
 * Merged: Extended commissions management #319 from MounirHamani
 * Updated: Brazilian Portuguese translation
-* Template Added: 
-	templates/front/vendor-sold-by.php	
+* Template Added:
+	templates/front/vendor-sold-by.php
 
-= Version 1.9.5 - 29th September 2016 = 
+= Version 1.9.5 - 29th September 2016 =
 
 * Added: Automated language file builds
 * Added: Vendors can now delete media in the media uploader
@@ -222,7 +223,7 @@ Templates Updated:
 * Fixed: Removed legacy code for unsupported shipping methods
 * Fixed: Rounding issue with 100% commission and coupons in pro
 
-= Version 1.9.4 - 24th September 2016 = 
+= Version 1.9.4 - 24th September 2016 =
 
 * Added: Filter to add delayed payment possibility #309
 * Added: WPML support configuration file
@@ -243,16 +244,16 @@ Templates Updated:
 * Fixed: Variation data styles in order display in wp-admin
 * Fixed: Save user meta fields when pending vendor
 * Fixed: Incorrect url string format in french translation
-* Templates Updated: 
-	templates/dashboard/orders.php	
+* Templates Updated:
+	templates/dashboard/orders.php
 
-= Version 1.9.3 - 11th of August 2016 
+= Version 1.9.3 - 11th of August 2016
 
 * Fixed: Only load asset on orders page in admin
-* Fixed: Not showing orders on vendor dashboard for new installations 
+* Fixed: Not showing orders on vendor dashboard for new installations
 * Updated: Persian translations thanks to Alireza
 
-= Verion 1.9.2 - 6th of August 2016 
+= Verion 1.9.2 - 6th of August 2016
 
 * Added: Reverse commission when order emptied from trash #277
 * Added: Daily Payout option for PayPal Cron #297
@@ -280,9 +281,9 @@ Templates Updated:
 * Merged pull request #302 from NicolasBernier - Completed French Translations, Thanks!
 * Merged: pull request #293 from stodorovic/fix_init_sessions
 
-= Version 1.9.1 - 17th of June 2016 
+= Version 1.9.1 - 17th of June 2016
 
-* Added: GitHub Plugin URI for afragen/github-updater #282 thanks Agoruh 
+* Added: GitHub Plugin URI for afragen/github-updater #282 thanks Agoruh
 * Added: Edit and View page settings options
 * Fixed: Missing Argument WCV_Admin_Users::filter_product_types() #288
 * Fixed: Critical: PHP Fatal error: Call to a member function get_children() #287
@@ -295,7 +296,7 @@ Templates Updated:
 * Fixed: Missing argument in Vendors Class
 * Fixed: Rounded product commission to avoid error 589023 when submitting to PayPal #275 thanks Nicolas
 
-= Version 1.9.0 - 25th of May 2016 
+= Version 1.9.0 - 25th of May 2016
 
 * Added: Support for WooCommerce 2.6
 * Added: Vendor roles filter wcvendors_vendor_roles
@@ -304,7 +305,7 @@ Templates Updated:
 * Added: Notify Vendors Email - Add Product SKU, if set #263
 * Added: New Option: Notify Vendors show Purchase Price or Commissions #253
 * Added: Option to disable sold by #236
-* Added: Initial sub order management code #196 thanks Spreeuw 
+* Added: Initial sub order management code #196 thanks Spreeuw
 * Fixed: Sold by meta removal
 * Fixed: Sequential Orders Support Commissions table #270
 * Fixed: Notify Vendors Email Customizer Not Working #240
@@ -319,17 +320,17 @@ Templates Updated:
 * Fixed: Commission display issue in notify vendor email
 * Fixed: New ítem meta compatability with WC 2.5 and above
 
-= Version 1.8.9  - 1st May 2016 = 
+= Version 1.8.9  - 1st May 2016 =
 
 * Fixed: Commission Totals Report Inaccurate #267
 * Added: Swedish Translation Thanks Arvid!
 
-= Version 1.8.8 - 22nd March 2016 = 
+= Version 1.8.8 - 22nd March 2016 =
 
 * Fixed: Undefined variable error in commission class
-* Fixed: Pagination bug in wcv_vendorslist shortcode 
+* Fixed: Pagination bug in wcv_vendorslist shortcode
 
-= Version 1.8.7 - 15th March 2016 = 
+= Version 1.8.7 - 15th March 2016 =
 
 * Added: New qty argument to commission calculations
 * Added: Image uploader settings type
@@ -342,17 +343,17 @@ Templates Updated:
 * Fixed: Commission giving tax on none taxable items #251
 * Fixed: Sold by label issues with WC 2.5 #250
 
-= Version 1.8.6 - 31st of January 2016 = 
+= Version 1.8.6 - 31st of January 2016 =
 
 * Fixed: Critical issue with paypal loading classes incorrectly
 
-= Version 1.8.5 - 26th January 2016 = 
+= Version 1.8.5 - 26th January 2016 =
 
 * Fixed: Issue with PayPal on some sites - Rolled back issue #247
 * Fixed: Reverted ticket #216 for email conflicts
 * Added: New KnowledgeBase URL
 
-= Version 1.8.4 - 25th January 2016 = 
+= Version 1.8.4 - 25th January 2016 =
 
 * Added: Removed fields from users that aren't vendors
 * Added: actions to hook into approve/deny vendor
@@ -367,53 +368,53 @@ Templates Updated:
 * Fixed: Undefined index for non vendor users
 * Merge: pull request #247 from archonic/hotfix/oauth-class-exists
 
-= Version 1.8.3 - 18th December 2015 = 
+= Version 1.8.3 - 18th December 2015 =
 
 * Fixed: Fatal Error on activation Merge pull request #235 from oleggen/patch-1
 * Added: Seller info label option
 
 
-= Version 1.8.2 - 17th December 2015 = 
+= Version 1.8.2 - 17th December 2015 =
 
 * Added: Sold By label option
 * Added: New Vendor Commission Totals Report #234
 * Fixed: Added 'Shipped' if marked as shipped #233
 * Fixed: Renamed internal function to stop theme and plugin clash
 
-= Version 1.8.1 - 17th November 2015 = 
+= Version 1.8.1 - 17th November 2015 =
 
 * Added: New options updated action for settings
-* Added: New plugin activation hook for testing woocommerce active 
+* Added: New plugin activation hook for testing woocommerce active
 * Added: vendor id to get shipping due  filter
 * Added: Warning on settings page if user registration in WooCommerce is not enabled
 * Added: Russian Translations thanks Natalia
 
-= Version 1.8.0 - 31st October 2015 = 
+= Version 1.8.0 - 31st October 2015 =
 
 * Fixed: Mark $0.00 commissions as paid instead of due #205
 * Fixed: Email trigger should be filter not action - Thanks ontiuk #215
 * Updated: Read me with link to Pro and Updated Language List
-* Added: Portuguese Language (Thanks Renato) #212 
+* Added: Portuguese Language (Thanks Renato) #212
 * Remove Forced HTTP Protocol on Sent IPN URL #207 from GoTeamScotch
 
 = Version 1.7.9 - 30th September 2015 =
 
-* Fixed: woocommerce filter and action issues on product edit page 
+* Fixed: woocommerce filter and action issues on product edit page
 
 = Version 1.7.8 - 18th September 2015 =
 
 * Fixed: Vendors can not register #193
 * Fixed: Variation product image upload #194
 * Added: Order actions thanks GoTeamScotch
-* Updated: New item meta in WC 2.4+ 
-* Updated: WooCommerce Shipment Tracking v1.2.7+ 
+* Updated: New item meta in WC 2.4+
+* Updated: WooCommerce Shipment Tracking v1.2.7+
 * Fixed: Paypal Logging thanks to GoTeamScotch
-* Updated: Templates now fully translatable #195 
+* Updated: Templates now fully translatable #195
 * Fixed: Translations not loading bug
 * Fixed: vendors not defined error
 * Updated: Base translation files
 
-= Version 1.7.7 - 10th August 2015 = 
+= Version 1.7.7 - 10th August 2015 =
 
 * Fixed: Terms and conditions processing #182
 * Added: filter to order note for overrides
@@ -422,10 +423,10 @@ Templates Updated:
 * Fixed:  pagination bug #179
 * Updated: styles for orders table in admin for vendors
 * Fixed: Vendor displaying issue #180
-* Updated: Admin Commission Report Column Names #183 
-* Updated: Admin Commissions Page now shows times a product has sold in total #184 
+* Updated: Admin Commission Report Column Names #183
+* Updated: Admin Commissions Page now shows times a product has sold in total #184
 
-= Version 1.7.6 - 19th July 2015 = 
+= Version 1.7.6 - 19th July 2015 =
 
 * Added: Stock notifications go to vendors #114
 * Fixed: Instant Pay bug #174
@@ -436,14 +437,14 @@ Templates Updated:
 * Fixed: Added support for WPML #177
 * Update: default pot language file
 
-= Version 1.7.5 - 23rd June 2015 = 
+= Version 1.7.5 - 23rd June 2015 =
 
 * Merged: Check product post type in vendor dashboard thanks simplementNat
 * Updated: Base language file
 * Updated: Compatibility for Shipment Tracking for v1.3.5 #167
-* Fixed: Shipping taxes 
+* Fixed: Shipping taxes
 * Fixed: Pending Products for Vendors #168
-* Added: Vendor shipping override #171 
+* Added: Vendor shipping override #171
 * Added: Give Tax Per Vendor Override #56
 * Added: Hide duplicate product option
 * Fixed: Email firing for pending status only
@@ -452,7 +453,7 @@ Templates Updated:
 * Merged: Updated Brazilian Portuguese thanks carlosramosweb
 * Added: Seller Info to header #161
 * Updated: Spanish Translations #160
-* Updated: Brazilian Portuguese Language #156 
+* Updated: Brazilian Portuguese Language #156
 
 = Version 1.7.4 - 26th May 2015 =
 
@@ -462,7 +463,7 @@ Templates Updated:
 * Added: User email to Vendor Display Options #158
 * Fixed: Mass Pay Now Bug #159
 * Fixed: Mark as shipped for downloadable product #40
-* Added:  Brazilian Portuguese language #156 
+* Added:  Brazilian Portuguese language #156
 * Updated: Default Language file
 * Fixed: Translation issue for query test #155
 * Updated: Template base for emails
@@ -475,11 +476,11 @@ Templates Updated:
 * Fixed: PHP Strict static call in commissions class
 * Merged: Is Vendor checks all user roles #147 thanks crabilld
 
-= Version 1.7.3 - 13th may 2015 = 
+= Version 1.7.3 - 13th may 2015 =
 
 * Fixed: Paypal AP IPN url issue
 
-= Version 1.7.2 - May 8th 2015 = 
+= Version 1.7.2 - May 8th 2015 =
 
 * Added: Filters for seller tab #141
 * Fixed: URI Too Large Error #143
@@ -487,19 +488,19 @@ Templates Updated:
 * Updated: Spanish Translations #140
 * Added: Persian Translation #139
 
-= Version 1.7.1 - April 24th 2015 = 
+= Version 1.7.1 - April 24th 2015 =
 
 * Fixed: Invalid argument on new orders dashboard page #138
 * Updated: Base translation file
 
-= Version 1.7.0 - April 23rd 2015 = 
+= Version 1.7.0 - April 23rd 2015 =
 
 * Fixed: add_query_arg/remove_query_arg XSS issue
 * Fixed: Hide Notice not working for admin settings
 * Added: Shop Settings page in WordPress dashboard
-* Added: Orders page in WordPress dashboard 
+* Added: Orders page in WordPress dashboard
 
-= Version 1.6.2 - April 17th 2015 = 
+= Version 1.6.2 - April 17th 2015 =
 
 * Added: Option to change sold by vendor name #106
 * Fixed: Error notice in vendor dashboard #133
@@ -513,7 +514,7 @@ Templates Updated:
 * Fixed: Support for Per Product Shipping 2.2.x #126
 * Added: Filter to change commission label in vendor email #127
 
-= Version 1.6.0 - April 8th 2015 = 
+= Version 1.6.0 - April 8th 2015 =
 
 * Added: Admin notices for vendor page slug & permalinks
 * Fixed: Plugin row meta links
@@ -526,21 +527,21 @@ Templates Updated:
 * Fixed: Index issue #122
 * Updated: New plugin and template directory structure - IMPORTANT READ KB
 
-= Version 1.5.0 - March 11th 2015 = 
+= Version 1.5.0 - March 11th 2015 =
 
 * Added: Spanish translation thanks Mauricio
 * Added: French translation thanks JP
 * Added: CSS class for sold by (classes same as filters in those files)
-* Fixed: Paypal return URL 
+* Fixed: Paypal return URL
 * Added: Vendor Dashboard UI Improvements
 * Added: WC Vendors Test Gateway
 * Updated: ToolTips to be more helpful
 * Added: Admin option for not giving shipping cost to vendor
-* Fixed: Disable notify admin 
-* Fixed: Mark as shipped/unshipped 
-* Fixed: Duplicate column name 
+* Fixed: Disable notify admin
+* Fixed: Mark as shipped/unshipped
+* Fixed: Duplicate column name
 
-= Version 1.4.5 - February 22nd 2015 = 
+= Version 1.4.5 - February 22nd 2015 =
 
 * Updated: select2 3.5.2 for settings api
 * Fixed: Replaced Chosen with Select2 #102
@@ -551,7 +552,7 @@ Templates Updated:
 
 = Version 1.4.4 - February 17th 2015 =
 
-* Fixed: Hardcoded table in wcv_vendorslist shortcode 
+* Fixed: Hardcoded table in wcv_vendorslist shortcode
 
 = Version 1.4.3 - February 16th 2015 =
 
@@ -559,39 +560,39 @@ Templates Updated:
 
 = Version 1.4.2 - February 13th 2015 =
 
-* Added: Commission status sort to commissions page 
+* Added: Commission status sort to commissions page
 * Fixed: Recent Commissions limit of 20 now works on selected date range
-* Fixed: Report By product in WC2.3 
-* Fixed: Vendor Report date selector in wp-admin 
+* Fixed: Report By product in WC2.3
+* Fixed: Vendor Report date selector in wp-admin
 * Fixed: Tracking plugin Order Meta
 * Added: New filter wcvendors_dashboard_google_maps_link
 * Fixed: Formatting error for Google maps link
-* Added: New actions in vendor-dashboard wcvendors_vendor_unship, wcvendors_vendor_ship (thanks Nathan H) 
+* Added: New actions in vendor-dashboard wcvendors_vendor_unship, wcvendors_vendor_ship (thanks Nathan H)
 
 = Version 1.4.1 - January 30th, 2015 =
 
-* Fixed: Language file loading issue 
+* Fixed: Language file loading issue
 * Fixed: Static function calls in commission class for php 5.6
-* Fixed: Static call in Vendor Cart 
+* Fixed: Static call in Vendor Cart
 * Added: New language files for de_AT, de_DE (thanks to theHubi), it_IT (thanks to Nicole)
 * Added: New actions for main and mini headers (before and after see KB)
 
-= Version 1.4.0 - January 16th, 2015 = 
+= Version 1.4.0 - January 16th, 2015 =
 
 * Added: product category + vendor shortcode [wcv_product_category category="category" vendor="vendorname"]
 * Added: Tracking number support via WooThemes Shipment Tracking plugin
 * Added: Google Maps for delivery address on front end
 * Fixed: woocommerce_wp_text_input via merged pull request from svenl77
-* Added: Vendor List shortcode [wcv_vendorlist] + template for styling see KB for full details 
+* Added: Vendor List shortcode [wcv_vendorlist] + template for styling see KB for full details
 * Fixed: Report not showing Commission by Product
 * Fixed: Paths in language files
 
 = Version 1.3.1 - December 23, 2014 =
 
-* Fixed: Sold by in invoices 
+* Fixed: Sold by in invoices
 
 = Version 1.3.0 - December 22, 2014 =
- 
+
 * Added: show vendor on all emails #29
 * Fixed: Critical issue #58
 * Added: Vendor header templates #65
@@ -602,13 +603,13 @@ Templates Updated:
 * Added: wcvendors_vendor_registration_checkbox to filter "Apply to become a vendor?"
 
 = Version 1.2.0  - November 14, 2014 =
- 
+
 * Added new filters to change sold by text see Knowledge base for details
 * Added sold by to product loop for archive-product.php, see knowledge base on how to disable or change this
 * Added new option to hide "Featured product" from vendors
 * Added Sold By Filter as per #3
 * Removing unused tag filter
-* Updated default.pot 
+* Updated default.pot
 * Fixing attribute bug #48 - Thanks to gcskye
 * Removing legacy translations
 * Fixed Orders view errors
