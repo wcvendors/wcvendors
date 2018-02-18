@@ -1,6 +1,6 @@
 <?php
 /**
- * WCV_Shortcodes class. 
+ * WCV_Shortcodes class.
  *
  * @class 		WCV_Shortcodes
  * @version		1.0.0
@@ -16,7 +16,7 @@ class WCV_Shortcodes {
 	function __construct() {
 		// Define shortcodes
 
-		// Recent Products 
+		// Recent Products
 		add_shortcode( 'wcv_recent_products', array( $this, 'recent_products'));
 		// Products by vendor
 		add_shortcode( 'wcv_products', array( $this, 'products'));
@@ -24,80 +24,80 @@ class WCV_Shortcodes {
 		add_shortcode( 'wcv_featured_products', array( $this, 'featured_products'));
 		// Sale products by vendor
 		add_shortcode( 'wcv_sale_products', array( $this, 'sale_products'));
-		// Top Rated products by vendor 
+		// Top Rated products by vendor
 		add_shortcode( 'wcv_top_rated_products', array( $this, 'top_rated_products'));
-		// Best Selling product 
+		// Best Selling product
 		add_shortcode( 'wcv_best_selling_products', array( $this, 'best_selling_products'));
 		// List products in a category shortcode
 		add_shortcode( 'wcv_product_category', array( $this, 'product_category'));
-		// List of paginated vendors 
+		// List of paginated vendors
 		add_shortcode( 'wcv_vendorslist', array( $this, 'wcv_vendorslist' ) );
 
 	}
 
-	public static function get_vendor ( $slug ) { 
+	public static function get_vendor ( $slug ) {
 
-		$vendor_id = get_user_by('slug', $slug); 
+		$vendor_id = get_user_by('slug', $slug);
 
-		if (!empty($vendor_id)) { 
-			$author = $vendor_id->ID; 
+		if (!empty($vendor_id)) {
+			$author = $vendor_id->ID;
 		} else $author = '';
 
-		return $author; 
+		return $author;
 
 	}
 
 	/*
-		
-		Get recent products based on vendor username 
-	
+
+		Get recent products based on vendor username
+
 	*/
 	public static function recent_products( $atts ) {
 			global $woocommerce_loop;
- 
+
 			extract( shortcode_atts( array(
 				'per_page' 	=> '12',
-				'vendor' 	=> '', 
+				'vendor' 	=> '',
 				'columns' 	=> '4',
 				'orderby' 	=> 'date',
 				'order' 	=> 'desc'
 			), $atts ) );
- 
+
 			$meta_query = WC()->query->get_meta_query();
-			
+
 			$args = array(
 				'post_type'				=> 'product',
 				'post_status'			=> 'publish',
-				'author'				=> self::get_vendor($vendor), 
+				'author'				=> self::get_vendor($vendor),
 				'ignore_sticky_posts'	=> 1,
 				'posts_per_page' 		=> $per_page,
 				'orderby' 				=> $orderby,
 				'order' 				=> $order,
 				'meta_query' 			=> $meta_query
 			);
- 
+
 			ob_start();
- 
+
 			$products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
- 
+
 			$woocommerce_loop['columns'] = $columns;
- 
+
 			if ( $products->have_posts() ) : ?>
- 
+
 				<?php woocommerce_product_loop_start(); ?>
- 
+
 					<?php while ( $products->have_posts() ) : $products->the_post(); ?>
- 
+
 						<?php wc_get_template_part( 'content', 'product' ); ?>
- 
+
 					<?php endwhile; // end of the loop. ?>
- 
+
 				<?php woocommerce_product_loop_end(); ?>
- 
+
 			<?php endif;
- 
+
 			wp_reset_postdata();
- 
+
 			return '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
 	}
 
@@ -125,7 +125,7 @@ class WCV_Shortcodes {
 		$args = array(
 			'post_type'				=> 'product',
 			'post_status' 			=> 'publish',
-			'author'				=> self::get_vendor($vendor), 
+			'author'				=> self::get_vendor($vendor),
 			'ignore_sticky_posts'	=> 1,
 			'orderby' 				=> $orderby,
 			'order' 				=> $order,
@@ -196,7 +196,7 @@ class WCV_Shortcodes {
 		$args = array(
 			'post_type'				=> 'product',
 			'post_status' 			=> 'publish',
-			'author'				=> self::get_vendor($vendor), 
+			'author'				=> self::get_vendor($vendor),
 			'ignore_sticky_posts'	=> 1,
 			'posts_per_page' 		=> $per_page,
 			'orderby' 				=> $orderby,
@@ -238,7 +238,7 @@ class WCV_Shortcodes {
 
 		return '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
 	}
-	
+
 	/**
 	 * List all products on sale
 	 *
@@ -250,7 +250,7 @@ class WCV_Shortcodes {
 		global $woocommerce_loop;
 
 		extract( shortcode_atts( array(
-			'vendor' 		=> '', 
+			'vendor' 		=> '',
 			'per_page'      => '12',
 			'columns'       => '4',
 			'orderby'       => 'title',
@@ -267,7 +267,7 @@ class WCV_Shortcodes {
 
 		$args = array(
 			'posts_per_page'	=> $per_page,
-			'author'			=> self::get_vendor($vendor), 
+			'author'			=> self::get_vendor($vendor),
 			'orderby' 			=> $orderby,
 			'order' 			=> $order,
 			'no_found_rows' 	=> 1,
@@ -313,7 +313,7 @@ class WCV_Shortcodes {
 		global $woocommerce_loop;
 
 		extract( shortcode_atts( array(
-			'vendor'		=> '', 
+			'vendor'		=> '',
 			'per_page'      => '12',
 			'columns'       => '4',
 			'orderby'       => 'title',
@@ -322,7 +322,7 @@ class WCV_Shortcodes {
 
 		$args = array(
 			'post_type' 			=> 'product',
-			'author'				=> self::get_vendor($vendor), 
+			'author'				=> self::get_vendor($vendor),
 			'post_status' 			=> 'publish',
 			'ignore_sticky_posts'   => 1,
 			'orderby' 				=> $orderby,
@@ -377,7 +377,7 @@ class WCV_Shortcodes {
 		global $woocommerce_loop;
 
 		extract( shortcode_atts( array(
-			'vendor'		=> '', 
+			'vendor'		=> '',
 			'per_page'      => '12',
 			'columns'       => '4'
 		), $atts ) );
@@ -385,7 +385,7 @@ class WCV_Shortcodes {
 		$args = array(
 			'post_type' 			=> 'product',
 			'post_status' 			=> 'publish',
-			'author'				=> self::get_vendor($vendor), 
+			'author'				=> self::get_vendor($vendor),
 			'ignore_sticky_posts'   => 1,
 			'posts_per_page'		=> $per_page,
 			'meta_key' 		 		=> 'total_sales',
@@ -435,7 +435,7 @@ class WCV_Shortcodes {
 		global $woocommerce_loop;
 
 		extract( shortcode_atts( array(
-			'vendor'   => '', 
+			'vendor'   => '',
 			'per_page' => '12',
 			'columns'  => '4',
 			'orderby'  => 'title',
@@ -454,17 +454,16 @@ class WCV_Shortcodes {
 		$args = array(
 			'post_type'				=> 'product',
 			'post_status' 			=> 'publish',
-			'author'				=>  self::get_vendor($vendor),
+			'author'				=>  self::get_vendor( $vendor ),
 			'ignore_sticky_posts'	=> 1,
 			'orderby' 				=> $ordering_args['orderby'],
 			'order' 				=> $ordering_args['order'],
 			'posts_per_page' 		=> $per_page,
-			'meta_query' 			=> array(
-				array(
-					'key' 			=> '_visibility',
-					'value' 		=> array('catalog', 'visible'),
-					'compare' 		=> 'IN'
-				)
+			'tax_query' => array(
+				'taxonomy' => 'product_visibility',
+				'field' => 'name',
+				'terms' => 'exclude-from-catalog',
+				'operator' => 'NOT IN',
 			),
 			'tax_query' 			=> array(
 				array(
@@ -512,115 +511,115 @@ class WCV_Shortcodes {
 	}
 
 	/**
-	*	vendors_with_products - Get vendors with products pubilc or private 
-	*	@param array $query 	
+	*	vendors_with_products - Get vendors with products pubilc or private
+	*	@param array $query
 	*/
 	public function vendors_with_products( $query ) {
 
-		global $wpdb; 
+		global $wpdb;
 
-		// $post_count = $products ? ' AND post_count  > 0 ' : ''; 
+		// $post_count = $products ? ' AND post_count  > 0 ' : '';
 
-	    if ( isset( $query->query_vars['query_id'] ) && 'vendors_with_products' == $query->query_vars['query_id'] ) {  
+	    if ( isset( $query->query_vars['query_id'] ) && 'vendors_with_products' == $query->query_vars['query_id'] ) {
 	        $query->query_from = $query->query_from . ' LEFT OUTER JOIN (
 	                SELECT post_author, COUNT(*) as post_count
 	                FROM '.$wpdb->prefix.'posts
 	                WHERE post_type = "product" AND (post_status = "publish" OR post_status = "private")
 	                GROUP BY post_author
 	            ) p ON ('.$wpdb->prefix.'users.ID = p.post_author)';
-	        $query->query_where = $query->query_where . ' AND post_count  > 0 ' ;  
-	    } 
+	        $query->query_where = $query->query_where . ' AND post_count  > 0 ' ;
+	    }
 	}
 
 	/**
-	  * 	list of vendors 
-	  * 
-	  * 	@param $atts shortcode attributs 
+	  * 	list of vendors
+	  *
+	  * 	@param $atts shortcode attributs
 	*/
 	public function wcv_vendorslist( $atts ) {
 
-		$html = ''; 
-		
+		$html = '';
+
 	  	extract( shortcode_atts( array(
 	  			'orderby' 		=> 'registered',
 	  			'order'			=> 'ASC',
 				'per_page'      => '12',
-				'columns'       => '4', 
-				'show_products'	=> 'yes' 
+				'columns'       => '4',
+				'show_products'	=> 'yes'
 			), $atts ) );
 
-	  	$paged      = ( get_query_var('paged') ) ? get_query_var('paged') : 1;   
+	  	$paged      = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	  	$offset     = ( $paged - 1 ) * $per_page;
 
-	  	// Hook into the user query to modify the query to return users that have at least one product 
+	  	// Hook into the user query to modify the query to return users that have at least one product
 	  	if ($show_products == 'yes') add_action( 'pre_user_query', array( $this, 'vendors_with_products') );
 
-	  	// Get all vendors 
-	  	$vendor_total_args = array ( 
-	  		'role' 				=> 'vendor', 
-	  		'meta_key' 			=> 'pv_shop_slug', 
+	  	// Get all vendors
+	  	$vendor_total_args = array (
+	  		'role' 				=> 'vendor',
+	  		'meta_key' 			=> 'pv_shop_slug',
   			'meta_value'   		=> '',
 			'meta_compare' 		=> '>',
 			'orderby' 			=> $orderby,
   			'order'				=> $order,
 	  	);
 
-	  	if ($show_products == 'yes') $vendor_total_args['query_id'] = 'vendors_with_products'; 
+	  	if ($show_products == 'yes') $vendor_total_args['query_id'] = 'vendors_with_products';
 
-	  	$vendor_query = New WP_User_Query( $vendor_total_args ); 
-	  	$all_vendors =$vendor_query->get_results(); 
+	  	$vendor_query = New WP_User_Query( $vendor_total_args );
+	  	$all_vendors =$vendor_query->get_results();
 
-	  	// Get the paged vendors 
-	  	$vendor_paged_args = array ( 
-	  		'role' 				=> 'vendor', 
-	  		'meta_key' 			=> 'pv_shop_slug', 
+	  	// Get the paged vendors
+	  	$vendor_paged_args = array (
+	  		'role' 				=> 'vendor',
+	  		'meta_key' 			=> 'pv_shop_slug',
   			'meta_value'   		=> '',
 			'meta_compare' 		=> '>',
 			'orderby' 			=> $orderby,
   			'order'				=> $order,
-	  		'offset' 			=> $offset, 
-	  		'number' 			=> $per_page, 
+	  		'offset' 			=> $offset,
+	  		'number' 			=> $per_page,
 	  	);
 
-	  	if ($show_products == 'yes' ) $vendor_paged_args['query_id'] = 'vendors_with_products'; 
+	  	if ($show_products == 'yes' ) $vendor_paged_args['query_id'] = 'vendors_with_products';
 
-	  	$vendor_paged_query = New WP_User_Query( $vendor_paged_args ); 
-	  	$paged_vendors = $vendor_paged_query->get_results(); 
+	  	$vendor_paged_query = New WP_User_Query( $vendor_paged_args );
+	  	$paged_vendors = $vendor_paged_query->get_results();
 
-	  	// Pagination calcs 
-		$total_vendors = count( $all_vendors );  
-		$total_vendors_paged = count($paged_vendors);  
+	  	// Pagination calcs
+		$total_vendors = count( $all_vendors );
+		$total_vendors_paged = count($paged_vendors);
 		$total_pages = ceil( $total_vendors / $per_page );
-	    
+
 	   	ob_start();
 
 	    // Loop through all vendors and output a simple link to their vendor pages
 	    foreach ($paged_vendors as $vendor) {
 	       wc_get_template( 'vendor-list.php', array(
-	      												'shop_link'			=> WCV_Vendors::get_vendor_shop_page($vendor->ID), 
-														'shop_name'			=> $vendor->pv_shop_name, 
-														'vendor_id' 		=> $vendor->ID, 
-														'shop_description'	=> $vendor->pv_shop_description, 
+	      												'shop_link'			=> WCV_Vendors::get_vendor_shop_page($vendor->ID),
+														'shop_name'			=> $vendor->pv_shop_name,
+														'vendor_id' 		=> $vendor->ID,
+														'shop_description'	=> $vendor->pv_shop_description,
 												), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/' );
-	    } // End foreach 
-	   	
+	    } // End foreach
+
 	   	$html .= '<ul class="wcv_vendorslist">' . ob_get_clean() . '</ul>';
 
-	    if ($total_vendors > $total_vendors_paged) {  
-			$html .= '<div class="wcv_pagination">';  
-			  $current_page = max( 1, get_query_var('paged') );  
-			  $html .= paginate_links( 	array(  
-			        'base' => get_pagenum_link( ) . '%_%',  
-			        'format' => 'page/%#%/',  
-			        'current' => $current_page,  
-			        'total' => $total_pages,  
-			        'prev_next'    => false,  
-			        'type'         => 'list',  
-			    ));  
-			$html .= '</div>'; 
+	    if ($total_vendors > $total_vendors_paged) {
+			$html .= '<div class="wcv_pagination">';
+			  $current_page = max( 1, get_query_var('paged') );
+			  $html .= paginate_links( 	array(
+			        'base' => get_pagenum_link( ) . '%_%',
+			        'format' => 'page/%#%/',
+			        'current' => $current_page,
+			        'total' => $total_pages,
+			        'prev_next'    => false,
+			        'type'         => 'list',
+			    ));
+			$html .= '</div>';
 		}
 
-	    return $html; 
+	    return $html;
 	}
 
 }
