@@ -17,6 +17,8 @@ class WCV_Admin_Setup
 		add_filter( 'woocommerce_debug_tools', array( $this, 'wcvendors_tools' ) );
 
 		add_action( 'admin_head', array( $this, 'commission_table_header_styles' ) );
+
+		add_action( 'admin_init', array( $this, 'export_commissions' ) );
 	}
 
 
@@ -266,9 +268,6 @@ class WCV_Admin_Setup
 	public static function commissions_page()
 	{
 		global $woocommerce, $PV_Admin_Page;
-
-
-
 		?>
 
 		<div class="wrap">
@@ -297,6 +296,33 @@ class WCV_Admin_Setup
 			<br class="clear"/>
 		</div>
 	<?php
+	}
+
+	/*
+	*	Export commissions via csv
+	*/
+	public function export_commissions(){
+
+		// prepare the items to export
+
+
+		if ( isset( $_GET['action'], $_GET['nonce'] ) && wp_verify_nonce( wp_unslash( $_GET['nonce'] ), 'export_commissions' ) && 'export_commissions' === wp_unslash( $_GET['action'] ) ) {
+
+			include_once( 'class-wcv-commissions-csv-exporter.php' );
+
+			$exporter = new WCV_Commissions_CSV_Export();
+
+			$date = date( 'Y-M-d' );
+
+			if ( ! empty( $_GET['com_status'] ) ) { // WPCS: input var ok.
+				$exporter->set_filename( 'wcv_commissions_'. wp_unslash( $_GET['com_status'] ) . '-' . $date . '.csv' ); // WPCS: input var ok, sanitization ok.
+			} else {
+				$exporter->set_filename( 'wcv_commissions-' . $date . '.csv' ); // WPCS: input var ok, sanitization ok.
+			}
+
+			$exporter->export();
+		}
+
 	}
 
 
@@ -488,9 +514,18 @@ class WCV_Admin_Page extends WP_List_Table
 	 */
 	function extra_tablenav( $which )
 	{
+		$m 			= isset( $_GET[ 'm' ] ) ? (int) $_GET[ 'm' ] : 0;
+		$com_status = isset( $_GET[ 'com_status' ] ) ? $_GET[ 'com_status' ] : '';
+		$vendor_id  = isset( $_GET[ 'vendor_id' ] ) ? $_GET[ 'vendor_id' ] : '';
+		$args_url 	= '';
+
+		if ( $m ) $args_url .= '&m='. $m;
+		if ( $com_status ) $args_url .= '&com_status='. $com_status;
+		if ( $vendor_id ) $args_url .= '&vendor_id='. $vendor_id;
+
 		if ( $which == 'top' ) {
-			?><div class="alignleft actions" style="width: 70%;">
-			<?php
+			echo '<div class="alignleft actions" style="width: 70%;">';
+
 			// Months drop down
 			$this->months_dropdown( 'commission' );
 
@@ -501,8 +536,10 @@ class WCV_Admin_Page extends WP_List_Table
 			$this->vendor_dropdown( 'commission' );
 
 			submit_button( __( 'Filter' ), false, false, false, array( 'id' => "post-query-submit", 'name' => 'do-filter' ) );
-			?></div>
-			<?php
+
+			echo '<a class="button" style="width: 110px; float: left;" href="' . wp_nonce_url( admin_url( 'admin.php?page=pv_admin_commissions&action=export_commissions'. $args_url ), 'export_commissions', 'nonce' ) . '">' . __('Export to CSV') . '</a>';
+			echo '</div>';
+
 		}
 	}
 
