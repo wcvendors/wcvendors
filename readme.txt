@@ -6,8 +6,8 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Text Domain: wcvendors
 Requires at least: 4.4.0
-Tested up to: 4.9.0
-Stable tag: 1.9.13
+Tested up to: 4.9.4
+Stable tag: 1.9.14
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -22,9 +22,8 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 * PayPal has depreciated Adaptive Payments as of September 1st 2017. This will soon cease to function. We are currently working on a new extension to allow scheduled payments but there is no solution for instant payments with PayPal moving forward at this time
 
 = Features =
-* ALL FEATURES LISTED HERE ARE INCLUDED IN THE FREE PLUGIN!
+* All features listed here are included in the free plugin.
 * Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/">Stripe</a>. NOTE (September 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
-* Or, pay commission on a schedule. Daily, weekly, biweekly, monthly, or manually using any payment provider you choose.
 * Vendors can submit products for admin review, or send new products live to the site immediately.
 * Vendors can view live sales and reports for their products
 * Vendors can comment on their orders (eg, to inform customers of a tracking number)
@@ -47,7 +46,6 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 * Tax Management to give or not give vendors tax for each order
 * Test Checkout Gateway included for testing your store before it goes live
 * Documentation with great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc can be found on our documentation site here <a href="http://docs.wcvendors.com/">http://docs.wcvendors.com/</a>
-* ....and much more!
 
 = WC Vendors Pro =
 * The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/">WC Vendors Pro</a>
@@ -68,6 +66,8 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 * MUCH MORE TO COME including <strong>WooCommerce Subscriptions</strong> support, integration with even more Woo plugins, and good features that you, the customer, ask us to code! <strong>Pro will always be continually updated with new features</strong>, just as you have grown to expect from WC Vendors Free
 * There's more features to Pro than listed here!
 
+
+See our full comparison of free vs pro here <a href="https://www.wcvendors.com/home/comparison/">Compare free and pro</a>
 
 = Translations =
 
@@ -129,6 +129,19 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 No Upgrade required at this time.
 
 == Changelog ==
+=Version 1.9.14 - 18th Feburary 2018
+
+* Added: Export commissions via CSV
+* Added: Commission Table Links #166
+* Added: Apply to become a vendor on wp-login registration page #245
+* Added: Apply filter to get_vendor_dues_from_order()
+* Fixed: wp-admin Commissions Page sorted by status & vendor #374
+* Fixed: Commission filters loading too early so they cannot be applied.
+* Fixed: WooCommerce Reports are showing 2X accurate sales #388
+* Fixed: Shortcodes do not work for products assigned to vendor by admin #385
+* Fixed: Text domain in read me for glotpress translations
+* Fixed: "sold by" is showing in several areas despite deselected admin setting #386
+
 = Version 1.9.13 - 28th November 2017
 
 * Added: Notice for depreciated gateway

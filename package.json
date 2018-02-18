@@ -1,7 +1,7 @@
 {
   "name": "wcvendors",
-  "version": "1.9.10",
-  "private": true, 
+  "version": "1.9.14",
+  "private": true,
   "dependencies": {},
   "devDependencies": {
     "gulp": "latest",
@@ -19,8 +19,8 @@
     "gulp-ruby-sass": "latest",
     "gulp-sort": "latest",
     "gulp-uglify": "latest",
-    "gulp-wp-pot" : "latest", 
-    "tiny-lr": "latest", 
+    "gulp-wp-pot" : "latest",
+    "tiny-lr": "latest",
     "del": "latest"
   }
 }

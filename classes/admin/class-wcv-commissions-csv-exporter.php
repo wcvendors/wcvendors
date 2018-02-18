@@ -171,6 +171,5 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 			$this->row_data[] = apply_filters( 'wcv_commissions_export_row_data', $row, $commission );
 		}
 
-		error_log( print_r( $this->row_data, true ) );
 	}
 }

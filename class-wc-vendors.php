@@ -8,9 +8,9 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              1.9.13
+ * Version:              1.9.14
  * Requires at least:    4.4.0
- * Tested up to:         4.9.1
+ * Tested up to:         4.9.4
  * WC requires at least: 3.0.0
  * WC tested up to: 	 3.3.1
  *
@@ -19,7 +19,7 @@
  *
  * @category            Plugin
  * @copyright           Copyright © 2012 Matt Gates
- * @copyright           Copyright © 2017 WC Vendors
+ * @copyright           Copyright © 2018 WC Vendors
  * @author              Matt Gates, WC Vendors
  * @package             WCVendors
  * @license     		GPL2
@@ -74,7 +74,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	if ( !defined( 'wcv_plugin_dir_path' ) )	define( 'wcv_plugin_dir_path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 
-	define('WCV_VERSION', '1.9.13' );
+	define('WCV_VERSION', '1.9.14' );
 
 	/**
 	 * Main Product Vendor class
