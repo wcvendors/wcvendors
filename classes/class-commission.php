@@ -15,25 +15,13 @@ class WCV_Commission
 	/**
 	 * Constructor
 	 */
-	function __construct()
-	{
-		$this->completed_statuses = apply_filters( 'wcvendors_completed_statuses', array(
-																								'completed',
-																								'processing',
-																						   ) );
+	function __construct() {
 
-		$this->reverse_statuses = apply_filters( 'wcvendors_reversed_statuses', array(
-																							 'pending',
-																							 'refunded',
-																							 'cancelled',
-																							 'failed',
-																						) );
+		add_action( 'init', array( $this, 'check_order_complete' ) );
+		add_action( 'init', array( $this, 'check_order_reverse' ) );
 
-		$this->check_order_reverse();
-		$this->check_order_complete();
-
-		// Reverse the commission if the order is deleted 
-		add_action( 'delete_post', array( $this, 'commissions_table_sync' ), 10 ); 
+		// Reverse the commission if the order is deleted
+		add_action( 'delete_post', array( $this, 'commissions_table_sync' ), 10 );
 	}
 
 
@@ -42,8 +30,8 @@ class WCV_Commission
 	 */
 	public function check_order_reverse()
 	{
-		foreach ( $this->completed_statuses as $completed ) {
-			foreach ( $this->reverse_statuses as $reversed ) {
+		foreach ( $this->get_completed_status() as $completed ) {
+			foreach ( $this->get_reversed_status() as $reversed ) {
 				add_action( "woocommerce_order_status_{$completed}_to_{$reversed}", array( 'WCV_Commission', 'reverse_due_commission' ) );
 			}
 		}
@@ -55,19 +43,47 @@ class WCV_Commission
 	 */
 	public function check_order_complete()
 	{
-		foreach ( $this->completed_statuses as $completed ) {
+		foreach ( $this->get_completed_status() as $completed ) {
 			add_action( 'woocommerce_order_status_' . $completed, array( 'WCV_Commission', 'log_commission_due' ) );
 		}
 	}
 
-	public static function commission_status(){ 
+	// get commission status's
+	public static function commission_status(){
 
 		return apply_filters( 'wcvendors_commission_status', array(
-				'due' 		=> __( 'Due', 'wcvendors' ), 
-				'paid'		=> __( 'Paid', 'wcvendors' ), 
+				'due' 		=> __( 'Due', 'wcvendors' ),
+				'paid'		=> __( 'Paid', 'wcvendors' ),
 				'reversed'	=> __( 'Reversed', 'wcvendors' )
 			)
-		); 
+		);
+	}
+
+	/**
+	* return completed statuss
+	*/
+	public function get_completed_status(){
+
+		return $completed_statuses = apply_filters( 'wcvendors_completed_statuses',
+			array(
+				'completed',
+				'processing',
+		   ) );
+	}
+
+
+	/*
+	* Return reversed status's
+	*/
+	public function get_reversed_status(){
+
+		return $reverse_statuses = apply_filters( 'wcvendors_reversed_statuses',
+			array(
+				 'pending',
+				 'refunded',
+				 'cancelled',
+				 'failed',
+			) );
 
 	}
 
@@ -130,8 +146,8 @@ class WCV_Commission
 			foreach ( $details as $key => $detail ) {
 
 				$product_id = $detail['product_id'];
-				$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created();  
-				
+				$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created();
+
 				$insert_due[ $product_id ] = array(
 					'order_id'       => $order_id,
 					'vendor_id'      => $vendor_id,
@@ -184,7 +200,7 @@ class WCV_Commission
 			'ids'     => $commission_ids,
 		);
 
-		return $return; 
+		return $return;
 	}
 
 
@@ -199,9 +215,9 @@ class WCV_Commission
 
 		$table_name = $wpdb->prefix . "pv_commission";
 		$where      = $wpdb->prepare( 'WHERE status = %s', 'due' );
-		$where 		= apply_filters( 'wcvendors_commission_all_due_where', $where ); 
-		$query      = "SELECT id, vendor_id, total_due FROM `{$table_name}` $where";  
-		$query 		= apply_filters( 'wcvendors_commission_all_due_sql', $query ); 
+		$where 		= apply_filters( 'wcvendors_commission_all_due_where', $where );
+		$query      = "SELECT id, vendor_id, total_due FROM `{$table_name}` $where";
+		$query 		= apply_filters( 'wcvendors_commission_all_due_sql', $query );
 		$results    = $wpdb->get_results(  $query );
 
 		return $results;
@@ -233,32 +249,32 @@ class WCV_Commission
 	}
 
 	/**
-	 * Check the commission status for the order 
+	 * Check the commission status for the order
 	 *
 	 * @param array 	$order
 	 * @param string 	$status
 	 *
 	 * @return int
 	 */
-	public static function check_commission_status( $order, $status ) { 
+	public static function check_commission_status( $order, $status ) {
 
-		global $wpdb; 
+		global $wpdb;
 
 		$table_name 	= $wpdb->prefix . "pv_commission";
 
-		$order_id 		= $order[ 'order_id' ]; 
-		$vendor_id 		= $order[ 'vendor_id' ]; 
-    	$product_id		= $order[ 'product_id' ]; 
+		$order_id 		= $order[ 'order_id' ];
+		$vendor_id 		= $order[ 'vendor_id' ];
+    	$product_id		= $order[ 'product_id' ];
 
-		$query = "SELECT count(order_id) AS order_count 
+		$query = "SELECT count(order_id) AS order_count
 				 	FROM {$table_name}
-				 	WHERE order_id = {$order_id} 
-				 	AND vendor_id = {$vendor_id} 
+				 	WHERE order_id = {$order_id}
+				 	AND vendor_id = {$vendor_id}
 				 	AND product_id = {$product_id}
 				 	AND status = %s
-		"; 
+		";
 
-		return $wpdb->get_var( $wpdb->prepare( $query , $status ) ); 
+		return $wpdb->get_var( $wpdb->prepare( $query , $status ) );
 
 	}
 
@@ -275,7 +291,7 @@ class WCV_Commission
 	public static function get_commission_rate( $product_id )
 	{
 
-		$commission = 0; 
+		$commission = 0;
 
 		$parent = get_post_ancestors( $product_id );
 		if ( $parent ) $product_id = $parent[ 0 ];
@@ -350,10 +366,10 @@ class WCV_Commission
 				'vendor_id'  => $order[ 'vendor_id' ],
 				'qty'        => $order[ 'qty' ],
 			);
-			// Is the commission already paid? 
-			$count = WCV_Commission::check_commission_status( $order, 'paid' ); 
+			// Is the commission already paid?
+			$count = WCV_Commission::check_commission_status( $order, 'paid' );
 
-			if ( $count == 0 ) { 
+			if ( $count == 0 ) {
 				$update = $wpdb->update( $table, $order, $where );
 				if ( !$update ) $insert = $wpdb->insert( $table, $order );
 			}
@@ -442,7 +458,7 @@ class WCV_Commission
 	}
 
 	/**
-	 * If an order is deleted reverse the commissions rows 
+	 * If an order is deleted reverse the commissions rows
 	 *
 	 * @since 1.9.2
 	 * @version 1.9.13
@@ -451,82 +467,82 @@ class WCV_Commission
 	 *
 	 * @return bool.
 	 */
-	public function commissions_table_sync( $order_id ){ 
+	public function commissions_table_sync( $order_id ){
 
 	    global $wpdb;
 
 		$table_name = $wpdb->prefix . "pv_commission";
-		$query = "UPDATE `{$table_name}` SET `status` = 'reversed' WHERE `order_id` = %d"; 
+		$query = "UPDATE `{$table_name}` SET `status` = 'reversed' WHERE `order_id` = %d";
 		$results = $wpdb->query( $wpdb->prepare( $query, $order_id ) );
 
-	} // commissions_table_sync() 
+	} // commissions_table_sync()
 
 
 	/**
-	 * Get the commission total for a specific vendor. 
-	 * 
-	 * @since 1.9.6 
+	 * Get the commission total for a specific vendor.
+	 *
+	 * @since 1.9.6
 	 * @access public
-	 * @param int $vendor_id the vendor id to search for 
-	 * @param string $status the status to look for 
-	 * @return object $totals as an object 
+	 * @param int $vendor_id the vendor id to search for
+	 * @param string $status the status to look for
+	 * @return object $totals as an object
 	 */
-	public static function commissions_now( $vendor_id, $status = 'due', $inc_shipping = false, $inc_tax = false ){ 
+	public static function commissions_now( $vendor_id, $status = 'due', $inc_shipping = false, $inc_tax = false ){
 
 		global $wpdb;
 
 		$table_name = $wpdb->prefix . "pv_commission";
 
-		$sql = "SELECT sum( `total_due` ) as total_due"; 
+		$sql = "SELECT sum( `total_due` ) as total_due";
 
-		if ( $inc_shipping ) $sql .= ", sum( `total_shipping` ) as total_shipping"; 
-		if ( $inc_tax )	$sql .= ", sum( `tax` ) as total_tax "; 
-		
-		$sql .= " 
+		if ( $inc_shipping ) $sql .= ", sum( `total_shipping` ) as total_shipping";
+		if ( $inc_tax )	$sql .= ", sum( `tax` ) as total_tax ";
+
+		$sql .= "
 				FROM `{$table_name}`
-				WHERE vendor_id = {$vendor_id} 
-				AND status = '{$status}' 
-			"; 
+				WHERE vendor_id = {$vendor_id}
+				AND status = '{$status}'
+			";
 
-		$results = $wpdb->get_row( $sql ); 
+		$results = $wpdb->get_row( $sql );
 
 		$commissions_now = array_filter( get_object_vars( $results ) );
 
-		if ( empty( $commissions_now ) ) $results = false; 
+		if ( empty( $commissions_now ) ) $results = false;
 
-		return $results; 
+		return $results;
 
-	} // commissions_now() 
+	} // commissions_now()
 
 
 	/**
-	 * Get the commission for a specific order, product and vendor 
-	 * 
+	 * Get the commission for a specific order, product and vendor
+	 *
 	 * @since 1.9.9
 	 * @access public
-	 * @param int $order_id the order id to search for 
-	 * @param int $product_id the product id to search for 
-	 * @param int $vendor_id the vendor id to search for 
+	 * @param int $order_id the order id to search for
+	 * @param int $product_id the product id to search for
+	 * @param int $vendor_id the vendor id to search for
 	 */
-	public static function get_commission_due( $order_id, $product_id, $vendor_id ){ 
+	public static function get_commission_due( $order_id, $product_id, $vendor_id ){
 
 		global $wpdb;
 
 		$table_name = $wpdb->prefix . "pv_commission";
 
-		$sql = "SELECT total_due"; 
+		$sql = "SELECT total_due";
 
-		$sql .= " 
+		$sql .= "
 				FROM `{$table_name}`
-				WHERE vendor_id = {$vendor_id} 
-				AND product_id = '{$product_id}' 
-				AND order_id = '{$order_id}' 
-			"; 
+				WHERE vendor_id = {$vendor_id}
+				AND product_id = '{$product_id}'
+				AND order_id = '{$order_id}'
+			";
 
-		$commission_due = $wpdb->get_var( $sql ); 
+		$commission_due = $wpdb->get_var( $sql );
 
-		return $commission_due; 
+		return $commission_due;
 
-	} // get_commission_due() 
+	} // get_commission_due()
 
 }
