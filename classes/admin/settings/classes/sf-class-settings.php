@@ -192,11 +192,11 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		 */
 		public function admin_enqueue_scripts()
 		{
-			
-			$screen 	= get_current_screen();
-			$screen_id  = $screen->id; 
 
-			if ( $screen_id === 'woocommerce_page_wc_prd_vendor') { 
+			$screen 	= get_current_screen();
+			$screen_id  = $screen->id;
+
+			if ( $screen_id === 'woocommerce_page_wc_prd_vendor') {
 				wp_register_script( 'bootstrap-tooltip', $this->assets_url . 'js/bootstrap-tooltip.js', array( 'jquery' ), '1.0' );
 				wp_register_script( 'select2', $this->assets_url . 'js/select2/select2.min.js', array( 'jquery' ), '3.5.2' );
 				wp_register_script( 'wcvendors-media', $this->assets_url . 'js/wcvendors-media.js', array( 'jquery' ), '1.0' );
@@ -370,7 +370,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 			do_action( $this->id . '_options_updated', $clean, $tabname );
 			add_settings_error( $this->id, 'save_options', __( 'Settings saved.', 'wcvendors' ), 'updated' );
 
-			update_option( WC_Vendors::$id . '_flush_rules', true ); 
+			update_option( WC_Vendors::$id . '_flush_rules', true );
 
 			return apply_filters( $this->id . '_options_on_update', $clean, $tabname );
 		}
@@ -499,9 +499,9 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		private function template_footer()
 		{
 
-			$message = apply_filters( 'wcvendors_footer_msg', __( 'Please help with a <a href="https://wordpress.org/support/view/plugin-reviews/wc-vendors?rate=5#postform" target="top">High Five!</a> | <a href="https://www.wcvendors.com/product/wc-vendors-pro/" target="top">WC Vendors Pro</a> | <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/" target="top">Stripe Commissions & Gateway</a> | <a href="https://www.wcvendors.com/kb/" target="top">KnowledgeBase</a> | <a href="https://www.wcvendors.com/help/" target="top">Help Forums</a>', 'wcvendors' ) ); 
+			$message = apply_filters( 'wcvendors_footer_msg', __( 'Please help with a <a href="https://wordpress.org/support/view/plugin-reviews/wc-vendors?rate=5#postform" target="top">High Five!</a> | <a href="https://www.wcvendors.com/product/wc-vendors-pro/" target="top">WC Vendors Pro</a> | <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/" target="top">Stripe Commissions & Gateway</a> | <a href="https://www.wcvendors.com/kb/" target="top">KnowledgeBase</a> | <a href="https://www.wcvendors.com/help/" target="top">Help Forums</a>', 'wcvendors' ) );
 
-			echo '<div><p>' . $message . '</a></p>'; 
+			echo '<div><p>' . $message . '</a></p>';
 			echo '</div>';
 
 
@@ -604,7 +604,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 		public function settings_options_format( $setting )
 		{
-			if ( empty( $setting ) ) return false; 
+			if ( empty( $setting ) ) return false;
 
 			$defaults = apply_filters( $this->id . '_options_defaults', array(
 																			 'name'        => '',
@@ -772,7 +772,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				$selected = ( $value !== false ) ? $value : $std;
 
-				if ( $value == 0 ) $selected = $std; 
+				if ( $value == 0 ) $selected = $std;
 
 				$args = array(
 					'name'       => $name,
@@ -784,8 +784,8 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				echo str_replace( "'>", "'><option></option>", wp_dropdown_pages( $args ) );
 
-				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wcvendors' ).'</a>'; 
-				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wcvendors' ).'</a>'; 
+				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wcvendors' ).'</a>';
+				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wcvendors' ).'</a>';
 
 				echo $description;
 
@@ -799,14 +799,14 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 			case 'multi_select_page':
 
-				// TODO get this working with multiple page selection 
+				// TODO get this working with multiple page selection
 
 				$selected = ( $value !== false ) ? $value : $std;
-				$selected  = implode( ',', array_keys( $selected ) ); 
+				$selected  = implode( ',', array_keys( $selected ) );
 
-				if ( $value == 0 ) $selected = $std; 
+				if ( $value == 0 ) $selected = $std;
 
-				$name = $name . '[]'; 
+				$name = $name . '[]';
 
 				$args = array(
 					'name'       => $name,
@@ -818,8 +818,8 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				echo str_replace( "'>", "' multiple=\"multiple\"><option></option>", wp_dropdown_pages( $args ) );
 
-				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wcvendors' ).'</a>'; 
-				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wcvendors' ).'</a>'; 
+				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wcvendors' ).'</a>';
+				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wcvendors' ).'</a>';
 
 				echo $description;
 
@@ -876,17 +876,17 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 				echo $description;
 				break;
 
-			case 'image': 
-				
-				if ( empty ( $value ) ) $value = $std; 
+			case 'image':
 
-				?>	
+				if ( empty ( $value ) ) $value = $std;
+
+				?>
 				<img class="wcv-image-container-<?php echo $id; ?>" src="<?php echo $value; ?>" alt="" style="max-width:100%;" />
 				<br />
 	        	<input id="wcv-add-<?php echo $id; ?>" type="button" class="<?php echo $class; ?>" value="<?php echo sprintf( __( 'Update %s', 'wcvendors' ), strtolower( $title ) ); ?>" data-id="<?php echo $id; ?>" data-save_button="<?php echo sprintf( __( 'Add %s', 'wcvendors' ), $title ); ?>" data-window_title="<?php echo sprintf( __( 'Add %s', 'wcvendors' ), strtolower( $title ) ); ?>" data-upload_notice="<?php echo sprintf( __( 'Upload an image for the %s', 'wcvendors' ), strtolower( $title ) ); ?>" />
 				<input type="hidden" name="<?php echo $name; ?>" id="<?php echo $id; ?>" value="<?php echo $value; ?>">
-				<?php 
-				break; 
+				<?php
+				break;
 
 			default :
 				do_action( $this->id . '_options_type_' . $type, $setting );

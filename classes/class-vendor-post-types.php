@@ -40,7 +40,7 @@ class WCV_Post_types {
 					'add_order_meta_boxes'             => false,
 					'exclude_from_order_count'         => true,
 					'exclude_from_order_views'         => false,
-					'exclude_from_order_reports'       => false,
+					'exclude_from_order_reports'       => true,
 					'exclude_from_order_sales_reports' => true,
 					'class_name'                       => 'WC_Order_Vendor'
 				)

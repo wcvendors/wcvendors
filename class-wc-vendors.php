@@ -3,7 +3,7 @@
 /**
  * Plugin Name:          WC Vendors
  * Plugin URI:           https://www.wcvendors.com
- * Description:          Allow vendors to sell their own products and receive a commission for each sale. 
+ * Description:          Allow vendors to sell their own products and receive a commission for each sale.
  * Author:               WC Vendors
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
@@ -28,12 +28,12 @@ WC Vendors is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 any later version.
- 
+
 WC Vendors is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
- 
+
 You should have received a copy of the GNU General Public License
 along with WC Vendors. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
 
@@ -41,14 +41,14 @@ along with WC Vendors. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
 
 
 /**
- *   Plugin activation hook 
+ *   Plugin activation hook
  */
 function wcvendors_activate() {
 
 	/**
-	 *  Requires woocommerce to be installed and active 
+	 *  Requires woocommerce to be installed and active
 	 */
-	if ( !class_exists( 'WooCommerce' ) ) { 
+	if ( !class_exists( 'WooCommerce' ) ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
 		wp_die( __( 'WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again.', 'wcvendors' ) );
 	}
@@ -74,7 +74,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	if ( !defined( 'wcv_plugin_dir_path' ) )	define( 'wcv_plugin_dir_path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 
-	define('WCV_VERSION', '1.9.13' ); 
+	define('WCV_VERSION', '1.9.13' );
 
 	/**
 	 * Main Product Vendor class
@@ -95,8 +95,8 @@ if ( wcv_is_woocommerce_activated() ) {
 		 */
 		public function __construct()
 		{
-			
-			// Load text domain 
+
+			// Load text domain
 			add_action( 'plugins_loaded', array( $this, 'load_il8n' ) );
 
 			$this->title = __( 'WC Vendors', 'wcvendors' );
@@ -108,15 +108,15 @@ if ( wcv_is_woocommerce_activated() ) {
 
 			add_action( 'plugins_loaded', array( $this, 'load_settings' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
-			add_action( 'plugins_loaded', array( $this, 'include_core' ) ); 
-			add_action( 'init', 		  array( $this, 'include_init' ) ); 
-			add_action( 'current_screen', array( $this, 'include_assets' ) ); 
+			add_action( 'plugins_loaded', array( $this, 'include_core' ) );
+			// add_action( 'init', 		  array( $this, 'include_init' ) );
+			add_action( 'current_screen', array( $this, 'include_assets' ) );
 
 			add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
 			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
-			// Start a PHP session, if not yet started then destroy if logged in or out 
-			add_action( 'init', 		array( $this, 'init_session'), 1 ); 
+			// Start a PHP session, if not yet started then destroy if logged in or out
+			add_action( 'init', 		array( $this, 'init_session'), 1 );
 			add_action( 'wp_logout', 	array( $this, 'destroy_session') );
 			add_action( 'wp_login', 	array( $this, 'destroy_session') );
 		}
@@ -131,20 +131,20 @@ if ( wcv_is_woocommerce_activated() ) {
 		}
 
 		/**
-		 *  Start the session 
+		 *  Start the session
 		 */
-		public function init_session(){ 
-			
+		public function init_session(){
+
 			 if ( !session_id() && is_user_logged_in() ) {
         		session_start();
     		 }
 
-		} //init_session() 
+		} //init_session()
 
-		public function destroy_session(){ 
+		public function destroy_session(){
 
 			 if ( session_id() ) {
-        		session_destroy(); 
+        		session_destroy();
     		 }
 
 		} // destroy_session()
@@ -159,9 +159,8 @@ if ( wcv_is_woocommerce_activated() ) {
 		 */
 		public function check_install()
 		{
-			global $woocommerce;
 
-			if ( version_compare( WC_VERSION, '2.6', '<' ) ) { 	
+			if ( version_compare( WC_VERSION, '2.6', '<' ) ) {
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
 				deactivate_plugins( plugin_basename( __FILE__ ) );
 				return false;
@@ -187,13 +186,13 @@ if ( wcv_is_woocommerce_activated() ) {
 			}
 		}
 
-		public function load_il8n() { 
-		    
+		public function load_il8n() {
+
 		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wcvendors' );
 
-		    //Place your custom translations into wp-content/languages/wc-vendors to be upgrade safe 
+		    //Place your custom translations into wp-content/languages/wc-vendors to be upgrade safe
 		    load_textdomain( 'wcvendors', WP_LANG_DIR.'/wc-vendors/wcvendors-'.$locale.'.mo');
-			
+
 			load_plugin_textdomain( 'wcvendors', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 		}
@@ -210,20 +209,17 @@ if ( wcv_is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/class-commission.php';
 			require_once wcv_plugin_dir . 'classes/class-shipping.php';
 			require_once wcv_plugin_dir . 'classes/class-vendor-order.php';
-			require_once wcv_plugin_dir . 'classes/class-vendor-post-types.php'; 
+			require_once wcv_plugin_dir . 'classes/class-vendor-post-types.php';
 			require_once wcv_plugin_dir . 'classes/front/class-vendor-cart.php';
 			require_once wcv_plugin_dir . 'classes/front/dashboard/class-vendor-dashboard.php';
 			require_once wcv_plugin_dir . 'classes/front/class-vendor-shop.php';
 			require_once wcv_plugin_dir . 'classes/front/signup/class-vendor-signup.php';
 			require_once wcv_plugin_dir . 'classes/front/orders/class-orders.php';
 			require_once wcv_plugin_dir . 'classes/admin/emails/class-emails.php';
-			require_once wcv_plugin_dir . 'classes/admin/class-product-meta.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-vendor-applicants.php';
-			require_once wcv_plugin_dir . 'classes/admin/class-vendor-reports.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-reports.php';
-			require_once wcv_plugin_dir . 'classes/admin/class-admin-users.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-page.php';
-			require_once wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php'; 
+			require_once wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php';
 			require_once wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php';
 
 
@@ -240,35 +236,40 @@ if ( wcv_is_woocommerce_activated() ) {
 			new WCV_Orders;
 			new WCV_Vendor_Dashboard;
 			new WCV_Admin_Setup;
-			new WCV_Vendor_Admin_Dashboard; 
+			new WCV_Vendor_Admin_Dashboard;
 			new WCV_Admin_Reports;
 			new WCV_Vendor_Applicants;
 			new WCV_Emails;
 			new WCV_Vendor_Signup;
-			new WCV_Shortcodes; 
+			new WCV_Shortcodes;
 		}
 
 
 		/**
-		 * These need to be initlized later in loading to fix interaction with other plugins that call current_user_can at the right time. 
-		 * 
-		 * @since 1.9.4 
-		 * @access public 
+		 * These need to be initlized later in loading to fix interaction with other plugins that call current_user_can at the right time.
+		 *
+		 * @since 1.9.4
+		 * @access public
 		 */
-		public function include_init(){ 
+		public function include_init(){
+
+			require_once wcv_plugin_dir . 'classes/admin/class-vendor-reports.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-product-meta.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-admin-users.php';
+
 
 			new WCV_Vendor_Reports;
 			new WCV_Product_Meta;
 			new WCV_Admin_Users;
 
-		} // include_init() 
+		} // include_init()
 
-		/** 
-		*	Load plugin assets 
-		*/ 
+		/**
+		*	Load plugin assets
+		*/
 		public function include_assets(){
 
-			$screen = get_current_screen(); 
+			$screen = get_current_screen();
 
 			if ( in_array( $screen->id, array( 'edit-product' ) ) ) {
 				wp_enqueue_script( 'wcv_quick-edit', wcv_assets_url. 'js/wcv-admin-quick-edit.js', array('jquery') );
@@ -319,7 +320,7 @@ if ( wcv_is_woocommerce_activated() ) {
 				);
 
 				remove_role( 'vendor' );
-				
+
 				add_role( 'vendor', __('Vendor', 'wcvendors'), $args );
 			} // Update permalinks
 			else if ( $tabname == sanitize_title(__( 'General', 'wcvendors' ) )) {
@@ -331,13 +332,13 @@ if ( wcv_is_woocommerce_activated() ) {
 				}
 			}
 
-			do_action( 'wcvendors_option_updates', $options, $tabname ); 
+			do_action( 'wcvendors_option_updates', $options, $tabname );
 
 		}
 
 
 		/**
-		 *  If the settings are updated and the vendor page link has changed update permalinks 
+		 *  If the settings are updated and the vendor page link has changed update permalinks
 		 *	@access public
 		 *
 		*/
@@ -350,11 +351,11 @@ if ( wcv_is_woocommerce_activated() ) {
 		}
 
 		/**
-		 *  Add links to plugin page to our external help site. 
-		 *	@param $links - links array from action 
-		 *	@param $file - file reference for this plugin 
-		 *	@access public 
-		 * 
+		 *  Add links to plugin page to our external help site.
+		 *	@param $links - links array from action
+		 *	@param $file - file reference for this plugin
+		 *	@access public
+		 *
 		 */
 		public static function plugin_row_meta( $links, $file ) {
 			if ( $file == wcv_plugin_base ) {
@@ -372,47 +373,47 @@ if ( wcv_is_woocommerce_activated() ) {
 		}
 
 		/**
-		 * Add user meta to remember ignore notices 
+		 * Add user meta to remember ignore notices
 		 * @access public
-         * 
+         *
 		 */
 		public function wcv_required_ignore_notices(){
 			global $current_user;
     		$current_user_id = $current_user->ID;
-    		
+
 	        /* If user clicks to ignore the notice, add that to their user meta */
 	        if ( isset( $_GET[ 'wcv_shop_ignore_notice' ] ) && '0' == $_GET[ 'wcv_shop_ignore_notice' ] ) {
 	            add_user_meta( $current_user_id, 'wcv_shop_ignore_notice', 'true', true);
-	    	}				
+	    	}
 			if ( isset($_GET['wcv_pl_ignore_notice']) && '0' == $_GET['wcv_pl_ignore_notice'] ) {
 			 	add_user_meta( $current_user_id, 'wcv_pl_ignore_notice', 'true' , true);
 			}
-			
+
 		}
 
 		/**
-		 * Class logger so that we can keep our debug and logging information cleaner 
+		 * Class logger so that we can keep our debug and logging information cleaner
 		 *
-		 * @since 1.4.0 
+		 * @since 1.4.0
 		 * @access public
-		 * 
+		 *
 		 * @param mixed - $data the data to go to the error log could be string, array or object
 		 */
-		public static function log( $data = '' ){ 
+		public static function log( $data = '' ){
 
-			$trace 		= debug_backtrace( false, 2 ); 
-			$path_info  = pathinfo( $trace[ 0 ][ 'file' ] );  
+			$trace 		= debug_backtrace( false, 2 );
+			$path_info  = pathinfo( $trace[ 0 ][ 'file' ] );
 
-			// Only display the class file if there is actually a class file 
-			$caller = ( isset( $trace[ 1 ] ) ) ? array_key_exists( 'class', $trace[ 1 ] ) ? $trace[ 1 ][ 'class' ] : $path_info[ 'basename' ] : ''; 
+			// Only display the class file if there is actually a class file
+			$caller = ( isset( $trace[ 1 ] ) ) ? array_key_exists( 'class', $trace[ 1 ] ) ? $trace[ 1 ][ 'class' ] : $path_info[ 'basename' ] : '';
 
-			if ( is_array( $data ) || is_object( $data ) ) { 
-				error_log( $caller . ' : ' . print_r( $data, true ) ); 
-			} else { 
+			if ( is_array( $data ) || is_object( $data ) ) {
+				error_log( $caller . ' : ' . print_r( $data, true ) );
+			} else {
 				error_log( $caller  . ' : ' . $data );
 			}
 
-		} // log() 
+		} // log()
 
 	}
 

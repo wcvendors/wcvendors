@@ -25,7 +25,7 @@ class WCV_Vendor_Reports
 			add_filter( 'woocommerce_reports_top_sellers_order_items', array( $this, 'filter_products' ) );
 			add_filter( 'woocommerce_reports_top_earners_order_items', array( $this, 'filter_products' ) );
 		}
-		
+
 	}
 
 	/**
@@ -46,7 +46,7 @@ class WCV_Vendor_Reports
 			'woocommerce_monthly_taxes',
 			'woocommerce_category_sales',
 			'woocommerce_coupon_sales',
-		);		
+		);
 
 		$reports = $tabs[ 'orders' ][ 'reports' ];
 
