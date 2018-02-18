@@ -289,6 +289,7 @@ class WCV_Admin_Setup
 			<input type="hidden" name="page" value="pv_admin_commissions"/>
 
 			<?php $PV_Admin_Page->prepare_items(); ?>
+			<?php $PV_Admin_Page->views() ?>
 			<?php $PV_Admin_Page->display() ?>
 
 			</form>
@@ -827,6 +828,17 @@ class WCV_Admin_Page extends WP_List_Table
 										 'per_page'    => $per_page,
 										 'total_pages' => ceil( $max / $per_page )
 									) );
+	}
+
+	public function get_views() {
+		$views = array(
+			'all' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions' ) . '">' . __( 'All', 'wcvendors' ) . '</a></li>',
+			'due' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions&com_status=due' ) . '">' . __( 'Due', 'wcvendors' ) . '</a></li>',
+			'paid' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions&com_status=paid' ) . '">' . __( 'Paid', 'wcvendors' ) . '</a></li>',
+			'void' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions&com_status=void' ) . '">' . __( 'Void', 'wcvendors' ) . '</a></li>',
+		);
+
+		return $views;
 	}
 
 
