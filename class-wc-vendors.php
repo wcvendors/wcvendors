@@ -109,7 +109,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'plugins_loaded', array( $this, 'load_settings' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_core' ) );
-			// add_action( 'init', 		  array( $this, 'include_init' ) );
+			add_action( 'init', 		  array( $this, 'include_init' ) );
 			add_action( 'current_screen', array( $this, 'include_assets' ) );
 
 			add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
