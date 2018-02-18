@@ -208,7 +208,7 @@ class WCV_Vendors
 		// Reset the array keys
 		// $receivers = array_values( $receiver );
 
-		return $receiver;
+		return apply_filters( 'wcv_vendor_dues', $receiver, $order, $group );
 	}
 
 
