@@ -776,8 +776,6 @@ class WCV_Admin_Page extends WP_List_Table
 		}
 
 
-		error_log( $status_sql );
-
 		if ( !empty( $_GET[ 'vendor_id' ] ) ) {
 
 			if ( $time_sql == '' && $status_sql == '' ) {

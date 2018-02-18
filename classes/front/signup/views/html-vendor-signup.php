@@ -12,8 +12,6 @@
  * @subpackage WCVendors/classes/front/signup/views
  */
 
-error_log( $this->terms_page );
-
 ?>
 
 <?php do_action( 'wcvendors_login_apply_for_vendor_before' ); ?>
