@@ -119,6 +119,8 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'init', 		array( $this, 'init_session'), 1 );
 			add_action( 'wp_logout', 	array( $this, 'destroy_session') );
 			add_action( 'wp_login', 	array( $this, 'destroy_session') );
+
+			add_filter( 'wc_prd_vendor_options', array( $this, 'upgrade_pro_notice' ) );
 		}
 
 
@@ -361,9 +363,9 @@ if ( wcv_is_woocommerce_activated() ) {
 			if ( $file == wcv_plugin_base ) {
 
 				$row_meta = array(
-	                            'docs' 		=> '<a href="http://www.wcvendors.com/kb/" target="_blank">'.__( 'Documentation/KB', 'wcvendors' ).'</a>',
-	                            'help' 		=> '<a href="http://www.wcvendors.com/help/" target="_blank">'.__( 'Help Forums', 'wcvendors').'</a>',
-	                            'support' 	=> '<a href="http://www.wcvendors.com/contact-us/" target="_blank">'.__( 'Paid Support', 'wcvendors' ).'</a>'
+	                            'docs' 		=> '<a href="https://docs.wcvendors.com/?utm_source=plugin" target="_blank">'.__( 'Documentation', 'wcvendors' ).'</a>',
+	                            'pro' 		=> '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="_blank">'.__( 'Upgrade to Pro', 'wcvendors').'</a></strong>',
+	                            'support' 	=> '<a href="https://www.wcvendors.com/contact-us/?utm_source=plugin" target="_blank">'.__( 'Contact Us', 'wcvendors' ).'</a>'
 	                        );
 
 				return array_merge( $links, $row_meta );
@@ -414,6 +416,40 @@ if ( wcv_is_woocommerce_activated() ) {
 			}
 
 		} // log()
+
+
+		public function upgrade_pro_notice( $options ){
+
+			if ( ! class_exists( 'WCVendors_Pro' ) ){
+
+
+				$options[ ] = array( 'name' => __( 'Upgrade to Pro', 'wcvendors' ), 'type' => 'heading' );
+
+				$options[ ] = array(
+						'name' => __( 'Upgrade to WC Vendors Pro!', 'wcvendors' ), 'type' => 'title', 'desc' =>
+
+					sprintf( __( 'WC Vendors Pro extends your marketplace to include some of the following enhanced features
+							<ul>
+							 	<li>Complete front end dashboard for your vendors</li>
+							 	<li>Vendor Coupons</li>
+							 	<li>Vendor product management</li>
+							 	<li>Vendor Order management</li>
+							 	<li>Vendor ratings</li>
+							 	<li>Vendors can upload their own store banners</li>
+							 	<li>A comprehensive shipping system for your vendors including two systems. Flat rate and Table rate shipping.</li>
+							 	<li>All default product types supported on the front end</li>
+							 	<li>Custom product-edit templates</li>
+							 	<li>Complete vendor signup form</li>
+							</ul>
+							<a href="http://www.wcvendors.com/home/comparison/?utm_source=plugin">See the complete comparison list here.</a>
+							<h1><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo">Buy Pro Today</a></h1>', 'wcvendors' )
+					),
+				);
+			}
+
+
+			return $options;
+		}
 
 	}
 
