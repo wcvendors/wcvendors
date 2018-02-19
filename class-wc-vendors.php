@@ -360,6 +360,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 *
 		 */
 		public static function plugin_row_meta( $links, $file ) {
+
 			if ( $file == wcv_plugin_base ) {
 
 				$row_meta = array(
@@ -367,6 +368,8 @@ if ( wcv_is_woocommerce_activated() ) {
 	                            'pro' 		=> '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="_blank">'.__( 'Upgrade to Pro', 'wcvendors').'</a></strong>',
 	                            'support' 	=> '<a href="https://www.wcvendors.com/contact-us/?utm_source=plugin" target="_blank">'.__( 'Contact Us', 'wcvendors' ).'</a>'
 	                        );
+
+				if ( class_exists( 'WCVendors_Pro' ) ) unset( $row_meta[ 'pro' ] );
 
 				return array_merge( $links, $row_meta );
 			}

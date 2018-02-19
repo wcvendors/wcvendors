@@ -28,27 +28,28 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 * Vendors can view live sales and reports for their products
 * Vendors can comment on their orders (eg, to inform customers of a tracking number)
 * Vendors can export their orders to a CSV file
-* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay ) NOTE (September 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
+* PayPal Adaptive Payments gateway included for free ( Parallel & MassPay ) NOTE (September 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 * WPML Compatible
 * Vendors can sell all product types
 * Vendors manage their own media gallery/library
-* Customizable Vendor Pages
+* Customizable Vendor Pages via templates
 * Global, Per Vendor, or Per product Commission Rates
+* Export commissions to csv
 * Notification to Vendors of new orders
 * Vendors have their own individual storefronts, and blend in with the site through your regular shop pages too
 * Advanced Product Management
 * Customizable Vendor Headers
 * Front-End Vendor Registration and Back-End Vendor Registration
 * Vendors have their own user accounts and a Vendor Role
-* Tons of shortcodes
-* Translated in over 9 languages and growing!
+* Vendor specific shortcodes
+* Translated in over 12 languages and growing!
 * Shipping Management through Per Product Shipping and Multiple Packages (and more coming soon!)
 * Tax Management to give or not give vendors tax for each order
 * Test Checkout Gateway included for testing your store before it goes live
 * Documentation with great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc can be found on our documentation site here <a href="http://docs.wcvendors.com/">http://docs.wcvendors.com/</a>
 
 = WC Vendors Pro =
-* The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/">WC Vendors Pro</a>
+* The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=wporg">WC Vendors Pro</a>
 * <strong>Pro Dashboard</strong> making your vendors sales reports a piece of cake
 * <strong>Fully featured front-end product add/edit capabilities</strong>
 * <strong>eBay style feedback</strong> system for Vendor Ratings
@@ -67,7 +68,7 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 * There's more features to Pro than listed here!
 
 
-See our full comparison of free vs pro here <a href="https://www.wcvendors.com/home/comparison/">Compare free and pro</a>
+See our full comparison of free vs pro here <a href="https://www.wcvendors.com/home/comparison/?utm_source=wporg">Compare free and pro</a>
 
 = Translations =
 
