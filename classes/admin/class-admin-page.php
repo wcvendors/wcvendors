@@ -144,6 +144,7 @@ class WCV_Admin_Setup
 			'delete_products'           => $can_edit,
 			'manage_product'            => $can_add,
 			'publish_products'          => $can_submit_live,
+			'delete_posts'				=> true,
 			'read'                      => true,
 			'read_products'             => $can_edit || $can_add,
 			'upload_files'              => true,
