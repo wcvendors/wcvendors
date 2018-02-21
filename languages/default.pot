@@ -58,20 +58,34 @@ msgstr ""
 
 #: class-wc-vendors.php:867
 msgid ""
-"WC Vendors Pro extends your marketplace to include some of the following enhanced features\n"
-"							<ul>\n"
-"							 	<li>Complete front end dashboard for your vendors</li>\n"
-"							 	<li>Vendor Coupons</li>\n"
-"							 	<li>Vendor product management</li>\n"
-"							 	<li>Vendor Order management</li>\n"
-"							 	<li>Vendor ratings</li>\n"
-"							 	<li>Vendors can upload their own store banners</li>\n"
-"							 	<li>A comprehensive shipping system for your vendors including two systems. Flat rate and Table rate shipping.</li>\n"
-"							 	<li>All default product types supported on the front end</li>\n"
-"							 	<li>Custom product-edit templates</li>\n"
-"							 	<li>Complete vendor signup form</li>\n"
-"							</ul>\n"
-"							<a href=\"http://www.wcvendors.com/home/comparison/?utm_source=plugin\">See the complete comparison list here.</a>\n"
+"WC Vendors Pro extends your marketplace to include some of the following enhanced features
+\n"
+"							<ul>
+\n"
+"							 	<li>Complete front end dashboard for your vendors</li>
+\n"
+"							 	<li>Vendor Coupons</li>
+\n"
+"							 	<li>Vendor product management</li>
+\n"
+"							 	<li>Vendor Order management</li>
+\n"
+"							 	<li>Vendor ratings</li>
+\n"
+"							 	<li>Vendors can upload their own store banners</li>
+\n"
+"							 	<li>A comprehensive shipping system for your vendors including two systems. Flat rate and Table rate shipping.</li>
+\n"
+"							 	<li>All default product types supported on the front end</li>
+\n"
+"							 	<li>Custom product-edit templates</li>
+\n"
+"							 	<li>Complete vendor signup form</li>
+\n"
+"							</ul>
+\n"
+"							<a href=\"http://www.wcvendors.com/home/comparison/?utm_source=plugin\">See the complete comparison list here.</a>
+\n"
 "							<h1><a href=\"https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo\">Buy Pro Today</a></h1>"
 msgstr ""
 
