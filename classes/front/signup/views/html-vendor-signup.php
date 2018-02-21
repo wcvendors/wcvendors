@@ -44,18 +44,19 @@
 
 		var error_message = "<?php _e( 'Please agree to the terms and conditions', 'wcvendors'); ?>";
 
-		$( function( $ ){
+		jQuery( function( $ ){
 
-			$( "#apply_for_vendor" ).change( function() {
+			jQuery( "#apply_for_vendor" ).change( function() {
+				alert( 'triggered' );
 			    if ( this.checked ) {
-			        $('.agree-to-terms-container').show();
+			        jQuery('.agree-to-terms-container').show();
 			    } else {
-			    	$('.agree-to-terms-container').hide();
+			    	jQuery('.agree-to-terms-container').hide();
 			    }
 			});
 
 			$( 'form.register').on( 'submit', function ( e ){
-				if (  $('#agree_to_terms').is(':visible') && ! $('#agree_to_terms').is(':checked') ) {
+				if (  jQuery('#agree_to_terms').is(':visible') && ! jQuery('#agree_to_terms').is(':checked') ) {
 					alert( error_message );
 					e.preventDefault();
 				}
