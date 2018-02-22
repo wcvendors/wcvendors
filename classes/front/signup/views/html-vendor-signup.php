@@ -47,7 +47,6 @@
 		jQuery( function( $ ){
 
 			jQuery( "#apply_for_vendor" ).change( function() {
-				alert( 'triggered' );
 			    if ( this.checked ) {
 			        jQuery('.agree-to-terms-container').show();
 			    } else {
