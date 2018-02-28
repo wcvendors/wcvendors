@@ -221,6 +221,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/admin/class-vendor-applicants.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-reports.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-page.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-admin-menus.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php';
 			require_once wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php';
 

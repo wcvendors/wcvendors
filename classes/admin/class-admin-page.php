@@ -9,7 +9,7 @@ class WCV_Admin_Setup
 	public function __construct()
 	{
 		add_filter( 'set-screen-option', array( 'WCV_Admin_Setup', 'set_table_option' ), 10, 3 );
-		add_action( 'admin_menu', array( 'WCV_Admin_Setup', 'menu' ) );
+		add_action( 'admin_menu', array( 'WCV_Admin_Setup', 'menu' ), 10 );
 
 		add_action( 'woocommerce_admin_order_data_after_shipping_address', array( $this, 'add_vendor_details' ), 10, 2 );
 		add_action( 'woocommerce_admin_order_actions_end', array( $this, 'append_actions' ), 10, 1 );
@@ -17,7 +17,6 @@ class WCV_Admin_Setup
 		add_filter( 'woocommerce_debug_tools', array( $this, 'wcvendors_tools' ) );
 
 		add_action( 'admin_head', array( $this, 'commission_table_header_styles' ) );
-
 		add_action( 'admin_init', array( $this, 'export_commissions' ) );
 	}
 
@@ -79,16 +78,9 @@ class WCV_Admin_Setup
 	 */
 	public static function menu()
 	{
-		$hook = add_submenu_page(
-			'woocommerce',
-			__( 'Commission', 'wcvendors' ), __( 'Commission', 'wcvendors' ),
-			'manage_woocommerce',
-			'pv_admin_commissions',
-			array( 'WCV_Admin_Setup', 'commissions_page' )
-		);
+		$hook = add_submenu_page( 'wcvendors', __( 'Commissions', 'wcvendors' ), __( 'Commissions', 'wcvendors' ), 'manage_woocommerce', 'pv_admin_commissions', array( 'WCV_Admin_Setup', 'commissions_page' ) );
 
 		add_action( "load-$hook", array( 'WCV_Admin_Setup', 'add_options' ) );
-
 		add_action( "admin_print_styles-$hook", 	array( 'WCV_Admin_Setup', 'commission_enqueue_style' ) );
 		add_action( "admin_print_scripts-$hook", 	array( 'WCV_Admin_Setup', 'commission_my_enqueue_script' ) );
 

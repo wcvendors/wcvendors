@@ -182,7 +182,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		{
 			add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
 			add_action( 'admin_init', array( &$this, 'register_options' ) );
-			add_action( 'admin_menu', array( &$this, 'create_menu' ) );
+			add_action( 'admin_menu', array( &$this, 'create_menu' ), 70 );
 			add_filter( 'plugin_action_links', array( &$this, 'add_settings_link' ), 10, 2 );
 		}
 
@@ -248,7 +248,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		 */
 		public function create_menu()
 		{
-			$page = add_submenu_page( $this->menu, $this->title, $this->title, apply_filters( $this->id . '_manage_options', 'manage_options' ), $this->id, array( &$this, 'init_settings_page' ) );
+			$page = add_submenu_page( 'wcvendors', __( 'WC Vendors Settings', 'wcvendors' ),  __( 'Settings', 'wcvendors' ), 'manage_woocommerce', $this->id, array( &$this, 'init_settings_page' ) );
 			add_action( 'admin_print_scripts-' . $page, array( &$this, 'admin_print_scripts' ) );
 		}
 
