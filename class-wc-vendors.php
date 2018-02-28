@@ -74,7 +74,8 @@ if ( wcv_is_woocommerce_activated() ) {
 	if ( !defined( 'wcv_plugin_dir_path' ) )	define( 'wcv_plugin_dir_path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 
-	define('WCV_VERSION', '1.9.14' );
+	define(	'WCV_VERSION', '2.0.0' );
+	define( 'WCV_ABSPATH_ADMIN', dirname( __FILE__ ) . '/classes/admin/' );
 
 	/**
 	 * Main Product Vendor class
@@ -222,6 +223,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-reports.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-page.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-menus.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-setup-wizard.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php';
 			require_once wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php';
 

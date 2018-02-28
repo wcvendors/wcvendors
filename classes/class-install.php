@@ -19,21 +19,21 @@ class WCV_Install
 	{
 		$db_version = WC_Vendors::$pv_options->get_option( 'db_version' );
 
-		// Initial Install 
+		// Initial Install
 		if ( version_compare( $db_version, '1.0', '<' ) ) {
-			
+
 			$this->install_wcvendor();
 			WC_Vendors::$pv_options->update_option( 'db_version', '1.5.0' );
 
 		} else if ( version_compare( $db_version, '1.9.0', '<' ) ) {
 
-			$orders_page = get_post( WC_Vendors::$pv_options->get_option( 'orders_page' ) ); 
+			$orders_page = get_post( WC_Vendors::$pv_options->get_option( 'orders_page' ) );
 
-			// Only update the page slug for orders if it is called orders 
-			// This is due to WC 2.6 api changes 
-			if ( is_object( $orders_page ) ) { 
+			// Only update the page slug for orders if it is called orders
+			// This is due to WC 2.6 api changes
+			if ( is_object( $orders_page ) ) {
 
-				if ( $orders_page && $orders_page->post_name === 'orders' ){ 
+				if ( $orders_page && $orders_page->post_name === 'orders' ){
 
 					wp_update_post(
 			            array (
@@ -41,12 +41,12 @@ class WCV_Install
 			                'post_name' => 'product_orders'
 			            )
 			        );
-					
-					WC_Vendors::$pv_options->update_option( 'db_version', '1.9.0' );	
-				} 
+
+					WC_Vendors::$pv_options->update_option( 'db_version', '1.9.0' );
+				}
 			}
 
-		} else if ( version_compare( $db_version, '1.9.1', '<' ) ) { 
+		} else if ( version_compare( $db_version, '1.9.1', '<' ) ) {
 			remove_role( 'vendor' );
 			add_role( 'vendor', __('Vendor', 'wcvendors') , array(
 											   'assign_product_terms'     => true,
@@ -55,13 +55,13 @@ class WCV_Install
 											   'edit_published_products'  => false,
 											   'manage_product'           => true,
 											   'publish_products'         => false,
-											   'delete_posts'			  => true, 
+											   'delete_posts'			  => true,
 											   'read'                     => true,
 											   'upload_files'             => true,
 											   'view_woocommerce_reports' => false,
 										  ) );
 
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.9.1' );	
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.9.1' );
 		}
 
 	} // init()
@@ -84,7 +84,11 @@ class WCV_Install
 		// Create the Orders page if it doesn't exist
 		$orders_page = WC_Vendors::$pv_options->get_option( 'orders_page' );
 		if ( empty( $orders_page ) ) $this->create_new_pages();
+
+		$this->maybe_run_setup_wizard();
 	}
+
+
 
 
 	/**
@@ -109,7 +113,7 @@ class WCV_Install
 										   'edit_published_products'  => false,
 										   'manage_product'           => true,
 										   'publish_products'         => false,
-										   'delete_posts'			  => true, 
+										   'delete_posts'			  => true,
 										   'read'                     => true,
 										   'upload_files'             => true,
 										   'view_woocommerce_reports' => false,
@@ -209,7 +213,7 @@ class WCV_Install
 
 
 	/**
-	 * Depreciated 
+	 * Depreciated
 	 *
 	 * @param unknown $version
 	 */
@@ -280,6 +284,31 @@ class WCV_Install
 				// code...
 				break;
 		}
+	}
+
+	/**
+	 * Is this a brand new WC install?
+	 *
+	 * @since 3.2.0
+	 * @return boolean
+	 */
+	private function is_new_install() {
+		return is_null( $db_version = WC_Vendors::$pv_options->get_option( 'db_version' ) );
+	}
+
+	/**
+	 * See if we need the wizard or not.
+	 *
+	 * @since 2.0.0
+	 */
+	private function maybe_enable_setup_wizard() {
+		if ( apply_filters( 'wcvendors_enable_setup_wizard', $this->is_new_install() ) ) {
+			add_action( 'admin_notices', array( $this, 'setup_wizard' ) );
+		}
+	}
+
+	public function setup_wizard(){
+		include( 'setup/html-notice-install.php' );
 	}
 
 
