@@ -90,11 +90,11 @@ $options[ ] = array(
 	'id'      => 'vendor_display_name',
 	'type'    => 'select',
 	'options' => array(
-		'display_name' 	=> __( 'Display Name', 'wcvendors'), 
-		'shop_name'		=> __( 'Shop Name', 'wcvendors'), 
-		'user_login' 	=> __( 'User Login', 'wcvendors'), 
-		'user_email' 	=> __( 'User Email', 'wcvendors'), 
-	), 
+		'display_name' 	=> __( 'Display Name', 'wcvendors'),
+		'shop_name'		=> __( 'Shop Name', 'wcvendors'),
+		'user_login' 	=> __( 'User Login', 'wcvendors'),
+		'user_email' 	=> __( 'User Email', 'wcvendors'),
+	),
 	'std'	=> 'shop_name'
 
 );
@@ -231,15 +231,6 @@ $options[ ] = array(
 	'id'   => 'can_export_csv',
 	'type' => 'checkbox',
 	'std'  => true,
-);
-
-$options[ ] = array(
-	'name' => __( 'Reports', 'wcvendors' ),
-	'desc' => __( '<strike>View backend sales reports</strike>. <strong>Depreciated</strong>', 'wcvendors' ),
-	'tip'  => __( 'This option has been removed and will no longer function. It will be completely removed in future versions. Vendors should use their Vendor Dashboard for reports as all identical functionality is already there. ', 'wcvendors' ),
-	'id'   => 'can_view_backend_reports',
-	'type' => 'checkbox',
-	'std'  => false,
 );
 
 $options[ ] = array(
