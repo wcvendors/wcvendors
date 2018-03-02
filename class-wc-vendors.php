@@ -170,10 +170,8 @@ if ( wcv_is_woocommerce_activated() ) {
 			}
 
 			require_once wcv_plugin_dir . 'classes/class-install.php';
-
 			$this->load_settings();
-			$install = new WCV_Install;
-			$install->init();
+			WCV_Install::init();
 		}
 
 
@@ -402,22 +400,30 @@ if ( wcv_is_woocommerce_activated() ) {
 		/**
 		 * Class logger so that we can keep our debug and logging information cleaner
 		 *
-		 * @since 1.4.0
+		 * @since 2.0.0
+		 * @version 2.0.0
 		 * @access public
 		 *
 		 * @param mixed - $data the data to go to the error log could be string, array or object
 		 */
-		public static function log( $data = '' ){
+		public static function log( $data = '', $prefix = '' ){
 
 			$trace 		= debug_backtrace( false, 2 );
-			$path_info  = pathinfo( $trace[ 0 ][ 'file' ] );
-
-			// Only display the class file if there is actually a class file
-			$caller = ( isset( $trace[ 1 ] ) ) ? array_key_exists( 'class', $trace[ 1 ] ) ? $trace[ 1 ][ 'class' ] : $path_info[ 'basename' ] : '';
+			$caller 	= ( isset( $trace[ 1 ]['class'] ) ) ? $trace[ 1 ]['class'] : basename( $trace[ 1 ][ 'file' ] );
 
 			if ( is_array( $data ) || is_object( $data ) ) {
+				if ( $prefix ){
+					error_log( '===========================' );
+					error_log( $prefix );
+					error_log( '===========================' );
+				}
 				error_log( $caller . ' : ' . print_r( $data, true ) );
 			} else {
+				if ( $prefix ){
+					error_log( '===========================' );
+					error_log( $prefix );
+					error_log( '===========================' );
+				}
 				error_log( $caller  . ' : ' . $data );
 			}
 
