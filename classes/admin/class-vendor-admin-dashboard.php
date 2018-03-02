@@ -41,7 +41,7 @@ Class WCV_Vendor_Admin_Dashboard {
 		$screen 	= get_current_screen();
 
 		if ( ! $screen ) return;
-		
+
 		$screen_id 	= $screen->id;
 
 		if ( 'wcv-vendor-orders' === $screen_id ){
@@ -548,8 +548,6 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 				$sum = WCV_Queries::sum_for_orders( array( $order_id  ), array('vendor_id' =>get_current_user_id() ), false );
 				$sum = reset( $sum );
-
-				WC_Vendors::log( $sum );
 
 				$total = $sum->line_total;
 
