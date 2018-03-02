@@ -16,7 +16,6 @@
       <key name="can_submit_order_comments"/>
       <key name="can_view_order_emails"/>
       <key name="can_export_csv"/>
-      <key name="can_view_backend_reports"/>
       <key name="can_view_frontend_reports"/>
       <key name="can_submit_products"/>
       <key name="can_edit_published_products"/>

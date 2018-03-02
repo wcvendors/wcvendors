@@ -126,7 +126,6 @@ class WCV_Admin_Setup
 		$can_add          = WC_Vendors::$pv_options->get_option( 'can_submit_products' );
 		$can_edit         = WC_Vendors::$pv_options->get_option( 'can_edit_published_products' );
 		$can_submit_live  = WC_Vendors::$pv_options->get_option( 'can_submit_live_products' );
-		$can_view_reports = WC_Vendors::$pv_options->get_option( 'can_view_backend_reports' );
 
 		$args = array(
 			'assign_product_terms'      => $can_add,
@@ -151,7 +150,7 @@ class WCV_Admin_Setup
 		add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
 																							  'read'         => true,
 																							  'edit_posts'   => false,
-																							  'delete_posts' => true
+																							  'delete_posts' => false
 																						 ) );
 
 		echo '<div class="updated inline"><p>' . __( 'WC Vendor roles successfully reset.', 'wcvendors' ) . '</p></div>';
