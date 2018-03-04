@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <h1><?php esc_html_e( "Your marketplace is ready!", 'wcvendors' ); ?></h1>
 
-<div class="wcvendors-message wcvendors-newsletter">
+<!-- <div class="wcvendors-message wcvendors-newsletter">
 	<p><?php esc_html_e( "Subscribe to our newsletter! Get product updates, marketplace tips, information and more.", 'wcvendors' ); ?></p>
 	<form action="//wcvendors.us8.list-manage.com/subscribe/post?u=2c1434dc56f9506bf3c3ecd21&amp;id=13860df971" method="post" target="_blank" novalidate>
 		<div class="newsletter-form-container">
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</p>
 		</div>
 	</form>
-</div>
+</div> -->
 
 <ul class="wcv-wizard-next-steps">
 	<li class="wcv-wizard-next-step-item">

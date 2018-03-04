@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <form method="post">
 	<?php wp_nonce_field( 'wcv-setup' ); ?>
 	<p class="store-setup"><?php esc_html_e( 'The following wizard will help you configure your marketplace and get your vendors onboard quickly.', 'wcvendors' ); ?></p>
-	
+
 	<table class="wcv-setup-table">
 		<thead>
 			<tr>
@@ -27,10 +27,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 					type="checkbox"
 					class="option_checkbox"
-					id="wcvendors_vendor_allow_registration"
-					name="wcvendors_vendor_allow_registration"
-					value="yes"
-					<?php checked( $allow_registration, 'yes' ); ?>
+					id="wcv_vendor_allow_registration"
+					name="wcv_vendor_allow_registration"
+					value="1"
+					<?php checked( $allow_registration, true ); ?>
 				/>
 				</td>
 			</tr>
@@ -40,10 +40,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						class="option_checkbox"
-						id="wcvendors_vendor_approve_registration"
-						name="wcvendors_vendor_approve_registration"
-						value="yes"
-						<?php checked( $manual_approval, 'yes' ); ?>
+						id="wcv_vendor_approve_registration"
+						name="wcv_vendor_approve_registration"
+						value="1"
+						<?php checked( $manual_approval, true ); ?>
 					/>
 				</td>
 			</tr>
@@ -53,10 +53,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						class="option_checkbox"
-						id="wcvendors_vendor_give_taxes"
-						name="wcvendors_vendor_give_taxes"
-						value="yes"
-						<?php checked( $vendor_taxes, 'yes' ); ?>
+						id="wcv_vendor_give_taxes"
+						name="wcv_vendor_give_taxes"
+						value="1"
+						<?php checked( $vendor_taxes, true ); ?>
 					/>
 				</td>
 			</tr>
@@ -66,10 +66,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						class="option_checkbox"
-						id="wcvendors_vendor_give_shipping"
-						name="wcvendors_vendor_give_shipping"
-						value="yes"
-						<?php checked( $vendor_shipping, 'yes' ); ?>
+						id="wcv_vendor_give_shipping"
+						name="wcv_vendor_give_shipping"
+						value="1"
+						<?php checked( $vendor_shipping, true ); ?>
 					/>
 				</td>
 			</tr>
@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<strong><?php _e( 'Commission', 'wcvendors' ); ?></strong>
 
 	<p class="store-setup"><?php _e( 'Commissions are calculated per product. The commission rate can be set globally, at a vendor level or at a product level.', 'wcvendors' ); ?></p>
-	
+
 	<!-- Vendor commission rate -->
 	<p class="store-setup wcv-setup-input">
 	<label class="" for="">
@@ -87,8 +87,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</label>
 	<input
 		type="text"
-		id="wcvendors_vendor_commission_rate"
-		name="wcvendors_vendor_commission_rate"
+		id="wcv_vendor_commission_rate"
+		name="wcv_vendor_commission_rate"
 		placeholder="%"
 		value="<?php echo $commission_rate; ?>"
 	/>

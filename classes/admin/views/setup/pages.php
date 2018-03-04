@@ -22,38 +22,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</thead>
 		<tbody>
 			<tr>
-				<td class="table-desc"><?php _e( 'Dashboard', 'wcvendors' ); ?>
+				<td class="table-desc"><?php _e( 'Vendor Dashboard', 'wcvendors' ); ?>
 
 				</td>
 				<td class="table-check">
-					<?php wcv_single_select_page( 'wcvendors_dashboard_page_id', $dashboard_page_id, 'wc-enhanced-select' ); ?>
+					<?php wcv_single_select_page( 'vendor_dashboard_page', $dashboard_page, 'wc-enhanced-select' ); ?>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3" class="tool-tip">
-					<?php _e( 'This page should contain the following shortcode. <code>[wcvendors_dashboard]</code>', 'wcvendors' ); ?>
+					<?php _e( 'This page should contain the following shortcode. <code>[wcv_vendor_dashboard]</code>', 'wcvendors' ); ?>
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Vendors', 'wcvendors' ), ucfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Shop Settings', 'wcvendors' ), ucfirst( wcv_get_vendor_name( false ) ) ); ?></td>
 				<td class="table-check">
-					<?php wcv_single_select_page( 'wcvendors_vendors_page_id', $vendors_page_id, 'wc-enhanced-select' ); ?>
+					<?php wcv_single_select_page( 'shop_setttings_page', $shop_settings_page, 'wc-enhanced-select' ); ?>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3" class="tool-tip">
-					<?php _e( 'This page should contain the following shortcode. <code>[wcvendors_stores]</code>', 'wcvendors' ); ?>
+					<?php _e( 'This page should contain the following shortcode. <code>[wcv_shop_settings]</code>', 'wcvendors' ); ?>
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php _e( 'Terms & Conditions', 'wcvendors' ); ?></td></td>
+				<td class="table-desc"><?php _e( 'Orders Page', 'wcvendors' ); ?></td></td>
 				<td class="table-check">
-					<?php wcv_single_select_page( 'wcvendors_vendor_terms_page_id', $terms_page_id, 'wc-enhanced-select' ); ?>
+					<?php wcv_single_select_page( 'product_orders_page', $orders_page, 'wc-enhanced-select' ); ?>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3" class="tool-tip">
-					<?php printf( __( 'This sets the page used to display the terms and conditions when a %s signs up.', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false  ) ) ); ?>
+					<?php _e( 'This page should contain the following shortcode. <code>[wcv_orders]</code>', 'wcvendors' ); ?>
 				</td>
 			</tr>
 		</tbody>

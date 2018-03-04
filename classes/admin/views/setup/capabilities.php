@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <form method="post">
 	<?php wp_nonce_field( 'wcv-setup' ); ?>
 	<p class="store-setup"><?php printf( __( 'Enable and disable capabilites of the %s', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></p>
-		
+
 	<table class="wcv-setup-table">
 		<thead>
 			<tr>
@@ -27,10 +27,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						style="float: right; font-size: 4em;"
-						id="wcvendors_capability_products_enabled"
-						name="wcvendors_capability_products_enabled"
-						value="yes"
-						<?php checked( $products_enabled, 'yes' ); ?>
+						id="wcv_capability_products_enabled"
+						name="wcv_capability_products_enabled"
+						value="1"
+						<?php checked( $products_enabled, true ); ?>
 					/>
 				</td>
 			</tr>
@@ -40,10 +40,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						style="float: right; font-size: 4em;"
-						id="wcvendors_capability_products_edit"
-						name="wcvendors_capability_products_edit"
-						value="yes"
-						<?php checked( $live_products, 'yes' ); ?>
+						id="wcv_capability_products_edit"
+						name="wcv_capability_products_edit"
+						value="1"
+						<?php checked( $live_products, true ); ?>
 					/>
 				</td>
 			</tr>
@@ -53,14 +53,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						style="float: right; font-size: 4em;"
-						id="wcvendors_capability_products_live"
-						name="wcvendors_capability_products_live"
-						value="yes"
-						<?php checked( $products_approval, 'yes' ); ?>
+						id="wcv_capability_products_live"
+						name="wcv_capability_products_live"
+						value="1"
+						<?php checked( $products_approval, true ); ?>
 					/>
 				</td>
 			</tr>
-			
+
 		</tbody>
 	</table>
 
@@ -78,10 +78,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						style="float: right; font-size: 4em;"
-						id="wcvendors_capability_orders_enabled"
-						name="wcvendors_capability_orders_enabled"
-						value="yes"
-						<?php checked( $orders_enabled, 'yes' ); ?>
+						id="wcv_capability_orders_enabled"
+						name="wcv_capability_orders_enabled"
+						value="1"
+						<?php checked( $orders_enabled, true ); ?>
 					/>
 				</td>
 			</tr>
@@ -91,10 +91,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						style="float: right; font-size: 4em;"
-						id="wcvendors_capability_orders_export"
-						name="wcvendors_capability_orders_export"
-						value="yes"
-						<?php checked( $export_orders, 'yes' ); ?>
+						id="wcv_capability_orders_export"
+						name="wcv_capability_orders_export"
+						value="1"
+						<?php checked( $export_orders, true ); ?>
 					/>
 				</td>
 			</tr>
@@ -104,10 +104,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						style="float: right; font-size: 4em;"
-						id="wcvendors_capability_order_read_notes"
-						name="wcvendors_capability_order_read_notes"
-						value="yes"
-						<?php checked( $view_order_notes, 'yes' ); ?>
+						id="wcv_capability_order_read_notes"
+						name="wcv_capability_order_read_notes"
+						value="1"
+						<?php checked( $view_order_notes, true ); ?>
 					/>
 				</td>
 			</tr>
@@ -117,10 +117,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input
 						type="checkbox"
 						style="float: right; font-size: 4em;"
-						id="wcvendors_capability_order_update_notes"
-						name="wcvendors_capability_order_update_notes"
-						value="yes"
-						<?php checked( $view_order_notes, 'yes' ); ?>
+						id="wcv_capability_order_update_notes"
+						name="wcv_capability_order_update_notes"
+						value="1"
+						<?php checked( $view_order_notes, true ); ?>
 					/>
 				</td>
 			</tr>

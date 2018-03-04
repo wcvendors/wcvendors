@@ -2,8 +2,8 @@
 /**
  * Install class on activation.
  *
- * @author  Matt Gates <http://mgates.me>
- * @package ProductVendor
+ * @author  Matt Gates, Jamie Madden
+ * @package WCVendors
  */
 
 
@@ -15,53 +15,14 @@ class WCV_Install
 	 *
 	 * @return unknown
 	 */
-	public function init()
-	{
+	public static function init() {
+
 		$db_version = WC_Vendors::$pv_options->get_option( 'db_version' );
 
 		// Initial Install
 		if ( version_compare( $db_version, '1.0', '<' ) ) {
-
-			$this->install_wcvendor();
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.5.0' );
-
-		} else if ( version_compare( $db_version, '1.9.0', '<' ) ) {
-
-			$orders_page = get_post( WC_Vendors::$pv_options->get_option( 'orders_page' ) );
-
-			// Only update the page slug for orders if it is called orders
-			// This is due to WC 2.6 api changes
-			if ( is_object( $orders_page ) ) {
-
-				if ( $orders_page && $orders_page->post_name === 'orders' ){
-
-					wp_update_post(
-			            array (
-			                'ID'        => $orders_page->ID,
-			                'post_name' => 'product_orders'
-			            )
-			        );
-
-					WC_Vendors::$pv_options->update_option( 'db_version', '1.9.0' );
-				}
-			}
-
-		} else if ( version_compare( $db_version, '1.9.1', '<' ) ) {
-			remove_role( 'vendor' );
-			add_role( 'vendor', __('Vendor', 'wcvendors') , array(
-											   'assign_product_terms'     => true,
-											   'edit_products'            => true,
-											   'edit_product'             => true,
-											   'edit_published_products'  => false,
-											   'manage_product'           => true,
-											   'publish_products'         => false,
-											   'delete_posts'			  => true,
-											   'read'                     => true,
-											   'upload_files'             => true,
-											   'view_woocommerce_reports' => false,
-										  ) );
-
-			WC_Vendors::$pv_options->update_option( 'db_version', '1.9.1' );
+			self::install();
+			// WC_Vendors::$pv_options->update_option( 'db_version', '2.0.0' );
 		}
 
 	} // init()
@@ -70,34 +31,23 @@ class WCV_Install
 	/**
 	 * Grouped functions for installing the WC Vendor plugin
 	 */
-	private function install_wcvendor()
-	{
+	public static function install() {
+
 		// Clear the cron
 		wp_clear_scheduled_hook( 'pv_schedule_mass_payments' );
 
-		// Add the vendors role
-		$this->add_new_roles();
+		self::create_roles();
+		self::create_tables();
+		// self::maybe_run_setup_wizard();
 
-		// Create tables
-		$this->create_new_tables();
-
-		// Create the Orders page if it doesn't exist
-		$orders_page = WC_Vendors::$pv_options->get_option( 'orders_page' );
-		if ( empty( $orders_page ) ) $this->create_new_pages();
-
-		$this->maybe_run_setup_wizard();
 	}
-
-
-
 
 	/**
 	 * Add the new Vendor role
 	 *
 	 * @return bool
 	 */
-	private function add_new_roles()
-	{
+	public static function create_roles() {
 		remove_role( 'pending_vendor' );
 		add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
 																					  'read'         => true,
@@ -106,7 +56,7 @@ class WCV_Install
 																				 ) );
 
 		remove_role( 'vendor' );
-		add_role( 'vendor', __('Vendor', 'wcvendors') , array(
+		add_role( 'vendor', __( 'Vendor', 'wcvendors') , array(
 										   'assign_product_terms'     => true,
 										   'edit_products'            => true,
 										   'edit_product'             => true,
@@ -124,8 +74,7 @@ class WCV_Install
 	/**
 	 * Create the pv_commission table
 	 */
-	private function create_new_tables()
-	{
+	public static function create_tables() {
 		global $wpdb;
 
 		$table_name = $wpdb->prefix . "pv_commission";
@@ -144,6 +93,7 @@ class WCV_Install
 			time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			UNIQUE KEY id (id)
 		);";
+
 		dbDelta( $sql );
 	}
 
@@ -160,7 +110,7 @@ class WCV_Install
 	 * @param string $page_content (optional) (default: '') Content for the new page
 	 * @param int    $post_parent  (optional) (default: 0) Parent for the new page
 	 */
-	function create_page( $slug, $page_title = '', $page_content = '', $post_parent = 0 )
+	public static function create_page( $slug, $page_title = '', $page_content = '', $post_parent = 0 )
 	{
 		global $wpdb;
 
@@ -193,6 +143,7 @@ class WCV_Install
 		);
 
 		$page_id = wp_insert_post( $page_data );
+
 		WC_Vendors::$pv_options->update_option( $slug . '_page', $page_id );
 
 		return $page_id;
@@ -200,100 +151,24 @@ class WCV_Install
 
 
 	/**
-	 * Create the Orders page for the frontend
+	 * Create all pages
 	 */
-	private function create_new_pages()
-	{
-		global $wpdb;
+	public static function create_pages(){
 
-		$vendor_page_id = $this->create_page( 'vendor_dashboard', __( 'Vendor Dashboard', 'wcvendors' ), '[wcv_vendor_dashboard]' );
-		$this->create_page( 'product_orders', __( 'Orders', 'wcvendors' ), '[wcv_orders]', $vendor_page_id );
-		$this->create_page( 'shop_settings', __( 'Shop Settings', 'wcvendors' ), '[wcv_shop_settings]', $vendor_page_id );
+		$vendor_page_id = self::create_page( 'vendor_dashboard', __( 'Vendor Dashboard', 'wcvendors' ), '[wcv_vendor_dashboard]' );
+		self::create_page( 'product_orders', __( 'Orders', 'wcvendors' ), '[wcv_orders]', $vendor_page_id );
+		self::create_page( 'shop_settings', __( 'Shop Settings', 'wcvendors' ), '[wcv_shop_settings]', $vendor_page_id );
 	}
 
-
-	/**
-	 * Depreciated
-	 *
-	 * @param unknown $version
-	 */
-	public function update_to( $version )
-	{
-		global $wpdb;
-
-		$table_name = $wpdb->prefix . "pv_commission";
-
-		switch ( $version ) {
-
-			case '1.3.2':
-
-				$sql = "ALTER TABLE  `{$table_name}` ADD  `qty` BIGINT( 20 ) NOT NULL AFTER  `total_due`";
-				$wpdb->query( $sql );
-
-				$sql     = "SELECT * FROM `{$table_name}`";
-				$results = $wpdb->get_results( $sql );
-				foreach ( $results as $key => $value ) {
-
-					$order = wc_get_order( $value->order_id );
-
-					foreach ( $order->get_items() as $o_key => $o_value ) {
-
-						if ( $value->product_id == $o_value[ 'product_id' ] || ( !empty( $o_value[ 'variation_id' ] ) && $value->product_id == $o_value[ 'variation_id' ] ) ) {
-							$wpdb->update(
-								$table_name,
-								array( 'qty' => $o_value[ 'qty' ] ),
-								array( 'id' => $value->id ),
-								array( '%d' ),
-								array( '%d' )
-							);
-						}
-					}
-
-				}
-
-				break;
-
-			case '1.4.0':
-
-				add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
-																							  'read'         => true,
-																							  'edit_posts'   => false,
-																							  'delete_posts' => false
-																						 ) );
-
-				$this->create_new_pages();
-
-				break;
-
-			case '1.4.2':
-
-				$sql = "ALTER TABLE  `{$table_name}` ADD  `total_shipping` decimal(20,2) NOT NULL AFTER `total_due`";
-				$wpdb->query( $sql );
-
-			case '1.4.3':
-
-				$sql = "ALTER TABLE  `{$table_name}` ADD  `tax` decimal(20,2) NOT NULL AFTER `total_shipping`";
-				$wpdb->query( $sql );
-
-			case '1.4.5':
-
-				// Flush rules to fix the /page/2/ issue on vendor shop pages
-				update_option( WC_Vendors::$id . '_flush_rules', true );
-
-			default:
-				// code...
-				break;
-		}
-	}
 
 	/**
 	 * Is this a brand new WC install?
 	 *
-	 * @since 3.2.0
+	 * @since 2.0.0
 	 * @return boolean
 	 */
-	private function is_new_install() {
-		return is_null( $db_version = WC_Vendors::$pv_options->get_option( 'db_version' ) );
+	public static function is_new_install() {
+		return empty( WC_Vendors::$pv_options->get_option( 'db_version' ) );
 	}
 
 	/**
@@ -301,14 +176,15 @@ class WCV_Install
 	 *
 	 * @since 2.0.0
 	 */
-	private function maybe_enable_setup_wizard() {
-		if ( apply_filters( 'wcvendors_enable_setup_wizard', $this->is_new_install() ) ) {
-			add_action( 'admin_notices', array( $this, 'setup_wizard' ) );
+	public static function maybe_run_setup_wizard() {
+		if ( apply_filters( 'wcvendors_enable_setup_wizard', self::is_new_install() ) ) {
+			add_action( 'admin_notices', array( 'WCV_INSTALL', 'setup_wizard' ) );
 		}
 	}
 
-	public function setup_wizard(){
-		include( 'setup/html-notice-install.php' );
+
+	public static function setup_wizard(){
+		include( 'includes/views/html-notice-install.php' );
 	}
 
 
