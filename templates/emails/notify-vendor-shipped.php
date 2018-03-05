@@ -6,9 +6,9 @@
  * @package WooCommerce/Templates/Emails/HTML
  * @version 2.0.0
  */
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created(); 
+$order_date = $order->get_date_created(); 
 
 ?>
 

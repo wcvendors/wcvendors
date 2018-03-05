@@ -52,7 +52,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 	{
 		$this->object = wc_get_order( $order_id );
 		$this->current_vendor = $vendor_id;
-		$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->order_date : $this->object->get_date_created(); 
+		$order_date = $this->object->get_date_created();
 
 		$this->find[ ]    = '{order_date}';
 		$this->replace[ ] = date_i18n( wc_date_format(), strtotime( $order_date ) );
@@ -60,7 +60,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 		$this->find[ ]    = '{order_number}';
 		$this->replace[ ] = $this->object->get_order_number();
 
-		$billing_email 	  = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->billing_email : $this->object->get_billing_email(); 
+		$billing_email 	  = $this->object->get_billing_email();
 
 		if ( !$this->is_enabled() ) return;
 
@@ -129,7 +129,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 		wc_get_template( $this->template_html, array(
 															 'order'         => $this->object,
 															 'email_heading' => $this->get_heading()
-														), 'woocommerce', $this->template_base );
+														), 'woocommerce/emails', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -147,7 +147,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 		wc_get_template( $this->template_plain, array(
 															  'order'         => $this->object,
 															  'email_heading' => $this->get_heading()
-														 ), 'woocommerce', $this->template_base );
+														 ), 'woocommerce/emails', $this->template_base );
 
 		return ob_get_clean();
 	}

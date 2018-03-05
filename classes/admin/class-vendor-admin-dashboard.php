@@ -380,6 +380,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 		if (is_array(  $_GET[ 'order_id' ] ) ) {
 
 			$items = array_map( 'intval', $_GET[ 'order_id' ] );
+
 			switch ( $this->current_action() ) {
 				case 'mark_shipped':
 
@@ -408,31 +409,37 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	 *
 	 * @param unknown $ids (optional)
 	 *
+	 * @version 2.0.0
 	 * @return unknown
 	 */
-	public function mark_shipped( $ids = array() )
-	{
-		global $woocommerce;
+	public function mark_shipped( $ids = array() ){
 
 		$user_id = get_current_user_id();
 
 		if ( !empty( $ids ) ) {
+
 			foreach ($ids as $order_id ) {
-				$order = wc_get_order( $order_id );
-				$vendors = WCV_Vendors::get_vendors_from_order( $order );
-				$vendor_ids = array_keys( $vendors );
+				$order 			= wc_get_order( $order_id );
+				$vendors 		= WCV_Vendors::get_vendors_from_order( $order );
+				$vendor_ids 	= array_keys( $vendors );
+
 				if ( !in_array( $user_id, $vendor_ids ) ) {
-					wp_die( __( 'You are not allowed to modify this order.', 'wcvendors' ) );
+					return;
 				}
+
 				$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
-				if( !in_array($user_id, $shippers)) {
+
+				if( !in_array($user_id, $shippers ) ) {
+
 					$shippers[] = $user_id;
-					$mails = $woocommerce->mailer()->get_emails();
+
 					if ( !empty( $mails ) ) {
-						$mails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
+						WC()->mailer()->emails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
 					}
-					do_action('wcvendors_vendor_ship', $order_id, $user_id);
+
+					do_action( 'wcvendors_vendor_ship', $order_id, $user_id, $order );
 				}
+
 				update_post_meta( $order_id, 'wc_pv_shipped', $shippers );
 			}
 			return true;
