@@ -305,7 +305,6 @@ if ( wcv_is_woocommerce_activated() ) {
 				$can_add          = $options[ 'can_submit_products' ];
 				$can_edit         = $options[ 'can_edit_published_products' ];
 				$can_submit_live  = $options[ 'can_submit_live_products' ];
-				$can_view_reports = $options[ 'can_view_backend_reports' ];
 
 				$args = array(
 					'assign_product_terms'      => $can_add,
