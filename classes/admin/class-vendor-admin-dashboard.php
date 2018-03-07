@@ -19,8 +19,8 @@ Class WCV_Vendor_Admin_Dashboard {
 	}
 
 	function vendor_dashboard_pages(){
-        add_menu_page( __('Shop Settings', 'wcvendors'), __('Shop Settings', 'wcvendors'), 'manage_product', 'wcv-vendor-shopsettings', array( $this, 'settings_page' ) );
-		$hook = add_menu_page( __( 'Orders', 'wcvendors' ), __( 'Orders', 'wcvendors' ), 'manage_product', 'wcv-vendor-orders', array( 'WCV_Vendor_Admin_Dashboard', 'orders_page' ) );
+        add_menu_page( __('Shop Settings', 'wc-vendors'), __('Shop Settings', 'wc-vendors'), 'manage_product', 'wcv-vendor-shopsettings', array( $this, 'settings_page' ) );
+		$hook = add_menu_page( __( 'Orders', 'wc-vendors' ), __( 'Orders', 'wc-vendors' ), 'manage_product', 'wcv-vendor-orders', array( 'WCV_Vendor_Admin_Dashboard', 'orders_page' ) );
 		add_action( "load-$hook", array( 'WCV_Vendor_Admin_Dashboard', 'add_options' ) );
 	}
 
@@ -67,7 +67,7 @@ Class WCV_Vendor_Admin_Dashboard {
 			}
 
 			if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
-				$error_msg .=  __( 'Your PayPal address is not a valid email address.', 'wcvendors' );
+				$error_msg .=  __( 'Your PayPal address is not a valid email address.', 'wc-vendors' );
 				$error = true;
 			} else {
 				update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
@@ -76,7 +76,7 @@ Class WCV_Vendor_Admin_Dashboard {
 			if ( !empty( $_POST[ 'pv_shop_name' ] ) ) {
 				$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
 				if ( !empty( $users ) && $users[ 0 ]->ID != $user_id ) {
-					$error_msg .= __( 'That shop name is already taken. Your shop name must be unique.', 'wcvendors' );
+					$error_msg .= __( 'That shop name is already taken. Your shop name must be unique.', 'wc-vendors' );
 					$error = true;
 				} else {
 					update_user_meta( $user_id, 'pv_shop_name', $_POST[ 'pv_shop_name' ] );
@@ -112,7 +112,7 @@ Class WCV_Vendor_Admin_Dashboard {
 	public function add_admin_notice_success( ){
 
 		echo '<div class="updated"><p>';
-		echo __( 'Settings saved.', 'wcvendors' );
+		echo __( 'Settings saved.', 'wc-vendors' );
 		echo '</p></div>';
 
 	} // add_admin_notice_success()
@@ -180,7 +180,7 @@ Class WCV_Vendor_Admin_Dashboard {
 		<div class="wrap">
 
 			<div id="icon-woocommerce" class="icon32 icon32-woocommerce-reports"><br/></div>
-			<h2><?php _e( 'Orders', 'wcvendors' ); ?></h2>
+			<h2><?php _e( 'Orders', 'wc-vendors' ); ?></h2>
 
 			<form id="posts-filter" method="get">
 
@@ -243,8 +243,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 		//Set parent defaults
 		parent::__construct( array(
-								  'singular' => __( 'order', 'wcvendors' ),
-								  'plural'   => __( 'orders', 'wcvendors' ),
+								  'singular' => __( 'order', 'wc-vendors' ),
+								  'plural'   => __( 'orders', 'wc-vendors' ),
 								  'ajax'     => false
 							 ) );
 
@@ -319,13 +319,13 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	{
 		$columns = array(
 			'cb'        => '<input type="checkbox" />',
-			'order_id'  => __( 'Order ID', 'wcvendors' ),
-			'customer'  => __( 'Customer', 'wcvendors' ),
-			'products'  => __( 'Products', 'wcvendors' ),
-			'total' 	=> __( 'Total', 'wcvendors' ),
-			// 'comments' 	=> __( 'Comments to Customer', 'wcvendors' ),
-			'date'      => __( 'Date', 'wcvendors' ),
-			'status'    => __( 'Shipped', 'wcvendors' ),
+			'order_id'  => __( 'Order ID', 'wc-vendors' ),
+			'customer'  => __( 'Customer', 'wc-vendors' ),
+			'products'  => __( 'Products', 'wc-vendors' ),
+			'total' 	=> __( 'Total', 'wc-vendors' ),
+			// 'comments' 	=> __( 'Comments to Customer', 'wc-vendors' ),
+			'date'      => __( 'Date', 'wc-vendors' ),
+			'status'    => __( 'Shipped', 'wc-vendors' ),
 		);
 
 		if ( !$this->can_view_comments ) unset( $columns['comments'] );
@@ -361,7 +361,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	function get_bulk_actions()
 	{
 		$actions = array(
-			'mark_shipped'     =>  apply_filters( 'wcvendors_mark_shipped_label', __( 'Mark shipped', 'wcvendors' ) ),
+			'mark_shipped'     =>  apply_filters( 'wcvendors_mark_shipped_label', __( 'Mark shipped', 'wc-vendors' ) ),
 		);
 
 		return $actions;
@@ -387,7 +387,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 					$result = $this->mark_shipped( $items );
 
 					if ( $result )
-						echo '<div class="updated"><p>' . __( 'Orders marked shipped.', 'wcvendors' ) . '</p></div>';
+						echo '<div class="updated"><p>' . __( 'Orders marked shipped.', 'wc-vendors' ) . '</p></div>';
 					break;
 
 				default:
@@ -551,7 +551,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 				$order_id 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();
 				$shippers 	= (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
-				$shipped 	= in_array($user_id, $shippers) ? __( 'Yes', 'wcvendors' ) : __( 'No', 'wcvendors' ) ;
+				$shipped 	= in_array($user_id, $shippers) ? __( 'Yes', 'wc-vendors' ) : __( 'No', 'wc-vendors' ) ;
 
 				$sum = WCV_Queries::sum_for_orders( array( $order_id  ), array('vendor_id' =>get_current_user_id() ), false );
 				$sum = reset( $sum );

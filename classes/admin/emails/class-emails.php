@@ -65,11 +65,11 @@ class WCV_Emails
 		if ( !empty( $_POST[ 'apply_for_vendor' ] ) || ( !empty( $_GET[ 'action' ] ) && ( $_GET[ 'action' ] == 'approve_vendor' || $_GET[ 'action' ] == 'deny_vendor' ) ) ) {
 
 			if ( $role == 'pending_vendor' ) {
-				$status = __( 'pending', 'wcvendors' );
+				$status = __( 'pending', 'wc-vendors' );
 			} else if ( $role == 'vendor' ) {
-				$status = __( 'approved', 'wcvendors' );
+				$status = __( 'approved', 'wc-vendors' );
 			} else if ( !empty( $_GET[ 'action' ] ) && $_GET[ 'action' ] == 'deny_vendor' ) {
-				$status = __( 'denied', 'wcvendors' );
+				$status = __( 'denied', 'wc-vendors' );
 			}
 
 			$mails = $woocommerce->mailer()->get_emails();
@@ -170,7 +170,7 @@ class WCV_Emails
 	*
 	*/
 	public function order_actions( $order_actions ){
-		$order_actions[ 'send_vvendor_new_order' ] = __( 'Resend vendor new order notification', 'wcvendors' );
+		$order_actions[ 'send_vvendor_new_order' ] = __( 'Resend vendor new order notification', 'wc-vendors' );
 		return $order_actions;
 	}
 
@@ -196,7 +196,7 @@ class WCV_Emails
 		if ( !empty( $_POST[ 'apply_for_vendor' ] ) || ( !empty( $_GET[ 'action' ] ) && ( $_GET[ 'action' ] == 'approve_vendor' || $_GET[ 'action' ] == 'deny_vendor' ) ) ) {
 
 			if ( $role == 'pending_vendor' ) {
-				WC()->mailer()->emails[ 'WCV_Vendor_Notify_Application' ]->trigger( $user_id, __( 'pending', 'wcvendors' ) );
+				WC()->mailer()->emails[ 'WCV_Vendor_Notify_Application' ]->trigger( $user_id, __( 'pending', 'wc-vendors' ) );
 			} else if ( $role == 'vendor' ) {
 				WC()->mailer()->emails[ 'WCV_Vendor_Notify_Approved' ]->trigger( $user_id );
 			} else if ( !empty( $_GET[ 'action' ] ) && $_GET[ 'action' ] == 'deny_vendor' ) {

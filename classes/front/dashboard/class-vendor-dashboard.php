@@ -53,10 +53,10 @@ class WCV_Vendor_Dashboard
 
 				do_action( 'wcvendors_vendor_ship', $order_id, $user_id, $order );
 
-				wc_add_notice( __( 'Order marked shipped.', 'wcvendors' ), 'success' );
+				wc_add_notice( __( 'Order marked shipped.', 'wc-vendors' ), 'success' );
 
 				$shop_name = WCV_Vendors::get_vendor_shop_name( $user_id );
-				$order->add_order_note( apply_filters( 'wcvendors_vendor_shipped_note', sprintf( __(  '%s has marked as shipped. ', 'wcvendors'), $shop_name ) , $user_id, $shop_name ) );
+				$order->add_order_note( apply_filters( 'wcvendors_vendor_shipped_note', sprintf( __(  '%s has marked as shipped. ', 'wc-vendors'), $shop_name ) , $user_id, $shop_name ) );
 
 			} elseif ( false != ( $key = array_search( $user_id, $shippers) ) ) {
 				unset( $shippers[$key] ); // Remove user from the shippers array
@@ -85,10 +85,10 @@ class WCV_Vendor_Dashboard
 				}
 			}
 			if ( $order_item_id ) {
-				wc_delete_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ) );
-				wc_add_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ), $tracking_number );
+				wc_delete_order_item_meta( $order_item_id, __( 'Tracking number', 'wc-vendors' ) );
+				wc_add_order_item_meta( $order_item_id, __( 'Tracking number', 'wc-vendors' ), $tracking_number );
 
-				$message = __( 'Success. Your tracking number has been updated.', 'wcvendors' );
+				$message = __( 'Success. Your tracking number has been updated.', 'wc-vendors' );
 				wc_add_notice( $message, 'success' );
 
 				// Update order data
@@ -114,7 +114,7 @@ class WCV_Vendor_Dashboard
 
 			if ( isset( $_POST[ 'pv_paypal' ] ) ) {
 				if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
-					wc_add_notice( __( 'Your PayPal address is not a valid email address.', 'wcvendors' ), 'error' );
+					wc_add_notice( __( 'Your PayPal address is not a valid email address.', 'wc-vendors' ), 'error' );
 				} else {
 					update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
 				}
@@ -123,7 +123,7 @@ class WCV_Vendor_Dashboard
 			if ( !empty( $_POST[ 'pv_shop_name' ] ) ) {
 				$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
 				if ( !empty( $users ) && $users[ 0 ]->ID != $user_id ) {
-					wc_add_notice( __( 'That shop name is already taken. Your shop name must be unique.', 'wcvendors' ), 'error' );
+					wc_add_notice( __( 'That shop name is already taken. Your shop name must be unique.', 'wc-vendors' ), 'error' );
 				} else {
 					update_user_meta( $user_id, 'pv_shop_name', $_POST[ 'pv_shop_name' ] );
 					update_user_meta( $user_id, 'pv_shop_slug', sanitize_title( $_POST[ 'pv_shop_name' ] ) );
@@ -141,7 +141,7 @@ class WCV_Vendor_Dashboard
 			do_action( 'wcvendors_shop_settings_saved', $user_id );
 
 			if ( !wc_notice_count() ) {
-				wc_add_notice( __( 'Settings saved.', 'wcvendors' ), 'success' );
+				wc_add_notice( __( 'Settings saved.', 'wc-vendors' ), 'success' );
 			}
 		}
 	}

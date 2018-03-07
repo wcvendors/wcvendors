@@ -29,7 +29,7 @@ class WCV_Admin_Setup
 			return;
 		}
 
-		echo '<h4>' . __('Vendors shipped', 'wcvendors') . '</h4><br/>';
+		echo '<h4>' . __('Vendors shipped', 'wc-vendors') . '</h4><br/>';
 		echo $actions['wc_pv_shipped']['name'];
 	}
 
@@ -54,7 +54,7 @@ class WCV_Admin_Setup
 
 		$response = array(
 			'url'       => '#',
-			'name'      => __('Vendors Shipped', 'wcvendors') . $string,
+			'name'      => __('Vendors Shipped', 'wc-vendors') . $string,
 			'action'    => 'wc_pv_shipped',
 			'image_url' => wcv_assets_url . '/images/icons/truck.png',
 		);
@@ -78,7 +78,7 @@ class WCV_Admin_Setup
 	 */
 	public static function menu()
 	{
-		$hook = add_submenu_page( 'wcvendors', __( 'Commissions', 'wcvendors' ), __( 'Commissions', 'wcvendors' ), 'manage_woocommerce', 'pv_admin_commissions', array( 'WCV_Admin_Setup', 'commissions_page' ) );
+		$hook = add_submenu_page( 'wc-vendors', __( 'Commissions', 'wc-vendors' ), __( 'Commissions', 'wc-vendors' ), 'manage_woocommerce', 'pv_admin_commissions', array( 'WCV_Admin_Setup', 'commissions_page' ) );
 
 		add_action( "load-$hook", array( 'WCV_Admin_Setup', 'add_options' ) );
 		add_action( "admin_print_styles-$hook", 	array( 'WCV_Admin_Setup', 'commission_enqueue_style' ) );
@@ -98,16 +98,16 @@ class WCV_Admin_Setup
 	public function wcvendors_tools( $tools ){
 
 		$tools[ 'reset_wcvendor_roles' ] = array(
-				'name'    => __( 'Reset WC Vendors roles ', 'wcvendors' ),
-				'button'  => __( 'Reset WC Vendor Roles', 'wcvendors' ),
-				'desc'    => __( 'This will reset the wcvendors roles ( vendor & pending_vendor ), back to the default capabilities.', 'wcvendors' ),
+				'name'    => __( 'Reset WC Vendors roles ', 'wc-vendors' ),
+				'button'  => __( 'Reset WC Vendor Roles', 'wc-vendors' ),
+				'desc'    => __( 'This will reset the wcvendors roles ( vendor & pending_vendor ), back to the default capabilities.', 'wc-vendors' ),
 				'callback' => array( 'WCV_Admin_Setup', 'reset_vendor_roles' )
 			);
 
 		$tools[ 'reset_wcvendors' ] = array(
-				'name'    => __( 'Reset WC Vendors ', 'wcvendors' ),
-				'button'  => __( 'Reset WC Vendors Settings', 'wcvendors' ),
-				'desc'    => __( 'This will reset wcvendors back to defaults. This DELETES ALL YOUR Settings.', 'wcvendors' ),
+				'name'    => __( 'Reset WC Vendors ', 'wc-vendors' ),
+				'button'  => __( 'Reset WC Vendors Settings', 'wc-vendors' ),
+				'desc'    => __( 'This will reset wcvendors back to defaults. This DELETES ALL YOUR Settings.', 'wc-vendors' ),
 				'callback' => array( 'WCV_Admin_Setup', 'reset_wcvendors' )
 			);
 
@@ -144,16 +144,16 @@ class WCV_Admin_Setup
 		);
 
 		remove_role( 'vendor' );
-		add_role( 'vendor', __('Vendor', 'wcvendors'), $args );
+		add_role( 'vendor', __('Vendor', 'wc-vendors'), $args );
 
 		remove_role( 'pending_vendor');
-		add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
+		add_role( 'pending_vendor', __( 'Pending Vendor', 'wc-vendors' ), array(
 																							  'read'         => true,
 																							  'edit_posts'   => false,
 																							  'delete_posts' => false
 																						 ) );
 
-		echo '<div class="updated inline"><p>' . __( 'WC Vendor roles successfully reset.', 'wcvendors' ) . '</p></div>';
+		echo '<div class="updated inline"><p>' . __( 'WC Vendor roles successfully reset.', 'wc-vendors' ) . '</p></div>';
 
 	} // reset_vendor_roles()
 
@@ -167,7 +167,7 @@ class WCV_Admin_Setup
 	public static function reset_wcvendors(){
 
 		delete_option( WC_Vendors::$id . '_options' );
-		echo '<div class="updated inline"><p>' . __( 'WC Vendors was successfully reset. All settings have been reset.', 'wcvendors' ) . '</p></div>';
+		echo '<div class="updated inline"><p>' . __( 'WC Vendors was successfully reset. All settings have been reset.', 'wc-vendors' ) . '</p></div>';
 
 	} // reset_wcvendors()
 
@@ -181,7 +181,7 @@ class WCV_Admin_Setup
 	public static function commission_my_enqueue_script(){
 
 		$select2_args = apply_filters( 'wcvendors_select2_commission_args', array(
-			'placeholder' => __( 'Select a Vendor', 'wcvendors' ),
+			'placeholder' => __( 'Select a Vendor', 'wc-vendors' ),
 			'allowclear' => true,
 		) );
 
@@ -265,7 +265,7 @@ class WCV_Admin_Setup
 		<div class="wrap">
 
 			<div id="icon-woocommerce" class="icon32 icon32-woocommerce-reports"><br/></div>
-			<h2><?php _e( 'Commission', 'wcvendors' ); ?></h2>
+			<h2><?php _e( 'Commission', 'wc-vendors' ); ?></h2>
 
 			<form id="posts-filter" method="get">
 
@@ -437,15 +437,15 @@ class WCV_Admin_Page extends WP_List_Table
 	{
 		$columns = array(
 			'cb'         		=> '<input type="checkbox" />',
-			'product_id' 		=> __( 'Product', 'wcvendors' ),
-			'order_id'   		=> __( 'Order ID', 'wcvendors' ),
-			'vendor_id' 	    => __( 'Vendor', 'wcvendors' ),
-			'total_due'  		=> __( 'Commission', 'wcvendors' ),
-			'total_shipping'  	=> __( 'Shipping', 'wcvendors' ),
-			'tax'  				=> __( 'Tax', 'wcvendors' ),
-			'totals'  			=> __( 'Total', 'wcvendors' ),
-			'status'     		=> __( 'Status', 'wcvendors' ),
-			'time'       		=> __( 'Date', 'wcvendors' ),
+			'product_id' 		=> __( 'Product', 'wc-vendors' ),
+			'order_id'   		=> __( 'Order ID', 'wc-vendors' ),
+			'vendor_id' 	    => __( 'Vendor', 'wc-vendors' ),
+			'total_due'  		=> __( 'Commission', 'wc-vendors' ),
+			'total_shipping'  	=> __( 'Shipping', 'wc-vendors' ),
+			'tax'  				=> __( 'Tax', 'wc-vendors' ),
+			'totals'  			=> __( 'Total', 'wc-vendors' ),
+			'status'     		=> __( 'Status', 'wc-vendors' ),
+			'time'       		=> __( 'Date', 'wc-vendors' ),
 		);
 
 		if ( ! wc_tax_enabled() ) unset( $columns[ 'tax'] );
@@ -489,10 +489,10 @@ class WCV_Admin_Page extends WP_List_Table
 	function get_bulk_actions()
 	{
 		$actions = array(
-			'mark_paid'     => __( 'Mark paid', 'wcvendors' ),
-			'mark_due'      => __( 'Mark due', 'wcvendors' ),
-			'mark_reversed' => __( 'Mark reversed', 'wcvendors' ),
-			// 'delete' => __('Delete', 'wcvendors'),
+			'mark_paid'     => __( 'Mark paid', 'wc-vendors' ),
+			'mark_due'      => __( 'Mark due', 'wc-vendors' ),
+			'mark_reversed' => __( 'Mark reversed', 'wc-vendors' ),
+			// 'delete' => __('Delete', 'wc-vendors'),
 		);
 
 		$actions = apply_filters('wcv_edit_bulk_actions', $actions);
@@ -564,7 +564,7 @@ class WCV_Admin_Page extends WP_List_Table
 		$m = isset( $_GET[ 'm' ] ) ? (int) $_GET[ 'm' ] : 0;
 		?>
 		<select name="m" id="filter-by-date">
-			<option<?php selected( $m, 0 ); ?> value='0'><?php _e( 'Show all dates', 'wcvendors' ); ?></option>
+			<option<?php selected( $m, 0 ); ?> value='0'><?php _e( 'Show all dates', 'wc-vendors' ); ?></option>
 			<?php
 			foreach ( $months as $arc_row ) {
 				if ( 0 == $arc_row->year )
@@ -599,10 +599,10 @@ class WCV_Admin_Page extends WP_List_Table
 		$com_status = isset( $_GET[ 'com_status' ] ) ? $_GET[ 'com_status' ] : '';
 		?>
 		<select name="com_status">
-			<option<?php selected( $com_status, '' ); ?> value=''><?php _e( 'Show all Statuses', 'wcvendors' ); ?></option>
-			<option<?php selected( $com_status, 'due' ); ?> value="due"><?php _e( 'Due', 'wcvendors' ); ?></option>
-			<option<?php selected( $com_status, 'paid' ); ?> value="paid"><?php _e( 'Paid', 'wcvendors' ); ?></option>
-			<option<?php selected( $com_status, 'reversed' ); ?> value="reversed"><?php _e( 'Reversed', 'wcvendors' ); ?></option>
+			<option<?php selected( $com_status, '' ); ?> value=''><?php _e( 'Show all Statuses', 'wc-vendors' ); ?></option>
+			<option<?php selected( $com_status, 'due' ); ?> value="due"><?php _e( 'Due', 'wc-vendors' ); ?></option>
+			<option<?php selected( $com_status, 'paid' ); ?> value="paid"><?php _e( 'Paid', 'wc-vendors' ); ?></option>
+			<option<?php selected( $com_status, 'reversed' ); ?> value="reversed"><?php _e( 'Reversed', 'wc-vendors' ); ?></option>
 		</select>
 	<?php
 	}
@@ -655,21 +655,21 @@ class WCV_Admin_Page extends WP_List_Table
 				$result = $this->mark_paid( $ids );
 
 				if ( $result )
-					echo '<div class="updated"><p>' . __( 'Commission marked paid.', 'wcvendors' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Commission marked paid.', 'wc-vendors' ) . '</p></div>';
 				break;
 
 			case 'mark_due':
 				$result = $this->mark_due( $ids );
 
 				if ( $result )
-					echo '<div class="updated"><p>' . __( 'Commission marked due.', 'wcvendors' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Commission marked due.', 'wc-vendors' ) . '</p></div>';
 				break;
 
 			case 'mark_reversed':
 				$result = $this->mark_reversed( $ids );
 
 				if ( $result )
-					echo '<div class="updated"><p>' . __( 'Commission marked reversed.', 'wcvendors' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Commission marked reversed.', 'wc-vendors' ) . '</p></div>';
 				break;
 
 			default:
@@ -861,10 +861,10 @@ class WCV_Admin_Page extends WP_List_Table
 
 	public function get_views() {
 		$views = array(
-			'all' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions' ) . '">' . __( 'All', 'wcvendors' ) . '</a></li>',
-			'due' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions&com_status=due' ) . '">' . __( 'Due', 'wcvendors' ) . '</a></li>',
-			'paid' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions&com_status=paid' ) . '">' . __( 'Paid', 'wcvendors' ) . '</a></li>',
-			'void' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions&com_status=void' ) . '">' . __( 'Void', 'wcvendors' ) . '</a></li>',
+			'all' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions' ) . '">' . __( 'All', 'wc-vendors' ) . '</a></li>',
+			'due' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions&com_status=due' ) . '">' . __( 'Due', 'wc-vendors' ) . '</a></li>',
+			'paid' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions&com_status=paid' ) . '">' . __( 'Paid', 'wc-vendors' ) . '</a></li>',
+			'void' => '<li class="all"><a href="' . admin_url( 'admin.php?page=pv_admin_commissions&com_status=void' ) . '">' . __( 'Void', 'wc-vendors' ) . '</a></li>',
 		);
 
 		return $views;

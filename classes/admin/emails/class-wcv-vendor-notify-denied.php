@@ -24,8 +24,8 @@ class WCV_Vendor_Notify_Denied extends WC_Email {
 	 */
 	public function __construct() {
 		$this->id             = 'vendor_notify_denied';
-		$this->title          = __( 'Vendor notify denied', 'wcvendors' );
-		$this->description    = __( 'Notification is sent to the vendor that their application has been denied', 'wcvendors' );
+		$this->title          = __( 'Vendor notify denied', 'wc-vendors' );
+		$this->description    = __( 'Notification is sent to the vendor that their application has been denied', 'wc-vendors' );
 		$this->template_html  = 'emails/vendor-notify-denied.php';
 		$this->template_plain = 'emails/plain/vendor-notify-denied.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
@@ -45,7 +45,7 @@ class WCV_Vendor_Notify_Denied extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return __( '[{site_title}] Your vendor application has been denied', 'wcvendors' );
+		return __( '[{site_title}] Your vendor application has been denied', 'wc-vendors' );
 	}
 
 	/**
@@ -55,7 +55,7 @@ class WCV_Vendor_Notify_Denied extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return __( 'Vendor Application Denied', 'wcvendors' );
+		return __( 'Vendor Application Denied', 'wc-vendors' );
 	}
 
 	/**
@@ -65,7 +65,7 @@ class WCV_Vendor_Notify_Denied extends WC_Email {
 	* @return string
 	*/
 	public function get_default_content(){
-		return __( 'Your application to become a vendor has been denied.', 'wcvendors' );
+		return __( 'Your application to become a vendor has been denied.', 'wc-vendors' );
 	}
 
 	/**
@@ -75,7 +75,7 @@ class WCV_Vendor_Notify_Denied extends WC_Email {
 	* @return string
 	*/
 	public function get_default_reason(){
-		return __( 'We are not taking any new applications at this time.', 'wcvendors' );
+		return __( 'We are not taking any new applications at this time.', 'wc-vendors' );
 	}
 
 	/**
@@ -145,50 +145,50 @@ class WCV_Vendor_Notify_Denied extends WC_Email {
 	public function init_form_fields() {
 		$this->form_fields = array(
 			'enabled' => array(
-				'title'         => __( 'Enable/Disable', 'wcvendors' ),
+				'title'         => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'          => 'checkbox',
-				'label'         => __( 'Enable this email notification', 'wcvendors' ),
+				'label'         => __( 'Enable this email notification', 'wc-vendors' ),
 				'default'       => 'no',
 			),
 			'subject' => array(
-				'title'         => __( 'Subject', 'wcvendors' ),
+				'title'         => __( 'Subject', 'wc-vendors' ),
 				'type'          => 'text',
 				'desc_tip'      => true,
 				/* translators: %s: list of placeholders */
-				'description'   => sprintf( __( 'Available placeholders: %s', 'wcvendors' ), '<code>{site_title}</code>' ),
+				'description'   => sprintf( __( 'Available placeholders: %s', 'wc-vendors' ), '<code>{site_title}</code>' ),
 				'placeholder'   => $this->get_default_subject(),
 				'default'       => '',
 			),
 			'content' => array(
-				'title'         => __( 'Content', 'wcvendors' ),
+				'title'         => __( 'Content', 'wc-vendors' ),
 				'type'          => 'textarea',
 				'desc_tip'      => true,
 				/* translators: %s: list of placeholders */
-				'description'   => sprintf( __( 'Available placeholders: %s', 'wcvendors' ), '<code>{site_title}</code>' ),
+				'description'   => sprintf( __( 'Available placeholders: %s', 'wc-vendors' ), '<code>{site_title}</code>' ),
 				'placeholder'   => $this->get_default_content(),
 				'default'       => $this->get_default_content(),
 			),
 			'reason' => array(
-				'title'         => __( 'Reason', 'wcvendors' ),
+				'title'         => __( 'Reason', 'wc-vendors' ),
 				'type'          => 'textarea',
 				'desc_tip'      => true,
-				'description'   => __( 'Provide a reason for denying the vendor application', 'wcvendors'),
+				'description'   => __( 'Provide a reason for denying the vendor application', 'wc-vendors'),
 				'placeholder'   => $this->get_default_reason(),
 				'default'       => $this->get_default_reason(),
 			),
 			'heading' => array(
-				'title'         => __( 'Email heading', 'wcvendors' ),
+				'title'         => __( 'Email heading', 'wc-vendors' ),
 				'type'          => 'text',
 				'desc_tip'      => true,
 				/* translators: %s: list of placeholders */
-				'description'   => sprintf( __( 'Available placeholders: %s', 'wcvendors' ), '<code>{site_title}</code>' ),
+				'description'   => sprintf( __( 'Available placeholders: %s', 'wc-vendors' ), '<code>{site_title}</code>' ),
 				'placeholder'   => $this->get_default_heading(),
 				'default'       => '',
 			),
 			'email_type' => array(
-				'title'         => __( 'Email type', 'wcvendors' ),
+				'title'         => __( 'Email type', 'wc-vendors' ),
 				'type'          => 'select',
-				'description'   => __( 'Choose which format of email to send.', 'wcvendors' ),
+				'description'   => __( 'Choose which format of email to send.', 'wc-vendors' ),
 				'default'       => 'html',
 				'class'         => 'email_type wc-enhanced-select',
 				'options'       => $this->get_email_type_options(),

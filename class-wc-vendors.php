@@ -14,7 +14,7 @@
  * WC requires at least: 3.0.0
  * WC tested up to: 	 3.3.1
  *
- * Text Domain:         wcvendors
+ * Text Domain:         wc-vendors
  * Domain Path:         /languages/
  *
  * @category            Plugin
@@ -50,7 +50,7 @@ function wcvendors_activate() {
 	 */
 	if ( !class_exists( 'WooCommerce' ) ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
-		wp_die( __( 'WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again.', 'wcvendors' ) );
+		wp_die( __( 'WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again.', 'wc-vendors' ) );
 	}
 } // wcvendors_activate()
 
@@ -100,7 +100,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			// Load text domain
 			add_action( 'plugins_loaded', array( $this, 'load_il8n' ) );
 
-			$this->title = __( 'WC Vendors', 'wcvendors' );
+			$this->title = __( 'WC Vendors', 'wc-vendors' );
 
 			// Install & upgrade
 			add_action( 'admin_init', array( $this, 'check_install' ) );
@@ -130,7 +130,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 */
 		public function invalid_wc_version()
 		{
-			echo '<div class="error"><p>' . __( '<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce v2.7.0.', 'wcvendors' ) . '</p></div>';
+			echo '<div class="error"><p>' . __( '<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce v2.7.0.', 'wc-vendors' ) . '</p></div>';
 		}
 
 		/**
@@ -189,12 +189,9 @@ if ( wcv_is_woocommerce_activated() ) {
 
 		public function load_il8n() {
 
-		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wcvendors' );
-
-		    //Place your custom translations into wp-content/languages/wc-vendors to be upgrade safe
-		    load_textdomain( 'wcvendors', WP_LANG_DIR.'/wc-vendors/wcvendors-'.$locale.'.mo');
-
-			load_plugin_textdomain( 'wcvendors', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wc-vendors' );
+		    load_textdomain( 'wc-vendors', WP_LANG_DIR.'/wc-vendors/wc-vendors-'.$locale.'.mo');
+			load_plugin_textdomain( 'wc-vendors', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
 
 		}
 
@@ -301,7 +298,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		public function option_updates( $options, $tabname )
 		{
 			// Change the vendor role capabilities
-			if ( $tabname == sanitize_title(__( 'Capabilities', 'wcvendors' )) ) {
+			if ( $tabname == sanitize_title(__( 'Capabilities', 'wc-vendors' )) ) {
 				$can_add          = $options[ 'can_submit_products' ];
 				$can_edit         = $options[ 'can_edit_published_products' ];
 				$can_submit_live  = $options[ 'can_submit_live_products' ];
@@ -323,9 +320,9 @@ if ( wcv_is_woocommerce_activated() ) {
 
 				remove_role( 'vendor' );
 
-				add_role( 'vendor', __('Vendor', 'wcvendors'), $args );
+				add_role( 'vendor', __('Vendor', 'wc-vendors'), $args );
 			} // Update permalinks
-			else if ( $tabname == sanitize_title(__( 'General', 'wcvendors' ) )) {
+			else if ( $tabname == sanitize_title(__( 'General', 'wc-vendors' ) )) {
 				$old_permalink = WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' );
 				$new_permalink = $options[ 'vendor_shop_permalink' ];
 
@@ -364,9 +361,9 @@ if ( wcv_is_woocommerce_activated() ) {
 			if ( $file == wcv_plugin_base ) {
 
 				$row_meta = array(
-	                            'docs' 		=> '<a href="https://docs.wcvendors.com/?utm_source=plugin" target="_blank">'.__( 'Documentation', 'wcvendors' ).'</a>',
-	                            'pro' 		=> '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="_blank">'.__( 'Upgrade to Pro', 'wcvendors').'</a></strong>',
-	                            'support' 	=> '<a href="https://www.wcvendors.com/contact-us/?utm_source=plugin" target="_blank">'.__( 'Contact Us', 'wcvendors' ).'</a>'
+	                            'docs' 		=> '<a href="https://docs.wcvendors.com/?utm_source=plugin" target="_blank">'.__( 'Documentation', 'wc-vendors' ).'</a>',
+	                            'pro' 		=> '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="_blank">'.__( 'Upgrade to Pro', 'wc-vendors').'</a></strong>',
+	                            'support' 	=> '<a href="https://www.wcvendors.com/contact-us/?utm_source=plugin" target="_blank">'.__( 'Contact Us', 'wc-vendors' ).'</a>'
 	                        );
 
 				if ( class_exists( 'WCVendors_Pro' ) ) unset( $row_meta[ 'pro' ] );
@@ -434,10 +431,10 @@ if ( wcv_is_woocommerce_activated() ) {
 			if ( ! class_exists( 'WCVendors_Pro' ) ){
 
 
-				$options[ ] = array( 'name' => __( 'Upgrade to Pro', 'wcvendors' ), 'type' => 'heading' );
+				$options[ ] = array( 'name' => __( 'Upgrade to Pro', 'wc-vendors' ), 'type' => 'heading' );
 
 				$options[ ] = array(
-						'name' => __( 'Upgrade to WC Vendors Pro!', 'wcvendors' ), 'type' => 'title', 'desc' =>
+						'name' => __( 'Upgrade to WC Vendors Pro!', 'wc-vendors' ), 'type' => 'title', 'desc' =>
 
 					sprintf( __( 'WC Vendors Pro extends your marketplace to include some of the following enhanced features
 							<ul>
@@ -453,7 +450,7 @@ if ( wcv_is_woocommerce_activated() ) {
 							 	<li>Complete vendor signup form</li>
 							</ul>
 							<a href="http://www.wcvendors.com/home/comparison/?utm_source=plugin">See the complete comparison list here.</a>
-							<h1><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo">Buy Pro Today</a></h1>', 'wcvendors' )
+							<h1><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo">Buy Pro Today</a></h1>', 'wc-vendors' )
 					),
 				);
 			}

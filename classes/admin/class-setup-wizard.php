@@ -84,22 +84,22 @@ class WCVendors_Admin_Setup_Wizard {
 		}
 		$default_steps = array(
 			'store_setup' => array(
-				'name'    => __( 'Start', 'wcvendors' ),
+				'name'    => __( 'Start', 'wc-vendors' ),
 				'view'    => array( $this, 'wcv_setup_general' ),
 				'handler' => array( $this, 'wcv_setup_general_save' ),
 			),
 			'capabilities' => array(
-				'name'    => __( 'Capabilities', 'wcvendors' ),
+				'name'    => __( 'Capabilities', 'wc-vendors' ),
 				'view'    => array( $this, 'wcv_setup_capabilities' ),
 				'handler' => array( $this, 'wcv_setup_capabilities_save' ),
 			),
 			'shipping' => array(
-				'name'    => __( 'Pages', 'wcvendors' ),
+				'name'    => __( 'Pages', 'wc-vendors' ),
 				'view'    => array( $this, 'wcv_setup_pages' ),
 				'handler' => array( $this, 'wcv_setup_pages_save' ),
 			),
 			'ready' => array(
-				'name'    => __( 'Ready!', 'wcvendors' ),
+				'name'    => __( 'Ready!', 'wc-vendors' ),
 				'view'    => array( $this, 'wcv_setup_ready' ),
 				'handler' => '',
 			),
@@ -114,16 +114,16 @@ class WCVendors_Admin_Setup_Wizard {
 
 		wp_register_script( 'wc-enhanced-select', WC()->plugin_url() . '/assets/js/admin/wc-enhanced-select' . $suffix . '.js', array( 'jquery', 'selectWoo' ), WC_VERSION );
 		wp_localize_script( 'wc-enhanced-select', 'wc_enhanced_select_params', array(
-			'i18n_no_matches'           => _x( 'No matches found', 'enhanced select', 'wcvendors' ),
-			'i18n_ajax_error'           => _x( 'Loading failed', 'enhanced select', 'wcvendors' ),
-			'i18n_input_too_short_1'    => _x( 'Please enter 1 or more characters', 'enhanced select', 'wcvendors' ),
-			'i18n_input_too_short_n'    => _x( 'Please enter %qty% or more characters', 'enhanced select', 'wcvendors' ),
-			'i18n_input_too_long_1'     => _x( 'Please delete 1 character', 'enhanced select', 'wcvendors' ),
-			'i18n_input_too_long_n'     => _x( 'Please delete %qty% characters', 'enhanced select', 'wcvendors' ),
-			'i18n_selection_too_long_1' => _x( 'You can only select 1 item', 'enhanced select', 'wcvendors' ),
-			'i18n_selection_too_long_n' => _x( 'You can only select %qty% items', 'enhanced select', 'wcvendors' ),
-			'i18n_load_more'            => _x( 'Loading more results&hellip;', 'enhanced select', 'wcvendors' ),
-			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'wcvendors' ),
+			'i18n_no_matches'           => _x( 'No matches found', 'enhanced select', 'wc-vendors' ),
+			'i18n_ajax_error'           => _x( 'Loading failed', 'enhanced select', 'wc-vendors' ),
+			'i18n_input_too_short_1'    => _x( 'Please enter 1 or more characters', 'enhanced select', 'wc-vendors' ),
+			'i18n_input_too_short_n'    => _x( 'Please enter %qty% or more characters', 'enhanced select', 'wc-vendors' ),
+			'i18n_input_too_long_1'     => _x( 'Please delete 1 character', 'enhanced select', 'wc-vendors' ),
+			'i18n_input_too_long_n'     => _x( 'Please delete %qty% characters', 'enhanced select', 'wc-vendors' ),
+			'i18n_selection_too_long_1' => _x( 'You can only select 1 item', 'enhanced select', 'wc-vendors' ),
+			'i18n_selection_too_long_n' => _x( 'You can only select %qty% items', 'enhanced select', 'wc-vendors' ),
+			'i18n_load_more'            => _x( 'Loading more results&hellip;', 'enhanced select', 'wc-vendors' ),
+			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'wc-vendors' ),
 			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
 			'search_products_nonce'     => wp_create_nonce( 'search-products' ),
 			'search_customers_nonce'    => wp_create_nonce( 'search-customers' ),
@@ -359,7 +359,7 @@ class WCVendors_Admin_Setup_Wizard {
 		$docs_url     	= 'https://docs.wcvendors.com/?utm_source=setupwizard&utm_medium=product&utm_content=docs&utm_campaign=plugin';
 		$help_text    = sprintf(
 			/* translators: %1$s: link to videos, %2$s: link to docs */
-			__( 'Don\'t forget to check our <a href="%1$s" target="_blank">documentation</a> to learn more about setting up WC Vendors and if you need help, be sure to visit our <a href="%2$s" target="_blank">free support forums</a>.', 'wcvendors' ),
+			__( 'Don\'t forget to check our <a href="%1$s" target="_blank">documentation</a> to learn more about setting up WC Vendors and if you need help, be sure to visit our <a href="%2$s" target="_blank">free support forums</a>.', 'wc-vendors' ),
 			$docs_url,
 			$forums
 		);

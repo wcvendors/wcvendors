@@ -11,18 +11,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <form method="post">
 	<?php wp_nonce_field( 'wcv-setup' ); ?>
-	<p class="store-setup"><?php printf( __( 'Enable and disable capabilites of the %s', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></p>
+	<p class="store-setup"><?php printf( __( 'Enable and disable capabilites of the %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></p>
 
 	<table class="wcv-setup-table">
 		<thead>
 			<tr>
-				<td class="table-desc"><strong><?php _e( 'Products', 'wcvendors' ); ?></strong></td>
+				<td class="table-desc"><strong><?php _e( 'Products', 'wc-vendors' ); ?></strong></td>
 				<td class="table-check"></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to add/edit products', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to add/edit products', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to edit published (live) products', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to edit published (live) products', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to publish products without requiring approval.', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) )?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to publish products without requiring approval.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) )?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -67,13 +67,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<table class="wcv-setup-table">
 		<thead>
 			<tr>
-				<td class="table-desc"><strong><?php _e( 'Orders', 'wcvendors' ); ?></strong></td>
+				<td class="table-desc"><strong><?php _e( 'Orders', 'wc-vendors' ); ?></strong></td>
 				<td class="table-check"></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to manage orders', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to manage orders', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -86,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to export their orders to a CSV file', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to export their orders to a CSV file', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to view order notes', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to view order notes', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -112,7 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to add order notes.', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to add order notes.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -129,6 +129,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 	<p class="wcv-setup-actions step">
-		<button type="submit" class="button button-next" value="<?php esc_attr_e( "Next", 'wcvendors' ); ?>" name="save_step"><?php esc_html_e( "Next", 'wcvendors' ); ?></button>
+		<button type="submit" class="button button-next" value="<?php esc_attr_e( "Next", 'wc-vendors' ); ?>" name="save_step"><?php esc_html_e( "Next", 'wc-vendors' ); ?></button>
 	</p>
 </form>

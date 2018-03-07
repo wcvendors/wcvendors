@@ -24,8 +24,8 @@ class WCV_Admin_Notify_Shipped extends WC_Email {
 	 */
 	public function __construct() {
 		$this->id             = 'admin_notify_shipped';
-		$this->title          = __( 'Admin notify vendor Shipped', 'wcvendors' );
-		$this->description    = __( 'Notification is sent to chosen recipient(s) when a vendor marks an order shipped.', 'wcvendors' );
+		$this->title          = __( 'Admin notify vendor shipped', 'wc-vendors' );
+		$this->description    = __( 'Notification is sent to chosen recipient(s) when a vendor marks an order shipped.', 'wc-vendors' );
 		$this->template_html  = 'emails/admin-notify-shipped.php';
 		$this->template_plain = 'emails/plain/admin-notify-shipped.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
@@ -49,7 +49,7 @@ class WCV_Admin_Notify_Shipped extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return __( '[{site_title}] Vendor has marked shipped ({order_number}) - {order_date}', 'wcvendors' );
+		return __( '[{site_title}] Vendor has marked shipped ({order_number}) - {order_date}', 'wc-vendors' );
 	}
 
 	/**
@@ -59,7 +59,7 @@ class WCV_Admin_Notify_Shipped extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return __( 'Vendor has shipped', 'wcvendors' );
+		return __( 'Vendor has shipped', 'wc-vendors' );
 	}
 
 	/**
@@ -132,41 +132,41 @@ class WCV_Admin_Notify_Shipped extends WC_Email {
 	public function init_form_fields() {
 		$this->form_fields = array(
 			'enabled' => array(
-				'title'         => __( 'Enable/Disable', 'wcvendors' ),
+				'title'         => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'          => 'checkbox',
-				'label'         => __( 'Enable this email notification', 'wcvendors' ),
+				'label'         => __( 'Enable this email notification', 'wc-vendors' ),
 				'default'       => 'no',
 			),
 			'recipient' => array(
-				'title'         => __( 'Recipient(s)', 'wcvendors' ),
+				'title'         => __( 'Recipient(s)', 'wc-vendors' ),
 				'type'          => 'text',
-				'description'   => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'wcvendors' ), '<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
+				'description'   => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'wc-vendors' ), '<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
 				'placeholder'   => '',
 				'default'       => '',
 				'desc_tip'      => true,
 			),
 			'subject' => array(
-				'title'         => __( 'Subject', 'wcvendors' ),
+				'title'         => __( 'Subject', 'wc-vendors' ),
 				'type'          => 'text',
 				'desc_tip'      => true,
 				/* translators: %s: list of placeholders */
-				'description'   => sprintf( __( 'Available placeholders: %s', 'wcvendors' ), '<code>{site_title}, {order_date}, {order_number}</code>' ),
+				'description'   => sprintf( __( 'Available placeholders: %s', 'wc-vendors' ), '<code>{site_title}, {order_date}, {order_number}</code>' ),
 				'placeholder'   => $this->get_default_subject(),
 				'default'       => '',
 			),
 			'heading' => array(
-				'title'         => __( 'Email heading', 'wcvendors' ),
+				'title'         => __( 'Email heading', 'wc-vendors' ),
 				'type'          => 'text',
 				'desc_tip'      => true,
 				/* translators: %s: list of placeholders */
-				'description'   => sprintf( __( 'Available placeholders: %s', 'wcvendors' ), '<code>{site_title}, {order_date}, {order_number}</code>' ),
+				'description'   => sprintf( __( 'Available placeholders: %s', 'wc-vendors' ), '<code>{site_title}, {order_date}, {order_number}</code>' ),
 				'placeholder'   => $this->get_default_heading(),
 				'default'       => '',
 			),
 			'email_type' => array(
-				'title'         => __( 'Email type', 'wcvendors' ),
+				'title'         => __( 'Email type', 'wc-vendors' ),
 				'type'          => 'select',
-				'description'   => __( 'Choose which format of email to send.', 'wcvendors' ),
+				'description'   => __( 'Choose which format of email to send.', 'wc-vendors' ),
 				'default'       => 'html',
 				'class'         => 'email_type wc-enhanced-select',
 				'options'       => $this->get_email_type_options(),

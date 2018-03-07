@@ -16,10 +16,10 @@ class WCV_Export_CSV
 	public static function output_csv( $product_id, $headers, $body, $items )
 	{
 
-		$headers[ 'quantity' ] = __( 'Quantity', 'wcvendors' );
-		$headers[ 'item_meta' ] = __( 'Item Meta', 'wcvendors' );
+		$headers[ 'quantity' ] = __( 'Quantity', 'wc-vendors' );
+		$headers[ 'item_meta' ] = __( 'Item Meta', 'wc-vendors' );
 
-		$new_body = array(); 
+		$new_body = array();
 
 		foreach ( $body as $i => $order ) {
 
@@ -31,32 +31,32 @@ class WCV_Export_CSV
 	            if ( is_int( $key ) ) unset( $order[ $key ] );
 	        }
 
-	        // New order row 
-	        $new_row = $body[ $i ]; 
+	        // New order row
+	        $new_row = $body[ $i ];
 	        // Remove order to redo
-	        unset( $body[ $i ] );  
+	        unset( $body[ $i ] );
 
 	        $order = wc_get_order( $i );
 
 			foreach ( $items[ $i ][ 'items' ] as $item ) {
 
-				$product_id = !empty( $item['variation_id'] ) ? $item['variation_id'] : $item['product_id']; 
+				$product_id = !empty( $item['variation_id'] ) ? $item['variation_id'] : $item['product_id'];
 
 				$_product  = $order->get_product_from_item( $item );
 
-				$new_row_with_meta = $new_row; 
+				$new_row_with_meta = $new_row;
 
-				// Add the qty row 
+				// Add the qty row
 				$new_row_with_meta[] = $item[ 'qty' ];
-				// Add the new item meta row 
-				
-				$variation_detail = !empty( $item['variation_id'] ) ? WCV_Orders::get_variation_data( $item[ 'variation_id' ] ) : ''; 
+				// Add the new item meta row
 
-				$new_row_with_meta[] = $variation_detail; 
-				$new_row_with_meta['product'] =  $item[ 'name' ]; 
-				$new_body[] = $new_row_with_meta; 
+				$variation_detail = !empty( $item['variation_id'] ) ? WCV_Orders::get_variation_data( $item[ 'variation_id' ] ) : '';
+
+				$new_row_with_meta[] = $variation_detail;
+				$new_row_with_meta['product'] =  $item[ 'name' ];
+				$new_body[] = $new_row_with_meta;
 			}
-		}		
+		}
 
 		$headers = apply_filters( 'wcvendors_csv_headers', $headers, $product_id, $items );
 		$body    = apply_filters( 'wcvendors_csv_body', $new_body, $product_id, $items );
@@ -75,7 +75,7 @@ class WCV_Export_CSV
 	public static function download( $headers, $body, $filename )
 	{
 		// Clear browser output before this point
-		if (ob_get_contents()) ob_end_clean(); 
+		if (ob_get_contents()) ob_end_clean();
 
 		// Output headers so that the file is downloaded rather than displayed
 		header( 'Content-Type: text/csv; charset=utf-8' );

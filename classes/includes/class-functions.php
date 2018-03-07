@@ -52,9 +52,9 @@ if (!function_exists('wcv_get_user_role')) {
  */
 function wcv_get_vendor_name( $singluar = true ){
 	if ( $singluar ){
-		return apply_filters( 'wcv_vendor_display_name_singluar', __( 'Vendor', 'wcvendors' ) );
+		return apply_filters( 'wcv_vendor_display_name_singluar', __( 'Vendor', 'wc-vendors' ) );
 	} else {
-		return apply_filters( 'wcv_vendor_display_name_plural', __( 'Vendors', 'wcvendors' ) );
+		return apply_filters( 'wcv_vendor_display_name_plural', __( 'Vendors', 'wc-vendors' ) );
 	}
 }
 
@@ -72,7 +72,7 @@ function wcv_single_select_page( $id, $value, $class = '', $css = '' ){
 			'selected'         => $value
 		);
 
-	echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wcvendors' ) . "' style='" . $css . "' class='" . $class . "' id=", wp_dropdown_pages( $dropdown_args ) );
+	echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wc-vendors' ) . "' style='" . $css . "' class='" . $class . "' id=", wp_dropdown_pages( $dropdown_args ) );
 }
 
 ?>

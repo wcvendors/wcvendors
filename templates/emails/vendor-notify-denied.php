@@ -23,7 +23,7 @@
 
  <p><?php echo $reason; ?></p>
 
- <p><?php printf( __( 'Applicant username: %s', 'wcvendors' ), $user->user_login ); ?></p>
+ <p><?php printf( __( 'Applicant username: %s', 'wc-vendors' ), $user->user_login ); ?></p>
 
  <?php
 

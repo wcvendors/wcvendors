@@ -49,14 +49,14 @@ class WCV_Install
 	 */
 	public static function create_roles() {
 		remove_role( 'pending_vendor' );
-		add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
+		add_role( 'pending_vendor', __( 'Pending Vendor', 'wc-vendors' ), array(
 																					  'read'         => true,
 																					  'edit_posts'   => false,
 																					  'delete_posts' => false
 																				 ) );
 
 		remove_role( 'vendor' );
-		add_role( 'vendor', __( 'Vendor', 'wcvendors') , array(
+		add_role( 'vendor', __( 'Vendor', 'wc-vendors') , array(
 										   'assign_product_terms'     => true,
 										   'edit_products'            => true,
 										   'edit_product'             => true,
@@ -155,9 +155,9 @@ class WCV_Install
 	 */
 	public static function create_pages(){
 
-		$vendor_page_id = self::create_page( 'vendor_dashboard', __( 'Vendor Dashboard', 'wcvendors' ), '[wcv_vendor_dashboard]' );
-		self::create_page( 'product_orders', __( 'Orders', 'wcvendors' ), '[wcv_orders]', $vendor_page_id );
-		self::create_page( 'shop_settings', __( 'Shop Settings', 'wcvendors' ), '[wcv_shop_settings]', $vendor_page_id );
+		$vendor_page_id = self::create_page( 'vendor_dashboard', __( 'Vendor Dashboard', 'wc-vendors' ), '[wcv_vendor_dashboard]' );
+		self::create_page( 'product_orders', __( 'Orders', 'wc-vendors' ), '[wcv_orders]', $vendor_page_id );
+		self::create_page( 'shop_settings', __( 'Shop Settings', 'wc-vendors' ), '[wcv_shop_settings]', $vendor_page_id );
 	}
 
 

@@ -43,7 +43,7 @@ class WCV_Product_Meta
 	public function change_author_meta_box_title()
 	{
 		global $wp_meta_boxes;
-		$wp_meta_boxes[ 'product' ][ 'normal' ][ 'core' ][ 'authordiv' ][ 'title' ] = __( 'Vendor', 'wcvendors' );;
+		$wp_meta_boxes[ 'product' ][ 'normal' ][ 'core' ][ 'authordiv' ][ 'title' ] = __( 'Vendor', 'wc-vendors' );;
 	}
 
 
@@ -121,7 +121,7 @@ class WCV_Product_Meta
 
 		// Convert this selectbox with select2
 		$output .= '
-		<script type="text/javascript">jQuery(function() { jQuery("#' . $id . '").select2(); } );</script>';		
+		<script type="text/javascript">jQuery(function() { jQuery("#' . $id . '").select2(); } );</script>';
 
 		return $output;
 	}
@@ -148,7 +148,7 @@ class WCV_Product_Meta
 	{
 		?>
 		<li class="commission_tab">
-			<a href="#commission"><?php _e( 'Commission', 'wcvendors' ) ?></a>
+			<a href="#commission"><?php _e( 'Commission', 'wc-vendors' ) ?></a>
 		</li> <?php
 	}
 
@@ -164,14 +164,14 @@ class WCV_Product_Meta
 			<fieldset>
 
 				<p class='form-field commission_rate_field'>
-					<label for='pv_commission_rate'><?php _e( 'Commission', 'wcvendors' ); ?> (%)</label>
+					<label for='pv_commission_rate'><?php _e( 'Commission', 'wc-vendors' ); ?> (%)</label>
 					<input type='number' id='pv_commission_rate'
 						   name='pv_commission_rate'
 						   class='short'
 						   max="100"
 						   min="0"
 						   step='any'
-						   placeholder='<?php _e( 'Leave blank for default', 'wcvendors' ); ?>'
+						   placeholder='<?php _e( 'Leave blank for default', 'wc-vendors' ); ?>'
 						   value="<?php echo get_post_meta( $post->ID, 'pv_commission_rate', true ); ?>"/>
 				</p>
 
@@ -184,7 +184,7 @@ class WCV_Product_Meta
 	*		Rename the Authors column to Vendor on products page
 	*/
 	public function vendor_column_quickedit($posts_columns) {
-		$posts_columns['author'] = __( 'Vendor', 'wcvendors' );
+		$posts_columns['author'] = __( 'Vendor', 'wc-vendors' );
 
 		return $posts_columns;
 	}
@@ -220,7 +220,7 @@ class WCV_Product_Meta
 		 ?>
 		<br class="clear" />
         <label class="inline-edit-author-new">
-            <span class="title"><?php _e('Vendor', 'wcvendors' ); ?></span>
+            <span class="title"><?php _e('Vendor', 'wc-vendors' ); ?></span>
             <?php echo $output; ?>
         </label>
     <?php

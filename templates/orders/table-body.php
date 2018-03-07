@@ -22,7 +22,7 @@ if ($count > 1) : ?>
 
 		<?php endif; ?>
 
-		<?php printf( __( 'Quantity: %d', 'wcvendors' ), $item[ 'qty' ] ); ?>
+		<?php printf( __( 'Quantity: %d', 'wc-vendors' ), $item[ 'qty' ] ); ?>
 	</td>
 
 	<?php if ($count > 1) : ?>

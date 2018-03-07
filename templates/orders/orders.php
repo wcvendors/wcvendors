@@ -79,7 +79,7 @@
 				?>
 				<a href="#" class="order-comments-link">
 					<p>
-						<?php printf( __( 'Comments (%s)', 'wcvendors' ), count( $comments ) ); ?>
+						<?php printf( __( 'Comments (%s)', 'wc-vendors' ), count( $comments ) ); ?>
 					</p>
 				</a>
 
@@ -110,26 +110,26 @@
 
 						<a href="#" class="order-tracking-link">
 							<p>
-								<?php _e( 'Shipping', 'wcvendors' ); ?>
+								<?php _e( 'Shipping', 'wc-vendors' ); ?>
 							</p>
 						</a>
 
 						<div class="order-tracking">
-							<?php 
-							
+							<?php
+
 							wc_enqueue_js( WCV_Vendor_dashboard::wc_st_js( $provider_array ) );
-							
+
 							wc_get_template( 'shipping-form.php', array(
 																				'order_id'       => $order_id,
 																				'product_id'     => $product_id,
 																				'providers'      => $providers,
-																				'provider_array' => $provider_array, 
+																				'provider_array' => $provider_array,
 																		   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );
 							?>
 						</div>
 
 					<?php endif; ?>
-					
+
 				<?php endif; ?>
 
 			</td>

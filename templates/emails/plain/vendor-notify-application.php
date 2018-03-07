@@ -18,8 +18,8 @@ echo "= " . $email_heading . " =\n\n";
 
 echo $content . "\n\n";
 
-echo sprintf( __( 'Hi there. This is a notification about a vendor application on %s.', 'wcvendors' ), get_option( 'blogname' ) ) . "\n\n";
-echo sprintf( __( 'Your application is currently: %s', 'wcvendors', $status ) ). "\n\n";
-echo sprintf( __( 'Applicant username: %s', 'wcvendors' ), $user->user_login ). "\n\n";
+echo sprintf( __( 'Hi there. This is a notification about a vendor application on %s.', 'wc-vendors' ), get_option( 'blogname' ) ) . "\n\n";
+echo sprintf( __( 'Your application is currently: %s', 'wc-vendors', $status ) ). "\n\n";
+echo sprintf( __( 'Applicant username: %s', 'wc-vendors' ), $user->user_login ). "\n\n";
 
 echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );

@@ -34,7 +34,7 @@ class WCVendors_Admin_Menus {
 			$menu[] = array( '', 'read', 'separator-woocommerce', '', 'wp-menu-separator wcvendors' );
 		}
 
-		add_menu_page( __( 'WC Vendors', 'wcvendors' ), __( 'WC Vendors', 'wcvendors' ), 'manage_woocommerce', 'wcvendors', array( $this, 'addons_page' ), 'dashicons-cart', '50'  );
+		add_menu_page( __( 'WC Vendors', 'wc-vendors' ), __( 'WC Vendors', 'wc-vendors' ), 'manage_woocommerce', 'wc-vendors', array( $this, 'addons_page' ), 'dashicons-cart', '50'  );
 
 
 	}
@@ -43,8 +43,8 @@ class WCVendors_Admin_Menus {
 	 * Addons menu item.
 	 */
 	public function addons_menu() {
-		add_submenu_page( 'wcvendors', __( 'WC Vendors Extensions', 'woocommerce' ), __( 'Extensions', 'wcvendors' ), 'manage_woocommerce', 'wcv-addons', array( $this, 'addons_page' ) );
-		remove_submenu_page( 'wcvendors', 'wcvendors' );
+		add_submenu_page( 'wc-vendors', __( 'WC Vendors Extensions', 'woocommerce' ), __( 'Extensions', 'wc-vendors' ), 'manage_woocommerce', 'wcv-addons', array( $this, 'addons_page' ) );
+		remove_submenu_page( 'wc-vendors', 'wc-vendors' );
 	}
 
 	/**
