@@ -164,6 +164,10 @@ class WCV_Shipping
 		$billing_state 		= $order->get_billing_state();
 		$billing_postcode 	= $order->get_billing_postcode();
 
+		$woocommerce_shipping_tax_class = get_option( 'woocommerce_shipping_tax_class' );
+		$tax_class = ( 'inherit' === $woocommerce_shipping_tax_class ) ? $tax_class : $woocommerce_shipping_tax_class; 
+
+
 		// if taxes aren't enabled don't calculate them
 		if ( 'no' === $wc_tax_enabled ) return 0;
 
