@@ -19,7 +19,7 @@
 <p>
 	<label for="apply_for_vendor">
 		<input class="input-checkbox" id="apply_for_vendor" <?php checked( isset( $_POST[ 'apply_for_vendor' ] ), true ) ?> type="checkbox" name="apply_for_vendor" value="1"/>
-		<?php echo apply_filters('wcvendors_vendor_registration_checkbox', __( 'Apply to become a vendor? ', 'wcvendors' )); ?>
+		<?php echo apply_filters('wcvendors_vendor_registration_checkbox', __( 'Apply to become a vendor? ', 'wc-vendors' )); ?>
 	</label>
 	<br />
 </p>
@@ -33,7 +33,7 @@
 	<p class="agree-to-terms-container" style="display:none;">
 		<label for="agree_to_terms">
 			<input class="input-checkbox" id="agree_to_terms" <?php checked( isset( $_POST[ 'agree_to_terms' ] ), true ); ?> type="checkbox" name="agree_to_terms" value="1"/>
-			<?php apply_filters( 'wcvendors_vendor_registration_terms', printf(  __( 'I have read and accepted the <a target="top" href="%s">terms and conditions</a>.', 'wcvendors' ), get_permalink( $this->terms_page ) ) ); ?>
+			<?php apply_filters( 'wcvendors_vendor_registration_terms', printf(  __( 'I have read and accepted the <a target="top" href="%s">terms and conditions</a>.', 'wc-vendors' ), get_permalink( $this->terms_page ) ) ); ?>
 		</label>
 	</p>
 
@@ -42,7 +42,7 @@
 
 	<script type="text/javascript">
 
-		var error_message = "<?php _e( 'Please agree to the terms and conditions', 'wcvendors'); ?>";
+		var error_message = "<?php _e( 'Please agree to the terms and conditions', 'wc-vendors'); ?>";
 
 		jQuery( function( $ ){
 

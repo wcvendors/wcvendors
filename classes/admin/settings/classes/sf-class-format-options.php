@@ -69,7 +69,7 @@ if ( !class_exists( 'SF_Format_Options' ) ) {
 			$header_types = apply_filters( $this->id . '_options_header_types', array( 'heading', 'title' ) );
 
 			extract( $setting );
-			
+
 			$description = $desc && !$grouped && $type != 'checkbox'
 				? '<br /><small>' . $desc . '</small>'
 				: '<label for="' . $id . '"> ' . $desc . '</label>';
@@ -208,7 +208,7 @@ if ( !class_exists( 'SF_Format_Options' ) ) {
 
 				if ( $select2 ) : ?>
 					<script type="text/javascript">jQuery(function () {
-							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wcvendors' ); ?>", width: '350px' });
+							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wc-vendors' ); ?>", width: '350px' });
 						});</script>
 				<?php endif;
 

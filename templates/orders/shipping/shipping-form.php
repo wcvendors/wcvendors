@@ -9,7 +9,7 @@
 
 	$selected_provider = get_post_meta( $order_id, '_tracking_provider', true );
 
-	$class = ''; 
+	$class = '';
 
 	foreach ( $providers as $provider_group => $providerss ) {
 
@@ -17,7 +17,7 @@
 
 		foreach ( $providerss as $provider => $url ) {
 			echo '<option value="' . sanitize_title( $provider ) . '" ' . selected( sanitize_title( $provider ), $selected_provider, true ) . '>' . $provider . '</option>';
-			if ( selected( sanitize_title( $provider ), $selected_provider ) ) $class = 'hidden'; 
+			if ( selected( sanitize_title( $provider ), $selected_provider ) ) $class = 'hidden';
 		}
 
 		echo '</optgroup>';
@@ -29,7 +29,7 @@
 	woocommerce_wp_text_input( array(
 									'id'          => 'custom_tracking_provider_name',
 									'label'       => __( 'Provider Name:', 'wc_shipment_tracking' ),
-									'wrapper_class'		  => $class, 
+									'wrapper_class'		  => $class,
 									'placeholder' => '',
 									'description' => '',
 									'value'       => get_post_meta( $order_id, '_custom_tracking_provider', true )
@@ -47,7 +47,7 @@
 									'id'          => 'custom_tracking_url',
 									'label'       => __( 'Tracking link:', 'wc_shipment_tracking' ),
 									'placeholder' => 'http://',
-									'wrapper_class'		  => $class, 
+									'wrapper_class'		  => $class,
 									'description' => '',
 									'value'       => get_post_meta( $order_id, '_custom_tracking_link', true )
 							   ) );
@@ -72,9 +72,8 @@
 	<input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
 
 	<input class="button" type="submit" name="update_tracking"
-		   value="<?php _e( 'Update tracking number', 'wcvendors' ); ?>">
+		   value="<?php _e( 'Update tracking number', 'wc-vendors' ); ?>">
 	<input class="button" type="submit" name="mark_shipped"
-		   value="<?php _e( 'Mark as shipped', 'wcvendors' ); ?>">
+		   value="<?php _e( 'Mark as shipped', 'wc-vendors' ); ?>">
 
 </form>
-

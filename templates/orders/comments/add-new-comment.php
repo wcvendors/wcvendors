@@ -8,6 +8,6 @@
 	<input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
 
 	<input class="btn btn-large btn-block" type="submit" name="submit_comment"
-		   value="<?php _e( 'Add comment', 'wcvendors' ); ?>">
+		   value="<?php _e( 'Add comment', 'wc-vendors' ); ?>">
 
 </form>

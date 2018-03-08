@@ -1,6 +1,6 @@
 <div id="pv_shop_description_container">
-	<p><b><?php _e( 'Shop Description', 'wcvendors' ); ?></b><br/>
-		<?php printf( __( 'This is displayed on your <a href="%s">shop page</a>.', 'wcvendors' ), $shop_page ); ?>
+	<p><b><?php _e( 'Shop Description', 'wc-vendors' ); ?></b><br/>
+		<?php printf( __( 'This is displayed on your <a href="%s">shop page</a>.', 'wc-vendors' ), $shop_page ); ?>
 	</p>
 
 	<p>

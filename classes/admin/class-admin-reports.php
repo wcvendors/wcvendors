@@ -38,29 +38,29 @@ class WCV_Admin_Reports
 	function reports_tab( $reports )
 	{
 		$reports[ 'vendors' ] = array(
-			'title'  => __( 'WC Vendors', 'wcvendors' ),
+			'title'  => __( 'WC Vendors', 'wc-vendors' ),
 			'charts' => array(
 				array(
-					'title'       => __( 'Overview', 'wcvendors' ),
+					'title'       => __( 'Overview', 'wc-vendors' ),
 					'description' => '',
 					'hide_title'  => true,
 					'function'    => array( $this, 'sales' ),
 				),
 				array(
-					'title'       => __( 'Commission by vendor', 'wcvendors' ),
+					'title'       => __( 'Commission by vendor', 'wc-vendors' ),
 					'description' => '',
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission' ),
 				),
 				array(
-					'title'       => __( 'Commission by product', 'wcvendors' ),
+					'title'       => __( 'Commission by product', 'wc-vendors' ),
 					'description' => '',
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission' ),
 				),
 				array(
-					'title'       => __( 'Commission Totals', 'wcvendors' ),
-					'description' => __( 'Commission totals for all vendors includes shipping and taxes. By default no date range is used and all due commissions are returned. Use the date range to filter.', 'wcvendors' ),
+					'title'       => __( 'Commission Totals', 'wc-vendors' ),
+					'description' => __( 'Commission totals for all vendors includes shipping and taxes. By default no date range is used and all due commissions are returned. Use the date range to filter.', 'wc-vendors' ),
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission_totals' ),
 				),
@@ -121,41 +121,41 @@ class WCV_Admin_Reports
 		?>
 
 		<form method="post" action="">
-			<p><label for="from"><?php _e( 'From:', 'wcvendors' ); ?></label>
+			<p><label for="from"><?php _e( 'From:', 'wc-vendors' ); ?></label>
 			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $start_date ) ); ?>" name="start_date" class="range_datepicker from" id="from" />
-			<label for="to"><?php _e( 'To:', 'wcvendors' ); ?></label>
+			<label for="to"><?php _e( 'To:', 'wc-vendors' ); ?></label>
 			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $end_date ) ); ?>" name="end_date" class="range_datepicker to" id="to" />
-			<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/></p>
+			<input type="submit" class="button" value="<?php _e( 'Show', 'wc-vendors' ); ?>"/></p>
 		</form>
 
 		<div id="poststuff" class="woocommerce-reports-wrap">
 			<div class="woocommerce-reports-sidebar">
 				<div class="postbox">
-					<h3><span><?php _e( 'Total paid in range', 'wcvendors' ); ?></span></h3>
+					<h3><span><?php _e( 'Total paid in range', 'wc-vendors' ); ?></span></h3>
 
 					<div class="inside">
-						<p class="stat"><?php if ( $paid > 0 ) echo wc_price( $paid ); else _e( 'n/a', 'wcvendors' ); ?></p>
+						<p class="stat"><?php if ( $paid > 0 ) echo wc_price( $paid ); else _e( 'n/a', 'wc-vendors' ); ?></p>
 					</div>
 				</div>
 				<div class="postbox">
-					<h3><span><?php _e( 'Total due in range', 'wcvendors' ); ?></span></h3>
+					<h3><span><?php _e( 'Total due in range', 'wc-vendors' ); ?></span></h3>
 
 					<div class="inside">
-						<p class="stat"><?php if ( $commission_due > 0 ) echo wc_price( $commission_due ); else _e( 'n/a', 'wcvendors' ); ?></p>
+						<p class="stat"><?php if ( $commission_due > 0 ) echo wc_price( $commission_due ); else _e( 'n/a', 'wc-vendors' ); ?></p>
 					</div>
 				</div>
 				<div class="postbox">
-					<h3><span><?php _e( 'Total reversed in range', 'wcvendors' ); ?></span></h3>
+					<h3><span><?php _e( 'Total reversed in range', 'wc-vendors' ); ?></span></h3>
 
 					<div class="inside">
-						<p class="stat"><?php if ( $reversed > 0 ) echo wc_price( $reversed ); else _e( 'n/a', 'wcvendors' ); ?></p>
+						<p class="stat"><?php if ( $reversed > 0 ) echo wc_price( $reversed ); else _e( 'n/a', 'wc-vendors' ); ?></p>
 					</div>
 				</div>
 			</div>
 
 			<div class="woocommerce-reports-main">
 				<div class="postbox">
-					<h3><span><?php _e( 'Recent Commission', 'wcvendors' ); ?></span></h3>
+					<h3><span><?php _e( 'Recent Commission', 'wc-vendors' ); ?></span></h3>
 
 					<div>
 						<?php
@@ -173,12 +173,12 @@ class WCV_Admin_Reports
 								<table id="commission-table" class="woocommerce_order_items" cellspacing="0">
 									<thead>
 									<tr>
-										<th><?php _e( 'Order', 'wcvendors' ) ?></th>
-										<th><?php _e( 'Product', 'wcvendors' ) ?></th>
-										<th><?php _e( 'Vendor', 'wcvendors' ) ?></th>
-										<th><?php _e( 'Total', 'wcvendors' ) ?></th>
-										<th><?php _e( 'Date &amp; Time', 'wcvendors' ) ?></th>
-										<th><?php _e( 'Status', 'wcvendors' ) ?></th>
+										<th><?php _e( 'Order', 'wc-vendors' ) ?></th>
+										<th><?php _e( 'Product', 'wc-vendors' ) ?></th>
+										<th><?php _e( 'Vendor', 'wc-vendors' ) ?></th>
+										<th><?php _e( 'Total', 'wc-vendors' ) ?></th>
+										<th><?php _e( 'Date &amp; Time', 'wc-vendors' ) ?></th>
+										<th><?php _e( 'Status', 'wc-vendors' ) ?></th>
 									</tr>
 									</thead>
 									<tbody>
@@ -186,12 +186,12 @@ class WCV_Admin_Reports
 									foreach ( $commission as $row ) : $i++ ?>
 										<tr<?php if ( $i % 2 == 1 ) echo ' class="alternate"' ?>>
 											<td><?php if ( $row->order_id ) : ?><a
-													href="<?php echo admin_url( 'post.php?post=' . $row->order_id . '&action=edit' ); ?>"><?php echo $row->order_id; ?></a><?php else : _e( 'N/A', 'wcvendors' ); endif; ?>
+													href="<?php echo admin_url( 'post.php?post=' . $row->order_id . '&action=edit' ); ?>"><?php echo $row->order_id; ?></a><?php else : _e( 'N/A', 'wc-vendors' ); endif; ?>
 											</td>
 											<td><?php echo get_the_title( $row->product_id ); ?></td>
 											<td><?php echo WCV_Vendors::get_vendor_shop_name( $row->vendor_id ); ?></td>
 											<td><?php echo wc_price( $row->total_due + $row->total_shipping + $row->tax ) ?></td>
-											<td><?php echo date_i18n( __( 'D j M Y \a\t h:ia', 'wcvendors' ), strtotime( $row->time ) ) ?></td>
+											<td><?php echo date_i18n( __( 'D j M Y \a\t h:ia', 'wc-vendors' ), strtotime( $row->time ) ) ?></td>
 											<td><?php echo $commission_status_labels[ $row->status ]; ?></td>
 										</tr>
 									<?php endforeach; ?>
@@ -200,7 +200,7 @@ class WCV_Admin_Reports
 							</div>
 						<?php
 						} else {
-							?><p><?php _e( 'No commission yet', 'wcvendors' ) ?></p><?php
+							?><p><?php _e( 'No commission yet', 'wc-vendors' ) ?></p><?php
 						}
 						?>
 					</div>
@@ -234,7 +234,7 @@ class WCV_Admin_Reports
 		?>
 
 		<form method="post" action="" class="report_filters">
-			<label for="show_year"><?php _e( 'Show:', 'wcvendors' ); ?></label>
+			<label for="show_year"><?php _e( 'Show:', 'wc-vendors' ); ?></label>
 			<select name="show_year" id="show_year">
 				<?php
 				for ( $i = $first_year; $i <= date( 'Y' ); $i++ )
@@ -246,7 +246,7 @@ class WCV_Admin_Reports
 						<input type="hidden" class="wc-product-search" style="width:203px;" name="product_ids[]" data-placeholder="<?php _e( 'Search for a product&hellip;', 'woocommerce' ); ?>" data-action="woocommerce_json_search_products_and_variations" />
 			<?php } else { ?>
 						<select id="product_ids" name="product_ids[]" class="ajax_chosen_select_products" multiple="multiple"
-						data-placeholder="<?php _e( 'Type in a product name to start searching...', 'wcvendors' ); ?>"
+						data-placeholder="<?php _e( 'Type in a product name to start searching...', 'wc-vendors' ); ?>"
 						style="width: 400px;"></select>
 					<script type="text/javascript">
 						jQuery(function () {
@@ -278,12 +278,12 @@ class WCV_Admin_Reports
 				<?php }
 			} else { ?>
 				<select class="chosen_select" id="show_vendor" name="show_vendor" style="width: 300px;"
-						data-placeholder="<?php _e( 'Select a vendor&hellip;', 'wcvendors' ); ?>">
+						data-placeholder="<?php _e( 'Select a vendor&hellip;', 'wc-vendors' ); ?>">
 					<option></option>
 					<?php foreach ( $vendors as $key => $vendor ) printf( '<option value="%s" %s>%s</option>', $vendor->ID, selected( $selected_vendor, $vendor->ID, false ), $vendor->display_name ); ?>
 				</select>
 			<?php } ?>
-			<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/>
+			<input type="submit" class="button" value="<?php _e( 'Show', 'wc-vendors' ); ?>"/>
 		</form>
 
 		<?php
@@ -344,13 +344,13 @@ class WCV_Admin_Reports
 				<table class="widefat">
 					<thead>
 					<tr>
-						<th><?php _e( 'Month', 'wcvendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Commission Totals', 'wcvendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Tax', 'wcvendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Shipping', 'wcvendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Reversed', 'wcvendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Paid', 'wcvendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Due', 'wcvendors' ); ?></th>
+						<th><?php _e( 'Month', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Commission Totals', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Tax', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Shipping', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Reversed', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Paid', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Due', 'wc-vendors' ); ?></th>
 					</tr>
 					</thead>
 					<tfoot>
@@ -374,7 +374,7 @@ class WCV_Admin_Reports
 							$total[ 'total' ] += $commission[ 'total' ];
 						}
 
-						echo '<td>' . __( 'Total', 'wcvendors' ) . '</td>';
+						echo '<td>' . __( 'Total', 'wc-vendors' ) . '</td>';
 
 						foreach ( $total as $value ) {
 							echo '<td class="total_row">' . wc_price( $value ) . '</td>';
@@ -437,18 +437,18 @@ class WCV_Admin_Reports
 		$totals = $this->calculate_totals( $commissions );
 
 		?><form method="post" action="">
-			<p><label for="from"><?php _e( 'From:', 'wcvendors' ); ?></label>
+			<p><label for="from"><?php _e( 'From:', 'wc-vendors' ); ?></label>
 			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $total_start_date ) ); ?>" name="total_start_date" class="range_datepicker from" id="from" />
-			<label for="to"><?php _e( 'To:', 'wcvendors' ); ?></label>
+			<label for="to"><?php _e( 'To:', 'wc-vendors' ); ?></label>
 			<input type="text" size="9" placeholder="yyyy-mm-dd" value="<?php echo esc_attr( date( 'Y-m-d', $total_end_date ) ); ?>" name="total_end_date" class="range_datepicker to" id="to" />
 
 			<select name="commission_status">
-				<option value="due"><?php _e( 'Due', 'wcvendors' ); ?></option>
-				<option value="paid"><?php _e( 'Paid', 'wcvendors' ); ?></option>
-				<option value="reversed"><?php _e( 'Reversed', 'wcvendors' ); ?></option>
+				<option value="due"><?php _e( 'Due', 'wc-vendors' ); ?></option>
+				<option value="paid"><?php _e( 'Paid', 'wc-vendors' ); ?></option>
+				<option value="reversed"><?php _e( 'Reversed', 'wc-vendors' ); ?></option>
 			</select>
 
-			<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/>
+			<input type="submit" class="button" value="<?php _e( 'Show', 'wc-vendors' ); ?>"/>
 
 			<?php do_action( 'wcvendors_after_commission_reports', $commissions ); ?>
 			</p>
@@ -458,11 +458,11 @@ class WCV_Admin_Reports
 				<table class="widefat">
 					<thead>
 						<tr>
-							<th class="total_row"><?php _e( 'Vendor', 'wcvendors' ); ?></th>
-							<th class="total_row"><?php _e( 'Tax Total', 'wcvendors' ); ?></th>
-							<th class="total_row"><?php _e( 'Shipping Total', 'wcvendors' ); ?></th>
-							<th class="total_row"><?php _e( 'Status', 'wcvendors' ); ?></th>
-							<th class="total_row"><?php _e( 'Commission Total', 'wcvendors' ); ?></th>
+							<th class="total_row"><?php _e( 'Vendor', 'wc-vendors' ); ?></th>
+							<th class="total_row"><?php _e( 'Tax Total', 'wc-vendors' ); ?></th>
+							<th class="total_row"><?php _e( 'Shipping Total', 'wc-vendors' ); ?></th>
+							<th class="total_row"><?php _e( 'Status', 'wc-vendors' ); ?></th>
+							<th class="total_row"><?php _e( 'Commission Total', 'wc-vendors' ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -484,7 +484,7 @@ class WCV_Admin_Reports
 
 					} else {
 						echo '<tr>';
-						echo '<td colspan="5">'. __( 'No commissions found.', 'wcvendors' ) . '</td>';
+						echo '<td colspan="5">'. __( 'No commissions found.', 'wc-vendors' ) . '</td>';
 						echo '</tr>';
 
 					}

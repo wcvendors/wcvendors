@@ -1,11 +1,11 @@
 <?php
 
 /**
- * WCV Vendor Dashboard 
+ * WCV Vendor Dashboard
  *
  * @author  Matt Gates <http://mgates.me>
  * @author  Jamie Madden <http://wcvendors.com>
- * @package WCVendors 
+ * @package WCVendors
  */
 
 
@@ -27,32 +27,37 @@ class WCV_Vendor_Dashboard
 
 	public function save_vendor_settings()
 	{
-		global $woocommerce;
-
 		$user_id = get_current_user_id();
 
 		if ( !empty( $_GET['wc_pv_mark_shipped'] ) ) {
-			$order_id = $_GET['wc_pv_mark_shipped'];
-			$order = wc_get_order( $order_id );
-			$vendors = WCV_Vendors::get_vendors_from_order( $order );
-			$vendor_ids = array_keys( $vendors );
+
+			$order_id 		= $_GET['wc_pv_mark_shipped'];
+			$order 			= wc_get_order( $order_id );
+			$vendors 		= WCV_Vendors::get_vendors_from_order( $order );
+			$vendor_ids 	= array_keys( $vendors );
+
 			if ( !in_array( $user_id, $vendor_ids ) ) {
-				wc_add_notice( __( 'You are not allowed to modify this order.', 'wcvendors' ) );
-				return null; 
+				return;
 			}
+
 			$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
 
-			// If not in the shippers array mark as shipped otherwise do nothing. 
+			// If not in the shippers array mark as shipped otherwise do nothing.
 			if( !in_array($user_id, $shippers)) {
+
 				$shippers[] = $user_id;
-				$mails = $woocommerce->mailer()->get_emails();
+
 				if ( !empty( $mails ) ) {
-					$mails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
+					WC()->mailer()->emails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
 				}
-				do_action('wcvendors_vendor_ship', $order_id, $user_id);
-				wc_add_notice( __( 'Order marked shipped.', 'wcvendors' ), 'success' );
+
+				do_action( 'wcvendors_vendor_ship', $order_id, $user_id, $order );
+
+				wc_add_notice( __( 'Order marked shipped.', 'wc-vendors' ), 'success' );
+
 				$shop_name = WCV_Vendors::get_vendor_shop_name( $user_id );
-				$order->add_order_note( apply_filters( 'wcvendors_vendor_shipped_note', sprintf( __(  '%s has marked as shipped. ', 'wcvendors'), $shop_name ) , $user_id, $shop_name ) ); 
+				$order->add_order_note( apply_filters( 'wcvendors_vendor_shipped_note', sprintf( __(  '%s has marked as shipped. ', 'wc-vendors'), $shop_name ) , $user_id, $shop_name ) );
+
 			} elseif ( false != ( $key = array_search( $user_id, $shippers) ) ) {
 				unset( $shippers[$key] ); // Remove user from the shippers array
  			}
@@ -80,10 +85,10 @@ class WCV_Vendor_Dashboard
 				}
 			}
 			if ( $order_item_id ) {
-				wc_delete_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ) );
-				wc_add_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ), $tracking_number );
+				wc_delete_order_item_meta( $order_item_id, __( 'Tracking number', 'wc-vendors' ) );
+				wc_add_order_item_meta( $order_item_id, __( 'Tracking number', 'wc-vendors' ), $tracking_number );
 
-				$message = __( 'Success. Your tracking number has been updated.', 'wcvendors' );
+				$message = __( 'Success. Your tracking number has been updated.', 'wc-vendors' );
 				wc_add_notice( $message, 'success' );
 
 				// Update order data
@@ -100,7 +105,7 @@ class WCV_Vendor_Dashboard
 			return false;
 		}
 
-		if (isset ( $_POST[ 'wc-product-vendor-nonce' ] ) ) { 
+		if (isset ( $_POST[ 'wc-product-vendor-nonce' ] ) ) {
 
 			if ( !wp_verify_nonce( $_POST[ 'wc-product-vendor-nonce' ], 'save-shop-settings' ) ) {
 				return false;
@@ -109,7 +114,7 @@ class WCV_Vendor_Dashboard
 
 			if ( isset( $_POST[ 'pv_paypal' ] ) ) {
 				if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
-					wc_add_notice( __( 'Your PayPal address is not a valid email address.', 'wcvendors' ), 'error' );
+					wc_add_notice( __( 'Your PayPal address is not a valid email address.', 'wc-vendors' ), 'error' );
 				} else {
 					update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
 				}
@@ -118,7 +123,7 @@ class WCV_Vendor_Dashboard
 			if ( !empty( $_POST[ 'pv_shop_name' ] ) ) {
 				$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
 				if ( !empty( $users ) && $users[ 0 ]->ID != $user_id ) {
-					wc_add_notice( __( 'That shop name is already taken. Your shop name must be unique.', 'wcvendors' ), 'error' ); 
+					wc_add_notice( __( 'That shop name is already taken. Your shop name must be unique.', 'wc-vendors' ), 'error' );
 				} else {
 					update_user_meta( $user_id, 'pv_shop_name', $_POST[ 'pv_shop_name' ] );
 					update_user_meta( $user_id, 'pv_shop_slug', sanitize_title( $_POST[ 'pv_shop_name' ] ) );
@@ -136,7 +141,7 @@ class WCV_Vendor_Dashboard
 			do_action( 'wcvendors_shop_settings_saved', $user_id );
 
 			if ( !wc_notice_count() ) {
-				wc_add_notice( __( 'Settings saved.', 'wcvendors' ), 'success' );
+				wc_add_notice( __( 'Settings saved.', 'wc-vendors' ), 'success' );
 			}
 		}
 	}
@@ -156,8 +161,8 @@ class WCV_Vendor_Dashboard
 				exit;
 			}
 		}
-		
-	} //check_access() 
+
+	} //check_access()
 
 
 	/**
@@ -201,12 +206,12 @@ class WCV_Vendor_Dashboard
 
 		wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
 
-		$providers = array(); 
-		$provider_array = array(); 
+		$providers = array();
+		$provider_array = array();
 
 		// WC Shipment Tracking Providers
 		if ( class_exists( 'WC_Shipment_Tracking' ) ) {
-			$WC_Shipment_Tracking 				= new WC_Shipment_Tracking(); 
+			$WC_Shipment_Tracking 				= new WC_Shipment_Tracking();
 			$providers 							= (method_exists($WC_Shipment_Tracking, 'get_providers')) ? $WC_Shipment_Tracking->get_providers() : $WC_Shipment_Tracking->providers;
 			$provider_array = array();
 			foreach ( $providers as $all_providers ) {
@@ -340,9 +345,9 @@ class WCV_Vendor_Dashboard
 	{
 		if ( empty( $products ) ) return false;
 
-		// This is required to support existing installations after WC 2.6 
-		$orders_page_id 	= (string) WC_Vendors::$pv_options->get_option( 'orders_page' ); 
-		$orders_page_id 	= ( strlen( $orders_page_id ) > 0 ) ? $orders_page_id : WC_Vendors::$pv_options->get_option( 'product_orders_page' ); 
+		// This is required to support existing installations after WC 2.6
+		$orders_page_id 	= (string) WC_Vendors::$pv_options->get_option( 'orders_page' );
+		$orders_page_id 	= ( strlen( $orders_page_id ) > 0 ) ? $orders_page_id : WC_Vendors::$pv_options->get_option( 'product_orders_page' );
 		$orders_page        = get_permalink( $orders_page_id );
 		$default_commission = WC_Vendors::$pv_options->get_option( 'default_commission' );
 		$total_qty          = $total_cost = 0;
@@ -363,7 +368,7 @@ class WCV_Vendor_Dashboard
 
 				$commission_rate = WCV_Commission::get_commission_rate( $order_item->product_id );
 				$_product        = wc_get_product( $order_item->product_id );
-				$parent_id 		 = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $_product->parent->id : $_product->get_parent_id(); 
+				$parent_id 		 = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $_product->parent->id : $_product->get_parent_id();
 				$id              = !empty( $parent_id   ) ?$parent_id  : $order_item->product_id;
 
 				$data[ 'products' ][$id] = array(
@@ -407,16 +412,16 @@ class WCV_Vendor_Dashboard
 	/**
 	 *  Load the javascript for the WC Shipment Tracking form
 	 */
-	public static function wc_st_js( $provider_array ) { 
+	public static function wc_st_js( $provider_array ) {
 		$js = "
 			jQuery(function() {
 
 				var providers = jQuery.parseJSON( '" . json_encode( $provider_array ) . "' );
 
 				jQuery('#tracking_number').prop('readonly',true);
-				jQuery('#date_shipped').prop('readonly',true);	
+				jQuery('#date_shipped').prop('readonly',true);
 
-				function updatelink( tracking, provider ) { 
+				function updatelink( tracking, provider ) {
 
 					var postcode = '32';
 					postcode = encodeURIComponent(postcode);
@@ -425,18 +430,18 @@ class WCV_Vendor_Dashboard
 					link = link.replace('%251%24s', tracking);
 					link = link.replace('%252%24s', postcode);
 					link = decodeURIComponent(link);
-					return link; 
+					return link;
 				}
 
 				jQuery('.tracking_provider, #tracking_number').unbind().change(function(){
-					
+
 					var form = jQuery(this).parent().parent().attr('id');
 
 					var tracking = jQuery('#' + form + ' input#tracking_number').val();
 					var provider = jQuery('#' + form + ' #tracking_provider').val();
-					
+
 					if ( providers[ provider ]) {
-						link = updatelink(tracking, provider); 
+						link = updatelink(tracking, provider);
 						jQuery('#' + form + ' #tracking_number').prop('readonly',false);
 						jQuery('#' + form + ' #date_shipped').prop('readonly',false);
 						jQuery('#' + form + ' .custom_tracking_url_field, #' + form + ' .custom_tracking_provider_name_field').hide();
@@ -455,61 +460,61 @@ class WCV_Vendor_Dashboard
 				});
 
 				jQuery('#custom_tracking_provider_name').unbind().click(function(){
-					
+
 					var form = jQuery(this).parent().parent().attr('id');
 
 					jQuery('#' + form + ' #tracking_number').prop('readonly',false);
 					jQuery('#' + form + ' #date_shipped').prop('readonly',false);
-				
-				});
-			
-			});
-		"; 
 
-		return $js; 
-	} // wc_st_js() 
+				});
+
+			});
+		";
+
+		return $js;
+	} // wc_st_js()
 
 
 	/**
-	 * Add custom wcvendors pro css classes 
+	 * Add custom wcvendors pro css classes
 	 *
 	 * @since    1.0.0
-	 * @access public 
-	 * 
-	 * @param array $classes - body css classes 
-	 * @return array $classes - body css classes 
+	 * @access public
+	 *
+	 * @param array $classes - body css classes
+	 * @return array $classes - body css classes
 	 */
-	public function body_class( $classes ){ 
+	public function body_class( $classes ){
 
-		$dashboard_page 	= WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' ); 
+		$dashboard_page 	= WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' );
 
-		// This is required to support existing installations after WC 2.6 
-		$orders_page_id 	= WC_Vendors::$pv_options->get_option( 'orders_page' ); 
-		$orders_page_id 	= isset( $orders_page_id ) ? $orders_page_id : WC_Vendors::$pv_options->get_option( 'product_orders_page' ); 
+		// This is required to support existing installations after WC 2.6
+		$orders_page_id 	= WC_Vendors::$pv_options->get_option( 'orders_page' );
+		$orders_page_id 	= isset( $orders_page_id ) ? $orders_page_id : WC_Vendors::$pv_options->get_option( 'product_orders_page' );
 
-		$orders_page 		= $orders_page_id; 
-		$shop_settings 		= WC_Vendors::$pv_options->get_option( 'shop_settings_page' ); 
-		$terms_page 		= WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' ); 
+		$orders_page 		= $orders_page_id;
+		$shop_settings 		= WC_Vendors::$pv_options->get_option( 'shop_settings_page' );
+		$terms_page 		= WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' );
 
-		if ( is_page( $dashboard_page ) ){ 
-			$classes[] = 'wcvendors wcv-vendor-dashboard-page'; 
+		if ( is_page( $dashboard_page ) ){
+			$classes[] = 'wcvendors wcv-vendor-dashboard-page';
 		}
 
-		if ( is_page( $orders_page ) ){ 
-			$classes[] = 'wcvendors wcv-orders-page'; 
+		if ( is_page( $orders_page ) ){
+			$classes[] = 'wcvendors wcv-orders-page';
 		}
 
-		if ( is_page( $shop_settings ) ){ 
-			$classes[] = 'wcvendors wcv-shop-settings-page'; 
+		if ( is_page( $shop_settings ) ){
+			$classes[] = 'wcvendors wcv-shop-settings-page';
 		}
 
-		if ( is_page( $terms_page ) ){ 
-			$classes[] = 'wcvendors wcv-terms-page'; 
+		if ( is_page( $terms_page ) ){
+			$classes[] = 'wcvendors wcv-terms-page';
 		}
 
 
-		return $classes; 
+		return $classes;
 
 
-	} // body_class() 
+	} // body_class()
 }

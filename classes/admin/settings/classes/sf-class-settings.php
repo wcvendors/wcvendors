@@ -150,7 +150,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 			$this_plugin = plugin_basename( $this->file );
 			$page        = strpos( $this->menu, '.php' ) ? $this->menu : 'admin.php';
 			if ( $file == $this_plugin ) {
-				$settings_link = '<a href="' . $page . '?page=' . $this->id . '">' . __( 'Settings', 'wcvendors' ) . '</a>';
+				$settings_link = '<a href="' . $page . '?page=' . $this->id . '">' . __( 'Settings', 'wc-vendors' ) . '</a>';
 				array_unshift( $links, $settings_link );
 			}
 
@@ -182,7 +182,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		{
 			add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
 			add_action( 'admin_init', array( &$this, 'register_options' ) );
-			add_action( 'admin_menu', array( &$this, 'create_menu' ) );
+			add_action( 'admin_menu', array( &$this, 'create_menu' ), 70 );
 			add_filter( 'plugin_action_links', array( &$this, 'add_settings_link' ), 10, 2 );
 		}
 
@@ -196,7 +196,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 			$screen 	= get_current_screen();
 			$screen_id  = $screen->id;
 
-			if ( $screen_id === 'woocommerce_page_wc_prd_vendor') {
+			if ( $screen_id === 'wc-vendors_page_wc_prd_vendor') {
 				wp_register_script( 'bootstrap-tooltip', $this->assets_url . 'js/bootstrap-tooltip.js', array( 'jquery' ), '1.0' );
 				wp_register_script( 'select2', $this->assets_url . 'js/select2/select2.min.js', array( 'jquery' ), '3.5.2' );
 				wp_register_script( 'wcvendors-media', $this->assets_url . 'js/wcvendors-media.js', array( 'jquery' ), '1.0' );
@@ -248,7 +248,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		 */
 		public function create_menu()
 		{
-			$page = add_submenu_page( $this->menu, $this->title, $this->title, apply_filters( $this->id . '_manage_options', 'manage_options' ), $this->id, array( &$this, 'init_settings_page' ) );
+			$page = add_submenu_page( 'wc-vendors', __( 'WC Vendors Settings', 'wc-vendors' ),  __( 'Settings', 'wc-vendors' ), 'manage_woocommerce', $this->id, array( &$this, 'init_settings_page' ) );
 			add_action( 'admin_print_scripts-' . $page, array( &$this, 'admin_print_scripts' ) );
 		}
 
@@ -302,7 +302,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 				/* @TODO: Can prob add this to the activation hook. */
 				$this->set_defaults( $this->current_options );
 			} else {
-				wp_die( __( 'Could not load settings at: ', 'wcvendors' ) . '<br/><code>' . $option_file . '</code>', __( 'Error - WP Settings Framework', 'wcvendors' ) );
+				wp_die( __( 'Could not load settings at: ', 'wc-vendors' ) . '<br/><code>' . $option_file . '</code>', __( 'Error - WP Settings Framework', 'wc-vendors' ) );
 			}
 		}
 
@@ -368,7 +368,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 			endforeach;
 
 			do_action( $this->id . '_options_updated', $clean, $tabname );
-			add_settings_error( $this->id, 'save_options', __( 'Settings saved.', 'wcvendors' ), 'updated' );
+			add_settings_error( $this->id, 'save_options', __( 'Settings saved.', 'wc-vendors' ), 'updated' );
 
 			update_option( WC_Vendors::$id . '_flush_rules', true );
 
@@ -486,7 +486,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 				<p class="submit">
 					<input type="hidden" name="currentTab" value="<?php echo $tabname; ?>">
 					<input type="submit" name="update" class="button-primary"
-						   value="<?php echo sprintf( __( 'Save %s changes', 'wcvendors' ), $this->tab_headers[ $tabname ] ); ?>"/>
+						   value="<?php echo sprintf( __( 'Save %s changes', 'wc-vendors' ), $this->tab_headers[ $tabname ] ); ?>"/>
 				</p>
 			</form> <?php
 
@@ -499,7 +499,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		private function template_footer()
 		{
 
-			$message = apply_filters( 'wcvendors_footer_msg', __( 'Please help with a <a href="https://wordpress.org/support/view/plugin-reviews/wc-vendors?rate=5#postform" target="top">High Five!</a> | <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="top">WC Vendors Pro</a> | <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/?utm_source=plugin&utm_campaign=upgrade_promo" target="top">Stripe Commissions & Gateway</a> | <a href="https://docs.wcvendors.com/" target="top">Documentation</a> | <a href="https://wordpress.org/support/plugin/wc-vendors/" target="top">Free Support Forums</a>', 'wcvendors' ) );
+			$message = apply_filters( 'wcvendors_footer_msg', __( 'Please help with a <a href="https://wordpress.org/support/view/plugin-reviews/wc-vendors?rate=5#postform" target="top">High Five!</a> | <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="top">WC Vendors Pro</a> | <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/?utm_source=plugin&utm_campaign=upgrade_promo" target="top">Stripe Commissions & Gateway</a> | <a href="https://docs.wcvendors.com/" target="top">Documentation</a> | <a href="https://wordpress.org/support/plugin/wc-vendors/" target="top">Free Support Forums</a>', 'wc-vendors' ) );
 
 			echo '<div><p>' . $message . '</a></p>';
 			echo '</div>';
@@ -583,6 +583,8 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		{
 			// Overwrite the key/value pair
 			$this->current_options = array( $name => $value ) + (array) $this->current_options;
+
+			error_log( print_r( $this->current_options ) );
 
 			return update_option( $this->id . '_options', $this->current_options );
 		}
@@ -784,14 +786,14 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				echo str_replace( "'>", "'><option></option>", wp_dropdown_pages( $args ) );
 
-				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wcvendors' ).'</a>';
-				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wcvendors' ).'</a>';
+				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wc-vendors' ).'</a>';
+				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wc-vendors' ).'</a>';
 
 				echo $description;
 
 				if ( $select2 ) : ?>
 					<script type="text/javascript">jQuery(function () {
-							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wcvendors' ); ?>", width: '350px', allowMultiple: true });
+							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wc-vendors' ); ?>", width: '350px', allowMultiple: true });
 						});</script>
 				<?php endif;
 
@@ -818,14 +820,14 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				echo str_replace( "'>", "' multiple=\"multiple\"><option></option>", wp_dropdown_pages( $args ) );
 
-				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wcvendors' ).'</a>';
-				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wcvendors' ).'</a>';
+				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wc-vendors' ).'</a>';
+				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wc-vendors' ).'</a>';
 
 				echo $description;
 
 				if ( $select2 ) : ?>
 					<script type="text/javascript">jQuery(function () {
-							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wcvendors' ); ?>", width: '350px', allowMultiple: true });
+							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wc-vendors' ); ?>", width: '350px', allowMultiple: true });
 						});</script>
 				<?php endif;
 
@@ -883,7 +885,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 				?>
 				<img class="wcv-image-container-<?php echo $id; ?>" src="<?php echo $value; ?>" alt="" style="max-width:100%;" />
 				<br />
-	        	<input id="wcv-add-<?php echo $id; ?>" type="button" class="<?php echo $class; ?>" value="<?php echo sprintf( __( 'Update %s', 'wcvendors' ), strtolower( $title ) ); ?>" data-id="<?php echo $id; ?>" data-save_button="<?php echo sprintf( __( 'Add %s', 'wcvendors' ), $title ); ?>" data-window_title="<?php echo sprintf( __( 'Add %s', 'wcvendors' ), strtolower( $title ) ); ?>" data-upload_notice="<?php echo sprintf( __( 'Upload an image for the %s', 'wcvendors' ), strtolower( $title ) ); ?>" />
+	        	<input id="wcv-add-<?php echo $id; ?>" type="button" class="<?php echo $class; ?>" value="<?php echo sprintf( __( 'Update %s', 'wc-vendors' ), strtolower( $title ) ); ?>" data-id="<?php echo $id; ?>" data-save_button="<?php echo sprintf( __( 'Add %s', 'wc-vendors' ), $title ); ?>" data-window_title="<?php echo sprintf( __( 'Add %s', 'wc-vendors' ), strtolower( $title ) ); ?>" data-upload_notice="<?php echo sprintf( __( 'Upload an image for the %s', 'wc-vendors' ), strtolower( $title ) ); ?>" />
 				<input type="hidden" name="<?php echo $name; ?>" id="<?php echo $id; ?>" value="<?php echo $value; ?>">
 				<?php
 				break;

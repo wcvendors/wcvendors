@@ -84,7 +84,7 @@ class WCV_Cron
 		$mass_pay = $mass_pay->do_payments();
 
 		$message = !empty( $mass_pay[ 'total' ] )
-			? $mass_pay[ 'msg' ] . '<br/>' . sprintf( __( 'Payment total: %s', 'wcvendors' ), wc_price( $mass_pay[ 'total' ] ) )
+			? $mass_pay[ 'msg' ] . '<br/>' . sprintf( __( 'Payment total: %s', 'wc-vendors' ), wc_price( $mass_pay[ 'total' ] ) )
 			: $mass_pay[ 'msg' ];
 
 		return array(
@@ -143,7 +143,7 @@ class WCV_Cron
 	 */
 	public static function custom_cron_intervals( $schedules )
 	{
-		
+
 		$schedules[ 'daily' ] = array(
 			'interval' => 86400,
 			'display'  => __( 'Once Daily' )

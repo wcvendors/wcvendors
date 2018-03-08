@@ -22,7 +22,7 @@ class WCV_Admin_Users
 		add_action( 'edit_user_profile', array( $this, 'show_extra_profile_fields' ) );
 		add_action( 'edit_user_profile_update', array( $this, 'save_extra_profile_fields' ) );
 
-		add_filter( 'add_menu_classes', array( $this, 'show_pending_number' ) );			
+		add_filter( 'add_menu_classes', array( $this, 'show_pending_number' ) );
 
 		// Disabling non-vendor related items on the admin screens
 		if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
@@ -40,26 +40,26 @@ class WCV_Admin_Users
 			add_action( 'load-edit.php', array( $this, 'edit_nonvendors' ) );
 			add_filter( 'views_edit-product', array( $this, 'hide_nonvendor_links' ) );
 
-			// Filter user attachments so they only see their own attachements 
-			add_action( 'ajax_query_attachments_args', array( $this, 'show_user_attachment_ajax' ) ); 
+			// Filter user attachments so they only see their own attachements
+			add_action( 'ajax_query_attachments_args', array( $this, 'show_user_attachment_ajax' ) );
 		 	add_filter( 'parse_query', array( $this, 'show_user_attachment_page' ) );
 
 			add_action( 'admin_menu', array( $this, 'remove_menu_page' ), 99 );
 			add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 99 );
 			add_filter( 'product_type_selector', array( $this, 'filter_product_types' ), 99 );
 			add_filter( 'product_type_options', array( $this, 'filter_product_type_options' ), 99 );
-			add_filter( 'woocommerce_product_data_tabs', array( $this, 'filter_product_data_tabs' ), 99, 2 ); 
+			add_filter( 'woocommerce_product_data_tabs', array( $this, 'filter_product_data_tabs' ), 99, 2 );
 
 			add_filter( 'woocommerce_duplicate_product_capability', array( $this, 'add_duplicate_capability' ) );
 
 			// WC > Product featured
 			$product_misc  = (array) WC_Vendors::$pv_options->get_option( 'hide_product_misc' );
-			
-			if ( isset( $product_misc['featured'] ) ) { 
+
+			if ( isset( $product_misc['featured'] ) ) {
 				add_filter( 'manage_product_posts_columns', array($this, 'manage_product_columns'), 99);
 			}
-			// WC > Product Hide duplicate 
-			if ( isset( $product_misc['duplicate'] ) ) { 
+			// WC > Product Hide duplicate
+			if ( isset( $product_misc['duplicate'] ) ) {
 				add_filter( 'post_row_actions', array( $this, 'remove_dupe_link' ), 99, 2 );
 			}
 		}
@@ -105,26 +105,26 @@ class WCV_Admin_Users
 	 */
 	public function show_pending_number( $menu )
 	{
-		 
-		$args = array( 
-			'post_type' 		=> 'product', 
-			'author'			=> get_current_user_id(), 
+
+		$args = array(
+			'post_type' 		=> 'product',
+			'author'			=> get_current_user_id(),
 			'post_status'		=> 'pending'
-		); 	
+		);
 
 		if (!WCV_Vendors::is_vendor( get_current_user_id() ) ) unset( $args['author'] );
 
-		$pending_posts = get_posts( $args ); 
-		
+		$pending_posts = get_posts( $args );
+
 		$pending_count = is_array( $pending_posts ) ? count( $pending_posts ) : 0;
 
 		$menu_str      = 'edit.php?post_type=product';
 
 		foreach ( $menu as $menu_key => $menu_data ) {
-			
+
 			if ( $menu_str != $menu_data[ 2 ] ) continue;
 
-			if ($pending_count > 0 ) { 
+			if ($pending_count > 0 ) {
 				$menu[ $menu_key ][ 0 ] .= " <span class='update-plugins counting-$pending_count'><span class='plugin-count'>" . number_format_i18n( $pending_count ) . '</span></span>';
 			}
 		}
@@ -172,25 +172,25 @@ class WCV_Admin_Users
 	}
 
 	/**
-	 * Filter the product meta tabs in wp-admin 
+	 * Filter the product meta tabs in wp-admin
 	 * @since 1.9.0
 	 */
-	function filter_product_data_tabs( $tabs ){ 
+	function filter_product_data_tabs( $tabs ){
 
 		$product_panel = (array) WC_Vendors::$pv_options->get_option( 'hide_product_panel' );
 
-		if ( !$product_panel ) return $tabs; 
+		if ( !$product_panel ) return $tabs;
 
-		foreach ( $tabs as $key => $value ){ 
+		foreach ( $tabs as $key => $value ){
 			if ( !empty( $product_panel[ $key ] ) ) {
 				unset( $tabs[ $key ] );
 			}
 
 		}
 
-		return $tabs; 
+		return $tabs;
 
-	} // filter_product_data_tabs() 
+	} // filter_product_data_tabs()
 
 
 	/**
@@ -221,7 +221,7 @@ class WCV_Admin_Users
 	 *
 	 * @param object $query
 	 */
-	function show_user_attachment_ajax ( $query ) { 
+	function show_user_attachment_ajax ( $query ) {
 
 		 $user_id = get_current_user_id();
 		    if ( $user_id ) {
@@ -361,8 +361,8 @@ class WCV_Admin_Users
 		update_user_meta( $vendor_id, 'pv_custom_commission_rate', $_POST[ 'pv_custom_commission_rate' ] );
 		update_user_meta( $vendor_id, 'pv_shop_description', $_POST[ 'pv_shop_description' ] );
 		update_user_meta( $vendor_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
-		update_user_meta( $vendor_id, 'wcv_give_vendor_tax', isset( $_POST[ 'wcv_give_vendor_tax' ] ) ); 
-		update_user_meta( $vendor_id, 'wcv_give_vendor_shipping', isset( $_POST[ 'wcv_give_vendor_shipping' ] ) ); 
+		update_user_meta( $vendor_id, 'wcv_give_vendor_tax', isset( $_POST[ 'wcv_give_vendor_tax' ] ) );
+		update_user_meta( $vendor_id, 'wcv_give_vendor_shipping', isset( $_POST[ 'wcv_give_vendor_shipping' ] ) );
 
 		do_action( 'wcvendors_update_admin_user', $vendor_id );
 	}
@@ -376,12 +376,12 @@ class WCV_Admin_Users
 	public function show_extra_profile_fields( $user )
 	{
 
-		if ( ! WCV_Vendors::is_vendor( $user->ID ) && ! WCV_Vendors::is_pending( $user->ID ) ) { 
-			return; 
-		} 
+		if ( ! WCV_Vendors::is_vendor( $user->ID ) && ! WCV_Vendors::is_pending( $user->ID ) ) {
+			return;
+		}
 
 		?>
-		<h3><?php _e( 'WC Vendors', 'wcvendors' ); ?></h3>
+		<h3><?php _e( 'WC Vendors', 'wc-vendors' ); ?></h3>
 		<table class="form-table">
 			<tbody>
 			<?php do_action( 'wcvendors_admin_before_shop_html', $user ); ?>
@@ -391,62 +391,62 @@ class WCV_Admin_Users
 					<label for="pv_shop_html_enabled">
 						<input name="pv_shop_html_enabled" type="checkbox"
 							   id="pv_shop_html_enabled" <?php checked( true, get_user_meta( $user->ID, 'pv_shop_html_enabled', true ), $echo = true ) ?>/>
-						<?php _e( 'Enable HTML for the shop description', 'wcvendors' ); ?>
+						<?php _e( 'Enable HTML for the shop description', 'wc-vendors' ); ?>
 					</label>
 				</td>
 			</tr>
 			<?php do_action( 'wcvendors_admin_after_shop_html', $user ); ?>
 			<tr>
-				<th><label for="pv_shop_name"><?php _e( 'Shop name', 'wcvendors' ); ?></label></th>
+				<th><label for="pv_shop_name"><?php _e( 'Shop name', 'wc-vendors' ); ?></label></th>
 				<td><input type="text" name="pv_shop_name" id="pv_shop_name"
 						   value="<?php echo get_user_meta( $user->ID, 'pv_shop_name', true ); ?>" class="regular-text">
 				</td>
 			</tr>
 			<?php do_action( 'wcvendors_admin_after_shop_name', $user ); ?>
 			<tr>
-				<th><label for="pv_paypal"><?php _e( 'PayPal E-mail', 'wcvendors' ); ?> <span
-							class="description">(<?php _e( 'required', 'wcvendors' ); ?>)</span></label></th>
+				<th><label for="pv_paypal"><?php _e( 'PayPal E-mail', 'wc-vendors' ); ?> <span
+							class="description">(<?php _e( 'required', 'wc-vendors' ); ?>)</span></label></th>
 				<td><input type="email" name="pv_paypal" id="pv_paypal"
 						   value="<?php echo get_user_meta( $user->ID, 'pv_paypal', true ); ?>" class="regular-text">
 				</td>
 			</tr>
 			<?php do_action( 'wcvendors_admin_after_paypal', $user ); ?>
 			<tr>
-				<th><label for="pv_custom_commission_rate"><?php _e( 'Commission rate', 'wcvendors' ); ?> (%)</label></th>
-				<td><input type="number" step="0.01" max="100" min="0" name="pv_custom_commission_rate" placeholder="<?php _e( 'Leave blank for default', 'wcvendors' ); ?>" id="pv_custom_commission_rate"
+				<th><label for="pv_custom_commission_rate"><?php _e( 'Commission rate', 'wc-vendors' ); ?> (%)</label></th>
+				<td><input type="number" step="0.01" max="100" min="0" name="pv_custom_commission_rate" placeholder="<?php _e( 'Leave blank for default', 'wc-vendors' ); ?>" id="pv_custom_commission_rate"
 						   value="<?php echo get_user_meta( $user->ID, 'pv_custom_commission_rate', true ); ?>" class="regular-text">
 				</td>
 			</tr>
 			<?php do_action( 'wcvendors_admin_after_commission_due', $user ); ?>
 			<tr>
-				<th><label for="wcv_give_vendor_tax"><?php _e( 'Give Tax', 'wcvendors' ); ?> (%)</label></th>
+				<th><label for="wcv_give_vendor_tax"><?php _e( 'Give Tax', 'wc-vendors' ); ?> (%)</label></th>
 				<td>
 					<label for="wcv_give_vendor_tax">
 						<input name="wcv_give_vendor_tax" type="checkbox"
 							   id="wcv_give_vendor_tax" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_tax', true ), $echo = true ) ?>/>
-						<?php _e( 'Tax override for vendor', 'wcvendors' ); ?>
+						<?php _e( 'Tax override for vendor', 'wc-vendors' ); ?>
 					</label>
 				</td>
 			</tr>
 			<?php do_action( 'wcvendors_admin_after_give_tax', $user ); ?>
 			<tr>
-				<th><label for="wcv_give_vendor_shipping"><?php _e( 'Give Shipping', 'wcvendors' ); ?> (%)</label></th>
+				<th><label for="wcv_give_vendor_shipping"><?php _e( 'Give Shipping', 'wc-vendors' ); ?> (%)</label></th>
 				<td>
 					<label for="wcv_give_vendor_shipping">
 						<input name="wcv_give_vendor_shipping" type="checkbox"
 							   id="wcv_give_vendor_shipping" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_shipping', true ), $echo = true ) ?>/>
-						<?php _e( 'Shipping override for vendor', 'wcvendors' ); ?>
+						<?php _e( 'Shipping override for vendor', 'wc-vendors' ); ?>
 					</label>
 				</td>
 			</tr>
 			<?php do_action( 'wcvendors_admin_after_give_shipping', $user ); ?>
 			<tr>
-				<th><label for="pv_seller_info"><?php _e( 'Seller info', 'wcvendors' ); ?></label></th>
+				<th><label for="pv_seller_info"><?php _e( 'Seller info', 'wc-vendors' ); ?></label></th>
 				<td><?php wp_editor( get_user_meta( $user->ID, 'pv_seller_info', true ), 'pv_seller_info' ); ?></td>
 			</tr>
 			<?php do_action( 'wcvendors_admin_after_seller_info', $user ); ?>
 			<tr>
-				<th><label for="pv_shop_description"><?php _e( 'Shop description', 'wcvendors' ); ?></label>
+				<th><label for="pv_shop_description"><?php _e( 'Shop description', 'wc-vendors' ); ?></label>
 				</th>
 				<td><?php wp_editor( get_user_meta( $user->ID, 'pv_shop_description', true ), 'pv_shop_description' ); ?></td>
 			</tr>
@@ -456,10 +456,10 @@ class WCV_Admin_Users
 	<?php
 	}
 
-	/* 
+	/*
 		Remove featured check box from the product listing
 	*/
-	public function manage_product_columns( $columns ){ 
+	public function manage_product_columns( $columns ){
 		global $woocommerce;
 		unset($columns['featured']);
 		return $columns;
@@ -467,11 +467,11 @@ class WCV_Admin_Users
 
 
 	/**
-	 *     Hide the duplicate product link by removing it from the row actions 
+	 *     Hide the duplicate product link by removing it from the row actions
 	 */
-	public function remove_dupe_link( $actions, $post ) { 
-		unset($actions['duplicate']); 
-		return $actions; 
+	public function remove_dupe_link( $actions, $post ) {
+		unset($actions['duplicate']);
+		return $actions;
 	}
 
 

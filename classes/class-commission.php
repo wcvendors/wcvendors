@@ -52,9 +52,9 @@ class WCV_Commission
 	public static function commission_status(){
 
 		return apply_filters( 'wcvendors_commission_status', array(
-				'due' 		=> __( 'Due', 'wcvendors' ),
-				'paid'		=> __( 'Paid', 'wcvendors' ),
-				'reversed'	=> __( 'Reversed', 'wcvendors' )
+				'due' 		=> __( 'Due', 'wc-vendors' ),
+				'paid'		=> __( 'Paid', 'wc-vendors' ),
+				'reversed'	=> __( 'Reversed', 'wc-vendors' )
 			)
 		);
 	}

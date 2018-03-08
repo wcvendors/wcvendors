@@ -4,7 +4,6 @@ Tags: commission rate,  e-commerce, ecommerce, ebay, free, marketplace, multi se
 Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
-Text Domain: wcvendors
 Requires at least: 4.4.0
 Tested up to: 4.9.4
 Stable tag: 1.9.14

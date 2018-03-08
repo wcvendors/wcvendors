@@ -38,15 +38,15 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 	public function get_default_column_names() {
 
 		return apply_filters( 'wcv_commissions_export_columns', array(
-			'product_id' 		=> __( 'Product', 'wcvendors' ),
-			'order_id'   		=> __( 'Order ID', 'wcvendors' ),
-			'vendor_id' 	    => __( 'Vendor', 'wcvendors' ),
-			'total_due'  		=> __( 'Commission', 'wcvendors' ),
-			'total_shipping'  	=> __( 'Shipping', 'wcvendors' ),
-			'tax'  				=> __( 'Tax', 'wcvendors' ),
-			'totals'  			=> __( 'Total', 'wcvendors' ),
-			'status'     		=> __( 'Status', 'wcvendors' ),
-			'time'       		=> __( 'Date', 'wcvendors' ),
+			'product_id' 		=> __( 'Product', 'wc-vendors' ),
+			'order_id'   		=> __( 'Order ID', 'wc-vendors' ),
+			'vendor_id' 	    => __( 'Vendor', 'wc-vendors' ),
+			'total_due'  		=> __( 'Commission', 'wc-vendors' ),
+			'total_shipping'  	=> __( 'Shipping', 'wc-vendors' ),
+			'tax'  				=> __( 'Tax', 'wc-vendors' ),
+			'totals'  			=> __( 'Total', 'wc-vendors' ),
+			'status'     		=> __( 'Status', 'wc-vendors' ),
+			'time'       		=> __( 'Date', 'wc-vendors' ),
 		) );
 	}
 

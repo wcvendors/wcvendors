@@ -23,7 +23,7 @@ class WCV_Vendor_Applicants
 	function user_row_actions( $actions, $user_object )
 	{
 
-		if ( in_array( 'pending_vendor', $user_object->roles ) ){ 
+		if ( in_array( 'pending_vendor', $user_object->roles ) ){
 			$actions[ 'approve_vendor' ] = "<a href='?role=pending_vendor&action=approve_vendor&user_id=" . $user_object->ID . "'>" . __( 'Approve', 'cgc_ub' ) . "</a>";
 			$actions[ 'deny_vendor' ]    = "<a href='?role=pending_vendor&action=deny_vendor&user_id=" . $user_object->ID . "'>" . __( 'Deny', 'cgc_ub' ) . "</a>";
 		}
@@ -33,7 +33,7 @@ class WCV_Vendor_Applicants
 
 
 	/**
-	 * 
+	 *
 	 */
 	public function user_row_actions_commit()
 	{
@@ -45,13 +45,13 @@ class WCV_Vendor_Applicants
 				case 'approve_vendor':
 					$role = 'vendor';
 					add_action( 'admin_notices', array( $this, 'approved' ) );
-					do_action( 'wcvendors_approve_vendor', $wp_user_object ); 
+					do_action( 'wcvendors_approve_vendor', $wp_user_object );
 					break;
 
 				case 'deny_vendor':
 					$role = apply_filters( 'wcvendors_denied_vendor_role', 'subscriber' );
 					add_action( 'admin_notices', array( $this, 'denied' ) );
-					do_action( 'wcvendors_deny_vendor', $wp_user_object ); 
+					do_action( 'wcvendors_deny_vendor', $wp_user_object );
 					break;
 
 				default:
@@ -71,7 +71,7 @@ class WCV_Vendor_Applicants
 	public function denied()
 	{
 		echo '<div class="updated">';
-		echo '<p>' . __( 'Vendor has been <b>denied</b>.', 'wcvendors' ) . '</p>';
+		echo '<p>' . __( 'Vendor has been <b>denied</b>.', 'wc-vendors' ) . '</p>';
 		echo '</div>';
 	}
 
@@ -82,7 +82,7 @@ class WCV_Vendor_Applicants
 	public function approved()
 	{
 		echo '<div class="updated">';
-		echo '<p>' . __( 'Vendor has been <b>approved</b>.', 'wcvendors' ) . '</p>';
+		echo '<p>' . __( 'Vendor has been <b>approved</b>.', 'wc-vendors' ) . '</p>';
 		echo '</div>';
 	}
 
@@ -96,7 +96,7 @@ class WCV_Vendor_Applicants
 	 */
 	public function show_pending_vendors_link( $values )
 	{
-		$values[ 'pending_vendors' ] = '<a href="?role=asd">' . __( 'Pending Vendors', 'wcvendors' ) . ' <span class="count">(3)</span></a>';
+		$values[ 'pending_vendors' ] = '<a href="?role=asd">' . __( 'Pending Vendors', 'wc-vendors' ) . ' <span class="count">(3)</span></a>';
 
 		return $values;
 	}

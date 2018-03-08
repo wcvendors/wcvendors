@@ -24,16 +24,16 @@ class WC_Email_Notify_Vendor extends WC_Email
 	function __construct()
 	{
 		$this->id          = 'vendor_new_order';
-		$this->title       = __( 'Notify vendors', 'wcvendors' );
-		$this->description = __( 'New order emails are sent when an order is received/paid by a customer.', 'wcvendors' );
+		$this->title       = __( 'Notify vendors', 'wc-vendors' );
+		$this->description = __( 'New order emails are sent when an order is received/paid by a customer.', 'wc-vendors' );
 
-		$this->heading = __( 'New customer order', 'wcvendors' );
-		$this->subject = __( '[{blogname}] New customer order ({order_number}) - {order_date}', 'wcvendors' );
+		$this->heading = __( 'New customer order', 'wc-vendors' );
+		$this->subject = __( '[{blogname}] New customer order ({order_number}) - {order_date}', 'wc-vendors' );
 
 		$this->template_html  = 'vendor-new-order.php';
 		$this->template_plain = 'vendor-new-order.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
-			
+
 		// Triggers for this email
 		add_action( 'woocommerce_order_status_pending_to_processing_notification', array( $this, 'trigger' ) );
 		add_action( 'woocommerce_order_status_pending_to_completed_notification', array( $this, 'trigger' ) );
@@ -62,7 +62,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		if ( $order_id ) {
 			$this->object = wc_get_order( $order_id );
 
-			$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->order_date : $this->object->get_date_created(); 
+			$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->order_date : $this->object->get_date_created();
 
 			$this->find[ ]    = '{order_date}';
 			$this->replace[ ] = date_i18n( wc_date_format(), strtotime( $order_date ) );
@@ -80,16 +80,16 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 		add_filter( 'woocommerce_order_get_items', array( $this, 'check_items' ), 10, 2 );
 		add_filter( 'woocommerce_get_order_item_totals', array( $this, 'check_order_totals' ), 10, 2 );
-		add_filter( 'woocommerce_order_formatted_line_subtotal', array( $this, 'check_order_formatted_line_subtotal' ), 10, 3 ); 
-		add_filter( 'woocommerce_order_subtotal_to_display', array( $this, 'check_order_subtotal_to_display'), 10, 3 ); 
+		add_filter( 'woocommerce_order_formatted_line_subtotal', array( $this, 'check_order_formatted_line_subtotal' ), 10, 3 );
+		add_filter( 'woocommerce_order_subtotal_to_display', array( $this, 'check_order_subtotal_to_display'), 10, 3 );
 		foreach ( $vendors as $user_id => $user_email ) {
 			$this->current_vendor = $user_id;
 			$this->send( $user_email, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 		}
 		remove_filter( 'woocommerce_get_order_item_totals', array( $this, 'check_order_totals' ), 10, 2 );
 		remove_filter( 'woocommerce_order_get_items', array( $this, 'check_items' ), 10, 2 );
-		remove_filter( 'woocommerce_order_formatted_line_subtotal', array( $this, 'check_order_formatted_line_subtotal' ), 10, 3 ); 
-		remove_filter( 'woocommerce_order_subtotal_to_display', array( $this, 'check_order_subtotal_to_display'), 10, 3 ); 
+		remove_filter( 'woocommerce_order_formatted_line_subtotal', array( $this, 'check_order_formatted_line_subtotal' ), 10, 3 );
+		remove_filter( 'woocommerce_order_subtotal_to_display', array( $this, 'check_order_subtotal_to_display'), 10, 3 );
 	}
 
 
@@ -104,32 +104,32 @@ class WC_Email_Notify_Vendor extends WC_Email
 	function check_order_totals( $total_rows, $order )
 	{
 
-		$commission_label 	= apply_filters('wcv_notify_vendor_commission_label', __( 'Commission Subtotal:', 'wcvendors' ) ) ;
+		$commission_label 	= apply_filters('wcv_notify_vendor_commission_label', __( 'Commission Subtotal:', 'wc-vendors' ) ) ;
 		$return[ 'cart_subtotal' ]            = $total_rows[ 'cart_subtotal' ];
-		$return[ 'cart_subtotal' ][ 'label' ] = $commission_label; 
+		$return[ 'cart_subtotal' ][ 'label' ] = $commission_label;
 
 		if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
-			$return[ 'tax_subtotal'] = array( 'label' => '', 'value' => ''); 
-			$return[ 'tax_subtotal']['label'] = apply_filters('wcv_notify_vendor_tax_label', __( 'Tax Subtotal:', 'wcvendors' ) ) ;
-		} 
+			$return[ 'tax_subtotal'] = array( 'label' => '', 'value' => '');
+			$return[ 'tax_subtotal']['label'] = apply_filters('wcv_notify_vendor_tax_label', __( 'Tax Subtotal:', 'wc-vendors' ) ) ;
+		}
 
 		$dues = WCV_Vendors::get_vendor_dues_from_order( $order );
 
 		foreach ( $dues as $due ) {
 			if ( $this->current_vendor == $due['vendor_id'] ) {
 				if (!empty($return[ 'shipping' ]))	$return[ 'shipping' ]          = $total_rows[ 'shipping' ];
-				$return[ 'shipping' ]['label']   = __( 'Shipping Subtotal:', 'wcvendors' );
+				$return[ 'shipping' ]['label']   = __( 'Shipping Subtotal:', 'wc-vendors' );
 				$return[ 'shipping' ][ 'value' ] = wc_price( $due['shipping'] );
 				if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
-					$return[ 'tax_subtotal']['value'] += $due['tax']; 
+					$return[ 'tax_subtotal']['value'] += $due['tax'];
 				}
 				break;
 			}
 		}
-		// Format tax price 
-		if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) { 
-			$return[ 'tax_subtotal']['value'] = wc_price( $return[ 'tax_subtotal'] ['value'] ); 
-		} 
+		// Format tax price
+		if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
+			$return[ 'tax_subtotal']['value'] = wc_price( $return[ 'tax_subtotal'] ['value'] );
+		}
 
 		return $return;
 	}
@@ -145,7 +145,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 	public function get_vendors( $order )
 	{
 		$items = $order->get_items();
-		$vendors = array(); 
+		$vendors = array();
 
 		foreach ( $items as $key => $product ) {
 
@@ -173,17 +173,17 @@ class WC_Email_Notify_Vendor extends WC_Email
 	 * @return unknown
 	 */
 	function check_items( $items, $order )
-	{	
+	{
 
-		$settings = get_option( 'woocommerce_vendor_new_order_settings' ); 
+		$settings = get_option( 'woocommerce_vendor_new_order_settings' );
 
-		if ( empty( $settings ) ) $settings = $this->get_default_settings(); 
+		if ( empty( $settings ) ) $settings = $this->get_default_settings();
 
 		foreach ( $items as $key => $product ) {
 
-			//  If this is a line item 
-			if ( $product['type'] == 'line_item' ) { 
-				
+			//  If this is a line item
+			if ( $product['type'] == 'line_item' ) {
+
 				$author = WCV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
 
 				if ( $this->current_vendor != $author) {
@@ -191,10 +191,10 @@ class WC_Email_Notify_Vendor extends WC_Email
 					continue;
 				} else {
 
-					// If display commission is ticked show this otherwise show the full price. 
-					if ( 'yes' == $settings[ 'commission_display' ] ){ 
+					// If display commission is ticked show this otherwise show the full price.
+					if ( 'yes' == $settings[ 'commission_display' ] ){
 
-						$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id(); 
+						$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();
 
 						// Get correct product_id depending on which product type
 						$product_id = !empty( $product['variation_id'] ) ? $product['variation_id'] : $product['product_id'];
@@ -204,11 +204,11 @@ class WC_Email_Notify_Vendor extends WC_Email
 						$items[ $key ][ 'line_subtotal' ] = $commission_due;
 						$items[ $key ][ 'line_total' ]    = $commission_due;
 
-						// Don't display tax if give tax is not enabled. 
-						if ( !WC_Vendors::$pv_options->get_option( 'give_tax' ) ) { 
-							unset($items[ $key ][ 'line_tax' ]) ; 
+						// Don't display tax if give tax is not enabled.
+						if ( !WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
+							unset($items[ $key ][ 'line_tax' ]) ;
 						}
-					} 
+					}
 				}
 			}
 
@@ -216,7 +216,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 		return $items;
 
-	} // check_items() 
+	} // check_items()
 
 
 	/**
@@ -265,41 +265,41 @@ class WC_Email_Notify_Vendor extends WC_Email
 	{
 		$this->form_fields = array(
 			'enabled'    => array(
-				'title'   => __( 'Enable/Disable', 'wcvendors' ),
+				'title'   => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable this email notification', 'wcvendors' ),
+				'label'   => __( 'Enable this email notification', 'wc-vendors' ),
 				'default' => 'yes'
 			),
 			'subject'    => array(
-				'title'       => __( 'Subject', 'wcvendors' ),
+				'title'       => __( 'Subject', 'wc-vendors' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'wcvendors' ), $this->subject ),
+				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'wc-vendors' ), $this->subject ),
 				'placeholder' => '',
 				'default'     => ''
 			),
 			'heading'    => array(
-				'title'       => __( 'Email Heading', 'wcvendors' ),
+				'title'       => __( 'Email Heading', 'wc-vendors' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wcvendors' ), $this->heading ),
+				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wc-vendors' ), $this->heading ),
 				'placeholder' => '',
 				'default'     => ''
 			),
 			'commission_display'    => array(
-				'title'   => __( 'Product Totals', 'wcvendors' ),
+				'title'   => __( 'Product Totals', 'wc-vendors' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Show the commission due/paid as the product totals instead of the product prices.', 'wcvendors' ),
+				'label'   => __( 'Show the commission due/paid as the product totals instead of the product prices.', 'wc-vendors' ),
 				'default' => 'yes'
 			),
 			'email_type' => array(
-				'title'       => __( 'Email type', 'wcvendors' ),
+				'title'       => __( 'Email type', 'wc-vendors' ),
 				'type'        => 'select',
-				'description' => __( 'Choose which format of email to send.', 'wcvendors' ),
+				'description' => __( 'Choose which format of email to send.', 'wc-vendors' ),
 				'default'     => 'html',
 				'class'       => 'email_type',
 				'options'     => array(
-					'plain'     => __( 'Plain text', 'wcvendors' ),
-					'html'      => __( 'HTML', 'wcvendors' ),
-					'multipart' => __( 'Multipart', 'wcvendors' ),
+					'plain'     => __( 'Plain text', 'wc-vendors' ),
+					'html'      => __( 'HTML', 'wc-vendors' ),
+					'multipart' => __( 'Multipart', 'wc-vendors' ),
 				)
 			)
 		);
@@ -307,49 +307,49 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 
 	/**
-	 *  check the order line item sub total to ensure that the tax is shown correctly on the vendor emails 
+	 *  check the order line item sub total to ensure that the tax is shown correctly on the vendor emails
 	 */
-	function check_order_formatted_line_subtotal( $subtotal, $item, $order ){ 
+	function check_order_formatted_line_subtotal( $subtotal, $item, $order ){
 
-		$order_currency = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->get_order_currency() : $order->get_currency(); 
+		$order_currency = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->get_order_currency() : $order->get_currency();
 
 		$subtotal = wc_price( $order->get_line_subtotal( $item ), array( 'currency' => $order_currency ) );
 
-		return $subtotal; 
+		return $subtotal;
 
-	} // check_order_formatted_line_subtotal() 
+	} // check_order_formatted_line_subtotal()
 
 
-	function check_order_subtotal_to_display( $subtotal, $compound, $order ){ 
+	function check_order_subtotal_to_display( $subtotal, $compound, $order ){
 
-		$new_subtotal = 0; 
+		$new_subtotal = 0;
 
 		foreach ( $order->get_items() as $key => $product ) {
 			$new_subtotal += $product[ 'line_subtotal' ];
 		}
 
-		return wc_price( $new_subtotal ); 
+		return wc_price( $new_subtotal );
 
 
-	} // check_order_subtotal_to_display() 
+	} // check_order_subtotal_to_display()
 
 	/**
-	 * Get the default settings for this email if not already set. 
-	 * 
-	 * @since 1.9.9 
-	 * 
+	 * Get the default settings for this email if not already set.
+	 *
+	 * @since 1.9.9
+	 *
 	 */
-	public function get_default_settings(){ 
+	public function get_default_settings(){
 
-		$settings = array(); 
+		$settings = array();
 
 		foreach ( $this->form_fields as $key => $field ) {
-			$settings[ $key ] = $field[ 'default' ]; 
+			$settings[ $key ] = $field[ 'default' ];
 		}
 
-		return $settings; 
+		return $settings;
 
 	} // get_default_settings()
-	
+
 
 }

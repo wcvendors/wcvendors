@@ -6,7 +6,7 @@ foreach ( $comments as $comment ) :
 	?>
 
 	<p>
-		<?php printf( __( 'added %s ago', 'wcvendors' ), $last_added ); ?>
+		<?php printf( __( 'added %s ago', 'wc-vendors' ), $last_added ); ?>
 		</br>
 		<?php echo $comment->comment_content; ?>
 	</p>
