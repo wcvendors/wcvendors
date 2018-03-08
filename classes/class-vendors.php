@@ -6,7 +6,7 @@
  * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
  * @package WCVendors
  */
-	
+
 
 class WCV_Vendors
 {
@@ -94,35 +94,35 @@ class WCV_Vendors
 
 		WCV_Shipping::$pps_shipping_costs = array();
 
-		foreach ( $order->get_items() as $key => $product ) {
+		foreach ( $order->get_items() as $key => $order_item ) {
 
-			$product_id 				= !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
+			$product_id 				= !empty( $order_item[ 'variation_id' ] ) ? $order_item[ 'variation_id' ] : $order_item[ 'product_id' ];
 			$author     				= WCV_Vendors::get_vendor_from_product( $product_id );
-			$give_tax_override 			= get_user_meta( $author, 'wcv_give_vendor_tax', true ); 
-			$give_shipping_override 	= get_user_meta( $author, 'wcv_give_vendor_shipping', true ); 
+			$give_tax_override 			= get_user_meta( $author, 'wcv_give_vendor_tax', true );
+			$give_shipping_override 	= get_user_meta( $author, 'wcv_give_vendor_shipping', true );
 			$is_vendor  				= WCV_Vendors::is_vendor( $author );
-			$commission 				= $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order, $product[ 'qty' ] ) : 0;
-			$tax        				= !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
-			$order_id 					= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();  	
-			
-			// Check if shipping is enabled
-			if ( get_option('woocommerce_calc_shipping') === 'no' ) { 
-				$shipping = 0; $shipping_tax = 0; 
-			} else {
-				$shipping_costs = WCV_Shipping::get_shipping_due( $order_id, $product, $author, $product_id );
-				$shipping = $shipping_costs['amount']; 
-				$shipping_tax = $shipping_costs['tax']; 
-			}
-	
-			$_product = new WC_Product( $product['product_id'] ); 
+			$commission 				= $is_vendor ? WCV_Commission::calculate_commission( $order_item[ 'line_subtotal' ], $product_id, $order, $order_item[ 'qty' ] ) : 0;
+			$tax        				= !empty( $order_item[ 'line_tax' ] ) ? (float) $order_item[ 'line_tax' ] : 0;
+			$order_id 					= $order->get_id();
 
-			// Add line item tax and shipping taxes together 
-			$total_tax = ( $_product->is_taxable() ) ? (float) $tax + (float) $shipping_tax : 0; 
+			// Check if shipping is enabled
+			if ( get_option('woocommerce_calc_shipping') === 'no' ) {
+				$shipping = 0; $shipping_tax = 0;
+			} else {
+				$shipping_costs = WCV_Shipping::get_shipping_due( $order_id, $order_item, $author, $product_id );
+				$shipping = $shipping_costs['amount'];
+				$shipping_tax = $shipping_costs['tax'];
+			}
+
+			$_product = new WC_Product( $order_item['product_id'] );
+
+			// Add line item tax and shipping taxes together
+			$total_tax = ( $_product->is_taxable() ) ? (float) $tax + (float) $shipping_tax : 0;
 
 			// Tax override on a per vendor basis
-			if ( $give_tax_override ) $give_tax = true; 
-			// Shipping override 
-			if ( $give_shipping_override ) $give_shipping = true; 
+			if ( $give_tax_override ) $give_tax = true;
+			// Shipping override
+			if ( $give_shipping_override ) $give_shipping = true;
 
 			if ( $is_vendor ) {
 
@@ -142,7 +142,7 @@ class WCV_Vendors
 						'commission' => !empty( $receiver[ $author ][ 'commission' ] ) ? $receiver[ $author ][ 'commission' ] + $commission : $commission,
 						'shipping'   => $give_shipping ? ( !empty( $receiver[ $author ][ 'shipping' ] ) ? $receiver[ $author ][ 'shipping' ] + $shipping : $shipping) : 0,
 						'tax'        => $give_tax ? ( !empty( $receiver[ $author ][ 'tax' ] ) ? $receiver[ $author ][ 'tax' ] + $total_tax : $total_tax ) : 0,
-						'qty'        => !empty( $receiver[ $author ][ 'qty' ] ) ? $receiver[ $author ][ 'qty' ] + $product[ 'qty' ] : $product[ 'qty' ],
+						'qty'        => !empty( $receiver[ $author ][ 'qty' ] ) ? $receiver[ $author ][ 'qty' ] + $order_item[ 'qty' ] : $order_item[ 'qty' ],
 						'total'      => $give,
 					);
 
@@ -154,7 +154,7 @@ class WCV_Vendors
 						'commission' => $commission,
 						'shipping'   => $give_shipping ? $shipping : 0,
 						'tax'        => $give_tax ? $total_tax : 0,
-						'qty'        => $product[ 'qty' ],
+						'qty'        => $order_item[ 'qty' ],
 						'total'      => ($give_shipping ? $shipping : 0) + $commission + ( $give_tax ? $total_tax : 0 ),
 					);
 
@@ -162,12 +162,12 @@ class WCV_Vendors
 
 			}
 
-			$admin_comm = $product[ 'line_subtotal' ] - $commission;
+			$admin_comm = $order_item[ 'line_subtotal' ] - $commission;
 
 			if ( $group ) {
 				$receiver[ 1 ] = array(
 					'vendor_id'  => 1,
-					'qty'        => !empty( $receiver[ 1 ][ 'qty' ] ) ? $receiver[ 1 ][ 'qty' ] + $product[ 'qty' ] : $product[ 'qty' ],
+					'qty'        => !empty( $receiver[ 1 ][ 'qty' ] ) ? $receiver[ 1 ][ 'qty' ] + $order_item[ 'qty' ] : $order_item[ 'qty' ],
 					'commission' => !empty( $receiver[ 1 ][ 'commission' ] ) ? $receiver[ 1 ][ 'commission' ] + $admin_comm : $admin_comm,
 					'total'      => !empty( $receiver[ 1 ] ) ? $receiver[ 1 ][ 'total' ] + $admin_comm : $admin_comm,
 				);
@@ -178,27 +178,27 @@ class WCV_Vendors
 					'commission' => $admin_comm,
 					'shipping'   => 0,
 					'tax'        => 0,
-					'qty'        => $product[ 'qty' ],
+					'qty'        => $order_item[ 'qty' ],
 					'total'      => $admin_comm,
 				);
 			}
 
 		}
-		
+
 		// Add remainders on end to admin
-		$discount = $order->get_total_discount();
+		$discount 	= $order->get_total_discount();
 		$shipping 	= round( ( $order->get_total_shipping() - $shipping_given ), 2 );
-		$tax 		= round( $order->get_total_tax() - $tax_given, 2); 
+		$tax 		= round( $order->get_total_tax() - $tax_given, 2);
 		$total    	= ( $tax + $shipping ) - $discount;
 
 		if ( $group ) {
-			$r_total = round( $receiver[ 1 ][ 'total' ], 2 ) ; 
+			$r_total = round( $receiver[ 1 ][ 'total' ], 2 ) ;
 			$receiver[ 1 ][ 'commission' ] = round( $receiver[ 1 ][ 'commission' ], 2 )  - round( $discount, 2 );
 			$receiver[ 1 ][ 'shipping' ]   = $shipping;
 			$receiver[ 1 ][ 'tax' ]        = $tax;
 			$receiver[ 1 ][ 'total' ] 	   = $r_total + round( $total, 2 );
 		} else {
-			$r_total = round( $receiver[ 1 ][ $key ][ 'total' ], 2 ); 
+			$r_total = round( $receiver[ 1 ][ $key ][ 'total' ], 2 );
 			$receiver[ 1 ][ $key ][ 'commission' ] = round( $receiver[ 1 ][ $key ][ 'commission' ], 2 ) - round( $discount, 2 );
 			$receiver[ 1 ][ $key ][ 'shipping' ]   = ( $order->get_total_shipping() - $shipping_given );
 			$receiver[ 1 ][ $key ][ 'tax' ]        = $tax;
@@ -287,16 +287,16 @@ class WCV_Vendors
 	 */
 	public static function get_vendor_from_product( $product_id )
 	{
-		// Make sure we are returning an author for products or product variations only 
-		if ( 'product' === get_post_type( $product_id ) || 'product_variation' === get_post_type( $product_id ) ) { 
+		// Make sure we are returning an author for products or product variations only
+		if ( 'product' === get_post_type( $product_id ) || 'product_variation' === get_post_type( $product_id ) ) {
 			$parent = get_post_ancestors( $product_id );
 			if ( $parent ) $product_id = $parent[ 0 ];
 
 			$post = get_post( $product_id );
 			$author = $post ? $post->post_author : 1;
 			$author = apply_filters( 'pv_product_author', $author, $product_id );
-		} else { 
-			$author = -1; 
+		} else {
+			$author = -1;
 		}
 		return $author;
 	}
@@ -311,18 +311,18 @@ class WCV_Vendors
 	 */
 	public static function is_vendor( $user_id )
 	{
-		$user = get_userdata( $user_id ); 
+		$user = get_userdata( $user_id );
 
-		$vendor_roles = apply_filters( 'wcvendors_vendor_roles', array( 'vendor') ); 
-		
-		if (is_object($user)) { 
+		$vendor_roles = apply_filters( 'wcvendors_vendor_roles', array( 'vendor') );
+
+		if (is_object($user)) {
 
 			foreach ($vendor_roles as $role ) {
-				$is_vendor = is_array( $user->roles ) ? in_array( $role , $user->roles ) : false;	
+				$is_vendor = is_array( $user->roles ) ? in_array( $role , $user->roles ) : false;
 			}
-			
-		} else { 
-			$is_vendor = false; 
+
+		} else {
+			$is_vendor = false;
 		}
 
 		return apply_filters( 'pv_is_vendor', $is_vendor, $user_id );
@@ -422,54 +422,54 @@ class WCV_Vendors
 		return $is_pending;
 	}
 
-	/* 
-	* 	Is this a vendor product ? 
-	* 	@param uknown $role 
-	*/ 
-	public static function is_vendor_product($role) { 
-		return ($role === 'Vendor') ? true : false; 
+	/*
+	* 	Is this a vendor product ?
+	* 	@param uknown $role
+	*/
+	public static function is_vendor_product($role) {
+		return ($role === 'Vendor') ? true : false;
 	}
 
-	/* 
-	*	Is this the vendors shop archive page ? 
+	/*
+	*	Is this the vendors shop archive page ?
 	*/
-	public static function is_vendor_page() { 
+	public static function is_vendor_page() {
 
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
 
-		return $vendor_id ? true : false; 
+		return $vendor_id ? true : false;
 
 	} // is_vendor_page()
 
-	/* 
-	*	Is this a vendor single product page ? 
+	/*
+	*	Is this a vendor single product page ?
 	*/
-	public static function is_vendor_product_page($vendor_id) { 
+	public static function is_vendor_product_page($vendor_id) {
 
-		$vendor_product = WCV_Vendors::is_vendor_product( wcv_get_user_role($vendor_id) ); 
-		return $vendor_product ? true : false; 
+		$vendor_product = WCV_Vendors::is_vendor_product( wcv_get_user_role($vendor_id) );
+		return $vendor_product ? true : false;
 
 	} // is_vendor_product_page()
 
-	public static function get_vendor_sold_by( $vendor_id ){ 
+	public static function get_vendor_sold_by( $vendor_id ){
 
-		$vendor_display_name = WC_Vendors::$pv_options->get_option( 'vendor_display_name' ); 
-		$vendor =  get_userdata( $vendor_id ); 
+		$vendor_display_name = WC_Vendors::$pv_options->get_option( 'vendor_display_name' );
+		$vendor =  get_userdata( $vendor_id );
 
 		switch ($vendor_display_name) {
 			case 'display_name':
 				$display_name = $vendor->display_name;
 				break;
-			case 'user_login': 
+			case 'user_login':
 				$display_name = $vendor->user_login;
 				break;
-			case 'user_email': 
+			case 'user_email':
 				$display_name = $vendor->user_email;
 				break;
 
 			default:
-				$display_name = WCV_Vendors::get_vendor_shop_name( $vendor_id ); 
+				$display_name = WCV_Vendors::get_vendor_shop_name( $vendor_id );
 				break;
 		}
 
@@ -480,7 +480,7 @@ class WCV_Vendors
 	/**
 	 * Split order into vendor orders (when applicable) after checkout
 	 *
-	 * @since 
+	 * @since
 	 * @param int $order_id
 	 * @return void
 	 */
@@ -525,7 +525,7 @@ class WCV_Vendors
 	 *
 	 * Returns a new vendor_order object on success which can then be used to add additional data.
 	 *
-	 * @since 
+	 * @since
 	 * @param array $args
 	 * @return WC_Order_Vendor|WP_Error
 	 */
@@ -574,7 +574,7 @@ class WCV_Vendors
 			$vendor_order = wc_get_order( $vendor_order_id );
 			$order        = wc_get_order( $args['order_id'] );
 
-			$order_currency = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->get_order_currency() : $order->get_currency(); 
+			$order_currency = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->get_order_currency() : $order->get_currency();
 
 			// Order currency is the same used for the parent order
 			update_post_meta( $vendor_order_id, '_order_currency', $order_currency );
@@ -674,31 +674,31 @@ class WCV_Vendors
 	} // get_vendor_orders()
 
 	/**
-	 * Find the parent product id if the variation has been deleted 
-	 * 
+	 * Find the parent product id if the variation has been deleted
+	 *
 	 * @since 1.9.13
-	 * @access public 
+	 * @access public
 	 */
-	public static function find_parent_id_from_order( $order_id, $product_id ){ 
+	public static function find_parent_id_from_order( $order_id, $product_id ){
 
-		global $wpdb; 
+		global $wpdb;
 
-		$order_item_id_sql = "SELECT `order_item_id` FROM {$wpdb->prefix}woocommerce_order_items WHERE order_id = $order_id AND `order_item_type` = 'line_item'"; 
+		$order_item_id_sql = "SELECT `order_item_id` FROM {$wpdb->prefix}woocommerce_order_items WHERE order_id = $order_id AND `order_item_type` = 'line_item'";
 
-		$order_item_ids = $wpdb->get_results( $order_item_id_sql ); 
+		$order_item_ids = $wpdb->get_results( $order_item_id_sql );
 
 		foreach ( $order_item_ids as $key => $order_item ) {
 
 			$item_product_id 	= get_metadata( 'order_item', $order_item->order_item_id, '_product_id', true );
-			$item_variation_id 	= get_metadata( 'order_item', $order_item->order_item_id, '_variation_id', true );			
+			$item_variation_id 	= get_metadata( 'order_item', $order_item->order_item_id, '_variation_id', true );
 
 			if ( $item_variation_id  == $product_id ){
-				return $item_product_id; 
+				return $item_product_id;
 			}
 		}
 
-		return $product_id; 
+		return $product_id;
 
 	}
 
-} // WCV_Vendors 
+} // WCV_Vendors
