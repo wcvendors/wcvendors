@@ -37,19 +37,18 @@ class WCV_Shipping
 	 *
 	 * @return unknown
 	 */
-	public static function get_shipping_due( $order_id, $product, $author, $product_id = 0 )
-	{
-		global $woocommerce;
+	public static function get_shipping_due( $order_id, $order_item, $author, $product_id = 0 ){
 
-		$shipping_costs = array( 'amount' => 0, 'tax' => 0);
-		$shipping_due = 0; 
-		$method = '';
-		$_product     = wc_get_product( $product[ 'product_id' ] );
-		$order = wc_get_order( $order_id ); 
+		$shipping_costs 	= array( 'amount' => 0, 'tax' => 0);
+		$shipping_due 		= 0;
+		$method 			= '';
+		$_product     		= wc_get_product( $order_item[ 'product_id' ] );
+		$order 				= wc_get_order( $order_id );
+		$tax_class 			= $order_item->get_tax_class();
 
 		if ( $_product && $_product->needs_shipping() && !$_product->is_downloadable() ) {
 
-			// Get Shipping methods. 
+			// Get Shipping methods.
 			$shipping_methods = $order->get_shipping_methods();
 
 			// TODO: Currently this only allows one shipping method per order, this definitely needs changing
@@ -57,10 +56,10 @@ class WCV_Shipping
 					$method = $shipping_method['method_id'];
 					break;
 			}
-			
+
 			// Per Product Shipping
 			if ( ( class_exists('WC_Shipping_Per_Product_Init') || function_exists( 'woocommerce_per_product_shipping' ) ) && $method == 'per_product' ) {
-				$shipping_costs = WCV_Shipping::pps_get_due( $order_id, $product );
+				$shipping_costs = WCV_Shipping::pps_get_due( $order_id, $order_item );
 
 				// Local Delivery
 			} else if ( $method == 'local_delivery' ) {
@@ -68,8 +67,8 @@ class WCV_Shipping
 
 				if ( $local_delivery[ 'type' ] == 'product' ) {
 
-					$shipping_costs['amount'] 	= $product[ 'qty' ] * $local_delivery[ 'fee' ];
-					$shipping_costs['tax'] 		= WCV_Shipping::calculate_shipping_tax( $shipping_costs['amount'], $order ); 
+					$shipping_costs['amount'] 	= $order_item[ 'qty' ] * $local_delivery[ 'fee' ];
+					$shipping_costs['tax'] 		= WCV_Shipping::calculate_shipping_tax( $shipping_costs['amount'], $order );
 				}
 
 				// International Delivery
@@ -80,14 +79,14 @@ class WCV_Shipping
 				if ( $int_delivery[ 'type' ] == 'item' ) {
 					$WC_Shipping_International_Delivery = new WC_Shipping_International_Delivery();
 					$fee                                = $WC_Shipping_International_Delivery->get_fee( $int_delivery[ 'fee' ], $_product->get_price() );
-					$shipping_costs['amount']           = ( $int_delivery[ 'cost' ] + $fee ) * $product[ 'qty' ];
-					$shipping_costs['tax'] 				= ( 'taxable' === $int_delivery[ 'tax_status' ] ) ? WCV_Shipping::calculate_shipping_tax( $shipping_costs['amount'], $order ) : 0; 
+					$shipping_costs['amount']           = ( $int_delivery[ 'cost' ] + $fee ) * $order_item[ 'qty' ];
+					$shipping_costs['tax'] 				= ( 'taxable' === $int_delivery[ 'tax_status' ] ) ? WCV_Shipping::calculate_shipping_tax( $shipping_costs['amount'], $order, $tax_class ) : 0;
 				}
 
 			}
 		}
 
-		$shipping_costs = apply_filters( 'wcvendors_shipping_due', $shipping_costs, $order_id, $product, $author, $product_id );
+		$shipping_costs = apply_filters( 'wcvendors_shipping_due', $shipping_costs, $order_id, $order_item, $author, $product_id );
 
 		return $shipping_costs;
 	}
@@ -101,24 +100,21 @@ class WCV_Shipping
 	 *
 	 * @return array
 	 */
-	public static function pps_get_due( $order_id, $product )
-	{
-		global $woocommerce;
+	public static function pps_get_due( $order_id, $product ) {
 
 		$item_shipping_cost = 0;
-		$shipping_costs = array(); 
+		$shipping_costs 	= array();
+		$settings 			= get_option( 'woocommerce_per_product_settings' );
+		$taxable 			= $settings['tax_status'];
+		$order 				= wc_get_order( $order_id );
+		$tax_class 			= $product->get_tax_glass();
 
-		$settings = get_option( 'woocommerce_per_product_settings' ); 
-		$taxable = $settings['tax_status']; 
+		$shipping_country 	= $order->get_shipping_country();
+		$shipping_state 	= $order->get_shipping_state();
+		$shipping_postcode 	= $order->get_shipping_postcode();
 
-		$order = wc_get_order( $order_id );
-
-		$shipping_country 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_country 	: $order->get_shipping_country();
-		$shipping_state 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_state 	: $order->get_shipping_state();
-		$shipping_postcode 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_postcode : $order->get_shipping_postcode();
-
-		$package[ 'destination' ][ 'country' ]  = $shipping_country; 
-		$package[ 'destination' ][ 'state' ]    = $shipping_state; 
+		$package[ 'destination' ][ 'country' ]  = $shipping_country;
+		$package[ 'destination' ][ 'state' ]    = $shipping_state;
 		$package[ 'destination' ][ 'postcode' ] = $shipping_postcode;
 		$product_id = !empty( $product['variation_id'] ) ? $product['variation_id'] : $product['product_id'];
 
@@ -142,29 +138,34 @@ class WCV_Shipping
 			self::$pps_shipping_costs[$order_id][] = $rule->rule_id;
 		}
 
-		$shipping_costs['amount'] = $item_shipping_cost; 
-		$shipping_costs['tax'] = ('taxable' === $taxable ) ? WCV_Shipping::calculate_shipping_tax( $item_shipping_cost, $order ) : 0; 
+		$shipping_costs['amount'] = $item_shipping_cost;
+		$shipping_costs['tax'] = ('taxable' === $taxable ) ? WCV_Shipping::calculate_shipping_tax( $item_shipping_cost, $order, $tax_class ) : 0;
 
 		// return $item_shipping_cost;
-		return $shipping_costs; 
+		return $shipping_costs;
 	}
 
-	public static function calculate_shipping_tax( $shipping_amount, $order ) { 
+
+	/**
+	* Calculate the shipping tax due for the product
+	*
+	*/
+	public static function calculate_shipping_tax( $shipping_amount, $order, $tax_class = '' ) {
 
 		$tax_based_on 		= get_option( 'woocommerce_tax_based_on' );
 		$wc_tax_enabled 	= get_option( 'woocommerce_calc_taxes' );
 
-		$shipping_city 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_city 	: $order->get_shipping_city();
-		$shipping_country 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_country 	: $order->get_shipping_country();
-		$shipping_state 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_state 	: $order->get_shipping_state();
-		$shipping_postcode 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_postcode : $order->get_shipping_postcode(); 
-		$billing_city 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_city 		: $order->get_billing_city();
-		$billing_country 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_country 	: $order->get_billing_country();
-		$billing_state 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_state 	: $order->get_billing_state();
-		$billing_postcode 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_postcode 	: $order->get_billing_postcode(); 
+		$shipping_city 		= $order->get_shipping_city();
+		$shipping_country 	= $order->get_shipping_country();
+		$shipping_state 	= $order->get_shipping_state();
+		$shipping_postcode 	= $order->get_shipping_postcode();
+		$billing_city 		= $order->get_billing_city();
+		$billing_country 	= $order->get_billing_country();
+		$billing_state 		= $order->get_billing_state();
+		$billing_postcode 	= $order->get_billing_postcode();
 
-		// if taxes aren't enabled don't calculate them 
-		if ( 'no' === $wc_tax_enabled ) return 0; 
+		// if taxes aren't enabled don't calculate them
+		if ( 'no' === $wc_tax_enabled ) return 0;
 
         if ( 'base' === $tax_based_on ) {
 
@@ -198,8 +199,10 @@ class WCV_Shipping
             'state'     => $state,
             'postcode'  => $postcode,
             'city'      => $city,
-            'tax_class' => ''
+            'tax_class' => $tax_class
         ) );
+
+        WC_Vendors::log( $tax_rates );
 
 
         if ( $tax_rates ) {
@@ -213,10 +216,9 @@ class WCV_Shipping
         $shipping_taxes     = WC_Tax::calc_shipping_tax( $shipping_amount, $matched_tax_rates );
         $shipping_tax_total = WC_Tax::round( array_sum( $shipping_taxes ) );
 
-        return $shipping_tax_total; 
+        return $shipping_tax_total;
 
 	}
-
 
 	/**
 	 *
