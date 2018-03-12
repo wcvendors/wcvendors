@@ -114,7 +114,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'current_screen', array( $this, 'include_assets' ) );
 
 			// add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
-			// add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
+			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
 			// Start a PHP session, if not yet started then destroy if logged in or out
 			add_action( 'init', 		array( $this, 'init_session'), 1 );
@@ -185,7 +185,6 @@ if ( wcv_is_woocommerce_activated() ) {
 		}
 
 		public function load_il8n() {
-
 		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wc-vendors' );
 		    load_textdomain( 'wc-vendors', WP_LANG_DIR.'/wc-vendors/wc-vendors-'.$locale.'.mo');
 			load_plugin_textdomain( 'wc-vendors', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
@@ -216,11 +215,13 @@ if ( wcv_is_woocommerce_activated() ) {
 			include_once( wcv_plugin_dir . 'classes/admin/class-admin-reports.php');
 			include_once( wcv_plugin_dir . 'classes/admin/class-wcv-commissions-page.php');
 			include_once( wcv_plugin_dir . 'classes/admin/class-wcv-admin-setup.php');
+			include_once( wcv_plugin_dir . 'classes/admin/class-wcv-admin-notices.php');
 			include_once( wcv_plugin_dir . 'classes/admin/class-wcv-admin-settings.php');
 			include_once( wcv_plugin_dir . 'classes/admin/class-admin-menus.php');
 			include_once( wcv_plugin_dir . 'classes/admin/class-setup-wizard.php');
 			include_once( wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php');
 			include_once( wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php');
+			include_once( wcv_plugin_dir . 'classes/includes/wcv-update-functions.php');
 
 
 			if ( !function_exists( 'woocommerce_wp_text_input' ) && !is_admin() ) {

@@ -267,7 +267,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		?>
 		<h3><?php echo $this->method_title; ?></h3>
 		<p><?php _e( 'The PayPal Adaptive Payments gateway can instantly pay your vendors their due commission (if enabled). Also used to mass pay vendors on a schedule / manual method (if enabled).', 'wc-vendors' ); ?></p>
-		<p><strong><?php _e( 'Please Note: PayPal has depreciated Adaptive Payments. This will soon cease to function. We are currently working on a new extension to allow scheduled payments but there is no solution for instant payments with paypal moving forward at this time.', 'wc-vendors' ); ?></strong></p>
+		<p><strong><?php _e( 'Please Note: PayPal has depreciated Adaptive Payments. This will soon cease to function.', 'wc-vendors' ); ?></strong></p>
 		<table class="form-table">
 
 			<?php if ( $this->is_valid_currency() ) :

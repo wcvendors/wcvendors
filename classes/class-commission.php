@@ -146,7 +146,7 @@ class WCV_Commission
 			foreach ( $details as $key => $detail ) {
 
 				$product_id = $detail['product_id'];
-				$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created();
+				$order_date = $order->get_date_created();
 
 				$insert_due[ $product_id ] = array(
 					'order_id'       => $order_id,
@@ -331,7 +331,7 @@ class WCV_Commission
 		$commission_rate = WCV_Commission::get_commission_rate( $product_id );
 		$commission      = $product_price * ( $commission_rate / 100 );
 		$commission      = round( $commission, 2 );
-
+		
 		return apply_filters( 'wcv_commission_rate', $commission, $product_id, $product_price, $order, $qty );
 	}
 

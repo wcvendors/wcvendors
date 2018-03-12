@@ -183,7 +183,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 			add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
 			add_action( 'admin_init', array( &$this, 'register_options' ) );
 			add_action( 'admin_menu', array( &$this, 'create_menu' ), 70 );
-			add_filter( 'plugin_action_links', array( &$this, 'add_settings_link' ), 10, 2 );
+			// add_filter( 'plugin_action_links', array( &$this, 'add_settings_link' ), 10, 2 );
 		}
 
 
@@ -248,7 +248,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		 */
 		public function create_menu()
 		{
-			$page = add_submenu_page( 'wc-vendors', __( 'WC Vendors Settings', 'wc-vendors' ),  __( 'Settings', 'wc-vendors' ), 'manage_woocommerce', $this->id, array( &$this, 'init_settings_page' ) );
+			$page = add_submenu_page( 'wc-vendors', __( 'WC Vendors Settings', 'wc-vendors' ),  __( 'Settings Old', 'wc-vendors' ), 'manage_woocommerce', $this->id, array( &$this, 'init_settings_page' ) );
 			add_action( 'admin_print_scripts-' . $page, array( &$this, 'admin_print_scripts' ) );
 		}
 
@@ -298,7 +298,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				$this->current_options = $this->get_current_options();
 
-				/* If the option has no saved data, load the defaults. */
+				 // If the option has no saved data, load the defaults.
 				/* @TODO: Can prob add this to the activation hook. */
 				$this->set_defaults( $this->current_options );
 			} else {
@@ -583,9 +583,6 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		{
 			// Overwrite the key/value pair
 			$this->current_options = array( $name => $value ) + (array) $this->current_options;
-
-			error_log( print_r( $this->current_options ) );
-
 			return update_option( $this->id . '_options', $this->current_options );
 		}
 
@@ -600,6 +597,9 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		 */
 		public function get_option( $name, $default = false )
 		{
+
+			// wc_deprecated_function( __class__ .'->' . __function__, '2.0.0', 'get_option' );
+
 			return isset( $this->current_options[ $name ] ) ? maybe_unserialize( $this->current_options[ $name ] ) : $default;
 		}
 
