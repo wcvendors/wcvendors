@@ -45,7 +45,7 @@ class WCVendors_Admin_Menus {
 	 * Addons menu item.
 	 */
 	public function addons_menu() {
-		add_submenu_page( 'wc-vendors', __( 'WC Vendors Extensions', 'woocommerce' ), __( 'Extensions', 'wc-vendors' ), 'manage_woocommerce', 'wcv-addons', array( $this, 'addons_page' ) );
+		add_submenu_page( 'wc-vendors', __( 'WC Vendors Extensions', 'wc-vendors' ), __( 'Extensions', 'wc-vendors' ), 'manage_woocommerce', 'wcv-addons', array( $this, 'addons_page' ) );
 		remove_submenu_page( 'wc-vendors', 'wc-vendors' );
 	}
 

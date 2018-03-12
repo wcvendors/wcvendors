@@ -31,7 +31,7 @@ class WCV_Post_types {
 			'shop_order_vendor',
 			apply_filters( 'woocommerce_register_post_type_shop_order_vendor',
 				array(
-					'label'                            => __( 'Vendor Orders', 'woocommerce' ),
+					'label'                            => __( 'Vendor Orders', 'wc-vendors' ),
 					'capability_type'                  => 'shop_order',
 					'public'                           => false,
 					'hierarchical'                     => false,
