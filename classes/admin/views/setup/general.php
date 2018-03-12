@@ -29,8 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					class="option_checkbox"
 					id="wcv_vendor_allow_registration"
 					name="wcv_vendor_allow_registration"
-					value="1"
-					<?php checked( $allow_registration, true ); ?>
+					value="yes"
+					<?php checked( $allow_registration, 'yes' ); ?>
 				/>
 				</td>
 			</tr>
@@ -42,8 +42,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						class="option_checkbox"
 						id="wcv_vendor_approve_registration"
 						name="wcv_vendor_approve_registration"
-						value="1"
-						<?php checked( $manual_approval, true ); ?>
+						value="yes"
+						<?php checked( $manual_approval, 'yes' ); ?>
 					/>
 				</td>
 			</tr>
@@ -55,8 +55,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						class="option_checkbox"
 						id="wcv_vendor_give_taxes"
 						name="wcv_vendor_give_taxes"
-						value="1"
-						<?php checked( $vendor_taxes, true ); ?>
+						value="yes"
+						<?php checked( $vendor_taxes, 'yes' ); ?>
 					/>
 				</td>
 			</tr>
@@ -68,8 +68,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						class="option_checkbox"
 						id="wcv_vendor_give_shipping"
 						name="wcv_vendor_give_shipping"
-						value="1"
-						<?php checked( $vendor_shipping, true ); ?>
+						value="yes"
+						<?php checked( $vendor_shipping, 'yes' ); ?>
 					/>
 				</td>
 			</tr>

@@ -34,8 +34,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</p>
 		</div>
 	</form>
-</div> -->
-
+</div>
+ -->
 <ul class="wcv-wizard-next-steps">
 	<li class="wcv-wizard-next-step-item">
 		<div class="wcv-wizard-next-step-description">
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div class="wcv-wizard-next-step-action">
 			<p class="wcv-setup-actions step">
-				<a class="button button-primary button-large" href="https://www.wcvendors.com/products/wc-vendors-pro/">
+				<a class="button button-primary button-large" href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete" target="_blank">
 					<?php _e( 'Upgrade Now', 'wc-vendors' ); ?>
 				</a>
 			</p>
@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div class="wcv-wizard-next-step-action">
 			<p class="wcv-setup-actions step">
-				<a class="button button-large" href="<?php echo esc_url( admin_url( 'admin.php?page=wcv-addons' ) ); ?>">
+				<a class="button button-large" href="https://www.wcvendors.com/extensions/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete" target="_blank">
 					<?php _e( 'View Extensions', 'wc-vendors' ); ?>
 				</a>
 			</p>

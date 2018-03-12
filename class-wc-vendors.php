@@ -8,7 +8,7 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              1.9.14
+ * Version:              2.0.0
  * Requires at least:    4.4.0
  * Tested up to:         4.9.4
  * WC requires at least: 3.0.0
@@ -113,24 +113,23 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'init', 		  array( $this, 'include_init' ) );
 			add_action( 'current_screen', array( $this, 'include_assets' ) );
 
-			add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
-			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
+			// add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
+			// add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
 			// Start a PHP session, if not yet started then destroy if logged in or out
 			add_action( 'init', 		array( $this, 'init_session'), 1 );
 			add_action( 'wp_logout', 	array( $this, 'destroy_session') );
 			add_action( 'wp_login', 	array( $this, 'destroy_session') );
 
-			add_filter( 'wc_prd_vendor_options', array( $this, 'upgrade_pro_notice' ) );
+			// add_filter( 'wc_prd_vendor_options', array( $this, 'upgrade_pro_notice' ) );
 		}
 
 
 		/**
 		 *
 		 */
-		public function invalid_wc_version()
-		{
-			echo '<div class="error"><p>' . __( '<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce v2.7.0.', 'wc-vendors' ) . '</p></div>';
+		public function invalid_wc_version() {
+			echo '<div class="error"><p>' . __( '<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce 3.0.0 to operate.', 'wc-vendors' ) . '</p></div>';
 		}
 
 		/**
@@ -160,8 +159,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 *
 		 * @return unknown
 		 */
-		public function check_install()
-		{
+		public function check_install()	{
 
 			if ( version_compare( WC_VERSION, '2.6', '<' ) ) {
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
@@ -169,9 +167,8 @@ if ( wcv_is_woocommerce_activated() ) {
 				return false;
 			}
 
-			require_once wcv_plugin_dir . 'classes/class-install.php';
-			$this->load_settings();
-			WCV_Install::init();
+			// require_once wcv_plugin_dir . 'classes/class-install.php';
+			// $this->load_settings();
 		}
 
 
@@ -199,30 +196,31 @@ if ( wcv_is_woocommerce_activated() ) {
 		/**
 		 * Include core files
 		 */
-		public function include_core()
-		{
-			include( wcv_plugin_dir . 'classes/class-queries.php');
-			include( wcv_plugin_dir . 'classes/class-vendors.php');
-			include( wcv_plugin_dir . 'classes/class-cron.php');
-			include( wcv_plugin_dir . 'classes/class-commission.php');
-			include( wcv_plugin_dir . 'classes/class-shipping.php');
-			include( wcv_plugin_dir . 'classes/class-vendor-order.php');
-			include( wcv_plugin_dir . 'classes/class-vendor-post-types.php');
-			include( wcv_plugin_dir . 'classes/front/class-vendor-cart.php');
-			include( wcv_plugin_dir . 'classes/front/dashboard/class-vendor-dashboard.php');
-			include( wcv_plugin_dir . 'classes/front/class-vendor-shop.php');
-			include( wcv_plugin_dir . 'classes/front/signup/class-vendor-signup.php');
-			include( wcv_plugin_dir . 'classes/front/orders/class-orders.php');
-			include( wcv_plugin_dir . 'classes/admin/emails/class-emails.php');
-			include( wcv_plugin_dir . 'classes/admin/class-vendor-applicants.php');
-			include( wcv_plugin_dir . 'classes/admin/class-admin-reports.php');
-			include( wcv_plugin_dir . 'classes/admin/class-wcv-commissions-page.php');
-			include( wcv_plugin_dir . 'classes/admin/class-wcv-admin-setup.php');
-			include( wcv_plugin_dir . 'classes/admin/class-wcv-admin-settings.php');
-			include( wcv_plugin_dir . 'classes/admin/class-admin-menus.php');
-			include( wcv_plugin_dir . 'classes/admin/class-setup-wizard.php');
-			include( wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php');
-			include( wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php');
+		public function include_core() {
+
+			include_once( wcv_plugin_dir . 'classes/class-install.php' );
+			include_once( wcv_plugin_dir . 'classes/class-queries.php');
+			include_once( wcv_plugin_dir . 'classes/class-vendors.php');
+			include_once( wcv_plugin_dir . 'classes/class-cron.php');
+			include_once( wcv_plugin_dir . 'classes/class-commission.php');
+			include_once( wcv_plugin_dir . 'classes/class-shipping.php');
+			include_once( wcv_plugin_dir . 'classes/class-vendor-order.php');
+			include_once( wcv_plugin_dir . 'classes/class-vendor-post-types.php');
+			include_once( wcv_plugin_dir . 'classes/front/class-vendor-cart.php');
+			include_once( wcv_plugin_dir . 'classes/front/dashboard/class-vendor-dashboard.php');
+			include_once( wcv_plugin_dir . 'classes/front/class-vendor-shop.php');
+			include_once( wcv_plugin_dir . 'classes/front/signup/class-vendor-signup.php');
+			include_once( wcv_plugin_dir . 'classes/front/orders/class-orders.php');
+			include_once( wcv_plugin_dir . 'classes/admin/emails/class-emails.php');
+			include_once( wcv_plugin_dir . 'classes/admin/class-vendor-applicants.php');
+			include_once( wcv_plugin_dir . 'classes/admin/class-admin-reports.php');
+			include_once( wcv_plugin_dir . 'classes/admin/class-wcv-commissions-page.php');
+			include_once( wcv_plugin_dir . 'classes/admin/class-wcv-admin-setup.php');
+			include_once( wcv_plugin_dir . 'classes/admin/class-wcv-admin-settings.php');
+			include_once( wcv_plugin_dir . 'classes/admin/class-admin-menus.php');
+			include_once( wcv_plugin_dir . 'classes/admin/class-setup-wizard.php');
+			include_once( wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php');
+			include_once( wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php');
 
 
 			if ( !function_exists( 'woocommerce_wp_text_input' ) && !is_admin() ) {
