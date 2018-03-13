@@ -182,7 +182,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		{
 			add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
 			add_action( 'admin_init', array( &$this, 'register_options' ) );
-			add_action( 'admin_menu', array( &$this, 'create_menu' ), 70 );
+			// add_action( 'admin_menu', array( &$this, 'create_menu' ), 70 );
 			// add_filter( 'plugin_action_links', array( &$this, 'add_settings_link' ), 10, 2 );
 		}
 
