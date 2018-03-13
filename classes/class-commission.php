@@ -331,7 +331,7 @@ class WCV_Commission
 		$commission_rate = WCV_Commission::get_commission_rate( $product_id );
 		$commission      = $product_price * ( $commission_rate / 100 );
 		$commission      = round( $commission, 2 );
-		
+
 		return apply_filters( 'wcv_commission_rate', $commission, $product_id, $product_price, $order, $qty );
 	}
 
@@ -544,5 +544,30 @@ class WCV_Commission
 		return $commission_due;
 
 	} // get_commission_due()
+
+
+	/**
+	 * Get the total due for all commissions
+	 *
+	 * @since 2.0.0
+	 * @access public
+	 */
+	public static function get_totals( $status = 'due' ){
+
+		$total_due = 0;
+
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . "pv_commission";
+		$query      = "SELECT sum(total_due + total_shipping + tax) as total
+					FROM `{$table_name}`
+					WHERE status = %s";
+		$results    = $wpdb->get_results( $wpdb->prepare( $query, $status ) );
+
+		$totals = array_shift( $results )->total;
+
+		return $totals;
+
+	}
 
 }

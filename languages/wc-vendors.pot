@@ -32,7 +32,7 @@ msgstr ""
 msgid "Vendor"
 msgstr ""
 
-#: class-wc-vendors.php:326, classes/admin/settings/class-wcv-settings-capabilities.php:43, classes/admin/settings/class-wcv-settings-capabilities.php:105, classes/admin/settings/class-wcv-settings-commission.php:43, classes/admin/settings/class-wcv-settings-display.php:43, classes/admin/settings/class-wcv-settings-general.php:31, classes/admin/settings/class-wcv-settings-general.php:43, classes/admin/settings/class-wcv-settings-payments.php:43, classes/admin/settings/sf-options.php:4, classes/admin/views/setup/general.php:19
+#: class-wc-vendors.php:326, classes/admin/settings/class-wcv-settings-capabilities.php:43, classes/admin/settings/class-wcv-settings-capabilities.php:105, classes/admin/settings/class-wcv-settings-commission.php:43, classes/admin/settings/class-wcv-settings-display.php:43, classes/admin/settings/class-wcv-settings-general.php:31, classes/admin/settings/class-wcv-settings-general.php:43, classes/admin/settings/class-wcv-settings-payments.php:44, classes/admin/settings/sf-options.php:4, classes/admin/views/setup/general.php:19
 msgid "General"
 msgstr ""
 
@@ -1203,7 +1203,7 @@ msgstr ""
 msgid "Labels"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:64, classes/admin/settings/class-wcv-settings-display.php:89, classes/admin/settings/class-wcv-settings-payments.php:80
+#: classes/admin/settings/class-wcv-settings-display.php:64, classes/admin/settings/class-wcv-settings-display.php:89, classes/admin/settings/class-wcv-settings-payments.php:65, classes/admin/settings/class-wcv-settings-payments.php:73, classes/admin/settings/class-wcv-settings-payments.php:123
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:66
@@ -1402,8 +1402,76 @@ msgstr ""
 msgid "Payments"
 msgstr ""
 
+#: classes/admin/settings/class-wcv-settings-payments.php:45, classes/gateways/PayPal_AdvPayments/paypal_ap.php:43
+msgid "PayPal Adaptive Payments"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:67
+msgid "<h3>PayPal Adaptive Payments - PayPal Adatptive Payments has been depreciated by PayPal as of September 2017. These options are for existing users only.</h3>"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:75
+msgid "Total Commission due: %s"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:80
+msgid "Instant Pay"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:81
+msgid "Enable instantpay"
+msgstr ""
+
 #: classes/admin/settings/class-wcv-settings-payments.php:82
-msgid "<strong>Payments controls how your %s commission is paid out. To enable commission payments you will be required to purchase one of our available payment extensions. </strong> "
+msgid "Instantly pay %s their commission when an order is made, and if a %s has a valid PayPal email added on their Shop Settings page."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:89, classes/admin/settings/sf-options.php:333
+msgid "Payment schedule"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:90, classes/admin/settings/sf-options.php:334
+msgid "Note: Schedule will only work if instant pay is unchecked"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:94, classes/admin/settings/sf-options.php:339
+msgid "Daily"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:95, classes/admin/settings/sf-options.php:340
+msgid "Weekly"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:96, classes/admin/settings/sf-options.php:341
+msgid "Biweekly"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:97, classes/admin/settings/sf-options.php:342
+msgid "Monthly"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:98, classes/admin/settings/sf-options.php:343
+msgid "Manual"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:99, classes/admin/settings/sf-options.php:344
+msgid "Now"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:104, classes/admin/settings/sf-options.php:349
+msgid "Email notification"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:105
+msgid "Enable notify the admin"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:106
+msgid "Send the marketplace admin an email each time a payment has been made via the payment schedule options above"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:125
+msgid "<strong>Payments controls how your %s commission is paid out. These settings only function if you are using a supported gateway.</strong> "
 msgstr ""
 
 #: classes/admin/settings/sf-options.php:5
@@ -1734,42 +1802,6 @@ msgstr ""
 msgid "For this to work, customers must checkout with the PayPal Adaptive Payments gateway. Using any other gateways will not pay vendors instantly"
 msgstr ""
 
-#: classes/admin/settings/sf-options.php:333
-msgid "Payment schedule"
-msgstr ""
-
-#: classes/admin/settings/sf-options.php:334
-msgid "Note: Schedule will only work if instant pay is unchecked"
-msgstr ""
-
-#: classes/admin/settings/sf-options.php:339
-msgid "Daily"
-msgstr ""
-
-#: classes/admin/settings/sf-options.php:340
-msgid "Weekly"
-msgstr ""
-
-#: classes/admin/settings/sf-options.php:341
-msgid "Biweekly"
-msgstr ""
-
-#: classes/admin/settings/sf-options.php:342
-msgid "Monthly"
-msgstr ""
-
-#: classes/admin/settings/sf-options.php:343
-msgid "Manual"
-msgstr ""
-
-#: classes/admin/settings/sf-options.php:344
-msgid "Now"
-msgstr ""
-
-#: classes/admin/settings/sf-options.php:349
-msgid "Email notification"
-msgstr ""
-
 #: classes/admin/settings/sf-options.php:350
 msgid "Send the WooCommerce admin an email each time a payment has been made via the payment schedule options above"
 msgstr ""
@@ -1880,10 +1912,6 @@ msgstr ""
 
 #: classes/front/signup/class-vendor-signup.php:149, classes/front/signup/class-vendor-signup.php:186, classes/front/signup/class-vendor-signup.php:198
 msgid "You must accept the terms and conditions to become a vendor."
-msgstr ""
-
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:43
-msgid "PayPal Adaptive Payments"
 msgstr ""
 
 #: classes/gateways/PayPal_AdvPayments/paypal_ap.php:119

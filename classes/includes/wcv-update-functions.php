@@ -85,7 +85,11 @@ function wcv_get_settings_mapping(){
 		'show_vendor_registration'  => 'wcvendors_vendor_allow_registration',
 		'manual_vendor_registration' => 'wcvendors_vendor_approve_registration',
 		'give_tax' => 'wcvendors_vendor_give_taxes',
-		'give_shipping' => 'wcvendors_vendor_give_shipping'
+		'give_shipping' => 'wcvendors_vendor_give_shipping',
+		'instapay'		=> 'wcvendors_payments_paypal_instantpay_enable',
+		'schedule'	=> 'wcvendors_payments_paypal_schedule',
+		'mail_mass_pay_results' => 'wcvendors_payments_paypal_email_enable'
+
 	) );
 }
 

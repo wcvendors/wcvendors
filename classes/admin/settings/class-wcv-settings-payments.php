@@ -33,6 +33,7 @@ class WCVendors_Settings_Payments extends WCVendors_Settings_Page {
 		parent::__construct();
 	}
 
+
 	/**
 	 * Get sections.
 	 *
@@ -41,29 +42,10 @@ class WCVendors_Settings_Payments extends WCVendors_Settings_Page {
 	public function get_sections() {
 		$sections = array(
 			''          => __( 'General', 'wc-vendors' ),
+			'paypal'	=> __( 'PayPal Adaptive Payments', 'wc-vendors' ),
 		);
 
 		return apply_filters( 'wcvendors_get_sections_' . $this->id, $sections );
-	}
-
-	/**
-	 * Output the settings.
-	 */
-	public function output() {
-		global $current_section;
-
-		$settings = $this->get_settings( $current_section );
-		WCVendors_Admin_Settings::output_fields( $settings );
-	}
-
-	/**
-	 * Save settings.
-	 */
-	public function save() {
-		global $current_section;
-
-		$settings = $this->get_settings( $current_section );
-		WCVendors_Admin_Settings::save_fields( $settings );
 	}
 
 	/**
@@ -73,19 +55,82 @@ class WCVendors_Settings_Payments extends WCVendors_Settings_Page {
 	 */
 	public function get_settings( $current_section = '' ) {
 
-		$settings = apply_filters( 'wcvendors_settings_display_labels', array(
 
-			// Shop Display Options
-			array(
-				'title'    => __( '', 'wc-vendors' ),
-				'type'     => 'title',
-				'desc'     => sprintf( __( '<strong>Payments controls how your %s commission is paid out. To enable commission payments you will be required to purchase one of our available payment extensions. </strong> ', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
-				'id'       => 'payment_general_options',
-			),
+		if ( 'paypal' === $current_section ){
 
-			array( 'type' => 'sectionend', 'id' => 'payment_general_options' ),
+			$settings = apply_filters( 'wcvendors_settings_payments_paypal', array(
 
-		) );
+				// Shop Display Options
+				array(
+					'title'    => __( '', 'wc-vendors' ),
+					'type'     => 'title',
+					'desc'     => sprintf( __( '<h3>PayPal Adaptive Payments - PayPal Adatptive Payments has been depreciated by PayPal as of September 2017. These options are for existing users only.</h3>', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'id'       => 'paypal_options',
+				),
+
+
+				array(
+					'title'    => __( '', 'wc-vendors' ),
+					'type'     => 'title',
+					'desc'     => sprintf( __( 'Total Commission due: %s', 'wc-vendors' ), wc_price( WCV_Commission::get_totals( 'due' ) ) ),
+					'id'       => 'paypal_options',
+				),
+
+				array(
+					'title'   	=> __( 'Instant Pay', 'wc-vendors' ),
+					'desc'    	=> __( 'Enable instantpay', 'wc-vendors' ),
+					'desc_tip' 	=> sprintf( __( 'Instantly pay %s their commission when an order is made, and if a %s has a valid PayPal email added on their Shop Settings page.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ), lcfirst( wcv_get_vendor_name() ) ),
+					'id'      	=> 'wcvendors_payments_paypal_instantpay_enable',
+					'default' 	=> 'no',
+					'type'    	=> 'checkbox',
+				),
+
+				array(
+					'title'   	=> __( 'Payment schedule', 'wc-vendors' ),
+					'desc'    	=> __( 'Note: Schedule will only work if instant pay is unchecked', 'wc-vendors' ),
+					'id'      	=> 'wcvendors_payments_paypal_schedule',
+					'type'    	=> 'radio',
+					'options' => array(
+						'daily'    => __( 'Daily', 'wc-vendors' ),
+						'weekly'   => __( 'Weekly', 'wc-vendors' ),
+						'biweekly' => __( 'Biweekly', 'wc-vendors' ),
+						'monthly'  => __( 'Monthly', 'wc-vendors' ),
+						'manual'   => __( 'Manual', 'wc-vendors' ),
+						'now'      => '<span style="color:green;"><strong>' . __( 'Now', 'wc-vendors' ) . '</strong></span>',
+					)
+				),
+
+				array(
+					'title'   	=> __( 'Email notification', 'wc-vendors' ),
+					'desc'    	=> __( 'Enable notify the admin', 'wc-vendors' ),
+					'desc_tip' 	=> __( 'Send the marketplace admin an email each time a payment has been made via the payment schedule options above', 'wc-vendors' ),
+					'id'      	=> 'wcvendors_payments_paypal_email_enable',
+					'default' 	=> 'no',
+					'type'    	=> 'checkbox',
+				),
+
+
+
+				array( 'type' => 'sectionend', 'id' => 'paypal_options' ),
+			) );
+
+		} else {
+
+			$settings = apply_filters( 'wcvendors_settings_payments_general', array(
+
+				// Shop Display Options
+				array(
+					'title'    => __( '', 'wc-vendors' ),
+					'type'     => 'title',
+					'desc'     => sprintf( __( '<strong>Payments controls how your %s commission is paid out. These settings only function if you are using a supported gateway.</strong> ', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'id'       => 'payment_general_options',
+				),
+
+				array( 'type' => 'sectionend', 'id' => 'payment_general_options' ),
+
+			) );
+
+		}
 
 		return apply_filters( 'wcvendors_get_settings_' . $this->id, $settings, $current_section );
 

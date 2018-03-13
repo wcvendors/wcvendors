@@ -6,9 +6,9 @@ div.wcvendors-message p { max-width: 700px; }
 
 div.wcvendors-message p:last-child { max-width: inherit; }
 
-p.wcvendors-actions .button-primary, .wcvendors-message .button-primary { background: #bb77ae; border-color: #a36597; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 #a36597; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 #a36597; color: #fff; text-shadow: 0 -1px 1px #a36597, 1px 0 1px #a36597, 0 1px 1px #a36597, -1px 0 1px #a36597; }
+p.wcvendors-actions .button-primary, .wcvendors-message .button-primary { background: #005580; border-color: #005580; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 #a36597; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 #a36597; color: #fff; text-shadow: 0 -1px 1px #005580, 1px 0 1px #005580, 0 1px 1px #005580, -1px 0 1px #005580; }
 
-p.wcvendors-actions .button-primary:hover, p.wcvendors-actions .button-primary:focus, p.wcvendors-actions .button-primary:active, .wcvendors-message .button-primary:hover, .wcvendors-message .button-primary:focus, .wcvendors-message .button-primary:active { background: #a36597; border-color: #a36597; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 #a36597; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 #a36597; }
+p.wcvendors-actions .button-primary:hover, p.wcvendors-actions .button-primary:focus, p.wcvendors-actions .button-primary:active, .wcvendors-message .button-primary:hover, .wcvendors-message .button-primary:focus, .wcvendors-message .button-primary:active { background: #005580; border-color: #005580; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 #005580; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 #005580; }
 
 p.wcvendors-actions a.wcvendors-message-close, .wcvendors-message a.wcvendors-message-close { position: absolute; top: 0; right: 0; padding: 10px 15px 10px 21px; font-size: 13px; line-height: 1.23076923; text-decoration: none; }
 
