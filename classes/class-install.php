@@ -37,6 +37,8 @@ class WCVendors_Install {
 		add_action( 'admin_init', 									array( __CLASS__, 'install_actions' ) );
 		add_filter( 'plugin_row_meta', 								array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 		add_filter( 'plugin_action_links_' . wcv_plugin_base, 		array( __CLASS__, 'plugin_action_links' ) );
+		add_action( 'wcvendors_update_options_display',		 		array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
+		add_action( 'wcvendors_flush_rewrite_rules', 				array( __CLASS__, 'flush_rewrite_rules' ) );
 
 	} // init()
 
@@ -424,6 +426,25 @@ class WCVendors_Install {
 		return (array) $links;
 	}
 
+		/**
+	 * Flush rewrite rules.
+	 */
+	public static function flush_rewrite_rules() {
+		WC_Vendors::log( __function__ ); 
+		flush_rewrite_rules();
+	}
+
+	/**
+	 * Flush rules if the event is queued.
+	 *
+	 * @since 3.3.0
+	 */
+	public static function maybe_flush_rewrite_rules() {
+		if ( 'yes' === get_option( 'wcvendors_queue_flush_rewrite_rules' ) ) {
+			update_option( 'wcvendors_queue_flush_rewrite_rules', 'no' );
+			self::flush_rewrite_rules();
+		}
+	}
 
 }
 

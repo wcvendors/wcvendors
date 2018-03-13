@@ -27,6 +27,7 @@ class WCV_Admin_Setup {
 		add_filter( 'admin_footer_text', 									array( $this, 'admin_footer_text' ), 1 );
 		add_action( 'admin_init', 											array( $this, 'export_commissions' ) );
 		add_filter( 'woocommerce_screen_ids', 								array( $this, 'wcv_screen_ids' ) );
+		add_action( 'wcvendors_update_options_capabilities',				array( $this, 'update_vendor_role' ) );
 
 	}
 
@@ -198,7 +199,7 @@ class WCV_Admin_Setup {
 	*/
 	public function wcv_screen_ids( $screen_ids ) {
 
-		$screen = get_current_screen(); 
+		$screen = get_current_screen();
 
 		$wcv_screen_ids = wcv_get_screen_ids();
 		$screen_ids = array_merge( $wcv_screen_ids, $screen_ids );
@@ -237,6 +238,37 @@ class WCV_Admin_Setup {
 		}
 
 		return $footer_text;
+	}
+
+	/**
+	* Update the vendor role based on the capabilities saved.
+	*
+	*/
+	public function update_vendor_role( ){
+
+		$can_add          = get_opcion( 'wcvendors_capability_products_enabled' );
+		$can_edit         = get_opcion( 'wcvendors_capability_products_edit' );
+		$can_submit_live  = get_opcion( 'wcvendors_capability_products_live' );
+
+		$args = array(
+			'assign_product_terms'      => $can_add,
+			'edit_products'             => $can_add || $can_edit,
+			'edit_published_products'   => $can_edit,
+			'delete_published_products' => $can_edit,
+			'delete_products'           => $can_edit,
+			'delete_posts'				=> true,
+			'manage_product'            => $can_add,
+			'publish_products'          => $can_submit_live,
+			'read'                      => true,
+			'read_products'             => $can_edit || $can_add,
+			'upload_files'              => true,
+			'import'                    => true,
+			'view_woocommerce_reports'  => false,
+		);
+
+		remove_role( 'vendor' );
+		add_role( 'vendor', __('Vendor', 'wc-vendors'), $args );
+
 	}
 
 
