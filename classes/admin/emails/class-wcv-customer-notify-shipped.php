@@ -4,30 +4,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'WCVendors_Admin_Notify_Shipped' ) ) :
+if ( ! class_exists( 'WCVendors_Customer_Notify_Shipped' ) ) :
 
 /**
  * Notify Admin Shipped
  *
  * An email sent to the admin when the vendor marks the order shipped.
  *
- * @class       WCVendors_Admin_Notify_Shipped
+ * @class       WCVendors_Customer_Notify_Shipped
  * @version     2.0.0
  * @package     Classes/Admin/Emails
  * @author      WC Vendors
  * @extends     WC_Email
  */
-class WCVendors_Admin_Notify_Shipped extends WC_Email {
+class WCVendors_Customer_Notify_Shipped extends WC_Email {
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->id             = 'admin_notify_shipped';
-		$this->title          = __( 'Admin notify vendor shipped', 'wc-vendors' );
-		$this->description    = __( 'Notification is sent to chosen recipient(s) when a vendor marks an order shipped.', 'wc-vendors' );
-		$this->template_html  = 'emails/admin-notify-shipped.php';
-		$this->template_plain = 'emails/plain/admin-notify-shipped.php';
+		$this->id             = 'customer_notify_shipped';
+		$this->customer_email = true;
+ 		$this->title          = sprintf( __( 'Customer %s shipped', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
+		$this->description    = sprintf( __( 'Email is sent to the customer when a %s marks an order shipped.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
+		$this->template_html  = 'emails/customer-notify-shipped.php';
+		$this->template_plain = 'emails/plain/customer-notify-shipped.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
 		$this->placeholders   = array(
 			'{site_title}'   => $this->get_blogname(),
@@ -38,8 +39,6 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 		// Call parent constructor
 		parent::__construct();
 
-		// Other settings
-		$this->recipient = $this->get_option( 'recipient', get_option( 'admin_email' ) );
 	}
 
 	/**
@@ -49,7 +48,7 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return __( '[{site_title}] Vendor has marked shipped ({order_number}) - {order_date}', 'wc-vendors' );
+		return sprintf( __( '[{site_title}] %s has marked shipped ({order_number}) - {order_date}', 'wc-vendors' ), wcv_get_vendor_name( ) );
 	}
 
 	/**
@@ -59,7 +58,7 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return __( 'Vendor has shipped', 'wc-vendors' );
+		return sprintf( __( '%s has shipped', 'wc-vendors' ), wcv_get_vendor_name( ) );
 	}
 
 	/**
@@ -71,7 +70,6 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 	public function trigger( $order_id, $user_id, $order = false ) {
 
 		$this->setup_locale();
-
 		$this->vendor_id 	= $user_id;
 
 		if ( $order_id && ! is_a( $order, 'WC_Order' ) ) {
@@ -80,12 +78,21 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 
 		if ( is_a( $order, 'WC_Order' ) ) {
 			$this->object 							= $order;
+			$this->recipient                      	= $this->object->get_billing_email();
 			$this->placeholders['{order_date}']   	= wc_format_datetime( $this->object->get_date_created() );
 			$this->placeholders['{order_number}'] 	= $this->object->get_order_number();
 		}
 
 		if ( $this->is_enabled() && $this->get_recipient() ) {
+			// Filter the order items to only show the products owned by the vendor that marked shipped.
+			add_filter( 'woocommerce_order_get_items', 			array( $this, 'filter_vendor_items' ), 10, 3 );
+			add_filter( 'woocommerce_get_order_item_totals', 	array( $this, 'udpate_order_totals' ), 10, 3 );
+
 			$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
+
+			// Remove filters
+			remove_filter( 'woocommerce_get_order_item_totals', array( $this, 'udpate_order_totals' ), 10, 3 );
+			remove_filter( 'woocommerce_order_get_items', 		array( $this, 'filter_vendor_items' ), 10, 3 );
 		}
 
 		$this->restore_locale();
@@ -137,14 +144,6 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 				'label'         => __( 'Enable this email notification', 'wc-vendors' ),
 				'default'       => 'no',
 			),
-			'recipient' => array(
-				'title'         => __( 'Recipient(s)', 'wc-vendors' ),
-				'type'          => 'text',
-				'description'   => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'wc-vendors' ), '<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
-				'placeholder'   => '',
-				'default'       => '',
-				'desc_tip'      => true,
-			),
 			'subject' => array(
 				'title'         => __( 'Subject', 'wc-vendors' ),
 				'type'          => 'text',
@@ -174,8 +173,63 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 			),
 		);
 	}
+
+
+	/**
+	 * Filter the order to only show vendor products
+	 *
+	 * @param array $items
+	 * @param WC_Order $order
+	 * @param array $types
+	 *
+	 * @return array
+	 */
+	public function filter_vendor_items( $items, $order, $types  ) {
+
+		foreach ( $items as $item_id => $order_item ) {
+
+			if ( 'line_item' === $order_item->get_type() ){
+
+					$product_id = ( $order_item->get_variation_id() ) ? $order_item->get_variation_id() : $order_item->get_product_id();
+
+					if ( empty( $product_id ) ) {
+						unset( $items[ $item_id ] );
+						continue;
+					}
+
+					$product_vendor = WCV_Vendors::get_vendor_from_product( $product_id );
+
+					if ( $this->vendor_id != $product_vendor ) {
+						unset( $items[ $item_id ] );
+						continue;
+					}
+
+			}
+
+		}
+
+		return $items;
+
+	} // filter_vendor_items
+
+	/**
+	 * Update the order totals to only show the items for the product(s)
+	 *
+	 * @param array $total_rows
+	 * @param WC_Order $order
+	 * @param string $tax_display
+	 *
+	 * @return array
+	 */
+	public function udpate_order_totals( $total_rows, $order, $tax_display ) {
+
+		$new_total_rows = array();
+		$new_total_rows[ 'cart_subtotal' ]            = $total_rows[ 'cart_subtotal' ];
+
+		return $new_total_rows;
+	}
 }
 
 endif;
 
-return new WCVendors_Admin_Notify_Shipped();
+return new WCVendors_Customer_Notify_Shipped();

@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'WCV_Notify_Vendor_Approved' ) ) :
+if ( ! class_exists( 'WCVendors_Notify_Vendor_Approved' ) ) :
 
 /**
  * Notify vendor application has started
@@ -17,7 +17,7 @@ if ( ! class_exists( 'WCV_Notify_Vendor_Approved' ) ) :
  * @author      WC Vendors
  * @extends     WC_Email
  */
-class WCV_Notify_Vendor_Approved extends WC_Email {
+class WCVendors_Notify_Vendor_Approved extends WC_Email {
 
 	/**
 	 * Constructor.
@@ -182,4 +182,4 @@ class WCV_Notify_Vendor_Approved extends WC_Email {
 
 endif;
 
-return new WCV_Notify_Vendor_Approved();
+return new WCVendors_Notify_Vendor_Approved();

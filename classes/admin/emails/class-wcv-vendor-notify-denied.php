@@ -4,20 +4,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'WCV_Vendor_Notify_Denied' ) ) :
+if ( ! class_exists( 'WCVendors_Vendor_Notify_Denied' ) ) :
 
 /**
  * Notify vendor application has been denied
  *
  * An email sent to the vendor when the admin denies their application
  *
- * @class       WCV_Vendor_Notify_Denied
+ * @class       WCVendors_Vendor_Notify_Denied
  * @version     2.0.0
  * @package     Classes/Admin/Emails
  * @author      WC Vendors
  * @extends     WC_Email
  */
-class WCV_Vendor_Notify_Denied extends WC_Email {
+class WCVendors_Vendor_Notify_Denied extends WC_Email {
 
 	/**
 	 * Constructor.
@@ -200,4 +200,4 @@ class WCV_Vendor_Notify_Denied extends WC_Email {
 
 endif;
 
-return new WCV_Vendor_Notify_Denied();
+return new WCVendors_Vendor_Notify_Denied();

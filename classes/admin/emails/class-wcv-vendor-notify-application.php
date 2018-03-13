@@ -4,20 +4,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'WCV_Vendor_Notify_Application' ) ) :
+if ( ! class_exists( 'WCVendors_Vendor_Notify_Application' ) ) :
 
 /**
  * Notify vendor application has started
  *
  * An email sent to the admin when the vendor marks the order shipped.
  *
- * @class       WCV_Vendor_Notify_Application
+ * @class       WCVendors_Vendor_Notify_Application
  * @version     2.0.0
  * @package     Classes/Admin/Emails
  * @author      WC Vendors
  * @extends     WC_Email
  */
-class WCV_Vendor_Notify_Application extends WC_Email {
+class WCVendors_Vendor_Notify_Application extends WC_Email {
 
 	/**
 	 * Constructor.
@@ -77,7 +77,6 @@ class WCV_Vendor_Notify_Application extends WC_Email {
 		$this->status 		= $status;
 
 		if ( $this->is_enabled() ) {
-			WC_Vendors::log( $this->get_content() );
 			$this->send( $this->user_email, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 		}
 
@@ -165,4 +164,4 @@ class WCV_Vendor_Notify_Application extends WC_Email {
 
 endif;
 
-return new WCV_Vendor_Notify_Application();
+return new WCVendors_Vendor_Notify_Application();

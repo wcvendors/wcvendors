@@ -376,7 +376,6 @@ class WCVendors_Install {
 						sprintf( 'Queuing %s - %s', $version, $update_callback ),
 						array( 'source' => 'wcvendors_db_updates' )
 					);
-					WC_Vendors::log( $update_callback );
 					self::$background_updater->push_to_queue( $update_callback );
 					$update_queued = true;
 				}
@@ -384,7 +383,6 @@ class WCVendors_Install {
 		}
 
 		if ( $update_queued ) {
-			WC_Vendors::log( 'dispatched' );
 			self::$background_updater->save()->dispatch();
 		}
 	}
@@ -430,7 +428,6 @@ class WCVendors_Install {
 	 * Flush rewrite rules.
 	 */
 	public static function flush_rewrite_rules() {
-		WC_Vendors::log( __function__ ); 
 		flush_rewrite_rules();
 	}
 

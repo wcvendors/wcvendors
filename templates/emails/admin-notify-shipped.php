@@ -1,8 +1,8 @@
 <?php
 /**
- * Admin new order email
+ * Admin Vendor Shipped
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/emails/admin-new-order.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/emails/admin-notify-shipped.php.
  *
  * @author WCVendors
  * @package WCVendors/Templates/Emails/HTML

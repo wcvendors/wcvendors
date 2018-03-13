@@ -436,7 +436,6 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 					if ( !empty( $mails ) ) {
 						WC()->mailer()->emails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
 					}
-
 					do_action( 'wcvendors_vendor_ship', $order_id, $user_id, $order );
 				}
 

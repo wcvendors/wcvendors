@@ -18,7 +18,7 @@ class WCV_Emails
 	 *
 	 */
 	public function __construct() {
-		add_filter( 'woocommerce_email_classes', array( $this, 'check_items' ) );
+		add_filter( 'woocommerce_email_classes', array( $this, 'email_classes' ) );
 		add_filter( 'woocommerce_resend_order_emails_available', array( $this, 'order_action' ) );
 		add_filter( 'woocommerce_order_actions', array( $this, 'order_actions' ) );
 		add_action( 'woocommerce_order_action_send_vvendor_new_order', array( $this, 'order_actions_save') );
@@ -54,7 +54,7 @@ class WCV_Emails
 
 
 	/**
-	 *
+	 * @depreciated
 	 *
 	 * @param unknown $user_id
 	 * @param unknown $role
@@ -83,7 +83,7 @@ class WCV_Emails
 
 
 	/**
-	 *
+	 * @depreciated
 	 *
 	 * @param unknown $name
 	 * @param unknown $_product
@@ -127,26 +127,29 @@ class WCV_Emails
 	 *
 	 * @return unknown
 	 */
-	public function check_items( $emails )
-	{
+	public function email_classes( $emails ){
+
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-notify-admin.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-notify-vendor.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-approve-vendor.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-notify-shipped.php';
 
+		// Emails to depreciate
 		$emails[ 'WC_Email_Notify_Vendor' ]  = new WC_Email_Notify_Vendor();
 		$emails[ 'WC_Email_Approve_Vendor' ] = new WC_Email_Approve_Vendor();
 		$emails[ 'WC_Email_Notify_Admin' ]   = new WC_Email_Notify_Admin();
 		$emails[ 'WC_Email_Notify_Shipped' ] = new WC_Email_Notify_Shipped();
 
 		// New emails introduced in @since 2.0.0
-		$emails[ 'WCV_Admin_Notify_Shipped'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-shipped.php' );
-		$emails[ 'WCV_Vendor_Notify_Application'] 	= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-application.php' );
-		$emails[ 'WCV_Vendor_Notify_Approved'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php' );
-		$emails[ 'WCV_Vendor_Notify_Denied'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php' );
+		$emails[ 'WCVendors_Customer_Notify_Shipped'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-customer-notify-shipped.php' );
+		$emails[ 'WCVendors_Admin_Notify_Shipped'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-shipped.php' );
+		$emails[ 'WCVendors_Vendor_Notify_Application'] 	= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-application.php' );
+		$emails[ 'WCVendors_Vendor_Notify_Approved'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php' );
+		$emails[ 'WCVendors_Vendor_Notify_Denied'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php' );
 
 		return $emails;
-	}
+
+	} // email_classes()
 
 	/**
 	 *	 Add the vendor email to the low stock emails.
@@ -184,25 +187,33 @@ class WCV_Emails
 	}
 
 	/**
-	*	Trigger the notify admin vendor shipped email
+	*	Trigger the notify vendor shipped emails
 	*
-	* @since v2.0.0
+	* @since 2.0.0
 	*/
 	public function vendor_shipped( $order_id, $user_id, $order ){
-		WC()->mailer()->emails[ 'WCV_Admin_Notify_Shipped' ]->trigger( $order->get_id(), $user_id, $order );
+		// Notify the admin
+		WC()->mailer()->emails[ 'WCVendors_Admin_Notify_Shipped' ]->trigger( $order->get_id(), $user_id, $order );
+		// Notify the customer
+		WC()->mailer()->emails[ 'WCVendors_Customer_Notify_Shipped' ]->trigger( $order->get_id(), $user_id, $order );
 	}
 
+	/**
+	* Trigger the vendor application emails
+	*
+	* @since 2.0.0
+	*/
 	public function vendor_application( $user_id, $role ){
 
 		if ( !empty( $_POST[ 'apply_for_vendor' ] ) || ( !empty( $_GET[ 'action' ] ) && ( $_GET[ 'action' ] == 'approve_vendor' || $_GET[ 'action' ] == 'deny_vendor' ) ) ) {
 
 			if ( $role == 'pending_vendor' ) {
-				WC()->mailer()->emails[ 'WCV_Vendor_Notify_Application' ]->trigger( $user_id, __( 'pending', 'wc-vendors' ) );
+				WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Application' ]->trigger( $user_id, __( 'pending', 'wc-vendors' ) );
 			} else if ( $role == 'vendor' ) {
-				WC()->mailer()->emails[ 'WCV_Vendor_Notify_Approved' ]->trigger( $user_id );
+				WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Approved' ]->trigger( $user_id );
 			} else if ( !empty( $_GET[ 'action' ] ) && $_GET[ 'action' ] == 'deny_vendor' ) {
 				$reason = isset( $_GET[ 'reason' ] ) ? $_GET[ 'reason' ] : '';
-				WC()->mailer()->emails[ 'WCV_Vendor_Notify_Denied' ]->trigger( $user_id, $reason );
+				WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Denied' ]->trigger( $user_id, $reason );
 			}
 
 		}

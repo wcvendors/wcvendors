@@ -165,7 +165,7 @@ class WCV_Shipping
 		$billing_postcode 	= $order->get_billing_postcode();
 
 		$woocommerce_shipping_tax_class = get_option( 'woocommerce_shipping_tax_class' );
-		$tax_class = ( 'inherit' === $woocommerce_shipping_tax_class ) ? $tax_class : $woocommerce_shipping_tax_class; 
+		$tax_class = ( 'inherit' === $woocommerce_shipping_tax_class ) ? $tax_class : $woocommerce_shipping_tax_class;
 
 
 		// if taxes aren't enabled don't calculate them
@@ -205,9 +205,6 @@ class WCV_Shipping
             'city'      => $city,
             'tax_class' => $tax_class
         ) );
-
-        WC_Vendors::log( $tax_rates );
-
 
         if ( $tax_rates ) {
             foreach ( $tax_rates as $key => $rate ) {
