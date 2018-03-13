@@ -75,4 +75,13 @@ function wcv_single_select_page( $id, $value, $class = '', $css = '' ){
 	echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wc-vendors' ) . "' style='" . $css . "' class='" . $class . "' id=", wp_dropdown_pages( $dropdown_args ) );
 }
 
+function wcv_get_screen_ids(){
+	return apply_filters( 'wcv_get_screen_ids', array(
+		'wc-vendors_page_wcv-settings',
+		'wc-vendors_page_wcv-commissions',
+		'wc-vendors_page_wcv-extensions',
+	) );
+}
+
+
 ?>

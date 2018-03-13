@@ -24,7 +24,7 @@ class WCVendors_Admin_Menus {
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_menu', array( $this, 'commissions_menu' ), 50 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 70 );
-		add_action( 'admin_menu', array( $this, 'addons_menu'), 80 );
+		add_action( 'admin_menu', array( $this, 'extensions_menu'), 80 );
 		add_action( 'admin_head', array( $this, 'commission_table_header_styles' ) );
 
 		add_filter( 'set-screen-option', array( __CLASS__, 'set_commissions_screen' ), 10, 3 );
@@ -48,16 +48,17 @@ class WCVendors_Admin_Menus {
 	/**
 	 * Addons menu item.
 	 */
-	public function addons_menu() {
-		add_submenu_page( 'wc-vendors', __( 'WC Vendors Extensions', 'wc-vendors' ), __( 'Extensions', 'wc-vendors' ), 'manage_woocommerce', 'wcv-addons', array( $this, 'addons_page' ) );
+	public function extensions_menu() {
+		add_submenu_page( 'wc-vendors', __( 'WC Vendors Extensions', 'wc-vendors' ), __( 'Extensions', 'wc-vendors' ), 'manage_woocommerce', 'wcv-extensions', array( $this, 'extensions_page' ) );
 		remove_submenu_page( 'wc-vendors', 'wc-vendors' );
 	}
 
 	/**
 	* 	Addons Page
 	*/
-	public function addons_page(){
-		// WCVendors_Admin_Addons::output();
+	public function extensions_page(){
+
+		
 	}
 
 	/**

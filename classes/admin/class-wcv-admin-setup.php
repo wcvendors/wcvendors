@@ -24,6 +24,7 @@ class WCV_Admin_Setup {
 		add_action( 'woocommerce_admin_order_actions_end', 					array( $this, 'append_actions' ), 10, 1 );
 		add_filter( 'woocommerce_debug_tools', 								array( $this, 'wcvendors_tools' ) );
 
+		add_filter( 'admin_footer_text', 									array( $this, 'admin_footer_text' ), 1 );
 		add_action( 'admin_init', 											array( $this, 'export_commissions' ) );
 		add_filter( 'woocommerce_screen_ids', 								array( $this, 'wcv_screen_ids' ) );
 
@@ -195,10 +196,47 @@ class WCV_Admin_Setup {
 	*
 	* @since 2.0.0
 	*/
-	public function wcv_screen_ids( $screen_ids ){
-		$screen_ids[] = 'wc-vendors_page_wcv-settings';
-		$screen_ids[] = 'wc-vendors_page_wcv-commissions';
+	public function wcv_screen_ids( $screen_ids ) {
+
+		$screen = get_current_screen(); 
+
+		$wcv_screen_ids = wcv_get_screen_ids();
+		$screen_ids = array_merge( $wcv_screen_ids, $screen_ids );
+
 		return $screen_ids;
+	}
+
+
+	/**
+	 * Change the admin footer text on WooCommerce admin pages.
+	 *
+	 * @since  2.0.0
+	 * @param  string $footer_text
+	 * @return string
+	 */
+	public function admin_footer_text( $footer_text ) {
+
+		if ( ! current_user_can( 'manage_woocommerce' ) || ! function_exists( 'wcv_get_screen_ids' ) ) {
+			return $footer_text;
+		}
+		$current_screen = get_current_screen();
+		$wcv_pages       = wcv_get_screen_ids();
+
+		// Set only WC pages.
+		// $wcv_pages = array_diff( $wcv_pages, array( 'profile', 'user-edit' ) );
+
+		// Check to make sure we're on a WooCommerce admin page.
+		if ( isset( $current_screen->id ) && apply_filters( 'wcvendors_display_admin_footer_text', in_array( $current_screen->id, $wcv_pages ) ) ) {
+			// Change the footer text
+				$footer_text = sprintf(
+					/* translators: 1: WooCommerce 2:: five stars */
+					__( 'If you like %1$s please leave us a %2$s rating. A huge thanks in advance!', 'wc-vendors' ),
+					sprintf( '<strong>%s</strong>', esc_html__( 'WC Vendors', 'wc-vendors' ) ),
+					'<a href="https://wordpress.org/support/plugin/wc-vendors/reviews?rate=5#new-post" target="_blank" class="wcv-rating-link" data-rated="' . esc_attr__( 'Thanks :)', 'wc-vendors' ) . '">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
+				);
+		}
+
+		return $footer_text;
 	}
 
 
