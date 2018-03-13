@@ -18,13 +18,12 @@ class WCV_Admin_Setup {
 
 	public function __construct() {
 
-		add_filter( 'set-screen-option', 									array( 'WCV_Admin_Setup', 'set_table_option' ), 10, 3 );
-		add_action( 'admin_menu', 											array( 'WCV_Admin_Setup', 'menu' ), 10 );
+
+		// add_action( 'admin_menu', 											array( 'WCV_Admin_Setup', 'menu' ), 10 );
 		add_action( 'woocommerce_admin_order_data_after_shipping_address', 	array( $this, 'add_vendor_details' ), 10, 2 );
 		add_action( 'woocommerce_admin_order_actions_end', 					array( $this, 'append_actions' ), 10, 1 );
 		add_filter( 'woocommerce_debug_tools', 								array( $this, 'wcvendors_tools' ) );
 
-		add_action( 'admin_head', 											array( $this, 'commission_table_header_styles' ) );
 		add_action( 'admin_init', 											array( $this, 'export_commissions' ) );
 		add_filter( 'woocommerce_screen_ids', 								array( $this, 'wcv_screen_ids' ) );
 
@@ -46,7 +45,7 @@ class WCV_Admin_Setup {
 	{
 		global $woocommerce;
 
-		$order_id = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();
+		$order_id = $order->get_id();
 
 		$authors = WCV_Vendors::get_vendors_from_order( $order );
 		$authors = $authors ? array_keys( $authors ) : array();
@@ -78,22 +77,6 @@ class WCV_Admin_Setup {
 	}
 
 
-	/**
-	 * Add the commissions sub menu
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 *
-	 */
-	public static function menu()
-	{
-		$hook = add_submenu_page( 'wc-vendors', __( 'Commissions', 'wc-vendors' ), __( 'Commissions', 'wc-vendors' ), 'manage_woocommerce', 'pv_admin_commissions', array( 'WCV_Admin_Setup', 'commissions_page' ) );
-
-		add_action( "load-$hook", array( 'WCV_Admin_Setup', 'add_options' ) );
-		add_action( "admin_print_styles-$hook", 	array( 'WCV_Admin_Setup', 'commission_enqueue_style' ) );
-		add_action( "admin_print_scripts-$hook", 	array( 'WCV_Admin_Setup', 'commission_my_enqueue_script' ) );
-
-	} // menu()
 
 
 	/**
@@ -179,120 +162,6 @@ class WCV_Admin_Setup {
 	} // reset_wcvendors()
 
 
-	public static function commission_enqueue_style(){
-
-		wp_enqueue_style( 'commissions_select2_css', wcv_assets_url . 'css/select2.min.css' );
-
-	} //commission_enqueue_style()
-
-	public static function commission_my_enqueue_script(){
-
-		$select2_args = apply_filters( 'wcvendors_select2_commission_args', array(
-			'placeholder' => __( 'Select a Vendor', 'wc-vendors' ),
-			'allowclear' => true,
-		) );
-
-		wp_enqueue_script( 'commissions_select2_styles_js', wcv_assets_url. 'js/select2.min.js', array('jquery') );
-
-		wp_register_script( 'commissions_select2_load_js', wcv_assets_url. 'js/wcv-commissions.js', array('jquery') );
-		wp_localize_script( 'commissions_select2_load_js', 'wcv_commissions_select', $select2_args );
-		wp_enqueue_script( 'commissions_select2_load_js' );
-
-	}
-
-	/**
-	 * Load styles for the commissions table page
-	 */
-	public function commission_table_header_styles() {
-
-	    $page = ( isset( $_GET[ 'page' ] ) ) ? esc_attr( $_GET[ 'page' ] ) : false;
-
-	    // Only load the styles on the license table page
-
-	    if ( 'pv_admin_commissions' !== $page ) return;
-
-	    echo '<style type="text/css">';
-	    echo '.wp-list-table .column-product_id { width: 20%; }';
-	    echo '.wp-list-table .column-vendor_id { width: 15%; }';
-	    echo '.wp-list-table .column-order_id { width: 8%; }';
-	    echo '.wp-list-table .column-total_due { width: 10%;}';
-	    echo '.wp-list-table .column-total_shipping { width: 10%;}';
-	    echo '.wp-list-table .column-tax { width: 10%;}';
-	    echo '.wp-list-table .column-totals { width: 10%;}';
-	    echo '.wp-list-table .column-status { width: 5%;}';
-	    echo '.wp-list-table .column-time { width: 10%;}';
-	    echo '</style>';
-
-	} //table_header_styles()
-
-	/**
-	 *
-	 *
-	 * @param unknown $status
-	 * @param unknown $option
-	 * @param unknown $value
-	 *
-	 * @return unknown
-	 */
-	public static function set_table_option( $status, $option, $value ){
-		if ( $option == 'commission_per_page' ) {
-			return $value;
-		}
-	}
-
-
-	/**
-	 *
-	 */
-	public static function add_options(){
-		global $PV_Admin_Page;
-
-		$args = array(
-			'label'   => 'Rows',
-			'default' => 10,
-			'option'  => 'commission_per_page'
-		);
-		add_screen_option( 'per_page', $args );
-
-		$PV_Admin_Page = new WCV_Commissions_Page();
-
-	}
-
-
-	/**
-	 * HTML setup for the WC > Commission page
-	 */
-	public static function commissions_page() {
-		global $woocommerce, $PV_Admin_Page;
-		?>
-
-		<div class="wrap">
-
-			<div id="icon-woocommerce" class="icon32 icon32-woocommerce-reports"><br/></div>
-			<h2><?php _e( 'Commission', 'wc-vendors' ); ?></h2>
-
-			<form id="posts-filter" method="get">
-
-			<?php
-				$page  = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRIPPED );
-				$paged = filter_input( INPUT_GET, 'paged', FILTER_SANITIZE_NUMBER_INT );
-
-				printf( '<input type="hidden" name="page" value="%s" />', $page );
-				printf( '<input type="hidden" name="paged" value="%d" />', $paged );
-			?>
-
-			<input type="hidden" name="page" value="pv_admin_commissions"/>
-
-			<?php $PV_Admin_Page->prepare_items(); ?>
-			<?php $PV_Admin_Page->views() ?>
-			<?php $PV_Admin_Page->display() ?>
-
-			</form>
-			<div id="ajax-response"></div>
-			<br class="clear"/>
-		</div>
-	<?php
-	}
 
 	/*
 	*	Export commissions via csv
@@ -328,6 +197,7 @@ class WCV_Admin_Setup {
 	*/
 	public function wcv_screen_ids( $screen_ids ){
 		$screen_ids[] = 'wc-vendors_page_wcv-settings';
+		$screen_ids[] = 'wc-vendors_page_wcv-commissions';
 		return $screen_ids;
 	}
 

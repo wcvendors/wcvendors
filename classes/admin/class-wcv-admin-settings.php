@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		global $current_tab;
 
 		if ( empty( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'wcvendors-settings' ) ) {
-			die( __( 'Action failed. Please refresh the page and retry.', 'wcvendors' ) );
+			die( __( 'Action failed. Please refresh the page and retry.', 'wc-vendors' ) );
 		}
 
 		// Trigger actions
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'wcvendors_update_options_' . $current_tab );
 		do_action( 'wcvendors_update_options' );
 
-		self::add_message( __( 'Your settings have been saved.', 'wcvendors' ) );
+		self::add_message( __( 'Your settings have been saved.', 'wc-vendors' ) );
 
 		// Clear any unwanted data and flush rules on next init.
 		add_option( 'wcvendors_queue_flush_rewrite_rules', 'true' );
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'wcvendors_settings_start' );
 		wp_enqueue_script( 'wcvendors_settings', wcv_assets_url . '/js/admin/settings' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris', 'selectWoo' ), WCV_VERSION, true );
 		wp_localize_script( 'wcvendors_settings', 'wcvendors_settings_params', array(
-			'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'wcvendors' ),
+			'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'wc-vendors' ),
 		) );
 
 		// Get tabs for the settings page
@@ -430,7 +430,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?><tr valign="top" class="single_select_page">
 						<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ) ?> <?php echo $tooltip_html; ?></th>
 						<td class="forminp">
-							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wcvendors' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' id=", wp_dropdown_pages( $args ) ); ?> <?php echo $description; ?>
+							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wc-vendors' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' id=", wp_dropdown_pages( $args ) ); ?> <?php echo $description; ?>
 						</td>
 					</tr><?php
 					break;
@@ -452,7 +452,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
 						</th>
-						<td class="forminp"><select name="<?php echo esc_attr( $value['id'] ); ?>" style="<?php echo esc_attr( $value['css'] ); ?>" data-placeholder="<?php esc_attr_e( 'Choose a country&hellip;', 'wcvendors' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wcvendors' ) ?>" class="wc-enhanced-select">
+						<td class="forminp"><select name="<?php echo esc_attr( $value['id'] ); ?>" style="<?php echo esc_attr( $value['css'] ); ?>" data-placeholder="<?php esc_attr_e( 'Choose a country&hellip;', 'wc-vendors' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wc-vendors' ) ?>" class="wc-enhanced-select">
 							<?php WC()->countries->country_dropdown_options( $country, $state ); ?>
 						</select> <?php echo $description; ?>
 						</td>
@@ -477,7 +477,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<?php echo $tooltip_html; ?>
 						</th>
 						<td class="forminp">
-							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php esc_attr_e( 'Choose countries&hellip;', 'wcvendors' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wcvendors' ) ?>" class="wc-enhanced-select">
+							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php esc_attr_e( 'Choose countries&hellip;', 'wc-vendors' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wc-vendors' ) ?>" class="wc-enhanced-select">
 								<?php
 									if ( ! empty( $countries ) ) {
 										foreach ( $countries as $key => $val ) {
@@ -485,7 +485,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										}
 									}
 								?>
-							</select> <?php echo ( $description ) ? $description : ''; ?> <br /><a class="select_all button" href="#"><?php _e( 'Select all', 'wcvendors' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'wcvendors' ); ?></a>
+							</select> <?php echo ( $description ) ? $description : ''; ?> <br /><a class="select_all button" href="#"><?php _e( 'Select all', 'wc-vendors' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'wc-vendors' ); ?></a>
 						</td>
 					</tr><?php
 					break;

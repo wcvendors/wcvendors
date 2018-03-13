@@ -131,7 +131,10 @@ class WCVendors_Admin_Notices {
 		$notices = self::get_notices();
 
 		if ( ! empty( $notices ) ) {
-			wp_enqueue_style( 'wcvendors-activation', plugins_url( '/assets/css/activation.css', WC_PLUGIN_FILE ) );
+			WC_Vendors::log( __function__ );
+			$suffix     = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+			wp_enqueue_style( 'wcv-setup', wcv_assets_url . 'css/wcv-activation' . $suffix .'.css', WCV_VERSION );
+			// wp_enqueue_style( 'wcvendors-activation', plugins_url( 'assets/css/activation.css', WC_PLUGIN_FILE ) );
 			foreach ( $notices as $notice ) {
 				if ( ! empty( self::$core_notices[ $notice ] ) && apply_filters( 'wcvendors_show_admin_notice', true, $notice ) ) {
 					add_action( 'admin_notices', array( __CLASS__, self::$core_notices[ $notice ] ) );

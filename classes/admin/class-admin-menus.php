@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WCVendors_Admin_Menus {
 
+	public $commissions_table;
+
 	/**
 	 * Constructor
 	 */
@@ -20,10 +22,12 @@ class WCVendors_Admin_Menus {
 
 		// Add menus
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'admin_menu', array( $this, 'commissions_menu' ), 50 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 70 );
 		add_action( 'admin_menu', array( $this, 'addons_menu'), 80 );
+		add_action( 'admin_head', array( $this, 'commission_table_header_styles' ) );
 
-
+		add_filter( 'set-screen-option', array( __CLASS__, 'set_commissions_screen' ), 10, 3 );
 
 	}
 
@@ -55,6 +59,21 @@ class WCVendors_Admin_Menus {
 	public function addons_page(){
 		// WCVendors_Admin_Addons::output();
 	}
+
+	/**
+	 * Add the commissions sub menu
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 */
+	public static function commissions_menu() {
+
+		$commissions_page = add_submenu_page( 'wc-vendors', __( 'Commissions', 'wc-vendors' ), __( 'Commissions', 'wc-vendors' ), 'manage_woocommerce', 'wcv-commissions', array( $this, 'commissions_page' ) );\
+		add_action( "load-$commissions_page", array( $this, 'commission_screen_options' ) );
+
+	} // commissions_menu()
+
 
 	/**
 	 * Settings menu item
@@ -100,6 +119,62 @@ class WCVendors_Admin_Menus {
 	public function settings_page(){
 		WCVendors_Admin_Settings::output();
 	}
+
+	/**
+	* Commission page output
+	*
+	* @since 2.0.0
+	*/
+	public function commissions_page(){
+		include( WCV_ABSPATH_ADMIN . 'views/html-admin-commission-page.php' );
+	}
+
+
+	/**
+	 * Screen options
+	 */
+	public function commission_screen_options() {
+
+		$option = 'per_page';
+		$args   = [
+			'label'   => 'Commissions',
+			'default' => 10,
+			'option'  => 'commissions_per_page'
+		];
+
+		add_screen_option( $option, $args );
+
+		$this->commissions_table = new WCVendors_Commissions_Page();
+	}
+
+	public static function set_commissions_screen( $status, $option, $value ) {
+		return $value;
+	}
+
+	/**
+	 * Load styles for the commissions table page
+	 */
+	public function commission_table_header_styles() {
+
+	    $page = ( isset( $_GET[ 'page' ] ) ) ? esc_attr( $_GET[ 'page' ] ) : false;
+
+	    // Only load the styles on the license table page
+
+	    if ( 'pv_admin_commissions' !== $page ) return;
+
+	    echo '<style type="text/css">';
+	    echo '.wp-list-table .column-product_id { width: 20%; }';
+	    echo '.wp-list-table .column-vendor_id { width: 15%; }';
+	    echo '.wp-list-table .column-order_id { width: 8%; }';
+	    echo '.wp-list-table .column-total_due { width: 10%;}';
+	    echo '.wp-list-table .column-total_shipping { width: 10%;}';
+	    echo '.wp-list-table .column-tax { width: 10%;}';
+	    echo '.wp-list-table .column-totals { width: 10%;}';
+	    echo '.wp-list-table .column-status { width: 5%;}';
+	    echo '.wp-list-table .column-time { width: 10%;}';
+	    echo '</style>';
+
+	} //table_header_styles()
 
 
 }
