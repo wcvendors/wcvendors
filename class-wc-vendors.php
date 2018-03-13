@@ -114,7 +114,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'current_screen', array( $this, 'include_assets' ) );
 
 			// add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
-			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
+			// add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
 			// Start a PHP session, if not yet started then destroy if logged in or out
 			add_action( 'init', 		array( $this, 'init_session'), 1 );

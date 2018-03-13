@@ -200,7 +200,7 @@ class WCV_Mass_Pay
 	{
 		global $woocommerce;
 
-		$send_results = WC_Vendors::$pv_options->get_option( 'mail_mass_pay_results' );
+		$send_results = get_option( 'wcvendors_payments_paypal_email_enable' );
 
 		if ( !$send_results ) return false;
 

@@ -108,7 +108,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		$return[ 'cart_subtotal' ]            = $total_rows[ 'cart_subtotal' ];
 		$return[ 'cart_subtotal' ][ 'label' ] = $commission_label;
 
-		if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
+		if ( get_option( 'wcvendors_vendor_give_taxes' ) ) {
 			$return[ 'tax_subtotal'] = array( 'label' => '', 'value' => '');
 			$return[ 'tax_subtotal']['label'] = apply_filters('wcv_notify_vendor_tax_label', __( 'Tax Subtotal:', 'wc-vendors' ) ) ;
 		}
@@ -120,14 +120,14 @@ class WC_Email_Notify_Vendor extends WC_Email
 				if (!empty($return[ 'shipping' ]))	$return[ 'shipping' ]          = $total_rows[ 'shipping' ];
 				$return[ 'shipping' ]['label']   = __( 'Shipping Subtotal:', 'wc-vendors' );
 				$return[ 'shipping' ][ 'value' ] = wc_price( $due['shipping'] );
-				if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
+				if ( get_option( 'wcvendors_vendor_give_taxes' ) ) {
 					$return[ 'tax_subtotal']['value'] += $due['tax'];
 				}
 				break;
 			}
 		}
 		// Format tax price
-		if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
+		if ( get_option( 'wcvendors_vendor_give_taxes' ) ) {
 			$return[ 'tax_subtotal']['value'] = wc_price( $return[ 'tax_subtotal'] ['value'] );
 		}
 
@@ -205,7 +205,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 						$items[ $key ][ 'line_total' ]    = $commission_due;
 
 						// Don't display tax if give tax is not enabled.
-						if ( !WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
+						if ( !get_option( 'wcvendors_vendor_give_taxes' ) ) {
 							unset($items[ $key ][ 'line_tax' ]) ;
 						}
 					}

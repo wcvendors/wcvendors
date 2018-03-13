@@ -86,8 +86,8 @@ class WCV_Vendors
 	{
 		global $woocommerce;
 
-		$give_tax       	= WC_Vendors::$pv_options->get_option( 'give_tax' );
-		$give_shipping 		= WC_Vendors::$pv_options->get_option( 'give_shipping' );
+		$give_tax       	= get_option( 'wcvendors_vendor_give_taxes' );
+		$give_shipping 		= get_option( 'wcvendors_vendor_give_shipping' );
 		$receiver      		= array();
 		$shipping_given 	= 0;
 		$tax_given      	= 0;
@@ -379,7 +379,7 @@ class WCV_Vendors
 		$vendor = !$slug ? get_userdata( $vendor_id )->user_login : $slug;
 
 		if ( get_option( 'permalink_structure' ) ) {
-			$permalink = trailingslashit( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) );
+			$permalink = trailingslashit( get_option( 'wcvendors_vendor_shop_permalink' ) );
 
 			return trailingslashit( home_url( sprintf( '/%s%s', $permalink, $vendor ) ) );
 		} else {
@@ -454,7 +454,7 @@ class WCV_Vendors
 
 	public static function get_vendor_sold_by( $vendor_id ){
 
-		$vendor_display_name = WC_Vendors::$pv_options->get_option( 'vendor_display_name' );
+		$vendor_display_name = get_option( 'wcvendors_display_shop_display_name' );
 		$vendor =  get_userdata( $vendor_id );
 
 		switch ($vendor_display_name) {

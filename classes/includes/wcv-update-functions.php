@@ -59,7 +59,6 @@ function wcv_get_settings_mapping(){
 		'hide_product_types'       => 'wcvendors_capability_product_types',
 		'hide_product_type_options'       => 'wcvendors_capability_product_type_options',
 		'hide_product_panel'       => 'wcvendors_capability_product_data_tabs',
-		'hide_product_misc'      => 'wcvendors_capability_order_customer_billling',
 		'can_submit_products'      => 'wcvendors_capability_products_enabled',
 		'can_edit_published_products'      => 'wcvendors_capability_products_edit',
 		'can_submit_live_products'      => 'wcvendors_capability_products_live',

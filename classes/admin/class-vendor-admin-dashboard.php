@@ -32,7 +32,7 @@ Class WCV_Vendor_Admin_Dashboard {
 		$seller_info = get_user_meta( $user_id, 'pv_seller_info', true );
 		$has_html    = get_user_meta( $user_id, 'pv_shop_html_enabled', true );
 		$shop_page   = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
-		$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
+		$global_html = get_option( 'wcvendors_display_shop_description_html' );
 		include('views/html-vendor-settings-page.php');
 	}
 
@@ -248,8 +248,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 								  'ajax'     => false
 							 ) );
 
-		$this->can_view_comments = WC_Vendors::$pv_options->get_option( 'can_view_order_comments' );
-		$this->can_add_comments = WC_Vendors::$pv_options->get_option( 'can_submit_order_comments' );
+		$this->can_view_comments = get_option( 'wcvendors_capability_order_read_notes' );
+		$this->can_add_comments  = get_option( 'wcvendors_capability_order_update_notes' );
 	}
 
 
@@ -523,7 +523,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 								'_line_tax',
 								'_vendor_order_item_id',
 								'_vendor_commission',
-								WC_Vendors::$pv_options->get_option( 'sold_by_label' ),
+								get_option( 'wcvendors_label_sold_by' ),
 							) ) ) ) {
 								continue;
 							}

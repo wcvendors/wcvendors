@@ -53,13 +53,11 @@ class WCV_Admin_Users
 			add_filter( 'woocommerce_duplicate_product_capability', array( $this, 'add_duplicate_capability' ) );
 
 			// WC > Product featured
-			$product_misc  = (array) WC_Vendors::$pv_options->get_option( 'hide_product_misc' );
-
-			if ( isset( $product_misc['featured'] ) ) {
+			if ( get_option( 'wcvendors_capability_product_featured' ) ) {
 				add_filter( 'manage_product_posts_columns', array($this, 'manage_product_columns'), 99);
 			}
 			// WC > Product Hide duplicate
-			if ( isset( $product_misc['duplicate'] ) ) {
+			if ( get_option( 'wcvendors_capability_product_duplicate' )) {
 				add_filter( 'post_row_actions', array( $this, 'remove_dupe_link' ), 99, 2 );
 			}
 		}
@@ -72,7 +70,7 @@ class WCV_Admin_Users
 			return;
 		}
 
-		$can_submit = WC_Vendors::$pv_options->get_option( 'can_submit_products' );
+		$can_submit = get_option( 'wcvendors_capability_products_enabled' );
 		if ( !$can_submit ) {
 			wp_die( 'You are not allowed to submit products.' );
 		}
@@ -143,9 +141,16 @@ class WCV_Admin_Users
 	function filter_product_types( $types )
 	{
 
-		$product_types = (array) WC_Vendors::$pv_options->get_option( 'hide_product_types' );
-		$product_misc  = (array) WC_Vendors::$pv_options->get_option( 'hide_product_misc' );
-		$css           = WC_Vendors::$pv_options->get_option( 'product_page_css' );
+		$product_types = get_option( 'wcvendors_capability_product_types' );
+		$product_misc  = array(
+			'taxes' 	=>  get_option( 'wcvendors_capability_product_taxes' ),
+			'sku' 		=>  get_option( 'wcvendors_capability_product_sku' ),
+			'duplicate' =>  get_option( 'wcvendors_capability_product_duplicate' ),
+			'featured' 	=>  get_option( 'wcvendors_capability_product_featured' )
+		);
+
+
+		$css           =  get_option( 'wcvendors_display_advanced_stylesheet' );
 
 
 		if ( !empty( $product_misc[ 'taxes' ] ) ) {
@@ -177,7 +182,7 @@ class WCV_Admin_Users
 	 */
 	function filter_product_data_tabs( $tabs ){
 
-		$product_panel = (array) WC_Vendors::$pv_options->get_option( 'hide_product_panel' );
+		$product_panel = get_option( 'wcvendors_capability_product_data_tabs' );
 
 		if ( !$product_panel ) return $tabs;
 
@@ -202,7 +207,7 @@ class WCV_Admin_Users
 	 */
 	function filter_product_type_options( $types )
 	{
-		$product_options = WC_Vendors::$pv_options->get_option( 'hide_product_type_options' );
+		$product_options = get_option( 'wcvendors_capability_product_type_options' );
 
 		if ( !$product_options ) return $types;
 

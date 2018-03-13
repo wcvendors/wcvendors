@@ -113,9 +113,9 @@ class WCV_Admin_Setup {
 	 */
 	public static function reset_vendor_roles(){
 
-		$can_add          = WC_Vendors::$pv_options->get_option( 'can_submit_products' );
-		$can_edit         = WC_Vendors::$pv_options->get_option( 'can_edit_published_products' );
-		$can_submit_live  = WC_Vendors::$pv_options->get_option( 'can_submit_live_products' );
+		$can_add          = get_option( 'wcvendors_capability_products_enabled' );
+		$can_edit         = get_option( 'wcvendors_capability_products_edit' );
+		$can_submit_live  = get_option( 'wcvendors_capability_products_live' );
 
 		$args = array(
 			'assign_product_terms'      => $can_add,

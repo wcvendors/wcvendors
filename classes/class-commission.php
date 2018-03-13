@@ -300,7 +300,7 @@ class WCV_Commission
 
 		$product_commission = get_post_meta( $product_id, 'pv_commission_rate', true );
 		$vendor_commission  = WCV_Vendors::get_default_commission( $vendor_id );
-		$default_commission = WC_Vendors::$pv_options->get_option( 'default_commission' );
+		$default_commission = get_option( 'wcvendors_vendor_commission_rate' );
 
 		if ( $product_commission != '' && $product_commission !== false ) {
 			$commission = $product_commission;

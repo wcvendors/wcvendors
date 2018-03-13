@@ -152,8 +152,8 @@ class WCV_Vendor_Dashboard
 	 */
 	public function check_access()
 	{
-		$vendor_dashboard_page = WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' );
-		$shop_settings_page    = WC_Vendors::$pv_options->get_option( 'shop_settings_page' );
+		$vendor_dashboard_page = get_option( 'wcvendors_vendor_dashboard_page_id' );
+		$shop_settings_page    = get_option( 'wcvendors_shop_settings_page_id' );
 
 		if ( $vendor_dashboard_page && is_page( $vendor_dashboard_page ) || $shop_settings_page && is_page( $shop_settings_page ) ) {
 			if ( !is_user_logged_in() ) {
@@ -179,9 +179,9 @@ class WCV_Vendor_Dashboard
 		$start_date = !empty( $_SESSION[ 'PV_Session' ][ 'start_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
 		$end_date   = !empty( $_SESSION[ 'PV_Session' ][ 'end_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
 
-		$can_view_orders = WC_Vendors::$pv_options->get_option( 'can_show_orders' );
-		$settings_page   = get_permalink( WC_Vendors::$pv_options->get_option( 'shop_settings_page' ) );
-		$can_submit      = WC_Vendors::$pv_options->get_option( 'can_submit_products' );
+		$can_view_orders = get_option( 'wcvendors_capability_orders_enabled' );
+		$settings_page   = get_permalink(get_option( 'wcvendors_shop_settings_page_id' ) );
+		$can_submit      = get_option( 'wcvendors_capability_products_enabled' );
 		$submit_link = ( $can_submit ) ? admin_url( 'post-new.php?post_type=product' ) : '';
 		$edit_link   = ( $can_submit ) ? admin_url( 'edit.php?post_type=product' ) : '';
 
@@ -233,7 +233,7 @@ class WCV_Vendor_Dashboard
 													'edit_link'		=> $edit_link,
 											   ), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 
-		if ( $can_view_sales = WC_Vendors::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
+		if ( $can_view_sales = get_option( 'wcvendors_capability_frontend_reports' ) ) {
 
 		wc_get_template( 'reports.php', array(
 													  'start_date'      => $start_date,
@@ -293,7 +293,7 @@ class WCV_Vendor_Dashboard
 		$seller_info = get_user_meta( $user_id, 'pv_seller_info', true );
 		$has_html    = get_user_meta( $user_id, 'pv_shop_html_enabled', true );
 		$shop_page   = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
-		$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
+		$global_html = get_option( 'wcvendors_display_shop_description_html' );
 
 		ob_start();
 		wc_get_template( 'settings.php', array(
@@ -345,11 +345,9 @@ class WCV_Vendor_Dashboard
 	{
 		if ( empty( $products ) ) return false;
 
-		// This is required to support existing installations after WC 2.6
-		$orders_page_id 	= (string) WC_Vendors::$pv_options->get_option( 'orders_page' );
-		$orders_page_id 	= ( strlen( $orders_page_id ) > 0 ) ? $orders_page_id : WC_Vendors::$pv_options->get_option( 'product_orders_page' );
+		$orders_page_id 	= get_option( 'wcvendors_product_orders_page_id' );
 		$orders_page        = get_permalink( $orders_page_id );
-		$default_commission = WC_Vendors::$pv_options->get_option( 'default_commission' );
+		$default_commission = get_option( 'wcvendors_vendor_commission_rate' );
 		$total_qty          = $total_cost = 0;
 		$data               = array(
 			'products'   => array(),
@@ -368,7 +366,7 @@ class WCV_Vendor_Dashboard
 
 				$commission_rate = WCV_Commission::get_commission_rate( $order_item->product_id );
 				$_product        = wc_get_product( $order_item->product_id );
-				$parent_id 		 = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $_product->parent->id : $_product->get_parent_id();
+				$parent_id 		 = $_product->get_parent_id();
 				$id              = !empty( $parent_id   ) ?$parent_id  : $order_item->product_id;
 
 				$data[ 'products' ][$id] = array(
@@ -486,15 +484,10 @@ class WCV_Vendor_Dashboard
 	 */
 	public function body_class( $classes ){
 
-		$dashboard_page 	= WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' );
-
-		// This is required to support existing installations after WC 2.6
-		$orders_page_id 	= WC_Vendors::$pv_options->get_option( 'orders_page' );
-		$orders_page_id 	= isset( $orders_page_id ) ? $orders_page_id : WC_Vendors::$pv_options->get_option( 'product_orders_page' );
-
-		$orders_page 		= $orders_page_id;
-		$shop_settings 		= WC_Vendors::$pv_options->get_option( 'shop_settings_page' );
-		$terms_page 		= WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' );
+		$dashboard_page 	= get_option( 'wcvendors_vendor_dashboard_page_id' );
+		$orders_page 		= get_option( 'wcvendors_product_orders_page_id' );
+		$shop_settings 		= get_option( 'wcvendors_shop_settings_page_id' );
+		$terms_page 		= get_option( 'wcvendors_vendor_terms_page_id' );
 
 		if ( is_page( $dashboard_page ) ){
 			$classes[] = 'wcvendors wcv-vendor-dashboard-page';

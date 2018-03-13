@@ -11,7 +11,7 @@
 
 	<p><?php _e( 'Your account is not setup as a vendor.', 'wc-vendors' ); ?></p>
 
-	<?php if ( WC_Vendors::$pv_options->get_option( 'show_vendor_registration' ) ) { ?>
+	<?php if ( get_option( 'wcvendors_vendor_allow_registration' ) ) { ?>
 		<form method="POST" action="">
 			<div class="clear"></div>
 			<p class="form-row">
@@ -24,7 +24,7 @@
 
 			<div class="clear"></div>
 
-			<?php if ( $terms_page = WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' ) ) { ?>
+			<?php if ( $terms_page = get_option( 'terms_to_apply_page' ) ) { ?>
 				<p class="form-row agree-to-terms-container" style="display:none">
 					<input class="input-checkbox"
 						   id="agree_to_terms" <?php checked( isset( $_POST[ 'agree_to_terms' ] ), true ) ?>

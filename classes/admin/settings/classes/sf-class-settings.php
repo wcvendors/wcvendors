@@ -598,9 +598,15 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		public function get_option( $name, $default = false )
 		{
 
-			// wc_deprecated_function( __class__ .'->' . __function__, '2.0.0', 'get_option' );
+			$mappings = wcv_get_settings_mapping();
 
-			return isset( $this->current_options[ $name ] ) ? maybe_unserialize( $this->current_options[ $name ] ) : $default;
+			WC_Vendors::log( __function__ . ' has been depreciated please replace WC_Vendors::$pv_options->get_option(\'' . $name . '\') with get_option(\'' . $mappings[ $name ] . '\')' );
+
+			wc_deprecated_function( __class__ .'->' . __function__, '2.0.0', 'with get_option(\'' . $mappings[ $name ] . '\')' );
+			return ( array_key_exits( $name, $amppings ) ) ? get_option(  $mappings[ $name ] ) : null;
+
+
+			// return isset( $this->current_options[ $name ] ) ? maybe_unserialize( $this->current_options[ $name ] ) : $default;
 		}
 
 
