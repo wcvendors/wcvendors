@@ -27,6 +27,7 @@ class WCV_Emails
 		add_action( 'transition_post_status', array( $this, 'trigger_new_product' ), 10, 3 );
 
 		// Low stock
+		// These fatal error in WC3.3.3 @todo fix !
 		add_filter( 'woocommerce_email_recipient_low_stock', 	array( $this, 'vendor_stock_email'), 10, 2 );
 		add_filter( 'woocommerce_email_recipient_no_stock', 	array( $this, 'vendor_stock_email'), 10, 2 );
 		add_filter( 'woocommerce_email_recipient_backorder', 	array( $this, 'vendor_stock_email'), 10, 2 );
