@@ -1,17 +1,32 @@
 <?php
-$item_meta = new WC_Order_Item_Meta( $item );
-$item_meta = $item_meta->display( false, true );
+/**
+ * Orders table-body
+ *
+ * This template can be overridden by copying it to yourtheme/wc-vendors/orders/table-body.php
+ *
+ *
+ * @author  WC Vendors
+ * @package WCVendors/Templates/Emails
+ * @version 2.0.0
+ */
 
-if ($count > 1) : ?>
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
+
+WC_Vendors::log( $item );
+
+if ( $count > 1) : ?>
+
 
 <tr>
 
 	<?php endif; ?>
 
-	<?php if (!empty( $item_meta ) && $item_meta != '<dl class="variation"></dl>') : ?>
+	<?php if ( $item->get_formatted_meta_data() ) : ?>
 
 	<td colspan="5">
-		<?php echo $item_meta; ?>
+		<?php echo  wc_display_item_meta( $item ); ?>
 	</td>
 
 <td colspan="3">
