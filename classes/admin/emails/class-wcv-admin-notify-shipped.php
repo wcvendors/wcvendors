@@ -24,8 +24,8 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 	 */
 	public function __construct() {
 		$this->id             = 'admin_notify_shipped';
-		$this->title          = __( 'Admin notify vendor shipped', 'wc-vendors' );
-		$this->description    = __( 'Notification is sent to chosen recipient(s) when a vendor marks an order shipped.', 'wc-vendors' );
+		$this->title          = sprintf( __( 'Admin notify vendor shipped', 'wc-vendors' ), wcv_get_vendor_name( ) );
+		$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a vendor marks an order shipped.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
 		$this->template_html  = 'emails/admin-notify-shipped.php';
 		$this->template_plain = 'emails/plain/admin-notify-shipped.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';

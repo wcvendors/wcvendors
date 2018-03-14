@@ -1,6 +1,7 @@
 <?php
 /**
- * Admin new order email
+ * DEPRECAITED - Admin new order email
+ *
  *
  * @author WooThemes
  * @package WooCommerce/Templates/Emails/HTML

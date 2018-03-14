@@ -24,8 +24,8 @@ class WCVendors_Vendor_Notify_Denied extends WC_Email {
 	 */
 	public function __construct() {
 		$this->id             = 'vendor_notify_denied';
-		$this->title          = __( 'Vendor notify denied', 'wc-vendors' );
-		$this->description    = __( 'Notification is sent to the vendor that their application has been denied', 'wc-vendors' );
+		$this->title          = sprintf( __( '%s notify denied', 'wc-vendors' ), wcv_get_vendor_name( ) );
+		$this->description    = sprintf( __( 'Notification is sent to the %s that their application has been denied', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
 		$this->template_html  = 'emails/vendor-notify-denied.php';
 		$this->template_plain = 'emails/plain/vendor-notify-denied.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
@@ -45,7 +45,7 @@ class WCVendors_Vendor_Notify_Denied extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return __( '[{site_title}] Your vendor application has been denied', 'wc-vendors' );
+		return sprintf( __( '[{site_title}] Your %s application has been denied', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
 	}
 
 	/**
@@ -55,7 +55,7 @@ class WCVendors_Vendor_Notify_Denied extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return __( 'Vendor Application Denied', 'wc-vendors' );
+		return sprintf( __( '%s Application Denied', 'wc-vendors' ), wcv_get_vendor_name( ) );
 	}
 
 	/**
@@ -65,7 +65,7 @@ class WCVendors_Vendor_Notify_Denied extends WC_Email {
 	* @return string
 	*/
 	public function get_default_content(){
-		return __( 'Your application to become a vendor has been denied.', 'wc-vendors' );
+		return sprintf( __( 'Your application to become a %s has been denied.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
 	}
 
 	/**
@@ -172,7 +172,7 @@ class WCVendors_Vendor_Notify_Denied extends WC_Email {
 				'title'         => __( 'Reason', 'wc-vendors' ),
 				'type'          => 'textarea',
 				'desc_tip'      => true,
-				'description'   => __( 'Provide a reason for denying the vendor application', 'wc-vendors'),
+				'description'   => sprinft( __( 'Provide a reason for denying the %s application', 'wc-vendors'), lcfirst( wcv_get_vendor_name( ) ) ),
 				'placeholder'   => $this->get_default_reason(),
 				'default'       => $this->get_default_reason(),
 			),

@@ -47,31 +47,45 @@ class WCV_Vendors
 
 
 	/**
-	 * Vendor IDs and PayPal addresses from an order
+	 * Get vendors from an order including all user meta and vendor items filtered and grouped 
 	 *
 	 * @param object  $order
 	 * @param unknown $items (optional)
 	 *
-	 * @return array
+	 * @return array $vendors
+	 * @version 2.0.0
 	 */
-	public static function get_vendors_from_order( $order, $items = false )
-	{
-		if ( !$order ) return;
-		if ( !$items ) $items = $order->get_items();
+	public static function get_vendors_from_order( $order, $items = false ) {
 
-		$vendors = array();
-		foreach ( $items as $key => $product ) {
+		$vendors 		= array();
+		$vendor_items 	= array();
 
-			$author = WCV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
+		if ( is_a( $order, 'WC_Order' ) ) {
 
-			// Only store the vendor authors
-			if ( !WCV_Vendors::is_vendor( $author ) ) continue;
+			foreach ( $order->get_items() as $item_id => $order_item ) {
 
-			$vendors[ $author ] = the_author_meta( 'author_paypal', $author );
+				if ( 'line_item' === $order_item->get_type() ){
+
+					$product_id = ( $order_item->get_variation_id() ) ? $order_item->get_variation_id() : $order_item->get_product_id();
+					$vendor_id 	= self::get_vendor_from_product( $product_id );
+
+					if ( ! self::is_vendor( $vendor_id ) ) continue;
+
+					if ( array_key_exists( $vendor_id, $vendors ) ){
+						$vendors[ $vendor_id ][ 'line_items' ][] = $order_item;
+					} else {
+						$vendor_details = array( 'vendor' => get_userdata( $vendor_id ), 'line_items' => array( $order_item ) );
+						$vendors[ $vendor_id ] = $vendor_details;
+					}
+				}
+			}
 		}
 
-		return apply_filters( 'pv_vendors_from_order', $vendors, $order );
-	}
+		// legacy filter left in place
+		$vendors = apply_filters( 'pv_vendors_from_order', $vendors, $order );
+		return apply_filters( 'wcvendors_get_vendors_from_order', $vendors, $order );
+
+	} // get_vendors_from_order()
 
 
 	/**

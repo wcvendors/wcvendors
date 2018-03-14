@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to yourtheme/woocommerce/emails/vendor-notify-denied.php
  *
  *
- * @author  WC Vendors
+ * @author  Jamie Madden, WC Vendors
  * @package WCVendors/Templates/Emails
  * @version 2.0.0
  */
@@ -14,9 +14,7 @@
  	exit;
  }
 
- /**
-  * @hooked WC_Emails::email_header() Output the email header
-  */
+
  do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
  <p><?php echo $content; ?></p>
@@ -27,7 +25,4 @@
 
  <?php
 
- /**
-  * @hooked WC_Emails::email_footer() Output the email footer
-  */
  do_action( 'woocommerce_email_footer', $email );

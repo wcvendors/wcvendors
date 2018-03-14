@@ -1,5 +1,6 @@
 <?php
 /**
+ * DEPRECATED 
  * Vendor new order email
  *
  * @author WC Vendors

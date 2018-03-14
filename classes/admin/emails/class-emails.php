@@ -18,11 +18,12 @@ class WCV_Emails
 	 *
 	 */
 	public function __construct() {
+
 		add_filter( 'woocommerce_email_classes', array( $this, 'email_classes' ) );
-		add_filter( 'woocommerce_resend_order_emails_available', array( $this, 'order_action' ) );
 		add_filter( 'woocommerce_order_actions', array( $this, 'order_actions' ) );
 		add_action( 'woocommerce_order_action_send_vvendor_new_order', array( $this, 'order_actions_save') );
-		// add_filter( 'woocommerce_order_product_title', array( 'WCV_Emails', 'show_vendor_in_email' ), 10, 2 );
+		// Deprecaited
+
 		add_action( 'set_user_role', array( $this, 'application_status_email' ), 10, 2 );
 		add_action( 'transition_post_status', array( $this, 'trigger_new_product' ), 10, 3 );
 
@@ -34,12 +35,15 @@ class WCV_Emails
 
 		// New emails
 		// Triggers
-		add_action( 'wcvendors_vendor_ship', 					array( $this, 'vendor_shipped' ), 10, 3 );
-		add_action( 'wcvendors_order_details',					array( $this, 'order_details'), 10, 2 );
-		add_action( 'set_user_role', 							array( $this, 'vendor_application' ), 10, 2 );
+		add_action( 'wcvendors_vendor_ship', 		array( $this, 'vendor_shipped' ), 10, 3 );
+		add_action( 'wcvendors_email_order_details',array( $this, 'vendor_order_details'), 10, 8 );
+		add_action( 'transition_post_status', 		array( $this, 'new_vendor_product' ), 10, 3 );
+		add_action( 'set_user_role', 				array( $this, 'vendor_application' ), 10, 2 );
 
 	}
 
+
+	// Depreciated
 	public function trigger_new_product( $from, $to, $post )
 	{
 		global $woocommerce;
@@ -81,45 +85,6 @@ class WCV_Emails
 		}
 	}
 
-
-	/**
-	 * @depreciated
-	 *
-	 * @param unknown $name
-	 * @param unknown $_product
-	 *
-	 * @return unknown
-	 */
-	function show_vendor_in_email( $name, $_product )
-	{
-		$product 		= get_post( $_product->get_id() );
-		$sold_by_label 	= get_option( 'wcvendors_label_sold_by' );
-		$sold_by 		= WCV_Vendors::is_vendor( $product->post_author )
-			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $product->post_author ), WCV_Vendors::get_vendor_sold_by( $product->post_author ) )
-			: get_bloginfo( 'name' );
-
-		$name .= '<small class="wcvendors_sold_by_in_email"><br />' . apply_filters('wcvendors_sold_by_in_email', $sold_by_label, $_product->get_id(), $product->post_author ). $sold_by . '</small><br />';
-
-		return $name;
-	}
-
-
-	/**
-	 *
-	 *
-	 * @param unknown $available_emails
-	 *
-	 * @return unknown
-	 * @deprecriated v1.9.13
-	 */
-	public function order_action( $available_emails )
-	{
-
-		$available_emails[ ] = 'vendor_new_order';
-		return $available_emails;
-	}
-
-
 	/**
 	 *
 	 *
@@ -143,9 +108,11 @@ class WCV_Emails
 		// New emails introduced in @since 2.0.0
 		$emails[ 'WCVendors_Customer_Notify_Shipped'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-customer-notify-shipped.php' );
 		$emails[ 'WCVendors_Admin_Notify_Shipped'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-shipped.php' );
+		$emails[ 'WCVendors_Admin_Notify_Product'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-product.php' );
 		$emails[ 'WCVendors_Vendor_Notify_Application'] 	= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-application.php' );
 		$emails[ 'WCVendors_Vendor_Notify_Approved'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php' );
 		$emails[ 'WCVendors_Vendor_Notify_Denied'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php' );
+		$emails[ 'WCVendors_Vendor_Notify_Order'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-order.php' );
 
 		return $emails;
 
@@ -174,7 +141,7 @@ class WCV_Emails
 	*
 	*/
 	public function order_actions( $order_actions ){
-		$order_actions[ 'send_vvendor_new_order' ] = __( 'Resend vendor new order notification', 'wc-vendors' );
+		$order_actions[ 'send_vvendor_new_order' ] = sprintf( __( 'Resend %s new order notification', 'wc-vendors' ), lcfist( wcv_get_vendor_name() ) );
 		return $order_actions;
 	}
 
@@ -183,11 +150,13 @@ class WCV_Emails
 	*
 	*/
 	public function order_actions_save( $order ){
+
 		WC()->mailer()->emails[ 'WC_Email_Notify_Vendor' ]->trigger( $order->get_id(), $order );
+		WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Order' ]->trigger( $order->get_id(), $order );
 	}
 
 	/**
-	*	Trigger the notify vendor shipped emails
+	* Trigger the notify vendor shipped emails
 	*
 	* @since 2.0.0
 	*/
@@ -196,6 +165,20 @@ class WCV_Emails
 		WC()->mailer()->emails[ 'WCVendors_Admin_Notify_Shipped' ]->trigger( $order->get_id(), $user_id, $order );
 		// Notify the customer
 		WC()->mailer()->emails[ 'WCVendors_Customer_Notify_Shipped' ]->trigger( $order->get_id(), $user_id, $order );
+	}
+
+
+	/**
+	* Trigger the notify admin new vendor product
+	*
+	* @since 2.0.0
+	*/
+	public function new_vendor_product( $from, $to, $post ){
+
+		if ( $from != $to && $post->post_status == 'pending' && WCV_Vendors::is_vendor( $post->post_author ) && $post->post_type == 'product' ) {
+
+			WC()->mailer()->emails[ 'WCVendors_Admin_Notify_Product' ]->trigger( $post->post_id, $post );
+		}
 	}
 
 	/**
@@ -223,11 +206,34 @@ class WCV_Emails
 	/*
 	* Show the order details table filtered for each vendor
 	*/
-	public function order_details( $order, $sent_to_admin = false, $plain_text = false, $email = '' ) {
+	public function vendor_order_details( $order, $vendor_items, $totals_display, $vendor_id, $sent_to_vendor = false, $sent_to_admin = false, $plain_text = false, $email = '' ) {
+
+
 		if ( $plain_text ) {
-			wc_get_template( 'emails/plain/vendor-order-details.php', array( 'order' => $order, 'sent_to_admin' => $sent_to_admin, 'plain_text' => $plain_text, 'email' => $email ) );
+
+			wc_get_template( 'emails/plain/vendor-order-details.php', array(
+				'order' 			=> $order,
+				'vendor_id'			=> $vendor_id,
+				'vendor_items' 		=> $vendor_items,
+				'sent_to_admin'		=> $sent_to_admin,
+				'sent_to_vendor' 	=> $sent_to_vendor,
+				'totals_display'	=> $totals_display,
+				'plain_text' 		=> $plain_text,
+				'email' 			=> $email ),
+			'woocommerce', WCV_TEMPLATE_BASE );
+
 		} else {
-			wc_get_template( 'emails/vendor-order-details.php', array( 'order' => $order, 'sent_to_admin' => $sent_to_admin, 'plain_text' => $plain_text, 'email' => $email ) );
+
+			wc_get_template( 'emails/vendor-order-details.php', array(
+				'order' 			=> $order,
+				'vendor_id'			=> $vendor_id,
+				'vendor_items' 		=> $vendor_items,
+				'sent_to_admin'		=> $sent_to_admin,
+				'sent_to_vendor' 	=> $sent_to_vendor,
+				'totals_display'	=> $totals_display,
+				'plain_text' 		=> $plain_text,
+				'email' 			=> $email ),
+			'woocommerce', WCV_TEMPLATE_BASE );
 		}
 	}
 }

@@ -24,8 +24,8 @@ class WCVendors_Notify_Vendor_Approved extends WC_Email {
 	 */
 	public function __construct() {
 		$this->id             = 'vendor_notify_approved';
-		$this->title          = __( 'Vendor notify approved', 'wc-vendors' );
-		$this->description    = __( 'Notification is sent to the vendor that their application has been approved', 'wc-vendors' );
+		$this->title          = sprintf( __( '%s notify approved', 'wc-vendors' ), wcv_get_vendor_name( ) );
+		$this->description    = sprintf( __( 'Notification is sent to the %s that their application has been approved', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
 		$this->template_html  = 'emails/vendor-notify-approved.php';
 		$this->template_plain = 'emails/plain/vendor-notify-approved.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
@@ -55,7 +55,7 @@ class WCVendors_Notify_Vendor_Approved extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return __( 'Vendor Application Approved', 'wc-vendors' );
+		return sprintf( __( '%s Application Approved', 'wc-vendors' ), wcv_get_vendor_name( ) );
 	}
 
 	/**
@@ -65,7 +65,7 @@ class WCVendors_Notify_Vendor_Approved extends WC_Email {
 	* @return string
 	*/
 	public function get_default_content(){
-		return __( 'Your application to become a vendor on has been approved.', 'wc-vendors' );
+		return sprintf( __( 'Your application to become a %s has been approved.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
 	}
 
 	/**
@@ -154,7 +154,7 @@ class WCVendors_Notify_Vendor_Approved extends WC_Email {
 				'type'          => 'textarea',
 				'desc_tip'      => true,
 				/* translators: %s: list of placeholders */
-				'description'   => __( 'Email body to be included when sent to the vendor.', '' ),
+				'description'   => sprintf( __( 'Email body to be included when sent to the %s.', '' ), lcfirst( wcv_get_vendor_name( ) ) ),
 				'placeholder'   => $this->get_default_content(),
 				'default'       => '',
 			),

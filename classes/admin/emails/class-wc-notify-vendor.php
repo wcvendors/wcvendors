@@ -121,7 +121,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 				$return[ 'shipping' ]['label']   = __( 'Shipping Subtotal:', 'wc-vendors' );
 				$return[ 'shipping' ][ 'value' ] = wc_price( $due['shipping'] );
 				if ( get_option( 'wcvendors_vendor_give_taxes' ) ) {
-					$return[ 'tax_subtotal']['value'] += $due['tax'];
+					$return[ 'tax_subtotal']['value'] += (float) $due['tax'];
 				}
 				break;
 			}

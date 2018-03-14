@@ -112,7 +112,7 @@ class WCV_Vendor_Dashboard
 			}
 
 
-			if ( isset( $_POST[ 'pv_paypal' ] ) ) {
+			if ( isset( $_POST[ 'pv_paypal' ] ) && '' !== $_POST[ 'pv_paypal' ] ) {
 				if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
 					wc_add_notice( __( 'Your PayPal address is not a valid email address.', 'wc-vendors' ), 'error' );
 				} else {
