@@ -369,6 +369,14 @@ class WCV_Admin_Users
 		update_user_meta( $vendor_id, 'wcv_give_vendor_tax', isset( $_POST[ 'wcv_give_vendor_tax' ] ) );
 		update_user_meta( $vendor_id, 'wcv_give_vendor_shipping', isset( $_POST[ 'wcv_give_vendor_shipping' ] ) );
 
+		// Bank details
+		update_user_meta( $vendor_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
+		update_user_meta( $vendor_id, 'wcv_bank_account_number', $_POST['wcv_bank_account_number'] );
+		update_user_meta( $vendor_id, 'wcv_bank_name', $_POST['wcv_bank_name'] );
+		update_user_meta( $vendor_id, 'wcv_bank_routing_number', $_POST['wcv_bank_routing_number'] );
+		update_user_meta( $vendor_id, 'wcv_bank_iban', $_POST['wcv_bank_iban'] );
+		update_user_meta( $vendor_id, 'wcv_bank_bic_swift', $_POST['wcv_bank_bic_swift'] );
+
 		do_action( 'wcvendors_update_admin_user', $vendor_id );
 	}
 
@@ -378,87 +386,13 @@ class WCV_Admin_Users
 	 *
 	 * @param unknown $user
 	 */
-	public function show_extra_profile_fields( $user )
-	{
+	public function show_extra_profile_fields( $user ) {
 
 		if ( ! WCV_Vendors::is_vendor( $user->ID ) && ! WCV_Vendors::is_pending( $user->ID ) ) {
 			return;
 		}
 
-		?>
-		<h3><?php _e( 'WC Vendors', 'wc-vendors' ); ?></h3>
-		<table class="form-table">
-			<tbody>
-			<?php do_action( 'wcvendors_admin_before_shop_html', $user ); ?>
-			<tr>
-				<th scope="row">Shop HTML</th>
-				<td>
-					<label for="pv_shop_html_enabled">
-						<input name="pv_shop_html_enabled" type="checkbox"
-							   id="pv_shop_html_enabled" <?php checked( true, get_user_meta( $user->ID, 'pv_shop_html_enabled', true ), $echo = true ) ?>/>
-						<?php _e( 'Enable HTML for the shop description', 'wc-vendors' ); ?>
-					</label>
-				</td>
-			</tr>
-			<?php do_action( 'wcvendors_admin_after_shop_html', $user ); ?>
-			<tr>
-				<th><label for="pv_shop_name"><?php _e( 'Shop name', 'wc-vendors' ); ?></label></th>
-				<td><input type="text" name="pv_shop_name" id="pv_shop_name"
-						   value="<?php echo get_user_meta( $user->ID, 'pv_shop_name', true ); ?>" class="regular-text">
-				</td>
-			</tr>
-			<?php do_action( 'wcvendors_admin_after_shop_name', $user ); ?>
-			<tr>
-				<th><label for="pv_paypal"><?php _e( 'PayPal E-mail', 'wc-vendors' ); ?> <span
-							class="description">(<?php _e( 'required', 'wc-vendors' ); ?>)</span></label></th>
-				<td><input type="email" name="pv_paypal" id="pv_paypal"
-						   value="<?php echo get_user_meta( $user->ID, 'pv_paypal', true ); ?>" class="regular-text">
-				</td>
-			</tr>
-			<?php do_action( 'wcvendors_admin_after_paypal', $user ); ?>
-			<tr>
-				<th><label for="pv_custom_commission_rate"><?php _e( 'Commission rate', 'wc-vendors' ); ?> (%)</label></th>
-				<td><input type="number" step="0.01" max="100" min="0" name="pv_custom_commission_rate" placeholder="<?php _e( 'Leave blank for default', 'wc-vendors' ); ?>" id="pv_custom_commission_rate"
-						   value="<?php echo get_user_meta( $user->ID, 'pv_custom_commission_rate', true ); ?>" class="regular-text">
-				</td>
-			</tr>
-			<?php do_action( 'wcvendors_admin_after_commission_due', $user ); ?>
-			<tr>
-				<th><label for="wcv_give_vendor_tax"><?php _e( 'Give Tax', 'wc-vendors' ); ?> (%)</label></th>
-				<td>
-					<label for="wcv_give_vendor_tax">
-						<input name="wcv_give_vendor_tax" type="checkbox"
-							   id="wcv_give_vendor_tax" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_tax', true ), $echo = true ) ?>/>
-						<?php _e( 'Tax override for vendor', 'wc-vendors' ); ?>
-					</label>
-				</td>
-			</tr>
-			<?php do_action( 'wcvendors_admin_after_give_tax', $user ); ?>
-			<tr>
-				<th><label for="wcv_give_vendor_shipping"><?php _e( 'Give Shipping', 'wc-vendors' ); ?> (%)</label></th>
-				<td>
-					<label for="wcv_give_vendor_shipping">
-						<input name="wcv_give_vendor_shipping" type="checkbox"
-							   id="wcv_give_vendor_shipping" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_shipping', true ), $echo = true ) ?>/>
-						<?php _e( 'Shipping override for vendor', 'wc-vendors' ); ?>
-					</label>
-				</td>
-			</tr>
-			<?php do_action( 'wcvendors_admin_after_give_shipping', $user ); ?>
-			<tr>
-				<th><label for="pv_seller_info"><?php _e( 'Seller info', 'wc-vendors' ); ?></label></th>
-				<td><?php wp_editor( get_user_meta( $user->ID, 'pv_seller_info', true ), 'pv_seller_info' ); ?></td>
-			</tr>
-			<?php do_action( 'wcvendors_admin_after_seller_info', $user ); ?>
-			<tr>
-				<th><label for="pv_shop_description"><?php _e( 'Shop description', 'wc-vendors' ); ?></label>
-				</th>
-				<td><?php wp_editor( get_user_meta( $user->ID, 'pv_shop_description', true ), 'pv_shop_description' ); ?></td>
-			</tr>
-			<?php do_action( 'wcvendors_admin_after_shop_description', $user ); ?>
-			</tbody>
-		</table>
-	<?php
+		include( apply_filters( 'wcvendors_vendor_meta_partial', WCV_ABSPATH_ADMIN . 'views/html-vendor-meta.php' ) );
 	}
 
 	/*

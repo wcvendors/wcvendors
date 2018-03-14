@@ -15,6 +15,28 @@
 
 	do_action( 'wcvendors_settings_after_paypal' );
 
+	?>
+
+	<?php if ( apply_filters( 'wcvendors_vendor_dashboard_bank_details_enable', true ) ) : ?>
+
+	<h3><?php _e( 'Bank Details', 'wc-vendors' ); ?></h3>
+	<table>
+		<tr>
+			<td><p class="form-row notes"><label for=""><?php _e( 'Account Name', 'wc-vendors' ); ?></label><input type="text" name="wcv_bank_account_name" id="wcv_bank_account_name" value="<?php echo get_user_meta( $user_id, 'wcv_bank_account_name', true ); ?>" /></p></td>
+			<td><p class="form-row notes"><label for="wcv_bank_account_number"><?php _e( 'Account Number', 'wc-vendors' ); ?></label><input type="text" name="wcv_bank_account_number" id="wcv_bank_account_number" value="<?php echo get_user_meta( $user_id, 'wcv_bank_account_number', true ); ?>" /></p></td>
+			<td><p class="form-row notes"><label for="wcv_bank_name"><?php _e( 'Bank Name', 'wc-vendors' ); ?></label><input type="text" name="wcv_bank_name" id="wcv_bank_name" value="<?php echo get_user_meta( $user_id, 'wcv_bank_name', true ); ?>"/></p></td>
+		</tr>
+		<tr>
+			<td><p class="form-row notes"><label for="wcv_bank_routing_number"><?php _e( 'Routing Number', 'wc-vendors' ); ?></label><input type="text" name="wcv_bank_routing_number" id="wcv_bank_routing_number" value="<?php echo get_user_meta( $user_id, 'wcv_bank_routing_number', true ); ?>" /></p></td>
+			<td><p class="form-row notes"><label for="wcv_bank_iban"><?php _e( 'IBAN', 'wc-vendors' ); ?></label><input type="text" name="wcv_bank_iban" id="wcv_bank_iban" value="<?php echo get_user_meta( $user_id, 'wcv_bank_iban', true ); ?>" /></p></td>
+			<td><p class="form-row notes"><label for="wcv_bank_bic_swift"><?php _e( 'BIC / Swift', 'wc-vendors' ); ?></label><input type="text" name="wcv_bank_bic_swift" id="wcv_bank_bic_swift" value="<?php echo get_user_meta( $user_id, 'wcv_bank_bic_swift', true ); ?>"/></p></td>
+		</tr>
+	</table>
+
+	<?php endif; ?>
+
+	<?php
+
 	wc_get_template( 'shop-name.php', array(
 													'user_id' => $user_id,
 											   ), 'wc-vendors/dashboard/settings/', wcv_plugin_dir . 'templates/dashboard/settings/' );

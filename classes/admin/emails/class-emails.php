@@ -141,7 +141,7 @@ class WCV_Emails
 	*
 	*/
 	public function order_actions( $order_actions ){
-		$order_actions[ 'send_vvendor_new_order' ] = sprintf( __( 'Resend %s new order notification', 'wc-vendors' ), lcfist( wcv_get_vendor_name() ) );
+		$order_actions[ 'send_vvendor_new_order' ] = sprintf( __( 'Resend %s new order notification', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) );
 		return $order_actions;
 	}
 

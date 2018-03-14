@@ -172,7 +172,7 @@ class WCVendors_Vendor_Notify_Denied extends WC_Email {
 				'title'         => __( 'Reason', 'wc-vendors' ),
 				'type'          => 'textarea',
 				'desc_tip'      => true,
-				'description'   => sprinft( __( 'Provide a reason for denying the %s application', 'wc-vendors'), lcfirst( wcv_get_vendor_name( ) ) ),
+				'description'   => sprintf( __( 'Provide a reason for denying the %s application', 'wc-vendors'), lcfirst( wcv_get_vendor_name( ) ) ),
 				'placeholder'   => $this->get_default_reason(),
 				'default'       => $this->get_default_reason(),
 			),

@@ -24,7 +24,7 @@ class WCVendors_Admin_Notify_Product extends WC_Email {
 	 */
 	public function __construct() {
 		$this->id             = 'admin_notify_product';
-		$this->title          = sprintf( __( 'Admin new %s product', 'wc-vendors' ), lcfist( wcv_get_vendor_name() ) );
+		$this->title          = sprintf( __( 'Admin new %s product', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) );
 		$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a %s submits a product for approval.', 'wc-vendors' ), wcv_get_vendor_name() );
 		$this->template_html  = 'emails/admin-notify-product.php';
 		$this->template_plain = 'emails/plain/admin-notify-product.php';

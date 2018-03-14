@@ -118,6 +118,8 @@ class WCV_Vendor_Dashboard
 				} else {
 					update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
 				}
+			} else{
+				 update_user_meta( $user_id, 'pv_paypal', '' );
 			}
 
 			if ( !empty( $_POST[ 'pv_shop_name' ] ) ) {
@@ -132,10 +134,33 @@ class WCV_Vendor_Dashboard
 
 			if ( isset( $_POST[ 'pv_shop_description' ] ) ) {
 				update_user_meta( $user_id, 'pv_shop_description', $_POST[ 'pv_shop_description' ] );
+			} else{
+				update_user_meta( $user_id, 'pv_shop_description', '' );
 			}
 
 			if ( isset( $_POST[ 'pv_seller_info' ] ) ) {
 				update_user_meta( $user_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
+			}
+
+			// Bank details
+
+			if ( isset( $_POST[ 'wcv_bank_account_name' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_account_number' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_name' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_name', $_POST['wcv_bank_name'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_routing_number' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_routing_number', $_POST['wcv_bank_routing_number'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_iban' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_iban', $_POST['wcv_bank_iban'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_bic_swift' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_bic_swift', $_POST['wcv_bank_bic_swift'] );
 			}
 
 			do_action( 'wcvendors_shop_settings_saved', $user_id );
