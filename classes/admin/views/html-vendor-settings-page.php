@@ -1,4 +1,4 @@
-<div class="wrap"> 
+<div class="wrap">
 <h2>Shop Settings</h2>
 <table class="form-table">
 
@@ -9,15 +9,54 @@
 
 	<tr>
 	<th><?php _e( 'PayPal Address', 'wc-vendors' ); ?></th>
-	<td><input type="email" name="pv_paypal" id="pv_paypal" placeholder="some@email.com"
-			   value="<?php echo get_user_meta( $user_id, 'pv_paypal', true ); ?>"/>
+	<td><input type="email" name="pv_paypal" class="regular-text" id="pv_paypal" placeholder="some@email.com" value="<?php echo get_user_meta( $user_id, 'pv_paypal', true ); ?>"/>
 		<p class="description">
-			<?php _e( 'Your PayPal address is used to send you your commission.', 'wc-vendors' ); ?><br/>
+			<?php _e( 'Your PayPal address can be used to send you your commission.', 'wc-vendors' ); ?><br/>
 		</p>
 	</td>
 	</tr>
 	<?php } ?>
 	<?php do_action( 'wcvendors_settings_after_paypal' ); ?>
+
+
+	<?php if ( apply_filters( 'wcvendors_admin_user_meta_bank_details_enable', true ) ) : ?>
+
+		<?php do_action( 'wcvendors_settings_before_bank_details', $user_id ); ?>
+		<tr>
+			<th><label for="wcv_bank_account_name"><?php _e( 'Bank Account Name', 'wc-vendors' ); ?> <span class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_account_name" id="wcv_bank_account_name" value="<?php echo get_user_meta( $user_id, 'wcv_bank_account_name', true ); ?>" class="regular-text">
+			</td>
+		</tr>
+		<tr>
+			<th><label for="wcv_bank_account_number"><?php _e( 'Bank Account Number', 'wc-vendors' ); ?> <span class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_account_number" id="wcv_bank_account_number" value="<?php echo get_user_meta( $user_id, 'wcv_bank_account_number', true ); ?>" class="regular-text">
+			</td>
+		</tr>
+		<tr>
+			<th><label for="wcv_bank_name"><?php _e( 'Bank Name', 'wc-vendors' ); ?> <span class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_name" id="wcv_bank_name" value="<?php echo get_user_meta( $user_id, 'wcv_bank_name', true ); ?>" class="regular-text">
+			</td>
+		</tr>
+		<tr>
+			<th><label for="wcv_bank_routing_number"><?php _e( 'Routing Number', 'wc-vendors' ); ?> <span class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_routing_number" id="wcv_bank_routing_number" value="<?php echo get_user_meta( $user_id, 'wcv_bank_routing_number', true ); ?>" class="regular-text">
+			</td>
+		</tr>
+		<tr>
+			<th><label for="wcv_bank_iban"><?php _e( 'IBAN', 'wc-vendors' ); ?> <span class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_iban" id="wcv_bank_iban" value="<?php echo get_user_meta( $user_id, 'wcv_bank_iban', true ); ?>" class="regular-text">
+			</td>
+		</tr>
+		<tr>
+			<th><label for="wcv_bank_bic_swift"><?php _e( 'BIC/SWIFT', 'wc-vendors' ); ?> <span class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_bic_swift" id="wcv_bank_bic_swift" value="<?php echo get_user_meta( $user_id, 'wcv_bank_bic_swift', true ); ?>" class="regular-text">
+			</td>
+		</tr>
+		<?php do_action( 'wcvendors_settings_after_bank_details', $user_id ); ?>
+
+	<?php endif; ?>
+
+
 	<tr>
 	<th><?php _e( 'Shop Name', 'wc-vendors' ); ?></th>
 	<td><input type="text" name="pv_shop_name" id="pv_shop_name" placeholder="Your shop name" value="<?php echo get_user_meta( $user_id, 'pv_shop_name', true ); ?>"/>

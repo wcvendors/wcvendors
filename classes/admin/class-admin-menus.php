@@ -42,7 +42,7 @@ class WCVendors_Admin_Menus {
 			$menu[] = array( '', 'read', 'separator-woocommerce', '', 'wp-menu-separator wcvendors' );
 		}
 
-		add_menu_page( __( 'WC Vendors', 'wc-vendors' ), __( 'WC Vendors', 'wc-vendors' ), 'manage_woocommerce', 'wc-vendors', array( $this, 'addons_page' ), 'dashicons-cart', '50'  );
+		add_menu_page( __( 'WC Vendors', 'wc-vendors' ), __( 'WC Vendors', 'wc-vendors' ), 'manage_woocommerce', 'wc-vendors', array( $this, 'extensions_page' ), 'dashicons-cart', '50'  );
 	}
 
 	/**
@@ -57,8 +57,7 @@ class WCVendors_Admin_Menus {
 	* 	Addons Page
 	*/
 	public function extensions_page(){
-
-		
+		WCVendors_Admin_Extensions::output();
 	}
 
 	/**
@@ -159,9 +158,12 @@ class WCVendors_Admin_Menus {
 
 	    $page = ( isset( $_GET[ 'page' ] ) ) ? esc_attr( $_GET[ 'page' ] ) : false;
 
+
+	    wp_enqueue_style( 'wcv-admin-styles', wcv_assets_url . 'css/wcv-admin.css', array(), WCV_VERSION );
+
 	    // Only load the styles on the license table page
 
-	    if ( 'pv_admin_commissions' !== $page ) return;
+	    if ( 'wcv_admin_commissions' !== $page ) return;
 
 	    echo '<style type="text/css">';
 	    echo '.wp-list-table .column-product_id { width: 20%; }';

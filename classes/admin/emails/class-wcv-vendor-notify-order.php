@@ -36,12 +36,12 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 		);
 
 		// Other settings
-		add_action( 'woocommerce_order_status_pending_to_processing_notification', 	array( $this, 'trigger' ) );
-		add_action( 'woocommerce_order_status_pending_to_completed_notification', 	array( $this, 'trigger' ) );
-		add_action( 'woocommerce_order_status_failed_to_processing_notification', 	array( $this, 'trigger' ) );
-		add_action( 'woocommerce_order_status_failed_to_completed_notification', 	array( $this, 'trigger' ) );
-		add_action( 'woocommerce_order_status_on-hold_to_processing_notification', 	array( $this, 'trigger' ) );
-		add_action( 'woocommerce_order_status_on-hold_to_completed_notification', 	array( $this, 'trigger' ) );
+		add_action( 'woocommerce_order_status_pending_to_processing_notification', 	array( $this, 'trigger' ), 10, 2 );
+		add_action( 'woocommerce_order_status_pending_to_completed_notification', 	array( $this, 'trigger' ), 10, 2 );
+		add_action( 'woocommerce_order_status_failed_to_processing_notification', 	array( $this, 'trigger' ), 10, 2 );
+		add_action( 'woocommerce_order_status_failed_to_completed_notification', 	array( $this, 'trigger' ), 10, 2 );
+		add_action( 'woocommerce_order_status_on-hold_to_processing_notification', 	array( $this, 'trigger' ), 10, 2 );
+		add_action( 'woocommerce_order_status_on-hold_to_completed_notification', 	array( $this, 'trigger' ), 10, 2 );
 
 		// Call parent constructor
 		parent::__construct();
@@ -75,8 +75,6 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 	 */
 	public function trigger( $order_id, $order = false ) {
 
-		WC_Vendors::log( __function__ );
-
 		$this->setup_locale();
 
 		if ( $order_id && ! is_a( $order, 'WC_Order' ) ) {
@@ -99,9 +97,6 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 				$this->order_items 	= $vendor_details[ 'line_items' ];
 				$this->vendor_id 	= $vendor_id;
 				$this->totals_display = $this->get_option( 'totals_display' );
-
-				WC_Vendors::log( $this->get_content() );
-
 				$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 
 			}

@@ -66,11 +66,15 @@ Class WCV_Vendor_Admin_Dashboard {
 				return false;
 			}
 
-			if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
-				$error_msg .=  __( 'Your PayPal address is not a valid email address.', 'wc-vendors' );
-				$error = true;
+			if (  isset( $_POST[ 'pv_paypal' ] ) && '' !== $_POST[ 'pv_paypal' ] ) {
+				if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
+					$error_msg .=  __( 'Your PayPal address is not a valid email address.', 'wc-vendors' );
+					$error = true;
+				} else {
+					update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
+				}
 			} else {
-				update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
+					update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
 			}
 
 			if ( !empty( $_POST[ 'pv_shop_name' ] ) ) {
@@ -91,6 +95,28 @@ Class WCV_Vendor_Admin_Dashboard {
 			if ( isset( $_POST[ 'pv_seller_info' ] ) ) {
 				update_user_meta( $user_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
 			}
+
+			// Bank details
+			if ( isset( $_POST[ 'wcv_bank_account_name' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_account_number' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_name' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_name', $_POST['wcv_bank_name'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_routing_number' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_routing_number', $_POST['wcv_bank_routing_number'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_iban' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_iban', $_POST['wcv_bank_iban'] );
+			}
+			if ( isset( $_POST[ 'wcv_bank_bic_swift' ] ) ){
+				update_user_meta( $user_id, 'wcv_bank_bic_swift', $_POST['wcv_bank_bic_swift'] );
+			}
+
+
 
 			do_action( 'wcvendors_shop_settings_admin_saved', $user_id );
 

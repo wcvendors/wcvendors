@@ -89,7 +89,28 @@ class WCVendors_Admin_Setup_Wizard {
 
 		$this->steps = apply_filters( 'wcv_setup_wizard_steps', $default_steps );
 		$this->step = isset( $_GET['step'] ) ? sanitize_key( $_GET['step'] ) : current( array_keys( $this->steps ) );
-		$suffix     = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';	
+		$suffix     = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		wp_register_script( 'jquery-blockui', WC()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70', true );
+		wp_register_script( 'selectWoo', WC()->plugin_url() . '/assets/js/selectWoo/selectWoo.full' . $suffix . '.js', array( 'jquery' ), '1.0.0' );
+		wp_register_script( 'wc-enhanced-select', WC()->plugin_url() . '/assets/js/admin/wc-enhanced-select' . $suffix . '.js', array( 'jquery', 'selectWoo' ), WC_VERSION );
+		wp_localize_script( 'wc-enhanced-select', 'wc_enhanced_select_params', array(
+			'i18n_no_matches'           => _x( 'No matches found', 'enhanced select', 'wcvendors' ),
+			'i18n_ajax_error'           => _x( 'Loading failed', 'enhanced select', 'wcvendors' ),
+			'i18n_input_too_short_1'    => _x( 'Please enter 1 or more characters', 'enhanced select', 'wcvendors' ),
+			'i18n_input_too_short_n'    => _x( 'Please enter %qty% or more characters', 'enhanced select', 'wcvendors' ),
+			'i18n_input_too_long_1'     => _x( 'Please delete 1 character', 'enhanced select', 'wcvendors' ),
+			'i18n_input_too_long_n'     => _x( 'Please delete %qty% characters', 'enhanced select', 'wcvendors' ),
+			'i18n_selection_too_long_1' => _x( 'You can only select 1 item', 'enhanced select', 'wcvendors' ),
+			'i18n_selection_too_long_n' => _x( 'You can only select %qty% items', 'enhanced select', 'wcvendors' ),
+			'i18n_load_more'            => _x( 'Loading more results&hellip;', 'enhanced select', 'wcvendors' ),
+			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'wcvendors' ),
+			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
+			'search_products_nonce'     => wp_create_nonce( 'search-products' ),
+			'search_customers_nonce'    => wp_create_nonce( 'search-customers' ),
+		) );
+		// @todo fix the select2 styles in our admin.css
+		wp_enqueue_style( 'woocommerce_admin_styles', WC()->plugin_url() . '/assets/css/admin.css', array(), WC_VERSION );
 
 		wp_enqueue_style( 'wcv-setup', wcv_assets_url . 'css/wcv-setup.css', array( 'dashicons', 'install' ), WCV_VERSION );
 		wp_register_script( 'wcv-setup', wcv_assets_url . 'js/admin/wcv-setup.js', array( 'jquery', 'wc-enhanced-select', 'jquery-blockui', 'wp-util' ), WCV_VERSION );
