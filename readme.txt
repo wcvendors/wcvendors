@@ -96,12 +96,11 @@ We currently ship WC Vendors free with the following language translations. If y
 
 == Installation ==
 1. Download and install from WordPress.org.
-2. Launch the Setup wizard and follow the setup screens.
+2. Launch the setup wizard and follow the setup screens.
 3. All settings are available under the WordPress Admin / WC Vendors / Settings screen
 4. Configure your email notifications under WooCommerce / Settings / Emails screen
 5. View Commissions under WC Vendors / Commissions and WooCommerce / Reports / WC Vendors screen
 6. Vendors and pending vendors are available on the WordPress / Users screen
-
 
 == Frequently Asked Questions ==
 
@@ -125,13 +124,18 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Screenshots ==
 
-1. General options - Configure default commission, how members can register and more.
-2. Product options page - allows you to hide specific options on the add new product window from vendors.
-3. Capabilities options - restrict what your vendors can see and do.
-4. Pages options - configure what pages will load the relevant vendor templates. These can be customised.
-5. User paypment info - define how your vendors get paid and when.
-6. WC Vendors Paypal Adaptive payments setup. NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
-7. Email template options for the relevant WC Vendor emails.
+1. General Options - Configure your general marketplace settings here
+2. Commission Option - Set your percentage commission here
+3. Capabilities General - Product and order functionality
+4. Capabilities Product - Configure what to hide from the vendor on the product edit screen
+5. Capabilities Order - Configure what the vendors can do with their orders
+6. Display Options - Set the pages used for WC Vendors
+7. Vendor dashboard
+8. Setup Wizard General options
+9. Setup Wizard Capabilities
+10. Setup Wizard Pages
+11. Setup Wizard complete
+12. Email notifications for admins, customers and vendors
 
 == Upgrade Notice ==
 
