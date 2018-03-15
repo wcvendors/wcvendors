@@ -20,7 +20,7 @@ msgstr ""
 msgid "WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again."
 msgstr ""
 
-#: class-wc-vendors.php:104, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-admin-users.php:389, classes/admin/class-wcv-admin-setup.php:235
+#: class-wc-vendors.php:104, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:235, classes/admin/views/html-vendor-meta.php:1
 msgid "WC Vendors"
 msgstr ""
 
@@ -28,35 +28,35 @@ msgstr ""
 msgid "<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce 3.0.0 to operate."
 msgstr ""
 
-#: class-wc-vendors.php:327, classes/class-install.php:126, classes/admin/class-admin-reports.php:178, classes/admin/class-admin-reports.php:461, classes/admin/class-product-meta.php:46, classes/admin/class-product-meta.php:187, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:139, classes/admin/class-wcv-admin-setup.php:270, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/includes/class-functions.php:55
+#: class-wc-vendors.php:328, classes/class-install.php:126, classes/admin/class-admin-reports.php:178, classes/admin/class-admin-reports.php:461, classes/admin/class-product-meta.php:46, classes/admin/class-product-meta.php:187, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:139, classes/admin/class-wcv-admin-setup.php:270, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/includes/class-functions.php:55
 msgid "Vendor"
 msgstr ""
 
-#: class-wc-vendors.php:329, classes/admin/settings/class-wcv-settings-capabilities.php:43, classes/admin/settings/class-wcv-settings-capabilities.php:105, classes/admin/settings/class-wcv-settings-commission.php:43, classes/admin/settings/class-wcv-settings-display.php:43, classes/admin/settings/class-wcv-settings-general.php:31, classes/admin/settings/class-wcv-settings-general.php:43, classes/admin/settings/class-wcv-settings-payments.php:44, classes/admin/settings/sf-options.php:4, classes/admin/views/setup/general.php:19
+#: class-wc-vendors.php:330, classes/admin/settings/class-wcv-settings-capabilities.php:43, classes/admin/settings/class-wcv-settings-capabilities.php:105, classes/admin/settings/class-wcv-settings-commission.php:43, classes/admin/settings/class-wcv-settings-display.php:43, classes/admin/settings/class-wcv-settings-general.php:31, classes/admin/settings/class-wcv-settings-general.php:43, classes/admin/settings/class-wcv-settings-payments.php:44, classes/admin/settings/sf-options.php:4, classes/admin/views/setup/general.php:19
 msgid "General"
 msgstr ""
 
-#: class-wc-vendors.php:305, classes/admin/class-setup-wizard.php:74, classes/admin/settings/class-wcv-settings-capabilities.php:31, classes/admin/settings/sf-options.php:192
+#: class-wc-vendors.php:306, classes/admin/class-setup-wizard.php:74, classes/admin/settings/class-wcv-settings-capabilities.php:31, classes/admin/settings/sf-options.php:192
 msgid "Capabilities"
 msgstr ""
 
-#: class-wc-vendors.php:368
+#: class-wc-vendors.php:369
 msgid "Documentation"
 msgstr ""
 
-#: class-wc-vendors.php:369, class-wc-vendors.php:438, classes/admin/class-wcv-admin-help.php:100
+#: class-wc-vendors.php:370, class-wc-vendors.php:439, classes/admin/class-wcv-admin-help.php:100
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: class-wc-vendors.php:370
+#: class-wc-vendors.php:371
 msgid "Contact Us"
 msgstr ""
 
-#: class-wc-vendors.php:441
+#: class-wc-vendors.php:442
 msgid "Upgrade to WC Vendors Pro!"
 msgstr ""
 
-#: class-wc-vendors.php:443
+#: class-wc-vendors.php:444
 msgid ""
 "WC Vendors Pro extends your marketplace to include some of the following enhanced features\n"
 "							<ul>\n"
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Extensions"
 msgstr ""
 
-#: classes/admin/class-admin-menus.php:73, classes/admin/class-admin-menus.php:73
+#: classes/admin/class-admin-menus.php:72, classes/admin/class-admin-menus.php:72
 msgid "Commissions"
 msgstr ""
 
@@ -239,11 +239,11 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:177, classes/admin/class-wcv-commissions-csv-exporter.php:41, classes/admin/class-wcv-commissions-page.php:116, templates/dashboard/reports.php:17, templates/emails/notify-vendor-shipped.php:27, templates/emails/vendor-new-order.php:31, templates/emails/vendor-order-details.php:36, classes/admin/emails/class-wcv-vendor-notify-order.php:192
+#: classes/admin/class-admin-reports.php:177, classes/admin/class-wcv-commissions-csv-exporter.php:41, classes/admin/class-wcv-commissions-page.php:116, templates/dashboard/reports.php:17, templates/emails/notify-vendor-shipped.php:27, templates/emails/vendor-new-order.php:31, templates/emails/vendor-order-details.php:36, classes/admin/emails/class-wcv-vendor-notify-order.php:187
 msgid "Product"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:179, classes/admin/class-admin-reports.php:377, classes/admin/class-vendor-admin-dashboard.php:325, classes/admin/class-wcv-commissions-csv-exporter.php:47, classes/admin/class-wcv-commissions-page.php:122, templates/dashboard/orders.php:46
+#: classes/admin/class-admin-reports.php:179, classes/admin/class-admin-reports.php:377, classes/admin/class-vendor-admin-dashboard.php:351, classes/admin/class-wcv-commissions-csv-exporter.php:47, classes/admin/class-wcv-commissions-page.php:122, templates/dashboard/orders.php:46
 msgid "Total"
 msgstr ""
 
@@ -307,56 +307,12 @@ msgstr ""
 msgid "No commissions found."
 msgstr ""
 
-#: classes/admin/class-admin-users.php:399
-msgid "Enable HTML for the shop description"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:405, classes/admin/settings/class-wcv-settings-display.php:234
-msgid "Shop name"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:412
-msgid "PayPal E-mail"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:413
-msgid "required"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:420
-msgid "Commission rate"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:421, classes/admin/class-product-meta.php:174
-msgid "Leave blank for default"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:427
-msgid "Give Tax"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:432
-msgid "Tax override for vendor"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:438
-msgid "Give Shipping"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:443
-msgid "Shipping override for vendor"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:449, classes/admin/views/html-vendor-settings-page.php:30, templates/dashboard/settings/seller-info.php:3
-msgid "Seller info"
-msgstr ""
-
-#: classes/admin/class-admin-users.php:454
-msgid "Shop description"
-msgstr ""
-
-#: classes/admin/class-product-meta.php:151, classes/admin/class-product-meta.php:167, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:119, templates/dashboard/reports.php:19, templates/emails/vendor-order-details.php:39, classes/admin/emails/class-wcv-vendor-notify-order.php:191, classes/admin/settings/class-wcv-settings-commission.php:31, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:79
+#: classes/admin/class-product-meta.php:151, classes/admin/class-product-meta.php:167, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:119, templates/dashboard/reports.php:19, templates/emails/vendor-order-details.php:39, classes/admin/emails/class-wcv-vendor-notify-order.php:186, classes/admin/settings/class-wcv-settings-commission.php:31, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:79
 msgid "Commission"
+msgstr ""
+
+#: classes/admin/class-product-meta.php:174, classes/admin/views/html-vendor-meta.php:89
+msgid "Leave blank for default"
 msgstr ""
 
 #: classes/admin/class-setup-wizard.php:69
@@ -371,7 +327,7 @@ msgstr ""
 msgid "Ready!"
 msgstr ""
 
-#: classes/admin/class-setup-wizard.php:316
+#: classes/admin/class-setup-wizard.php:337
 msgid "Don't forget to check our <a href=\"%1$s\" target=\"_blank\">documentation</a> to learn more about setting up WC Vendors and if you need help, be sure to visit our <a href=\"%2$s\" target=\"_blank\">free support forums</a>."
 msgstr ""
 
@@ -379,63 +335,63 @@ msgstr ""
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:183, templates/dashboard/orders.php:35, classes/admin/settings/class-wcv-settings-capabilities.php:45, classes/admin/settings/class-wcv-settings-capabilities.php:281, classes/admin/settings/class-wcv-settings-display.php:162, classes/admin/settings/sf-options.php:196, classes/admin/views/setup/capabilities.php:70
+#: classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:209, templates/dashboard/orders.php:35, classes/admin/settings/class-wcv-settings-capabilities.php:45, classes/admin/settings/class-wcv-settings-capabilities.php:281, classes/admin/settings/class-wcv-settings-display.php:162, classes/admin/settings/sf-options.php:196, classes/admin/views/setup/capabilities.php:70
 msgid "Orders"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:70, classes/front/dashboard/class-vendor-dashboard.php:117
+#: classes/admin/class-vendor-admin-dashboard.php:71, classes/front/dashboard/class-vendor-dashboard.php:117
 msgid "Your PayPal address is not a valid email address."
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:79, classes/front/dashboard/class-vendor-dashboard.php:126
+#: classes/admin/class-vendor-admin-dashboard.php:83, classes/front/dashboard/class-vendor-dashboard.php:128
 msgid "That shop name is already taken. Your shop name must be unique."
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:115, classes/front/dashboard/class-vendor-dashboard.php:144, classes/admin/settings/classes/sf-class-settings.php:371
+#: classes/admin/class-vendor-admin-dashboard.php:141, classes/front/dashboard/class-vendor-dashboard.php:169, classes/admin/settings/classes/sf-class-settings.php:371
 msgid "Settings saved."
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:246
+#: classes/admin/class-vendor-admin-dashboard.php:272
 msgid "order"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:247
+#: classes/admin/class-vendor-admin-dashboard.php:273
 msgid "orders"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:322, classes/admin/class-wcv-commissions-csv-exporter.php:42, classes/admin/class-wcv-commissions-page.php:117
+#: classes/admin/class-vendor-admin-dashboard.php:348, classes/admin/class-wcv-commissions-csv-exporter.php:42, classes/admin/class-wcv-commissions-page.php:117
 msgid "Order ID"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:323
+#: classes/admin/class-vendor-admin-dashboard.php:349
 msgid "Customer"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:324, classes/admin/settings/class-wcv-settings-capabilities.php:44, classes/admin/settings/class-wcv-settings-capabilities.php:248, classes/admin/settings/sf-options.php:127, classes/admin/settings/sf-options.php:245, classes/admin/views/setup/capabilities.php:19
+#: classes/admin/class-vendor-admin-dashboard.php:350, classes/admin/settings/class-wcv-settings-capabilities.php:44, classes/admin/settings/class-wcv-settings-capabilities.php:248, classes/admin/settings/sf-options.php:127, classes/admin/settings/sf-options.php:245, classes/admin/views/setup/capabilities.php:19
 msgid "Products"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:327, classes/admin/class-wcv-commissions-csv-exporter.php:49, classes/admin/class-wcv-commissions-page.php:124, templates/dashboard/orders.php:47, classes/front/orders/class-orders.php:212
+#: classes/admin/class-vendor-admin-dashboard.php:353, classes/admin/class-wcv-commissions-csv-exporter.php:49, classes/admin/class-wcv-commissions-page.php:124, templates/dashboard/orders.php:47, classes/front/orders/class-orders.php:212
 msgid "Date"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:328, templates/dashboard/orders.php:106
+#: classes/admin/class-vendor-admin-dashboard.php:354, templates/dashboard/orders.php:106
 msgid "Shipped"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:364, templates/dashboard/orders.php:99
+#: classes/admin/class-vendor-admin-dashboard.php:390, templates/dashboard/orders.php:99
 msgid "Mark shipped"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:390
+#: classes/admin/class-vendor-admin-dashboard.php:416
 msgid "Orders marked shipped."
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:553
+#: classes/admin/class-vendor-admin-dashboard.php:579
 msgid "Yes"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:553
+#: classes/admin/class-vendor-admin-dashboard.php:579
 msgid "No"
 msgstr ""
 
@@ -775,7 +731,23 @@ msgstr ""
 msgid "You haven't made any sales yet."
 msgstr ""
 
-#: templates/emails/application-status.php:8, templates/emails/vendor-notify-application.php:22, classes/admin/emails/class-wcv-vendor-notify-application.php:62, templates/emails/plain/vendor-notify-application.php:21
+#: templates/emails/admin-notify-product.php:19, templates/emails/plain/admin-notify-product.php:21
+msgid "This is a notification about a new product on %s."
+msgstr ""
+
+#: templates/emails/admin-notify-product.php:22, templates/emails/new-product.php:11, templates/emails/plain/admin-notify-product.php:23
+msgid "Product title: %s"
+msgstr ""
+
+#: templates/emails/admin-notify-product.php:23, templates/emails/new-product.php:12, templates/emails/plain/admin-notify-product.php:24
+msgid "Submitted by: %s"
+msgstr ""
+
+#: templates/emails/admin-notify-product.php:24, templates/emails/new-product.php:13, templates/emails/plain/admin-notify-product.php:25
+msgid "Edit product: %s"
+msgstr ""
+
+#: templates/emails/application-status.php:8, templates/emails/vendor-notify-application.php:22, templates/emails/plain/vendor-notify-application.php:21
 msgid "Hi there. This is a notification about a vendor application on %s."
 msgstr ""
 
@@ -789,18 +761,6 @@ msgstr ""
 
 #: templates/emails/new-product.php:8
 msgid "Hi there. This is a notification about a new product on %s."
-msgstr ""
-
-#: templates/emails/new-product.php:11
-msgid "Product title: %s"
-msgstr ""
-
-#: templates/emails/new-product.php:12
-msgid "Submitted by: %s"
-msgstr ""
-
-#: templates/emails/new-product.php:13
-msgid "Edit product: %s"
 msgstr ""
 
 #: templates/emails/notify-vendor-shipped.php:18
@@ -856,24 +816,24 @@ msgstr ""
 msgid "Comments (%s)"
 msgstr ""
 
-#: templates/orders/table-body.php:25
+#: templates/orders/table-body.php:37
 msgid "Quantity: %d"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:70, classes/admin/emails/class-emails.php:215, classes/admin/emails/class-wc-approve-vendor.php:70
+#: classes/admin/emails/class-emails.php:73, classes/admin/emails/class-emails.php:194, classes/admin/emails/class-wc-approve-vendor.php:70
 msgid "pending"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:72
+#: classes/admin/emails/class-emails.php:75
 msgid "approved"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:74
+#: classes/admin/emails/class-emails.php:77
 msgid "denied"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:179
-msgid "Resend vendor new order notification"
+#: classes/admin/emails/class-emails.php:144
+msgid "Resend %s new order notification"
 msgstr ""
 
 #: classes/admin/emails/class-wc-approve-vendor.php:28
@@ -892,11 +852,11 @@ msgstr ""
 msgid "[{blogname}] Your vendor application has been {status}"
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:123, classes/admin/emails/class-wc-notify-admin.php:134, classes/admin/emails/class-wc-notify-shipped.php:166, classes/admin/emails/class-wc-notify-vendor.php:268, classes/admin/emails/class-wcv-admin-notify-shipped.php:135, classes/admin/emails/class-wcv-customer-notify-shipped.php:142, classes/admin/emails/class-wcv-vendor-notify-application.php:129, classes/admin/emails/class-wcv-vendor-notify-approved.php:138, classes/admin/emails/class-wcv-vendor-notify-denied.php:148, classes/admin/emails/class-wcv-vendor-notify-order.php:160, classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:62
+#: classes/admin/emails/class-wc-approve-vendor.php:123, classes/admin/emails/class-wc-notify-admin.php:134, classes/admin/emails/class-wc-notify-shipped.php:166, classes/admin/emails/class-wc-notify-vendor.php:268, classes/admin/emails/class-wcv-admin-notify-product.php:144, classes/admin/emails/class-wcv-admin-notify-shipped.php:135, classes/admin/emails/class-wcv-customer-notify-shipped.php:142, classes/admin/emails/class-wcv-vendor-notify-application.php:129, classes/admin/emails/class-wcv-vendor-notify-approved.php:138, classes/admin/emails/class-wcv-vendor-notify-denied.php:148, classes/admin/emails/class-wcv-vendor-notify-order.php:155, classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:62
 msgid "Enable/Disable"
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:125, classes/admin/emails/class-wc-notify-admin.php:136, classes/admin/emails/class-wc-notify-shipped.php:168, classes/admin/emails/class-wc-notify-vendor.php:270, classes/admin/emails/class-wcv-admin-notify-shipped.php:137, classes/admin/emails/class-wcv-customer-notify-shipped.php:144, classes/admin/emails/class-wcv-vendor-notify-application.php:131, classes/admin/emails/class-wcv-vendor-notify-approved.php:140, classes/admin/emails/class-wcv-vendor-notify-denied.php:150, classes/admin/emails/class-wcv-vendor-notify-order.php:162
+#: classes/admin/emails/class-wc-approve-vendor.php:125, classes/admin/emails/class-wc-notify-admin.php:136, classes/admin/emails/class-wc-notify-shipped.php:168, classes/admin/emails/class-wc-notify-vendor.php:270, classes/admin/emails/class-wcv-admin-notify-product.php:146, classes/admin/emails/class-wcv-admin-notify-shipped.php:137, classes/admin/emails/class-wcv-customer-notify-shipped.php:144, classes/admin/emails/class-wcv-vendor-notify-application.php:131, classes/admin/emails/class-wcv-vendor-notify-approved.php:140, classes/admin/emails/class-wcv-vendor-notify-denied.php:150, classes/admin/emails/class-wcv-vendor-notify-order.php:157
 msgid "Enable this email notification"
 msgstr ""
 
@@ -904,7 +864,7 @@ msgstr ""
 msgid "Enter recipients (comma separated) for this email. Defaults to <code>%s</code>."
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:136, classes/admin/emails/class-wc-notify-admin.php:147, classes/admin/emails/class-wc-notify-shipped.php:172, classes/admin/emails/class-wc-notify-vendor.php:274, classes/admin/emails/class-wcv-admin-notify-shipped.php:149, classes/admin/emails/class-wcv-customer-notify-shipped.php:148, classes/admin/emails/class-wcv-vendor-notify-application.php:135, classes/admin/emails/class-wcv-vendor-notify-approved.php:144, classes/admin/emails/class-wcv-vendor-notify-denied.php:154, classes/admin/emails/class-wcv-vendor-notify-order.php:166
+#: classes/admin/emails/class-wc-approve-vendor.php:136, classes/admin/emails/class-wc-notify-admin.php:147, classes/admin/emails/class-wc-notify-shipped.php:172, classes/admin/emails/class-wc-notify-vendor.php:274, classes/admin/emails/class-wcv-admin-notify-product.php:158, classes/admin/emails/class-wcv-admin-notify-shipped.php:149, classes/admin/emails/class-wcv-customer-notify-shipped.php:148, classes/admin/emails/class-wcv-vendor-notify-application.php:135, classes/admin/emails/class-wcv-vendor-notify-approved.php:144, classes/admin/emails/class-wcv-vendor-notify-denied.php:154, classes/admin/emails/class-wcv-vendor-notify-order.php:161
 msgid "Subject"
 msgstr ""
 
@@ -920,11 +880,11 @@ msgstr ""
 msgid "This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>."
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:150, classes/admin/emails/class-wc-notify-admin.php:161, classes/admin/emails/class-wc-notify-shipped.php:186, classes/admin/emails/class-wc-notify-vendor.php:294, classes/admin/emails/class-wcv-admin-notify-shipped.php:167, classes/admin/emails/class-wcv-customer-notify-shipped.php:166, classes/admin/emails/class-wcv-vendor-notify-application.php:153, classes/admin/emails/class-wcv-vendor-notify-approved.php:171, classes/admin/emails/class-wcv-vendor-notify-denied.php:189, classes/admin/emails/class-wcv-vendor-notify-order.php:204
+#: classes/admin/emails/class-wc-approve-vendor.php:150, classes/admin/emails/class-wc-notify-admin.php:161, classes/admin/emails/class-wc-notify-shipped.php:186, classes/admin/emails/class-wc-notify-vendor.php:294, classes/admin/emails/class-wcv-admin-notify-product.php:176, classes/admin/emails/class-wcv-admin-notify-shipped.php:167, classes/admin/emails/class-wcv-customer-notify-shipped.php:166, classes/admin/emails/class-wcv-vendor-notify-application.php:153, classes/admin/emails/class-wcv-vendor-notify-approved.php:171, classes/admin/emails/class-wcv-vendor-notify-denied.php:189, classes/admin/emails/class-wcv-vendor-notify-order.php:199
 msgid "Email type"
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:152, classes/admin/emails/class-wc-notify-admin.php:163, classes/admin/emails/class-wc-notify-shipped.php:188, classes/admin/emails/class-wc-notify-vendor.php:296, classes/admin/emails/class-wcv-admin-notify-shipped.php:169, classes/admin/emails/class-wcv-customer-notify-shipped.php:168, classes/admin/emails/class-wcv-vendor-notify-application.php:155, classes/admin/emails/class-wcv-vendor-notify-approved.php:173, classes/admin/emails/class-wcv-vendor-notify-denied.php:191, classes/admin/emails/class-wcv-vendor-notify-order.php:206
+#: classes/admin/emails/class-wc-approve-vendor.php:152, classes/admin/emails/class-wc-notify-admin.php:163, classes/admin/emails/class-wc-notify-shipped.php:188, classes/admin/emails/class-wc-notify-vendor.php:296, classes/admin/emails/class-wcv-admin-notify-product.php:178, classes/admin/emails/class-wcv-admin-notify-shipped.php:169, classes/admin/emails/class-wcv-customer-notify-shipped.php:168, classes/admin/emails/class-wcv-vendor-notify-application.php:155, classes/admin/emails/class-wcv-vendor-notify-approved.php:173, classes/admin/emails/class-wcv-vendor-notify-denied.php:191, classes/admin/emails/class-wcv-vendor-notify-order.php:201
 msgid "Choose which format of email to send."
 msgstr ""
 
@@ -1012,6 +972,38 @@ msgstr ""
 msgid "Show the commission due/paid as the product totals instead of the product prices."
 msgstr ""
 
+#: classes/admin/emails/class-wcv-admin-notify-product.php:27
+msgid "Admin new %s product"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:28
+msgid "Notification is sent to chosen recipient(s) when a %s submits a product for approval."
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:57
+msgid "[{site_title}] New %s product submitted by {vendor_name} - {product_name}"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:67
+msgid "New %s product submitted: {product_name}"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:150, classes/admin/emails/class-wcv-admin-notify-shipped.php:141
+msgid "Recipient(s)"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:152, classes/admin/emails/class-wcv-admin-notify-shipped.php:143
+msgid "Enter recipients (comma separated) for this email. Defaults to %s."
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:162, classes/admin/emails/class-wcv-admin-notify-product.php:171, classes/admin/emails/class-wcv-admin-notify-shipped.php:153, classes/admin/emails/class-wcv-admin-notify-shipped.php:162, classes/admin/emails/class-wcv-customer-notify-shipped.php:152, classes/admin/emails/class-wcv-customer-notify-shipped.php:161, classes/admin/emails/class-wcv-vendor-notify-application.php:139, classes/admin/emails/class-wcv-vendor-notify-application.php:148, classes/admin/emails/class-wcv-vendor-notify-approved.php:148, classes/admin/emails/class-wcv-vendor-notify-approved.php:166, classes/admin/emails/class-wcv-vendor-notify-denied.php:158, classes/admin/emails/class-wcv-vendor-notify-denied.php:167, classes/admin/emails/class-wcv-vendor-notify-denied.php:184, classes/admin/emails/class-wcv-vendor-notify-order.php:165, classes/admin/emails/class-wcv-vendor-notify-order.php:174
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:167, classes/admin/emails/class-wcv-admin-notify-shipped.php:158, classes/admin/emails/class-wcv-customer-notify-shipped.php:157, classes/admin/emails/class-wcv-vendor-notify-application.php:144, classes/admin/emails/class-wcv-vendor-notify-approved.php:162, classes/admin/emails/class-wcv-vendor-notify-denied.php:180, classes/admin/emails/class-wcv-vendor-notify-order.php:170
+msgid "Email heading"
+msgstr ""
+
 #: classes/admin/emails/class-wcv-admin-notify-shipped.php:27
 msgid "Admin notify vendor shipped"
 msgstr ""
@@ -1022,22 +1014,6 @@ msgstr ""
 
 #: classes/admin/emails/class-wcv-admin-notify-shipped.php:52
 msgid "[{site_title}] Vendor has marked shipped ({order_number}) - {order_date}"
-msgstr ""
-
-#: classes/admin/emails/class-wcv-admin-notify-shipped.php:141
-msgid "Recipient(s)"
-msgstr ""
-
-#: classes/admin/emails/class-wcv-admin-notify-shipped.php:143
-msgid "Enter recipients (comma separated) for this email. Defaults to %s."
-msgstr ""
-
-#: classes/admin/emails/class-wcv-admin-notify-shipped.php:153, classes/admin/emails/class-wcv-admin-notify-shipped.php:162, classes/admin/emails/class-wcv-customer-notify-shipped.php:152, classes/admin/emails/class-wcv-customer-notify-shipped.php:161, classes/admin/emails/class-wcv-vendor-notify-application.php:139, classes/admin/emails/class-wcv-vendor-notify-application.php:148, classes/admin/emails/class-wcv-vendor-notify-approved.php:148, classes/admin/emails/class-wcv-vendor-notify-approved.php:166, classes/admin/emails/class-wcv-vendor-notify-denied.php:158, classes/admin/emails/class-wcv-vendor-notify-denied.php:167, classes/admin/emails/class-wcv-vendor-notify-denied.php:184, classes/admin/emails/class-wcv-vendor-notify-order.php:170, classes/admin/emails/class-wcv-vendor-notify-order.php:179
-msgid "Available placeholders: %s"
-msgstr ""
-
-#: classes/admin/emails/class-wcv-admin-notify-shipped.php:158, classes/admin/emails/class-wcv-customer-notify-shipped.php:157, classes/admin/emails/class-wcv-vendor-notify-application.php:144, classes/admin/emails/class-wcv-vendor-notify-approved.php:162, classes/admin/emails/class-wcv-vendor-notify-denied.php:180, classes/admin/emails/class-wcv-vendor-notify-order.php:175
-msgid "Email heading"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-customer-notify-shipped.php:28
@@ -1072,12 +1048,16 @@ msgstr ""
 msgid "Vendor application received"
 msgstr ""
 
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:62
+msgid "Hi there. This is a notification about a %s application on %s."
+msgstr ""
+
 #: classes/admin/emails/class-wcv-vendor-notify-approved.php:27
-msgid "Vendor notify approved"
+msgid "%s notify approved"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-approved.php:28
-msgid "Notification is sent to the vendor that their application has been approved"
+msgid "Notification is sent to the %s that their application has been approved"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-approved.php:48
@@ -1085,11 +1065,11 @@ msgid "[{site_title}] Your vendor application has been approved"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-approved.php:58
-msgid "Vendor Application Approved"
+msgid "%s Application Approved"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-approved.php:68
-msgid "Your application to become a vendor on has been approved."
+msgid "Your application to become a %s has been approved."
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-approved.php:153, classes/admin/emails/class-wcv-vendor-notify-denied.php:163
@@ -1097,23 +1077,23 @@ msgid "Content"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-denied.php:27
-msgid "Vendor notify denied"
+msgid "%s notify denied"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-denied.php:28
-msgid "Notification is sent to the vendor that their application has been denied"
+msgid "Notification is sent to the %s that their application has been denied"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-denied.php:48
-msgid "[{site_title}] Your vendor application has been denied"
+msgid "[{site_title}] Your %s application has been denied"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-denied.php:58
-msgid "Vendor Application Denied"
+msgid "%s Application Denied"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-denied.php:68
-msgid "Your application to become a vendor has been denied."
+msgid "Your application to become a %s has been denied."
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-denied.php:78
@@ -1125,7 +1105,7 @@ msgid "Reason"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-denied.php:175
-msgid "Provide a reason for denying the vendor application"
+msgid "Provide a reason for denying the %s application"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-order.php:27
@@ -1144,27 +1124,27 @@ msgstr ""
 msgid "New Customer Order"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-vendor-notify-order.php:184
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:179
 msgid "Totals Display"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-vendor-notify-order.php:186
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:181
 msgid "Choose how to display the product totals. Including commission or without or no totals at all."
 msgstr ""
 
-#: classes/admin/emails/class-wcv-vendor-notify-order.php:190
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:185
 msgid "Both"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-vendor-notify-order.php:193
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:188
 msgid "None"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-vendor-notify-order.php:198
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:193
 msgid "Payment method"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-vendor-notify-order.php:200
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:195
 msgid "Include the payment method in the email"
 msgstr ""
 
@@ -1535,6 +1515,10 @@ msgstr ""
 msgid "Display name"
 msgstr ""
 
+#: classes/admin/settings/class-wcv-settings-display.php:234, classes/admin/views/html-vendor-meta.php:26
+msgid "Shop name"
+msgstr ""
+
 #: classes/admin/settings/class-wcv-settings-display.php:235
 msgid "%s Username"
 msgstr ""
@@ -1747,7 +1731,7 @@ msgstr ""
 msgid "Select what will be displayed for the sold by text throughout the store."
 msgstr ""
 
-#: classes/admin/settings/sf-options.php:94, classes/admin/views/html-vendor-settings-page.php:22, templates/dashboard/settings/shop-name.php:2
+#: classes/admin/settings/sf-options.php:94, classes/admin/views/html-vendor-settings-page.php:61, templates/dashboard/settings/shop-name.php:2
 msgid "Shop Name"
 msgstr ""
 
@@ -1991,31 +1975,215 @@ msgstr ""
 msgid "Send the WooCommerce admin an email each time a payment has been made via the payment schedule options above"
 msgstr ""
 
+#: classes/admin/views/html-admin-page-extensions.php:15
+msgid "Upgrade your marketplace today!"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:25
+msgid "WC Vendors Pro"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:27
+msgid "Enhanced your marketplace with pro features and capabilities. Move all your vendors tasks to the frontend. They no longer need or see the WordPress admin. Shipping system included."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:32
+msgid "Vendors have a main dashboard showing sales reports and recent orders and products."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:33
+msgid "Vendors have complete front end product management"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:34
+msgid "Vendors can add their own coupons that only apply to their products"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:35
+msgid "Vendors have advanced shipment tracking including shipping providers"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:36
+msgid "Vendors have the ability to print a shipping label with a picking list"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:37
+msgid "Vendors can add all their own social media profile links"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:38
+msgid "Vendors can add SEO to their store and products"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:39
+msgid "Vendors can add their own banner and store icon"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:40
+msgid "Vendors have a comprehensive shipping system available. Either flat rate or table rate based."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:41
+msgid "Vendor stores templates are more advanced"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:42
+msgid "Vendors have more control over their order notes"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:43
+msgid "Vendors vacation module is included as part of pro not an extra addon"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:44
+msgid "Admins have multiple commission rate options including percentage, percentage + fee, fixed, fixed + fee."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:45
+msgid "Admins can set global shipping rates as well as allow different shipping modules per vendor. Setting one as flat rate, while another can be table rate"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:46
+msgid "Ebay style feedback allows customers to rate the products from the vendors"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:47
+msgid "Premium ticket based support for all pro users. Annual and lifetime support licenses available."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:58
+msgid "WC Vendors Stripe Commissions &amp; Gateway"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:59
+msgid "Pay your vendors their commissions instantly when the customer purchases. No need to manually pay your vendors."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:60, classes/admin/views/html-admin-page-extensions.php:68, classes/admin/views/html-admin-page-extensions.php:75
+msgid "From $69"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:65
+msgid "WooCommerce Bookings Integration<"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:66
+msgid "From $69.00"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:67
+msgid "Allow vendors to create bookings. Integrate WooCommerce bookings into the WC Vendors Pro Dashboard."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:73
+msgid "WooCommerce Simple Auctions"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:74
+msgid "Integreate WooCommerce Simple Auctions into the WC Vendors Pro dashboard."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:80
+msgid "3rd Party Extensions"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:81
+msgid "We have a list of 3rd party developer extensions that inetegrate with WC Vendors and WC Vendors Pro on our website."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:82
+msgid "View extensions"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:89
+msgid "Our list of extensions for WC Vendors can be found on our website. <a href=\"%s\">Click here to view our extensions list.</a>"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:14
+msgid "Enable HTML for the shop description"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:38
+msgid "PayPal E-mail"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:50, classes/admin/views/html-vendor-settings-page.php:26
+msgid "Bank Account Name"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:55, classes/admin/views/html-vendor-settings-page.php:31
+msgid "Bank Account Number"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:60, classes/admin/views/html-vendor-settings-page.php:36, templates/dashboard/settings/settings.php:27
+msgid "Bank Name"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:65, classes/admin/views/html-vendor-settings-page.php:41, templates/dashboard/settings/settings.php:30
+msgid "Routing Number"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:70, classes/admin/views/html-vendor-settings-page.php:46, templates/dashboard/settings/settings.php:31
+msgid "IBAN"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:75, classes/admin/views/html-vendor-settings-page.php:51
+msgid "BIC/SWIFT"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:88
+msgid "Commission rate"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:101
+msgid "Give Tax"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:105
+msgid "Tax override for vendor"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:117
+msgid "Give Shipping"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:121
+msgid "Shipping override for vendor"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:133, classes/admin/views/html-vendor-settings-page.php:69, templates/dashboard/settings/seller-info.php:3
+msgid "Seller info"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:144
+msgid "Shop description"
+msgstr ""
+
 #: classes/admin/views/html-vendor-settings-page.php:11, templates/dashboard/settings/paypal-email-form.php:2
 msgid "PayPal Address"
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:15, templates/dashboard/settings/paypal-email-form.php:3
-msgid "Your PayPal address is used to send you your commission."
+#: classes/admin/views/html-vendor-settings-page.php:14
+msgid "Your PayPal address can be used to send you your commission."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:24, templates/dashboard/settings/shop-name.php:3
+#: classes/admin/views/html-vendor-settings-page.php:63, templates/dashboard/settings/shop-name.php:3
 msgid "Your shop name is public and must be unique."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:43, templates/dashboard/settings/seller-info.php:4
+#: classes/admin/views/html-vendor-settings-page.php:82, templates/dashboard/settings/seller-info.php:4
 msgid "This is displayed on each of your products."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:49, templates/dashboard/settings/shop-description.php:2
+#: classes/admin/views/html-vendor-settings-page.php:88, templates/dashboard/settings/shop-description.php:2
 msgid "Shop Description"
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:61, templates/dashboard/settings/shop-description.php:3
+#: classes/admin/views/html-vendor-settings-page.php:100, templates/dashboard/settings/shop-description.php:3
 msgid "This is displayed on your <a href=\"%s\">shop page</a>."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:70
+#: classes/admin/views/html-vendor-settings-page.php:109
 msgid "Save Shop Settings"
 msgstr ""
 
@@ -2315,7 +2483,27 @@ msgstr ""
 msgid "It is strongly recommended that you backup your database before proceeding. Are you sure you wish to run the updater now?"
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:47
+#: templates/dashboard/settings/paypal-email-form.php:3
+msgid "Your PayPal address is used to send you your commission."
+msgstr ""
+
+#: templates/dashboard/settings/settings.php:22
+msgid "Bank Details"
+msgstr ""
+
+#: templates/dashboard/settings/settings.php:25
+msgid "Account Name"
+msgstr ""
+
+#: templates/dashboard/settings/settings.php:26
+msgid "Account Number"
+msgstr ""
+
+#: templates/dashboard/settings/settings.php:32
+msgid "BIC / Swift"
+msgstr ""
+
+#: templates/dashboard/settings/settings.php:69
 msgid "Save"
 msgstr ""
 

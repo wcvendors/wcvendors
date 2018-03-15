@@ -14,10 +14,7 @@
  	exit;
  }
 
-WC_Vendors::log( $item );
-
 if ( $count > 1) : ?>
-
 
 <tr>
 

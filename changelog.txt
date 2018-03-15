@@ -1,5 +1,51 @@
 Changelog for WC Vendors
 
+Version 2.0.0
+
+* Added: New WC Vendors Admin menu
+* Added: Bank details fields for vendors
+* Added: New all new email system and templates
+* Added: New contextual help menus on settings pages
+* Added: New settings system and admin notice system
+* Added: Setup Wizard
+* Added: Support for PHP 7.1+
+* Updated: styles and script build script
+* Updated: language file cleanup
+* Updated: Brazilian Portuguese translation thanks CasperBraske
+* Fixed: Terms & Conditions Checkbox for Vendor Registration does not show #392
+* Fixed: Depreciated calls on orders screen
+* Fixed: Vendor role capabilities updated when new settings updated.
+* Fixed: Vendors can delete media they uploaded
+* Fixed: Added check for woocommerce shipping tax class setting
+* Fixed: Tax classes not being used in shipping tax calculations
+* Fixed: Make compatible with translate.wordpress.org #396
+* Fixed: undefined index notice for reports that have been removed
+* Fixed: Removed focus from select on vendor drop down on product edit screen
+
+Templates Added:
+	templates/emails/plain/admin-notify-product.php
+	templates/emails/plain/admin-notify-shipped.php
+	templates/emails/plain/customer-notify-shipped.php
+	templates/emails/plain/vendor-notify-application.php
+	templates/emails/plain/vendor-notify-approved.php
+	templates/emails/plain/vendor-notify-denied.php
+	templates/emails/plain/vendor-notify-order.php
+	templates/emails/plain/vendor-order-details.php
+	templates/emails/plain/vendor-order-items.php
+	templates/emails/admin-notify-product.php
+	templates/emails/admin-notify-shipped.php
+	templates/emails/customer-notify-shipped.php
+	templates/emails/vendor-notify-application.php
+	templates/emails/vendor-notify-approved.php
+	templates/emails/vendor-notify-denied.php
+	templates/emails/vendor-notify-order.php
+	templates/emails/vendor-order-details.php
+	templates/emails/vendor-order-items.php
+
+Templates Updated:
+	templates/dashboard/settings/settings.php
+	templates/order/table-body.php
+
 Version 1.9.14
 
 * Added: Export commissions via CSV
