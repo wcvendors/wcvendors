@@ -603,10 +603,9 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 			WC_Vendors::log( __function__ . ' has been depreciated please replace WC_Vendors::$pv_options->get_option(\'' . $name . '\') with get_option(\'' . $mappings[ $name ] . '\')' );
 
 			wc_deprecated_function( __class__ .'->' . __function__, '2.0.0', 'with get_option(\'' . $mappings[ $name ] . '\')' );
-			return ( array_key_exits( $name, $amppings ) ) ? get_option(  $mappings[ $name ] ) : null;
 
+			return ( array_key_exists( $name, $mappings ) ) ? get_option( $mappings[ $name ] ) : null;
 
-			// return isset( $this->current_options[ $name ] ) ? maybe_unserialize( $this->current_options[ $name ] ) : $default;
 		}
 
 
