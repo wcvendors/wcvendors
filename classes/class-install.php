@@ -295,25 +295,6 @@ class WCVendors_Install {
 		}
 	}
 
-	/*
-	* Display setup wizard notice
-	*
-	* @since 2.0.0
-	*/
-	public static function setup_wizard(){
-		include( 'includes/views/html-notice-install.php' );
-	}
-
-	/*
-	* Display setup wizard notice
-	*
-	* @since 2.0.0
-	*/
-	public static function update_notice(){
-		include( 'includes/views/html-notice-update.php' );
-	}
-
-
 	/**
 	 * Default options.
 	 *
