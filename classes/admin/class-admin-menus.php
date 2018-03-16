@@ -67,7 +67,7 @@ class WCVendors_Admin_Menus {
 	 * @access public
 	 *
 	 */
-	public static function commissions_menu() {
+	public function commissions_menu() {
 
 		$commissions_page = add_submenu_page( 'wc-vendors', __( 'Commissions', 'wc-vendors' ), __( 'Commissions', 'wc-vendors' ), 'manage_woocommerce', 'wcv-commissions', array( $this, 'commissions_page' ) );\
 		add_action( "load-$commissions_page", array( $this, 'commission_screen_options' ) );
