@@ -2,6 +2,12 @@
 
 https://www.wcvendors.com/
 
+## Notice
+
+WC Vendors 2.0 is a major update. This has a brand new settings system that is not backwards compatible with the existing one. This means all extensions and plugins that interact with WC Vendors will need to be updated to support this new system.
+
+WC Vendors 2.0 is not compatible with WC Vendors Pro 1.4.6. 
+
 ## Description
 Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
 
@@ -11,7 +17,7 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 
 ## Features
 
-## WC Vendors 
+## WC Vendors
 
 The following features are available as a part of the free WC Vendors plugin.
 
