@@ -58,6 +58,7 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 		if ( '' === $current_section ) {
 
 			$settings = apply_filters( 'wcvendors_settings', array(
+        
 				//  General Options
 				array(
 					'title'    => __( 'Marketplace Options', 'wc-vendors' ),
@@ -94,8 +95,10 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 					'type'    => 'checkbox',
 				),
 				array( 'type' => 'sectionend', 'id' => 'general_options' ),
+
 			) );
 		}
+
 		return apply_filters( 'wcvendors_get_settings_' . $this->id, $settings, $current_section );
 	}
 
