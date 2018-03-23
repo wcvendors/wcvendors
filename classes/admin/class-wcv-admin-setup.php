@@ -246,9 +246,9 @@ class WCV_Admin_Setup {
 	*/
 	public function update_vendor_role( ){
 
-		$can_add          = get_opcion( 'wcvendors_capability_products_enabled' );
-		$can_edit         = get_opcion( 'wcvendors_capability_products_edit' );
-		$can_submit_live  = get_opcion( 'wcvendors_capability_products_live' );
+		$can_add          = get_option( 'wcvendors_capability_products_enabled' );
+		$can_edit         = get_option( 'wcvendors_capability_products_edit' );
+		$can_submit_live  = get_option( 'wcvendors_capability_products_live' );
 
 		$args = array(
 			'assign_product_terms'      => $can_add,

@@ -53,7 +53,7 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 	 */
 	public function get_settings( $current_section = '' ) {
 
-		$settings = apply_filters( 'wcvendors_settings', array(
+		$settings = apply_filters( 'wcvendors_settings_general', array(
 
 			//  General Options
 			array(
