@@ -56,8 +56,9 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 		$settings = array();
 
 		if ( '' === $current_section ) {
-			$settings = apply_filters( 'wcvendors_settings', array(
 
+			$settings = apply_filters( 'wcvendors_settings', array(
+        
 				//  General Options
 				array(
 					'title'    => __( 'Marketplace Options', 'wc-vendors' ),
@@ -79,7 +80,6 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 					'default' => 'no',
 					'type'    => 'checkbox',
 				),
-
 				array(
 					'title'   => sprintf( __( '%s Taxes', 'wc-vendors' ), wcv_get_vendor_name() ),
 					'desc'    => sprintf( __( 'Give any taxes to the %s', 'wc-vendors' ), wcv_get_vendor_name() ),
