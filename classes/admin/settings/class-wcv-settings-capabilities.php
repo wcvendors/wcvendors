@@ -195,6 +195,14 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 			),
 
 			array(
+				'title'   => __( 'Customer Name', 'wc-vendors' ),
+				'desc'    => sprintf( __( 'Allow %s to view customer name fields', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'id'      => 'wcvendors_capability_order_customer_name',
+				'default' => 'yes',
+				'type'    => 'checkbox',
+			),
+
+			array(
 				'title'   => __( 'Customer Billing Address', 'wc-vendors' ),
 				'desc'    => sprintf( __( 'Allow %s to view customer billing address fields', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
 				'id'      => 'wcvendors_capability_order_customer_billling',
