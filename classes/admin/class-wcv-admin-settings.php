@@ -489,6 +489,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</tr><?php
 					break;
 
+					case 'image':
+						$option_value = self::get_option( $value['id'], $value['default'] );
+
+						?><tr valign="top">
+							<th scope="row" class="titledesc">
+								<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+								<?php echo $tooltip_html; ?>
+							</th>
+							<td class="forminp">
+								<img class="wcv-image-container-<?php echo $value['id']; ?>" src="<?php echo $option_value; ?>" alt="" style="max-width:100%;" />
+								<br />
+					        	<input id="wcv-add-<?php echo $value['id']; ?>" type="button" class="<?php echo $value['css']; ?>" value="<?php echo sprintf( __( 'Update %s', 'wc-vendors' ), strtolower( $value['title'] ) ); ?>" data-id="<?php echo $value['id']; ?>" data-save_button="<?php echo sprintf( __( 'Add %s', 'wc-vendors' ), $value['title'] ); ?>" data-window_title="<?php echo sprintf( __( 'Add %s', 'wc-vendors' ), strtolower( $value['title'] ) ); ?>" data-upload_notice="<?php echo sprintf( __( 'Upload an image for the %s', 'wc-vendors' ), strtolower( $value['title'] ) ); ?>" />
+								<input type="hidden" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="<?php echo $option_value; ?>">
+							</td>
+						</tr><?php
+
+						break;
+
+						case 'wysiwyg':
+
+						$option_value = self::get_option( $value['id'], $value['default'] );
+
+							?>
+							<tr valign="top">
+								<th scope="row" class="titledesc">
+									<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+									<?php echo $tooltip_html; ?>
+								</th>
+								<td class="forminp">
+									<?php wp_editor( $option_value, $value[ 'id' ], array( 'textarea_name' => $value['id'] ) ); ?>
+									<?php echo $description;?>
+								</td>
+							</tr>
+						<?php
+
+
+							break;
+
 				// Default: run an action
 				default:
 					do_action( 'wcvendors_admin_field_' . $value['type'], $value );
