@@ -62,10 +62,10 @@ class WCVendors_Settings_Commission extends WCVendors_Settings_Page {
 				'id'       => 'commission_options',
 			),
 			array(
-				'title'    => sprintf( __( '%s Commission %%', 'wc-vendors' ), wcv_get_vendor_name() ),
+				'title'    => __( 'Commission %', 'wc-vendors' ),
 				'desc'     => sprintf( __( 'The global commission rate for your %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
 				'id'       => 'wcvendors_vendor_commission_rate',
-				'css'      => 'width:50px;',
+				// 'css'      => 'width:150px;',
 				'default'  => '50',
 				'type'     => 'number',
 			),
