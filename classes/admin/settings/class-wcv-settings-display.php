@@ -88,7 +88,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				array(
 					'title'    => __( '', 'wc-vendors' ),
 					'type'     => 'title',
-					'desc'     => sprintf( __( 'Labels are shown on the front end, in orders and emails.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'     => sprintf( __( 'Labels are shown on the front end, in orders or emails.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
 					'id'       => 'label_options',
 				),
 
