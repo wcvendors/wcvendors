@@ -53,27 +53,32 @@ class WCVendors_Settings_Commission extends WCVendors_Settings_Page {
 	 */
 	public function get_settings( $current_section = '' ) {
 
-		$settings = apply_filters( 'wcvendors_settings_comission', array(
 
-			//  General Options
-			array(
-				'type'     => 'title',
-				'desc'     => __( 'These are the commission settings for your marketplace', 'wc-vendors' ),
-				'id'       => 'commission_options',
-			),
-			array(
-				'title'    => __( 'Commission %', 'wc-vendors' ),
-				'desc'     => sprintf( __( 'The global commission rate for your %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
-				'id'       => 'wcvendors_vendor_commission_rate',
-				// 'css'      => 'width:150px;',
-				'default'  => '50',
-				'type'     => 'number',
-			),
-			array( 'type' => 'sectionend', 'id' => 'commission_options' ),
+		$settings = array();
 
-		) );
+		if ( '' === $current_section ) {
+			$settings = apply_filters( 'wcvendors_settings_comission', array(
 
-		return apply_filters( 'wcvendors_get_settings_' . $this->id, $settings );
+				//  General Options
+				array(
+					'type'     => 'title',
+					'desc'     => __( 'These are the commission settings for your marketplace', 'wc-vendors' ),
+					'id'       => 'commission_options',
+				),
+				array(
+					'title'    => sprintf( __( '%s Commission %%', 'wc-vendors' ), wcv_get_vendor_name() ),
+					'desc'     => sprintf( __( 'The global commission rate for your %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+					'id'       => 'wcvendors_vendor_commission_rate',
+					'css'      => 'width:50px;',
+					'default'  => '50',
+					'type'     => 'number',
+				),
+				array( 'type' => 'sectionend', 'id' => 'commission_options' ),
+
+			) );
+		}
+
+		return apply_filters( 'wcvendors_get_settings_' . $this->id, $settings, $current_section );
 	}
 
 }
