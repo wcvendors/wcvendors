@@ -33,6 +33,7 @@ class WCVendors_Install {
 	public static function init() {
 
 		add_action( 'init', 										array( __CLASS__, 'check_version' ) );
+		add_action( 'admin_init', 									array( __CLASS__, 'check_pro_version' ) );
 		add_action( 'init', 										array( __CLASS__, 'init_background_updater' ), 5 );
 		add_action( 'admin_init', 									array( __CLASS__, 'install_actions' ) );
 		add_filter( 'plugin_row_meta', 								array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
@@ -54,6 +55,28 @@ class WCVendors_Install {
 		}
 	}
 
+	/**
+	 * Check WC Vendors version and run the updater is required.
+	 *
+	 * This check is done on all requests and runs if the versions do not match.
+	 */
+	public static function check_pro_version() {
+
+		if ( class_exists( 'WCVendors_Pro' ) ){
+
+			$pro_db_version = get_option( 'wcvendors_pro_db_version' );
+
+			if ( version_compare( WCV_PRO_VERSION, '1.5.0', '<' ) ){
+
+				if ( is_plugin_active( 'wc-vendors-pro/wcvendors-pro.php' ) ){
+					$notice = sprintf( __( 'WC Vendors Pro %s or below detected. WC Vendors Pro 1.5.0 is required for WC Vendors 2.0.0 and above. WC Vendors Pro has been deactivated.' ), WCV_PRO_VERSION );
+					WCVendors_Admin_Notices::add_custom_notice( 'pro_update', $notice );
+					deactivate_plugins( 'wc-vendors-pro/wcvendors-pro.php' );
+				}
+			}
+		}
+
+	}
 
 	/**
 	 * Install actions when a update button is clicked within the admin area.

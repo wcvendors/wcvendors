@@ -182,7 +182,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		{
 			add_action( 'admin_enqueue_scripts', array( &$this, 'admin_enqueue_scripts' ) );
 			add_action( 'admin_init', array( &$this, 'register_options' ) );
-			// add_action( 'admin_menu', array( &$this, 'create_menu' ), 70 );
+			add_action( 'admin_menu', array( &$this, 'create_menu' ), 70 );
 			// add_filter( 'plugin_action_links', array( &$this, 'add_settings_link' ), 10, 2 );
 		}
 
@@ -248,8 +248,8 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		 */
 		public function create_menu()
 		{
-			$page = add_submenu_page( 'wc-vendors', __( 'WC Vendors Settings', 'wc-vendors' ),  __( 'Settings Old', 'wc-vendors' ), 'manage_woocommerce', $this->id, array( &$this, 'init_settings_page' ) );
-			add_action( 'admin_print_scripts-' . $page, array( &$this, 'admin_print_scripts' ) );
+			// $page = add_submenu_page( 'wc-vendors', __( 'WC Vendors Settings', 'wc-vendors' ),  __( 'Settings Old', 'wc-vendors' ), 'manage_woocommerce', $this->id, array( &$this, 'init_settings_page' ) );
+			// add_action( 'admin_print_scripts-' . $page, array( &$this, 'admin_print_scripts' ) );
 		}
 
 
@@ -600,9 +600,10 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 			$mappings = wcv_get_settings_mapping();
 
-			WC_Vendors::log( __function__ . ' has been depreciated please replace WC_Vendors::$pv_options->get_option(\'' . $name . '\') with get_option(\'' . $mappings[ $name ] . '\')' );
+			if ( array_key_exists( $name, $mappings ) ) {
+				WC_Vendors::log( __function__ . ' has been depreciated please replace WC_Vendors::$pv_options->get_option(\'' . $name . '\') with get_option(\'' . $mappings[ $name ] . '\')' );
 
-			wc_deprecated_function( __class__ .'->' . __function__, '2.0.0', 'with get_option(\'' . $mappings[ $name ] . '\')' );
+			}
 
 			return ( array_key_exists( $name, $mappings ) ) ? get_option( $mappings[ $name ] ) : null;
 
