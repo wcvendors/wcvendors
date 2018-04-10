@@ -146,25 +146,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 				'type'    => 'checkbox',
 			),
 
-
-			// array(
-			// 	'title'   => __( 'Import Products', 'wc-vendors' ),
-			// 	'desc'    => sprintf( __( 'Allow %s to import products', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
-			// 	'id'      => 'wcvendors_capability_product_import',
-			// 	'default' => 'no',
-			// 	'type'    => 'checkbox',
-			// ),
-
-			// array(
-			// 	'title'   => __( 'Export Products', 'wc-vendors' ),
-			// 	'desc'    => sprintf( __( 'Allow %s to export products', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
-			// 	'id'      => 'wcvendors_capability_product_export',
-			// 	'default' => 'no',
-			// 	'type'    => 'checkbox',
-			// ),
-
-
-			array( 'type' => 'sectionend', 'id' => 'product_add_options' ),
+		array( 'type' => 'sectionend', 'id' => 'product_add_options' ),
 
 			) );
 
@@ -317,25 +299,6 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 
 			array( 'type' => 'sectionend', 'id' => 'permissions_orders_options' ),
-
-
-			// // Reports
-			// array(
-			// 	'title' 	=> __( 'Reports', 'wc-vendors' ),
-			// 	'type' 		=> 'title',
-			// 	'id' 		=> 'permissions_reports_options',
-			// ),
-
-			// array(
-			// 	'title'   => __( 'View Reports', 'wc-vendors' ),
-			// 	'desc'    => sprintf( __( 'Allow %s to view reports', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
-			// 	'id'      => 'wcvendors_capability_reports_enabled',
-			// 	'default' => 'yes',
-			// 	'type'    => 'checkbox',
-			// ),
-
-
-			// array( 'type' => 'sectionend', 'id' => 'permissions_reports_options' ),
 
 			) );
 

@@ -520,15 +520,9 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				foreach ( $valid as $order_item_id => $item ) {
 
 					$wc_product 		= new WC_Product( $item['product_id'] );
-
 					$products 			.= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />';
-
-					if ( version_compare( WC_VERSION, '2.7', '<' ) ) {
-						$metadata = $order->has_meta( $order_item_id );
-					} else {
-						$_item            	= $order->get_item( $order_item_id );
-						$meta_data       	= $_item->get_meta_data();
-					}
+					$_item            	= $order->get_item( $order_item_id );
+					$meta_data       	= $_item->get_meta_data();
 
 					if ( !empty( $metadata ) ) {
 

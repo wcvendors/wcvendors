@@ -114,15 +114,11 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'init', 		  array( $this, 'include_init' ) );
 			add_action( 'current_screen', array( $this, 'include_assets' ) );
 
-			// add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
-			// add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
-
 			// Start a PHP session, if not yet started then destroy if logged in or out
 			add_action( 'init', 		array( $this, 'init_session'), 1 );
 			add_action( 'wp_logout', 	array( $this, 'destroy_session') );
 			add_action( 'wp_login', 	array( $this, 'destroy_session') );
 
-			// add_filter( 'wc_prd_vendor_options', array( $this, 'upgrade_pro_notice' ) );
 		}
 
 
@@ -168,8 +164,6 @@ if ( wcv_is_woocommerce_activated() ) {
 				return false;
 			}
 
-			// require_once wcv_plugin_dir . 'classes/class-install.php';
-			// $this->load_settings();
 		}
 
 
@@ -293,54 +287,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php';
 		}
 
-
-		/**
-		 * Do an action when options are updated
-		 *
-		 * @param array   $options
-		 * @param unknown $tabname
-		 */
-		public function option_updates( $options, $tabname )
-		{
-			// Change the vendor role capabilities
-			if ( $tabname == sanitize_title(__( 'Capabilities', 'wc-vendors' )) ) {
-				$can_add          = $options[ 'can_submit_products' ];
-				$can_edit         = $options[ 'can_edit_published_products' ];
-				$can_submit_live  = $options[ 'can_submit_live_products' ];
-
-				$args = array(
-					'assign_product_terms'      => $can_add,
-					'edit_products'             => $can_add || $can_edit,
-					'edit_published_products'   => $can_edit,
-					'delete_published_products' => $can_edit,
-					'delete_products'           => $can_edit,
-					'manage_product'            => $can_add,
-					'publish_products'          => $can_submit_live,
-					'read'                      => true,
-					'read_products'             => $can_edit || $can_add,
-					'upload_files'              => true,
-					'import'                    => true,
-					'view_woocommerce_reports'  => false,
-				);
-
-				remove_role( 'vendor' );
-
-				add_role( 'vendor', __('Vendor', 'wc-vendors'), $args );
-			} // Update permalinks
-			else if ( $tabname == sanitize_title(__( 'General', 'wc-vendors' ) )) {
-				$old_permalink = WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' );
-				$new_permalink = $options[ 'vendor_shop_permalink' ];
-
-				if ( $old_permalink != $new_permalink ) {
-					update_option( WC_Vendors::$id . '_flush_rules', true );
-				}
-			}
-
-			do_action( 'wcvendors_option_updates', $options, $tabname );
-
-		}
-
-
 		/**
 		 *  If the settings are updated and the vendor page link has changed update permalinks
 		 *	@access public
@@ -354,30 +300,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			}
 		}
 
-		/**
-		 *  Add links to plugin page to our external help site.
-		 *	@param $links - links array from action
-		 *	@param $file - file reference for this plugin
-		 *	@access public
-		 *
-		 */
-		public static function plugin_row_meta( $links, $file ) {
-
-			if ( $file == wcv_plugin_base ) {
-
-				$row_meta = array(
-	                            'docs' 		=> '<a href="https://docs.wcvendors.com/?utm_source=plugin" target="_blank">'.__( 'Documentation', 'wc-vendors' ).'</a>',
-	                            'pro' 		=> '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="_blank">'.__( 'Upgrade to Pro', 'wc-vendors').'</a></strong>',
-	                            'support' 	=> '<a href="https://www.wcvendors.com/contact-us/?utm_source=plugin" target="_blank">'.__( 'Contact Us', 'wc-vendors' ).'</a>'
-	                        );
-
-				if ( class_exists( 'WCVendors_Pro' ) ) unset( $row_meta[ 'pro' ] );
-
-				return array_merge( $links, $row_meta );
-			}
-
-			return (array) $links;
-		}
 
 		/**
 		 * Add user meta to remember ignore notices
@@ -429,40 +351,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			}
 
 		} // log()
-
-
-		public function upgrade_pro_notice( $options ){
-
-			if ( ! class_exists( 'WCVendors_Pro' ) ){
-
-
-				$options[ ] = array( 'name' => __( 'Upgrade to Pro', 'wc-vendors' ), 'type' => 'heading' );
-
-				$options[ ] = array(
-						'name' => __( 'Upgrade to WC Vendors Pro!', 'wc-vendors' ), 'type' => 'title', 'desc' =>
-
-					sprintf( __( 'WC Vendors Pro extends your marketplace to include some of the following enhanced features
-							<ul>
-							 	<li>Complete front end dashboard for your vendors</li>
-							 	<li>Vendor Coupons</li>
-							 	<li>Vendor product management</li>
-							 	<li>Vendor Order management</li>
-							 	<li>Vendor ratings</li>
-							 	<li>Vendors can upload their own store banners</li>
-							 	<li>A comprehensive shipping system for your vendors including two systems. Flat rate and Table rate shipping.</li>
-							 	<li>All default product types supported on the front end</li>
-							 	<li>Custom product-edit templates</li>
-							 	<li>Complete vendor signup form</li>
-							</ul>
-							<a href="http://www.wcvendors.com/home/comparison/?utm_source=plugin">See the complete comparison list here.</a>
-							<h1><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo">Buy Pro Today</a></h1>', 'wc-vendors' )
-					),
-				);
-			}
-
-
-			return $options;
-		}
 
 	}
 
