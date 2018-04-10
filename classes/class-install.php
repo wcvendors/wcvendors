@@ -64,8 +64,6 @@ class WCVendors_Install {
 
 		if ( class_exists( 'WCVendors_Pro' ) ){
 
-			$pro_db_version = get_option( 'wcvendors_pro_db_version' );
-
 			if ( version_compare( WCV_PRO_VERSION, '1.5.0', '<' ) ){
 
 				if ( is_plugin_active( 'wc-vendors-pro/wcvendors-pro.php' ) ){
@@ -75,7 +73,6 @@ class WCVendors_Install {
 				}
 			}
 		}
-
 	}
 
 	/**
@@ -89,8 +86,8 @@ class WCVendors_Install {
 			WCVendors_Admin_Notices::add_notice( 'update' );
 		}
 		if ( ! empty( $_GET['force_update_wcvendors'] ) ) {
-			do_action( 'wp_' . get_current_blog_id() . '_wc_updater_cron' );
-			wp_safe_redirect( admin_url( 'admin.php?page=wc-settings' ) );
+			self::update();
+			wp_safe_redirect( admin_url( 'admin.php?page=wcv-settings' ) );
 			exit;
 		}
 	}
