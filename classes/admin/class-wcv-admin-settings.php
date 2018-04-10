@@ -490,6 +490,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					break;
 
 					case 'image':
+
 						$option_value = self::get_option( $value['id'], $value['default'] );
 
 						?><tr valign="top">

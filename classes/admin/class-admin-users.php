@@ -146,6 +146,7 @@ class WCV_Admin_Users
 			'taxes' 	=>  get_option( 'wcvendors_capability_product_taxes' ),
 			'sku' 		=>  get_option( 'wcvendors_capability_product_sku' ),
 			'duplicate' =>  get_option( 'wcvendors_capability_product_duplicate' ),
+			'delete' 	=>  get_option( 'wcvendors_capability_product_delete' ),
 			'featured' 	=>  get_option( 'wcvendors_capability_product_featured' )
 		);
 
