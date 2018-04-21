@@ -67,7 +67,7 @@ class WCV_Admin_Reports
 			),
 		);
 
-		return $reports;
+		return apply_filters( 'wcvendors_admin_reports_tab', $reports_tab );
 	}
 
 	public function products()
