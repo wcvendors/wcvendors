@@ -124,6 +124,8 @@ class WCV_Emails
 	 */
 	public function vendor_stock_email( $emails, $product ) {
 
+		if ( ! is_a( $product, 'WC_Product' ) ) return; 
+
 		$post 			= get_post( $product->get_id() );
 
 		if ( WCV_Vendors::is_vendor( $post->post_author ) ) {
