@@ -327,6 +327,7 @@ class WCVendors_Admin_Setup_Wizard {
 	 */
 	public function wcv_setup_ready() {
 
+		WCVendors_Admin_Notices::remove_notice( 'install' );
 		WCVendors_Install::update_db_version();
 
 		$user_email   	= $this->get_current_user_email();

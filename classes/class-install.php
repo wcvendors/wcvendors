@@ -244,7 +244,7 @@ class WCVendors_Install {
 	 * @return boolean
 	 */
 	public static function is_new_install() {
-		return is_null( get_option( 'wcvendors_version', null ) ) && is_null( get_option( 'wcvendors_db_version', null ) && is_null( get_option( 'wc_prd_vendor_options' ) ) );
+		return is_null( get_option( 'wcvendors_version', null ) ) && is_null( get_option( 'wcvendors_db_version', null ) ) && is_null( get_option( 'wc_prd_vendor_options', null ) );
 	}
 
 	/**

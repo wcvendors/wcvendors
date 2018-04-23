@@ -108,7 +108,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'admin_init', array( $this, 'maybe_flush_permalinks' ), 99 );
 			add_action( 'admin_init', array( $this, 'wcv_required_ignore_notices' ) );
 
-			add_action( 'plugins_loaded', array( $this, 'load_settings' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_core' ) );
 			add_action( 'init', 		  array( $this, 'include_init' ) );
@@ -158,7 +157,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 */
 		public function check_install()	{
 
-			if ( version_compare( WC_VERSION, '2.6', '<' ) ) {
+			if ( version_compare( WC_VERSION, '3.0.0', '<' ) ) {
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
 				deactivate_plugins( plugin_basename( __FILE__ ) );
 				return false;
@@ -170,12 +169,10 @@ if ( wcv_is_woocommerce_activated() ) {
 		/**
 		 * Set static $pv_options to hold options class
 		 */
-		public function load_settings()
-		{
+		public function load_settings() {
 			if ( empty( self::$pv_options ) ) {
-				require_once wcv_plugin_dir . 'classes/admin/settings/classes/sf-class-settings.php';
-				self::$pv_options = new SF_Settings_API( self::$id, $this->title, 'woocommerce', __FILE__ );
-				self::$pv_options->load_options( wcv_plugin_dir . 'classes/admin/settings/sf-options.php' );
+				include_once( wcv_plugin_dir . 'classes/includes/class-sf-settings.php' );
+				self::$pv_options = new SF_Settings_API();
 			}
 		}
 
@@ -185,7 +182,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			load_plugin_textdomain( 'wc-vendors', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
 
 		}
-
 
 		/**
 		 * Include core files
@@ -220,6 +216,8 @@ if ( wcv_is_woocommerce_activated() ) {
 			include_once( wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php');
 			include_once( wcv_plugin_dir . 'classes/includes/wcv-update-functions.php');
 			include_once( wcv_plugin_dir . 'classes/includes/wcv-template-functions.php');
+
+			// Include
 
 
 			if ( !function_exists( 'woocommerce_wp_text_input' ) && !is_admin() ) {

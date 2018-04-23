@@ -64,7 +64,7 @@ class WCVendors_Settings_Payments extends WCVendors_Settings_Page {
 				array(
 					'title'    => __( '', 'wc-vendors' ),
 					'type'     => 'title',
-					'desc'     => sprintf( __( '<h3>PayPal Adaptive Payments - PayPal Adatptive Payments has been depreciated by PayPal as of September 2017. These options are for existing users only.</h3>', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'     => sprintf( __( '<h3>PayPal Adaptive Payments - Please Note: PayPal Adaptive Payments has been depreciated by PayPal as of September 2017. These options are for existing users only. This will be completely removed in a future version.</h3>', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
 					'id'       => 'paypal_options',
 				),
 
