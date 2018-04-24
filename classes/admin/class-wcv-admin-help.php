@@ -60,7 +60,7 @@ class WCVendors_Admin_Help {
 					'https://www.wcvendors.com/submit-ticket/?utm_source=plugin&utm_medium=help&utm_campaign=pluginsettings'
 				) . '</p>' .
 				'<p>' . __( 'Before asking for help we recommend checking the system status page to identify any problems with your configuration. <strong>Anything showing red should be fixed before contacting us.</strong>', 'wc-vendors' ) . '</p>' .
-				'<p>' . sprintf( __( 'Please follow <a href="%s">debuggin guide</a> to ensure that you have narrowed down the issue. ', 'wc-vendors' ), 'https://docs.wcvendors.com/knowledge-base/the-debugging-guide/?utm_source=plugin&utm_medium=help&utm_campaign=settings' ) .
+				'<p>' . sprintf( __( 'Please follow our <a href="%s">debuggin guide</a> to ensure that you have narrowed down the issue. ', 'wc-vendors' ), 'https://docs.wcvendors.com/knowledge-base/the-debugging-guide/?utm_source=plugin&utm_medium=help&utm_campaign=settings' ) .
 				'<p><a href="' . admin_url( 'admin.php?page=wc-status' ) . '" class="button button-primary">' . __( 'System status', 'wc-vendors' ) . '</a> <a href="https://wordpress.org/support/plugin/wc-vendors" class="button">' . __( 'Community forum', 'wc-vendors' ) . '</a> <a href="https://www.wcvendors.com/submit-ticket/?utm_source=plugin&utm_medium=help&utm_campaign=pluginsettings" class="button">' . __( 'WC Vendors Premium Support', 'wc-vendors' ) . '</a></p>',
 		) );
 
@@ -92,6 +92,16 @@ class WCVendors_Admin_Help {
 				'<h2>' . __( 'Setup wizard', 'wc-vendors' ) . '</h2>' .
 				'<p>' . __( 'If you need to access the setup wizard again, please click on the button below.', 'wc-vendors' ) . '</p>' .
 				'<p><a href="' . admin_url( 'index.php?page=wcv-setup' ) . '" class="button button-primary">' . __( 'Setup wizard', 'wc-vendors' ) . '</a></p>',
+
+		) );
+
+		$screen->add_help_tab( array(
+			'id'        => 'wcvendors_upgrade_tab',
+			'title'     => __( 'Update', 'wc-vendors' ),
+			'content'   =>
+				'<h2>' . __( 'Upgrade', 'wc-vendors' ) . '</h2>' .
+				'<p>' . __( 'If you need to manually run the updates, please click on the button below.', 'wc-vendors' ) . '</p>' .
+				'<p><a href="' . esc_url( add_query_arg( 'do_update_wcvendors', 'true', admin_url( 'admin.php?page=wcv-settings' ) ) ). '" class="button button-primary">' . __( 'Run the updater', 'wc-vendors' ) . '</a></p>',
 
 		) );
 
