@@ -134,7 +134,7 @@ class WCVendors_Admin_Setup_Wizard {
 	 * @return string       URL for next step if a next step exists.
 	 *                      Admin URL if it's the last step.
 	 *                      Empty string on failure.
-	 * @since 3.0.0
+	 * @since 2.0.0
 	 */
 	public function get_next_step_link( $step = '' ) {
 		if ( ! $step ) {
@@ -329,6 +329,7 @@ class WCVendors_Admin_Setup_Wizard {
 
 		WCVendors_Admin_Notices::remove_notice( 'install' );
 		WCVendors_Install::update_db_version();
+		flush_rewrite_rules();
 
 		$user_email   	= $this->get_current_user_email();
 		$forums   		= 'https://wordpress.org/support/plugin/wc-vendors';
@@ -339,6 +340,7 @@ class WCVendors_Admin_Setup_Wizard {
 			$docs_url,
 			$forums
 		);
+
 		include( WCV_ABSPATH_ADMIN . 'views/setup/ready.php' );
 	}
 }

@@ -10,9 +10,9 @@
  *
  * Version:              2.0.0
  * Requires at least:    4.4.0
- * Tested up to:         4.9.4
+ * Tested up to:         4.9.5
  * WC requires at least: 3.0.0
- * WC tested up to: 	 3.3.1
+ * WC tested up to: 	 3.3.5
  *
  * Text Domain:         wc-vendors
  * Domain Path:         /languages/
@@ -290,11 +290,10 @@ if ( wcv_is_woocommerce_activated() ) {
 		 *	@access public
 		 *
 		*/
-		public function maybe_flush_permalinks()
-		{
-			if ( get_option( WC_Vendors::$id . '_flush_rules' ) ) {
+		public function maybe_flush_permalinks() {
+			if ( 'yes' === get_option( 'wcvendors_queue_flush_rewrite_rules' ) ) {
 				flush_rewrite_rules();
-				update_option( WC_Vendors::$id . '_flush_rules', false );
+				update_option( 'wcvendors_queue_flush_rewrite_rules', 'no' );
 			}
 		}
 
