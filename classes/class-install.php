@@ -13,7 +13,8 @@ class WCVendors_Install {
 	private static $db_updates = array(
 		'2.0.0'	=> array(
 			'wcv_migrate_settings',
-			'wcv_update_200_db_version'
+			'wcv_update_200_db_version',
+			'wcv_enable_legacy_emails'
 		)
 	);
 
@@ -39,7 +40,6 @@ class WCVendors_Install {
 		add_filter( 'plugin_row_meta', 								array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 		add_filter( 'plugin_action_links_' . wcv_plugin_base, 		array( __CLASS__, 'plugin_action_links' ) );
 		add_action( 'wcvendors_update_options_display',		 		array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
-		add_action( 'wcvendors_flush_rewrite_rules', 				array( __CLASS__, 'flush_rewrite_rules' ) );
 
 	} // init()
 
@@ -272,7 +272,7 @@ class WCVendors_Install {
 	/**
 	 * Is a DB update needed?
 	 *
-	 * @since 3.2.0
+	 * @since 2.0.0
 	 * @return boolean
 	 */
 	private static function needs_db_update() {
@@ -412,6 +412,7 @@ class WCVendors_Install {
 	 * @return	array
 	 */
 	public static function plugin_row_meta( $links, $file ) {
+
 		if ( wcv_plugin_base == $file ) {
 			$row_meta = array(
 				'docs'    => '<a href="' . esc_url( apply_filters( 'wcvendors_docs_url', 'https://docs.wc-vendors.com/' ) ) . '" aria-label="' . esc_attr__( 'View WC Vendors documentation', 'wc-vendors' ) . '">' . esc_html__( 'Docs', 'wc-vendors' ) . '</a>',
@@ -425,22 +426,15 @@ class WCVendors_Install {
 		return (array) $links;
 	}
 
-		/**
-	 * Flush rewrite rules.
-	 */
-	public static function flush_rewrite_rules() {
-		flush_rewrite_rules();
-	}
-
 	/**
 	 * Flush rules if the event is queued.
 	 *
-	 * @since 3.3.0
+	 * @since 2.0.0
 	 */
 	public static function maybe_flush_rewrite_rules() {
 		if ( 'yes' === get_option( 'wcvendors_queue_flush_rewrite_rules' ) ) {
 			update_option( 'wcvendors_queue_flush_rewrite_rules', 'no' );
-			self::flush_rewrite_rules();
+			flush_rewrite_rules();
 		}
 	}
 

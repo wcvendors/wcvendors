@@ -26,7 +26,7 @@ class WC_Email_Notify_Admin extends WC_Email
 	{
 		$this->id          		= 'admin_new_vendor_product';
 		$this->title       		= __( 'New Vendor Product', 'wc-vendors' );
-		$this->description 		= __( 'New order emails are sent when a new product is submitted by a vendor', 'wc-vendors' );
+		$this->description 		= __( 'New order emails are sent when a new product is submitted by a vendor. <strong>This email has been depreciated.</strong>', 'wc-vendors' );
 
 		$this->heading 			= __( 'New product submitted: {product_name}', 'wc-vendors' );
 		$this->subject 			= __( '[{blogname}] New product submitted by {vendor_name} - {product_name}', 'wc-vendors' );
@@ -134,7 +134,7 @@ class WC_Email_Notify_Admin extends WC_Email
 				'title'   => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Enable this email notification', 'wc-vendors' ),
-				'default' => 'yes'
+				'default' => 'no'
 			),
 			'recipient'  => array(
 				'title'       => __( 'Recipient(s)', 'woocommerce' ),

@@ -148,7 +148,7 @@ class WCVendors_Vendor_Notify_Denied extends WC_Email {
 				'title'         => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'          => 'checkbox',
 				'label'         => __( 'Enable this email notification', 'wc-vendors' ),
-				'default'       => 'no',
+				'default'       => 'yes',
 			),
 			'subject' => array(
 				'title'         => __( 'Subject', 'wc-vendors' ),

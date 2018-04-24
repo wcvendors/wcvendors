@@ -25,7 +25,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 	{
 		$this->id          = 'vendor_new_order';
 		$this->title       = __( 'Notify vendors', 'wc-vendors' );
-		$this->description = __( 'New order emails are sent when an order is received/paid by a customer.', 'wc-vendors' );
+		$this->description = __( 'New order emails are sent when an order is received/paid by a customer. <strong>This email has been depreciated.</strong>', 'wc-vendors' );
 
 		$this->heading = __( 'New customer order', 'wc-vendors' );
 		$this->subject = __( '[{blogname}] New customer order ({order_number}) - {order_date}', 'wc-vendors' );
@@ -268,7 +268,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 				'title'   => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Enable this email notification', 'wc-vendors' ),
-				'default' => 'yes'
+				'default' => 'no'
 			),
 			'subject'    => array(
 				'title'       => __( 'Subject', 'wc-vendors' ),

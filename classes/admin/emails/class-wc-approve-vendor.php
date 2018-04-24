@@ -26,7 +26,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 	{
 		$this->id          = 'vendor_application';
 		$this->title       = __( 'Vendor Application', 'wc-vendors' );
-		$this->description = __( 'Vendor application will either be approved, denied, or pending.', 'wc-vendors' );
+		$this->description = __( 'Vendor application will either be approved, denied, or pending. <strong>This email has been depreciated.</strong>', 'wc-vendors' );
 
 		$this->heading = __( 'Application {status}', 'wc-vendors' );
 		$this->subject = __( '[{blogname}] Your vendor application has been {status}', 'wc-vendors' );
@@ -123,7 +123,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 				'title'   => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Enable this email notification', 'wc-vendors' ),
-				'default' => 'yes'
+				'default' => 'no'
 			),
 			'recipient'  => array(
 				'title'       => __( 'Recipient(s)', 'woocommerce' ),

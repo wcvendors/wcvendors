@@ -144,7 +144,7 @@ class WCVendors_Admin_Notify_Product extends WC_Email {
 				'title'         => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'          => 'checkbox',
 				'label'         => __( 'Enable this email notification', 'wc-vendors' ),
-				'default'       => 'no',
+				'default'       => 'yes',
 			),
 			'recipient' => array(
 				'title'         => __( 'Recipient(s)', 'wc-vendors' ),

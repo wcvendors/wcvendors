@@ -26,7 +26,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 	{
 		$this->id          = 'vendor_notify_shipped';
 		$this->title       = __( 'Vendor has shipped', 'wc-vendors' );
-		$this->description = __( 'An email is sent when a vendor has marked one of their orders as shipped.', 'wc-vendors' );
+		$this->description = __( 'An email is sent when a vendor has marked one of their orders as shipped. <strong>This email has been depreciated.</strong>', 'wc-vendors' );
 
 		$this->heading = __( 'Your order has been shipped', 'wc-vendors' );
 		$this->subject = __( '[{blogname}] Your order has been shipped ({order_number}) - {order_date}', 'wc-vendors' );
@@ -166,7 +166,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 				'title'   => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Enable this email notification', 'wc-vendors' ),
-				'default' => 'yes'
+				'default' => 'no'
 			),
 			'subject'    => array(
 				'title'       => __( 'Subject', 'wc-vendors' ),

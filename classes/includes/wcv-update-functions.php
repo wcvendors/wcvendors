@@ -46,6 +46,8 @@ function wcv_migrate_settings(){
 
 		}
 	}
+
+	flush_rewrite_rules();
 }
 
 /**
@@ -90,6 +92,17 @@ function wcv_get_settings_mapping(){
 		'mail_mass_pay_results' 			=> 'wcvendors_payments_paypal_email_enable'
 
 	) );
+}
+
+
+/**
+* Enable legacy emails for existing installs.
+*
+* @since 2.0.0
+*/
+function wcv_enable_legacy_emails(){
+	$notice = sprintf( __( 'WC Vendors legacy emails are enabled. Please migrate your email templates to the new system. <a href="%s">Click here to view your email settings.</a>', 'wc-vendors' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=email' ) ) );
+	WCVendors_Admin_Notices::add_custom_notice( 'email_updates', $notice );
 }
 
 /**

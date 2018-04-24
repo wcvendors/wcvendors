@@ -46,7 +46,7 @@ abstract class WCVendors_Settings_Page {
 
 	/**
 	 * Get settings page ID.
-	 * @since 3.0.0
+	 * @since 2.0.0
 	 * @return string
 	 */
 	public function get_id() {
@@ -55,7 +55,7 @@ abstract class WCVendors_Settings_Page {
 
 	/**
 	 * Get settings page label.
-	 * @since 3.0.0
+	 * @since 2.0.0
 	 * @return string
 	 */
 	public function get_label() {
