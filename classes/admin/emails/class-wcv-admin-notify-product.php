@@ -84,14 +84,16 @@ class WCVendors_Admin_Notify_Product extends WC_Email {
 		$this->product 		= wc_get_product( $post_id );
 		$this->vendor_name 	= WCV_Vendors::get_vendor_shop_name( $post->post_author );
 
-		$this->placeholders['{product_name}']   = $this->product->get_title();
-		$this->placeholders['{vendor_name}'] 	= $this->vendor_name;
+		if ( is_a( 'WC_Product', $this->product ) ){
+			$this->placeholders['{product_name}']   = $this->product->get_title();
+			$this->placeholders['{vendor_name}'] 	= $this->vendor_name;
 
-		if ( $this->is_enabled() && $this->get_recipient() ) {
-			$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
+			if ( $this->is_enabled() && $this->get_recipient() ) {
+				$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
+			}
+
+			$this->restore_locale();
 		}
-
-		$this->restore_locale();
 	}
 
 	/**
