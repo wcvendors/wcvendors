@@ -47,7 +47,7 @@ class WCV_Vendors
 
 
 	/**
-	 * Get vendors from an order including all user meta and vendor items filtered and grouped 
+	 * Get vendors from an order including all user meta and vendor items filtered and grouped
 	 *
 	 * @param object  $order
 	 * @param unknown $items (optional)
@@ -323,20 +323,20 @@ class WCV_Vendors
 	 *
 	 * @return bool
 	 */
-	public static function is_vendor( $user_id )
-	{
-		$user = get_userdata( $user_id );
+	public static function is_vendor( $user_id ) {
 
-		$vendor_roles = apply_filters( 'wcvendors_vendor_roles', array( 'vendor') );
+		$user 			= get_userdata( $user_id );
+		$vendor_roles 	= apply_filters( 'wcvendors_vendor_roles', array( 'vendor') );
+		$is_vendor 		= false;
 
-		if (is_object($user)) {
+		if ( is_object( $user ) && is_array( $user->roles ) ) {
 
 			foreach ($vendor_roles as $role ) {
-				$is_vendor = is_array( $user->roles ) ? in_array( $role , $user->roles ) : false;
+				if (  in_array( $role , $user->roles ) ){
+						$is_vendor = true;
+						break;
+				}
 			}
-
-		} else {
-			$is_vendor = false;
 		}
 
 		return apply_filters( 'pv_is_vendor', $is_vendor, $user_id );
