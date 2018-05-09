@@ -109,6 +109,7 @@ class WCV_Emails
 		$emails[ 'WCVendors_Customer_Notify_Shipped'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-customer-notify-shipped.php' );
 		$emails[ 'WCVendors_Admin_Notify_Shipped'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-shipped.php' );
 		$emails[ 'WCVendors_Admin_Notify_Product'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-product.php' );
+		$emails[ 'WCVendors_Admin_Notify_Application'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-application.php' );
 		$emails[ 'WCVendors_Vendor_Notify_Application'] 	= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-application.php' );
 		$emails[ 'WCVendors_Vendor_Notify_Approved'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php' );
 		$emails[ 'WCVendors_Vendor_Notify_Denied'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php' );
@@ -124,7 +125,7 @@ class WCV_Emails
 	 */
 	public function vendor_stock_email( $emails, $product ) {
 
-		if ( ! is_a( $product, 'WC_Product' ) ) return; 
+		if ( ! is_a( $product, 'WC_Product' ) ) return;
 
 		$post 			= get_post( $product->get_id() );
 
@@ -200,6 +201,8 @@ class WCV_Emails
 				$reason = isset( $_GET[ 'reason' ] ) ? $_GET[ 'reason' ] : '';
 				WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Denied' ]->trigger( $user_id, $reason );
 			}
+
+			WC()->mailer()->emails[ 'WCVendors_Admin_Notify_Application' ]->trigger( $user_id, $role );
 
 		}
 	}

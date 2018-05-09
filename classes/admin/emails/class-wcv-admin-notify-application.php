@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'WCVendors_Admin_Notify_Shipped' ) ) :
+if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
 
 /**
  * Notify Admin Shipped
@@ -17,22 +17,21 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Shipped' ) ) :
  * @author      WC Vendors
  * @extends     WC_Email
  */
-class WCVendors_Admin_Notify_Shipped extends WC_Email {
+class WCVendors_Admin_Notify_Application extends WC_Email {
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->id             = 'admin_notify_shipped';
-		$this->title          = sprintf( __( 'Admin notify %s shipped', 'wc-vendors' ), wcv_get_vendor_name( ) );
-		$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a %s marks an order shipped.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
-		$this->template_html  = 'emails/admin-notify-shipped.php';
-		$this->template_plain = 'emails/plain/admin-notify-shipped.php';
+		$this->id             = 'admin_notify_application';
+		$this->title          = sprintf( __( 'Admin notify vendor application', 'wc-vendors' ), wcv_get_vendor_name( ) );
+		$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a user applies to be a %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
+		$this->template_html  = 'emails/admin-notify-application.php';
+		$this->template_plain = 'emails/plain/admin-notify-application.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
 		$this->placeholders   = array(
 			'{site_title}'   => $this->get_blogname(),
-			'{order_date}'   => '',
-			'{order_number}' => '',
+			'{user_name}'   => '',
 		);
 
 		// Call parent constructor
@@ -49,7 +48,7 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return sprintf( __( '[{site_title}] %s has marked shipped ({order_number}) - {order_date}', 'wc-vendors' ), wcv_get_vendor_name( ) );
+		return sprintf( __( '[{site_title}] {user_name} has applied to be a %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
 	}
 
 	/**
@@ -59,7 +58,7 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return sprintf( __( '%s has shipped', 'wc-vendors' ), wcv_get_vendor_name( ) );
+		return sprintf( __( '%s application received', 'wc-vendors' ), wcv_get_vendor_name( ) );
 	}
 
 	/**
@@ -68,23 +67,14 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 	 * @param int $order_id The order ID.
 	 * @param WC_Order $order Order object.
 	 */
-	public function trigger( $order_id, $user_id, $order = false ) {
+	public function trigger( $vendor_id, $status ) {
 
 		$this->setup_locale();
 
-		$this->vendor_id 	= $user_id;
+		$this->user 		= get_userdata( $vendor_id );
+		$this->status 		= $status;
 
-		if ( $order_id && ! is_a( $order, 'WC_Order' ) ) {
-			$order = wc_get_order( $order_id );
-		}
-
-		if ( is_a( $order, 'WC_Order' ) ) {
-			$this->object 							= $order;
-			$this->placeholders['{order_date}']   	= wc_format_datetime( $this->object->get_date_created() );
-			$this->placeholders['{order_number}'] 	= $this->object->get_order_number();
-		}
-
-		if ( $this->is_enabled() && $this->get_recipient() ) {
+		if ( $this->is_enabled() && $this->get_recipient() && $status === $this->get_option( 'notification' ) ) {
 			$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 		}
 
@@ -105,7 +95,8 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 			'sent_to_admin' => true,
 			'plain_text'    => false,
 			'email'			=> $this,
-			'vendor_id'		=> $this->vendor_id,
+			'user'			=> $this->user,
+			'status'		=> $this->status,
 		), 'woocommerce', $this->template_base );
 	}
 
@@ -122,7 +113,8 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 			'sent_to_admin' => true,
 			'plain_text'    => true,
 			'email'			=> $this,
-			'vendor_id'		=> $this->vendor_id,
+			'user'			=> $this->user,
+			'status'		=> $this->status,
 		), 'woocommerce', $this->template_base );
 	}
 
@@ -135,7 +127,7 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 				'title'         => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'          => 'checkbox',
 				'label'         => __( 'Enable this email notification', 'wc-vendors' ),
-				'default'       => 'yes',
+				'default'       => 'no',
 			),
 			'recipient' => array(
 				'title'         => __( 'Recipient(s)', 'wc-vendors' ),
@@ -150,7 +142,7 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 				'type'          => 'text',
 				'desc_tip'      => true,
 				/* translators: %s: list of placeholders */
-				'description'   => sprintf( __( 'Available placeholders: %s', 'wc-vendors' ), '<code>{site_title}, {order_date}, {order_number}</code>' ),
+				'description'   => sprintf( __( 'Available placeholders: %s', 'wc-vendors' ), '<code>{user_name}</code>' ),
 				'placeholder'   => $this->get_default_subject(),
 				'default'       => '',
 			),
@@ -159,9 +151,21 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 				'type'          => 'text',
 				'desc_tip'      => true,
 				/* translators: %s: list of placeholders */
-				'description'   => sprintf( __( 'Available placeholders: %s', 'wc-vendors' ), '<code>{site_title}, {order_date}, {order_number}</code>' ),
+				'description'   => sprintf( __( 'Available placeholders: %s', 'wc-vendors' ), '<code>{user_name}</code>' ),
 				'placeholder'   => $this->get_default_heading(),
 				'default'       => '',
+			),
+			'notification' => array(
+				'title'         => __( 'Notification', 'wc-vendors' ),
+				'type'          => 'select',
+				'description'   => __( 'Choose when to be notified of an application.', 'wc-vendors' ),
+				'default'       => 'pending',
+				'class'         => 'wc-enhanced-select',
+				'options'       => array(
+					'vendor' 			=> __( 'All Applications', 'wc-vendors'),
+					'pending_vendor' 	=> __( 'Pending Applications', 'wc-vendors' ),
+				),
+				'desc_tip'      => true,
 			),
 			'email_type' => array(
 				'title'         => __( 'Email type', 'wc-vendors' ),
@@ -178,4 +182,4 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 
 endif;
 
-return new WCVendors_Admin_Notify_Shipped();
+return new WCVendors_Admin_Notify_Application();
