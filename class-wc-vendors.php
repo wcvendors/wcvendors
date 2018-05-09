@@ -118,6 +118,13 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'wp_logout', 	array( $this, 'destroy_session') );
 			add_action( 'wp_login', 	array( $this, 'destroy_session') );
 
+
+			// Show update notices
+			$file   = basename( __FILE__ );
+			$folder = basename( dirname( __FILE__ ) );
+			$hook = "in_plugin_update_message-{$folder}/{$file}";
+			add_action( $hook, array( $this, 'show_upgrade_notification') , 10, 2);
+
 		}
 
 
@@ -348,6 +355,38 @@ if ( wcv_is_woocommerce_activated() ) {
 			}
 
 		} // log()
+
+
+		/*
+		* Upgrade notice displayed on the plugin screen
+		*
+		*/
+		public function show_upgrade_notification( $args, $response ) {
+
+			$new_version            = $response->new_version;
+			$upgrade_notice 		= sprintf( __( 'WC Vendors 2.0 is a major update. This is not compatible with any of our existing extensions. You should test this update on a staging server before updating. Backup your site and update your theme and extensions, and <a href="%s">review update details here</a> before upgrading.', 'wc-vendors' ), 'https://docs.wcvendors.com/knowledge-base/upgrading-to-wc-vendors-2-0/');
+
+			if ( version_compare( WCV_VERSION, $new_version, '<' ) && version_compare( $new_version, '2.0.0', '>=') ){
+				echo '<h3>Important Upgrade Notice:</h3>';
+				echo '<p style="background-color: #d54e21; padding: 10px; color: #f9f9f9; margin-top: 10px">';
+		        echo $upgrade_notice;
+		        if ( !class_exists( 'WCVendors_Pro' ) ) echo '</p>';
+
+		        if ( class_exists( 'WCVendors_Pro' ) ){
+
+					if ( version_compare( WCV_PRO_VERSION, '1.5.0', '<' ) ){
+						echo '<h3>WC Vendors Pro Notice</h3>';
+						echo '<p style="background-color: #d54e21; padding: 10px; color: #f9f9f9; margin-top: 10px">';
+						$pro_upgrade = sprintf( __( 'WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current version %s will be deactivated. Please upgrade to the latest version.', 'wc-vendors' ), WCV_PRO_VERSION );
+
+						echo $pro_upgrade;
+						// echo '</p>';
+					}
+
+				}
+
+			}
+		} // show_upgrade_notification()
 
 	}
 

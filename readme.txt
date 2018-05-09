@@ -139,12 +139,9 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Upgrade Notice ==
 
-WC Vendors 2.0 is a major update. This is not compatible with ANY of our existing extensions. The following plugins will require being updated
+= 2.0 =
 
-* WC Vendors Pro 1.5.0 required
-* WC Vendors Stripe Gateway
-* WC Vendors Bookings
-
+WC Vendors 2.0 is a major update. This is not compatible with ANY of our existing extensions. You should test this update on a staging server before updating. update your theme and extensions, and [review update details here](https://docs.wcvendors.com/knowledge-base/upgrading-to-wc-vendors-2-0/) before upgrading.
 
 == Changelog ==
 
