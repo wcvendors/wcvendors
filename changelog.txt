@@ -25,6 +25,7 @@ Version 2.0.0
 Templates Added:
 	templates/emails/plain/admin-notify-product.php
 	templates/emails/plain/admin-notify-shipped.php
+	templates/emails/plain/admin-notify-application.php
 	templates/emails/plain/customer-notify-shipped.php
 	templates/emails/plain/vendor-notify-application.php
 	templates/emails/plain/vendor-notify-approved.php
@@ -34,6 +35,7 @@ Templates Added:
 	templates/emails/plain/vendor-order-items.php
 	templates/emails/admin-notify-product.php
 	templates/emails/admin-notify-shipped.php
+	templates/emails/admin-notify-application.php
 	templates/emails/customer-notify-shipped.php
 	templates/emails/vendor-notify-application.php
 	templates/emails/vendor-notify-approved.php
