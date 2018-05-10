@@ -29,7 +29,7 @@ class WCV_Vendor_Shop
 		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
 
 		// Add sold by to product loop before add to cart
-		if ( get_option( 'wcvendors_display_label_sold_by_enable' ) ) {
+		if ( apply_filters( 'wcvendors_disable_sold_by_labels', get_option( 'wcvendors_display_label_sold_by_enable' ) ) ) {
 			add_action( 'woocommerce_after_shop_loop_item', array('WCV_Vendor_Shop', 'template_loop_sold_by'), 9 );
 		}
 
@@ -37,16 +37,10 @@ class WCV_Vendor_Shop
 		add_filter ( 'woocommerce_show_page_title', array( 'WCV_Vendor_Shop', 'remove_vendor_title' ) );
 
 		// Show vendor on all sales related invoices
-		if ( version_compare( WC_VERSION, '2.7', '<' ) ) {
-
-			add_action( 'woocommerce_add_order_item_meta', array( $this, 'add_vendor_to_order_item_meta_legacy' ), 50, 2 );
-
-		} else {
-
-			add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'add_vendor_to_order_item_meta' ), 50, 3 ); }
+		add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'add_vendor_to_order_item_meta' ), 50, 3 );
 
 		// Add a vendor header
-		if ( get_option( 'wcvendors_display_shop_headers' ) ) {
+		if ( apply_filters( 'wcvendors_disable_shop_headers', get_option( 'wcvendors_display_shop_headers' ) ) ) {
 			add_action( 'woocommerce_before_main_content', array('WCV_Vendor_Shop', 'vendor_main_header'), 20 );
 			add_action( 'woocommerce_before_single_product', array('WCV_Vendor_Shop', 'vendor_mini_header'));
 		}
@@ -160,7 +154,7 @@ class WCV_Vendor_Shop
 
 		if ( $vendor_id ) {
 			$has_html    = get_user_meta( $vendor_id, 'pv_shop_html_enabled', true );
-			$global_html = Wget_option( 'wcvendors_display_shop_description_html' );
+			$global_html = get_option( 'wcvendors_display_shop_description_html' );
 			$description = do_shortcode( get_user_meta( $vendor_id, 'pv_shop_description', true ) );
 
 			echo '<div class="pv_shop_description">';

@@ -228,7 +228,7 @@ if ( wcv_is_woocommerce_activated() ) {
 
 
 			if ( !function_exists( 'woocommerce_wp_text_input' ) && !is_admin() ) {
-				include_once(WC()->plugin_path() . '/includes/admin/wc-meta-box-functions.php');
+				include_once( WC()->plugin_path() . '/includes/admin/wc-meta-box-functions.php' );
 			}
 
 			new WCV_Vendors;
