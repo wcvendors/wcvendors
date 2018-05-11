@@ -38,41 +38,5 @@ class WCV_Dependencies
 
 		return false;
 	}
-
-
-	/**
-	 *
-	 *
-	 * @return boolean
-	 */
-	public static function jigoshop_active_check()
-	{
-		if ( !self::$active_plugins ) self::init();
-
-		foreach ( self::$active_plugins as $plugin ) {
-			if ( strpos( $plugin, '/jigoshop.php' ) ) return true;
-		}
-
-		return false;
-	}
-
-
-	/**
-	 *
-	 *
-	 * @return boolean
-	 */
-	public static function edd_active_check()
-	{
-		if ( !self::$active_plugins ) self::init();
-
-		foreach ( self::$active_plugins as $plugin ) {
-			if ( strpos( $plugin, '/easy-digital-downloads.php' ) ) return true;
-		}
-
-		return false;
-	}
-
-
 }
 ?>
