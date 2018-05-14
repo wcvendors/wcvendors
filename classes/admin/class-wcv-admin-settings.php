@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		self::add_message( __( 'Your settings have been saved.', 'wc-vendors' ) );
 
-		add_option( 'wcvendors_queue_flush_rewrite_rules', 'yes' );
+		update_option( 'wcvendors_queue_flush_rewrite_rules', 'yes' );
 		do_action( 'wcvendors_settings_saved' );
 	}
 

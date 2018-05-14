@@ -73,11 +73,6 @@ if ( wcv_is_woocommerce_activated() ) {
 	if ( !defined( 'wcv_plugin_base' ) ) 		define( 'wcv_plugin_base', plugin_basename( __FILE__ ) );
 	if ( !defined( 'wcv_plugin_dir_path' ) )	define( 'wcv_plugin_dir_path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
-
-	define(	'WCV_VERSION', '2.0.0' );
-	define( 'WCV_ABSPATH_ADMIN', dirname( __FILE__ ) . '/classes/admin/' );
-	define( 'WCV_TEMPLATE_BASE', untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/templates/' );
-
 	/**
 	 * Main Product Vendor class
 	 *
@@ -85,6 +80,8 @@ if ( wcv_is_woocommerce_activated() ) {
 	 */
 	class WC_Vendors
 	{
+
+		public $version = '2.0.0';
 
 		/**
 		 * @var
@@ -103,9 +100,12 @@ if ( wcv_is_woocommerce_activated() ) {
 
 			$this->title = __( 'WC Vendors', 'wc-vendors' );
 
+			$this->define_constants();
+
 			// Install & upgrade
 			add_action( 'admin_init', array( $this, 'check_install' ) );
-			add_action( 'admin_init', array( $this, 'maybe_flush_permalinks' ), 99 );
+			add_action( 'init', array( $this, 'maybe_flush_permalinks' ), 99 );
+			add_action( 'wcvendors_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ) );
 			add_action( 'admin_init', array( $this, 'wcv_required_ignore_notices' ) );
 
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
@@ -117,6 +117,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'init', 		array( $this, 'init_session'), 1 );
 			add_action( 'wp_logout', 	array( $this, 'destroy_session') );
 			add_action( 'wp_login', 	array( $this, 'destroy_session') );
+
 
 
 			// Show update notices
@@ -134,6 +135,30 @@ if ( wcv_is_woocommerce_activated() ) {
 		public function invalid_wc_version() {
 			echo '<div class="error"><p>' . __( '<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce 3.0.0 to operate.', 'wc-vendors' ) . '</p></div>';
 		}
+
+		/**
+		 * Define WC Constants.
+		 */
+		private function define_constants() {
+
+			$this->define( 'WCV_VERSION', $this->version );
+			$this->define( 'WCV_TEMPLATE_BASE', untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/templates/' );
+			$this->define( 'WCV_ABSPATH_ADMIN', dirname( __FILE__ ) . '/classes/admin/');
+
+		}
+
+	/**
+	 * Define constant if not already set.
+	 *
+	 * @param string      $name  Constant name.
+	 * @param string|bool $value Constant value.
+	 */
+	private function define( $name, $value ) {
+		if ( ! defined( $name ) ) {
+			define( $name, $value );
+		}
+	}
+
 
 		/**
 		 *  Start the session
@@ -176,12 +201,12 @@ if ( wcv_is_woocommerce_activated() ) {
 		/**
 		 * Set static $pv_options to hold options class
 		 */
-		public function load_settings() {
-			if ( empty( self::$pv_options ) ) {
-				include_once( wcv_plugin_dir . 'classes/includes/class-sf-settings.php' );
-				self::$pv_options = new SF_Settings_API();
-			}
-		}
+		// public function load_settings() {
+		// 	if ( empty( self::$pv_options ) ) {
+		// 		include_once( wcv_plugin_dir . 'classes/includes/class-sf-settings.php' );
+		// 		self::$pv_options = new SF_Settings_API();
+		// 	}
+		// }
 
 		public function load_il8n() {
 		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wc-vendors' );
@@ -299,9 +324,13 @@ if ( wcv_is_woocommerce_activated() ) {
 		*/
 		public function maybe_flush_permalinks() {
 			if ( 'yes' === get_option( 'wcvendors_queue_flush_rewrite_rules' ) ) {
-				flush_rewrite_rules();
+				$this->flush_rewrite_rules();
 				update_option( 'wcvendors_queue_flush_rewrite_rules', 'no' );
 			}
+		}
+
+		public function flush_rewrite_rules(){
+			flush_rewrite_rules();
 		}
 
 
