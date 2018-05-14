@@ -157,6 +157,7 @@ WC Vendors 2.0 is a major update. This is not compatible with ANY of our existin
 * Updated: styles and script build script
 * Updated: language file cleanup
 * Updated: Brazilian Portuguese translation thanks CasperBraske
+* Fixed: Permalinks not flushing on settings save
 * Fixed: Terms & Conditions Checkbox for Vendor Registration does not show #392
 * Fixed: Depreciated calls on orders screen
 * Fixed: Vendor role capabilities updated when new settings updated.
