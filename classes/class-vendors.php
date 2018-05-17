@@ -100,8 +100,8 @@ class WCV_Vendors
 	{
 		global $woocommerce;
 
-		$give_tax       	= 'yes' == get_option( 'wcvendors_vendor_give_taxes' ) ? true : false;
-		$give_shipping 		= 'yes' == get_option( 'wcvendors_vendor_give_shipping' ) ? true : false;
+		$give_tax       	= 'yes' == get_option( 'wcvendors_vendor_give_taxes', 'no' ) ? true : false;
+		$give_shipping 		= 'yes' == get_option( 'wcvendors_vendor_give_shipping', 'no' ) ? true : false;
 		$receiver      		= array();
 		$shipping_given 	= 0;
 		$tax_given      	= 0;

@@ -25,7 +25,7 @@
 
 	<p><?php _e( 'Your account is not setup as a vendor.', 'wc-vendors' ); ?></p>
 
-	<?php if ( get_option( 'wcvendors_vendor_allow_registration' ) ) { ?>
+	<?php if ( 'yes' === get_option( 'wcvendors_vendor_allow_registration', 'no' ) ) { ?>
 		<form method="POST" action="">
 			<div class="clear"></div>
 			<p class="form-row">

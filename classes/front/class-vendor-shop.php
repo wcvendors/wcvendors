@@ -29,7 +29,7 @@ class WCV_Vendor_Shop
 		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
 
 		// Add sold by to product loop before add to cart
-		if ( apply_filters( 'wcvendors_disable_sold_by_labels', 'yes' === get_option( 'wcvendors_display_label_sold_by_enable' ) ) ) {
+		if ( apply_filters( 'wcvendors_disable_sold_by_labels', 'yes' === get_option( 'wcvendors_display_label_sold_by_enable', 'no'  ) ) ) {
 			add_action( 'woocommerce_after_shop_loop_item', array('WCV_Vendor_Shop', 'template_loop_sold_by'), 9 );
 		}
 
@@ -154,7 +154,7 @@ class WCV_Vendor_Shop
 
 		if ( $vendor_id ) {
 			$has_html    = get_user_meta( $vendor_id, 'pv_shop_html_enabled', true );
-			$global_html = get_option( 'wcvendors_display_shop_description_html' );
+			$global_html = 'yes' == get_option( 'wcvendors_display_shop_description_html', 'no' ) ? true : false;
 			$description = do_shortcode( get_user_meta( $vendor_id, 'pv_shop_description', true ) );
 
 			echo '<div class="pv_shop_description">';
@@ -237,7 +237,7 @@ class WCV_Vendor_Shop
 
 			// Shop description
 			$has_html    		= get_user_meta( $vendor_id, 'pv_shop_html_enabled', true );
-			$global_html 		= get_option( 'wcvendors_display_shop_description_html' );
+			$global_html 		= 'yes' == get_option( 'wcvendors_display_shop_description_html', 'no' ) ? true : false;
 			$description 		= do_shortcode( get_user_meta( $vendor_id, 'pv_shop_description', true ) );
 			$shop_description 	= ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
 			$seller_info 		= ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );
@@ -280,7 +280,7 @@ class WCV_Vendor_Shop
 			$vendor_shop_link 	= site_url( get_option( 'wcvendors_vendor_approve_registration' ) .'/' .$vendor->pv_shop_slug );
 			$shop_name 			= get_user_meta( $vendor_id, 'pv_shop_name', true );
 			$has_html    		= $vendor->pv_shop_html_enabled;
-			$global_html 		= get_option( 'wcvendors_display_shop_description_html' );
+			$global_html 		= 'yes' === get_option( 'wcvendors_display_shop_description_html', 'no' ) ? true : false;
 			$description 		= do_shortcode( $vendor->pv_shop_description );
 			$shop_description 	= ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
 			$seller_info 		= ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );

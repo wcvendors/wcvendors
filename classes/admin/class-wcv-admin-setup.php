@@ -115,9 +115,9 @@ class WCV_Admin_Setup {
 	 */
 	public static function reset_vendor_roles(){
 
-		$can_add          = 'yes' === get_option( 'wcvendors_capability_products_enabled' ) ? true : false;
-		$can_edit         = 'yes' === get_option( 'wcvendors_capability_products_edit' ) ? true : false;
-		$can_submit_live  = 'yes' === get_option( 'wcvendors_capability_products_live' ) ? true : false;
+		$can_add          = 'yes' === get_option( 'wcvendors_capability_products_enabled', 'no' ) ? true : false;
+		$can_edit         = 'yes' === get_option( 'wcvendors_capability_products_edit', 'no'  ) ? true : false;
+		$can_submit_live  = 'yes' === get_option( 'wcvendors_capability_products_live', 'no'  ) ? true : false;
 
 		$args = array(
 			'assign_product_terms'      => $can_add,
@@ -246,9 +246,9 @@ class WCV_Admin_Setup {
 	*/
 	public function update_vendor_role( ){
 
-		$can_add          = 'yes' === get_option( 'wcvendors_capability_products_enabled' ) ? true : false;
-		$can_edit         = 'yes' === get_option( 'wcvendors_capability_products_edit' ) ? true : false;
-		$can_submit_live  = 'yes' === get_option( 'wcvendors_capability_products_live' ) ? true : false;
+		$can_add          = 'yes' === get_option( 'wcvendors_capability_products_enabled', 'no'  ) ? true : false;
+		$can_edit         = 'yes' === get_option( 'wcvendors_capability_products_edit', 'no'  ) ? true : false;
+		$can_submit_live  = 'yes' === get_option( 'wcvendors_capability_products_live', 'no'  ) ? true : false;
 
 		$args = array(
 			'assign_product_terms'      => $can_add,

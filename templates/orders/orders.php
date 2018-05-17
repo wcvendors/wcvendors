@@ -81,8 +81,8 @@
 			<td colspan="100%">
 
 				<?php
-				$can_view_comments = get_option( 'wcvendors_capability_order_read_notes' );
-				$can_add_comments = get_option( 'wcvendors_capability_order_update_notes' );
+				$can_view_comments 	= 'yes' === get_option( 'wcvendors_capability_order_read_notes', 'no' ) ? true : false;
+				$can_add_comments 	= 'yes' === get_option( 'wcvendors_capability_order_update_notes', 'no' ) ? true : false;
 
 				if ($can_view_comments || $can_add_comments) :
 

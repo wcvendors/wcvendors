@@ -17,9 +17,9 @@ class WCV_Orders
 	 */
 	function __construct()
 	{
-		$this->can_view_orders = get_option( 'wcvendors_capability_orders_enabled' );
-		$this->can_export_csv  = get_option( 'wcvendors_capability_orders_export' );
-		$this->can_view_emails = get_option( 'wcvendors_capability_order_customer_email' );
+		$this->can_view_orders = 'yes' === get_option( 'wcvendors_capability_orders_enabled', 'no' ) ? true : false;
+		$this->can_export_csv  = 'yes' === get_option( 'wcvendors_capability_orders_export', 'no' ) ? true : false;
+		$this->can_view_emails = 'yes' === get_option( 'wcvendors_capability_order_customer_email', 'no' ) ? true : false;
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );
 		add_action( 'template_redirect', array( $this, 'process_export_orders' ) );
