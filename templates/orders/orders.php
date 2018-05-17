@@ -1,3 +1,19 @@
+<?php
+/**
+ * Orders Table Template
+ *
+ * This template can be overridden by copying it to yourtheme/wc-vendors/orders/orders.php
+ *
+ * @author		Jamie Madden, WC Vendors
+ * @package 	WCVendors/Templates/Emails/HTML
+ * @version 	2.0.0
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
+?>
+
 <?php if ( function_exists( 'wc_print_notices' ) ) { wc_print_notices(); } ?>
 
 <h2><?php printf( 'Orders for %s', wc_get_product( $product_id )->get_title() ); ?></h2>

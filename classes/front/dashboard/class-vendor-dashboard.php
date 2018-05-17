@@ -204,9 +204,9 @@ class WCV_Vendor_Dashboard
 		$start_date = !empty( $_SESSION[ 'PV_Session' ][ 'start_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
 		$end_date   = !empty( $_SESSION[ 'PV_Session' ][ 'end_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
 
-		$can_view_orders = get_option( 'wcvendors_capability_orders_enabled' );
+		$can_view_orders = 'yes' === get_option( 'wcvendors_capability_orders_enabled' ) ? true : false;
 		$settings_page   = get_permalink(get_option( 'wcvendors_shop_settings_page_id' ) );
-		$can_submit      = get_option( 'wcvendors_capability_products_enabled' );
+		$can_submit      = 'yes' == get_option( 'wcvendors_capability_products_enabled' ) ? true : false;
 		$submit_link = ( $can_submit ) ? admin_url( 'post-new.php?post_type=product' ) : '';
 		$edit_link   = ( $can_submit ) ? admin_url( 'edit.php?post_type=product' ) : '';
 
