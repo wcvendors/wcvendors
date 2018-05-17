@@ -117,7 +117,9 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'wp_logout', 	array( $this, 'destroy_session') );
 			add_action( 'wp_login', 	array( $this, 'destroy_session') );
 
+			// Legacy settings
 			add_action( 'admin_init', 	array( 'WCVendors_Install', 'check_pro_version' ) );
+			add_action( 'plugins_loaded', array( $this, 'load_legacy_settings' ) );
 
 			// Show update notices
 			$file   = basename( __FILE__ );
@@ -200,12 +202,12 @@ if ( wcv_is_woocommerce_activated() ) {
 		/**
 		 * Set static $pv_options to hold options class
 		 */
-		// public function load_settings() {
-		// 	if ( empty( self::$pv_options ) ) {
-		// 		include_once( wcv_plugin_dir . 'classes/includes/class-sf-settings.php' );
-		// 		self::$pv_options = new SF_Settings_API();
-		// 	}
-		// }
+		public function load_legacy_settings() {
+			if ( empty( self::$pv_options ) ) {
+				include_once( wcv_plugin_dir . 'classes/includes/class-sf-settings.php' );
+				self::$pv_options = new SF_Settings_API();
+			}
+		}
 
 		public function load_il8n() {
 		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wc-vendors' );
