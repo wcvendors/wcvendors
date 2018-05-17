@@ -1,5 +1,16 @@
 Changelog for WC Vendors
 
+Version 2.0.2
+
+* Fixed: Corrected settings conditional checks across classes
+* Fixed: Vendor Capabilities
+* Fixed: Reset vendor roles
+* Fixed: Incorrect get_option calls
+* Fixed: Permission check for product submit and order view
+* Updated: Templates to make tracking changes possible
+* Updated: Disable add new product completely if disabled
+* Updated: Make denied product message translateable.
+
 Version 2.0.1
 
 * Fixed: Update notice won't complete

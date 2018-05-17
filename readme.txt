@@ -7,7 +7,7 @@ Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
 Requires PHP: 5.6
 Tested up to: 4.9.5
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your WooCommerce site!
@@ -139,6 +139,17 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.0.2 - 17th May 2018 =
+
+* Fixed: Corrected settings conditional checks across classes
+* Fixed: Vendor Capabilities
+* Fixed: Reset vendor roles
+* Fixed: Incorrect get_option calls
+* Fixed: Permission check for product submit and order view
+* Updated: Templates to make tracking changes possible
+* Updated: Disable add new product completely if disabled
+* Updated: Make denied product message translateable.
 
 = Version 2.0.1 - 17th May 2018 =
 
