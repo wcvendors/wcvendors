@@ -72,11 +72,8 @@ class WCV_Admin_Users
 
 		$can_submit = 'yes' == get_option( 'wcvendors_capability_products_enabled' ) ? true : false;
 
-		if ( !$can_submit ) {
-			add_action( 'admin_notices', array( $this, 'publish_denied' ) ); 
-			wp_redirect( admin_url( 'edit.php?post_type=product' ));
-			exit;
-			// wp_die( 'You are not allowed to submit products. <a href="">Go Back</a>' );
+		if ( ! $can_submit ) {
+			wp_die( sprintf( __( 'You are not allowed to submit products. <a href="%s">Go Back</a>', 'wc-vendors' ), admin_url( 'edit.php?post_type=product' ) ) );
 		}
 	}
 
