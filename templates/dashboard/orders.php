@@ -1,12 +1,18 @@
 <?php
 /**
- * The template for displaying the dashboard order
+ * Orders Template
  *
- * Override this template by copying it to yourtheme/wc-vendors/dashboard/
+ * This template can be overridden by copying it to yourtheme/wc-vendors/dashboard/orders.php
  *
- * @package    WCVendors
- * @version    1.9.4
+ * @author		Jamie Madden, WC Vendors
+ * @package 	WCVendors/Templates/Emails/HTML
+ * @version 	2.0.0
+
  */
+
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
 ?>
 
 <script type="text/javascript">

@@ -1,3 +1,21 @@
+<?php
+/**
+ * Reports Template
+ *
+ * This template can be overridden by copying it to yourtheme/wc-vendors/dashboard/reports.php
+ *
+ * @author		Jamie Madden, WC Vendors
+ * @package 	WCVendors/Templates/Emails/HTML
+ * @version 	2.0.0
+
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
+?>
+
+
 <h2><?php _e( 'Sales Report', 'wc-vendors' ); ?></h2>
 
 <?php

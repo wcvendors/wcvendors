@@ -1,3 +1,19 @@
+<?php
+/**
+ * Shipping Form Template
+ *
+ * This template can be overridden by copying it to yourtheme/wc-vendors/orders/shipping/shipping-form.php
+ *
+ * @author		Jamie Madden, WC Vendors
+ * @package 	WCVendors/Templates/Emails/HTML
+ * @version 	2.0.0
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
+?>
+
 <form method="post" name="track_shipment" id="track-shipment_<?php echo $order_id; ?>">
 
 	<?php wp_nonce_field( 'track-shipment' );

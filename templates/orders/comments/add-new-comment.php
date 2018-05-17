@@ -1,3 +1,19 @@
+<?php
+/**
+ * Add New Comment Template
+ *
+ * This template can be overridden by copying it to yourtheme/wc-vendors/orders/comments/add-new-comment.php
+ *
+ * @author		Jamie Madden, WC Vendors
+ * @package 	WCVendors/Templates/Emails/HTML
+ * @version 	2.0.0
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
+?>
+
 <form method="post" name="add_comment" id="add-comment_<?php echo $order_id; ?>">
 
 	<?php wp_nonce_field( 'add-comment' ); ?>

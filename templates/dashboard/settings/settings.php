@@ -1,3 +1,20 @@
+<?php
+/**
+ * Settings Template
+ *
+ * This template can be overridden by copying it to yourtheme/wc-vendors/dashboard/settings/settings.php
+ *
+ * @author		Jamie Madden, WC Vendors
+ * @package 	WCVendors/Templates/Emails/HTML
+ * @version 	2.0.0
+
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
+?>
+
 <h2><?php _e( 'Settings', 'wc-vendors' ); ?></h2>
 
 <?php if ( function_exists( 'wc_print_notices' ) ) { wc_print_notices(); } ?>

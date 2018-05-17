@@ -1,3 +1,20 @@
+<?php
+/**
+ * Denied Template
+ *
+ * This template can be overridden by copying it to yourtheme/wc-vendors/dashboard/denied.php
+ *
+ * @author		Jamie Madden, WC Vendors
+ * @package 	WCVendors/Templates/Emails/HTML
+ * @version 	2.0.0
+
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
+?>
+
 <?php wc_print_notices(); ?>
 
 <?php if ( WCV_Vendors::is_pending( get_current_user_id() ) ) { ?>

@@ -1,3 +1,22 @@
+<?php
+/**
+ * Links Template
+ *
+ * This template can be overridden by copying it to yourtheme/wc-vendors/dashboard/links.php
+ *
+ * @author		Jamie Madden, WC Vendors
+ * @package 	WCVendors/Templates/Emails/HTML
+ * @version 	2.0.0
+
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
+?>
+
+<?php wc_print_notices(); ?>
+
 <center>
 <p>
         <a href="<?php echo $shop_page; ?>" class="button"><?php echo _e( 'View Your Store', 'wc-vendors' ); ?></a>

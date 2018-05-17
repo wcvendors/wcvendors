@@ -1,3 +1,21 @@
+<?php
+/**
+ * Seller Info Template
+ *
+ * This template can be overridden by copying it to yourtheme/wc-vendors/dashboard/settings/seller-info.php
+ *
+ * @author		Jamie Madden, WC Vendors
+ * @package 	WCVendors/Templates/Emails/HTML
+ * @version 	2.0.0
+
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	exit;
+ }
+?>
+
+
 <div id="pv_seller_info_container">
 	<p>
 		<b><?php echo apply_filters( 'wcvendors_seller_info_label', __( 'Seller info', 'wc-vendors' ) ); ?></b><br/>
