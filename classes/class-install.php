@@ -153,6 +153,7 @@ class WCVendors_Install {
 										   'publish_products'         => false,
 										   'delete_posts'			  => true,
 										   'read'                     => true,
+										   'import'					  => true,
 										   'upload_files'             => true,
 										   'view_woocommerce_reports' => false,
 									  ) );

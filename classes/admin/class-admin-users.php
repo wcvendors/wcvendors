@@ -50,16 +50,13 @@ class WCV_Admin_Users
 			add_filter( 'product_type_options', array( $this, 'filter_product_type_options' ), 99 );
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'filter_product_data_tabs' ), 99, 2 );
 
+			// Vendor Capabilities
+			// Duplicate product
 			add_filter( 'woocommerce_duplicate_product_capability', array( $this, 'add_duplicate_capability' ) );
 
 			// WC > Product featured
-			if ( 'yes' === get_option( 'wcvendors_capability_product_featured' ) ) {
-				add_filter( 'manage_product_posts_columns', array($this, 'manage_product_columns'), 99);
-			}
-			// WC > Product Hide duplicate
-			if ( 'yes' === get_option( 'wcvendors_capability_product_duplicate' )) {
-				add_filter( 'post_row_actions', array( $this, 'remove_dupe_link' ), 99, 2 );
-			}
+			add_filter( 'manage_product_posts_columns', array( $this, 'manage_product_columns'), 99);
+
 		}
 
 	}
@@ -70,7 +67,7 @@ class WCV_Admin_Users
 			return;
 		}
 
-		$can_submit = 'yes' == get_option( 'wcvendors_capability_products_enabled' ) ? true : false;
+		$can_submit = 'yes' == get_option( 'wcvendors_capability_products_enabled', 'no' ) ? true : false;
 
 		if ( ! $can_submit ) {
 			wp_die( sprintf( __( 'You are not allowed to submit products. <a href="%s">Go Back</a>', 'wc-vendors' ), admin_url( 'edit.php?post_type=product' ) ) );
@@ -89,9 +86,14 @@ class WCV_Admin_Users
 		return $args;
 	}
 
-	public function add_duplicate_capability( $capability )
-	{
-		return 'manage_product';
+	/*
+	* Enable/disable duplicate product
+	*/
+	public function add_duplicate_capability( $capability ){
+		if ( 'yes' === get_option( 'wcvendors_capability_product_duplicate', 'no' ) ) {
+			return 'manage_product';
+		}
+		return $capability;
 	}
 
 
@@ -139,28 +141,26 @@ class WCV_Admin_Users
 	 *
 	 * @return unknown
 	 */
-	function filter_product_types( $types )
-	{
+	function filter_product_types( $types ) {
 
 		$product_types = get_option( 'wcvendors_capability_product_types' );
 		$product_misc  = array(
-			'taxes' 	=>  'yes' === get_option( 'wcvendors_capability_product_taxes' ) ? true: false,
-			'sku' 		=>  'yes' === get_option( 'wcvendors_capability_product_sku' ) ? true: false,
-			'duplicate' =>  'yes' === get_option( 'wcvendors_capability_product_duplicate' ) ? true: false,
-			'delete' 	=>  'yes' === get_option( 'wcvendors_capability_product_delete' ) ? true: false,
-			'featured' 	=>  'yes' === get_option( 'wcvendors_capability_product_featured'  ? true: false)
+			'taxes' 	=>  'yes' === get_option( 'wcvendors_capability_product_taxes', 'no' ) ? true: false,
+			'sku' 		=>  'yes' === get_option( 'wcvendors_capability_product_sku', 'no' ) ? true: false,
+			'duplicate' =>  'yes' === get_option( 'wcvendors_capability_product_duplicate', 'no' ) ? true: false,
+			'delete' 	=>  'yes' === get_option( 'wcvendors_capability_product_delete', 'no' ) ? true: false,
+			'featured' 	=>  'yes' === get_option( 'wcvendors_capability_product_featured', 'no'  ? true: false)
 		);
 
-
+		// Add any custom css
 		$css           =  get_option( 'wcvendors_display_advanced_stylesheet' );
-
-
+		// Filter taxes
 		if ( !empty( $product_misc[ 'taxes' ] ) ) {
 			$css .= '.form-field._tax_status_field, .form-field._tax_class_field{display:none !important;}';
 		}
-
 		unset( $product_misc[ 'taxes' ] );
 
+		// Filter the rest of the fields
 		foreach ( $product_misc as $key => $value ) {
 			if ( $value ) $css .= sprintf( '._%s_field{display:none !important;}', $key );
 		}
@@ -169,8 +169,9 @@ class WCV_Admin_Users
 		echo $css;
 		echo '</style>';
 
+		// Filter product type drop down
 		foreach ( $types as $key => $value ) {
-			if ( !empty( $product_types[ $key ] ) ) {
+			if ( in_array( $key, $product_types ) ){
 				unset( $types[ $key ] );
 			}
 		}
@@ -189,10 +190,9 @@ class WCV_Admin_Users
 		if ( !$product_panel ) return $tabs;
 
 		foreach ( $tabs as $key => $value ){
-			if ( !empty( $product_panel[ $key ] ) ) {
+			if ( in_array($key, $product_panel ) ){
 				unset( $tabs[ $key ] );
 			}
-
 		}
 
 		return $tabs;
@@ -330,7 +330,7 @@ class WCV_Admin_Users
 
 		if ( ! $can_submit ) {
 			global $submenu;
-	    unset($submenu['edit.php?post_type=product'][10]);
+	   		unset($submenu['edit.php?post_type=product'][10]);
 		}
 
 		if ( $pagenow == 'index.php' ) {
@@ -404,22 +404,22 @@ class WCV_Admin_Users
 	}
 
 	/*
-		Remove featured check box from the product listing
+		Manage product columns on product page
 	*/
 	public function manage_product_columns( $columns ){
-		global $woocommerce;
-		unset($columns['featured']);
+
+		// Featured Product
+		if ( 'yes' !== get_option( 'wcvendors_capability_product_featured', 'no' ) ) {
+			unset($columns['featured']);
+		}
+
+		// SKU
+		if ( 'yes' === get_option( 'wcvendors_capability_product_sku', 'no' ) ) {
+			unset($columns['sku']);
+		}
+
+
 		return $columns;
 	}
-
-
-	/**
-	 *     Hide the duplicate product link by removing it from the row actions
-	 */
-	public function remove_dupe_link( $actions, $post ) {
-		unset($actions['duplicate']);
-		return $actions;
-	}
-
 
 }
