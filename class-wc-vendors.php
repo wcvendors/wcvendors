@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:          WC Vendors
  * Plugin URI:           https://www.wcvendors.com
@@ -118,7 +117,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'wp_logout', 	array( $this, 'destroy_session') );
 			add_action( 'wp_login', 	array( $this, 'destroy_session') );
 
-
+			add_action( 'admin_init', 	array( 'WCVendors_Install', 'check_pro_version' ) );
 
 			// Show update notices
 			$file   = basename( __FILE__ );
