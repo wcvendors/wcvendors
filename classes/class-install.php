@@ -44,12 +44,13 @@ class WCVendors_Install {
 	} // init()
 
 	/**
-	 * Check WC Vendors version and run the updater is required.
+	 * Check WC Vendors version and run the updater if required.
 	 *
 	 * This check is done on all requests and runs if the versions do not match.
 	 */
 	public static function check_version() {
-		if ( ! defined( 'IFRAME_REQUEST' ) && get_option( 'wcvendors_version' ) !== WCV_VERSION ) {
+		global $wc_vendors;
+		if ( ! defined( 'IFRAME_REQUEST' ) && get_option( 'wcvendors_version' ) !== $wc_vendors->version ) {
 			self::install();
 			do_action( 'wcvendors_updated' );
 		}
@@ -348,8 +349,9 @@ class WCVendors_Install {
 	 * @param string $version
 	 */
 	public static function update_db_version( $version = null ) {
+		global $wc_vendors;
 		delete_option( 'wcvendors_db_version' );
-		add_option( 'wcvendors_db_version', is_null( $version ) ? WCV_VERSION : $version );
+		add_option( 'wcvendors_db_version', is_null( $version ) ? $wc_vendors->version : $version );
 	}
 
 
@@ -357,8 +359,9 @@ class WCVendors_Install {
 	 * Update WC version to current.
 	 */
 	private static function update_wcv_version() {
+		global $wc_vendors;
 		delete_option( 'wcvendors_version' );
-		add_option( 'wcvendors_version', WCV_VERSION );
+		add_option( 'wcvendors_version', $wc_vendors->version );
 	}
 
 
