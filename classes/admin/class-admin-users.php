@@ -319,13 +319,19 @@ class WCV_Admin_Users
 	/**
 	 * Remove the media library menu
 	 */
-	public function remove_menu_page()
-	{
-		global $pagenow,  $woocommerce;
+	public function remove_menu_page(){
+		global $pagenow;
 
 		remove_menu_page( 'index.php' ); /* Hides Dashboard menu */
 		remove_menu_page( 'separator1' ); /* Hides separator under Dashboard menu*/
 		remove_all_actions( 'admin_notices' );
+
+		$can_submit = 'yes' == get_option( 'wcvendors_capability_products_enabled' ) ? true : false;
+
+		if ( ! $can_submit ) {
+			global $submenu;
+	    unset($submenu['edit.php?post_type=product'][10]);
+		}
 
 		if ( $pagenow == 'index.php' ) {
 			wp_redirect( admin_url( 'profile.php' ) );
