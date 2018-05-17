@@ -108,7 +108,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		$return[ 'cart_subtotal' ]            = $total_rows[ 'cart_subtotal' ];
 		$return[ 'cart_subtotal' ][ 'label' ] = $commission_label;
 
-		if ( get_option( 'wcvendors_vendor_give_taxes' ) ) {
+		if ( 'yes' === get_option( 'wcvendors_vendor_give_taxes' ) ) {
 			$return[ 'tax_subtotal'] = array( 'label' => '', 'value' => '');
 			$return[ 'tax_subtotal']['label'] = apply_filters('wcv_notify_vendor_tax_label', __( 'Tax Subtotal:', 'wc-vendors' ) ) ;
 		}
@@ -127,7 +127,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 			}
 		}
 		// Format tax price
-		if ( get_option( 'wcvendors_vendor_give_taxes' ) ) {
+		if ( 'yes' === get_option( 'wcvendors_vendor_give_taxes' ) ) {
 			$return[ 'tax_subtotal']['value'] = wc_price( $return[ 'tax_subtotal'] ['value'] );
 		}
 

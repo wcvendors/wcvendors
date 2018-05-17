@@ -53,11 +53,11 @@ class WCV_Admin_Users
 			add_filter( 'woocommerce_duplicate_product_capability', array( $this, 'add_duplicate_capability' ) );
 
 			// WC > Product featured
-			if ( get_option( 'wcvendors_capability_product_featured' ) ) {
+			if ( 'yes' === get_option( 'wcvendors_capability_product_featured' ) ) {
 				add_filter( 'manage_product_posts_columns', array($this, 'manage_product_columns'), 99);
 			}
 			// WC > Product Hide duplicate
-			if ( get_option( 'wcvendors_capability_product_duplicate' )) {
+			if ( 'yes' === get_option( 'wcvendors_capability_product_duplicate' )) {
 				add_filter( 'post_row_actions', array( $this, 'remove_dupe_link' ), 99, 2 );
 			}
 		}
@@ -70,9 +70,13 @@ class WCV_Admin_Users
 			return;
 		}
 
-		$can_submit = get_option( 'wcvendors_capability_products_enabled' );
+		$can_submit = 'yes' == get_option( 'wcvendors_capability_products_enabled' ) ? true : false;
+
 		if ( !$can_submit ) {
-			wp_die( 'You are not allowed to submit products.' );
+			add_action( 'admin_notices', array( $this, 'publish_denied' ) ); 
+			wp_redirect( admin_url( 'edit.php?post_type=product' ));
+			exit;
+			// wp_die( 'You are not allowed to submit products. <a href="">Go Back</a>' );
 		}
 	}
 
@@ -143,11 +147,11 @@ class WCV_Admin_Users
 
 		$product_types = get_option( 'wcvendors_capability_product_types' );
 		$product_misc  = array(
-			'taxes' 	=>  get_option( 'wcvendors_capability_product_taxes' ),
-			'sku' 		=>  get_option( 'wcvendors_capability_product_sku' ),
-			'duplicate' =>  get_option( 'wcvendors_capability_product_duplicate' ),
-			'delete' 	=>  get_option( 'wcvendors_capability_product_delete' ),
-			'featured' 	=>  get_option( 'wcvendors_capability_product_featured' )
+			'taxes' 	=>  'yes' === get_option( 'wcvendors_capability_product_taxes' ) ? true: false,
+			'sku' 		=>  'yes' === get_option( 'wcvendors_capability_product_sku' ) ? true: false,
+			'duplicate' =>  'yes' === get_option( 'wcvendors_capability_product_duplicate' ) ? true: false,
+			'delete' 	=>  'yes' === get_option( 'wcvendors_capability_product_delete' ) ? true: false,
+			'featured' 	=>  'yes' === get_option( 'wcvendors_capability_product_featured'  ? true: false)
 		);
 
 
