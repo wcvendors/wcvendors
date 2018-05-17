@@ -29,7 +29,7 @@ class WCV_Vendor_Shop
 		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
 
 		// Add sold by to product loop before add to cart
-		if ( apply_filters( 'wcvendors_disable_sold_by_labels', get_option( 'wcvendors_display_label_sold_by_enable' ) ) ) {
+		if ( apply_filters( 'wcvendors_disable_sold_by_labels', 'yes' === get_option( 'wcvendors_display_label_sold_by_enable' ) ) ) {
 			add_action( 'woocommerce_after_shop_loop_item', array('WCV_Vendor_Shop', 'template_loop_sold_by'), 9 );
 		}
 
@@ -314,7 +314,7 @@ class WCV_Vendor_Shop
 	*/
 	public static function add_vendor_to_order_item_meta_legacy( $item_id, $cart_item) {
 
-		if ( get_option( 'wcvendors_display_label_sold_by_enable' ) ) {
+		if ( 'yes' === get_option( 'wcvendors_display_label_sold_by_enable' ) ) {
 
 			$vendor_id 		= $cart_item[ 'data' ]->post->post_author;
 			$sold_by_label 	= get_option( 'wcvendors_label_sold_by' );
@@ -333,7 +333,7 @@ class WCV_Vendor_Shop
 	 */
 	public function add_vendor_to_order_item_meta( $item, $cart_item_key, $values ) {
 
-		if ( get_option( 'wcvendors_display_label_sold_by_enable' ) ) {
+		if ( 'yes' === get_option( 'wcvendors_display_label_sold_by_enable' ) ) {
 
 			$cart      		= WC()->cart->get_cart();
 			$cart_item 		= $cart[ $cart_item_key ];

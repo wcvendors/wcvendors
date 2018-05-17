@@ -18,7 +18,7 @@ class WCV_Vendor_Cart
 	function __construct()
 	{
 
-		if ( get_option( 'wcvendors_display_label_sold_by_enable' ) ) {
+		if ( 'yes' == get_option( 'wcvendors_display_label_sold_by_enable' ) ) {
 			add_filter( 'woocommerce_get_item_data', array( 'WCV_Vendor_Cart', 'sold_by' ), 10, 2 );
 			add_action( 'woocommerce_product_meta_start', array( 'WCV_Vendor_Cart', 'sold_by_meta' ), 10, 2 );
 		}
