@@ -16,23 +16,23 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: class-wc-vendors.php:53
+#: class-wc-vendors.php:52
 msgid "WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again."
 msgstr ""
 
-#: class-wc-vendors.php:101, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:235, classes/admin/views/html-vendor-meta.php:1
+#: class-wc-vendors.php:100, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:235, classes/admin/views/html-vendor-meta.php:1
 msgid "WC Vendors"
 msgstr ""
 
-#: class-wc-vendors.php:136
+#: class-wc-vendors.php:137
 msgid "<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce 3.0.0 to operate."
 msgstr ""
 
-#: class-wc-vendors.php:396
+#: class-wc-vendors.php:397
 msgid "WC Vendors 2.0 is a major update. This is not compatible with any of our existing extensions. You should test this update on a staging server before updating. Backup your site and update your theme and extensions, and <a href=\"%s\">review update details here</a> before upgrading."
 msgstr ""
 
-#: class-wc-vendors.php:409
+#: class-wc-vendors.php:410
 msgid "WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current version %s will be deactivated. Please upgrade to the latest version."
 msgstr ""
 
@@ -52,83 +52,83 @@ msgstr ""
 msgid "Payment total: %s"
 msgstr ""
 
-#: classes/class-install.php:139, classes/admin/class-wcv-admin-setup.php:142
+#: classes/class-install.php:140, classes/admin/class-wcv-admin-setup.php:142
 msgid "Pending Vendor"
 msgstr ""
 
-#: classes/class-install.php:146, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:46, classes/admin/class-product-meta.php:187, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:139, classes/admin/class-wcv-admin-setup.php:270, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/includes/class-functions.php:35
+#: classes/class-install.php:147, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:46, classes/admin/class-product-meta.php:187, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:139, classes/admin/class-wcv-admin-setup.php:270, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/includes/class-functions.php:35
 msgid "Vendor"
 msgstr ""
 
-#: classes/class-install.php:193
+#: classes/class-install.php:195
 msgctxt "Page slug"
 msgid "vendor_dashboard"
 msgstr ""
 
-#: classes/class-install.php:195
+#: classes/class-install.php:197
 msgctxt "Page title"
 msgid "%s Dashboard"
 msgstr ""
 
-#: classes/class-install.php:201
+#: classes/class-install.php:203
 msgctxt "Page slug"
 msgid "vendors"
 msgstr ""
 
-#: classes/class-install.php:203
+#: classes/class-install.php:205
 msgctxt "Page title"
 msgid "%s"
 msgstr ""
 
-#: classes/class-install.php:211
+#: classes/class-install.php:213
 msgctxt "Page slug"
 msgid "shop_settings"
 msgstr ""
 
-#: classes/class-install.php:212
+#: classes/class-install.php:214
 msgctxt "Page title"
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/class-install.php:217
+#: classes/class-install.php:219
 msgctxt "Page slug"
 msgid "product_orders"
 msgstr ""
 
-#: classes/class-install.php:218
+#: classes/class-install.php:220
 msgctxt "Page title"
 msgid "Orders"
 msgstr ""
 
-#: classes/class-install.php:401
+#: classes/class-install.php:405
 msgid "View WC Vendors settings"
 msgstr ""
 
-#: classes/class-install.php:401, templates/dashboard/settings/settings.php:1
+#: classes/class-install.php:405, templates/dashboard/settings/settings.php:18
 msgid "Settings"
 msgstr ""
 
-#: classes/class-install.php:418
+#: classes/class-install.php:422
 msgid "View WC Vendors documentation"
 msgstr ""
 
-#: classes/class-install.php:418
+#: classes/class-install.php:422
 msgid "Docs"
 msgstr ""
 
-#: classes/class-install.php:419
+#: classes/class-install.php:423
 msgid "Visit community forums"
 msgstr ""
 
-#: classes/class-install.php:419
+#: classes/class-install.php:423
 msgid "Free support"
 msgstr ""
 
-#: classes/class-install.php:420
+#: classes/class-install.php:424
 msgid "Visit premium customer support"
 msgstr ""
 
-#: classes/class-install.php:420
+#: classes/class-install.php:424
 msgid "Premium support"
 msgstr ""
 
@@ -168,15 +168,15 @@ msgstr ""
 msgid "Commission totals for all vendors includes shipping and taxes. By default no date range is used and all due commissions are returned. Use the date range to filter."
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:119, classes/admin/class-admin-reports.php:435, templates/dashboard/date-picker.php:3
+#: classes/admin/class-admin-reports.php:119, classes/admin/class-admin-reports.php:435, templates/dashboard/date-picker.php:20
 msgid "From:"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:121, classes/admin/class-admin-reports.php:437, templates/dashboard/date-picker.php:7
+#: classes/admin/class-admin-reports.php:121, classes/admin/class-admin-reports.php:437, templates/dashboard/date-picker.php:24
 msgid "To:"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:123, classes/admin/class-admin-reports.php:281, classes/admin/class-admin-reports.php:446, templates/dashboard/date-picker.php:12
+#: classes/admin/class-admin-reports.php:123, classes/admin/class-admin-reports.php:281, classes/admin/class-admin-reports.php:446, templates/dashboard/date-picker.php:29
 msgid "Show"
 msgstr ""
 
@@ -200,15 +200,15 @@ msgstr ""
 msgid "Recent Commission"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:171, templates/dashboard/orders.php:44, classes/front/orders/class-orders.php:204
+#: classes/admin/class-admin-reports.php:171, templates/dashboard/orders.php:50, classes/front/orders/class-orders.php:204
 msgid "Order"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:172, classes/admin/class-wcv-commissions-csv-exporter.php:41, classes/admin/class-wcv-commissions-page.php:116, templates/dashboard/reports.php:17, templates/emails/notify-vendor-shipped.php:27, templates/emails/vendor-new-order.php:31, templates/emails/vendor-order-details.php:36, classes/admin/emails/class-wcv-vendor-notify-order.php:187
+#: classes/admin/class-admin-reports.php:172, classes/admin/class-wcv-commissions-csv-exporter.php:41, classes/admin/class-wcv-commissions-page.php:116, templates/dashboard/reports.php:35, templates/emails/notify-vendor-shipped.php:27, templates/emails/vendor-new-order.php:31, templates/emails/vendor-order-details.php:36, classes/admin/emails/class-wcv-vendor-notify-order.php:187
 msgid "Product"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:174, classes/admin/class-admin-reports.php:372, classes/admin/class-vendor-admin-dashboard.php:351, classes/admin/class-wcv-commissions-csv-exporter.php:47, classes/admin/class-wcv-commissions-page.php:122, templates/dashboard/orders.php:46
+#: classes/admin/class-admin-reports.php:174, classes/admin/class-admin-reports.php:372, classes/admin/class-vendor-admin-dashboard.php:351, classes/admin/class-wcv-commissions-csv-exporter.php:47, classes/admin/class-wcv-commissions-page.php:122, templates/dashboard/orders.php:52
 msgid "Total"
 msgstr ""
 
@@ -252,7 +252,7 @@ msgstr ""
 msgid "Tax"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:345, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:120, templates/dashboard/orders.php:45, templates/orders/orders.php:113, classes/admin/settings/class-wcv-settings-capabilities.php:107
+#: classes/admin/class-admin-reports.php:345, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:120, templates/dashboard/orders.php:51, templates/orders/orders.php:129, classes/admin/settings/class-wcv-settings-capabilities.php:107
 msgid "Shipping"
 msgstr ""
 
@@ -272,7 +272,11 @@ msgstr ""
 msgid "No commissions found."
 msgstr ""
 
-#: classes/admin/class-product-meta.php:151, classes/admin/class-product-meta.php:167, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:119, templates/dashboard/reports.php:19, templates/emails/vendor-order-details.php:39, classes/admin/emails/class-wcv-vendor-notify-order.php:186, classes/admin/settings/class-wcv-settings-commission.php:31, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:79
+#: classes/admin/class-admin-users.php:73
+msgid "You are not allowed to submit products. <a href=\"%s\">Go Back</a>"
+msgstr ""
+
+#: classes/admin/class-product-meta.php:151, classes/admin/class-product-meta.php:167, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:119, templates/dashboard/reports.php:37, templates/emails/vendor-order-details.php:39, classes/admin/emails/class-wcv-vendor-notify-order.php:186, classes/admin/settings/class-wcv-settings-commission.php:31, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:79
 msgid "Commission"
 msgstr ""
 
@@ -304,7 +308,7 @@ msgstr ""
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:209, templates/dashboard/orders.php:35, classes/admin/settings/class-wcv-settings-capabilities.php:45, classes/admin/settings/class-wcv-settings-capabilities.php:271, classes/admin/settings/class-wcv-settings-display.php:162, classes/admin/views/setup/capabilities.php:70
+#: classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:209, templates/dashboard/orders.php:41, classes/admin/settings/class-wcv-settings-capabilities.php:45, classes/admin/settings/class-wcv-settings-capabilities.php:271, classes/admin/settings/class-wcv-settings-display.php:162, classes/admin/views/setup/capabilities.php:70
 msgid "Orders"
 msgstr ""
 
@@ -340,15 +344,15 @@ msgstr ""
 msgid "Products"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:353, classes/admin/class-wcv-commissions-csv-exporter.php:49, classes/admin/class-wcv-commissions-page.php:124, templates/dashboard/orders.php:47, classes/front/orders/class-orders.php:212
+#: classes/admin/class-vendor-admin-dashboard.php:353, classes/admin/class-wcv-commissions-csv-exporter.php:49, classes/admin/class-wcv-commissions-page.php:124, templates/dashboard/orders.php:53, classes/front/orders/class-orders.php:212
 msgid "Date"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:354, templates/dashboard/orders.php:106
+#: classes/admin/class-vendor-admin-dashboard.php:354, templates/dashboard/orders.php:112
 msgid "Shipped"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:390, templates/dashboard/orders.php:99
+#: classes/admin/class-vendor-admin-dashboard.php:390, templates/dashboard/orders.php:105
 msgid "Mark shipped"
 msgstr ""
 
@@ -652,87 +656,87 @@ msgstr ""
 msgid "WC Vendors legacy emails are enabled. Please migrate your email templates to the new system. <a href=\"%s\">Click here to view your email settings.</a>"
 msgstr ""
 
-#: templates/dashboard/denied.php:5
+#: templates/dashboard/denied.php:22
 msgid "Your account has not yet been approved to become a vendor.  When it is, you will receive an email telling you that your account is approved!"
 msgstr ""
 
-#: templates/dashboard/denied.php:9
+#: templates/dashboard/denied.php:26
 msgid "Your account is not setup as a vendor."
 msgstr ""
 
-#: templates/dashboard/denied.php:19, classes/front/signup/views/html-vendor-signup.php:22
+#: templates/dashboard/denied.php:36, classes/front/signup/views/html-vendor-signup.php:22
 msgid "Apply to become a vendor? "
 msgstr ""
 
-#: templates/dashboard/denied.php:30
+#: templates/dashboard/denied.php:47
 msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
 msgstr ""
 
-#: templates/dashboard/denied.php:50
+#: templates/dashboard/denied.php:67
 msgid "Submit"
 msgstr ""
 
-#: templates/dashboard/links.php:3
+#: templates/dashboard/links.php:22
 msgid "View Your Store"
 msgstr ""
 
-#: templates/dashboard/links.php:4, classes/admin/settings/class-wcv-settings-display.php:193
+#: templates/dashboard/links.php:23, classes/admin/settings/class-wcv-settings-display.php:193
 msgid "Store Settings"
 msgstr ""
 
-#: templates/dashboard/links.php:7
+#: templates/dashboard/links.php:26
 msgid "Add New Product"
 msgstr ""
 
-#: templates/dashboard/links.php:8
+#: templates/dashboard/links.php:27
 msgid "Edit Products"
 msgstr ""
 
-#: templates/dashboard/orders.php:18, templates/dashboard/orders.php:21
+#: templates/dashboard/orders.php:24, templates/dashboard/orders.php:27
 msgid "Hide items"
 msgstr ""
 
-#: templates/dashboard/orders.php:19, templates/dashboard/orders.php:93
+#: templates/dashboard/orders.php:25, templates/dashboard/orders.php:99
 msgid "View items"
 msgstr ""
 
-#: templates/dashboard/orders.php:48
+#: templates/dashboard/orders.php:54
 msgid "Links"
 msgstr ""
 
-#: templates/dashboard/orders.php:114
+#: templates/dashboard/orders.php:120
 msgid "Tracking"
 msgstr ""
 
-#: templates/dashboard/orders.php:188
+#: templates/dashboard/orders.php:194
 msgid "You have no orders during this period."
 msgstr ""
 
-#: templates/dashboard/reports.php:1
+#: templates/dashboard/reports.php:19
 msgid "Sales Report"
 msgstr ""
 
-#: templates/dashboard/reports.php:18, templates/emails/notify-vendor-shipped.php:28, templates/emails/vendor-new-order.php:32, templates/emails/vendor-order-details.php:37, classes/front/orders/class-export-csv.php:19
+#: templates/dashboard/reports.php:36, templates/emails/notify-vendor-shipped.php:28, templates/emails/vendor-new-order.php:32, templates/emails/vendor-order-details.php:37, classes/front/orders/class-export-csv.php:19
 msgid "Quantity"
 msgstr ""
 
-#: templates/dashboard/reports.php:20
+#: templates/dashboard/reports.php:38
 msgid "Rate"
 msgstr ""
 
-#: templates/dashboard/reports.php:47
+#: templates/dashboard/reports.php:65
 msgid "Show Orders"
 msgstr ""
 
-#: templates/dashboard/reports.php:56
+#: templates/dashboard/reports.php:74
 msgid "Totals"
 msgstr ""
 
-#: templates/dashboard/reports.php:71
+#: templates/dashboard/reports.php:89
 msgid "You have no sales during this period."
 msgstr ""
 
-#: templates/dashboard/reports.php:82
+#: templates/dashboard/reports.php:100
 msgid "You haven't made any sales yet."
 msgstr ""
 
@@ -821,11 +825,11 @@ msgstr ""
 msgid "Product image"
 msgstr ""
 
-#: templates/orders/csv-export.php:6
+#: templates/orders/csv-export.php:22
 msgid "Export orders"
 msgstr ""
 
-#: templates/orders/orders.php:82
+#: templates/orders/orders.php:98
 msgid "Comments (%s)"
 msgstr ""
 
@@ -1836,15 +1840,15 @@ msgstr ""
 msgid "Bank Account Number"
 msgstr ""
 
-#: classes/admin/views/html-vendor-meta.php:60, classes/admin/views/html-vendor-settings-page.php:36, templates/dashboard/settings/settings.php:27
+#: classes/admin/views/html-vendor-meta.php:60, classes/admin/views/html-vendor-settings-page.php:36, templates/dashboard/settings/settings.php:44
 msgid "Bank Name"
 msgstr ""
 
-#: classes/admin/views/html-vendor-meta.php:65, classes/admin/views/html-vendor-settings-page.php:41, templates/dashboard/settings/settings.php:30
+#: classes/admin/views/html-vendor-meta.php:65, classes/admin/views/html-vendor-settings-page.php:41, templates/dashboard/settings/settings.php:47
 msgid "Routing Number"
 msgstr ""
 
-#: classes/admin/views/html-vendor-meta.php:70, classes/admin/views/html-vendor-settings-page.php:46, templates/dashboard/settings/settings.php:31
+#: classes/admin/views/html-vendor-meta.php:70, classes/admin/views/html-vendor-settings-page.php:46, templates/dashboard/settings/settings.php:48
 msgid "IBAN"
 msgstr ""
 
@@ -1872,7 +1876,7 @@ msgstr ""
 msgid "Shipping override for vendor"
 msgstr ""
 
-#: classes/admin/views/html-vendor-meta.php:133, classes/admin/views/html-vendor-settings-page.php:69, templates/dashboard/settings/seller-info.php:3
+#: classes/admin/views/html-vendor-meta.php:133, classes/admin/views/html-vendor-settings-page.php:69, templates/dashboard/settings/seller-info.php:21
 msgid "Seller info"
 msgstr ""
 
@@ -1880,7 +1884,7 @@ msgstr ""
 msgid "Shop description"
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:11, templates/dashboard/settings/paypal-email-form.php:2
+#: classes/admin/views/html-vendor-settings-page.php:11, templates/dashboard/settings/paypal-email-form.php:19
 msgid "PayPal Address"
 msgstr ""
 
@@ -1888,23 +1892,23 @@ msgstr ""
 msgid "Your PayPal address can be used to send you your commission."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:61, templates/dashboard/settings/shop-name.php:2
+#: classes/admin/views/html-vendor-settings-page.php:61, templates/dashboard/settings/shop-name.php:19
 msgid "Shop Name"
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:63, templates/dashboard/settings/shop-name.php:3
+#: classes/admin/views/html-vendor-settings-page.php:63, templates/dashboard/settings/shop-name.php:20
 msgid "Your shop name is public and must be unique."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:82, templates/dashboard/settings/seller-info.php:4
+#: classes/admin/views/html-vendor-settings-page.php:82, templates/dashboard/settings/seller-info.php:22
 msgid "This is displayed on each of your products."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:88, templates/dashboard/settings/shop-description.php:2
+#: classes/admin/views/html-vendor-settings-page.php:88, templates/dashboard/settings/shop-description.php:19
 msgid "Shop Description"
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:100, templates/dashboard/settings/shop-description.php:3
+#: classes/admin/views/html-vendor-settings-page.php:100, templates/dashboard/settings/shop-description.php:20
 msgid "This is displayed on your <a href=\"%s\">shop page</a>."
 msgstr ""
 
@@ -2180,27 +2184,27 @@ msgstr ""
 msgid "Test gateway transation complete.  Order processing."
 msgstr ""
 
-#: templates/dashboard/settings/paypal-email-form.php:3
+#: templates/dashboard/settings/paypal-email-form.php:20
 msgid "Your PayPal address can be used to manually send you your commission."
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:22
+#: templates/dashboard/settings/settings.php:39
 msgid "Bank Details"
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:25
+#: templates/dashboard/settings/settings.php:42
 msgid "Account Name"
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:26
+#: templates/dashboard/settings/settings.php:43
 msgid "Account Number"
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:32
+#: templates/dashboard/settings/settings.php:49
 msgid "BIC / Swift"
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:69
+#: templates/dashboard/settings/settings.php:86
 msgid "Save"
 msgstr ""
 
@@ -2213,27 +2217,27 @@ msgstr ""
 msgid "Order number: %s"
 msgstr ""
 
-#: templates/orders/comments/add-new-comment.php:11
+#: templates/orders/comments/add-new-comment.php:27
 msgid "Add comment"
 msgstr ""
 
-#: templates/orders/comments/existing-comments.php:9
+#: templates/orders/comments/existing-comments.php:25
 msgid "added %s ago"
 msgstr ""
 
-#: templates/orders/customer-note/customer-note.php:4
+#: templates/orders/customer-note/customer-note.php:20
 msgid "Customer note"
 msgstr ""
 
-#: templates/orders/customer-note/customer-note.php:8
+#: templates/orders/customer-note/customer-note.php:24
 msgid "No customer note."
 msgstr ""
 
-#: templates/orders/shipping/shipping-form.php:75
+#: templates/orders/shipping/shipping-form.php:91
 msgid "Update tracking number"
 msgstr ""
 
-#: templates/orders/shipping/shipping-form.php:77
+#: templates/orders/shipping/shipping-form.php:93
 msgid "Mark as shipped"
 msgstr ""
 
