@@ -1,5 +1,12 @@
 Changelog for WC Vendors
 
+Version 2.0.1
+
+* Fixed: Update notice won't complete
+* Fixed: Legacy settings options loading
+* Fixed: Errors on activation when unsupported plugin is detected
+* Fixed: Display sold_by option not working
+
 Version 2.0.0
 
 * Added: New WC Vendors Admin menu

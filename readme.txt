@@ -5,8 +5,9 @@ Donate link: https://www.wcvendors.com/
 Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
+Requires PHP: 5.6
 Tested up to: 4.9.5
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your WooCommerce site!
@@ -137,15 +138,16 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 11. Setup Wizard complete
 12. Email notifications for admins, customers and vendors
 
-== Upgrade Notice ==
-
-= 2.0 =
-
-WC Vendors 2.0 is a major update. This is not compatible with ANY of our existing extensions. You should test this update on a staging server before updating. update your theme and extensions, and [review update details here](https://docs.wcvendors.com/knowledge-base/upgrading-to-wc-vendors-2-0/) before upgrading.
-
 == Changelog ==
 
-= Version 2.0.0 - 15th March 2018
+= Version 2.0.1 - 17th May 2018 =
+
+* Fixed: Update notice won't complete
+* Fixed: Legacy settings options loading
+* Fixed: Errors on activation when unsupported plugin is detected
+* Fixed: Display sold_by option not working
+
+= Version 2.0.0 - 14th May 2018 =
 
 * Added: New WC Vendors Admin menu
 * Added: Bank details fields for vendors
@@ -192,7 +194,7 @@ Templates Updated:
 	templates/dashboard/settings/settings.php
 	templates/order/table-body.php
 
-=Version 1.9.14 - 18th February 2018
+= Version 1.9.14 - 18th February 2018 =
 
 * Added: Export commissions via CSV
 * Added: Commission Table Links #166
@@ -205,7 +207,7 @@ Templates Updated:
 * Fixed: Text domain in read me for glotpress translations
 * Fixed: "sold by" is showing in several areas despite deselected admin setting #386
 
-= Version 1.9.13 - 28th November 2017
+= Version 1.9.13 - 28th November 2017 =
 
 * Added: Notice for depreciated gateway
 * Added: A filter for role change: Denied Vendor #351
@@ -226,7 +228,7 @@ Templates Updated:
 * Fixed: Depreciated functions #368 thanks @stodorovic
 * Fixed: Changed how customer address is displayed based on Woo Options. Thanks @debain
 
-= Version 1.9.12 - June 26 2017
+= Version 1.9.12 - June 26 2017 =
 
 * Added: For hook for vendor order content
 * Updated: Portuguese translations thanks Elsa
@@ -726,5 +728,6 @@ Templates Updated:
 
 == Upgrade Notice ==
 
-= 1.6.0 =
-Our template system has been upgraded.  See (http://www.wcvendors.com/knowledgebase/v1-5-0-to-v1-6-0-upgrade-guide/) for the upgrade guide if you have used our templates to change how your site looks.
+= 2.0 =
+
+WC Vendors 2.0 is a major update. This is not compatible with ANY of our existing extensions. You should test this update on a staging server before updating. update your theme and extensions, and [review update details here](https://docs.wcvendors.com/knowledge-base/upgrading-to-wc-vendors-2-0/) before upgrading.

@@ -7,7 +7,7 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              2.0.0
+ * Version:              2.0.1
  * Requires at least:    4.4.0
  * Tested up to:         4.9.5
  * WC requires at least: 3.0.0
@@ -80,7 +80,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	class WC_Vendors
 	{
 
-		public $version = '2.0.0';
+		public $version = '2.0.1';
 
 		/**
 		 * @var
@@ -102,10 +102,10 @@ if ( wcv_is_woocommerce_activated() ) {
 			$this->define_constants();
 
 			// Install & upgrade
-			add_action( 'admin_init', array( $this, 'check_install' ) );
-			add_action( 'init', array( $this, 'maybe_flush_permalinks' ), 99 );
-			add_action( 'wcvendors_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ) );
-			add_action( 'admin_init', array( $this, 'wcv_required_ignore_notices' ) );
+			add_action( 'admin_init', 						array( $this, 'check_install' ) );
+			add_action( 'init', 							array( $this, 'maybe_flush_permalinks' ), 99 );
+			add_action( 'wcvendors_flush_rewrite_rules', 	array( $this, 'flush_rewrite_rules' ) );
+			add_action( 'admin_init', 						array( $this, 'wcv_required_ignore_notices' ) );
 
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_core' ) );
