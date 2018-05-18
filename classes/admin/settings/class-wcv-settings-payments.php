@@ -79,7 +79,7 @@ class WCVendors_Settings_Payments extends WCVendors_Settings_Page {
 				array(
 					'title'   	=> __( 'Instant Pay', 'wc-vendors' ),
 					'desc'    	=> __( 'Enable instantpay', 'wc-vendors' ),
-					'desc_tip' 	=> sprintf( __( 'Instantly pay %1s their commission when an order is made, and if a %1s has a valid PayPal email added on their Shop Settings page.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+					'desc_tip' 	=> sprintf( __( 'Instantly pay %1$s their commission when an order is made, and if a %1$s has a valid PayPal email added on their Shop Settings page.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      	=> 'wcvendors_payments_paypal_instantpay_enable',
 					'default' 	=> 'no',
 					'type'    	=> 'checkbox',
