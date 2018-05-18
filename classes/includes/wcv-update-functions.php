@@ -113,3 +113,13 @@ function wcv_enable_legacy_emails(){
 function wcv_update_200_db_version(){
 	WCVendors_Install::update_db_version( '2.0.0' );
 }
+
+
+/**
+* Finish Settings update
+*
+* @since 2.0.3
+*/
+function wcv_update_203_db_version(){
+	WCVendors_Install::update_db_version( '2.0.3' );
+}

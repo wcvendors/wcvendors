@@ -15,6 +15,9 @@ class WCVendors_Install {
 			'wcv_migrate_settings',
 			'wcv_update_200_db_version',
 			'wcv_enable_legacy_emails'
+		),
+		'2.0.3' => array(
+			'wcv_update_203_db_version',
 		)
 	);
 
