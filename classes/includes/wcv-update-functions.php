@@ -70,7 +70,7 @@ function wcv_get_settings_mapping(){
 		'can_view_order_comments'      		=> 'wcvendors_capability_order_read_notes',
 		'can_submit_order_comments'      	=> 'wcvendors_capability_order_update_notes',
 		'can_view_frontend_reports'      	=> 'wcvendors_capability_frontend_reports',
-		'default_commission'       			=> 'wcvendors_commission_percent',
+		'default_commission'       			=> 'wcvendors_vendor_commission_rate',
 		'sold_by'      						=> 'wcvendors_display_label_sold_by_enable',
 		'sold_by_label'       				=> 'wcvendors_label_sold_by',
 		'seller_info_label'       			=> 'wcvendors_display_label_store_info',
