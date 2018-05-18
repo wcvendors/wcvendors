@@ -19,8 +19,10 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 
 == Announcements ==
 
+* Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for solutions to your vendor commission payments. Including Stripe, Paypal and others.
 * WC Vendors 2.0 is a major update, this will affect some stores using other WC Vendors integrations.
-* PayPal has depreciated Adaptive Payments as of September 1st 2017. This will soon cease to function. We provide an instant payment solution via our <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=sport&utm_medium=pluginpage&utm_campaign=description?utm_source=wporg">Stripe Gateway</a> however there are 3rd party extensions from MangoPay and Escrow that also provide vendor commission payouts.
+* PayPal has depreciated Adaptive Payments as of September 1st 2017. This will soon cease to function. We provide an instant payment solution via our <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=annoucements?utm_source=wporg">Stripe Gateway</a> however there are 3rd party extensions from MangoPay and Escrow that also provide vendor commission payouts.
+
 
 == Features ==
 
@@ -56,7 +58,7 @@ The following features are available as a part of the free WC Vendors plugin.
 
 = WC Vendors Pro =
 
-The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=sport&utm_medium=pluginpage&utm_campaign=description?utm_source=wporg">WC Vendors Pro</a> our feature rich addition to your marketplace. Move all your vendors tasks to the frontend. They no longer need or see the WordPress admin.
+The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=description?utm_source=wporg">WC Vendors Pro</a> our feature rich addition to your marketplace. Move all your vendors tasks to the frontend. They no longer need or see the WordPress admin.
 
 * Vendors have a main dashboard showing sales reports and recent orders and products.
 * Vendors have complete front end product management
@@ -76,7 +78,7 @@ The following features are part of <a href="https://www.wcvendors.com/product/wc
 * Premium ticket based support for all pro users. Annual and lifetime support licenses available.
 * There's more features to Pro than listed here!
 
-See our full comparison of free vs pro here <a href="https://www.wcvendors.com/home/comparison/?utm_source=sport&utm_medium=pluginpage&utm_campaign=description?utm_source=wporg">Compare free and pro</a>
+See our full comparison of free vs pro here <a href="https://www.wcvendors.com/home/comparison/?&utm_campaign=description?utm_source=wporg">Compare free and pro</a>
 
 = Translations =
 

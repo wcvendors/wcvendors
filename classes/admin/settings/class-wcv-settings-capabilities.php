@@ -62,13 +62,13 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 			array(
 				'title'    => __( 'Add / Edit Product', 'wc-vendors' ),
 				'type'     => 'title',
-				'desc'     => sprintf( __( 'Configure what product information to hide from a %s when creating or editing a product', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'     => sprintf( __( 'Configure what product information to hide from the %s when creating or editing a product', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 				'id'       => 'product_add_options',
 			),
 
 			array(
 					'title'    => __( 'Product Types', 'wc-vendors' ),
-					'desc'     => sprintf( __( 'This controls what product types a %s can create', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'     => sprintf( __( 'This controls what product types the %s can create', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'       => 'wcvendors_capability_product_types',
 					'class'    => 'wc-enhanced-select',
 					'css'      => 'min-width:300px;',
@@ -80,7 +80,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 					'title'    => __( 'Product Type Options', 'wc-vendors' ),
-					'desc'     => sprintf( __( 'This controls what product type options a %s can use', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'     => sprintf( __( 'This controls what product type options the %s can use', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'       => 'wcvendors_capability_product_type_options',
 					'class'    => 'wc-enhanced-select',
 					'css'      => 'min-width:300px;',
@@ -95,7 +95,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 					'title'    => __( 'Product Data Tabs', 'wc-vendors' ),
-					'desc'     => sprintf( __( 'This controls what product data tabs a %s can use', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'     => sprintf( __( 'This controls what product data tabs the %s can use', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'       => 'wcvendors_capability_product_data_tabs',
 					'class'    => 'wc-enhanced-select',
 					'css'      => 'min-width:300px;',
@@ -116,7 +116,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Featured Product', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to use the featured product option', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'    => sprintf( __( 'Allow %s to use the featured product option', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_product_featured',
 				'default' => 'no',
 				'type'    => 'checkbox',
@@ -124,7 +124,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Duplicate Product', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to duplicate products', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'    => sprintf( __( 'Allow %s to duplicate products', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_product_duplicate',
 				'default' => 'no',
 				'type'    => 'checkbox',
@@ -132,7 +132,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'SKU', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Hide sku field from %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'    => sprintf( __( 'Hide sku field from %s', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_product_sku',
 				'default' => 'no',
 				'type'    => 'checkbox',
@@ -140,7 +140,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Taxes', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Hide tax fields from %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'    => sprintf( __( 'Hide tax fields from %s', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_product_taxes',
 				'default' => 'no',
 				'type'    => 'checkbox',
@@ -156,13 +156,13 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'type'     => 'title',
-				'desc'     => sprintf( __( 'Configure what order information a %s can view from an order', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) ),
+				'desc'     => sprintf( __( 'Configure what order information a %s can view from an order', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 				'id'       => 'order_view_options',
 			),
 
 			array(
 				'title'   => __( 'View Order Notes', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to view order notes', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+				'desc'    => sprintf( __( 'Allow %s to view order notes', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_order_read_notes',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -170,7 +170,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Add Order notes', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to add order notes.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+				'desc'    => sprintf( __( 'Allow %s to add order notes.', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_order_update_notes',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -178,7 +178,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Customer Name', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to view customer name fields', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'    => sprintf( __( 'Allow %s to view customer name fields', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_order_customer_name',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -186,7 +186,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Customer Billing Address', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to view customer billing address fields', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'    => sprintf( __( 'Allow %s to view customer billing address fields', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_order_customer_billling',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -194,7 +194,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Customer Shipping Address', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to view the customer shipping fields', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'    => sprintf( __( 'Allow %s to view the customer shipping fields', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_order_customer_shipping',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -202,7 +202,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Customer Email', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to view the customer email address', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'    => sprintf( __( 'Allow %s to view the customer email address', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_order_customer_email',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -210,7 +210,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Customer Phone', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to view the customer phone number', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+				'desc'    => sprintf( __( 'Allow %s to view the customer phone number', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_order_customer_phone',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -227,7 +227,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 			array(
 				'title'    => __( 'Permissions', 'wc-vendors' ),
 				'type'     => 'title',
-				'desc'     => sprintf( __( 'Enable or disable functionality for your %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+				'desc'     => sprintf( __( 'Enable or disable functionality for your %s', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'       => 'capabilities_options',
 			),
 
@@ -242,7 +242,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Submit Products', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to add/edit products', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+				'desc'    => sprintf( __( 'Allow %s to add/edit products', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_products_enabled',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -250,7 +250,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Edit Live Products', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to edit published (live) products', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+				'desc'    => sprintf( __( 'Allow %s to edit published (live) products', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_products_edit',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -258,7 +258,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Publish Approval', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to publish products directly to the marketplace without requiring approval.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+				'desc'    => sprintf( __( 'Allow %s to publish products directly to the marketplace without requiring approval.', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_products_live',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -275,7 +275,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'View Orders', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to view orders', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+				'desc'    => sprintf( __( 'Allow %s to view orders', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_orders_enabled',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -283,7 +283,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Export Orders', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to export their orders to a CSV file', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+				'desc'    => sprintf( __( 'Allow %s to export their orders to a CSV file', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_orders_export',
 				'default' => 'yes',
 				'type'    => 'checkbox',
@@ -291,7 +291,7 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 
 			array(
 				'title'   => __( 'Front End Sales Reports', 'wc-vendors' ),
-				'desc'    => sprintf( __( 'Allow %s to view sales table on the frontend on the %s dashboard page.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ), lcfirst( wcv_get_vendor_name( false ) ) ),
+				'desc'    => sprintf( __( 'Allow %s to view sales table on the frontend on the %s dashboard page.', 'wc-vendors' ), wcv_get_vendor_name( false, false ), wcv_get_vendor_name( false, false ) ),
 				'id'      => 'wcvendors_capability_frontend_reports',
 				'default' => 'yes',
 				'type'    => 'checkbox',

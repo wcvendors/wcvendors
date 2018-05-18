@@ -52,7 +52,7 @@ class WCV_Orders
 
 		if ( empty( $_GET[ 'orders_for_product' ] ) ) {
 
-			return __( 'You haven\'t selected a product\'s orders to view! Please go back to the Vendor Dashboard and click Show Orders on the product you\'d like to view.', 'wc-vendors' );
+			return sprintf( __( 'You haven\'t selected a product\'s orders to view! Please go back to the %s Dashboard and click Show Orders on the product you\'d like to view.', 'wc-vendors' ), wcv_get_vendor_name() );
 
 		} else {
 			$this->product_id = !empty( $_GET[ 'orders_for_product' ] ) ? (int) $_GET[ 'orders_for_product' ] : false;
@@ -118,7 +118,7 @@ class WCV_Orders
 
 		if ( empty( $_GET[ 'orders_for_product' ] ) ) {
 
-			return __( 'You haven\'t selected a product\'s orders to view! Please go back to the Vendor Dashboard and click Show Orders on the product you\'d like to view.', 'wc-vendors' );
+			return sprintf( __( 'You haven\'t selected a product\'s orders to view! Please go back to the %s Dashboard and click Show Orders on the product you\'d like to view.', 'wc-vendors' ), wcv_get_vendor_name() );
 
 		} else {
 			$this->product_id = !empty( $_GET[ 'orders_for_product' ] ) ? (int) $_GET[ 'orders_for_product' ] : false;

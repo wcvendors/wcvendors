@@ -58,7 +58,7 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 		if ( '' === $current_section ) {
 
 			$settings = apply_filters( 'wcvendors_settings', array(
-        
+
 				//  General Options
 				array(
 					'title'    => __( 'Marketplace Options', 'wc-vendors' ),
@@ -68,28 +68,28 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 				),
 				array(
 					'title'   => sprintf( __( '%s Registration', 'wc-vendors' ), wcv_get_vendor_name() ),
-					'desc'    => sprintf( __( 'Allow users to apply to become a %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'    => sprintf( __( 'Allow users to apply to become a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      => 'wcvendors_vendor_allow_registration',
 					'default' => 'yes',
 					'type'    => 'checkbox',
 				),
 				array(
 					'title'   => sprintf( __( '%s Approval', 'wc-vendors' ), wcv_get_vendor_name() ),
-					'desc'    => sprintf( __( 'Manually approve all %s applications', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'    => sprintf( __( 'Manually approve all %s applications', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      => 'wcvendors_vendor_approve_registration',
 					'default' => 'no',
 					'type'    => 'checkbox',
 				),
 				array(
 					'title'   => sprintf( __( '%s Taxes', 'wc-vendors' ), wcv_get_vendor_name() ),
-					'desc'    => sprintf( __( 'Give any taxes to the %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+					'desc'    => sprintf( __( 'Give any taxes to the %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      => 'wcvendors_vendor_give_taxes',
 					'default' => 'no',
 					'type'    => 'checkbox',
 				),
 				array(
 					'title'   => sprintf( __( '%s Shipping', 'wc-vendors' ), wcv_get_vendor_name() ),
-					'desc'    => sprintf( __( 'Give any shipping to the %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+					'desc'    => sprintf( __( 'Give any shipping to the %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      => 'wcvendors_vendor_give_shipping',
 					'default' => 'no',
 					'type'    => 'checkbox',

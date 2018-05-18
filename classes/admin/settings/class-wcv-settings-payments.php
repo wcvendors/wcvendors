@@ -64,7 +64,7 @@ class WCVendors_Settings_Payments extends WCVendors_Settings_Page {
 				array(
 					'title'    => __( '', 'wc-vendors' ),
 					'type'     => 'title',
-					'desc'     => sprintf( __( '<h3>PayPal Adaptive Payments - Please Note: PayPal Adaptive Payments has been depreciated by PayPal as of September 2017. These options are for existing users only. This will be completely removed in a future version.</h3>', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'     => sprintf( __( '<h3>PayPal Adaptive Payments - Please Note: PayPal Adaptive Payments has been depreciated by PayPal as of September 2017. These options are for existing users only. This will be completely removed in a future version.</h3>', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'       => 'paypal_options',
 				),
 
@@ -79,7 +79,7 @@ class WCVendors_Settings_Payments extends WCVendors_Settings_Page {
 				array(
 					'title'   	=> __( 'Instant Pay', 'wc-vendors' ),
 					'desc'    	=> __( 'Enable instantpay', 'wc-vendors' ),
-					'desc_tip' 	=> sprintf( __( 'Instantly pay %s their commission when an order is made, and if a %s has a valid PayPal email added on their Shop Settings page.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc_tip' 	=> sprintf( __( 'Instantly pay %1s their commission when an order is made, and if a %1s has a valid PayPal email added on their Shop Settings page.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      	=> 'wcvendors_payments_paypal_instantpay_enable',
 					'default' 	=> 'no',
 					'type'    	=> 'checkbox',
@@ -122,7 +122,7 @@ class WCVendors_Settings_Payments extends WCVendors_Settings_Page {
 				array(
 					'title'    => __( '', 'wc-vendors' ),
 					'type'     => 'title',
-					'desc'     => sprintf( __( '<strong>Payments controls how your %s commission is paid out. These settings only function if you are using a supported gateway.</strong> ', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'     => sprintf( __( '<strong>Payments controls how your %s commission is paid out. These settings only function if you are using a supported gateway.</strong> ', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'       => 'payment_general_options',
 				),
 

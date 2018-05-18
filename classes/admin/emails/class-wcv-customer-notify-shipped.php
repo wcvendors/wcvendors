@@ -25,8 +25,8 @@ class WCVendors_Customer_Notify_Shipped extends WC_Email {
 	public function __construct() {
 		$this->id             = 'customer_notify_shipped';
 		$this->customer_email = true;
- 		$this->title          = sprintf( __( 'Customer %s shipped', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
-		$this->description    = sprintf( __( 'Email is sent to the customer when a %s marks an order received/paid by a customer.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
+ 		$this->title          = sprintf( __( 'Customer %s shipped', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+		$this->description    = sprintf( __( 'Email is sent to the customer when a %s marks an order received/paid by a customer.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		$this->template_html  = 'emails/customer-notify-shipped.php';
 		$this->template_plain = 'emails/plain/customer-notify-shipped.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';

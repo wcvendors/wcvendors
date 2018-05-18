@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <form method="post">
 	<?php wp_nonce_field( 'wcv-setup' ); ?>
-	<p class="store-setup"><?php printf( __( 'Enable and disable capabilites of the %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></p>
+	<p class="store-setup"><?php printf( __( 'Enable and disable capabilites of the %s', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></p>
 
 	<table class="wcv-setup-table">
 		<thead>
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</thead>
 		<tbody>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to add/edit products', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to add/edit products', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to edit published (live) products', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to edit published (live) products', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to publish products without requiring approval.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) )?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to publish products without requiring approval.', 'wc-vendors' ), wcv_get_vendor_name( false, false ) )?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</thead>
 		<tbody>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to view orders', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to view orders', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -86,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to export their orders to a CSV file', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to export their orders to a CSV file', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to view order notes', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to view order notes', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -112,7 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to add order notes.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to add order notes.', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"

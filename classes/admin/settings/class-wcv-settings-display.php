@@ -63,13 +63,13 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				array(
 					'title'    => __( '', 'wc-vendors' ),
 					'type'     => 'title',
-					'desc'     => sprintf( __( 'Advanced options provide extra display options', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'     => sprintf( __( 'Advanced options provide extra display options', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'       => 'advanced_options',
 				),
 				array(
 					'title'   	=> __( 'Product Page Stylesheet', 'wc-vendors' ),
-					'desc'    	=> __( 'You can add CSS in this textarea, which will be loaded on the product add/edit page for vendors', 'wc-vendors' ),
-					'desc_tip' 	=> sprintf( __( 'This enables the sold by labels used to show which %s shop the product belongs to', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'    	=> sprintf( __( 'You can add CSS in this textarea, which will be loaded on the product add/edit page for %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+					'desc_tip' 	=> sprintf( __( 'This enables the sold by labels used to show which %s shop the product belongs to', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      	=> 'wcvendors_display_advanced_stylesheet',
 					'css'		=> 'width: 700px;min-height:100px',
 					'default' 	=> '',
@@ -88,14 +88,30 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				array(
 					'title'    => __( '', 'wc-vendors' ),
 					'type'     => 'title',
-					'desc'     => sprintf( __( 'Labels are shown on the front end, in orders or emails.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'     => sprintf( __( 'Labels are shown on the front end, in orders or emails.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'       => 'label_options',
+				),
+
+				array(
+					'title'    	=> __( 'Vendor singluar term', 'wc-vendors' ),
+					'desc_tip'  => __( 'Change all references to vendor to this term', 'wc-vendors' ),
+					'id'       	=> 'wcvendors_vendor_singular',
+					'type'     	=> 'text',
+					'default'	=> __( 'Vendor', 'wc-vendors' ),
+				),
+
+				array(
+					'title'    	=> __( 'Vendor plural term', 'wc-vendors' ),
+					'desc_tip'  => __( 'Change all references to vendors to this term', 'wc-vendors' ),
+					'id'       	=> 'wcvendors_vendor_plural',
+					'type'     	=> 'text',
+					'default'	=> __( 'Vendors', 'wc-vendors' ),
 				),
 
 				array(
 					'title'   	=> __( 'Sold by', 'wc-vendors' ),
 					'desc'    	=> __( 'Enable sold by labels', 'wc-vendors' ),
-					'desc_tip' 	=> sprintf( __( 'This enables the sold by labels used to show which %s shop the product belongs to', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc_tip' 	=> sprintf( __( 'This enables the sold by labels used to show which %s shop the product belongs to', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      	=> 'wcvendors_display_label_sold_by_enable',
 					'default' 	=> 'yes',
 					'type'    	=> 'checkbox',
@@ -111,7 +127,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 
 				array(
 					'title'   	=> sprintf( __( '%s Store Info', 'wc-vendors' ), wcv_get_vendor_name() ),
-					'desc'    	=> sprintf( __( 'Enable %s store info tab on the single product page', 'wc-vendors' ), wcv_get_vendor_name() ),
+					'desc'    	=> sprintf( __( 'Enable %s store info tab on the single product page', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      	=> 'wcvendors_label_store_info_enable',
 					'default' 	=> 'yes',
 					'type'    	=> 'checkbox',
@@ -119,7 +135,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 
 				array(
 					'title'    	=> sprintf( __( '%s store Info label', 'wc-vendors' ), wcv_get_vendor_name() ),
-					'desc'  => sprintf( __( 'The %s store info label', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) ),
+					'desc'  	=> sprintf( __( 'The %s store info label', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'       	=> 'wcvendors_display_label_store_info',
 					'type'     	=> 'text',
 					'default'	=> __( 'Store Info', 'wc-vendors' ),
@@ -137,7 +153,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				array(
 					'title'    	=> __( 'Pages', 'wc-vendors' ),
 					'type'     	=> 'title',
-					'desc'		=> sprintf( __( 'These pages used on the front end by %s.', 'wc-vendors'), lcfirst( wcv_get_vendor_name( false ) ) ),
+					'desc'		=> sprintf( __( 'These pages used on the front end by %s.', 'wc-vendors'), wcv_get_vendor_name( true, false ) ),
 					'id'       	=> 'page_options',
 				),
 				array(
@@ -147,7 +163,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 					'default'  	=> '',
 					'class'    	=> 'wc-enhanced-select-nostd',
 					'css'      	=> 'min-width:300px;',
-					'desc' 	   	=> sprintf(  __( '<br />This sets the page used to display the front end %s dashboard. This page should contain the following shortcode. <code>[wcv_vendor_dashboard]</code>', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+					'desc' 	   	=> sprintf(  __( '<br />This sets the page used to display the front end %s dashboard. This page should contain the following shortcode. <code>[wcv_vendor_dashboard]</code>', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 				),
 				array(
 					'title'    	=> __( 'Shop Settings', 'wc-vendors' ),
@@ -156,7 +172,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 					'default'  	=> '',
 					'class'    	=> 'wc-enhanced-select-nostd',
 					'css'      	=> 'min-width:300px;',
-					'desc' 	   	=> sprintf(  __( '<br />This sets the page used to display the %s shop settings page. This page should contain the following shortcode. <code>[wcv_shop_settings]</code>', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+					'desc' 	   	=> sprintf(  __( '<br />This sets the page used to display the %s shop settings page. This page should contain the following shortcode. <code>[wcv_shop_settings]</code>', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 				),
 				array(
 					'title'    	=> __( 'Orders', 'wc-vendors' ),
@@ -165,16 +181,16 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 					'default'  	=> '',
 					'class'    	=> 'wc-enhanced-select-nostd',
 					'css'      	=> 'min-width:300px;',
-					'desc' 	   	=> sprintf(  __( '<br />This sets the page used to display the %s orders page. This page should contain the following shortcode. <code>[wcv_orders]</code>', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+					'desc' 	   	=> sprintf(  __( '<br />This sets the page used to display the %s orders page. This page should contain the following shortcode. <code>[wcv_orders]</code>', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 				),
 				array(
-					'title'    	=> sprintf( __( '%s', 'wc-vendors' ), ucfirst( wcv_get_vendor_name( false ) ) ),
+					'title'    	=> sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name( false ) ),
 					'id'       	=> 'wcvendors_vendors_page_id',
 					'type'     	=> 'single_select_page',
 					'default'  	=> '',
 					'class'    	=> 'wc-enhanced-select-nostd',
 					'css'      	=> 'min-width:300px;',
-					'desc' 	   	=> sprintf(  __( '<br />This sets the page used to display a paginated list of all %1$s stores. Your %1$s stores will be available at <code>%2$s/page-slug/store-name/</code><br />This page should contain the following shortcode. <code>[wcv_vendorslist]</code>', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ), esc_html( home_url() ) ),
+					'desc' 	   	=> sprintf(  __( '<br />This sets the page used to display a paginated list of all %1$s stores. Your %1$s stores will be available at <code>%2$s/page-slug/store-name/</code><br />This page should contain the following shortcode. <code>[wcv_vendorslist]</code>', 'wc-vendors' ), wcv_get_vendor_name( true, false ), esc_html( home_url() ) ),
 				),
 				array(
 					'title'    	=> __( 'Terms and Conditions', 'wc-vendors' ),
@@ -183,7 +199,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 					'default'  	=> '',
 					'class'    	=> 'wc-enhanced-select-nostd',
 					'css'      	=> 'min-width:300px;',
-					'desc'     	=> sprintf(  __( '<br />This sets the page used to display the terms and conditions when a %s signs up.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) ),
+					'desc'     	=> sprintf(  __( '<br />This sets the page used to display the terms and conditions when a %s signs up.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 				),
 
 				array( 'type' => 'sectionend', 'id' => 'page_options' ),
@@ -192,13 +208,13 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				array(
 					'title'    	=> __( 'Store Settings', 'wc-vendors' ),
 					'type'     	=> 'title',
-					'desc'		=> __( 'These are the settings for the individual vendor stores.', 'wc-vendors' ),
+					'desc'		=> sprintf( __( 'These are the settings for the individual %s stores.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'       	=> 'shop_options',
 				),
 
 				array(
 					'title'    => sprintf( __( '%s Store URL', 'wc-vendors' ), wcv_get_vendor_name() ),
-					'desc'     => sprintf( __( 'If you enter "vendors" your %s store will be %s/vendors/store-name/', 'wc-vendors' ), ucfirst( wcv_get_vendor_name( false ) ), esc_html( home_url() ) ),
+					'desc'     => sprintf( __( 'If you enter "vendors" your %1$s store will be %1$s/vendors/store-name/', 'wc-vendors' ), wcv_get_vendor_name( true, false ), esc_html( home_url() ) ),
 					'id'       => 'wcvendors_vendor_shop_permalink',
 					'default'  => 'vendors',
 					'type'     => 'text',
@@ -206,8 +222,8 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 
 				array(
 					'title'   	=> __( 'Shop Header', 'wc-vendors' ),
-					'desc'    	=> sprintf( __( 'Enable %s shop headers', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
-					'desc_tip' 	=> sprintf( __( 'This enables the %s shop header template and disables the shop description text.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc'    	=> sprintf( __( 'Enable %s shop headers', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+					'desc_tip' 	=> sprintf( __( 'This enables the %s shop header template and disables the shop description text.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      	=> 'wcvendors_display_shop_headers',
 					'default' 	=> 'no',
 					'type'    	=> 'checkbox',
@@ -215,8 +231,8 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 
 				array(
 					'title'   	=> __( 'Shop HTML', 'wc-vendors' ),
-					'desc'    	=> sprintf( __( 'Allow HTML in %s shop desription', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
-					'desc_tip' 	=> sprintf( __( 'Enable HTML for a %s shop description. You can enable or disable this per vendor by editing the vendors user account.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+					'desc'    	=> sprintf( __( 'Allow HTML in %s shop desription', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+					'desc_tip' 	=> sprintf( __( 'Enable HTML for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      	=> 'wcvendors_display_shop_description_html',
 					'default' 	=> 'no',
 					'type'    	=> 'checkbox',
@@ -225,7 +241,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				array(
 					'title'    => __( 'Display Name', 'wc-vendors' ),
 					'id'       => 'wcvendors_display_shop_display_name',
-					'desc_tip' => sprintf( __( 'Select what will be used to display the %s name throughout the marketplace.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
+					'desc_tip' => sprintf( __( 'Select what will be used to display the %s name throughout the marketplace.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'default'  => 'shop_name',
 					'type'     => 'select',
 					'class'    => 'wc-enhanced-select',

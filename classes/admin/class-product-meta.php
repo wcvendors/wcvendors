@@ -43,7 +43,7 @@ class WCV_Product_Meta
 	public function change_author_meta_box_title()
 	{
 		global $wp_meta_boxes;
-		$wp_meta_boxes[ 'product' ][ 'normal' ][ 'core' ][ 'authordiv' ][ 'title' ] = __( 'Vendor', 'wc-vendors' );;
+		$wp_meta_boxes[ 'product' ][ 'normal' ][ 'core' ][ 'authordiv' ][ 'title' ] =  wcv_get_vendor_name();
 	}
 
 
@@ -184,7 +184,7 @@ class WCV_Product_Meta
 	*		Rename the Authors column to Vendor on products page
 	*/
 	public function vendor_column_quickedit($posts_columns) {
-		$posts_columns['author'] = __( 'Vendor', 'wc-vendors' );
+		$posts_columns['author'] = wcv_get_vendor_name();
 
 		return $posts_columns;
 	}

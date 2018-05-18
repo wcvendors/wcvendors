@@ -24,7 +24,7 @@ class WCVendors_Admin_Notify_Product extends WC_Email {
 	 */
 	public function __construct() {
 		$this->id             = 'admin_notify_product';
-		$this->title          = sprintf( __( 'Admin new %s product', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) );
+		$this->title          = sprintf( __( 'Admin new %s product', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a %s submits a product for approval.', 'wc-vendors' ), wcv_get_vendor_name() );
 		$this->template_html  = 'emails/admin-notify-product.php';
 		$this->template_plain = 'emails/plain/admin-notify-product.php';
@@ -54,7 +54,7 @@ class WCVendors_Admin_Notify_Product extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return sprintf( __( '[{site_title}] New %s product submitted by {vendor_name} - {product_name}', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) );
+		return sprintf( __( '[{site_title}] New %s product submitted by {vendor_name} - {product_name}', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 	}
 
 	/**
@@ -64,7 +64,7 @@ class WCVendors_Admin_Notify_Product extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return sprintf( __( 'New %s product submitted: {product_name}', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) );
+		return sprintf( __( 'New %s product submitted: {product_name}', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 	}
 
 	/**

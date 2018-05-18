@@ -139,7 +139,7 @@ class WC_Email_Notify_Admin extends WC_Email
 			'recipient'  => array(
 				'title'       => __( 'Recipient(s)', 'woocommerce' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to <code>%s</code>.', 'woocommerce' ), esc_attr( get_option( 'admin_email' ) ) ),
+				'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to <code>%s</code>.', 'wc-vendors' ), esc_attr( get_option( 'admin_email' ) ) ),
 				'placeholder' => '',
 				'default'     => ''
 			),

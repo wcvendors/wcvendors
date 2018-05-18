@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</thead>
 		<tbody>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow users to apply to become a %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Allow users to apply to become a %s', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td>
 				<td class="table-check">
 					<input
 					type="checkbox"
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Manually approve %s applications', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( 'Manually approve %s applications', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Give any taxes to %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td></td>
+				<td class="table-desc"><?php printf( __( 'Give any taxes to %s', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Give any shipping to %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td></td>
+				<td class="table-desc"><?php printf( __( 'Give any shipping to %s', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></td></td>
 				<td class="table-check">
 					<input
 						type="checkbox"

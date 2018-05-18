@@ -566,7 +566,7 @@ class WCV_Vendors
 			$vendor_order_data['post_author']   = get_current_user_id();
 			$vendor_order_data['post_password'] = uniqid( 'vendor_' ); // password = 20 char max! (uniqid = 13)
 			$vendor_order_data['post_parent']   = absint( $args['order_id'] );
-			$vendor_order_data['post_title']    = sprintf( __( 'Vendor Order &ndash; %s', 'woocommerce' ), strftime( _x( '%b %d, %Y @ %I:%M %p', 'Order date parsed by strftime', 'woocommerce' ) ) );
+			$vendor_order_data['post_title']    = sprintf( __( '%s Order &ndash; %s', 'wc-vendors' ), wcv_get_vendor_name(), strftime( _x( '%b %d, %Y @ %I:%M %p', 'Order date parsed by strftime', 'wc-vendors' ) ) );
 			$vendor_order_data['post_date']     = $args['date'];
 		}
 

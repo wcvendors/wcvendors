@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <form method="post">
 	<?php wp_nonce_field( 'wcv-setup' ); ?>
-	<p class="store-setup"><?php printf( __( 'Select the pages for relevant frontend features for %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></p>
+	<p class="store-setup"><?php printf( __( 'Select the pages for relevant frontend features for %s', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ); ?></p>
 
 	<table class="wcv-setup-table-pages">
 		<thead>
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( '%s Shop Settings', 'wc-vendors' ), ucfirst( wcv_get_vendor_name( false ) ) ); ?></td>
+				<td class="table-desc"><?php printf( __( '%s Shop Settings', 'wc-vendors' ), wcv_get_vendor_name( false ) ); ?></td>
 				<td class="table-check">
 					<?php wcv_single_select_page( 'wcvendors_shop_settings_page_id', $shop_settings_page_id, 'wc-enhanced-select' ); ?>
 				</td>
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( '%s List Page', 'wc-vendors' ), ucfirst( wcv_get_vendor_name( false ) ) ); ?></td></td>
+				<td class="table-desc"><?php printf( __( '%s List Page', 'wc-vendors' ), wcv_get_vendor_name( false ) ); ?></td></td>
 				<td class="table-check">
 					<?php wcv_single_select_page( 'wcvendors_vendors_page_id', $vendors_page_id, 'wc-enhanced-select' ); ?>
 				</td>
@@ -68,14 +68,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( '%s Terms Page', 'wc-vendors' ), ucfirst( wcv_get_vendor_name( true ) ) ); ?></td></td>
+				<td class="table-desc"><?php printf( __( '%s Terms Page', 'wc-vendors' ), wcv_get_vendor_name() ); ?></td></td>
 				<td class="table-check">
 					<?php wcv_single_select_page( 'wcvendors_vendor_terms_page_id', $terms_page_id, 'wc-enhanced-select' ); ?>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3" class="tool-tip">
-					<?php printf( __( 'This optional page allows you to define terms and conidtions %s need to agree to before applying to your marketplace. ', 'wc-vendors' ), ucfirst( wcv_get_vendor_name( false ) ) ); ?>
+					<?php printf( __( 'This optional page allows you to define terms and conidtions %s need to agree to before applying to your marketplace. ', 'wc-vendors' ), wcv_get_vendor_name( false ) ); ?>
 				</td>
 			</tr>
 

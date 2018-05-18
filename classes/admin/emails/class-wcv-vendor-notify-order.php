@@ -25,7 +25,7 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 	public function __construct() {
 		$this->id             = 'vendor_notify_order';
 		$this->title          = sprintf( __( '%s notify order', 'wc-vendors' ), wcv_get_vendor_name( ) );
-		$this->description    = sprintf( __( 'Notification is sent to %s when an order is paid.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( false ) ) );
+		$this->description    = sprintf( __( 'Notification is sent to %s when an order is paid.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		$this->template_html  = 'emails/vendor-notify-order.php';
 		$this->template_plain = 'emails/plain/vendor-notify-order.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';

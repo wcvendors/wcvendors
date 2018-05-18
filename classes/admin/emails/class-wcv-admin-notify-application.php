@@ -24,8 +24,8 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 	 */
 	public function __construct() {
 		$this->id             = 'admin_notify_application';
-		$this->title          = sprintf( __( 'Admin notify vendor application', 'wc-vendors' ), wcv_get_vendor_name( ) );
-		$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a user applies to be a %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
+		$this->title          = sprintf( __( 'Admin notify %s application', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+		$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a user applies to be a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		$this->template_html  = 'emails/admin-notify-application.php';
 		$this->template_plain = 'emails/plain/admin-notify-application.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
@@ -48,7 +48,7 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return sprintf( __( '[{site_title}] {user_name} has applied to be a %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
+		return sprintf( __( '[{site_title}] {user_name} has applied to be a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 	}
 
 	/**

@@ -24,8 +24,8 @@ class WCVendors_Vendor_Notify_Application extends WC_Email {
 	 */
 	public function __construct() {
 		$this->id             = 'vendor_notify_application';
-		$this->title          = sprintf( __( 'Vendor notify application', 'wc-vendors' ), wcv_get_vendor_name( ) );
-		$this->description    = sprintf( __( 'Notification is sent to the vendor that their application has been received', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ) );
+		$this->title          = sprintf( __( '%s notify application', 'wc-vendors' ), wcv_get_vendor_name( ) );
+		$this->description    = sprintf( __( 'Notification is sent to the %s that their application has been received', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		$this->template_html  = 'emails/vendor-notify-application.php';
 		$this->template_plain = 'emails/plain/vendor-notify-application.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
@@ -45,7 +45,7 @@ class WCVendors_Vendor_Notify_Application extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return __( '[{site_title}] Your vendor application has been received', 'wc-vendors' );
+		return sprintf( __( '[{site_title}] Your %s application has been received', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 	}
 
 	/**
@@ -55,11 +55,11 @@ class WCVendors_Vendor_Notify_Application extends WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return __( 'Vendor application received', 'wc-vendors' );
+		return sprintf( __( '%s application received', 'wc-vendors' ), wcv_get_vendor_name( ) );
 	}
 
 	public function get_default_content() {
-		return sprintf( __( 'Hi there. This is a notification about a %s application on %s.', 'wc-vendors' ), lcfirst( wcv_get_vendor_name( ) ), get_option( 'blogname' ) );
+		return sprintf( __( 'Hi there. This is a notification about a %s application on %s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ), get_option( 'blogname' ) );
 	}
 
 	/**
