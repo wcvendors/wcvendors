@@ -1,5 +1,12 @@
 Changelog for WC Vendors
 
+Version 2.0.3
+
+* Added: Export Commission Sum Totals
+* Added: New setting to rename vendors store wide
+* Fixed: Update Dialog is stuck #409
+* Updated: Langage file
+
 Version 2.0.2
 
 * Fixed: Corrected settings conditional checks across classes

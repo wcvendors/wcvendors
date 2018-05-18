@@ -142,6 +142,13 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Changelog ==
 
+= Version 2.0.3 - 18th May 2018 =
+
+* Added: Export Commission Sum Totals
+* Added: New setting to rename vendors store wide
+* Fixed: Update Dialog is stuck #409
+* Updated: Langage file
+
 = Version 2.0.2 - 17th May 2018 =
 
 * Fixed: Corrected settings conditional checks across classes
