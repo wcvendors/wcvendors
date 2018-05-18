@@ -422,6 +422,7 @@ class WCVendors_Install {
 				'docs'    => '<a href="' . esc_url( apply_filters( 'wcvendors_docs_url', 'https://docs.wc-vendors.com/' ) ) . '" aria-label="' . esc_attr__( 'View WC Vendors documentation', 'wc-vendors' ) . '">' . esc_html__( 'Docs', 'wc-vendors' ) . '</a>',
 				'free-support' => '<a href="' . esc_url( apply_filters( 'wcvendors_free_support_url', 'https://wordpress.org/plugins/wc-vendors' ) ) . '" aria-label="' . esc_attr__( 'Visit community forums', 'wc-vendors' ) . '">' . esc_html__( 'Free support', 'wc-vendors' ) . '</a>',
 				'support' => '<a href="' . esc_url( apply_filters( 'wcvendors_support_url', 'https://wc-vendors.com/support/' ) ) . '" aria-label="' . esc_attr__( 'Visit premium customer support', 'wc-vendors' ) . '">' . esc_html__( 'Premium support', 'wc-vendors' ) . '</a>',
+				'pro' 		=> '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="_blank">'.__( 'Upgrade to Pro', 'wcvendors').'</a></strong>',
 			);
 
 			return array_merge( $links, $row_meta );
