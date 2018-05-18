@@ -1,5 +1,9 @@
 Changelog for WC Vendors
 
+Version 2.0.4
+
+* Fixed: Critical commission calculation error
+
 Version 2.0.3
 
 * Added: Export Commission Sum Totals
