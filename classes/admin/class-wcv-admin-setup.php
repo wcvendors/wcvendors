@@ -26,6 +26,7 @@ class WCV_Admin_Setup {
 
 		add_filter( 'admin_footer_text', 									array( $this, 'admin_footer_text' ), 1 );
 		add_action( 'admin_init', 											array( $this, 'export_commissions' ) );
+		add_action( 'admin_init', 											array( $this, 'export_sum_commissions' ) );
 		add_filter( 'woocommerce_screen_ids', 								array( $this, 'wcv_screen_ids' ) );
 		add_action( 'wcvendors_update_options_capabilities',				array( $this, 'update_vendor_role' ) );
 
@@ -191,6 +192,34 @@ class WCV_Admin_Setup {
 		}
 
 	}
+
+	/*
+	*	Export sum commissions via csv
+	*/
+	public function export_sum_commissions(){
+
+		// prepare the items to export
+
+
+		if ( isset( $_GET['action'], $_GET['nonce'] ) && wp_verify_nonce( wp_unslash( $_GET['nonce'] ), 'export_commission_totals' ) && 'export_commission_totals' === wp_unslash( $_GET['action'] ) ) {
+
+			include_once( 'class-wcv-commissions-sum-csv-exporter.php' );
+
+			$exporter = new WCV_Commissions_Sum_CSV_Export();
+
+			$date = date( 'Y-M-d' );
+
+			if ( ! empty( $_GET['com_status'] ) ) { // WPCS: input var ok.
+				$exporter->set_filename( 'wcv_commissions_sum_'. wp_unslash( $_GET['com_status'] ) . '-' . $date . '.csv' ); // WPCS: input var ok, sanitization ok.
+			} else {
+				$exporter->set_filename( 'wcv_commissions_sum-' . $date . '.csv' ); // WPCS: input var ok, sanitization ok.
+			}
+
+			$exporter->export();
+		}
+
+	}
+
 
 	/**
 	* Add wc vendors screens to woocommerce screen ids to utilise js and css assets from woocommerce.

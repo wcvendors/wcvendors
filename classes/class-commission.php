@@ -570,4 +570,51 @@ class WCV_Commission
 
 	}
 
+	/*
+	* Get the summed total for each vendor based on the status
+	* @since 2.0.3
+	* @access public
+	*/
+	public static function get_sum_vendor_totals(){
+
+		global $wpdb;
+
+		$due 		= array();
+		$paid 		= array();
+		$reversed 	= array();
+
+		$table_name = $wpdb->prefix . "pv_commission";
+		$query      = "SELECT `id`, `total_due`, `total_shipping`, `tax`, `vendor_id`, `status`
+					FROM `{$table_name}`";
+
+		$results = $wpdb->get_results( $query );
+
+		foreach ( $results as $commission ) {
+
+			switch ( $commission->status ) {
+				case 'due':
+					$due[ $commission->vendor_id ] = !empty( $due[ $commission->vendor_id ] ) ? ( $due[ $commission->vendor_id ] + ( $commission->total_due + $commission->total_shipping + $commission->tax ) ) : ( $commission->total_due + $commission->total_shipping + $commission->tax );
+					break;
+				case 'paid':
+					$paid[ $commission->vendor_id ] = !empty( $paid[ $commission->vendor_id ] ) ? ( $paid[ $commission->vendor_id ] + ( $commission->total_due + $commission->total_shipping + $commission->tax ) ) : ( $commission->total_due + $commission->total_shipping + $commission->tax );
+					break;
+				case 'reversed':
+					$reversed[ $commission->vendor_id ] = !empty( $reversed[ $commission->vendor_id ] ) ? ( $reversed[ $commission->vendor_id ] + ( $commission->total_due + $commission->total_shipping + $commission->tax ) ) : ( $commission->total_due + $commission->total_shipping + $commission->tax );
+					break;
+				default:
+					# code...
+					break;
+			}
+		}
+
+		$sum_totals = array(
+			'due' 		=> $due,
+			'paid'		=> $paid,
+			'reversed'	=> $reversed
+		);
+
+		return $sum_totals;
+
+	}
+
 }

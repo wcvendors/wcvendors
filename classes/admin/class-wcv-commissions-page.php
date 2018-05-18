@@ -203,7 +203,8 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			submit_button( __( 'Filter', 'wc-vendors' ), false, false, false, array( 'id' => "post-query-submit", 'name' => 'do-filter' ) );
 			submit_button( __( 'Clear', 'wc-vendors' ), 'secondary', 'reset', false, array( 'type' => 'reset' ) );
 
-			echo '<a class="button" style="width: 110px; float: left;" href="' . wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_commissions'. $args_url ), 'export_commissions', 'nonce' ) . '">' . __('Export to CSV') . '</a>';
+			echo '<a class="button" style="width: 110px; float: left;" href="' . wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_commissions'. $args_url ), 'export_commissions', 'nonce' ) . '">' . __('Export to CSV', 'wc-vendors' ) . '</a>';
+			echo '<a class="button" style="width: 150px; float: left;" href="' . wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_commission_totals'. $args_url ), 'export_commission_totals', 'nonce' ) . '">' . __('Export Totals to CSV', 'wc-vendors' ) . '</a>';
 			echo '</div>';
 
 		}
