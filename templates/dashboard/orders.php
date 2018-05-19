@@ -5,8 +5,8 @@
  * This template can be overridden by copying it to yourtheme/wc-vendors/dashboard/orders.php
  *
  * @author		Jamie Madden, WC Vendors
- * @package 	WCVendors/Templates/Emails/HTML
- * @version 	2.0.0
+ * @package 	WCVendors/Templates/dashboard/
+ * @version 	2.0.5
 
  */
 
@@ -40,7 +40,6 @@ jQuery(function () {
 
 <h2><?php _e( 'Orders', 'wc-vendors' ); ?></h2>
 
-<?php global $woocommerce; ?>
 
 <?php if ( function_exists( 'wc_print_notices' ) ) { wc_print_notices(); } ?>
 
@@ -48,7 +47,9 @@ jQuery(function () {
 	<thead>
 	<tr>
 	<th class="product-header"><?php _e( 'Order', 'wc-vendors' ); ?></th>
+	<?php if ( $can_view_address ) : ?>
 	<th class="quantity-header"><?php _e( 'Shipping', 'wc-vendors' ) ?></th>
+	<?php endif; ?>
 	<th class="commission-header"><?php _e( 'Total', 'wc-vendors' ) ?></th>
 	<th class="rate-header"><?php _e( 'Date', 'wc-vendors' ) ?></th>
 	<th class="rate-header"><?php _e( 'Links', 'wc-vendors' ) ?></th>
@@ -62,7 +63,7 @@ jQuery(function () {
 		<?php foreach ( $order_summary as $order ) :
 
 			$order 			= wc_get_order( $order->order_id );
-			$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();
+			$order_id 		= $order->get_id();
 			$valid_items 	= WCV_Queries::get_products_for_order( $order_id );
 			$valid 			= array();
 			$needs_shipping = false;
@@ -82,13 +83,15 @@ jQuery(function () {
 			$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
 			$shipped = in_array($user_id, $shippers);
 
-			$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created();
+			$order_date = $order->get_date_created();
 
 			?>
 
 			<tr id="order-<?php echo $order_id; ?>" data-order-id="<?php echo $order_id; ?>">
 				<td><?php echo $order->get_order_number(); ?></td>
-				<td><?php echo apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' ); ?></td>
+				<?php if ( $can_view_address ) : ?>
+					<td><?php echo apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' ); ?></td>
+				<?php endif; ?>
 				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order_id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo wc_price( $total ); ?></td>
 				<td><?php echo date_i18n( wc_date_format(), strtotime( $order_date ) ); ?></td>
 				<td>

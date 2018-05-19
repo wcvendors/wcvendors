@@ -6,7 +6,7 @@
  *
  *
  * @author  WC Vendors
- * @package WCVendors/Templates/Emails
+ * @package WCVendors/Templates/Orders/
  * @version 2.0.0
  */
 

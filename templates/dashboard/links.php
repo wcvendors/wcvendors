@@ -5,7 +5,7 @@
  * This template can be overridden by copying it to yourtheme/wc-vendors/dashboard/links.php
  *
  * @author		Jamie Madden, WC Vendors
- * @package 	WCVendors/Templates/Emails/HTML
+ * @package 	WCVendors/Templates/dashboard
  * @version 	2.0.0
 
  */

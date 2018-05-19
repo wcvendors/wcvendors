@@ -40,11 +40,6 @@ function wcv_get_vendor_name( $singluar = true, $upper_case = true ){
 
 	return apply_filters( 'wcv_vendor_display_name', $vendor_label, $vendor_singular, $vendor_plural, $singluar, $upper_case );
 
-	// if ( $singluar ){
-	// 	return apply_filters( 'wcv_vendor_display_name_singluar',  $vendor_singular );
-	// } else {
-	// 	return apply_filters( 'wcv_vendor_display_name_plural', $vendor_plural );
-	// }
 }
 
 // Output a single select page drop down

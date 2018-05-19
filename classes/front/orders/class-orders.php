@@ -17,9 +17,11 @@ class WCV_Orders
 	 */
 	function __construct()
 	{
-		$this->can_view_orders = wc_string_to_bool( get_option( 'wcvendors_capability_orders_enabled', 'no' ) ); 
-		$this->can_export_csv  = wc_string_to_bool( get_option( 'wcvendors_capability_orders_export', 'no' ) ); 
-		$this->can_view_emails = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_email', 'no' ) ); 
+		$this->can_view_orders 	= wc_string_to_bool( get_option( 'wcvendors_capability_orders_enabled', 'no' ) );
+		$this->can_export_csv  	= wc_string_to_bool( get_option( 'wcvendors_capability_orders_export', 'no' ) );
+		$this->can_view_emails 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_email', 'no' ) );
+		$this->can_view_name 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
+		$this->can_view_address = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping' ) );
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );
 		add_action( 'template_redirect', array( $this, 'process_export_orders' ) );
@@ -216,6 +218,18 @@ class WCV_Orders
 			unset( $headers[ 'email' ] );
 		}
 
+		if ( !$this->can_view_name ) {
+			unset( $headers[ 'name' ] );
+		}
+
+		if ( !$this->can_view_address ) {
+			unset( $headers[ 'address' ] );
+			unset( $headers[ 'city' ] );
+			unset( $headers[ 'state' ] );
+			unset( $headers[ 'zip' ] );
+		}
+
+
 		return $headers;
 	}
 
@@ -263,6 +277,17 @@ class WCV_Orders
 
 			if ( !$this->can_view_emails ) {
 				unset( $body[ $i ][ 'email' ] );
+			}
+
+			if ( !$this->can_view_name ) {
+				unset( $body[ $i ][ 'name' ] );
+			}
+
+			if ( !$this->can_view_address ) {
+				unset( $body[ $i ][ 'address' ] );
+				unset( $body[ $i ][ 'city' ] );
+				unset( $body[ $i ][ 'state' ] );
+				unset( $body[ $i ][ 'zip' ] );
 			}
 
 			$items[ $i ][ 'total_qty' ] = 0;

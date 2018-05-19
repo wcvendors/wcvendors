@@ -260,6 +260,8 @@ class WCV_Vendor_Dashboard
 
 		if ( $can_view_sales = get_option( 'wcvendors_capability_frontend_reports' ) ) {
 
+		$can_view_address = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping' ) );
+
 		wc_get_template( 'reports.php', array(
 													  'start_date'      => $start_date,
 													  'end_date'        => $end_date,
@@ -279,15 +281,12 @@ class WCV_Vendor_Dashboard
 													  'providers'      => $providers,
 													  'provider_array' => $provider_array,
 													  'can_view_orders' => $can_view_orders,
+													  'can_view_address' => $can_view_address, 
 												 ), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 		do_action( 'wcvendors_after_dashboard' );
 
 
-		if ( function_exists( 'wc_enqueue_js' ) ) {
-			wc_enqueue_js( WCV_Vendor_dashboard::wc_st_js( $provider_array ) );
-		} else {
-			$woocommerce->add_inline_js( $js );
-		}
+		wc_enqueue_js( WCV_Vendor_dashboard::wc_st_js( $provider_array ) );
 
 		return ob_get_clean();
 	}
