@@ -128,7 +128,7 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 		// Tax
 		if ( 'yes' == get_option( 'wcvendors_vendor_give_taxes' ) ) {
 			$total_rows[ 'tax' ] = array(
-					'label' => __( 'Shipping:', 'wc-vendors' ),
+					'label' => __( 'Tax:', 'wc-vendors' ),
 					'value' =>  wc_price( $tax, array( 'currency' => $order->get_currency() ) ),
 			);
 		}
