@@ -208,7 +208,7 @@ class WCV_Shipping
 
         if ( $tax_rates ) {
             foreach ( $tax_rates as $key => $rate ) {
-                if ( isset( $rate['shipping'] ) && 'yes' === $rate['shipping'] ) {
+                if ( isset( $rate['shipping'] ) && wc_string_to_bool( $rate['shipping'] ) ) {
                     $matched_tax_rates[ $key ] = $rate;
                 }
             }

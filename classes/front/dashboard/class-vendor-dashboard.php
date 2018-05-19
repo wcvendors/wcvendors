@@ -204,9 +204,9 @@ class WCV_Vendor_Dashboard
 		$start_date = !empty( $_SESSION[ 'PV_Session' ][ 'start_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
 		$end_date   = !empty( $_SESSION[ 'PV_Session' ][ 'end_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
 
-		$can_view_orders = 'yes' === get_option( 'wcvendors_capability_orders_enabled', 'no' ) ? true : false;
+		$can_view_orders = wc_string_to_bool( get_option( 'wcvendors_capability_orders_enabled', 'no' ) );
 		$settings_page   = get_permalink(get_option( 'wcvendors_shop_settings_page_id' ) );
-		$can_submit      = 'yes' == get_option( 'wcvendors_capability_products_enabled', 'no' ) ? true : false;
+		$can_submit      = wc_string_to_bool(  get_option( 'wcvendors_capability_products_enabled', 'no' ) );
 		$submit_link = ( $can_submit ) ? admin_url( 'post-new.php?post_type=product' ) : '';
 		$edit_link   = ( $can_submit ) ? admin_url( 'edit.php?post_type=product' ) : '';
 
@@ -318,7 +318,7 @@ class WCV_Vendor_Dashboard
 		$seller_info = get_user_meta( $user_id, 'pv_seller_info', true );
 		$has_html    = get_user_meta( $user_id, 'pv_shop_html_enabled', true );
 		$shop_page   = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
-		$global_html = 'yes' === get_option( 'wcvendors_display_shop_description_html', 'no' ) ? true : false;
+		$global_html = wc_string_to_bool( get_option( 'wcvendors_display_shop_description_html', 'no' ) );
 
 		ob_start();
 		wc_get_template( 'settings.php', array(

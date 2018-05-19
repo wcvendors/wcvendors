@@ -29,7 +29,7 @@ class WCV_Vendor_Shop
 		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
 
 		// Add sold by to product loop before add to cart
-		if ( apply_filters( 'wcvendors_disable_sold_by_labels', 'yes' === get_option( 'wcvendors_display_label_sold_by_enable', 'no'  ) ) ) {
+		if ( apply_filters( 'wcvendors_disable_sold_by_labels', wc_string_to_bool( get_option( 'wcvendors_display_label_sold_by_enable', 'no'  ) ) ) ) {
 			add_action( 'woocommerce_after_shop_loop_item', array('WCV_Vendor_Shop', 'template_loop_sold_by'), 9 );
 		}
 
@@ -280,7 +280,7 @@ class WCV_Vendor_Shop
 			$vendor_shop_link 	= site_url( get_option( 'wcvendors_vendor_approve_registration' ) .'/' .$vendor->pv_shop_slug );
 			$shop_name 			= get_user_meta( $vendor_id, 'pv_shop_name', true );
 			$has_html    		= $vendor->pv_shop_html_enabled;
-			$global_html 		= 'yes' === get_option( 'wcvendors_display_shop_description_html', 'no' ) ? true : false;
+			$global_html 		= wc_string_to_bool( get_option( 'wcvendors_display_shop_description_html', 'no' ) );
 			$description 		= do_shortcode( $vendor->pv_shop_description );
 			$shop_description 	= ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
 			$seller_info 		= ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );
@@ -314,7 +314,7 @@ class WCV_Vendor_Shop
 	*/
 	public static function add_vendor_to_order_item_meta_legacy( $item_id, $cart_item) {
 
-		if ( 'yes' === get_option( 'wcvendors_display_label_sold_by_enable' ) ) {
+		if ( wc_string_to_bool( get_option( 'wcvendors_display_label_sold_by_enable', 'no' ) ) ) {
 
 			$vendor_id 		= $cart_item[ 'data' ]->post->post_author;
 			$sold_by_label 	= get_option( 'wcvendors_label_sold_by' );
@@ -333,7 +333,7 @@ class WCV_Vendor_Shop
 	 */
 	public function add_vendor_to_order_item_meta( $item, $cart_item_key, $values ) {
 
-		if ( 'yes' === get_option( 'wcvendors_display_label_sold_by_enable' ) ) {
+		if ( wc_string_to_bool( get_option( 'wcvendors_display_label_sold_by_enable', 'no' ) ) ) {
 
 			$cart      		= WC()->cart->get_cart();
 			$cart_item 		= $cart[ $cart_item_key ];

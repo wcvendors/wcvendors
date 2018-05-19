@@ -64,6 +64,7 @@ function wcv_single_select_page( $id, $value, $class = '', $css = '' ){
 	echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wc-vendors' ) . "' style='" . $css . "' class='" . $class . "' id=", wp_dropdown_pages( $dropdown_args ) );
 }
 
+// Get the WC Vendors Screen ids
 function wcv_get_screen_ids(){
 	return apply_filters( 'wcv_get_screen_ids', array(
 		'wc-vendors_page_wcv-settings',
@@ -71,6 +72,4 @@ function wcv_get_screen_ids(){
 		'wc-vendors_page_wcv-extensions',
 	) );
 }
-
-
 ?>

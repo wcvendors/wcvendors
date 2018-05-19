@@ -67,7 +67,7 @@ class WCV_Admin_Users
 			return;
 		}
 
-		$can_submit = 'yes' == get_option( 'wcvendors_capability_products_enabled', 'no' ) ? true : false;
+		$can_submit = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'no' ) );
 
 		if ( ! $can_submit ) {
 			wp_die( sprintf( __( 'You are not allowed to submit products. <a href="%s">Go Back</a>', 'wc-vendors' ), admin_url( 'edit.php?post_type=product' ) ) );
@@ -90,7 +90,7 @@ class WCV_Admin_Users
 	* Enable/disable duplicate product
 	*/
 	public function add_duplicate_capability( $capability ){
-		if ( 'yes' === get_option( 'wcvendors_capability_product_duplicate', 'no' ) ) {
+		if ( wc_string_to_bool( get_option( 'wcvendors_capability_product_duplicate', 'no' ) ) ) {
 			return 'manage_product';
 		}
 		return $capability;
@@ -145,11 +145,11 @@ class WCV_Admin_Users
 
 		$product_types = get_option( 'wcvendors_capability_product_types' );
 		$product_misc  = array(
-			'taxes' 	=>  'yes' === get_option( 'wcvendors_capability_product_taxes', 'no' ) ? true: false,
-			'sku' 		=>  'yes' === get_option( 'wcvendors_capability_product_sku', 'no' ) ? true: false,
-			'duplicate' =>  'yes' === get_option( 'wcvendors_capability_product_duplicate', 'no' ) ? true: false,
-			'delete' 	=>  'yes' === get_option( 'wcvendors_capability_product_delete', 'no' ) ? true: false,
-			'featured' 	=>  'yes' === get_option( 'wcvendors_capability_product_featured', 'no'  ? true: false)
+			'taxes' 	=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_taxes', 'no' ) ) ,
+			'sku' 		=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_sku', 'no' ) ) ,
+			'duplicate' =>  wc_string_to_bool( get_option( 'wcvendors_capability_product_duplicate', 'no' ) ) ,
+			'delete' 	=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_delete', 'no' ) ) ,
+			'featured' 	=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_featured', 'no' )  ) ,
 		);
 
 		// Add any custom css
@@ -414,7 +414,7 @@ class WCV_Admin_Users
 		}
 
 		// SKU
-		if ( 'yes' === get_option( 'wcvendors_capability_product_sku', 'no' ) ) {
+		if ( wc_string_to_bool( get_option( 'wcvendors_capability_product_sku', 'no' ) ) ){
 			unset($columns['sku']);
 		}
 

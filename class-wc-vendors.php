@@ -324,7 +324,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 *
 		*/
 		public function maybe_flush_permalinks() {
-			if ( 'yes' === get_option( 'wcvendors_queue_flush_rewrite_rules' ) ) {
+			if ( wc_string_to_bool( get_option( 'wcvendors_queue_flush_rewrite_rules', 'no' ) ) ) {
 				$this->flush_rewrite_rules();
 				update_option( 'wcvendors_queue_flush_rewrite_rules', 'no' );
 			}

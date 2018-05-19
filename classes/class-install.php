@@ -103,7 +103,7 @@ class WCVendors_Install {
 	public static function install() {
 
 		// Check if we are not already running this routine.
-		if ( 'yes' === get_transient( 'wcvendors_installing' ) ) {
+		if ( wc_string_to_bool( get_transient( 'wcvendors_installing' ) ) ) {
 			return;
 		}
 
@@ -440,7 +440,7 @@ class WCVendors_Install {
 	 * @since 2.0.0
 	 */
 	public static function maybe_flush_rewrite_rules() {
-		if ( 'yes' === get_option( 'wcvendors_queue_flush_rewrite_rules' ) ) {
+		if ( wc_string_to_bool( get_option( 'wcvendors_queue_flush_rewrite_rules', 'no' ) ) ) {
 			update_option( 'wcvendors_queue_flush_rewrite_rules', 'no' );
 			flush_rewrite_rules();
 		}
