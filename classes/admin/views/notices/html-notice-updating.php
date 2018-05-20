@@ -9,6 +9,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div id="message" class="updated wcvendors-message wc-connect">
-	<a class="wcvendors-message-close notice-dismiss" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'wcv-hide-notice', $notice ), 'wcvendors_hide_notices_nonce', '_wcv_notice_nonce' ) ); ?>"><?php _e( 'Dismiss', 'wc-vendors' ); ?></a>
-	<p><strong><?php _e( 'WC Vendors data update', 'wc-vendors' ); ?></strong> &#8211; <?php _e( 'Your database is being updated in the background.', 'wc-vendors' ); ?> <a href="<?php echo esc_url( add_query_arg( 'force_update_wcvendors', 'true', admin_url( 'admin.php?page=wcv-settings' ) ) ); ?>"><?php _e( 'Taking a while? Click here to run it now.', 'wc-vendors' ); ?></a></p>
+	<p><strong><?php _e( 'WC Vendors data update', 'wc-vendors' ); ?></strong> &#8211; <?php _e( 'Your database is being updated in the background. ', 'wc-vendors' ); ?> <a href="<?php echo esc_url( add_query_arg( 'force_update_wcvendors', 'true', admin_url( 'admin.php?page=wcv-settings' ) ) ); ?>"><?php _e( 'Taking a while? Click here to run it now.', 'wc-vendors' ); ?></a></p>
 </div>

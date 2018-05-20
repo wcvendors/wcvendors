@@ -13,12 +13,9 @@ class WCVendors_Install {
 	private static $db_updates = array(
 		'2.0.0'	=> array(
 			'wcv_migrate_settings',
+			'wcv_enable_legacy_emails',
 			'wcv_update_200_db_version',
-			'wcv_enable_legacy_emails'
 		),
-		'2.0.3' => array(
-			'wcv_update_203_db_version',
-		)
 	);
 
 
@@ -378,6 +375,7 @@ class WCVendors_Install {
 		$update_queued      = false;
 
 		foreach ( self::get_db_update_callbacks() as $version => $update_callbacks ) {
+
 			if ( version_compare( $current_db_version, $version, '<' ) ) {
 				foreach ( $update_callbacks as $update_callback ) {
 					$logger->info(
