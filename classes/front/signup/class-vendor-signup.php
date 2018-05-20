@@ -17,7 +17,8 @@ class WCV_Vendor_Signup
 	 */
 	function __construct()
 	{
-		if ( 'yes' !== get_option( 'wcvendors_vendor_allow_registration', 'no' ) ) return;
+
+		if ( ! wc_string_to_bool( get_option( 'wcvendors_vendor_allow_registration', 'no' ) ) ) return;
 
 		$this->terms_page = get_option( 'wcvendors_vendor_terms_page_id' );
 
@@ -101,7 +102,7 @@ class WCV_Vendor_Signup
 			} else {
 				wc_add_notice( apply_filters( 'wcvendors_application_submitted_msg', __( 'Your application has been submitted.', 'wc-vendors' ) ), 'notice' );
 
-				$manual = 'yes' === get_option( 'wcvendors_vendor_approve_registration', 'no' ) ? true : false;
+				$manual = wc_string_to_bool( get_option( 'wcvendors_vendor_approve_registration', 'no' ) );
 				$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
 
 				$wp_user_object = new WP_User( $user_id );
@@ -125,7 +126,7 @@ class WCV_Vendor_Signup
 
 		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
 
-			$manual = get_option( 'wcvendors_vendor_approve_registration' );
+			$manual = wc_string_to_bool( get_option( 'wcvendors_vendor_approve_registration', 'no' ) );
 			$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
 
 			$wp_user_object = new WP_User( $user_id );

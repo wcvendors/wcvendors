@@ -37,7 +37,7 @@ class WCV_Vendor_Shop
 		add_filter ( 'woocommerce_show_page_title', array( 'WCV_Vendor_Shop', 'remove_vendor_title' ) );
 
 		// Show vendor on all sales related invoices
-		add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'add_vendor_to_order_item_meta' ), 50, 3 );
+		add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'add_vendor_to_order_item_meta' ), 10, 4 );
 
 		// Add a vendor header
 		if ( apply_filters( 'wcvendors_disable_shop_headers', get_option( 'wcvendors_display_shop_headers' ) ) ) {
@@ -277,7 +277,7 @@ class WCV_Vendor_Shop
 
 			$vendor 			= get_userdata( $post->post_author );
 			$vendor_id   		= $post->post_author;
-			$vendor_shop_link 	= site_url( get_option( 'wcvendors_vendor_approve_registration' ) .'/' .$vendor->pv_shop_slug );
+			$vendor_shop_link 	= WCV_Vendors::get_vendor_shop_page( $vendor_id );
 			$shop_name 			= get_user_meta( $vendor_id, 'pv_shop_name', true );
 			$has_html    		= $vendor->pv_shop_html_enabled;
 			$global_html 		= wc_string_to_bool( get_option( 'wcvendors_display_shop_description_html', 'no' ) );
@@ -306,44 +306,24 @@ class WCV_Vendor_Shop
 		}
 	}
 
-	/*
-	* Add Vendor to Order item Meta legacy
-	* Thanks to Asbjoern Andersen for the code
-	*
-	* @depreciated
-	*/
-	public static function add_vendor_to_order_item_meta_legacy( $item_id, $cart_item) {
-
-		if ( wc_string_to_bool( get_option( 'wcvendors_display_label_sold_by_enable', 'no' ) ) ) {
-
-			$vendor_id 		= $cart_item[ 'data' ]->post->post_author;
-			$sold_by_label 	= get_option( 'wcvendors_label_sold_by' );
-	      	$sold_by 		= WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
-
-	        wc_add_order_item_meta( $item_id, apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by );
-	    }
-	}
-
-
 	/**
-	 * Add vendor to order item meta WC2.7 and above
+	 * Add vendor to order item meta
 	 *
 	 * @since 1.9.9
 	 * @access public
 	 */
-	public function add_vendor_to_order_item_meta( $item, $cart_item_key, $values ) {
+	public function add_vendor_to_order_item_meta( $item, $cart_item_key, $values, $order ) {
 
 		if ( wc_string_to_bool( get_option( 'wcvendors_display_label_sold_by_enable', 'no' ) ) ) {
 
 			$cart      		= WC()->cart->get_cart();
 			$cart_item 		= $cart[ $cart_item_key ];
 			$product_id 	= $cart_item[ 'product_id'];
-			$post 			= get_post( $product_id );
-			$vendor_id 		= $post->post_author;
+			$vendor_id 		= WCV_Vendors::get_vendor_from_product( $product_id );
 			$sold_by_label 	= get_option( 'wcvendors_label_sold_by' );
 			$sold_by 		= WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
 
-			$item->add_meta_data( apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by );
+			$item->add_meta_data( apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by, true );
 		}
 
 
