@@ -84,7 +84,7 @@ class WCVendors_Admin_Notify_Product extends WC_Email {
 		$this->product 		= wc_get_product( $post_id );
 		$this->vendor_name 	= WCV_Vendors::get_vendor_shop_name( $post->post_author );
 
-		if ( is_a( 'WC_Product', $this->product ) ){
+		if ( is_object( $this->product ) ){
 			$this->placeholders['{product_name}']   = $this->product->get_title();
 			$this->placeholders['{vendor_name}'] 	= $this->vendor_name;
 

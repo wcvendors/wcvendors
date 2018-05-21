@@ -185,7 +185,7 @@ class WCV_Admin_Users
 	 */
 	function filter_product_data_tabs( $tabs ){
 
-		$product_panel = get_option( 'wcvendors_capability_product_data_tabs' );
+		$product_panel = get_option( 'wcvendors_capability_product_data_tabs', array() );
 
 		if ( !$product_panel ) return $tabs;
 
@@ -209,7 +209,7 @@ class WCV_Admin_Users
 	 */
 	function filter_product_type_options( $types )
 	{
-		$product_options = get_option( 'wcvendors_capability_product_type_options' );
+		$product_options = get_option( 'wcvendors_capability_product_type_options', array() );
 
 		if ( !$product_options ) return $types;
 
