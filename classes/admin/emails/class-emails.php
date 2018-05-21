@@ -21,7 +21,7 @@ class WCV_Emails
 
 		add_filter( 'woocommerce_email_classes', array( $this, 'email_classes' ) );
 		add_filter( 'woocommerce_order_actions', array( $this, 'order_actions' ) );
-		add_action( 'woocommerce_order_action_send_vvendor_new_order', array( $this, 'order_actions_save') );
+		add_action( 'woocommerce_order_action_send_vendor_new_order', array( $this, 'order_actions_save') );
 		// Deprecaited
 
 		add_action( 'set_user_role', array( $this, 'application_status_email' ), 10, 2 );
@@ -143,7 +143,7 @@ class WCV_Emails
 	*
 	*/
 	public function order_actions( $order_actions ){
-		$order_actions[ 'send_vvendor_new_order' ] = sprintf( __( 'Resend %s new order notification', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+		$order_actions[ 'send_vendor_new_order' ] = sprintf( __( 'Resend %s new order notification', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		return $order_actions;
 	}
 
