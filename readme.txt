@@ -7,7 +7,7 @@ Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
 Requires PHP: 5.6
 Tested up to: 4.9.5
-Stable tag: 2.0.4
+Stable tag: 2.0.5
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your WooCommerce site!
@@ -141,6 +141,30 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.0.5 - 21 May 2018 =
+
+* Updated: Legacy WooCommerce calls
+* Updated: Changed how options are retrieved from the database
+* Fixed: Customer details not filtered on WP Admin orders screen #413
+* Fixed: Customer details not filtered on emails #411
+* Fixed: Totals display in vendor order notification emails
+* Fixed: Duplicate new product admin notification emails
+* Fixed: New product admin notification email trigger not working
+* Fixed: Username placeholder in vendor application email
+* Fixed: Vendor Sold By name is not appearing on customer order #412
+* Fixed: Update dialog is stuck #409
+* Fixed: Order capabilities not working #410
+* Fixed: Incorrect label in emails
+
+Templates Added:
+	templates/emails/plain/vendor-order-addresses.php
+	templates/emails/vendor-order-addresses.php
+
+Templates Updated:
+	templates/dashboard/dashboard/orders.php
+	templates/emails/plain/vendor-order-details.php
+	templates/emails/vendor-order-details.php
 
 = Version 2.0.4 - 18th May 2018 =
 
