@@ -73,6 +73,7 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 
 		$this->user 		= get_userdata( $vendor_id );
 		$this->status 		= $status;
+		$this->placeholders['{user_name}'] 	= $this->user->user_name;
 
 		if ( $this->is_enabled() && $this->get_recipient() && $status === $this->get_option( 'notification' ) ) {
 			$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );

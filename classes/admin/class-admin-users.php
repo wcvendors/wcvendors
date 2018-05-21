@@ -143,7 +143,7 @@ class WCV_Admin_Users
 	 */
 	function filter_product_types( $types ) {
 
-		$product_types = get_option( 'wcvendors_capability_product_types' );
+		$product_types = get_option( 'wcvendors_capability_product_types', array() );
 		$product_misc  = array(
 			'taxes' 	=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_taxes', 'no' ) ) ,
 			'sku' 		=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_sku', 'no' ) ) ,
