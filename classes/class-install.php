@@ -16,6 +16,9 @@ class WCVendors_Install {
 			'wcv_enable_legacy_emails',
 			'wcv_update_200_db_version',
 		),
+		'2.0.5' => array(
+			'wcv_update_db_version',
+		 ),
 	);
 
 
