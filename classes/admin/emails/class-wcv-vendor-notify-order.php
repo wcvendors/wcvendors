@@ -81,7 +81,7 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 			$order = wc_get_order( $order_id );
 		}
 
-		$this->vendors     = WCV_Vendors::get_vendors_from_order( $order );
+		$this->vendors     			= WCV_Vendors::get_vendors_from_order( $order );
 
 		if ( is_a( $order, 'WC_Order' ) ) {
 			$this->object 							= $order;
@@ -98,10 +98,12 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 				$this->vendor_id 	= $vendor_id;
 				$this->totals_display = $this->get_option( 'totals_display' );
 
-				WC_Vendors::log( $this->get_content() );
-
+				// Remove the customer name from the addresses
+				add_filter( 'woocommerce_order_formatted_billing_address', 	array( $this, 'filter_customer_name' ) );
+				add_filter( 'woocommerce_order_formatted_shipping_address', array( $this, 'filter_customer_name' ) );
 				$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
-
+				remove_filter( 'woocommerce_order_formatted_billing_address', 	array( $this, 'filter_customer_name' ) );
+				remove_filter( 'woocommerce_order_formatted_shipping_address', 	array( $this, 'filter_customer_name' ) );
 			}
 		}
 
@@ -209,6 +211,15 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 			),
 		);
 	}
+
+	public function filter_customer_name( $address ){
+
+		unset( $address['first_name'] );
+		unset( $address['last_name'] );
+
+		return $address;
+	}
+
 }
 
 endif;
