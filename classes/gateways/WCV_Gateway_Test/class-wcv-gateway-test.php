@@ -106,7 +106,7 @@ class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
      */
 	public function email_instructions( $order, $sent_to_admin, $plain_text = false ) {
 
-		$payment_method = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->payment_method : $order->get_payment_method();
+		$payment_method = $order->get_payment_method();
 
         if ( $this->instructions && ! $sent_to_admin && 'wcvendors_test_gateway' === $payment_method && $order->has_status( 'processing' ) ) {
 			echo wpautop( wptexturize( $this->instructions ) ) . PHP_EOL;
@@ -127,12 +127,7 @@ class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
 		$order->update_status( 'processing', __( 'Test gateway transation complete.  Order processing.', 'wc-vendors' ) );
 
 		// Reduce stock levels
-		if ( version_compare( WC_VERSION, '2.7', '<' ) ){
-			$order->reduce_order_stock();
-		} else {
-			wc_reduce_stock_levels( $order_id );
-		}
-
+		wc_reduce_stock_levels( $order_id );
 
 		// Remove cart
 		WC()->cart->empty_cart();

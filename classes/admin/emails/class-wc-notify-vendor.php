@@ -62,7 +62,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		if ( $order_id ) {
 			$this->object = wc_get_order( $order_id );
 
-			$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->order_date : $this->object->get_date_created();
+			$order_date = $this->object->get_date_created();
 
 			$this->find[ ]    = '{order_date}';
 			$this->replace[ ] = date_i18n( wc_date_format(), strtotime( $order_date ) );
@@ -194,7 +194,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 					// If display commission is ticked show this otherwise show the full price.
 					if ( 'yes' == $settings[ 'commission_display' ] ){
 
-						$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();
+						$order_id 		= $order->get_id();
 
 						// Get correct product_id depending on which product type
 						$product_id = !empty( $product['variation_id'] ) ? $product['variation_id'] : $product['product_id'];
@@ -311,7 +311,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 	 */
 	function check_order_formatted_line_subtotal( $subtotal, $item, $order ){
 
-		$order_currency = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->get_order_currency() : $order->get_currency();
+		$order_currency = $order->get_currency();
 
 		$subtotal = wc_price( $order->get_line_subtotal( $item ), array( 'currency' => $order_currency ) );
 

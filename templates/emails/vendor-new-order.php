@@ -1,6 +1,6 @@
 <?php
 /**
- * DEPRECATED 
+ * DEPRECATED
  * Vendor new order email
  *
  * @author WC Vendors
@@ -9,11 +9,11 @@
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-$billing_first_name = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_first_name : $order->get_billing_first_name();
-$billing_last_name 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_last_name : $order->get_billing_last_name();
-$billing_email 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_email : $order->get_billing_email();
-$billing_phone 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_phone : $order->get_billing_phone();
-$order_date 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created();
+$billing_first_name = $order->get_billing_first_name();
+$billing_last_name 	= $order->get_billing_last_name();
+$billing_email 		= $order->get_billing_email();
+$billing_phone 		= $order->get_billing_phone();
+$order_date 		= $order->get_date_created();
 
 ?>
 
@@ -35,27 +35,13 @@ $order_date 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_da
 	</thead>
 	<tbody>
 		<?php
-
-			if ( version_compare( WC_VERSION, '2.7', '<' ) ){
-
-				echo $order->email_order_items_table( array(
-					'show_sku'      => true,
-					'show_image'    => false,
-					'image_size'    => array( 32, 32 ),
-					'plain_text'    => false,
-					'sent_to_admin' => false
-				) );
-
-			} else {
-				echo wc_get_email_order_items( $order, array(
-					'show_sku'      => true,
-					'show_image'    => false,
-					'image_size'    => array( 32, 32 ),
-					'plain_text'    => false,
-					'sent_to_admin' => false,
-				) );
-			}
-
+			echo wc_get_email_order_items( $order, array(
+				'show_sku'      => true,
+				'show_image'    => false,
+				'image_size'    => array( 32, 32 ),
+				'plain_text'    => false,
+				'sent_to_admin' => false,
+			) );
 			?>
 	</tbody>
 	<tfoot>

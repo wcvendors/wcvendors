@@ -305,7 +305,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			$receivers = WCV_Vendors::get_vendor_dues_from_order( $order );
 			$i        = 0;
 
-			$order_id 					= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();
+			$order_id 					= $order->get_id();
 
 			foreach ( $receivers as $author => $values ) {
 				if ( empty( $values[ 'total' ] ) ) continue;
@@ -351,9 +351,9 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$this->include_paypal_sdk();
 		$this->logger 	= new PPLoggingManager( 'Pay' );
 		$order        	= wc_get_order( $order_id );
-		$order_id 	  	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();
-		$order_key 	  	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_key : $order->get_order_key();
-		$customer_note 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->customer_note : $order->get_customer_note();
+		$order_id 	  	= $order->get_id();
+		$order_key 	  	= $order->get_order_key();
+		$customer_note 	= $order->get_customer_note();
 
 		$receivers    = $this->get_receivers( $order );
 		$receiverList = new ReceiverList( $receivers );
