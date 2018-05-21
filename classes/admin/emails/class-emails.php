@@ -37,7 +37,6 @@ class WCV_Emails
 		// Triggers
 		add_action( 'wcvendors_vendor_ship', 		array( $this, 'vendor_shipped' ), 10, 3 );
 		add_action( 'wcvendors_email_order_details',array( $this, 'vendor_order_details'), 10, 8 );
-		add_action( 'transition_post_status', 		array( $this, 'new_vendor_product' ), 10, 3 );
 		add_action( 'set_user_role', 				array( $this, 'vendor_application' ), 10, 2 );
 
 	}
@@ -170,19 +169,6 @@ class WCV_Emails
 		WC()->mailer()->emails[ 'WCVendors_Customer_Notify_Shipped' ]->trigger( $order->get_id(), $user_id, $order );
 	}
 
-
-	/**
-	* Trigger the notify admin new vendor product
-	*
-	* @since 2.0.0
-	*/
-	public function new_vendor_product( $from, $to, $post ){
-
-		if ( $from != $to && $post->post_status == 'pending' && WCV_Vendors::is_vendor( $post->post_author ) && $post->post_type == 'product' ) {
-
-			WC()->mailer()->emails[ 'WCVendors_Admin_Notify_Product' ]->trigger( $post->post_id, $post );
-		}
-	}
 
 	/**
 	* Trigger the vendor application emails
