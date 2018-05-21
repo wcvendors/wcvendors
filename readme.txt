@@ -142,7 +142,7 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Changelog ==
 
-= Version 2.0.5 - 21 May 2018 =
+= Version 2.0.5 - 21st May 2018 =
 
 * Updated: Legacy WooCommerce calls
 * Updated: Changed how options are retrieved from the database
