@@ -87,10 +87,10 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 
 			if ( $vendor_id == $commission[ 'vendor_id' ] ){
 
-				$commission_subtotal 	= $commission[ 'commission' ];
+				$commission_subtotal 	+= $commission[ 'commission' ];
 				$shipping 		 		= $commission[ 'shipping' ];
 				$tax	 				= $commission[ 'tax' ];
-				$commission_total 		= $commission[ 'total' ];
+				$commission_total 		+= $commission[ 'total' ];
 			}
 
 		}
@@ -118,7 +118,7 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 		}
 
 		// Shipping
-		if ( 'yes' == get_option( 'wcvendors_vendor_give_shipping' ) ) {
+		if ( wc_string_to_bool( get_option( 'wcvendors_vendor_give_shipping', 'no' ) ) ) {
 			$total_rows[ 'shipping' ] = array(
 					'label' => __( 'Shipping:', 'wc-vendors' ),
 					'value' => wc_price( $shipping, array( 'currency' => $order->get_currency() ) ),
@@ -126,7 +126,7 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 		}
 
 		// Tax
-		if ( 'yes' == get_option( 'wcvendors_vendor_give_taxes' ) ) {
+		if ( wc_string_to_bool( get_option( 'wcvendors_vendor_give_taxes', 'no' ) ) ) {
 			$total_rows[ 'tax' ] = array(
 					'label' => __( 'Tax:', 'wc-vendors' ),
 					'value' =>  wc_price( $tax, array( 'currency' => $order->get_currency() ) ),

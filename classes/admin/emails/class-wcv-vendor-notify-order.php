@@ -35,7 +35,7 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 			'{order_number}' => '',
 		);
 
-		// Other settings
+		// Triggers
 		add_action( 'woocommerce_order_status_pending_to_processing_notification', 	array( $this, 'trigger' ), 10, 2 );
 		add_action( 'woocommerce_order_status_pending_to_completed_notification', 	array( $this, 'trigger' ), 10, 2 );
 		add_action( 'woocommerce_order_status_failed_to_processing_notification', 	array( $this, 'trigger' ), 10, 2 );
@@ -97,6 +97,9 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 				$this->order_items 	= $vendor_details[ 'line_items' ];
 				$this->vendor_id 	= $vendor_id;
 				$this->totals_display = $this->get_option( 'totals_display' );
+
+				WC_Vendors::log( $this->get_content() );
+
 				$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 
 			}
@@ -183,7 +186,7 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 				'class'         => 'wc-enhanced-select',
 				'options'       => array(
 					'both' 		=> __( 'Both', 'wc-vendors'),
-					'comission' => __( 'Commission', 'wc-vendors' ),
+					'commission'=> __( 'Commission', 'wc-vendors' ),
 					'product' 	=> __( 'Product', 'wc-vendors' ),
 					'none' 		=> __( 'None', 'wc-vendors' ),
 				),
