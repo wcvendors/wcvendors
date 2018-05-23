@@ -19,6 +19,7 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 
 == Announcements ==
 
+* Questions about GDPR and WC Vendors? Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/gdpr-and-wc-vendors/?utm_campaign=announcements?utm_source=wporg">GDPR and WC Vendors</a>.
 * Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for solutions to your vendor commission payments. Including Stripe, Paypal and others.
 * WC Vendors 2.0 is a major update, this will affect some stores using other WC Vendors integrations.
 * PayPal has depreciated Adaptive Payments as of September 1st 2017. This will soon cease to function. We provide an instant payment solution via our <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=annoucements?utm_source=wporg">Stripe Gateway</a> however there are 3rd party extensions from MangoPay and Escrow that also provide vendor commission payouts.
