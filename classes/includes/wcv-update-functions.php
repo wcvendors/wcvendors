@@ -115,7 +115,7 @@ function wcv_update_200_db_version(){
 }
 
 /**
-* Manually push the database version to fix update dialog. 
+* Manually push the database version to fix update dialog.
 */
 function wcv_update_db_version(){
 	WCVendors_Install::update_db_version();

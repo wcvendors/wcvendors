@@ -15,10 +15,7 @@ class WCVendors_Install {
 			'wcv_migrate_settings',
 			'wcv_enable_legacy_emails',
 			'wcv_update_200_db_version',
-		),
-		'2.0.5' => array(
-			'wcv_update_db_version',
-		 ),
+		)
 	);
 
 
@@ -281,6 +278,7 @@ class WCVendors_Install {
 	 * @return boolean
 	 */
 	private static function needs_db_update() {
+		global $wc_vendors;
 		$current_db_version = get_option( 'wcvendors_db_version', null );
 		$version_one 		= get_option( 'wc_prd_vendor_options', null );
 		$updates            = self::get_db_update_callbacks();
@@ -297,7 +295,8 @@ class WCVendors_Install {
 	 * Init background updates
 	 */
 	public static function init_background_updater() {
-		self::$background_updater = new WC_Background_Updater();
+		include_once dirname( __FILE__ ) . '/includes/class-wcv-background-updater.php';
+		self::$background_updater = new WCVendors_Background_Updater();
 	}
 
 
