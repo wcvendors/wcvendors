@@ -69,7 +69,7 @@ class WCVendors_Settings_Commission extends WCVendors_Settings_Page {
 					'title'    => sprintf( __( '%s Commission %%', 'wc-vendors' ), wcv_get_vendor_name() ),
 					'desc'     => sprintf( __( 'The global commission rate for your %s', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 					'id'       => 'wcvendors_vendor_commission_rate',
-					'css'      => 'width:50px;',
+					'css'      => 'width:55px;',
 					'default'  => '50',
 					'type'     => 'number',
 				),
