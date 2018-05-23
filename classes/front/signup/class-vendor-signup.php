@@ -79,7 +79,7 @@ class WCV_Vendor_Signup
 	 public function vendor_registration_errors( $errors, $sanitized_user_login, $user_email ) {
 
         if ( empty( $_POST[ 'agree_to_terms' ] ) || ! empty( $_POST[ 'agree_to_terms' ] ) && trim( $_POST[ 'agree_to_terms' ] ) == '' ) {
-        	$errors->add( 'terms_errors', sprintf( '<strong>%s</strong>: %s', __( 'ERROR', 'wc-vendors' ), __( 'Please agree to the terms and conditions', 'mydomain' ) ) );
+        	$errors->add( 'terms_errors', sprintf( '<strong>%s</strong>: %s', __( 'ERROR', 'wc-vendors' ), __( 'Please agree to the terms and conditions', 'wc-vendors' ) ) );
         }
 
         return $errors;
