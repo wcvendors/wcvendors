@@ -111,11 +111,11 @@ class WCVendors_Admin_Notices {
 	public static function hide_notices() {
 		if ( isset( $_GET['wcv-hide-notice'] ) && isset( $_GET['_wcv_notice_nonce'] ) ) {
 			if ( ! wp_verify_nonce( $_GET['_wcv_notice_nonce'], 'wcvendors_hide_notices_nonce' ) ) {
-				wp_die( __( 'Action failed. Please refresh the page and retry.', 'wcvendors' ) );
+				wp_die( __( 'Action failed. Please refresh the page and retry.', 'wc-vendors' ) );
 			}
 
 			if ( ! current_user_can( 'manage_woocommerce' ) ) {
-				wp_die( __( 'Cheatin&#8217; huh?', 'wcvendors' ) );
+				wp_die( __( 'Cheatin&#8217; huh?', 'wc-vendors' ) );
 			}
 
 			$hide_notice = sanitize_text_field( $_GET['wcv-hide-notice'] );
@@ -177,7 +177,7 @@ class WCVendors_Admin_Notices {
 	 */
 	public static function update_notice() {
 		if ( version_compare( get_option( 'wcvendors_db_version' ), WCV_VERSION, '<' ) ) {
-			$updater = new WC_Background_Updater();
+			$updater = new WCVendors_Background_Updater();
 			if ( $updater->is_updating() || ! empty( $_GET['do_update_wcvendors'] ) ) {
 				include( 'views/notices/html-notice-updating.php' );
 			} else {
