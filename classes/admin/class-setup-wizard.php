@@ -75,7 +75,7 @@ class WCVendors_Admin_Setup_Wizard {
 				'view'    => array( $this, 'wcv_setup_capabilities' ),
 				'handler' => array( $this, 'wcv_setup_capabilities_save' ),
 			),
-			'shipping' => array(
+			'pages' => array(
 				'name'    => __( 'Pages', 'wc-vendors' ),
 				'view'    => array( $this, 'wcv_setup_pages' ),
 				'handler' => array( $this, 'wcv_setup_pages_save' ),
