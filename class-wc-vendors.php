@@ -11,7 +11,7 @@
  * Requires at least:    4.4.0
  * Tested up to:         4.9.5
  * WC requires at least: 3.0.0
- * WC tested up to: 	 3.3.5
+ * WC tested up to: 	 3.4.0
  *
  * Text Domain:         wc-vendors
  * Domain Path:         /languages/

@@ -206,11 +206,11 @@ class WCVendors_Admin_Setup_Wizard {
 	 */
 	public function wcv_setup_general() {
 
-		$allow_registration = wc_string_to_bool( get_option( 'wcvendors_vendor_allow_registration', 'yes' ) );
-		$manual_approval 	= wc_string_to_bool( get_option( 'wcvendors_vendor_approve_registration', 'yes' ) );
-		$vendor_taxes		= wc_string_to_bool( get_option( 'wcvendors_vendor_give_taxes', 'yes' ) );
-		$vendor_shipping	= wc_string_to_bool( get_option( 'wcvendors_vendor_give_shipping', 'yes' ) );
-		$commission_rate 	= wc_string_to_bool( get_option( 'wcvendors_vendor_commission_rate', '' ) );
+		$allow_registration = get_option( 'wcvendors_vendor_allow_registration', 'yes' );
+		$manual_approval 	= get_option( 'wcvendors_vendor_approve_registration', 'no' );
+		$vendor_taxes		= get_option( 'wcvendors_vendor_give_taxes', 'no' );
+		$vendor_shipping	= get_option( 'wcvendors_vendor_give_shipping', 'no' );
+		$commission_rate 	= get_option( 'wcvendors_vendor_commission_rate', '' );
 
 		include( WCV_ABSPATH_ADMIN . 'views/setup/general.php' );
 	}
