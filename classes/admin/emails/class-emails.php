@@ -43,7 +43,7 @@ class WCV_Emails
 	}
 
 
-	// Depreciated
+	// deprecated
 	public function trigger_new_product( $from, $to, $post )
 	{
 		global $woocommerce;
@@ -58,7 +58,7 @@ class WCV_Emails
 
 
 	/**
-	 * @depreciated
+	 * @deprecated
 	 *
 	 * @param unknown $user_id
 	 * @param unknown $role

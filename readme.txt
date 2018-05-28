@@ -22,7 +22,7 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 * Questions about GDPR and WC Vendors? Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/gdpr-and-wc-vendors/?utm_campaign=announcements?utm_source=wporg">GDPR and WC Vendors</a>.
 * Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for solutions to your vendor commission payments. Including Stripe, Paypal and others.
 * WC Vendors 2.0 is a major update, this will affect some stores using other WC Vendors integrations.
-* PayPal has depreciated Adaptive Payments as of September 1st 2017. This will soon cease to function. We provide an instant payment solution via our <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=annoucements?utm_source=wporg">Stripe Gateway</a> however there are 3rd party extensions from MangoPay and Escrow that also provide vendor commission payouts.
+* PayPal has deprecated Adaptive Payments as of September 1st 2017. This will soon cease to function. We provide an instant payment solution via our <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=annoucements?utm_source=wporg">Stripe Gateway</a> however there are 3rd party extensions from MangoPay and Escrow that also provide vendor commission payouts.
 
 
 == Features ==
@@ -143,7 +143,7 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Changelog ==
 
-= Version 2.0.6 - 28th May 2018 = 
+= Version 2.0.6 - 28th May 2018 =
 
 * Added: Payment details to totals CSV export #414
 * Added: New background updater
@@ -225,7 +225,7 @@ Templates Updated:
 * Updated: Brazilian Portuguese translation thanks CasperBraske
 * Fixed: Permalinks not flushing on settings save
 * Fixed: Terms & Conditions Checkbox for Vendor Registration does not show #392
-* Fixed: Depreciated calls on orders screen
+* Fixed: deprecated calls on orders screen
 * Fixed: Vendor role capabilities updated when new settings updated.
 * Fixed: Vendors can delete media they uploaded
 * Fixed: Added check for woocommerce shipping tax class setting
@@ -273,7 +273,7 @@ Templates Updated:
 
 = Version 1.9.13 - 28th November 2017 =
 
-* Added: Notice for depreciated gateway
+* Added: Notice for deprecated gateway
 * Added: A filter for role change: Denied Vendor #351
 * Added: WooCommerce tested header for new WooCommerce Status page
 * Added: Filter for vendor signup form so it can be overriden
@@ -281,7 +281,7 @@ Templates Updated:
 * Updated: Brazillian Port wcvendors-pt_BR.pot
 * Fixed: Moved sprintf must be outside #381 thanks CasperBraske
 * Fixed: Re-Send email options in admin/orders are not available after WooCommerce update #383
-* Fixed: depreciated screen_icon method call
+* Fixed: deprecated screen_icon method call
 * Fixed: Use wc_get_order instead of new WC_Order #382
 * Fixed: Post called incorrectly #378
 * Fixed: Get correct product name in commission table if variation deleted
@@ -289,7 +289,7 @@ Templates Updated:
 * Fixed: mistake in vendor_shop_query
 * Fixed: Return 404 if vendor doesn't exist
 * Fixed: The shop name background doesn’t scale with shop image #366
-* Fixed: Depreciated functions #368 thanks @stodorovic
+* Fixed: deprecated functions #368 thanks @stodorovic
 * Fixed: Changed how customer address is displayed based on Woo Options. Thanks @debain
 
 = Version 1.9.12 - June 26 2017 =
@@ -331,7 +331,7 @@ Templates Updated:
 * Fixed: Capabilities Fix for Resetting Roles #329
 * Fixed: HTML title attribute doesn't change for store pages #328
 * Fixed: Login form not displayed if get variable set
-* Fixed: Depreciated action in product edit screen
+* Fixed: deprecated action in product edit screen
 
 Templates Updated:
 	templates/emails/vendor-new-order.php
@@ -481,7 +481,7 @@ Templates Updated:
 * Fixed: Sold By:Name spaces issue #256
 * Fixed: Show extended fields for vendor and pending vendor roles
 * Fixed: Check if product is taxable
-* Fixed: Depreciated function calls in email templates
+* Fixed: deprecated function calls in email templates
 * Fixed: Commission giving tax on none taxable items #251
 * Fixed: Sold by label issues with WC 2.5 #250
 
@@ -574,7 +574,7 @@ Templates Updated:
 * Fixed: Instant Pay bug #174
 * Fixed: wcv_vendorslist paging #178
 * Added: Vendor display name now translatable
-* Depreciated: Dashboard vendor reports
+* deprecated: Dashboard vendor reports
 * Added: Chinese Language files thanks to SundayLau
 * Fixed: Added support for WPML #177
 * Update: default pot language file
@@ -614,7 +614,7 @@ Templates Updated:
 * Fixed: Made PayPal optional on Vendor Dashboard Shop Settings #144
 * Update: fixed return query var
 * Fixed: Test for product post types #149
-* Fixed: 2.1 Depreciated return call
+* Fixed: 2.1 deprecated return call
 * Fixed: PHP Strict static call in commissions class
 * Merged: Is Vendor checks all user roles #147 thanks crabilld
 
@@ -662,7 +662,7 @@ Templates Updated:
 * Fixed: Plugin row meta links
 * Added: Upgrade notice
 * Fixed: Rounding issue #120
-* Fixed: Paypal https host check depreciated call
+* Fixed: Paypal https host check deprecated call
 * Added: show_products attribute #107
 * Updated: Text in denied template to make more sense when registration disabled #123
 * Updated: wcv_vendorslist shortcode now shows 3 column output #123
@@ -690,7 +690,7 @@ Templates Updated:
 * Fixed: Table Rate Shipping issue #103
 * Fixed: Featured column issue #100
 * Updated: Filter call for report
-* Fixed: Call to depreciated function #98
+* Fixed: Call to deprecated function #98
 
 = Version 1.4.4 - February 17th 2015 =
 

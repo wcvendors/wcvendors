@@ -932,7 +932,7 @@ msgid "Vendor Application"
 msgstr ""
 
 #: classes/admin/emails/class-wc-approve-vendor.php:29
-msgid "Vendor application will either be approved, denied, or pending. <strong>This email has been depreciated.</strong>"
+msgid "Vendor application will either be approved, denied, or pending. <strong>This email has been deprecated.</strong>"
 msgstr ""
 
 #: classes/admin/emails/class-wc-approve-vendor.php:31
@@ -1012,7 +1012,7 @@ msgid "Vendor has shipped"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-shipped.php:29
-msgid "An email is sent when a vendor has marked one of their orders as shipped. <strong>This email has been depreciated.</strong>"
+msgid "An email is sent when a vendor has marked one of their orders as shipped. <strong>This email has been deprecated.</strong>"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-shipped.php:31
@@ -1032,7 +1032,7 @@ msgid "Notify vendors"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-vendor.php:28
-msgid "New order emails are sent when an order is received/paid by a customer. <strong>This email has been depreciated.</strong>"
+msgid "New order emails are sent when an order is received/paid by a customer. <strong>This email has been deprecated.</strong>"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-vendor.php:30
@@ -1736,7 +1736,7 @@ msgid "PayPal Adaptive Payments"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-payments.php:67
-msgid "<h3>PayPal Adaptive Payments - Please Note: PayPal Adaptive Payments has been depreciated by PayPal as of September 2017. These options are for existing users only. This will be completely removed in a future version.</h3>"
+msgid "<h3>PayPal Adaptive Payments - Please Note: PayPal Adaptive Payments has been deprecated by PayPal as of September 2017. These options are for existing users only. This will be completely removed in a future version.</h3>"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-payments.php:75
@@ -2172,7 +2172,7 @@ msgid "The PayPal Adaptive Payments gateway can instantly pay your vendors their
 msgstr ""
 
 #: classes/gateways/PayPal_AdvPayments/paypal_ap.php:270
-msgid "Please Note: PayPal has depreciated Adaptive Payments. This will soon cease to function."
+msgid "Please Note: PayPal has deprecated Adaptive Payments. This will soon cease to function."
 msgstr ""
 
 #: classes/gateways/PayPal_AdvPayments/paypal_ap.php:281

@@ -20,7 +20,7 @@ class SF_Settings_API {
 			$mappings = wcv_get_settings_mapping();
 
 			if ( array_key_exists( $name, $mappings ) ) {
-				WC_Vendors::log( __function__ . ' has been depreciated please replace WC_Vendors::$pv_options->get_option(\'' . $name . '\') with get_option(\'' . $mappings[ $name ] . '\')' );
+				WC_Vendors::log( __function__ . ' has been deprecated please replace WC_Vendors::$pv_options->get_option(\'' . $name . '\') with get_option(\'' . $mappings[ $name ] . '\')' );
 
 			}
 

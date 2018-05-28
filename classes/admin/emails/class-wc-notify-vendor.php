@@ -25,7 +25,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 	{
 		$this->id          = 'vendor_new_order';
 		$this->title       = __( 'Notify vendors', 'wc-vendors' );
-		$this->description = __( 'New order emails are sent when an order is received/paid by a customer. <strong>This email has been depreciated.</strong>', 'wc-vendors' );
+		$this->description = __( 'New order emails are sent when an order is received/paid by a customer. <strong>This email has been deprecated.</strong>', 'wc-vendors' );
 
 		$this->heading = __( 'New customer order', 'wc-vendors' );
 		$this->subject = __( '[{blogname}] New customer order ({order_number}) - {order_date}', 'wc-vendors' );
