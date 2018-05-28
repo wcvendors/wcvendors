@@ -38,9 +38,16 @@ class WCV_Commissions_Sum_CSV_Export extends WC_CSV_Exporter {
 	public function get_default_column_names() {
 
 		return apply_filters( 'wcv_commissions_sum_export_columns', array(
-			'vendor_id' 	    => __( 'Vendor', 'wc-vendors' ),
-			'total_due'  		=> __( 'Total', 'wc-vendors' ),
-			'status'     		=> __( 'Commission Status', 'wc-vendors' ),
+			'vendor_id' 	    	=> __( 'Vendor', 'wc-vendors' ),
+			'total_due'  			=> __( 'Total', 'wc-vendors' ),
+			'paypal_email'     		=> __( 'PayPal Email', 'wc-vendors' ),
+			'bank_account_name'     => __( 'Bank Account Name', 'wc-vendors' ),
+			'bank_account_number'   => __( 'Bank Account Number', 'wc-vendors' ),
+			'bank_name'     		=> __( 'Bank Name', 'wc-vendors' ),
+			'bank_routing'     		=> __( 'Routing Number', 'wc-vendors' ),
+			'bank_iban'     		=> __( 'IBAN', 'wc-vendors' ),
+			'bank_swift'     		=> __( 'BIC/SWIFT', 'wc-vendors' ),
+			'status'     			=> __( 'Commission Status', 'wc-vendors' ),
 		) );
 	}
 
@@ -66,12 +73,38 @@ class WCV_Commissions_Sum_CSV_Export extends WC_CSV_Exporter {
 			foreach ( $totals as $vendor_id => $total ) {
 
 				foreach ( $columns as $column_id => $column_name ) {
-					if ( $column_id == 'vendor_id' ) {
-	 					$value = WCV_Vendors::get_vendor_shop_name( $vendor_id );
-					} elseif ( $column_id == 'total_due' ){
-					 	$value 	= wc_format_localized_price( $total );
-					} else {
-						$value = $status;
+
+					switch ( $column_id ) {
+						case 'vendor_id':
+							$value = WCV_Vendors::get_vendor_shop_name( $vendor_id );
+							break;
+						case 'paypal_email':
+							$value = get_user_meta( $vendor_id, 'pv_paypal', 'true' );
+							break;
+						case 'bank_account_name':
+							$value = get_user_meta( $vendor_id, 'wcv_bank_account_name', 'true' );
+							break;
+						case 'bank_account_number':
+							$value = get_user_meta( $vendor_id, 'wcv_bank_account_number', 'true' );
+							break;
+						case 'bank_name':
+							$value = get_user_meta( $vendor_id, 'wcv_bank_name', 'true' );
+							break;
+						case 'bank_routing':
+							$value = get_user_meta( $vendor_id, 'wcv_bank_routing_number', 'true' );
+							break;
+						case 'bank_iban':
+							$value = get_user_meta( $vendor_id, 'wcv_bank_iban', 'true' );
+							break;
+						case 'bank_swift':
+							$value = get_user_meta( $vendor_id, 'wcv_bank_bic_swift', 'true' );
+							break;
+						case 'total_due':
+							$value 	= wc_format_localized_price( $total );
+							break;
+						default:
+							$value = $status;
+							break;
 					}
 
 					$row[ $column_id ] = $value;
