@@ -40,7 +40,7 @@ class WCV_Vendor_Shop
 		add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'add_vendor_to_order_item_meta' ), 10, 4 );
 
 		// Add a vendor header
-		if ( apply_filters( 'wcvendors_disable_shop_headers', get_option( 'wcvendors_display_shop_headers' ) ) ) {
+		if ( apply_filters( 'wcvendors_disable_shop_headers', wc_string_to_bool( get_option( 'wcvendors_display_shop_headers', 'no' ) ) ) ) {
 			add_action( 'woocommerce_before_main_content', array('WCV_Vendor_Shop', 'vendor_main_header'), 20 );
 			add_action( 'woocommerce_before_single_product', array('WCV_Vendor_Shop', 'vendor_mini_header'));
 		}
