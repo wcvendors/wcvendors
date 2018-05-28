@@ -6,8 +6,7 @@
  */
 
 
-class WCV_Cron
-{
+class WCV_Cron {
 
 
 	/**
@@ -15,9 +14,12 @@ class WCV_Cron
 	 */
 	function __construct()
 	{
-		add_filter( 'cron_schedules', array( 'WCV_Cron', 'custom_cron_intervals' ) );
-		add_action( WC_Vendors::$id . '_options_updated', array( 'WCV_Cron', 'check_schedule' ) );
-		add_filter( WC_Vendors::$id . '_options_on_update', array( 'WCV_Cron', 'check_schedule_now' ) );
+		add_filter( 'cron_schedules', 						array( 'WCV_Cron', 'custom_cron_intervals' ) );
+		add_action( 'wcvendors_settings_save_payments', 	array( 'WCV_Cron', 'check_schedule' ) );
+		add_filter( 'wcvendors_admin_settings_sanitize_option_wcvendors_payments_paypal_schedule', 	array( 'WCV_Cron', 'check_schedule_now') );
+		// add_filter( WC_Vendors::$id . '_options_on_update', array( 'WCV_Cron', 'check_schedule_now' ) );
+
+
 	}
 
 
@@ -27,11 +29,11 @@ class WCV_Cron
 	 * @param         array
 	 * @param unknown $options
 	 */
-	public static function check_schedule( $options )
-	{
+	public static function check_schedule() {
+
 		$old_interval = wp_get_schedule( 'pv_schedule_mass_payments' );
-		$new_interval = $options[ 'schedule' ];
-		$instapay     = $options[ 'instapay' ];
+		$new_interval = wc_string_to_bool( get_option( 'wcvendors_payments_paypal_schedule', '') );
+		$instapay     = wc_string_to_bool( get_option( 'wcvendors_payments_paypal_instantpay_enable', 'no' ) );
 
 		/**
 		 * 1. The user actually changed the schedule
@@ -39,12 +41,12 @@ class WCV_Cron
 		 * 3. Manual was not selected
 		 */
 		if ( ( $old_interval != $new_interval ) && !$instapay && $new_interval != 'manual' ) {
-			WCV_Cron::remove_cron_schedule( $options );
+			WCV_Cron::remove_cron_schedule();
 			WCV_Cron::schedule_cron( $new_interval );
 		}
 
 		if ( $new_interval == 'manual' || $instapay ) {
-			WCV_Cron::remove_cron_schedule( $options );
+			WCV_Cron::remove_cron_schedule( );
 		}
 
 	}
@@ -57,19 +59,18 @@ class WCV_Cron
 	 *
 	 * @return array
 	 */
-	public static function check_schedule_now( $options )
-	{
+	public static function check_schedule_now( $new_schedule ) {
+
 		$old_schedule = get_option( 'wcvendors_payments_paypal_schedule' );
-		$new_schedule = $options[ 'schedule' ];
 
 		if ( $new_schedule == 'now' ) {
 			$return                = WCV_Cron::pay_now();
 			$options[ 'schedule' ] = $old_schedule;
 			WCV_Cron::schedule_cron( $old_schedule );
-			add_settings_error( WC_Vendors::$pv_options->id, 'save_options', $return[ 'message' ], $return[ 'status' ] );
+			WCVendors_Admin_Settings::add_message( $return[ 'message' ] );
 		}
 
-		return $options;
+		return $new_schedule;
 	}
 
 
