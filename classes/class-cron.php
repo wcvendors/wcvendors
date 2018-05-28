@@ -67,7 +67,7 @@ class WCV_Cron {
 			$return                = WCV_Cron::pay_now();
 			$options[ 'schedule' ] = $old_schedule;
 			WCV_Cron::schedule_cron( $old_schedule );
-			WCVendors_Admin_Settings::add_message( $return[ 'message' ] );
+			WCVendors_Admin_Settings::add_message( wp_strip_all_tags( $return[ 'message' ] ) );
 		}
 
 		return $new_schedule;

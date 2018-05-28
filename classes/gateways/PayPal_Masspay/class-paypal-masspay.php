@@ -164,7 +164,7 @@ class WCV_Mass_Pay
 				if ( $this->purge_user_meta( $vendor_ids ) ) {
 					$return = array(
 						'status' => 'updated',
-						'msg'    => __( 'All due commission has been paid for.', 'wc-vendors' ),
+						'msg'    => __( 'All due commission has been paid for. ', 'wc-vendors' ),
 						'total'  => $total_pay,
 					);
 				} else {
@@ -198,7 +198,6 @@ class WCV_Mass_Pay
 	 */
 	private function mail_results( $result )
 	{
-		global $woocommerce;
 
 		$send_results = get_option( 'wcvendors_payments_paypal_email_enable' );
 
