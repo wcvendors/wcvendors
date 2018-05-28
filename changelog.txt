@@ -1,5 +1,20 @@
 Changelog for WC Vendors
 
+Version 2.0.6
+
+* Added: Payment details to totals CSV export #414
+* Added: New background updater
+* Added: New reference to the GDPR for users in the readme
+* Updated: Invalid text domain in woocommerce registration errors
+* Updated: Only show major update warning for WC Vendors below 2.0.0
+* Fixed: Payment message output
+* Fixed: PayPal cron schedules not working  #416
+* Fixed: Incorrect page name
+* Fixed: Incorrect default settings in setup wizard
+* Fixed: Call correct background updater
+* Fixed: Reference to documentation
+* Fixed: Increased input width for commission input in settings
+
 Version 2.0.5
 
 * Updated: Legacy WooCommerce calls

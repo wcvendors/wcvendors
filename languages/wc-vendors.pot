@@ -48,87 +48,87 @@ msgstr ""
 msgid "Reversed"
 msgstr ""
 
-#: classes/class-cron.php:87
+#: classes/class-cron.php:88
 msgid "Payment total: %s"
 msgstr ""
 
-#: classes/class-install.php:143, classes/admin/class-wcv-admin-setup.php:143
+#: classes/class-install.php:140, classes/admin/class-wcv-admin-setup.php:143
 msgid "Pending Vendor"
 msgstr ""
 
-#: classes/class-install.php:150, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:299, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/includes/class-functions.php:35, classes/admin/settings/class-wcv-settings-display.php:100
+#: classes/class-install.php:147, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:299, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/includes/class-functions.php:35, classes/admin/settings/class-wcv-settings-display.php:100
 msgid "Vendor"
 msgstr ""
 
-#: classes/class-install.php:198
+#: classes/class-install.php:195
 msgctxt "Page slug"
 msgid "vendor_dashboard"
 msgstr ""
 
-#: classes/class-install.php:200
+#: classes/class-install.php:197
 msgctxt "Page title"
 msgid "%s Dashboard"
 msgstr ""
 
-#: classes/class-install.php:206
+#: classes/class-install.php:203
 msgctxt "Page slug"
 msgid "vendors"
 msgstr ""
 
-#: classes/class-install.php:208
+#: classes/class-install.php:205
 msgctxt "Page title"
 msgid "%s"
 msgstr ""
 
-#: classes/class-install.php:216
+#: classes/class-install.php:213
 msgctxt "Page slug"
 msgid "shop_settings"
 msgstr ""
 
-#: classes/class-install.php:217
+#: classes/class-install.php:214
 msgctxt "Page title"
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/class-install.php:222
+#: classes/class-install.php:219
 msgctxt "Page slug"
 msgid "product_orders"
 msgstr ""
 
-#: classes/class-install.php:223
+#: classes/class-install.php:220
 msgctxt "Page title"
 msgid "Orders"
 msgstr ""
 
-#: classes/class-install.php:409
+#: classes/class-install.php:408
 msgid "View WC Vendors settings"
 msgstr ""
 
-#: classes/class-install.php:409, templates/dashboard/settings/settings.php:18
+#: classes/class-install.php:408, templates/dashboard/settings/settings.php:18
 msgid "Settings"
 msgstr ""
 
-#: classes/class-install.php:426
+#: classes/class-install.php:425
 msgid "View WC Vendors documentation"
 msgstr ""
 
-#: classes/class-install.php:426
+#: classes/class-install.php:425
 msgid "Docs"
 msgstr ""
 
-#: classes/class-install.php:427
+#: classes/class-install.php:426
 msgid "Visit community forums"
 msgstr ""
 
-#: classes/class-install.php:427
+#: classes/class-install.php:426
 msgid "Free support"
 msgstr ""
 
-#: classes/class-install.php:428
+#: classes/class-install.php:427
 msgid "Visit premium customer support"
 msgstr ""
 
-#: classes/class-install.php:428
+#: classes/class-install.php:427
 msgid "Premium support"
 msgstr ""
 
@@ -497,8 +497,12 @@ msgstr ""
 msgid "WC Vendors Github"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:68
+#: classes/admin/class-wcv-admin-notices.php:114, classes/admin/class-wcv-admin-settings.php:68
 msgid "Action failed. Please refresh the page and retry."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-notices.php:118
+msgid "Cheatin&#8217; huh?"
 msgstr ""
 
 #: classes/admin/class-wcv-admin-settings.php:76
@@ -646,7 +650,35 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:43
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/gateways/PayPal_AdvPayments/paypal_ap.php:179, classes/gateways/PayPal_AdvPayments/paypal_ap.php:213
+msgid "PayPal Email"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:44, classes/admin/views/html-vendor-meta.php:50, classes/admin/views/html-vendor-settings-page.php:26
+msgid "Bank Account Name"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:45, classes/admin/views/html-vendor-meta.php:55, classes/admin/views/html-vendor-settings-page.php:31
+msgid "Bank Account Number"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:46, classes/admin/views/html-vendor-meta.php:60, classes/admin/views/html-vendor-settings-page.php:36, templates/dashboard/settings/settings.php:44
+msgid "Bank Name"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:47, classes/admin/views/html-vendor-meta.php:65, classes/admin/views/html-vendor-settings-page.php:41, templates/dashboard/settings/settings.php:47
+msgid "Routing Number"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:48, classes/admin/views/html-vendor-meta.php:70, classes/admin/views/html-vendor-settings-page.php:46, templates/dashboard/settings/settings.php:48
+msgid "IBAN"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:49, classes/admin/views/html-vendor-meta.php:75, classes/admin/views/html-vendor-settings-page.php:51
+msgid "BIC/SWIFT"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:50
 msgid "Commission Status"
 msgstr ""
 
@@ -1903,30 +1935,6 @@ msgstr ""
 msgid "PayPal E-mail"
 msgstr ""
 
-#: classes/admin/views/html-vendor-meta.php:50, classes/admin/views/html-vendor-settings-page.php:26
-msgid "Bank Account Name"
-msgstr ""
-
-#: classes/admin/views/html-vendor-meta.php:55, classes/admin/views/html-vendor-settings-page.php:31
-msgid "Bank Account Number"
-msgstr ""
-
-#: classes/admin/views/html-vendor-meta.php:60, classes/admin/views/html-vendor-settings-page.php:36, templates/dashboard/settings/settings.php:44
-msgid "Bank Name"
-msgstr ""
-
-#: classes/admin/views/html-vendor-meta.php:65, classes/admin/views/html-vendor-settings-page.php:41, templates/dashboard/settings/settings.php:47
-msgid "Routing Number"
-msgstr ""
-
-#: classes/admin/views/html-vendor-meta.php:70, classes/admin/views/html-vendor-settings-page.php:46, templates/dashboard/settings/settings.php:48
-msgid "IBAN"
-msgstr ""
-
-#: classes/admin/views/html-vendor-meta.php:75, classes/admin/views/html-vendor-settings-page.php:51
-msgid "BIC/SWIFT"
-msgstr ""
-
 #: classes/admin/views/html-vendor-meta.php:88
 msgid "Commission rate"
 msgstr ""
@@ -2055,6 +2063,10 @@ msgstr ""
 msgid "ERROR"
 msgstr ""
 
+#: classes/front/signup/class-vendor-signup.php:82, classes/front/signup/views/html-vendor-signup.php:45
+msgid "Please agree to the terms and conditions"
+msgstr ""
+
 #: classes/front/signup/class-vendor-signup.php:101
 msgid "Application denied. You are an administrator."
 msgstr ""
@@ -2109,10 +2121,6 @@ msgstr ""
 
 #: classes/gateways/PayPal_AdvPayments/paypal_ap.php:174
 msgid "You must have an <a href=\"%s\">Application ID</a> to process live transactions. You do not need one for testing in Sandbox mode."
-msgstr ""
-
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:179, classes/gateways/PayPal_AdvPayments/paypal_ap.php:213
-msgid "PayPal Email"
 msgstr ""
 
 #: classes/gateways/PayPal_AdvPayments/paypal_ap.php:180, classes/gateways/PayPal_AdvPayments/paypal_ap.php:214
@@ -2192,30 +2200,30 @@ msgid "No vendors found to pay. Maybe they haven't set a PayPal address?"
 msgstr ""
 
 #: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:167
-msgid "All due commission has been paid for."
+msgid "All due commission has been paid for. "
 msgstr ""
 
 #: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:173
 msgid "All due commission has been paid for, but I could not clear it from their profiles due to an internal error. Commission will still be listed as due. Please manually mark the commission as paid from the Commissions page."
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:208
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:207
 msgid "WooCommerce: Mass payments for vendors update"
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:210
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:209
 msgid "Hello! A payment was just triggered to mass pay all vendors their due commission."
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:211
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:210
 msgid "Payment status: %s."
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:212
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:211
 msgid "Payment message: %s."
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:215
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:214
 msgid "Payment total: %s."
 msgstr ""
 
@@ -2530,8 +2538,4 @@ msgstr ""
 
 #: classes/front/signup/views/html-vendor-signup.php:36
 msgid "I have read and accepted the <a target=\"top\" href=\"%s\">terms and conditions</a>."
-msgstr ""
-
-#: classes/front/signup/views/html-vendor-signup.php:45
-msgid "Please agree to the terms and conditions"
 msgstr ""
