@@ -616,6 +616,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$default = ( empty( $option['default'] ) ? $allowed_values[0] : $option['default'] );
 					$value   = in_array( $raw_value, $allowed_values ) ? $raw_value : $default;
 					break;
+				case 'wysiwyg':
+					$value = $raw_value; 
+					break;
 				default :
 					$value = wc_clean( $raw_value );
 					break;
