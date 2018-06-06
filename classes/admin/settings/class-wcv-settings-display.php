@@ -232,7 +232,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				array(
 					'title'   	=> __( 'Shop HTML', 'wc-vendors' ),
 					'desc'    	=> sprintf( __( 'Allow HTML in %s shop desription', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
-					'desc_tip' 	=> sprintf( __( 'Enable HTML for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+					'desc_tip' 	=> sprintf( __( 'This will enable the WYSIWYG editor and for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      	=> 'wcvendors_display_shop_description_html',
 					'default' 	=> 'no',
 					'type'    	=> 'checkbox',
