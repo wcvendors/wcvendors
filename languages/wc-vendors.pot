@@ -1999,6 +1999,10 @@ msgstr ""
 msgid "Become a Vendor"
 msgstr ""
 
+#: classes/front/account/class-wc-account-links.php:89
+msgid "You are already an approved vendor, no need to apply"
+msgstr ""
+
 #: classes/front/dashboard/class-vendor-dashboard.php:56
 msgid "Order marked shipped."
 msgstr ""

@@ -81,18 +81,22 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
 
     /**
      * Render the become a vendor signup page in the my account page
-     *
+     * If the current user is alread a vendor, hide the signup form and show a message
      * @return void
      */
     function render_vendor_signup(){
-        if ( ! class_exists( 'WCV_Vendor_Signup' ) ) {
-            include_once( wcv_plugin_dir . 'classes/front/signup/class-vendor-signup.php');
-        }
-
-        if ( isset( $_POST['apply_for_vendor'] ) ) {
-            self::apply_form_dashboard();
-        }
-        
-        require_once( wcv_plugin_dir . 'templates/dashboard/denied.php');
+        if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
+            echo '<p>' .__( 'You are already an approved vendor, no need to apply', 'wc-vendors') . '</p>';
+        }else{
+            if ( ! class_exists( 'WCV_Vendor_Signup' ) ) {
+                include_once( wcv_plugin_dir . 'classes/front/signup/class-vendor-signup.php');
+            }
+    
+            if ( isset( $_POST['apply_for_vendor'] ) ) {
+                self::apply_form_dashboard();
+            }
+            
+            require_once( wcv_plugin_dir . 'templates/dashboard/denied.php');
+        }        
     }
 }
