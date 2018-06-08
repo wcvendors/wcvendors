@@ -231,5 +231,3 @@ class WCVendors_Customer_Notify_Shipped extends WC_Email {
 }
 
 endif;
-
-return new WCVendors_Customer_Notify_Shipped();

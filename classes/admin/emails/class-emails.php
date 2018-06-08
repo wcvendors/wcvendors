@@ -106,14 +106,23 @@ class WCV_Emails
 		$emails[ 'WC_Email_Notify_Shipped' ] = new WC_Email_Notify_Shipped();
 
 		// New emails introduced in @since 2.0.0
-		$emails[ 'WCVendors_Customer_Notify_Shipped'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-customer-notify-shipped.php' );
-		$emails[ 'WCVendors_Admin_Notify_Shipped'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-shipped.php' );
-		$emails[ 'WCVendors_Admin_Notify_Product'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-product.php' );
-		$emails[ 'WCVendors_Admin_Notify_Application'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-application.php' );
-		$emails[ 'WCVendors_Vendor_Notify_Application'] 	= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-application.php' );
-		$emails[ 'WCVendors_Vendor_Notify_Approved'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php' );
-		$emails[ 'WCVendors_Vendor_Notify_Denied'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php' );
-		$emails[ 'WCVendors_Vendor_Notify_Order'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-order.php' );
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-customer-notify-shipped.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-shipped.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-product.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-application.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-application.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-order.php';
+
+		$emails[ 'WCVendors_Customer_Notify_Shipped'] 	= new WCVendors_Customer_Notify_Shipped();
+		$emails[ 'WCVendors_Admin_Notify_Shipped'] 		= new WCVendors_Admin_Notify_Shipped();
+		$emails[ 'WCVendors_Admin_Notify_Product'] 		= new WCVendors_Admin_Notify_Product();
+		$emails[ 'WCVendors_Admin_Notify_Application'] 	= new WCVendors_Admin_Notify_Application();
+		$emails[ 'WCVendors_Vendor_Notify_Application'] = new WCVendors_Vendor_Notify_Application();
+		$emails[ 'WCVendors_Vendor_Notify_Approved'] 	= new WCVendors_Vendor_Notify_Approved();
+		$emails[ 'WCVendors_Vendor_Notify_Denied'] 		= new WCVendors_Vendor_Notify_Denied();
+		$emails[ 'WCVendors_Vendor_Notify_Order'] 		= new WCVendors_Vendor_Notify_Order();
 
 		return $emails;
 

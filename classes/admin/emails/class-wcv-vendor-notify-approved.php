@@ -181,5 +181,3 @@ class WCVendors_Notify_Vendor_Approved extends WC_Email {
 }
 
 endif;
-
-return new WCVendors_Notify_Vendor_Approved();
