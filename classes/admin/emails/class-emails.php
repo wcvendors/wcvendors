@@ -39,6 +39,7 @@ class WCV_Emails
 		add_action( 'wcvendors_email_order_details',	array( $this, 'vendor_order_details'), 10, 8 );
 		add_action( 'wcvendors_email_customer_details',	array( $this, 'vendor_customer_details'), 10, 4 );
 		add_action( 'set_user_role', 					array( $this, 'vendor_application' ), 10, 2 );
+		add_action( 'user_register', 					array( $this, 'vendor_application' ), 10, 1 );
 
 	}
 
@@ -185,8 +186,11 @@ class WCV_Emails
 	*
 	* @since 2.0.0
 	*/
-	public function vendor_application( $user_id, $role ){
-
+	public function vendor_application( $user_id, $role = "" ){
+		if ( $role == "" ) {
+			$manual = wc_string_to_bool( get_option( 'wcvendors_vendor_approve_registration', 'no' ) );
+			$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
+		}
 		if ( !empty( $_POST[ 'apply_for_vendor' ] ) || ( !empty( $_GET[ 'action' ] ) && ( $_GET[ 'action' ] == 'approve_vendor' || $_GET[ 'action' ] == 'deny_vendor' ) ) ) {
 
 			if ( $role == 'pending_vendor' ) {
