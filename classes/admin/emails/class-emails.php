@@ -21,7 +21,7 @@ class WCV_Emails
 
 		add_filter( 'woocommerce_email_classes', array( $this, 'email_classes' ) );
 		add_filter( 'woocommerce_order_actions', array( $this, 'order_actions' ) );
-		add_action( 'woocommerce_order_action_send_vendor_new_order', array( $this, 'order_actions_save') );
+		add_action( 'woocommerce_order_status_completed', array( $this, 'order_actions_save') );
 		// Deprecaited
 
 		add_action( 'set_user_role', array( $this, 'application_status_email' ), 10, 2 );
@@ -165,6 +165,10 @@ class WCV_Emails
 	*
 	*/
 	public function order_actions_save( $order ){
+		//if an order_id is passed as order, create order object
+		if ( is_a( $order, 'WC_Order' ) ) {
+			$order = wc_get_order( $order );
+		}
 
 		WC()->mailer()->emails[ 'WC_Email_Notify_Vendor' ]->trigger( $order->get_id(), $order );
 		WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Order' ]->trigger( $order->get_id(), $order );
