@@ -21,7 +21,7 @@ class WCV_Emails
 
 		add_filter( 'woocommerce_email_classes', array( $this, 'email_classes' ) );
 		add_filter( 'woocommerce_order_actions', array( $this, 'order_actions' ) );
-		add_action( 'woocommerce_order_action_send_vendor_new_order', array( $this, 'order_actions_save'), 10, 1 );
+		add_action( 'woocommerce_order_action_send_vendor_new_order', array( $this, 'order_actions_save') );
 		// Deprecaited
 
 		add_action( 'set_user_role', array( $this, 'application_status_email' ), 10, 2 );
