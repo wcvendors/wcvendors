@@ -166,6 +166,9 @@ class WCV_Emails
 	* @since 2.0.0
 	*/
 	public function vendor_shipped( $order_id, $user_id, $order ){
+		if ( ! is_a( $order, 'WC_Order' ) ) {
+			$order = wc_get_order( $order_id );
+		}
 		// Notify the admin
 		WC()->mailer()->emails[ 'WCVendors_Admin_Notify_Shipped' ]->trigger( $order->get_id(), $user_id, $order );
 		// Notify the customer
