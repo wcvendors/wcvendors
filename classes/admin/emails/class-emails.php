@@ -39,6 +39,8 @@ class WCV_Emails
 		add_action( 'wcvendors_email_order_details',	array( $this, 'vendor_order_details'), 10, 8 );
 		add_action( 'wcvendors_email_customer_details',	array( $this, 'vendor_customer_details'), 10, 4 );
 		add_action( 'set_user_role', 					array( $this, 'vendor_application' ), 10, 2 );
+
+		//Trigger emails during user registration
 		add_action( 'user_register', 					array( $this, 'vendor_application' ), 10, 1 );
 
 	}
