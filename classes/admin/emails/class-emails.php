@@ -153,7 +153,9 @@ class WCV_Emails
 	*
 	*/
 	public function order_actions_save( $order ){
-
+		if ( ! is_a( $order, 'WC_Order' ) ) {
+			$order = wc_get_order( $order );
+		}
 		WC()->mailer()->emails[ 'WC_Email_Notify_Vendor' ]->trigger( $order->get_id(), $order );
 		WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Order' ]->trigger( $order->get_id(), $order );
 	}
