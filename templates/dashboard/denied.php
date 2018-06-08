@@ -38,7 +38,11 @@
 
 			<div class="clear"></div>
 
-			<?php if ( $terms_page = get_option( 'terms_to_apply_page' ) ) { ?>
+			<?php 
+			
+			$terms_page = get_option( 'wcvendors_vendor_terms_page_id' );
+
+			if ( $terms_page ) { ?>
 				<p class="form-row agree-to-terms-container" style="display:none">
 					<input class="input-checkbox"
 						   id="agree_to_terms" <?php checked( isset( $_POST[ 'agree_to_terms' ] ), true ) ?>
