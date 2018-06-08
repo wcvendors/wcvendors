@@ -187,10 +187,14 @@ class WCV_Emails
 	* @since 2.0.0
 	*/
 	public function vendor_application( $user_id, $role = "" ){
+		/**
+		 * If the role is not given, set it according to the vendor approval option in admin
+		 */
 		if ( $role == "" ) {
 			$manual = wc_string_to_bool( get_option( 'wcvendors_vendor_approve_registration', 'no' ) );
 			$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
 		}
+
 		if ( !empty( $_POST[ 'apply_for_vendor' ] ) || ( !empty( $_GET[ 'action' ] ) && ( $_GET[ 'action' ] == 'approve_vendor' || $_GET[ 'action' ] == 'deny_vendor' ) ) ) {
 
 			if ( $role == 'pending_vendor' ) {
