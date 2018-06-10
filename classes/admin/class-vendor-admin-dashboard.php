@@ -501,9 +501,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 		if ( !empty( $_orders ) ) {
 
 			foreach ( $_orders as $order ) {
-				if ( ! is_a( $order, 'WC_Order' ) ) {
-					$order 			= wc_get_order( $order );
-				}				
+
+				$order 			= wc_get_order( $order->order_id );
 				$order_id 		= $order->get_id();
 				$valid_items 	= WCV_Queries::get_products_for_order( $order_id );
 				$valid 			= array();
