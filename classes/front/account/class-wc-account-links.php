@@ -10,7 +10,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
     public $terms_page;
 
     /**
-     * Constructor 
+     * Constructor
      *
      * @description adds the action hooks and gets the terms page
      * @package
@@ -36,7 +36,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
      * @since
      */
     function add_account_menu_items( $items ) {
-        $add_items = array( 
+        $add_items = array(
             'become-a-vendor' => __( 'Become a Vendor', 'wc-vendors')
         );
 
@@ -81,7 +81,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
 
     /**
      * Render the become a vendor signup page in the my account page
-     * If the current user is alread a vendor, hide the signup form and show a message
+     * If the current user is already a vendor, hide the signup form and show a message
      * @return void
      */
     function render_vendor_signup(){
@@ -91,12 +91,12 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
             if ( ! class_exists( 'WCV_Vendor_Signup' ) ) {
                 include_once( wcv_plugin_dir . 'classes/front/signup/class-vendor-signup.php');
             }
-    
+
             if ( isset( $_POST['apply_for_vendor'] ) ) {
                 self::apply_form_dashboard();
             }
-            
+
             require_once( wcv_plugin_dir . 'templates/dashboard/denied.php');
-        }        
+        }
     }
 }
