@@ -28,11 +28,11 @@ msgstr ""
 msgid "<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce 3.0.0 to operate."
 msgstr ""
 
-#: class-wc-vendors.php:397
+#: class-wc-vendors.php:399
 msgid "WC Vendors 2.0 is a major update. This is not compatible with any of our existing extensions. You should test this update on a staging server before updating. Backup your site and update your theme and extensions, and <a href=\"%s\">review update details here</a> before upgrading."
 msgstr ""
 
-#: class-wc-vendors.php:410
+#: class-wc-vendors.php:412
 msgid "WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current version %s will be deactivated. Please upgrade to the latest version."
 msgstr ""
 
@@ -730,11 +730,11 @@ msgstr ""
 msgid "Apply to become a vendor? "
 msgstr ""
 
-#: templates/dashboard/denied.php:47
+#: templates/dashboard/denied.php:51
 msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
 msgstr ""
 
-#: templates/dashboard/denied.php:67
+#: templates/dashboard/denied.php:71
 msgid "Submit"
 msgstr ""
 
@@ -1660,7 +1660,7 @@ msgid "Allow HTML in %s shop desription"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:235
-msgid "Enable HTML for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account."
+msgid "This will enable the WYSIWYG editor and for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account."
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:242
@@ -1995,6 +1995,14 @@ msgstr ""
 msgid "Save Shop Settings"
 msgstr ""
 
+#: classes/front/account/class-wc-account-links.php:40
+msgid "Become a Vendor"
+msgstr ""
+
+#: classes/front/account/class-wc-account-links.php:89
+msgid "You are already an approved vendor, no need to apply"
+msgstr ""
+
 #: classes/front/dashboard/class-vendor-dashboard.php:56
 msgid "Order marked shipped."
 msgstr ""
@@ -2075,7 +2083,7 @@ msgstr ""
 msgid "Your application has been submitted."
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:150, classes/front/signup/class-vendor-signup.php:187, classes/front/signup/class-vendor-signup.php:199
+#: classes/front/signup/class-vendor-signup.php:150, classes/front/signup/class-vendor-signup.php:189, classes/front/signup/class-vendor-signup.php:201
 msgid "You must accept the terms and conditions to become a vendor."
 msgstr ""
 
