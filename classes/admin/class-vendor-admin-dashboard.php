@@ -482,15 +482,11 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	function get_orders() {
 
 		$user_id = get_current_user_id();
-
 		$orders = array();
-
+		$products = array();
 		$vendor_products = $this->get_vendor_products( $user_id );
 
-		$products = array();
-
 		foreach ( $vendor_products as $_product ) {
-
 			$products[] = $_product->ID;
 		}
 
@@ -500,15 +496,15 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 		if ( !empty( $_orders ) ) {
 
-			foreach ( $_orders as $order ) {
-				if ( ! is_a( $order, 'WC_Order' ) ) {
-					$order 			= wc_get_order( $order );
-				}				
-				$order_id 		= $order->get_id();
-				$valid_items 	= WCV_Queries::get_products_for_order( $order_id );
-				$valid 			= array();
+			foreach ( $_orders as $_order ) {
 
-				$items = $order->get_items();
+				// Check to see that the order hasn't been deleted or in the trash
+				if ( ! get_post_status( $_order->order_id ) || 'trash' === get_post_status( $_order->order_id ) ) continue;
+
+				$order 			= wc_get_order( $_order->order_id );
+				$valid_items 	= WCV_Queries::get_products_for_order( $_order->order_id );
+				$valid 			= array();
+				$items 			= $order->get_items();
 
 				foreach ( $items as $order_item_id => $item) {
 					if ( in_array( $item[ 'variation_id' ], $valid_items) || in_array( $item[ 'product_id' ], $valid_items ) ) {
