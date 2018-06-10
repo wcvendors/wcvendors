@@ -16,13 +16,15 @@ class WCV_Vendor_Dashboard
 	/**
 	 * __construct()
 	 */
-	function __construct()
-	{
-		add_shortcode( 'wcv_shop_settings', array( $this, 'display_vendor_settings' ) );
-		add_shortcode( 'wcv_vendor_dashboard', array( $this, 'display_vendor_products' ) );
+	function __construct() {
 
-		add_action( 'template_redirect', array( $this, 'check_access' ) );
-		add_action( 'init', array( $this, 'save_vendor_settings' ) );
+		if ( is_admin() ) return;
+
+		add_shortcode( 'wcv_shop_settings', 	array( $this, 'display_vendor_settings' ) );
+		add_shortcode( 'wcv_vendor_dashboard', 	array( $this, 'display_vendor_products' ) );
+
+		add_action( 'template_redirect', 		array( $this, 'check_access' ) );
+		add_action( 'template_redirect', 		array( $this, 'save_vendor_settings' ) );
 	}
 
 	public function save_vendor_settings()
@@ -281,7 +283,7 @@ class WCV_Vendor_Dashboard
 													  'providers'      => $providers,
 													  'provider_array' => $provider_array,
 													  'can_view_orders' => $can_view_orders,
-													  'can_view_address' => $can_view_address, 
+													  'can_view_address' => $can_view_address,
 												 ), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 		do_action( 'wcvendors_after_dashboard' );
 
