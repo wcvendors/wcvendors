@@ -4,7 +4,7 @@ Version 2.0.7
 
 * Added: Become a vendor link to WooCommerce My Account page
 * Fixed: Fatal Error WP Admin vendor orders #422
-* Fixed: Only run this class on the front end
+* Fixed: Only run vendor dashboard class on the front end
 * Fixed: Admin dashboard error
 * Fixed: fatal error get_id on integer
 * Fixed: Hide signup form if current user is already a vendor

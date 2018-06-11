@@ -143,11 +143,11 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Changelog ==
 
-= Version 2.0.7 - 11th June 2018 = 
+= Version 2.0.7 - 11th June 2018 =
 
-* Added: become a vendor link to WooCommerce My Account page
+* Added: Become a vendor link to WooCommerce My Account page
 * Fixed: Fatal Error WP Admin vendor orders #422
-* Fixed: Only run this class on the front end
+* Fixed: Only run vendor dashboard class on the front end
 * Fixed: Admin dashboard error
 * Fixed: fatal error get_id on integer
 * Fixed: Hide signup form if current user is already a vendor
@@ -155,6 +155,9 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 * Fixed: Spelling mistake across the code base
 * Updated: language files
 * Updated: Wording for settings
+
+Templates Updated:
+	templates/dashboard/dashboard/denied.php
 
 = Version 2.0.6 - 28th May 2018 =
 
