@@ -322,15 +322,15 @@ msgstr ""
 msgid "Orders"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:71, classes/front/dashboard/class-vendor-dashboard.php:117
+#: classes/admin/class-vendor-admin-dashboard.php:71, classes/front/dashboard/class-vendor-dashboard.php:119
 msgid "Your PayPal address is not a valid email address."
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:83, classes/front/dashboard/class-vendor-dashboard.php:128
+#: classes/admin/class-vendor-admin-dashboard.php:83, classes/front/dashboard/class-vendor-dashboard.php:130
 msgid "That shop name is already taken. Your shop name must be unique."
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:141, classes/front/dashboard/class-vendor-dashboard.php:169
+#: classes/admin/class-vendor-admin-dashboard.php:141, classes/front/dashboard/class-vendor-dashboard.php:171
 msgid "Settings saved."
 msgstr ""
 
@@ -370,11 +370,11 @@ msgstr ""
 msgid "Orders marked shipped."
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:573
+#: classes/admin/class-vendor-admin-dashboard.php:570
 msgid "Yes"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:573
+#: classes/admin/class-vendor-admin-dashboard.php:570
 msgid "No"
 msgstr ""
 
@@ -730,11 +730,11 @@ msgstr ""
 msgid "Apply to become a vendor? "
 msgstr ""
 
-#: templates/dashboard/denied.php:51
+#: templates/dashboard/denied.php:50
 msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
 msgstr ""
 
-#: templates/dashboard/denied.php:71
+#: templates/dashboard/denied.php:70
 msgid "Submit"
 msgstr ""
 
@@ -911,19 +911,19 @@ msgstr ""
 msgid "Quantity: %d"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:73, classes/admin/emails/class-emails.php:184, classes/admin/emails/class-wc-approve-vendor.php:70
+#: classes/admin/emails/class-emails.php:76, classes/admin/emails/class-emails.php:208, classes/admin/emails/class-wc-approve-vendor.php:70
 msgid "pending"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:75
+#: classes/admin/emails/class-emails.php:78
 msgid "approved"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:77
+#: classes/admin/emails/class-emails.php:80
 msgid "denied"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:147
+#: classes/admin/emails/class-emails.php:159
 msgid "Resend %s new order notification"
 msgstr ""
 
@@ -1995,27 +1995,27 @@ msgstr ""
 msgid "Save Shop Settings"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:40
+#: classes/front/account/class-wc-account-links.php:36
 msgid "Become a Vendor"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:89
+#: classes/front/account/class-wc-account-links.php:78
 msgid "You are already an approved vendor, no need to apply"
 msgstr ""
 
-#: classes/front/dashboard/class-vendor-dashboard.php:56
+#: classes/front/dashboard/class-vendor-dashboard.php:58
 msgid "Order marked shipped."
 msgstr ""
 
-#: classes/front/dashboard/class-vendor-dashboard.php:59
+#: classes/front/dashboard/class-vendor-dashboard.php:61
 msgid "%s has marked as shipped. "
 msgstr ""
 
-#: classes/front/dashboard/class-vendor-dashboard.php:88, classes/front/dashboard/class-vendor-dashboard.php:89
+#: classes/front/dashboard/class-vendor-dashboard.php:90, classes/front/dashboard/class-vendor-dashboard.php:91
 msgid "Tracking number"
 msgstr ""
 
-#: classes/front/dashboard/class-vendor-dashboard.php:91
+#: classes/front/dashboard/class-vendor-dashboard.php:93
 msgid "Success. Your tracking number has been updated."
 msgstr ""
 
