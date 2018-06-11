@@ -163,5 +163,3 @@ class WCVendors_Vendor_Notify_Application extends WC_Email {
 }
 
 endif;
-
-return new WCVendors_Vendor_Notify_Application();

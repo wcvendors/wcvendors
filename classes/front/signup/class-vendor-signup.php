@@ -37,8 +37,8 @@ class WCV_Vendor_Signup
 			add_filter( 'registration_errors', array( $this, 'vendor_registration_errors'), 10, 3 );
 		}
 
-
-
+		//Change user role if they applied to become vendor on registration
+		add_action( 'user_register', array( $this, 'save_pending' ), 10, 1 );
 	}
 
 	/**
@@ -174,14 +174,12 @@ class WCV_Vendor_Signup
 	 */
 	public function apply_form_dashboard()
 	{
-		global $wp_query;
-		
 		if ( !isset( $_POST[ 'apply_for_vendor' ] ) ) return false;
 
 		$vendor_dashboard_page = get_option( 'wcvendors_vendor_dashboard_page_id' );
 		$page_id     = get_queried_object_id();
 
-		if ( $page_id == $vendor_dashboard_page || isset( $wp_query->query['become-a-vendor'] ) ) {
+		if ( $page_id == $vendor_dashboard_page ) {
 			if ( $this->terms_page ) {
 				if ( isset( $_POST[ 'agree_to_terms' ] ) ) {
 					self::save_pending( get_current_user_id() );

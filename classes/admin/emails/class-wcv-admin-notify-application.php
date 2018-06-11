@@ -182,5 +182,3 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 }
 
 endif;
-
-return new WCVendors_Admin_Notify_Application();
