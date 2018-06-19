@@ -193,26 +193,62 @@ class WCV_Shortcodes {
 			'order' 	=> 'desc'
 		), $atts ) );
 
-		$args = array(
-			'post_type'				=> 'product',
-			'post_status' 			=> 'publish',
-			'author'				=> self::get_vendor($vendor),
-			'ignore_sticky_posts'	=> 1,
-			'posts_per_page' 		=> $per_page,
-			'orderby' 				=> $orderby,
-			'order' 				=> $order,
-			'meta_query'			=> array(
-				array(
-					'key' 		=> '_visibility',
-					'value' 	=> array('catalog', 'visible'),
-					'compare'	=> 'IN'
-				),
-				array(
-					'key' 		=> '_featured',
-					'value' 	=> 'yes'
-				)
-			)
-		);
+		public static function featured_products( $atts ) {
+		global $woocommerce_loop;
+
+		extract( shortcode_atts( array(
+			'vendor' => '',
+			'per_page' 	=> '12',
+			'columns' 	=> '4',
+			'orderby' 	=> 'date',
+			'order' 	=> 'desc'
+		), $atts ) );
+
+		$meta_query  = WC()->query->get_meta_query();
+        $tax_query   = WC()->query->get_tax_query();
+        $tax_query[] = array(
+            'taxonomy' => 'product_visibility',
+            'field'    => 'name',
+            'terms'    => 'featured',
+            'operator' => 'IN',
+        );
+    
+        $args = array(
+			'post_type'           => 'product',
+			'author'			  => self::get_vendor( $vendor ),
+            'post_status'         => 'publish',
+            'ignore_sticky_posts' => 1,
+            'posts_per_page'      => $per_page,
+            'orderby'             => $orderby,
+            'order'               => $order,
+            'meta_query'          => $meta_query,
+            'tax_query'           => $tax_query,
+        );
+
+		ob_start();
+
+		$products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
+
+		$woocommerce_loop['columns'] = $columns;
+
+		if ( $products->have_posts() ) : ?>
+
+			<?php woocommerce_product_loop_start(); ?>
+
+				<?php while ( $products->have_posts() ) : $products->the_post(); ?>
+
+					<?php wc_get_template_part( 'content', 'product' ); ?>
+
+				<?php endwhile; // end of the loop. ?>
+
+			<?php woocommerce_product_loop_end(); ?>
+
+		<?php endif;
+
+		wp_reset_postdata();
+
+		return '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
+	}
 
 		ob_start();
 
