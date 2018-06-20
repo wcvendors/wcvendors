@@ -50,6 +50,7 @@ class WCVendors_Uninstall{
         self::delete_pages();
         self::delete_table();
         self::delete_options();
+        WCV_Cron::remove_cron_schedule();
     }
     
     /**
