@@ -237,8 +237,6 @@ class WCVendors_Install {
 	private static function remove_admin_notices() {
 		WCVendors_Admin_Notices::remove_all_notices();
 	}
-
-
 	/**
 	 * Is this a brand new WC install?
 	 *

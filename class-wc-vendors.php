@@ -53,7 +53,16 @@ function wcvendors_activate() {
 	}
 } // wcvendors_activate()
 
+/**
+ * Plugin deactivation hook
+ */
+function wcvendors_deactivate(){
+	
+}
+
 register_activation_hook( __FILE__, 'wcvendors_activate' );
+
+register_deactivation_hook( __FILE__, 'wcvendors_deactivate' );
 
 
 /**
