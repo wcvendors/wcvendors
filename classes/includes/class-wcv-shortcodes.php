@@ -319,7 +319,9 @@ class WCV_Shortcodes {
 			'orderby'       => 'title',
 			'order'         => 'asc'
 		), $atts ) );
-		
+
+		$meta_query  = WC()->query->get_meta_query();
+				
 		$args = array(
 			'post_type' 			=> 'product',
 			'post_author'			=> self::get_vendor($vendor),
@@ -328,6 +330,7 @@ class WCV_Shortcodes {
 			'orderby' 				=> $orderby,
 			'order'					=> $order,
 			'posts_per_page' 		=> $per_page,
+			'meta_query'			=> $meta_query
 		);
 
 		ob_start();
