@@ -57,7 +57,8 @@ function wcvendors_activate() {
  * Plugin deactivation hook
  */
 function wcvendors_deactivate(){
-	
+	require_once trailingslashit( dirname( __FILE__ ) ) . 'classes/class-uninstall.php';
+	WCVendors_Uninstall::uninstall();
 }
 
 register_activation_hook( __FILE__, 'wcvendors_activate' );

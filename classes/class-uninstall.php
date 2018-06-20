@@ -16,7 +16,7 @@ class WCVendors_Uninstall{
      * @package
      * @since 2.0.8
      */
-    public function init(){
+    public static function uninstall(){
         if ( get_option( 'wcvendors_uninstall_delete_all_data') == 'yes' ) {
             self::delete_all();
         }else{
@@ -43,7 +43,7 @@ class WCVendors_Uninstall{
      * @return void
      * @since 2.0.8
      */
-    private static function delete_all(){
+    public static function delete_all(){
         self::remove_roles();
         self::delete_pages();
         self::delete_table();
@@ -56,7 +56,7 @@ class WCVendors_Uninstall{
      * @return void
      * @since 2.0.8
      */
-    private static function remove_roles(){
+    public static function remove_roles(){
         remove_role( 'pending_vendor' );
         remove_role( 'vendor' );
     }
@@ -67,7 +67,7 @@ class WCVendors_Uninstall{
      * @return void
      * @since 2.0.8
      */
-    private static function delete_pages(){
+    public static function delete_pages(){
         $pages = array( 'vendors', 'vendor_dashboard', 'product_orders', 'shop_settings');
         foreach ( $pages as $page_name ) {
             $page = get_post( $page_name );
@@ -81,7 +81,7 @@ class WCVendors_Uninstall{
      * @return void
      * @since 2.0.8
      */
-    private static function delete_table(){
+    public static function delete_table(){
         global $wpdb;
         $table_name = $wpdb->prefix . "pv_commission";
 
@@ -94,7 +94,7 @@ class WCVendors_Uninstall{
      * @return void
      * @since 2.0.8
      */
-    private static function delete_options() {
+    public static function delete_options() {
 
 		include_once( dirname( __FILE__ ) . '/admin/class-wcv-admin-settings.php' );
 
@@ -111,7 +111,9 @@ class WCVendors_Uninstall{
 					delete_option( $value['id'] );
 				}
 			}
-		}
+        }
+        
+        delete_option( 'wcvendors_version' );
     }
 
     /**
