@@ -319,20 +319,15 @@ class WCV_Shortcodes {
 			'orderby'       => 'title',
 			'order'         => 'asc'
 		), $atts ) );
-
-		$meta_query   = array();
-		$meta_query[] = WC()->query->visibility_meta_query();
-		$meta_query[] = WC()->query->stock_status_meta_query();
-
+		
 		$args = array(
 			'post_type' 			=> 'product',
-			'author'				=> self::get_vendor($vendor),
+			'post_author'			=> self::get_vendor($vendor),
 			'post_status' 			=> 'publish',
 			'ignore_sticky_posts'   => 1,
 			'orderby' 				=> $orderby,
 			'order'					=> $order,
 			'posts_per_page' 		=> $per_page,
-			'meta_query'			=> $meta_query,
 		);
 
 		ob_start();
