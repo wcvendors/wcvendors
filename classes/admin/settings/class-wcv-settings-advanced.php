@@ -43,9 +43,12 @@ class WCVendors_Settings_Advanced extends WCVendors_Settings_Page {
 	}
 
     /**
-     * 
-     */
-    
+	 * Uninstall settings
+	 *
+	 * @param string $current_section
+	 * @return array settings
+	 * @since 2.0.8
+	 */
     public function get_settings( $current_section = '' ) {
 
 		$settings = array();

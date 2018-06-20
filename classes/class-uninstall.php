@@ -1,7 +1,9 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 /**
- * Advanced uninstall settings
+ * Delete plugin data on deactivation
  *
  * @author      Lindeni Mahlalela, WC Vendors
  * @category    Settings
