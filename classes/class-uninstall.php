@@ -70,11 +70,10 @@ class WCVendors_Uninstall{
      * @since 2.0.8
      */
     public static function delete_pages(){
-        $pages = array( 'vendors', 'vendor_dashboard', 'product_orders', 'shop_settings');
-        foreach ( $pages as $page_name ) {
-            $page = get_post( $page_name );
-            wp_delete_post( $page->ID, true );
-        }
+        wp_delete_post( get_option( 'wcvendors_vendor_dashboard_page_id' ), true );
+        wp_delete_post( get_option( 'wcvendors_shop_settings_page_id' ),    true );
+        wp_delete_post( get_option( 'wcvendors_product_orders_page_id' ),   true );
+        wp_delete_post( get_option( 'wcvendors_vendors_page_id' ),          true );
     }
 
     /**
@@ -116,6 +115,10 @@ class WCVendors_Uninstall{
         }
         
         delete_option( 'wcvendors_version' );
+        delete_option( 'wcvendors_db_version' );
+        delete_option( 'wcvendors_admin_notices' );
+        delete_option( 'wcvendors_queue_flush_rewrite_rules' );
+        delete_option( 'wcvendors_admin_notice_email_updates' );        
     }
 
     /**

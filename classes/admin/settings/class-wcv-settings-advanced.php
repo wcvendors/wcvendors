@@ -69,11 +69,11 @@ class WCVendors_Settings_Advanced extends WCVendors_Settings_Page {
 					'desc'    => sprintf( __( 'Delete all %s data when deactivating the plugin.', 'wc-vendors' ), wcv_get_vendor_name() ),
 					'id'      => 'wcvendors_uninstall_delete_all_data',
 					'default' => 'no',
-					'type'    => 'radio',
+					'type'    => 'checkbox',
 				),
 				array(
 					'title'   => __( 'Delete custom table', 'wc-vendors' ),
-					'desc'    => __( 'Leave all data as is when deactivating the plugin.', 'wc-vendors' ),
+					'desc'    => __( 'Delete all data as is when deactivating the plugin.', 'wc-vendors' ),
 					'id'      => 'wcvendors_uninstall_delete_custom_table',
 					'default' => 'no',
 					'type'    => 'checkbox',
