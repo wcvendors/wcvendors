@@ -61,7 +61,7 @@ class WCVendors_Settings_Advanced extends WCVendors_Settings_Page {
 				array(
 					'title'    => __( 'Plugin Uninstall Options', 'wc-vendors' ),
 					'type'     => 'title',
-					'desc'     => __( 'These options are effective when uninstalling the plugin', 'wc-vendors' ),
+					'desc'     => __( 'These options are effective when uninstalling the plugin. If "Delete All Data" is checked all this plugin\'s data will be removed, uncheck it to choose what to delete when uninstalling the plugin.', 'wc-vendors' ),
 					'id'       => 'advanced_options',
 				),				
 				array(
