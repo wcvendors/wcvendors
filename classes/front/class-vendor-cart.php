@@ -50,7 +50,7 @@ class WCV_Vendor_Cart
 			'display' => $sold_by,
 		);
 
-		//return $values;
+		return $values;
 	}
 
 
