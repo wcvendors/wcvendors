@@ -95,7 +95,7 @@ class WCVendors_Settings_Advanced extends WCVendors_Settings_Page {
 				array(
 					'title'   => __( 'Remove Custom Roles', 'wc-vendors' ),
 					'desc'    => sprintf( __( 'Remove custom roles registered by %s.', 'wc-vendors' ), wcv_get_vendor_name() ),
-					'id'      => 'wcvendors_uninstall_delete_roles',
+					'id'      => 'wcvendors_uninstall_delete_vendor_roles',
 					'default' => 'no',
 					'type'    => 'checkbox',
 				),

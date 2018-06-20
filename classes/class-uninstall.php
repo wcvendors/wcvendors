@@ -33,9 +33,12 @@ class WCVendors_Uninstall{
             if ( get_option( 'wcvendors_uninstall_delete_settings_options') == 'yes' ) {
                 self::delete_options();
             } 
-        }
 
-        self::remove_roles();
+            if ( get_option( 'wcvendors_uninstall_delete_vendor_roles') == 'yes' ) {
+                self::remove_roles();
+            }
+        }
+        
         self::flush_rewrite_rules();
     }
 
