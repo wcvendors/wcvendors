@@ -5,7 +5,7 @@
  * @author Lindeni Mahlalela <https://lindeni.co.za>
  * @package WCVendors
  */
-class WCV_Account_Links extends WCV_Vendor_Signup{
+class WCV_Account_Links extends WCV_Vendor_Signup {
 
     public $terms_page;
 
@@ -16,9 +16,12 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
      * @package
      * @since
      */
-    function __construct(){
-        $this->terms_page = get_option( 'wcvendors_vendor_terms_page_id' );
+    public function __construct(){
 
+        // Only enable this if registration for vendors is enabled
+        if ( ! wc_string_to_bool( get_option( 'wcvendors_vendor_allow_registration', 'no' ) ) ) return;
+
+        $this->terms_page = get_option( 'wcvendors_vendor_terms_page_id' );
         add_filter( 'woocommerce_account_menu_items', array( $this, 'add_account_menu_items') );
         add_action( 'init', array( $this, 'add_rewrite_endpoint' ) );
         add_action( 'woocommerce_account_become-a-vendor_endpoint', array( $this, 'render_vendor_signup' ) );
@@ -35,18 +38,15 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
      * @package
      * @since
      */
-    function add_account_menu_items( $items ) {
+    public function add_account_menu_items( $items ) {
         $add_items = array(
             'become-a-vendor' => __( 'Become a Vendor', 'wc-vendors')
         );
-
         //slice the array so the logout link goes at the end of the list
         $first_part = array_slice( $items, 0, count( $items ) - 1, true);
         $last_part = array_slice( $items, count( $items ) - 1, true);
-
         //put the arrays together putting the logout link at the end
         $items = $first_part + $add_items + $last_part;
-
         return $items;
     }
 
@@ -56,7 +56,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
      * @param array $vars
      * @return void
      */
-    function query_vars( $vars ){
+    public function query_vars( $vars ){
         $vars[] = 'become-a-vendor';
         return $vars;
     }
@@ -66,7 +66,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
      *
      * @return void
      */
-    function flush_rewrite_rules(){
+    public function flush_rewrite_rules(){
         flush_rewrite_rules();
     }
 
@@ -75,7 +75,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
      *
      * @return void
      */
-    function add_rewrite_endpoint(){
+    public function add_rewrite_endpoint(){
         add_rewrite_endpoint( 'become-a-vendor', EP_PAGES );
     }
 
@@ -84,10 +84,11 @@ class WCV_Account_Links extends WCV_Vendor_Signup{
      * If the current user is already a vendor, hide the signup form and show a message
      * @return void
      */
-    function render_vendor_signup(){
+    public function render_vendor_signup(){
         if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
             echo '<div class="woocommerce-message" role="alert"><p>' .__( 'You are already an approved vendor, no need to apply', 'wc-vendors') . '</p></div>';
-        }else{
+        } else {
+
             if ( ! class_exists( 'WCV_Vendor_Signup' ) ) {
                 include_once( wcv_plugin_dir . 'classes/front/signup/class-vendor-signup.php');
             }

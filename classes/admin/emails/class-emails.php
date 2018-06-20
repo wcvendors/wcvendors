@@ -40,6 +40,9 @@ class WCV_Emails
 		add_action( 'wcvendors_email_customer_details',	array( $this, 'vendor_customer_details'), 10, 4 );
 		add_action( 'set_user_role', 					array( $this, 'vendor_application' ), 10, 2 );
 
+		//Trigger emails during user registration
+		add_action( 'user_register', 					array( $this, 'vendor_application' ), 10, 1 );
+
 	}
 
 
@@ -106,14 +109,23 @@ class WCV_Emails
 		$emails[ 'WC_Email_Notify_Shipped' ] = new WC_Email_Notify_Shipped();
 
 		// New emails introduced in @since 2.0.0
-		$emails[ 'WCVendors_Customer_Notify_Shipped'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-customer-notify-shipped.php' );
-		$emails[ 'WCVendors_Admin_Notify_Shipped'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-shipped.php' );
-		$emails[ 'WCVendors_Admin_Notify_Product'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-product.php' );
-		$emails[ 'WCVendors_Admin_Notify_Application'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-application.php' );
-		$emails[ 'WCVendors_Vendor_Notify_Application'] 	= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-application.php' );
-		$emails[ 'WCVendors_Vendor_Notify_Approved'] 		= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php' );
-		$emails[ 'WCVendors_Vendor_Notify_Denied'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php' );
-		$emails[ 'WCVendors_Vendor_Notify_Order'] 			= include( wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-order.php' );
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-customer-notify-shipped.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-shipped.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-product.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-application.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-application.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-order.php';
+
+		$emails[ 'WCVendors_Customer_Notify_Shipped'] 	= new WCVendors_Customer_Notify_Shipped();
+		$emails[ 'WCVendors_Admin_Notify_Shipped'] 		= new WCVendors_Admin_Notify_Shipped();
+		$emails[ 'WCVendors_Admin_Notify_Product'] 		= new WCVendors_Admin_Notify_Product();
+		$emails[ 'WCVendors_Admin_Notify_Application'] 	= new WCVendors_Admin_Notify_Application();
+		$emails[ 'WCVendors_Vendor_Notify_Application'] = new WCVendors_Vendor_Notify_Application();
+		$emails[ 'WCVendors_Vendor_Notify_Approved'] 	= new WCVendors_Vendor_Notify_Approved();
+		$emails[ 'WCVendors_Vendor_Notify_Denied'] 		= new WCVendors_Vendor_Notify_Denied();
+		$emails[ 'WCVendors_Vendor_Notify_Order'] 		= new WCVendors_Vendor_Notify_Order();
 
 		return $emails;
 
@@ -181,7 +193,14 @@ class WCV_Emails
 	*
 	* @since 2.0.0
 	*/
-	public function vendor_application( $user_id, $role ){
+	public function vendor_application( $user_id, $role = "" ){
+		/**
+		 * If the role is not given, set it according to the vendor approval option in admin
+		 */
+		if ( $role == "" ) {
+			$manual = wc_string_to_bool( get_option( 'wcvendors_vendor_approve_registration', 'no' ) );
+			$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
+		}
 
 		if ( !empty( $_POST[ 'apply_for_vendor' ] ) || ( !empty( $_GET[ 'action' ] ) && ( $_GET[ 'action' ] == 'approve_vendor' || $_GET[ 'action' ] == 'deny_vendor' ) ) ) {
 

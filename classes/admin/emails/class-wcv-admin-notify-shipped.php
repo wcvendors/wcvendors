@@ -177,5 +177,3 @@ class WCVendors_Admin_Notify_Shipped extends WC_Email {
 }
 
 endif;
-
-return new WCVendors_Admin_Notify_Shipped();

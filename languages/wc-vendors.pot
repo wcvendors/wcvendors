@@ -730,11 +730,11 @@ msgstr ""
 msgid "Apply to become a vendor? "
 msgstr ""
 
-#: templates/dashboard/denied.php:51
+#: templates/dashboard/denied.php:50
 msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
 msgstr ""
 
-#: templates/dashboard/denied.php:71
+#: templates/dashboard/denied.php:70
 msgid "Submit"
 msgstr ""
 
@@ -911,19 +911,19 @@ msgstr ""
 msgid "Quantity: %d"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:73, classes/admin/emails/class-emails.php:189, classes/admin/emails/class-wc-approve-vendor.php:70
+#: classes/admin/emails/class-emails.php:76, classes/admin/emails/class-emails.php:208, classes/admin/emails/class-wc-approve-vendor.php:70
 msgid "pending"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:75
+#: classes/admin/emails/class-emails.php:78
 msgid "approved"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:77
+#: classes/admin/emails/class-emails.php:80
 msgid "denied"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:147
+#: classes/admin/emails/class-emails.php:159
 msgid "Resend %s new order notification"
 msgstr ""
 
@@ -2019,11 +2019,11 @@ msgstr ""
 msgid "Save Shop Settings"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:40
+#: classes/front/account/class-wc-account-links.php:36
 msgid "Become a Vendor"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:89
+#: classes/front/account/class-wc-account-links.php:78
 msgid "You are already an approved vendor, no need to apply"
 msgstr ""
 

@@ -83,7 +83,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * Settings page.
 	 *
-	 * Handles the display of the main woocommerce settings page in admin.
+	 * Handles the display of the main wcvendors settings page in admin.
 	 */
 	public static function output() {
 		global $current_section, $current_tab;
@@ -96,6 +96,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		wp_localize_script( 'wcvendors_settings', 'wcvendors_settings_params', array(
 			'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'wc-vendors' ),
 		) );
+
+		wp_enqueue_script( 'wcvendors-media', wcv_assets_url . 'js/admin/wcvendors-media.js', array( 'jquery' ), WCV_VERSION, true );
 
 		// Get tabs for the settings page
 		$tabs = apply_filters( 'wcvendors_settings_tabs_array', array() );
@@ -618,7 +620,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$value   = in_array( $raw_value, $allowed_values ) ? $raw_value : $default;
 					break;
 				case 'wysiwyg':
-					$value = $raw_value; 
+					$value = $raw_value;
 					break;
 				default :
 					$value = wc_clean( $raw_value );
