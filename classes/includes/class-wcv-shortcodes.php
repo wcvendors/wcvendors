@@ -193,26 +193,26 @@ class WCV_Shortcodes {
 			'order' 	=> 'desc'
 		), $atts ) );
 
-		$args = array(
-			'post_type'				=> 'product',
-			'post_status' 			=> 'publish',
-			'author'				=> self::get_vendor($vendor),
-			'ignore_sticky_posts'	=> 1,
-			'posts_per_page' 		=> $per_page,
-			'orderby' 				=> $orderby,
-			'order' 				=> $order,
-			'meta_query'			=> array(
-				array(
-					'key' 		=> '_visibility',
-					'value' 	=> array('catalog', 'visible'),
-					'compare'	=> 'IN'
-				),
-				array(
-					'key' 		=> '_featured',
-					'value' 	=> 'yes'
-				)
-			)
-		);
+		$meta_query  = WC()->query->get_meta_query();
+        $tax_query   = WC()->query->get_tax_query();
+        $tax_query[] = array(
+            'taxonomy' => 'product_visibility',
+            'field'    => 'name',
+            'terms'    => 'featured',
+            'operator' => 'IN',
+        );
+    
+        $args = array(
+			'post_type'           => 'product',
+			'post_author'		  => self::get_vendor( $vendor ),
+            'post_status'         => 'publish',
+            'ignore_sticky_posts' => 1,
+            'posts_per_page'      => $per_page,
+            'orderby'             => $orderby,
+            'order'               => $order,
+            'meta_query'          => $meta_query,
+            'tax_query'           => $tax_query,
+        );
 
 		ob_start();
 
