@@ -51,6 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-capabilities.php' );
 			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-display.php' );
 			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-payments.php' );
+			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-advanced.php' );
 
 			self::$settings = apply_filters( 'wcvendors_get_settings_pages', $settings );
 		}

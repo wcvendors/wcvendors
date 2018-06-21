@@ -497,7 +497,7 @@ msgstr ""
 msgid "WC Vendors Github"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-notices.php:114, classes/admin/class-wcv-admin-settings.php:68
+#: classes/admin/class-wcv-admin-notices.php:114, classes/admin/class-wcv-admin-settings.php:69
 msgid "Action failed. Please refresh the page and retry."
 msgstr ""
 
@@ -505,47 +505,47 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:76
+#: classes/admin/class-wcv-admin-settings.php:77
 msgid "Your settings have been saved."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:96
+#: classes/admin/class-wcv-admin-settings.php:97
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:432, classes/includes/class-functions.php:59
+#: classes/admin/class-wcv-admin-settings.php:433, classes/includes/class-functions.php:59
 msgid "Select a page&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:454
+#: classes/admin/class-wcv-admin-settings.php:455
 msgid "Choose a country&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:454, classes/admin/class-wcv-admin-settings.php:479
+#: classes/admin/class-wcv-admin-settings.php:455, classes/admin/class-wcv-admin-settings.php:480
 msgid "Country"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:479
+#: classes/admin/class-wcv-admin-settings.php:480
 msgid "Choose countries&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:487
+#: classes/admin/class-wcv-admin-settings.php:488
 msgid "Select all"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:487
+#: classes/admin/class-wcv-admin-settings.php:488
 msgid "Select none"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:504
+#: classes/admin/class-wcv-admin-settings.php:505
 msgid "Update %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:504, classes/admin/class-wcv-admin-settings.php:504
+#: classes/admin/class-wcv-admin-settings.php:505, classes/admin/class-wcv-admin-settings.php:505
 msgid "Add %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:504
+#: classes/admin/class-wcv-admin-settings.php:505
 msgid "Upload an image for the %s"
 msgstr ""
 
@@ -1280,6 +1280,34 @@ msgstr ""
 msgid "Include the payment method in the email"
 msgstr ""
 
+#: classes/admin/settings/class-wcv-settings-advanced.php:27, classes/admin/settings/class-wcv-settings-advanced.php:39, classes/admin/settings/class-wcv-settings-capabilities.php:111, classes/admin/settings/class-wcv-settings-display.php:45
+msgid "Advanced"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:59
+msgid "Plugin Uninstall Options"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:61
+msgid "These options are effective when uninstalling the plugin"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:65
+msgid "Delete all Data"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:66
+msgid "delete all WC Vendors data when deactivating the plugin."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:72, classes/admin/settings/class-wcv-settings-advanced.php:79
+msgid "Do not delete data"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:73, classes/admin/settings/class-wcv-settings-advanced.php:80
+msgid "Leave all data as is when deactivating the plugin."
+msgstr ""
+
 #: classes/admin/settings/class-wcv-settings-capabilities.php:43, classes/admin/settings/class-wcv-settings-capabilities.php:105, classes/admin/settings/class-wcv-settings-commission.php:43, classes/admin/settings/class-wcv-settings-display.php:43, classes/admin/settings/class-wcv-settings-general.php:31, classes/admin/settings/class-wcv-settings-general.php:43, classes/admin/settings/class-wcv-settings-payments.php:44, classes/admin/views/setup/general.php:19
 msgid "General"
 msgstr ""
@@ -1338,10 +1366,6 @@ msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-capabilities.php:110
 msgid "Variations"
-msgstr ""
-
-#: classes/admin/settings/class-wcv-settings-capabilities.php:111, classes/admin/settings/class-wcv-settings-display.php:45
-msgid "Advanced"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-capabilities.php:118
