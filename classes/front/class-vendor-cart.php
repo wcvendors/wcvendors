@@ -36,16 +36,17 @@ class WCV_Vendor_Cart
 	 */
 	public static function sold_by( $values, $cart_item ){
 
-		$product_id 	= $cart_item[ 'product_id'];
-		$post 			= get_post( $product_id );
-		$vendor_id 		= $post->post_author;
-		$sold_by_label 	= get_option( 'wcvendors_label_sold_by' );
+		$product_id 		= $cart_item[ 'product_id'];
+		$post 				= get_post( $product_id );
+		$vendor_id 			= $post->post_author;
+		$sold_by_label 		= get_option( 'wcvendors_label_sold_by' );
+		$sold_by_separator 	= get_option( 'wcvendors_label_sold_by_separator' );
 		$sold_by   		= WCV_Vendors::is_vendor( $vendor_id )
 			? sprintf( '<a href="%s" target="_TOP">%s </a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 
 		$values[ ] = array(
-			'name'    => apply_filters( 'wcvendors_cart_sold_by', $sold_by_label, $product_id, $vendor_id ),
+			'name'    => apply_filters( 'wcvendors_cart_sold_by', $sold_by_label, $product_id, $vendor_id, $sold_by_separator ),
 			'display' => $sold_by,
 		);
 
@@ -60,11 +61,12 @@ class WCV_Vendor_Cart
 	{
 		$vendor_id = get_the_author_meta( 'ID' );
 		$sold_by_label = get_option( 'wcvendors_label_sold_by' );
+		$sold_by_separator = get_option( 'wcvendors_label_sold_by_separator' );
 		$sold_by = WCV_Vendors::is_vendor( $vendor_id )
 			? sprintf( '<a href="%s" class="wcvendors_cart_sold_by_meta">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 
-		echo apply_filters('wcvendors_cart_sold_by_meta', $sold_by_label, get_the_ID(), $vendor_id ) .'&nbsp;'. $sold_by . '<br/>';
+		echo apply_filters('wcvendors_cart_sold_by_meta', $sold_by_label, get_the_ID(), $vendor_id ) .'&nbsp;' . apply_filters('wcvendors_cart_sold_by_meta_separator', $sold_by_separator, get_the_ID(), $vendor_id ) . '&npsp;'. $sold_by . '<br/>';
 	}
 
 }
