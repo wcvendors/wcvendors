@@ -309,7 +309,7 @@ class WCV_Shortcodes {
 	 * @param array $atts
 	 * @return string
 	 */
-	public static function top_rated_products( $atts ) {
+	 public static function top_rated_products( $atts ) {
 		global $woocommerce_loop;
 
 		extract( shortcode_atts( array(
@@ -318,23 +318,19 @@ class WCV_Shortcodes {
 			'columns'       => '4',
 			'orderby'       => 'title',
 			'order'         => 'asc'
-			), $atts ) );
+		), $atts ) );
 
+		$meta_query  = WC()->query->get_meta_query();
+				
 		$args = array(
 			'post_type' 			=> 'product',
-			'author'				=> self::get_vendor($vendor),
+			'post_author'			=> self::get_vendor($vendor),
 			'post_status' 			=> 'publish',
 			'ignore_sticky_posts'   => 1,
 			'orderby' 				=> $orderby,
 			'order'					=> $order,
 			'posts_per_page' 		=> $per_page,
-			'meta_query' 			=> array(
-				array(
-					'key' 			=> '_visibility',
-					'value' 		=> array('catalog', 'visible'),
-					'compare' 		=> 'IN'
-				)
-			)
+			'meta_query'			=> $meta_query
 		);
 
 		ob_start();
@@ -365,7 +361,7 @@ class WCV_Shortcodes {
 
 		return '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
 	}
-
+	
 	/**
 	 * List best selling products on sale per vendor
 	 *
