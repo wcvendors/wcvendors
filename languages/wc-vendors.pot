@@ -20,19 +20,19 @@ msgstr ""
 msgid "WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again."
 msgstr ""
 
-#: class-wc-vendors.php:100, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:264, classes/admin/views/html-vendor-meta.php:1
+#: class-wc-vendors.php:110, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:264, classes/admin/views/html-vendor-meta.php:1
 msgid "WC Vendors"
 msgstr ""
 
-#: class-wc-vendors.php:137
+#: class-wc-vendors.php:147
 msgid "<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce 3.0.0 to operate."
 msgstr ""
 
-#: class-wc-vendors.php:399
+#: class-wc-vendors.php:413
 msgid "WC Vendors 2.0 is a major update. This is not compatible with any of our existing extensions. You should test this update on a staging server before updating. Backup your site and update your theme and extensions, and <a href=\"%s\">review update details here</a> before upgrading."
 msgstr ""
 
-#: class-wc-vendors.php:412
+#: class-wc-vendors.php:426
 msgid "WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current version %s will be deactivated. Please upgrade to the latest version."
 msgstr ""
 
@@ -100,35 +100,35 @@ msgctxt "Page title"
 msgid "Orders"
 msgstr ""
 
-#: classes/class-install.php:408
+#: classes/class-install.php:406
 msgid "View WC Vendors settings"
 msgstr ""
 
-#: classes/class-install.php:408, templates/dashboard/settings/settings.php:18
+#: classes/class-install.php:406, templates/dashboard/settings/settings.php:18
 msgid "Settings"
 msgstr ""
 
-#: classes/class-install.php:425
+#: classes/class-install.php:423
 msgid "View WC Vendors documentation"
 msgstr ""
 
-#: classes/class-install.php:425
+#: classes/class-install.php:423
 msgid "Docs"
 msgstr ""
 
-#: classes/class-install.php:426
+#: classes/class-install.php:424
 msgid "Visit community forums"
 msgstr ""
 
-#: classes/class-install.php:426
+#: classes/class-install.php:424
 msgid "Free support"
 msgstr ""
 
-#: classes/class-install.php:427
+#: classes/class-install.php:425
 msgid "Visit premium customer support"
 msgstr ""
 
-#: classes/class-install.php:427
+#: classes/class-install.php:425
 msgid "Premium support"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgstr ""
 msgid "Capabilities"
 msgstr ""
 
-#: classes/admin/class-setup-wizard.php:79, classes/admin/settings/class-wcv-settings-display.php:154, classes/admin/views/setup/pages.php:19
+#: classes/admin/class-setup-wizard.php:79, classes/admin/settings/class-wcv-settings-display.php:162, classes/admin/views/setup/pages.php:19
 msgid "Pages"
 msgstr ""
 
@@ -314,11 +314,11 @@ msgstr ""
 msgid "Don't forget to check our <a href=\"%1$s\" target=\"_blank\">documentation</a> to learn more about setting up WC Vendors and if you need help, be sure to visit our <a href=\"%2$s\" target=\"_blank\">free support forums</a>."
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:22, classes/admin/class-vendor-admin-dashboard.php:22, classes/admin/settings/class-wcv-settings-display.php:169
+#: classes/admin/class-vendor-admin-dashboard.php:22, classes/admin/class-vendor-admin-dashboard.php:22, classes/admin/settings/class-wcv-settings-display.php:177
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:209, templates/dashboard/orders.php:41, classes/admin/settings/class-wcv-settings-capabilities.php:45, classes/admin/settings/class-wcv-settings-capabilities.php:271, classes/admin/settings/class-wcv-settings-display.php:178, classes/admin/views/setup/capabilities.php:70
+#: classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:23, classes/admin/class-vendor-admin-dashboard.php:209, templates/dashboard/orders.php:41, classes/admin/settings/class-wcv-settings-capabilities.php:45, classes/admin/settings/class-wcv-settings-capabilities.php:271, classes/admin/settings/class-wcv-settings-display.php:186, classes/admin/views/setup/capabilities.php:70
 msgid "Orders"
 msgstr ""
 
@@ -513,39 +513,39 @@ msgstr ""
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:433, classes/includes/class-functions.php:59
+#: classes/admin/class-wcv-admin-settings.php:437, classes/admin/class-wcv-admin-settings.php:464, classes/includes/class-functions.php:59
 msgid "Select a page&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:455
+#: classes/admin/class-wcv-admin-settings.php:486
 msgid "Choose a country&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:455, classes/admin/class-wcv-admin-settings.php:480
+#: classes/admin/class-wcv-admin-settings.php:486, classes/admin/class-wcv-admin-settings.php:511
 msgid "Country"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:480
+#: classes/admin/class-wcv-admin-settings.php:511
 msgid "Choose countries&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:488
+#: classes/admin/class-wcv-admin-settings.php:519
 msgid "Select all"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:488
+#: classes/admin/class-wcv-admin-settings.php:519
 msgid "Select none"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:505
+#: classes/admin/class-wcv-admin-settings.php:536
 msgid "Update %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:505, classes/admin/class-wcv-admin-settings.php:505
+#: classes/admin/class-wcv-admin-settings.php:536, classes/admin/class-wcv-admin-settings.php:536
 msgid "Add %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:505
+#: classes/admin/class-wcv-admin-settings.php:536
 msgid "Upload an image for the %s"
 msgstr ""
 
@@ -742,7 +742,7 @@ msgstr ""
 msgid "View Your Store"
 msgstr ""
 
-#: templates/dashboard/links.php:23, classes/admin/settings/class-wcv-settings-display.php:209
+#: templates/dashboard/links.php:23, classes/admin/settings/class-wcv-settings-display.php:217
 msgid "Store Settings"
 msgstr ""
 
@@ -1284,28 +1284,52 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-advanced.php:59
+#: classes/admin/settings/class-wcv-settings-advanced.php:62
 msgid "Plugin Uninstall Options"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-advanced.php:61
-msgid "These options are effective when uninstalling the plugin"
+#: classes/admin/settings/class-wcv-settings-advanced.php:64
+msgid "These options are effective when uninstalling the plugin. If \"Delete All Data\" is checked all this plugin's data will be removed, uncheck it to choose what to delete when uninstalling the plugin."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-advanced.php:65
-msgid "Delete all Data"
+#: classes/admin/settings/class-wcv-settings-advanced.php:68
+msgid "Delete all data"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-advanced.php:66
-msgid "delete all WC Vendors data when deactivating the plugin."
+#: classes/admin/settings/class-wcv-settings-advanced.php:69
+msgid "Delete all WC Vendors data when deactivating the plugin."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-advanced.php:72, classes/admin/settings/class-wcv-settings-advanced.php:79
-msgid "Do not delete data"
+#: classes/admin/settings/class-wcv-settings-advanced.php:75
+msgid "Delete custom table"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-advanced.php:73, classes/admin/settings/class-wcv-settings-advanced.php:80
-msgid "Leave all data as is when deactivating the plugin."
+#: classes/admin/settings/class-wcv-settings-advanced.php:76
+msgid "Delete all data included in the custom tables. This will delete all commissions"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:82
+msgid "Delete settings options"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:83
+msgid "Delete all plugin options when uninstalling the plugin."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:89
+msgid "Delete WC Vendors pages"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:90
+msgid "Delete all pages created by WC Vendors."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:96
+msgid "Remove custom Roles"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:97
+msgid "Remove custom roles registered by WC Vendors."
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-capabilities.php:43, classes/admin/settings/class-wcv-settings-capabilities.php:105, classes/admin/settings/class-wcv-settings-commission.php:43, classes/admin/settings/class-wcv-settings-display.php:43, classes/admin/settings/class-wcv-settings-general.php:31, classes/admin/settings/class-wcv-settings-general.php:43, classes/admin/settings/class-wcv-settings-payments.php:44, classes/admin/views/setup/general.php:19
@@ -1584,130 +1608,142 @@ msgid "Enable sold by labels"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:121
-msgid "Sold by label"
+msgid "Sold by Separator"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:122
-msgid "The sold by label"
+msgid "The sold by separator"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:125
-msgid "Sold By"
+msgid ":"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:129
-msgid "%s Store Info"
+msgid "Sold by label"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:130
-msgid "Enable %s store info tab on the single product page"
+msgid "The sold by label"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:133
+msgid "Sold By"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:137
-msgid "%s store Info label"
+msgid "%s Store Info"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:138
+msgid "Enable %s store info tab on the single product page"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:145
+msgid "%s store Info label"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:146
 msgid "The %s store info label"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:141
+#: classes/admin/settings/class-wcv-settings-display.php:149
 msgid "Store Info"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:156
+#: classes/admin/settings/class-wcv-settings-display.php:164
 msgid "These pages used on the front end by %s."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:160
+#: classes/admin/settings/class-wcv-settings-display.php:168
 msgid "Dashboard"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:166
+#: classes/admin/settings/class-wcv-settings-display.php:174
 msgid "<br />This sets the page used to display the front end %s dashboard. This page should contain the following shortcode. <code>[wcv_vendor_dashboard]</code>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:175
+#: classes/admin/settings/class-wcv-settings-display.php:183
 msgid "<br />This sets the page used to display the %s shop settings page. This page should contain the following shortcode. <code>[wcv_shop_settings]</code>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:184
+#: classes/admin/settings/class-wcv-settings-display.php:192
 msgid "<br />This sets the page used to display the %s orders page. This page should contain the following shortcode. <code>[wcv_orders]</code>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:187
+#: classes/admin/settings/class-wcv-settings-display.php:195
 msgid "%s"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:193
+#: classes/admin/settings/class-wcv-settings-display.php:201
 msgid "<br />This sets the page used to display a paginated list of all %1$s stores. Your %1$s stores will be available at <code>%2$s/page-slug/store-name/</code><br />This page should contain the following shortcode. <code>[wcv_vendorslist]</code>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:196
+#: classes/admin/settings/class-wcv-settings-display.php:204
 msgid "Terms and Conditions"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:202
+#: classes/admin/settings/class-wcv-settings-display.php:210
 msgid "<br />This sets the page used to display the terms and conditions when a %s signs up."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:211
+#: classes/admin/settings/class-wcv-settings-display.php:219
 msgid "These are the settings for the individual %s stores."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:216
+#: classes/admin/settings/class-wcv-settings-display.php:224
 msgid "%s Store URL"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:217
+#: classes/admin/settings/class-wcv-settings-display.php:225
 msgid "If you enter \"vendors\" your %1$s store will be %1$s/vendors/store-name/"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:224
+#: classes/admin/settings/class-wcv-settings-display.php:232
 msgid "Shop Header"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:225
+#: classes/admin/settings/class-wcv-settings-display.php:233
 msgid "Enable %s shop headers"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:226
+#: classes/admin/settings/class-wcv-settings-display.php:234
 msgid "This enables the %s shop header template and disables the shop description text."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:233
+#: classes/admin/settings/class-wcv-settings-display.php:241
 msgid "Shop HTML"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:234
+#: classes/admin/settings/class-wcv-settings-display.php:242
 msgid "Allow HTML in %s shop desription"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:235
+#: classes/admin/settings/class-wcv-settings-display.php:243
 msgid "This will enable the WYSIWYG editor and for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:242
+#: classes/admin/settings/class-wcv-settings-display.php:250
 msgid "Display Name"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:244
+#: classes/admin/settings/class-wcv-settings-display.php:252
 msgid "Select what will be used to display the %s name throughout the marketplace."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:249
+#: classes/admin/settings/class-wcv-settings-display.php:257
 msgid "Display name"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:250, classes/admin/views/html-vendor-meta.php:26
+#: classes/admin/settings/class-wcv-settings-display.php:258, classes/admin/views/html-vendor-meta.php:26
 msgid "Shop name"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:251
+#: classes/admin/settings/class-wcv-settings-display.php:259
 msgid "%s Username"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:252
+#: classes/admin/settings/class-wcv-settings-display.php:260
 msgid "%s Email"
 msgstr ""
 
@@ -2019,11 +2055,11 @@ msgstr ""
 msgid "Save Shop Settings"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:36
+#: classes/front/account/class-wc-account-links.php:43
 msgid "Become a Vendor"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:78
+#: classes/front/account/class-wc-account-links.php:89
 msgid "You are already an approved vendor, no need to apply"
 msgstr ""
 
