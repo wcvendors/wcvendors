@@ -20,7 +20,7 @@ msgstr ""
 msgid "WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again."
 msgstr ""
 
-#: class-wc-vendors.php:110, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:264, classes/admin/views/html-vendor-meta.php:1
+#: class-wc-vendors.php:110, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:267, classes/admin/views/html-vendor-meta.php:1
 msgid "WC Vendors"
 msgstr ""
 
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:153, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:302, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/admin/settings/class-wcv-settings-display.php:187
+#: classes/class-install.php:153, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:302, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/admin/settings/class-wcv-settings-display.php:195
 msgid "%s"
 msgstr ""
 
@@ -100,35 +100,35 @@ msgctxt "Page title"
 msgid "Orders"
 msgstr ""
 
-#: classes/class-install.php:406
+#: classes/class-install.php:414
 msgid "View WC Vendors settings"
 msgstr ""
 
-#: classes/class-install.php:406, templates/dashboard/settings/settings.php:18
+#: classes/class-install.php:414, templates/dashboard/settings/settings.php:18
 msgid "Settings"
 msgstr ""
 
-#: classes/class-install.php:423
+#: classes/class-install.php:431
 msgid "View WC Vendors documentation"
 msgstr ""
 
-#: classes/class-install.php:423
+#: classes/class-install.php:431
 msgid "Docs"
 msgstr ""
 
-#: classes/class-install.php:424
+#: classes/class-install.php:432
 msgid "Visit community forums"
 msgstr ""
 
-#: classes/class-install.php:424
+#: classes/class-install.php:432
 msgid "Free support"
 msgstr ""
 
-#: classes/class-install.php:425
+#: classes/class-install.php:433
 msgid "Visit premium customer support"
 msgstr ""
 
-#: classes/class-install.php:425
+#: classes/class-install.php:433
 msgid "Premium support"
 msgstr ""
 
@@ -1671,10 +1671,6 @@ msgstr ""
 msgid "<br />This sets the page used to display the %s orders page. This page should contain the following shortcode. <code>[wcv_orders]</code>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:195
-msgid "%s"
-msgstr ""
-
 #: classes/admin/settings/class-wcv-settings-display.php:201
 msgid "<br />This sets the page used to display a paginated list of all %1$s stores. Your %1$s stores will be available at <code>%2$s/page-slug/store-name/</code><br />This page should contain the following shortcode. <code>[wcv_vendorslist]</code>"
 msgstr ""
@@ -2056,7 +2052,7 @@ msgid "Save Shop Settings"
 msgstr ""
 
 #: classes/front/account/class-wc-account-links.php:43
-msgid "Become a Vendor"
+msgid "Become a %s"
 msgstr ""
 
 #: classes/front/account/class-wc-account-links.php:89
