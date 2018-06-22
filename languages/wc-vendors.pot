@@ -20,7 +20,7 @@ msgstr ""
 msgid "WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again."
 msgstr ""
 
-#: class-wc-vendors.php:100, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:264, classes/admin/views/html-vendor-meta.php:1
+#: class-wc-vendors.php:100, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:267, classes/admin/views/html-vendor-meta.php:1
 msgid "WC Vendors"
 msgstr ""
 
@@ -52,83 +52,83 @@ msgstr ""
 msgid "Payment total: %s"
 msgstr ""
 
-#: classes/class-install.php:140, classes/admin/class-wcv-admin-setup.php:143
-msgid "Pending Vendor"
+#: classes/class-install.php:142, classes/admin/class-wcv-admin-setup.php:145
+msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:147, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:299, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/includes/class-functions.php:35, classes/admin/settings/class-wcv-settings-display.php:100
-msgid "Vendor"
-msgstr ""
-
-#: classes/class-install.php:195
-msgctxt "Page slug"
-msgid "vendor_dashboard"
-msgstr ""
-
-#: classes/class-install.php:197
-msgctxt "Page title"
-msgid "%s Dashboard"
+#: classes/class-install.php:153, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:302, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/admin/settings/class-wcv-settings-display.php:187
+msgid "%s"
 msgstr ""
 
 #: classes/class-install.php:203
 msgctxt "Page slug"
-msgid "vendors"
+msgid "vendor_dashboard"
 msgstr ""
 
 #: classes/class-install.php:205
 msgctxt "Page title"
-msgid "%s"
+msgid "%s Dashboard"
+msgstr ""
+
+#: classes/class-install.php:211
+msgctxt "Page slug"
+msgid "vendors"
 msgstr ""
 
 #: classes/class-install.php:213
+msgctxt "Page title"
+msgid "%s"
+msgstr ""
+
+#: classes/class-install.php:221
 msgctxt "Page slug"
 msgid "shop_settings"
 msgstr ""
 
-#: classes/class-install.php:214
+#: classes/class-install.php:222
 msgctxt "Page title"
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/class-install.php:219
+#: classes/class-install.php:227
 msgctxt "Page slug"
 msgid "product_orders"
 msgstr ""
 
-#: classes/class-install.php:220
+#: classes/class-install.php:228
 msgctxt "Page title"
 msgid "Orders"
 msgstr ""
 
-#: classes/class-install.php:408
+#: classes/class-install.php:416
 msgid "View WC Vendors settings"
 msgstr ""
 
-#: classes/class-install.php:408, templates/dashboard/settings/settings.php:18
+#: classes/class-install.php:416, templates/dashboard/settings/settings.php:18
 msgid "Settings"
 msgstr ""
 
-#: classes/class-install.php:425
+#: classes/class-install.php:433
 msgid "View WC Vendors documentation"
 msgstr ""
 
-#: classes/class-install.php:425
+#: classes/class-install.php:433
 msgid "Docs"
 msgstr ""
 
-#: classes/class-install.php:426
+#: classes/class-install.php:434
 msgid "Visit community forums"
 msgstr ""
 
-#: classes/class-install.php:426
+#: classes/class-install.php:434
 msgid "Free support"
 msgstr ""
 
-#: classes/class-install.php:427
+#: classes/class-install.php:435
 msgid "Visit premium customer support"
 msgstr ""
 
-#: classes/class-install.php:427
+#: classes/class-install.php:435
 msgid "Premium support"
 msgstr ""
 
@@ -383,7 +383,7 @@ msgid "%s has been <b>denied</b>."
 msgstr ""
 
 #: classes/admin/class-vendor-applicants.php:85
-msgid "Vendor has been <b>approved</b>."
+msgid "%s has been <b>approved</b>."
 msgstr ""
 
 #: classes/admin/class-vendor-applicants.php:99
@@ -513,39 +513,39 @@ msgstr ""
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:432, classes/includes/class-functions.php:59
+#: classes/admin/class-wcv-admin-settings.php:434, classes/includes/class-functions.php:59
 msgid "Select a page&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:454
+#: classes/admin/class-wcv-admin-settings.php:456
 msgid "Choose a country&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:454, classes/admin/class-wcv-admin-settings.php:479
+#: classes/admin/class-wcv-admin-settings.php:456, classes/admin/class-wcv-admin-settings.php:481
 msgid "Country"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:479
+#: classes/admin/class-wcv-admin-settings.php:481
 msgid "Choose countries&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:487
+#: classes/admin/class-wcv-admin-settings.php:489
 msgid "Select all"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:487
+#: classes/admin/class-wcv-admin-settings.php:489
 msgid "Select none"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:504
+#: classes/admin/class-wcv-admin-settings.php:506
 msgid "Update %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:504, classes/admin/class-wcv-admin-settings.php:504
+#: classes/admin/class-wcv-admin-settings.php:506, classes/admin/class-wcv-admin-settings.php:506
 msgid "Add %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:504
+#: classes/admin/class-wcv-admin-settings.php:506
 msgid "Upload an image for the %s"
 msgstr ""
 
@@ -581,20 +581,20 @@ msgstr ""
 msgid "This will reset wcvendors back to defaults. This DELETES ALL YOUR Settings."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:149
+#: classes/admin/class-wcv-admin-setup.php:152
 msgid "WC Vendor roles successfully reset."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:163
+#: classes/admin/class-wcv-admin-setup.php:166
 msgid "WC Vendors was successfully reset. All settings have been reset."
 msgstr ""
 
 #. translators: 1: WooCommerce 2:: five stars
-#: classes/admin/class-wcv-admin-setup.php:263
+#: classes/admin/class-wcv-admin-setup.php:266
 msgid "If you like %1$s please leave us a %2$s rating. A huge thanks in advance!"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:265
+#: classes/admin/class-wcv-admin-setup.php:268
 msgid "Thanks :)"
 msgstr ""
 
@@ -680,6 +680,10 @@ msgstr ""
 
 #: classes/admin/class-wcv-commissions-sum-csv-exporter.php:50
 msgid "Commission Status"
+msgstr ""
+
+#: classes/includes/class-functions.php:35, classes/admin/settings/class-wcv-settings-display.php:100
+msgid "Vendor"
 msgstr ""
 
 #: classes/includes/class-functions.php:36, classes/admin/settings/class-wcv-settings-display.php:108
@@ -928,11 +932,11 @@ msgid "Resend %s new order notification"
 msgstr ""
 
 #: classes/admin/emails/class-wc-approve-vendor.php:28
-msgid "Vendor Application"
+msgid "%s Application"
 msgstr ""
 
 #: classes/admin/emails/class-wc-approve-vendor.php:29
-msgid "Vendor application will either be approved, denied, or pending. <strong>This email has been deprecated.</strong>"
+msgid "%s application will either be approved, denied, or pending. <strong>This email has been deprecated.</strong>"
 msgstr ""
 
 #: classes/admin/emails/class-wc-approve-vendor.php:31
@@ -992,7 +996,7 @@ msgid "Multipart"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-admin.php:28
-msgid "New Vendor Product"
+msgid "New %s Product"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-admin.php:29
@@ -1007,8 +1011,8 @@ msgstr ""
 msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
 msgstr ""
 
-#: classes/admin/emails/class-wc-notify-shipped.php:28
-msgid "Vendor has shipped"
+#: classes/admin/emails/class-wc-notify-shipped.php:28, classes/admin/emails/class-wcv-admin-notify-shipped.php:62, classes/admin/emails/class-wcv-customer-notify-shipped.php:61
+msgid "%s has shipped"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-shipped.php:29
@@ -1154,10 +1158,6 @@ msgstr ""
 
 #: classes/admin/emails/class-wcv-admin-notify-shipped.php:52, classes/admin/emails/class-wcv-customer-notify-shipped.php:51
 msgid "[{site_title}] %s has marked shipped ({order_number}) - {order_date}"
-msgstr ""
-
-#: classes/admin/emails/class-wcv-admin-notify-shipped.php:62, classes/admin/emails/class-wcv-customer-notify-shipped.php:61
-msgid "%s has shipped"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-customer-notify-shipped.php:28
@@ -1536,7 +1536,7 @@ msgid "Labels are shown on the front end, in orders or emails."
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:96
-msgid "Vendor singluar term"
+msgid "%s singluar term"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:97
@@ -1544,7 +1544,7 @@ msgid "Change all references to vendor to this term"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:104
-msgid "Vendor plural term"
+msgid "%s plural term"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:105
@@ -1609,10 +1609,6 @@ msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:184
 msgid "<br />This sets the page used to display the %s orders page. This page should contain the following shortcode. <code>[wcv_orders]</code>"
-msgstr ""
-
-#: classes/admin/settings/class-wcv-settings-display.php:187
-msgid "%s"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:193
@@ -1995,11 +1991,11 @@ msgstr ""
 msgid "Save Shop Settings"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:36
-msgid "Become a Vendor"
+#: classes/front/account/class-wc-account-links.php:43
+msgid "Become a %s"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:78
+#: classes/front/account/class-wc-account-links.php:89
 msgid "You are already an approved vendor, no need to apply"
 msgstr ""
 
@@ -2437,7 +2433,7 @@ msgid "Select the pages for relevant frontend features for %s"
 msgstr ""
 
 #: classes/admin/views/setup/pages.php:25
-msgid "Vendor Dashboard"
+msgid "%s Dashboard"
 msgstr ""
 
 #: classes/admin/views/setup/pages.php:34
