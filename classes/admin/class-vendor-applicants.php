@@ -82,7 +82,7 @@ class WCV_Vendor_Applicants
 	public function approved()
 	{
 		echo '<div class="updated">';
-		echo '<p>' . __( 'Vendor has been <b>approved</b>.', 'wc-vendors' ) . '</p>';
+		echo '<p>' . sprintf( __( '%s has been <b>approved</b>.', 'wc-vendors' ), wcv_get_vendor_name() ) . '</p>';
 		echo '</div>';
 	}
 

@@ -170,7 +170,7 @@ class WCV_Admin_Reports
 									<tr>
 										<th><?php _e( 'Order', 'wc-vendors' ) ?></th>
 										<th><?php _e( 'Product', 'wc-vendors' ) ?></th>
-										<th><?php _e( 'Vendor', 'wc-vendors' ) ?></th>
+										<th><?php printf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ); ?></th>
 										<th><?php _e( 'Total', 'wc-vendors' ) ?></th>
 										<th><?php _e( 'Date &amp; Time', 'wc-vendors' ) ?></th>
 										<th><?php _e( 'Status', 'wc-vendors' ) ?></th>
@@ -453,7 +453,7 @@ class WCV_Admin_Reports
 				<table class="widefat">
 					<thead>
 						<tr>
-							<th class="total_row"><?php _e( 'Vendor', 'wc-vendors' ); ?></th>
+							<th class="total_row"><?php printf( __( '%s', 'wc-vendors' ),wcv_get_vendor_name() ); ?></th>
 							<th class="total_row"><?php _e( 'Tax Total', 'wc-vendors' ); ?></th>
 							<th class="total_row"><?php _e( 'Shipping Total', 'wc-vendors' ); ?></th>
 							<th class="total_row"><?php _e( 'Status', 'wc-vendors' ); ?></th>

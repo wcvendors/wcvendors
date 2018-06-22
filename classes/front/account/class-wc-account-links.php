@@ -40,7 +40,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
      */
     public function add_account_menu_items( $items ) {
         $add_items = array(
-            'become-a-vendor' => __( 'Become a Vendor', 'wc-vendors')
+            'become-a-vendor' => sprintf( __( 'Become a %s', 'wc-vendors'), wcv_get_vendor_name() )
         );
         //slice the array so the logout link goes at the end of the list
         $first_part = array_slice( $items, 0, count( $items ) - 1, true);

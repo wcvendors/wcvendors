@@ -220,7 +220,7 @@ class WCV_Product_Meta
 		 ?>
 		<br class="clear" />
         <label class="inline-edit-author-new">
-            <span class="title"><?php _e('Vendor', 'wc-vendors' ); ?></span>
+            <span class="title"><?php printf( __('%s', 'wc-vendors' ), wcv_get_vendor_name() ); ?></span>
             <?php echo $output; ?>
         </label>
     <?php

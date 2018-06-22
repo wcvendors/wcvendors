@@ -25,8 +25,8 @@ class WC_Email_Approve_Vendor extends WC_Email
 	function __construct()
 	{
 		$this->id          = 'vendor_application';
-		$this->title       = __( 'Vendor Application', 'wc-vendors' );
-		$this->description = __( 'Vendor application will either be approved, denied, or pending. <strong>This email has been deprecated.</strong>', 'wc-vendors' );
+		$this->title       = sprintf( __( '%s Application', 'wc-vendors' ), wcv_get_vendor_name() );
+		$this->description = sprintf( __( '%s application will either be approved, denied, or pending. <strong>This email has been deprecated.</strong>', 'wc-vendors' ), wcv_get_vendor_name() );
 
 		$this->heading = __( 'Application {status}', 'wc-vendors' );
 		$this->subject = __( '[{blogname}] Your vendor application has been {status}', 'wc-vendors' );

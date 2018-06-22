@@ -115,7 +115,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			'cb'         		=> '<input type="checkbox" />',
 			'product_id' 		=> __( 'Product', 'wc-vendors' ),
 			'order_id'   		=> __( 'Order ID', 'wc-vendors' ),
-			'vendor_id' 	    => __( 'Vendor', 'wc-vendors' ),
+			'vendor_id' 	    => sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
 			'total_due'  		=> __( 'Commission', 'wc-vendors' ),
 			'total_shipping'  	=> __( 'Shipping', 'wc-vendors' ),
 			'tax'  				=> __( 'Tax', 'wc-vendors' ),
