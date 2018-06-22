@@ -137,14 +137,17 @@ class WCV_Admin_Setup {
 		);
 
 		remove_role( 'vendor' );
-		add_role( 'vendor', __('Vendor', 'wc-vendors'), $args );
+		add_role( 'vendor', sprintf( __('%s', 'wc-vendors'), wcv_get_vendor_name() ), $args );
 
 		remove_role( 'pending_vendor');
-		add_role( 'pending_vendor', __( 'Pending Vendor', 'wc-vendors' ), array(
-																							  'read'         => true,
-																							  'edit_posts'   => false,
-																							  'delete_posts' => false
-																						 ) );
+		add_role( 
+			'pending_vendor', 
+			sprintf( __( 'Pending %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+			array(
+				'read'         => true,
+				'edit_posts'   => false,
+				'delete_posts' => false
+			) );
 
 		echo '<div class="updated inline"><p>' . __( 'WC Vendor roles successfully reset.', 'wc-vendors' ) . '</p></div>';
 
@@ -296,7 +299,7 @@ class WCV_Admin_Setup {
 		);
 
 		remove_role( 'vendor' );
-		add_role( 'vendor', __('Vendor', 'wc-vendors'), $args );
+		add_role( 'vendor', sprintf( __('%s', 'wc-vendors'), wcv_get_vendor_name() ), $args );
 
 	}
 

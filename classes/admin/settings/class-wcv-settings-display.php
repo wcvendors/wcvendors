@@ -93,7 +93,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				),
 
 				array(
-					'title'    	=> __( 'Vendor singluar term', 'wc-vendors' ),
+					'title'    	=> sprintf( __( '%s singluar term', 'wc-vendors' ), wcv_get_vendor_name() ),
 					'desc_tip'  => __( 'Change all references to vendor to this term', 'wc-vendors' ),
 					'id'       	=> 'wcvendors_vendor_singular',
 					'type'     	=> 'text',
@@ -101,7 +101,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				),
 
 				array(
-					'title'    	=> __( 'Vendor plural term', 'wc-vendors' ),
+					'title'    	=> sprintf( __( '%s plural term', 'wc-vendors' ), wcv_get_vendor_name( false ) ),
 					'desc_tip'  => __( 'Change all references to vendors to this term', 'wc-vendors' ),
 					'id'       	=> 'wcvendors_vendor_plural',
 					'type'     	=> 'text',

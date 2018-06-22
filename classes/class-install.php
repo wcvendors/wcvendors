@@ -137,26 +137,34 @@ class WCVendors_Install {
 	public static function create_roles() {
 
 		remove_role( 'pending_vendor' );
-		add_role( 'pending_vendor', __( 'Pending Vendor', 'wc-vendors' ), array(
-																					  'read'         => true,
-																					  'edit_posts'   => false,
-																					  'delete_posts' => false
-																				 ) );
+		add_role( 
+			'pending_vendor', 
+			sprintf( __( 'Pending %s', 'wc-vendors' ), wcv_get_vendor_name() ), 
+			array(
+				'read'         => true,
+				'edit_posts'   => false,
+				'delete_posts' => false
+			) 
+		);
 
 		remove_role( 'vendor' );
-		add_role( 'vendor', __( 'Vendor', 'wc-vendors') , array(
-										   'assign_product_terms'     => true,
-										   'edit_products'            => true,
-										   'edit_product'             => true,
-										   'edit_published_products'  => false,
-										   'manage_product'           => true,
-										   'publish_products'         => false,
-										   'delete_posts'			  => true,
-										   'read'                     => true,
-										   'import'					  => true,
-										   'upload_files'             => true,
-										   'view_woocommerce_reports' => false,
-									  ) );
+		add_role( 
+			'vendor', 
+			sprintf( __( '%s', 'wc-vendors'), wcv_get_vendor_name() ) , 
+			array(
+				'assign_product_terms'     => true,
+				'edit_products'            => true,
+				'edit_product'             => true,
+				'edit_published_products'  => false,
+				'manage_product'           => true,
+				'publish_products'         => false,
+				'delete_posts'			  => true,
+				'read'                     => true,
+				'import'					  => true,
+				'upload_files'             => true,
+				'view_woocommerce_reports' => false,
+			)
+		);
 	}
 
 

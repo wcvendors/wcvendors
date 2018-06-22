@@ -38,7 +38,7 @@ class WCV_Commissions_Sum_CSV_Export extends WC_CSV_Exporter {
 	public function get_default_column_names() {
 
 		return apply_filters( 'wcv_commissions_sum_export_columns', array(
-			'vendor_id' 	    	=> __( 'Vendor', 'wc-vendors' ),
+			'vendor_id' 	    	=> sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
 			'total_due'  			=> __( 'Total', 'wc-vendors' ),
 			'paypal_email'     		=> __( 'PayPal Email', 'wc-vendors' ),
 			'bank_account_name'     => __( 'Bank Account Name', 'wc-vendors' ),

@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</thead>
 		<tbody>
 			<tr>
-				<td class="table-desc"><?php _e( 'Vendor Dashboard', 'wc-vendors' ); ?>
+				<td class="table-desc"><?php printf(__( '%s Dashboard', 'wc-vendors' ), wcv_get_vendor_name() ); ?>
 
 				</td>
 				<td class="table-check">
