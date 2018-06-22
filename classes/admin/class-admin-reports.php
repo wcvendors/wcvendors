@@ -519,7 +519,7 @@ class WCV_Admin_Reports
 
 					$temp_array = array(
 						'user_login' 		=> $vendor_names[ $commission->vendor_id ],
-						'total_due' 		=> $commission->total_due,
+						'total_due' 		=> $commission->total_due + $commission->tax + $commission->total_shipping,
 						'tax'				=> $commission->tax,
 						'total_shipping'	=> $commission->total_shipping,
 						'status'			=> $commission->status,
