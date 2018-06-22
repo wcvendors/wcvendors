@@ -100,7 +100,7 @@ class WCV_Cron {
 	 *
 	 * @return bool
 	 */
-	private static function remove_cron_schedule()
+	public static function remove_cron_schedule()
 	{
 		$timestamp = wp_next_scheduled( 'pv_schedule_mass_payments' );
 

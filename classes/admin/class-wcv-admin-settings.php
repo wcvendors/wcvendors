@@ -51,6 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-capabilities.php' );
 			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-display.php' );
 			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-payments.php' );
+			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-advanced.php' );
 
 			self::$settings = apply_filters( 'wcvendors_get_settings_pages', $settings );
 		}
@@ -112,6 +113,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * @param array[] $options Opens array to output
 	 */
 	public static function output_fields( $options ) {
+
+		include( WCV_ABSPATH_ADMIN . 'includes/class-wcv-walker-pagedropdown-multiple.php' );
 
 		foreach ( $options as $value ) {
 			if ( ! isset( $value['type'] ) ) {
@@ -436,6 +439,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</tr><?php
 					break;
 
+				// Multi page selects
+				case 'multi_select_page' :
+
+					$args = array(
+						'name'             => $value['id']. '[]',
+						'walker' 		   => new WCV_Walker_PageDropdown_Multiple(),
+						'id'               => $value['id'],
+						'sort_column'      => 'menu_order',
+						'sort_order'       => 'ASC',
+						'show_option_none' => ' ',
+						'class'            => $value['class'],
+						'echo'             => false,
+						'selected'         => self::get_option( $value['id'] ),
+					);
+
+					if ( isset( $value['args'] ) ) {
+						$args = wp_parse_args( $value['args'], $args );
+					}
+
+					?><tr valign="top" class="single_select_page">
+						<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ) ?> <?php echo $tooltip_html; ?></th>
+						<td class="forminp">
+							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wc-vendors' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' multiple=\"multiple\" id=", wp_dropdown_pages( $args ) ); ?> <?php echo $description; ?>
+						</td>
+					</tr><?php
+					break;
+
 				// Single country selects
 				case 'single_select_country' :
 					$country_setting = (string) self::get_option( $value['id'] );
@@ -510,25 +540,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						break;
 
-						case 'wysiwyg':
+					case 'wysiwyg':
 
-						$option_value = self::get_option( $value['id'], $value['default'] );
+					$option_value = self::get_option( $value['id'], $value['default'] );
 
-							?>
-							<tr valign="top">
-								<th scope="row" class="titledesc">
-									<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
-									<?php echo $tooltip_html; ?>
-								</th>
-								<td class="forminp">
-									<?php wp_editor( $option_value, $value[ 'id' ], array( 'textarea_name' => $value['id'] ) ); ?>
-									<?php echo $description;?>
-								</td>
-							</tr>
-						<?php
+						?>
+						<tr valign="top">
+							<th scope="row" class="titledesc">
+								<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+								<?php echo $tooltip_html; ?>
+							</th>
+							<td class="forminp">
+								<?php wp_editor( $option_value, $value[ 'id' ], array( 'textarea_name' => $value['id'] ) ); ?>
+								<?php echo $description;?>
+							</td>
+						</tr>
+					<?php
 
 
-							break;
+					break;
 
 				// Default: run an action
 				default:

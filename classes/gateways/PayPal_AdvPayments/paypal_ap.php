@@ -56,8 +56,8 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		/* PayPal Adaptive Payments Configuration. */
 		$this->sandbox     = $this->settings[ 'sandbox_enabled' ];
 		$this->main_paypal = $this->sandbox == 'yes' ? $this->settings[ 'main_paypal' ] : $this->settings[ 'main_paypal_live' ];
-		$this->instapay    = get_option( 'wcvendors_payments_paypal_instantpay_enable' );
-		$this->give_tax    = get_option( 'wcvendors_vendor_give_taxes' );
+		$this->instapay    = wc_string_to_bool( get_option( 'wcvendors_payments_paypal_instantpay_enable', 'no' ) );
+		$this->give_tax    = wc_string_to_bool( get_option( 'wcvendors_vendor_give_taxes', 'no' ) );
 
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 

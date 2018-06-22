@@ -118,6 +118,14 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 				),
 
 				array(
+					'title'    	=> __( 'Sold by Separator', 'wc-vendors' ),
+					'desc_tip'  => __( 'The sold by separator', 'wc-vendors' ),
+					'id'       	=> 'wcvendors_label_sold_by_separator',
+					'type'     	=> 'text',
+					'default'	=> __( ':', 'wc-vendors' ),
+				),
+
+				array(
 					'title'    	=> __( 'Sold by label', 'wc-vendors' ),
 					'desc_tip'  => __( 'The sold by label', 'wc-vendors' ),
 					'id'       	=> 'wcvendors_label_sold_by',
