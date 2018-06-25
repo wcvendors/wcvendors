@@ -7,11 +7,11 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              2.0.7
+ * Version:              2.0.8
  * Requires at least:    4.4.0
  * Tested up to:         4.9.5
- * WC requires at least: 3.0.0
- * WC tested up to: 	 3.4.2
+ * WC requires at least: 3.3.0
+ * WC tested up to: 	 3.4.3
  *
  * Text Domain:         wc-vendors
  * Domain Path:         /languages/
@@ -90,7 +90,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	class WC_Vendors
 	{
 
-		public $version = '2.0.7';
+		public $version = '2.0.8';
 
 		/**
 		 * @var
@@ -240,7 +240,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			include_once( wcv_plugin_dir . 'classes/class-vendor-post-types.php');
 
 			if ( is_admin() ) {
-				include_once( wcv_plugin_dir . 'classes/class-install.php' );		
+				include_once( wcv_plugin_dir . 'classes/class-install.php' );
 				include_once( wcv_plugin_dir . 'classes/includes/wcv-update-functions.php');
 				include_once( wcv_plugin_dir . 'classes/admin/emails/class-emails.php');
 				include_once( wcv_plugin_dir . 'classes/admin/class-vendor-applicants.php');
@@ -255,13 +255,13 @@ if ( wcv_is_woocommerce_activated() ) {
 				include_once( wcv_plugin_dir . 'classes/admin/class-setup-wizard.php');
 				include_once( wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php');
 
-				new WCV_Vendor_Applicants;			
+				new WCV_Vendor_Applicants;
 				new WCV_Emails;
 				new WCV_Admin_Setup;
 				new WCV_Vendor_Admin_Dashboard;
 				new WCV_Admin_Reports;
 			}else{
-				include_once( wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php');			
+				include_once( wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php');
 				include_once( wcv_plugin_dir . 'classes/includes/wcv-template-functions.php');
 				include_once( wcv_plugin_dir . 'classes/front/class-vendor-cart.php');
 				include_once( wcv_plugin_dir . 'classes/front/dashboard/class-vendor-dashboard.php');
@@ -272,7 +272,7 @@ if ( wcv_is_woocommerce_activated() ) {
 
 				new WCV_Orders;
 				new WCV_Vendor_Dashboard;
-				new WCV_Vendor_Signup;			
+				new WCV_Vendor_Signup;
 				new WCV_Vendor_Shop;
 				new WCV_Vendor_Cart;
 				new WCV_Shortcodes;
@@ -282,12 +282,12 @@ if ( wcv_is_woocommerce_activated() ) {
 			// Include
 			if ( !function_exists( 'woocommerce_wp_text_input' ) && !is_admin() ) {
 				include_once( WC()->plugin_path() . '/includes/admin/wc-meta-box-functions.php' );
-			}			
-			
+			}
+
 			new WCV_Shipping;
 			new WCV_Cron;
 			new WCV_Commission;
-			new WCV_Vendors;			
+			new WCV_Vendors;
 		}
 
 

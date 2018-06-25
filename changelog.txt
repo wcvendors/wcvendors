@@ -1,5 +1,20 @@
 Changelog for WC Vendors
 
+Version 2.0.8
+
+* Added: Ability to uninistall the plugin including advanced options
+* Added: Option to assign media to vendor when assigning product
+* Added: All references to vendor changed to an option to rename vendors
+* Added: Sold by separator option #420
+* Added: Multi page select admin setting type
+* Updated: Language files
+* Fixed: Commissions Totals Incorrect in Reports #432
+* Fixed: Paypal Manual payout not working #430
+* Fixed: Class loading issues #427
+* Fixed: Vendor Featured product shortcode not working #418
+* Fixed: Vendor Top rated products shortcode not working #417
+* Fixed: Unable to use image settings type for admin settings
+
 Version 2.0.7
 
 * Added: Become a vendor link to WooCommerce My Account page
