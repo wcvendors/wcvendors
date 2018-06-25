@@ -238,7 +238,8 @@ if ( wcv_is_woocommerce_activated() ) {
 			include_once( wcv_plugin_dir . 'classes/class-shipping.php');
 			include_once( wcv_plugin_dir . 'classes/class-vendor-order.php');
 			include_once( wcv_plugin_dir . 'classes/class-vendor-post-types.php');
-
+			include_once( wcv_plugin_dir . 'classes/includes/wcv-template-functions.php');
+			
 			if ( is_admin() ) {
 				include_once( wcv_plugin_dir . 'classes/class-install.php' );
 				include_once( wcv_plugin_dir . 'classes/includes/wcv-update-functions.php');
@@ -262,7 +263,6 @@ if ( wcv_is_woocommerce_activated() ) {
 				new WCV_Admin_Reports;
 			}else{
 				include_once( wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php');
-				include_once( wcv_plugin_dir . 'classes/includes/wcv-template-functions.php');
 				include_once( wcv_plugin_dir . 'classes/front/class-vendor-cart.php');
 				include_once( wcv_plugin_dir . 'classes/front/dashboard/class-vendor-dashboard.php');
 				include_once( wcv_plugin_dir . 'classes/front/class-vendor-shop.php');
