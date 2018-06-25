@@ -282,8 +282,8 @@ class WCV_Product_Meta
 	 * @since 2.0.8
 	 */
 	public function save_product_media( $product ){
+		global $post;
 		if ( ! is_a( $product, 'WC_Product' ) ) return;
-		$post = get_post( $product->get_id() );
 		$vendor = $post->post_author;
 
 		$attachment_ids   = $product->get_gallery_image_ids( 'edit' );
