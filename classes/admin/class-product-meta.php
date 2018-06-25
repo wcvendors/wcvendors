@@ -26,13 +26,15 @@ class WCV_Product_Meta
 		if ( apply_filters( 'wcv_product_commission_tab', true ) ) {
 			add_action( 'woocommerce_product_write_panel_tabs', array( $this, 'add_tab' ) );
 			add_action( 'woocommerce_product_data_panels', array( $this, 'add_panel' ) );
-			add_action( 'woocommerce_process_product_meta', array( $this, 'save_panel' ) );
+			add_action( 'woocommerce_process_product_meta', array( $this, 'save_panel' ) );			
 		}
 
 		add_action( 'woocommerce_product_quick_edit_end', array($this, 'display_vendor_dd_quick_edit') );
 		add_action( 'woocommerce_product_quick_edit_save', array($this, 'save_vendor_quick_edit'), 2, 99 );
 		add_action( 'manage_product_posts_custom_column', array($this, 'display_vendor_column'), 2, 99 );
 		add_filter( 'manage_product_posts_columns', array($this, 'vendor_column_quickedit') );
+
+		add_action( 'woocommerce_process_product_meta', array( $this, 'update_post_media_author' ) );
 
 	}
 
@@ -119,6 +121,12 @@ class WCV_Product_Meta
 		}
 		$output .= "</select>";
 
+		$output .= '<br class="clear" />';
+		$output .= '<p><label class="product_media_author_override">';
+		$output .= '<input name="product_media_author_override" type="checkbox" /> ';
+		$output .= sprintf( __('Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() );
+		$output .= '</label></p>';
+
 		// Convert this selectbox with select2
 		$output .= '
 		<script type="text/javascript">jQuery(function() { jQuery("#' . $id . '").select2(); } );</script>';
@@ -138,6 +146,20 @@ class WCV_Product_Meta
 			update_post_meta( $post_id, 'pv_commission_rate', is_numeric( $_POST[ 'pv_commission_rate' ] ) ? (float) $_POST[ 'pv_commission_rate' ] : false );
 		}
 
+	}
+
+	/**
+	 * Update the author of the media attached to this product
+	 *
+	 * @param int $post_id the ID of the product to be updated
+	 * @return void
+	 * @since 2.0.8
+	 */
+	public function update_post_media_author( $post_id ) {
+		$product = wc_get_product( $post_id );
+		if ( isset( $_POST['product_media_author_override'] ) ) {
+			$this->save_product_media( $product );
+		}
 	}
 
 
@@ -217,11 +239,17 @@ class WCV_Product_Meta
 		}
 		$output .= "</select>";
 
-		 ?>
+		?>
 		<br class="clear" />
         <label class="inline-edit-author-new">
             <span class="title"><?php printf( __('%s', 'wc-vendors' ), wcv_get_vendor_name() ); ?></span>
             <?php echo $output; ?>
+        </label>
+		<br class="clear" />
+        <label class="inline-edit-author-new">
+			<input name="product_media_author_override" type="checkbox" />
+            <span class="title"><?php printf( __('Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() ); ?></span>
+            
         </label>
     <?php
 	}
@@ -231,15 +259,44 @@ class WCV_Product_Meta
 	*	Save the vendor on the quick edit screen
 	*/
 	public function save_vendor_quick_edit( $product ) {
-
 		if ( $product->is_type('simple') || $product->is_type('external') ) {
 		    if ( isset( $_REQUEST['_vendor'] ) ) {
 		        $vendor = wc_clean($_REQUEST['_vendor']);
 				$post 	= get_post( $product->get_id() );
-		        $post->post_author = $vendor;
-		    }
+				$post->post_author = $vendor;
+			}
+
+			if ( isset( $_REQUEST['product_media_author_override'] ) ) {
+				$this->save_product_media( $product );
+			}
 		}
 		return $product;
+	}
+
+	/**
+	 * Override the product media author
+	 *
+	 * @param object $product
+	 * @param int $vendor
+	 * @return void
+	 * @since 2.0.8
+	 */
+	public function save_product_media( $product ){
+		if ( ! is_a( $product, 'WC_Product' ) ) return;
+		$post = get_post( $product->get_id() );
+		$vendor = $post->post_author;
+
+		$attachment_ids   = $product->get_gallery_image_ids( 'edit' );
+		$attachment_ids[] = $product->get_image_id( 'edit' );
+		
+		foreach( $attachment_ids as $id ) {
+			$edit_attachment = array(
+				'ID' => $id,
+				'post_author' => $vendor
+			);
+
+			wp_update_post( $edit_attachment );
+		}		
 	}
 
 	/*
