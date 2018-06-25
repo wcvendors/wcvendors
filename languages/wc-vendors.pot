@@ -56,7 +56,7 @@ msgstr ""
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:153, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:223, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:302, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/admin/settings/class-wcv-settings-display.php:195
+#: classes/class-install.php:153, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:456, classes/admin/class-product-meta.php:245, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:302, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/admin/settings/class-wcv-settings-display.php:195
 msgid "%s"
 msgstr ""
 
@@ -285,11 +285,15 @@ msgstr ""
 msgid "You are not allowed to submit products. <a href=\"%s\">Go Back</a>"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:151, classes/admin/class-product-meta.php:167, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:119, templates/dashboard/reports.php:37, templates/emails/vendor-order-details.php:39, classes/admin/emails/class-wcv-vendor-notify-order.php:191, classes/admin/settings/class-wcv-settings-commission.php:31, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:79
+#: classes/admin/class-product-meta.php:127, classes/admin/class-product-meta.php:252
+msgid "Assign media to %s"
+msgstr ""
+
+#: classes/admin/class-product-meta.php:173, classes/admin/class-product-meta.php:189, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:119, templates/dashboard/reports.php:37, templates/emails/vendor-order-details.php:39, classes/admin/emails/class-wcv-vendor-notify-order.php:191, classes/admin/settings/class-wcv-settings-commission.php:31, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:79
 msgid "Commission"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:174, classes/admin/views/html-vendor-meta.php:89
+#: classes/admin/class-product-meta.php:196, classes/admin/views/html-vendor-meta.php:89
 msgid "Leave blank for default"
 msgstr ""
 
