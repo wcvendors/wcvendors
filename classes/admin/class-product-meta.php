@@ -26,7 +26,7 @@ class WCV_Product_Meta
 		if ( apply_filters( 'wcv_product_commission_tab', true ) ) {
 			add_action( 'woocommerce_product_write_panel_tabs', array( $this, 'add_tab' ) );
 			add_action( 'woocommerce_product_data_panels', array( $this, 'add_panel' ) );
-			add_action( 'woocommerce_process_product_meta', array( $this, 'save_panel' ) );			
+			add_action( 'woocommerce_process_product_meta', array( $this, 'save_panel' ) );
 		}
 
 		add_action( 'woocommerce_product_quick_edit_end', array($this, 'display_vendor_dd_quick_edit') );
@@ -248,8 +248,9 @@ class WCV_Product_Meta
 		<br class="clear" />
         <label class="inline-edit-author-new">
 			<input name="product_media_author_override" type="checkbox" />
-            <span class="title"><?php printf( __('Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() ); ?></span>
-            
+            <span class="title">Media</span>
+            <?php printf( __('Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() ); ?>
+
         </label>
     <?php
 	}
@@ -288,7 +289,7 @@ class WCV_Product_Meta
 
 		$attachment_ids   = $product->get_gallery_image_ids( 'edit' );
 		$attachment_ids[] = $product->get_image_id( 'edit' );
-		
+
 		foreach( $attachment_ids as $id ) {
 			$edit_attachment = array(
 				'ID' => $id,
@@ -296,7 +297,7 @@ class WCV_Product_Meta
 			);
 
 			wp_update_post( $edit_attachment );
-		}		
+		}
 	}
 
 	/*
