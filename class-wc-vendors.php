@@ -239,7 +239,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			include_once( wcv_plugin_dir . 'classes/class-vendor-order.php');
 			include_once( wcv_plugin_dir . 'classes/class-vendor-post-types.php');
 			include_once( wcv_plugin_dir . 'classes/includes/wcv-template-functions.php');
-			
+
 			if ( is_admin() ) {
 				include_once( wcv_plugin_dir . 'classes/class-install.php' );
 				include_once( wcv_plugin_dir . 'classes/includes/wcv-update-functions.php');

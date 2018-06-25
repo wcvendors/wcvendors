@@ -143,7 +143,7 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Changelog ==
 
-= Version 2.0.8 - 25th June 2018 = 
+= Version 2.0.8 - 25th June 2018 =
 
 * Added: Ability to uninistall the plugin including advanced options
 * Added: Option to assign media to vendor when assigning product
