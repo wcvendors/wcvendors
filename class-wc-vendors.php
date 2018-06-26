@@ -241,6 +241,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			include_once( wcv_plugin_dir . 'classes/includes/wcv-template-functions.php');
 			include_once( wcv_plugin_dir . 'classes/includes/wcv-update-functions.php');
 
+
 			if ( is_admin() ) {
 
 				include_once( wcv_plugin_dir . 'classes/class-install.php' );
@@ -286,6 +287,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			if ( !function_exists( 'woocommerce_wp_text_input' ) && !is_admin() ) {
 				include_once( WC()->plugin_path() . '/includes/admin/wc-meta-box-functions.php' );
 			}
+
 
 			new WCV_Shipping;
 			new WCV_Cron;

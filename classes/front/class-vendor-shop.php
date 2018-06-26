@@ -22,7 +22,7 @@ class WCV_Vendor_Shop
 		add_filter( 'product_enquiry_send_to', array( 'WCV_Vendor_Shop', 'product_enquiry_compatibility' ), 10, 2 );
 
 		add_action( 'woocommerce_product_query', array( $this, 'vendor_shop_query' ), 10, 2 );
-		add_filter( 'init', array( $this, 'add_rewrite_rules' ), 0 );
+		// add_filter( 'init', array( $this, 'add_rewrite_rules' ), 0 );
 
 		add_action( 'woocommerce_before_main_content', array( 'WCV_Vendor_Shop', 'shop_description' ), 30 );
 		add_filter( 'woocommerce_product_tabs', array( 'WCV_Vendor_Shop', 'seller_info_tab' ) );
@@ -164,7 +164,9 @@ class WCV_Vendor_Shop
 	}
 
 	/**
-	 *
+	 * Add rewrite rules
+	 * @deprecated 2.0.9
+	 * @moved to WCV_Vendors class 
 	 */
 	public static function add_rewrite_rules()
 	{
