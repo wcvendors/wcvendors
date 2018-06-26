@@ -7,7 +7,7 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              2.0.8
+ * Version:              2.0.9
  * Requires at least:    4.4.0
  * Tested up to:         4.9.5
  * WC requires at least: 3.3.0
@@ -92,7 +92,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	class WC_Vendors
 	{
 
-		public $version = '2.0.8';
+		public $version = '2.0.9';
 
 		/**
 		 * @var
@@ -242,7 +242,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			include_once( wcv_plugin_dir . 'classes/class-vendor-post-types.php');
 			include_once( wcv_plugin_dir . 'classes/includes/wcv-template-functions.php');
 			include_once( wcv_plugin_dir . 'classes/includes/wcv-update-functions.php');
-
 
 			if ( is_admin() ) {
 

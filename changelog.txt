@@ -1,5 +1,12 @@
 Changelog for WC Vendors
 
+Version 2.0.9
+
+* Fixed: Vendor shop pages are in 404
+* Fixed: Become a vendor on my account page goes to a 404 #445
+* Fixed: Call to undefined function wcv_get_settings_mapping() #444
+* Fixed: Typo in separator statement
+
 Version 2.0.8
 
 * Added: Ability to uninistall the plugin including advanced options
