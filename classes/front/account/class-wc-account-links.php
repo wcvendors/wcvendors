@@ -27,6 +27,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
         add_action( 'woocommerce_account_become-a-vendor_endpoint', array( $this, 'render_vendor_signup' ) );
         add_filter( 'query_vars', array( $this, 'query_vars'), 0 );
         add_action( 'after_switch_theme', array( $this, 'flush_rewrite_rules') );
+        add_action( 'wcvendors_flush_rewrite_rules', 	array( $this, 'flush_rewrite_rules' ) );
     }
 
     /**
@@ -62,7 +63,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
     }
 
     /**
-     * Flushes rewrite rules when a theme is changed
+     * Flushes rewrite rules when a Theme / WC Vendors settings are changed
      *
      * @return void
      */

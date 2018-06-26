@@ -51,6 +51,8 @@ function wcvendors_activate() {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
 		wp_die( __( 'WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again.', 'wc-vendors' ) );
 	}
+	//Flush rewrite rules when activating plugin
+	flush_rewrite_rules();
 } // wcvendors_activate()
 
 /**
