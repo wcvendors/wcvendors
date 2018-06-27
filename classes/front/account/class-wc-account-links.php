@@ -22,11 +22,9 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
         if ( ! wc_string_to_bool( get_option( 'wcvendors_vendor_allow_registration', 'no' ) ) ) return;
 
         $this->terms_page = get_option( 'wcvendors_vendor_terms_page_id' );
-        add_filter( 'woocommerce_account_menu_items', array( $this, 'add_account_menu_items') );
-        add_action( 'init', array( $this, 'add_rewrite_endpoint' ) );
+        add_filter( 'woocommerce_account_menu_items', array( $this, 'add_account_menu_items') );        
         add_action( 'woocommerce_account_become-a-vendor_endpoint', array( $this, 'render_vendor_signup' ) );
-        add_filter( 'query_vars', array( $this, 'query_vars'), 0 );
-        add_action( 'after_switch_theme', array( $this, 'flush_rewrite_rules') );
+        add_filter( 'query_vars', array( $this, 'query_vars'), 0 );        
         add_action( 'wcvendors_flush_rewrite_rules', 	array( $this, 'flush_rewrite_rules' ) );
     }
 
@@ -69,15 +67,6 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
      */
     public function flush_rewrite_rules(){
         flush_rewrite_rules();
-    }
-
-    /**
-     * Add rewrite endpoint
-     *
-     * @return void
-     */
-    public function add_rewrite_endpoint(){
-        add_rewrite_endpoint( 'become-a-vendor', EP_PAGES );
     }
 
     /**
