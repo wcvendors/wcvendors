@@ -3,8 +3,8 @@
 /**
  * Shop functions for each vendor.
  *
- * @author  Matt Gates <http://mgates.me>
- * @package ProductVendor
+ * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
+ * @package WCVendors
  */
 
 
@@ -166,7 +166,7 @@ class WCV_Vendor_Shop
 	/**
 	 * Add rewrite rules
 	 * @deprecated 2.0.9
-	 * @moved to WCV_Vendors class 
+	 * @moved to WCV_Vendors class
 	 */
 	public static function add_rewrite_rules()
 	{

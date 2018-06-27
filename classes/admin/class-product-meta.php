@@ -3,7 +3,7 @@
 /**
  * Product meta configurations
  *
- * @package ProductVendor
+ * @package WCVendors
  */
 
 

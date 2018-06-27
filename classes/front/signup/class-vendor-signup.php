@@ -3,8 +3,8 @@
 /**
  * Signup form for applying as a vendor
  *
- * @author  Matt Gates <http://mgates.me>
- * @package ProductVendor
+ * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
+ * @package WCVendors
  */
 
 
@@ -36,9 +36,6 @@ class WCV_Vendor_Signup
 			add_action( 'login_enqueue_scripts', array( $this, 'load_scripts' ), 1 );
 			add_filter( 'registration_errors', array( $this, 'vendor_registration_errors'), 10, 3 );
 		}
-
-		//Change user role if they applied to become vendor on registration
-		add_action( 'user_register', array( $this, 'save_pending' ), 10, 1 );
 	}
 
 	/**

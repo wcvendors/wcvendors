@@ -86,6 +86,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
      * @return void
      */
     public function render_vendor_signup(){
+
         if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
             echo '<div class="woocommerce-message" role="alert"><p>' .__( 'You are already an approved vendor, no need to apply', 'wc-vendors') . '</p></div>';
         } else {

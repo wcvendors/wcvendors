@@ -4,7 +4,7 @@
  * Shipping functions
  *
  * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
- * @package ProductVendor
+ * @package WCVendors
  */
 
 

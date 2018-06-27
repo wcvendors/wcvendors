@@ -4,7 +4,7 @@
  * Commission functions
  *
  * @author  Matt Gates <http://mgates.me>
- * @package ProductVendor
+ * @package WCVendors
  */
 
 

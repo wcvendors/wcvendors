@@ -3,8 +3,8 @@
 /**
  * My account views
  *
- * @author  Matt Gates <http://mgates.me>
- * @package ProductVendor
+ * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
+ * @package WCVendors
  */
 
 
