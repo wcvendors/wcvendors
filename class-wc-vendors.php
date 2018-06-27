@@ -366,7 +366,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		*/
 		public function add_rewrite_endpoint(){
 			add_rewrite_endpoint( 'become-a-vendor', EP_PAGES );
-			flush_rewrite_rules();
+			$this->flush_rewrite_rules();
 		}
 
 
