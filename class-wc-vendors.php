@@ -139,6 +139,9 @@ if ( wcv_is_woocommerce_activated() ) {
 			$hook = "in_plugin_update_message-{$folder}/{$file}";
 			add_action( $hook, array( $this, 'show_upgrade_notification') , 10, 2);
 
+			//Add become a vendor rewrite endpoint
+			add_action( 'init', array( $this, 'add_rewrite_endpoint' ) );
+			add_action( 'after_switch_theme', array( $this, 'flush_rewrite_rules') );
 		}
 
 
@@ -353,6 +356,16 @@ if ( wcv_is_woocommerce_activated() ) {
 		}
 
 		public function flush_rewrite_rules(){
+			flush_rewrite_rules();
+		}
+
+		/**
+		* Add rewrite endpoint
+		*
+		* @return void
+		*/
+		public function add_rewrite_endpoint(){
+			add_rewrite_endpoint( 'become-a-vendor', EP_PAGES );
 			flush_rewrite_rules();
 		}
 
