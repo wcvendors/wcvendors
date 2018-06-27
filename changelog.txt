@@ -9,7 +9,7 @@ Version 2.0.9
 
 Version 2.0.8
 
-* Added: Ability to uninistall the plugin including advanced options
+* Added: Ability to uninstall the plugin including advanced options
 * Added: Option to assign media to vendor when assigning product
 * Added: All references to vendor changed to an option to rename vendors
 * Added: Sold by separator option #420

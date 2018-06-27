@@ -143,7 +143,7 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Changelog ==
 
-= Version 2.0.9 - 26th June 2018 = 
+= Version 2.0.9 - 26th June 2018 =
 
 * Fixed: Vendor shop pages are in 404
 * Fixed: Become a vendor on my account page goes to a 404 #445
@@ -152,7 +152,7 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 = Version 2.0.8 - 25th June 2018 =
 
-* Added: Ability to uninistall the plugin including advanced options
+* Added: Ability to uninstall the plugin including advanced options
 * Added: Option to assign media to vendor when assigning product
 * Added: All references to vendor changed to an option to rename vendors
 * Added: Sold by separator option #420
