@@ -24,15 +24,15 @@ msgstr ""
 msgid "WC Vendors"
 msgstr ""
 
-#: class-wc-vendors.php:149
+#: class-wc-vendors.php:152
 msgid "<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce 3.0.0 to operate."
 msgstr ""
 
-#: class-wc-vendors.php:419
+#: class-wc-vendors.php:432
 msgid "WC Vendors 2.0 is a major update. This is not compatible with any of our existing extensions. You should test this update on a staging server before updating. Backup your site and update your theme and extensions, and <a href=\"%s\">review update details here</a> before upgrading."
 msgstr ""
 
-#: class-wc-vendors.php:432
+#: class-wc-vendors.php:445
 msgid "WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current version %s will be deactivated. Please upgrade to the latest version."
 msgstr ""
 
@@ -2055,11 +2055,11 @@ msgstr ""
 msgid "Save Shop Settings"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:44
+#: classes/front/account/class-wc-account-links.php:42
 msgid "Become a %s"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:90
+#: classes/front/account/class-wc-account-links.php:80
 msgid "You are already an approved vendor, no need to apply"
 msgstr ""
 
@@ -2127,23 +2127,23 @@ msgstr ""
 msgid "Success. The customer has been notified of your comment."
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:82
+#: classes/front/signup/class-vendor-signup.php:79
 msgid "ERROR"
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:82, classes/front/signup/views/html-vendor-signup.php:45
+#: classes/front/signup/class-vendor-signup.php:79, classes/front/signup/views/html-vendor-signup.php:45
 msgid "Please agree to the terms and conditions"
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:101
+#: classes/front/signup/class-vendor-signup.php:98
 msgid "Application denied. You are an administrator."
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:103
+#: classes/front/signup/class-vendor-signup.php:100
 msgid "Your application has been submitted."
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:150, classes/front/signup/class-vendor-signup.php:189, classes/front/signup/class-vendor-signup.php:201
+#: classes/front/signup/class-vendor-signup.php:147, classes/front/signup/class-vendor-signup.php:186, classes/front/signup/class-vendor-signup.php:198
 msgid "You must accept the terms and conditions to become a vendor."
 msgstr ""
 
