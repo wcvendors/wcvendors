@@ -32,12 +32,13 @@ class WCV_Orders
 	/**
 	 *
 	 */
-	public function check_access()
-	{
+	public function check_access() {
+		global $post;
 
 		$orders_page = get_option( 'wcvendors_product_orders_page_id' );
+
 		// Only if the orders page is set should we check access
-		if ( $orders_page && is_page( $orders_page ) && !is_user_logged_in() ) {
+		if ( $orders_page && is_page( $orders_page ) && is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'wcv_orders' ) && ! is_user_logged_in() ) {
 			wp_redirect( get_permalink( wc_get_page_id( 'myaccount' ) ), 303 );
 			exit;
 		}
