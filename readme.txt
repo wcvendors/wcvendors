@@ -143,7 +143,7 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Changelog ==
 
-= Version 2.0.10 - 2nd July 2018 = 
+= Version 2.0.10 - 2nd July 2018 =
 
 * Fixed: Added check in case user incorrectly sets orders page
 * Fixed: Vendor Notify Order emails not firing #450
