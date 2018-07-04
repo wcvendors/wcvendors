@@ -145,12 +145,13 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 = Version 2.0.10 - 2nd July 2018 =
 
+* Fixed: Commission by Product report is not functioning & shows errors #456
+* Fixed: Disable upgrade notice if pro already active
 * Fixed: Added check in case user incorrectly sets orders page
 * Fixed: Vendor emails not firing #450
 * Fixed: Included translations no longer work #455
 * Fixed: Parameter 2 to be array in class-admin-users.php on line 174 #454
 * Fixed: my-account "become a vendor" tab is leading to a 404 #447
-* Fixed: Spelling error in change log
 * Fixed: Pending vendors no longer see the Vendor Application Form #448
 
 = Version 2.0.9 - 26th June 2018 =
