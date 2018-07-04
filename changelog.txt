@@ -3,7 +3,7 @@ Changelog for WC Vendors
 Version 2.0.10
 
 * Fixed: Added check in case user incorrectly sets orders page
-* Fixed: Vendor Notify Order emails not firing #450
+* Fixed: Vendor emails not firing #450
 * Fixed: Included translations no longer work #455
 * Fixed: Parameter 2 to be array in class-admin-users.php on line 174 #454
 * Fixed: my-account "become a vendor" tab is leading to a 404 #447

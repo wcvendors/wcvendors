@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:          WC Vendors
+ * Plugin Name:          WC Vendors Marketplace
  * Plugin URI:           https://www.wcvendors.com
  * Description:          Allow vendors to sell their own products and receive a commission for each sale.
  * Author:               WC Vendors

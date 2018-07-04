@@ -1,6 +1,6 @@
-=== WC Vendors ===
+=== WC Vendors Marketplace ===
 Contributors: digitalchild, benwcv, annawcvendors
-Tags: commission rate,  e-commerce, ecommerce, ebay, free, marketplace, multi seller, multi store, multi vendor, multistore, multivendor, multivendors, product vendor, product vendors, seller, shops, store, vendor, vendor shop, vendor system, vendors, wc multivendor, wc vendors, wc marketplace, wc market, woo vendors, woocommerce, woocommerce marketplace, woocommerce multi vendor, WooCommerce multivendor, woocommerce product vendors, woocommerce vendors, yit, yith, yithemes, dokan
+Tags: best marketplace, multi vendor marketplace, multi vendor, multi seller, woocommerce vendor, woocommerce marketplace, product vendors, vendor, vendors, wc multivendor, dokan, wc markpletace, commissions, commission rate, woocommerce product vendors
 Donate link: https://www.wcvendors.com/
 Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
@@ -10,7 +10,7 @@ Tested up to: 4.9.5
 Stable tag: 2.0.10
 License: GPLv2 or later
 
-The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your WooCommerce site!
+The number one marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your WooCommerce site!
 
 == Description ==
 Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
@@ -146,7 +146,7 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 = Version 2.0.10 - 2nd July 2018 =
 
 * Fixed: Added check in case user incorrectly sets orders page
-* Fixed: Vendor Notify Order emails not firing #450
+* Fixed: Vendor emails not firing #450
 * Fixed: Included translations no longer work #455
 * Fixed: Parameter 2 to be array in class-admin-users.php on line 174 #454
 * Fixed: my-account "become a vendor" tab is leading to a 404 #447

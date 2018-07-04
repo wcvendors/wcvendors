@@ -209,7 +209,7 @@ msgstr ""
 msgid "Recent Commission"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:171, templates/dashboard/orders.php:49, classes/front/orders/class-orders.php:206
+#: classes/admin/class-admin-reports.php:171, templates/dashboard/orders.php:49, classes/front/orders/class-orders.php:207
 msgid "Order"
 msgstr ""
 
@@ -358,7 +358,7 @@ msgstr ""
 msgid "Products"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:353, classes/admin/class-wcv-commissions-csv-exporter.php:49, classes/admin/class-wcv-commissions-page.php:124, templates/dashboard/orders.php:54, classes/front/orders/class-orders.php:214
+#: classes/admin/class-vendor-admin-dashboard.php:353, classes/admin/class-wcv-commissions-csv-exporter.php:49, classes/admin/class-wcv-commissions-page.php:124, templates/dashboard/orders.php:54, classes/front/orders/class-orders.php:215
 msgid "Date"
 msgstr ""
 
@@ -2083,39 +2083,39 @@ msgstr ""
 msgid "Item Meta"
 msgstr ""
 
-#: classes/front/orders/class-orders.php:57, classes/front/orders/class-orders.php:123
+#: classes/front/orders/class-orders.php:58, classes/front/orders/class-orders.php:124
 msgid "You haven't selected a product's orders to view! Please go back to the %s Dashboard and click Show Orders on the product you'd like to view."
 msgstr ""
 
-#: classes/front/orders/class-orders.php:80, classes/front/orders/class-orders.php:146
+#: classes/front/orders/class-orders.php:81, classes/front/orders/class-orders.php:147
 msgid "No orders."
 msgstr ""
 
-#: classes/front/orders/class-orders.php:207
+#: classes/front/orders/class-orders.php:208
 msgid "Product Title"
 msgstr ""
 
-#: classes/front/orders/class-orders.php:208
+#: classes/front/orders/class-orders.php:209
 msgid "Full name"
 msgstr ""
 
-#: classes/front/orders/class-orders.php:209
+#: classes/front/orders/class-orders.php:210
 msgid "Address"
 msgstr ""
 
-#: classes/front/orders/class-orders.php:210
+#: classes/front/orders/class-orders.php:211
 msgid "City"
 msgstr ""
 
-#: classes/front/orders/class-orders.php:211
+#: classes/front/orders/class-orders.php:212
 msgid "State"
 msgstr ""
 
-#: classes/front/orders/class-orders.php:212
+#: classes/front/orders/class-orders.php:213
 msgid "Zip"
 msgstr ""
 
-#: classes/front/orders/class-orders.php:213, classes/admin/views/setup/ready.php:23
+#: classes/front/orders/class-orders.php:214, classes/admin/views/setup/ready.php:23
 msgid "Email address"
 msgstr ""
 
