@@ -19,6 +19,7 @@ WC Vendors Marketplace was released to the market in October of 2014 having gott
 
 == Announcements ==
 
+* The plugin name has been updated. It is now called WC Vendors Marketplace. <a href="www.wcvendors.com/2018/07/wc-vendors-marketplace/?utm_source=website&utm_medium=blog&utm_campaign=news">Read about it here</a>.
 * Questions about GDPR and WC Vendors Marketplace? Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/gdpr-and-wc-vendors/?utm_campaign=announcements?utm_source=wporg">GDPR and WC Vendors</a>.
 * Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for solutions to your vendor commission payments. Including Stripe, Paypal and others.
 * WC Vendors 2.0 is a major update, this will affect some stores using other WC Vendors integrations.
