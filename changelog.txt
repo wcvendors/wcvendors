@@ -1,4 +1,4 @@
-Changelog for WC Vendors
+Changelog for WC Vendors Marketplace
 
 Version 2.0.10
 

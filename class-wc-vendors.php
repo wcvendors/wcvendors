@@ -2,7 +2,7 @@
 /**
  * Plugin Name:          WC Vendors Marketplace
  * Plugin URI:           https://www.wcvendors.com
- * Description:          Allow vendors to sell their own products and receive a commission for each sale.
+ * Description:          Create a marketplace with WooCommerce and allow vendors to sell their own products and receive a commission for each sale.
  * Author:               WC Vendors
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
@@ -23,18 +23,18 @@
  * @package             WCVendors
  * @license     		GPL2
 
-WC Vendors is free software: you can redistribute it and/or modify
+WC Vendors Marketplace is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 any later version.
 
-WC Vendors is distributed in the hope that it will be useful,
+WC Vendors Marketplace is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with WC Vendors. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
+along with WC Vendors Marketplace. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
 
 */
 
@@ -49,7 +49,7 @@ function wcvendors_activate() {
 	 */
 	if ( !class_exists( 'WooCommerce' ) ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
-		wp_die( __( 'WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again.', 'wc-vendors' ) );
+		wp_die( __( 'WC Vendors Marketplace requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again.', 'wc-vendors' ) );
 	}
 	//Flush rewrite rules when activating plugin
 	flush_rewrite_rules();
@@ -109,7 +109,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			// Load text domain
 			add_action( 'plugins_loaded', array( $this, 'load_il8n' ) );
 
-			$this->title = __( 'WC Vendors', 'wc-vendors' );
+			$this->title = __( 'WC Vendors Marketplace', 'wc-vendors' );
 
 			$this->define_constants();
 
@@ -149,7 +149,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 *
 		 */
 		public function invalid_wc_version() {
-			echo '<div class="error"><p>' . __( '<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce 3.0.0 to operate.', 'wc-vendors' ) . '</p></div>';
+			echo '<div class="error"><p>' . __( '<b>WC Vendors Marketplace is inactive</b>. WC Vendors Marketplace requires a minimum of WooCommerce 3.0.0 to operate.', 'wc-vendors' ) . '</p></div>';
 		}
 
 		/**

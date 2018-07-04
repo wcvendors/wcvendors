@@ -15,11 +15,11 @@ The number one marketplace plugin for WooCommerce.  Now you can allow anyone to 
 == Description ==
 Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
 
-WC Vendors was released to the market in October of 2014 having gotten its roots from Product Vendors by Matt Gates dating back to 2011. We are the number one multi vendor marketplace plugin for WordPress and WooCommerce. It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.
+WC Vendors Marketplace was released to the market in October of 2014 having gotten its roots from Product Vendors by Matt Gates dating back to 2011. We are the number one multi vendor marketplace plugin for WordPress and WooCommerce. It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.
 
 == Announcements ==
 
-* Questions about GDPR and WC Vendors? Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/gdpr-and-wc-vendors/?utm_campaign=announcements?utm_source=wporg">GDPR and WC Vendors</a>.
+* Questions about GDPR and WC Vendors Marketplace? Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/gdpr-and-wc-vendors/?utm_campaign=announcements?utm_source=wporg">GDPR and WC Vendors</a>.
 * Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for solutions to your vendor commission payments. Including Stripe, Paypal and others.
 * WC Vendors 2.0 is a major update, this will affect some stores using other WC Vendors integrations.
 * PayPal has deprecated Adaptive Payments as of September 1st 2017. This will soon cease to function. We provide an instant payment solution via our <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=annoucements?utm_source=wporg">Stripe Gateway</a> however there are 3rd party extensions from MangoPay and Escrow that also provide vendor commission payouts.
@@ -27,10 +27,11 @@ WC Vendors was released to the market in October of 2014 having gotten its roots
 
 == Features ==
 
-= WC Vendors =
+= WC Vendors Marketplace =
 
-The following features are available as a part of the free WC Vendors plugin.
+The following features are available as a part of the free WC Vendors Marketplace plugin.
 
+* Create your own marketplace on WooCommerce
 * Vendors can add / edit products from within the WordPress dashboard.
 * Vendors can submit products for admin review, or send new products live to the site immediately.
 * Vendors can view live sales for their products from their front end dashboard
@@ -83,7 +84,7 @@ See our full comparison of free vs pro here <a href="https://www.wcvendors.com/h
 
 = Translations =
 
-We currently ship WC Vendors free with the following language translations. If you would like translate WC Vendors into your language we would be more than happy to include it in our next release. You can submit a pull request on our github page or you can email your completed translation to translate@wcvendors.com.
+We currently ship WC Vendors Marketplace  free with the following language translations. If you would like translate WC Vendors Marketplace into your language we would be more than happy to include it in our next release. You can submit a pull request on our github page or you can email your completed translation to translate@wcvendors.com.
 
 * English
 * Austrian German
@@ -122,9 +123,9 @@ You can post a support question on the support tab - https://wordpress.org/suppo
 
 Also be sure to visit our documentation http://docs.wcvendors.com/
 
-= Does WC Vendors work with Multisite ? =
+= Does WC Vendors Marketplace work with Multisite ? =
 
-WC Vendors does not work with multisite WordPress. There are no plans to support this.
+WC Vendors Marketplace does not work with multisite WordPress. There are no plans to support this.
 
 == Screenshots ==
 
@@ -143,7 +144,7 @@ WC Vendors does not work with multisite WordPress. There are no plans to support
 
 == Changelog ==
 
-= Version 2.0.10 - 2nd July 2018 =
+= Version 2.0.10 - 4th July 2018 =
 
 * Fixed: Commission by Product report is not functioning & shows errors #456
 * Fixed: Disable upgrade notice if pro already active
