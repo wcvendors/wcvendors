@@ -125,7 +125,7 @@ msgid "Free support"
 msgstr ""
 
 #: classes/class-install.php:433
-msgid "Puy premium customer support"
+msgid "Buy premium customer support"
 msgstr ""
 
 #: classes/class-install.php:433
@@ -254,7 +254,7 @@ msgid "Type in a product name to start searching..."
 msgstr ""
 
 #: classes/admin/class-admin-reports.php:278
-msgid "Select a vendor&hellip;"
+msgid "Select a %s&hellip;"
 msgstr ""
 
 #: classes/admin/class-admin-reports.php:344
