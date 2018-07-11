@@ -107,7 +107,7 @@ class WCV_Shipping
 		$settings 			= get_option( 'woocommerce_per_product_settings' );
 		$taxable 			= $settings['tax_status'];
 		$order 				= wc_get_order( $order_id );
-		$tax_class 			= $product->get_tax_glass();
+		$tax_class 			= $product->get_tax_class();
 
 		$shipping_country 	= $order->get_shipping_country();
 		$shipping_state 	= $order->get_shipping_state();
