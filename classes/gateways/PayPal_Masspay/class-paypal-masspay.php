@@ -57,6 +57,9 @@ class WCV_Mass_Pay
 
 		foreach ( $orders as $data ) {
 			$due_amounts[ $data->vendor_id ][ ] = $data->total_due;
+			if ( 'yes' == get_option( 'wcvendors_vendor_give_shipping', 'no' ) ) {
+				$due_amounts[ $data->vendor_id ][ ] += $data->total_shipping;
+			}
 			$this->orders_paid[ ]               = $data->id;
 		}
 
