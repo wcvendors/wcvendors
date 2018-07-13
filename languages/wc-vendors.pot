@@ -2255,7 +2255,7 @@ msgstr ""
 msgid "%s does not support your store currency."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:390, classes/gateways/PayPal_AdvPayments/paypal_ap.php:506, classes/gateways/PayPal_Masspay/class-paypal-masspay.php:153
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:390, classes/gateways/PayPal_AdvPayments/paypal_ap.php:506, classes/gateways/PayPal_Masspay/class-paypal-masspay.php:156
 msgid "Error: %s"
 msgstr ""
 
@@ -2267,35 +2267,35 @@ msgstr ""
 msgid "Error ID: %d. %s"
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:115
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:118
 msgid "No vendors found to pay. Maybe they haven't set a PayPal address?"
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:167
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:170
 msgid "All due commission has been paid for. "
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:173
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:176
 msgid "All due commission has been paid for, but I could not clear it from their profiles due to an internal error. Commission will still be listed as due. Please manually mark the commission as paid from the Commissions page."
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:207
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:210
 msgid "WooCommerce: Mass payments for vendors update"
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:209
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:212
 msgid "Hello! A payment was just triggered to mass pay all vendors their due commission."
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:210
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:213
 msgid "Payment status: %s."
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:211
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:214
 msgid "Payment message: %s."
 msgstr ""
 
-#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:214
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:217
 msgid "Payment total: %s."
 msgstr ""
 
