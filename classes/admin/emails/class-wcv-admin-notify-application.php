@@ -7,9 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
 
 /**
- * Notify Admin Shipped
+ * Notify Admin Application
  *
- * An email sent to the admin when the vendor marks the order shipped.
+ * An email sent to the admin when a user applies to be a vendor 
  *
  * @class       WCVendors_Admin_Notify_Shipped
  * @version     2.0.0

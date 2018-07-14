@@ -24,7 +24,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 	function __construct()
 	{
 		$this->id          = 'vendor_new_order';
-		$this->title       = __( 'Notify vendors', 'wc-vendors' );
+		$this->title       = __( 'Notify vendors - deprecated', 'wc-vendors' );
 		$this->description = __( 'New order emails are sent when an order is received/paid by a customer. <strong>This email has been deprecated.</strong>', 'wc-vendors' );
 
 		$this->heading = __( 'New customer order', 'wc-vendors' );
