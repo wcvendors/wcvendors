@@ -25,7 +25,7 @@ class WC_Email_Notify_Admin extends WC_Email
 	function __construct()
 	{
 		$this->id          		= 'admin_new_vendor_product';
-		$this->title       		= sprintf( __( 'New %s Product', 'wc-vendors' ), wcv_get_vendor_name() );
+		$this->title       		= sprintf( __( 'New %s Product - deprecated', 'wc-vendors' ), wcv_get_vendor_name() );
 		$this->description 		= __( 'New order emails are sent when a new product is submitted by a vendor. <strong>This email has been depreciated.</strong>', 'wc-vendors' );
 
 		$this->heading 			= __( 'New product submitted: {product_name}', 'wc-vendors' );

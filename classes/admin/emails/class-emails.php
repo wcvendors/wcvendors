@@ -40,8 +40,8 @@ class WCV_Emails
 		add_action( 'wcvendors_email_customer_details',	array( $this, 'vendor_customer_details'), 10, 4 );
 		add_action( 'set_user_role', 					array( $this, 'vendor_application' ), 10, 2 );
 
-		//Trigger emails during user registration
-		add_action( 'user_register', 					array( $this, 'vendor_application' ), 10, 1 );
+		// WooCommerce Product Enquiry Compatibility
+		add_filter( 'product_enquiry_send_to', 			array( $this, 'product_enquiry_compatibility' ), 10, 2 );
 
 	}
 
@@ -292,8 +292,20 @@ class WCV_Emails
 				),
 				'woocommerce', WCV_TEMPLATE_BASE );
 		}
-
-
 	}
+
+
+	/**
+	 * WooCommerce Product Enquiry hook - Send email to vendor instead of admin
+	 */
+	public function product_enquiry_compatibility( $send_to, $product_id ) {
+		$author_id = get_post( $product_id )->post_author;
+		if ( WCV_Vendors::is_vendor( $author_id ) ) {
+			$send_to = get_userdata( $author_id )->user_email;
+		}
+
+		return $send_to;
+	}
+
 
 }
