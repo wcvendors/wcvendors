@@ -76,11 +76,13 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 		$this->placeholders['{user_name}'] 	= $this->user->user_name;
 
 		$send_if		= $this->get_option( 'notification' );
-		$should_send	= $send_if == 'vendor' ? true : ( $send_if == 'pending_vendor' && $status == 'pending_vendor' ? true: false );
+		$should_send	= $send_if == 'vendor' ? true : ( $send_if == 'pending_vendor' && $status == 'pending' ? true: false );
 
 		if ( $this->is_enabled() && $this->get_recipient() && $should_send ) {
 			$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 		}
+
+		error_log( "Subject: " . $this->get_subject() . ", Message: " . $this->get_content() );
 
 		$this->restore_locale();
 	}
