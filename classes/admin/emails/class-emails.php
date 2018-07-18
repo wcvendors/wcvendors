@@ -204,6 +204,8 @@ class WCV_Emails
 
 		if ( !empty( $_POST[ 'apply_for_vendor' ] ) || ( !empty( $_GET[ 'action' ] ) && ( $_GET[ 'action' ] == 'approve_vendor' || $_GET[ 'action' ] == 'deny_vendor' ) ) ) {
 
+			$role = ( $role != 'pending_vendor' && $role != 'vendor' ) ? 'pending_vendor' : $role ;
+			
 			if ( $role == 'pending_vendor' ) {
 				WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Application' ]->trigger( $user_id, __( 'pending', 'wc-vendors' ) );
 			} else if ( $role == 'vendor' ) {
