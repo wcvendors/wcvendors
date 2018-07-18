@@ -16,10 +16,7 @@ class WCV_Vendor_Shop
 	/**
 	 * init
 	 */
-	function __construct()
-	{
-
-		add_filter( 'product_enquiry_send_to', array( 'WCV_Vendor_Shop', 'product_enquiry_compatibility' ), 10, 2 );
+	function __construct() {
 
 		add_action( 'woocommerce_product_query', array( $this, 'vendor_shop_query' ), 10, 2 );
 		// add_filter( 'init', array( $this, 'add_rewrite_rules' ), 0 );
@@ -82,16 +79,6 @@ class WCV_Vendor_Shop
 		add_filter( 'woocommerce_page_title', array( 'WCV_Vendor_Shop', 'page_title' ) );
 
 		$q->set( 'author', $vendor_id );
-	}
-
-	public static function product_enquiry_compatibility( $send_to, $product_id )
-	{
-		$author_id = get_post( $product_id )->post_author;
-		if ( WCV_Vendors::is_vendor( $author_id ) ) {
-			$send_to = get_userdata( $author_id )->user_email;
-		}
-
-		return $send_to;
 	}
 
 
