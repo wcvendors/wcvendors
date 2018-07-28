@@ -52,83 +52,83 @@ msgstr ""
 msgid "Payment total: %s"
 msgstr ""
 
-#: classes/class-install.php:142, classes/admin/class-wcv-admin-setup.php:145
+#: classes/class-install.php:145, classes/admin/class-wcv-admin-setup.php:146
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:153, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:458, classes/admin/class-product-meta.php:245, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:302, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/admin/settings/class-wcv-settings-display.php:100, classes/admin/settings/class-wcv-settings-display.php:108, classes/admin/settings/class-wcv-settings-display.php:195
+#: classes/class-install.php:159, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:458, classes/admin/class-product-meta.php:245, classes/admin/class-wcv-admin-setup.php:141, classes/admin/class-wcv-admin-setup.php:304, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/admin/settings/class-wcv-settings-display.php:100, classes/admin/settings/class-wcv-settings-display.php:108, classes/admin/settings/class-wcv-settings-display.php:195
 msgid "%s"
 msgstr ""
 
-#: classes/class-install.php:203
+#: classes/class-install.php:212
 msgctxt "Page slug"
 msgid "vendor_dashboard"
 msgstr ""
 
-#: classes/class-install.php:205
+#: classes/class-install.php:214
 msgctxt "Page title"
 msgid "%s Dashboard"
 msgstr ""
 
-#: classes/class-install.php:211
+#: classes/class-install.php:220
 msgctxt "Page slug"
 msgid "vendors"
 msgstr ""
 
-#: classes/class-install.php:213
+#: classes/class-install.php:222
 msgctxt "Page title"
 msgid "%s"
 msgstr ""
 
-#: classes/class-install.php:221
+#: classes/class-install.php:230
 msgctxt "Page slug"
 msgid "shop_settings"
 msgstr ""
 
-#: classes/class-install.php:222
+#: classes/class-install.php:231
 msgctxt "Page title"
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/class-install.php:227
+#: classes/class-install.php:236
 msgctxt "Page slug"
 msgid "product_orders"
 msgstr ""
 
-#: classes/class-install.php:228
+#: classes/class-install.php:237
 msgctxt "Page title"
 msgid "Orders"
 msgstr ""
 
-#: classes/class-install.php:414
+#: classes/class-install.php:423
 msgid "View WC Vendors settings"
 msgstr ""
 
-#: classes/class-install.php:414, templates/dashboard/settings/settings.php:18
+#: classes/class-install.php:423, templates/dashboard/settings/settings.php:18
 msgid "Settings"
 msgstr ""
 
-#: classes/class-install.php:431
+#: classes/class-install.php:440
 msgid "View WC Vendors documentation"
 msgstr ""
 
-#: classes/class-install.php:431
+#: classes/class-install.php:440
 msgid "Docs"
 msgstr ""
 
-#: classes/class-install.php:432
+#: classes/class-install.php:441
 msgid "Visit community forums"
 msgstr ""
 
-#: classes/class-install.php:432
+#: classes/class-install.php:441
 msgid "Free support"
 msgstr ""
 
-#: classes/class-install.php:433
+#: classes/class-install.php:442
 msgid "Buy premium customer support"
 msgstr ""
 
-#: classes/class-install.php:433
+#: classes/class-install.php:442
 msgid "Premium support"
 msgstr ""
 
@@ -145,7 +145,7 @@ msgctxt "Order date parsed by strftime"
 msgid "%b %d, %Y @ %I:%M %p"
 msgstr ""
 
-#: classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:267, classes/admin/views/html-vendor-meta.php:1
+#: classes/admin/class-admin-menus.php:45, classes/admin/class-admin-menus.php:45, classes/admin/class-admin-reports.php:41, classes/admin/class-wcv-admin-setup.php:268, classes/admin/views/html-vendor-meta.php:1
 msgid "WC Vendors"
 msgstr ""
 
@@ -589,20 +589,20 @@ msgstr ""
 msgid "This will reset wcvendors back to defaults. This DELETES ALL YOUR Settings."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:152
+#: classes/admin/class-wcv-admin-setup.php:153
 msgid "WC Vendor roles successfully reset."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:166
+#: classes/admin/class-wcv-admin-setup.php:167
 msgid "WC Vendors was successfully reset. All settings have been reset."
 msgstr ""
 
 #. translators: 1: WooCommerce 2:: five stars
-#: classes/admin/class-wcv-admin-setup.php:266
+#: classes/admin/class-wcv-admin-setup.php:267
 msgid "If you like %1$s please leave us a %2$s rating. A huge thanks in advance!"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:268
+#: classes/admin/class-wcv-admin-setup.php:269
 msgid "Thanks :)"
 msgstr ""
 
@@ -742,11 +742,11 @@ msgstr ""
 msgid "Apply to become a vendor? "
 msgstr ""
 
-#: templates/dashboard/denied.php:50
+#: templates/dashboard/denied.php:57
 msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
 msgstr ""
 
-#: templates/dashboard/denied.php:70
+#: templates/dashboard/denied.php:79
 msgid "Submit"
 msgstr ""
 
@@ -1772,26 +1772,34 @@ msgid "Allow users to apply to become a %s"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-general.php:77
-msgid "%s Approval"
+msgid "Terms & Conditions Checkbox"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-general.php:78
-msgid "Manually approve all %s applications"
+msgid "Make the terms and conditions checkbox always visible even if become a %s is not checked"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-general.php:84
-msgid "%s Taxes"
+msgid "%s Approval"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-general.php:85
-msgid "Give any taxes to the %s"
+msgid "Manually approve all %s applications"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-general.php:91
-msgid "%s Shipping"
+msgid "%s Taxes"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-general.php:92
+msgid "Give any taxes to the %s"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:98
+msgid "%s Shipping"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:99
 msgid "Give any shipping to the %s"
 msgstr ""
 
@@ -2063,11 +2071,11 @@ msgstr ""
 msgid "Save Shop Settings"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:42
+#: classes/front/account/class-wc-account-links.php:44
 msgid "Become a %s"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:80
+#: classes/front/account/class-wc-account-links.php:82
 msgid "You are already an approved vendor, no need to apply"
 msgstr ""
 
@@ -2139,7 +2147,7 @@ msgstr ""
 msgid "ERROR"
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:79, classes/front/signup/views/html-vendor-signup.php:45
+#: classes/front/signup/class-vendor-signup.php:79, classes/front/signup/views/html-vendor-signup.php:53
 msgid "Please agree to the terms and conditions"
 msgstr ""
 
@@ -2612,6 +2620,6 @@ msgstr ""
 msgid "Need Help?"
 msgstr ""
 
-#: classes/front/signup/views/html-vendor-signup.php:36
+#: classes/front/signup/views/html-vendor-signup.php:44
 msgid "I have read and accepted the <a target=\"top\" href=\"%s\">terms and conditions</a>."
 msgstr ""
