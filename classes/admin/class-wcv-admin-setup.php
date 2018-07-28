@@ -123,6 +123,7 @@ class WCV_Admin_Setup {
 		$args = array(
 			'assign_product_terms'      => $can_add,
 			'edit_products'             => $can_add || $can_edit,
+			'edit_product'              => $can_add || $can_edit,
 			'edit_published_products'   => $can_edit,
 			'delete_published_products' => $can_edit,
 			'delete_products'           => $can_edit,
@@ -280,11 +281,12 @@ class WCV_Admin_Setup {
 
 		$can_add          = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'no' ) );
 		$can_edit         = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'no'  ) );
-		$can_submit_live  = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'no'  ) ); 
+		$can_submit_live  = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'no'  ) );
 
 		$args = array(
 			'assign_product_terms'      => $can_add,
 			'edit_products'             => $can_add || $can_edit,
+			'edit_product'              => $can_add || $can_edit,
 			'edit_published_products'   => $can_edit,
 			'delete_published_products' => $can_edit,
 			'delete_products'           => $can_edit,
