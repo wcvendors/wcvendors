@@ -81,6 +81,13 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 					'type'    => 'checkbox',
 				),
 				array(
+					'title'   => sprintf( __( 'Become a %s Link', 'wc-vendors' ), wcv_get_vendor_name() ),
+					'desc'    => sprintf( __( 'Hide/Show the "Become a %s" link on my-account page', 'wc-vendors' ), wcv_get_vendor_name( ) ),
+					'id'      => 'wcvendors_become_a_vendor_my_account_link_visibility',
+					'default' => 'no',
+					'type'    => 'checkbox',
+				),
+				array(
 					'title'   => sprintf( __( '%s Taxes', 'wc-vendors' ), wcv_get_vendor_name() ),
 					'desc'    => sprintf( __( 'Give any taxes to the %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      => 'wcvendors_vendor_give_taxes',
