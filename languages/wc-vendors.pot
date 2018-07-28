@@ -56,7 +56,7 @@ msgstr ""
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:153, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:458, classes/admin/class-product-meta.php:245, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:302, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/admin/settings/class-wcv-settings-display.php:195
+#: classes/class-install.php:153, classes/admin/class-admin-reports.php:173, classes/admin/class-admin-reports.php:458, classes/admin/class-product-meta.php:245, classes/admin/class-wcv-admin-setup.php:140, classes/admin/class-wcv-admin-setup.php:302, classes/admin/class-wcv-commissions-csv-exporter.php:43, classes/admin/class-wcv-commissions-page.php:118, classes/admin/class-wcv-commissions-sum-csv-exporter.php:41, classes/admin/settings/class-wcv-settings-display.php:100, classes/admin/settings/class-wcv-settings-display.php:108, classes/admin/settings/class-wcv-settings-display.php:195
 msgid "%s"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgid "Free support"
 msgstr ""
 
 #: classes/class-install.php:433
-msgid "Puy premium customer support"
+msgid "Buy premium customer support"
 msgstr ""
 
 #: classes/class-install.php:433
@@ -254,7 +254,7 @@ msgid "Type in a product name to start searching..."
 msgstr ""
 
 #: classes/admin/class-admin-reports.php:278
-msgid "Select a vendor&hellip;"
+msgid "Select a %s&hellip;"
 msgstr ""
 
 #: classes/admin/class-admin-reports.php:344
@@ -690,11 +690,11 @@ msgstr ""
 msgid "Commission Status"
 msgstr ""
 
-#: classes/includes/class-functions.php:35, classes/admin/settings/class-wcv-settings-display.php:100
+#: classes/includes/class-functions.php:35
 msgid "Vendor"
 msgstr ""
 
-#: classes/includes/class-functions.php:36, classes/admin/settings/class-wcv-settings-display.php:108
+#: classes/includes/class-functions.php:36
 msgid "Vendors"
 msgstr ""
 
@@ -940,7 +940,7 @@ msgid "Resend %s new order notification"
 msgstr ""
 
 #: classes/admin/emails/class-wc-approve-vendor.php:28
-msgid "%s Application"
+msgid "%s Application - deprecated"
 msgstr ""
 
 #: classes/admin/emails/class-wc-approve-vendor.php:29
@@ -1004,7 +1004,7 @@ msgid "Multipart"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-admin.php:28
-msgid "New %s Product"
+msgid "New %s Product - deprecated"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-admin.php:29
@@ -1019,8 +1019,8 @@ msgstr ""
 msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
 msgstr ""
 
-#: classes/admin/emails/class-wc-notify-shipped.php:28, classes/admin/emails/class-wcv-admin-notify-shipped.php:62, classes/admin/emails/class-wcv-customer-notify-shipped.php:61
-msgid "%s has shipped"
+#: classes/admin/emails/class-wc-notify-shipped.php:28
+msgid "%s has shipped - deprecated"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-shipped.php:29
@@ -1040,7 +1040,7 @@ msgid "Subtotal:"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-vendor.php:27
-msgid "Notify vendors"
+msgid "Notify vendors - deprecated"
 msgstr ""
 
 #: classes/admin/emails/class-wc-notify-vendor.php:28
@@ -1166,6 +1166,10 @@ msgstr ""
 
 #: classes/admin/emails/class-wcv-admin-notify-shipped.php:52, classes/admin/emails/class-wcv-customer-notify-shipped.php:51
 msgid "[{site_title}] %s has marked shipped ({order_number}) - {order_date}"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:62, classes/admin/emails/class-wcv-customer-notify-shipped.php:61
+msgid "%s has shipped"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-customer-notify-shipped.php:28
