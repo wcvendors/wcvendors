@@ -82,8 +82,6 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 			$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 		}
 
-		error_log( "Subject: " . $this->get_subject() . ", Message: " . $this->get_content() );
-
 		$this->restore_locale();
 	}
 
