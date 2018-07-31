@@ -471,7 +471,7 @@ class WCVendors_Install {
 	 * @since 2.0.11
 	 */
 	public static function add_hide_become_a_vendor_link_option(){
-		add_option( 'wcvendors_become_a_vendor_my_account_link_visibility', 'no' );
+		add_option( 'wcvendors_become_a_vendor_my_account_link_visibility', 'yes' );
 	}
 
 	/**
