@@ -1,5 +1,22 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.0
+
+* Added Option to remove "Become a Vendor" tab on the my-account page
+* Update: Make it easier to visually see which emails have been deprecated
+* Fixed: Admin notify vendor application not firing #468
+* Fixed: Username not showing in Admin notification email subject
+* Fixed: Terms & Conditions on wp-register page #479
+* Fixed: Spelling mistake
+* Fixed: Capabilities resetting disables edit live products #466
+* Fixed: Vendor labels can't be translated #451
+* Fixed: "Become a Vendor" tab is not hidden for vendor role #472
+* Fixed: WooCommerce Product Enquiry emails not working #465
+* Fixed: Color picker class not working when adding custom class (#469)
+* Fixed: Stop vendor notification sending twice
+* Fixed: Shipping cost to be added onto Vendor commissions #463
+* Fixed: Using wrong method in classes/class-shipping.php #461
+
 Version 2.0.10
 
 * Fixed: Commission by Product report is not functioning & shows errors #456
