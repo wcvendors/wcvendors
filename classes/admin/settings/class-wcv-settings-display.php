@@ -97,7 +97,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 					'desc_tip'  => __( 'Change all references to vendor to this term', 'wc-vendors' ),
 					'id'       	=> 'wcvendors_vendor_singular',
 					'type'     	=> 'text',
-					'default'	=> __( 'Vendor', 'wc-vendors' ),
+					'default'	=> sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
 				),
 
 				array(
@@ -105,7 +105,7 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 					'desc_tip'  => __( 'Change all references to vendors to this term', 'wc-vendors' ),
 					'id'       	=> 'wcvendors_vendor_plural',
 					'type'     	=> 'text',
-					'default'	=> __( 'Vendors', 'wc-vendors' ),
+					'default'	=> sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name( false ) ),
 				),
 
 				array(

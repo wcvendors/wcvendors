@@ -275,7 +275,7 @@ class WCV_Admin_Reports
 				<?php }
 			} else { ?>
 				<select class="chosen_select" id="show_vendor" name="show_vendor" style="width: 300px;"
-						data-placeholder="<?php _e( 'Select a vendor&hellip;', 'wc-vendors' ); ?>">
+						data-placeholder="<?php echo sprintf( __( 'Select a %s&hellip;', 'wc-vendors' ), wcv_get_vendor_name() ); ?>">
 					<option></option>
 					<?php foreach ( $vendors as $key => $vendor ) printf( '<option value="%s" %s>%s</option>', $vendor->ID, selected( $selected_vendor, $vendor->ID, false ), $vendor->display_name ); ?>
 				</select>
