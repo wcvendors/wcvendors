@@ -40,25 +40,34 @@
 
 			<?php
 				$terms_page = get_option( 'wcvendors_vendor_terms_page_id' );
+				
+				if ( $terms_page ) {
 
-				if ( $terms_page ) { ?>
-				<p class="form-row agree-to-terms-container" style="display:none">
+					$terms_and_conditions_visibility = get_option( 'wcvendors_terms_and_conditions_visibility' );
+
+					$display = apply_filters( 'wcvendors_terms_and_conditions_visibility', wc_string_to_bool( $terms_and_conditions_visibility ) ) ? 'block': 'none';
+					
+				?>
+				<input type="hidden" id="terms_and_conditions_visibility" value="<?php echo $terms_and_conditions_visibility; ?>" />
+				<p class="form-row agree-to-terms-container" style="display:<?php echo $display; ?>">
 					<input class="input-checkbox"
 						   id="agree_to_terms" <?php checked( isset( $_POST[ 'agree_to_terms' ] ), true ) ?>
 						   type="checkbox" name="agree_to_terms" value="1"/>
 					<label for="agree_to_terms"
 						   class="checkbox"><?php printf( __( 'I have read and accepted the <a href="%s">terms and conditions</a>', 'wc-vendors' ), get_permalink( $terms_page ) ); ?></label>
 				</p>
-
+	
 				<script type="text/javascript">
 					jQuery(function () {
-						if (jQuery('#apply_for_vendor').is(':checked')) {
+						if ( $( '#terms_and_conditions_visibility' ).val() == 'no' ){
+							if (jQuery('#apply_for_vendor').is(':checked')) {
 							jQuery('.agree-to-terms-container').show();
-						}
+							}
 
-						jQuery('#apply_for_vendor').on('click', function () {
-							jQuery('.agree-to-terms-container').slideToggle();
-						});
+							jQuery('#apply_for_vendor').on('click', function () {
+								jQuery('.agree-to-terms-container').slideToggle();
+							});
+						}						
 					})
 				</script>
 
