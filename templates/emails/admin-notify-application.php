@@ -18,7 +18,7 @@
 
 <p><?php printf( __( 'Hi there. This is a notification about a vendor application on %s.', 'wc-vendors' ), get_option( 'blogname' ) ); ?></p>
 
-<p><?php printf( __( 'The application is currently: %s', 'wc-vendors' ), $status ); ?></p>
+<p><?php printf( __( 'The application is currently: %s', 'wc-vendors' ), ucfirst( $status ) ); ?></p>
 <p><?php printf( __( 'Applicant username: %s', 'wc-vendors' ), $user->user_login ); ?></p>
 
 <?php if ( 'pending' === $status ) : ?>
