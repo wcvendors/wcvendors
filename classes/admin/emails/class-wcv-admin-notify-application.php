@@ -9,7 +9,7 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
 /**
  * Notify Admin Application
  *
- * An email sent to the admin when a user applies to be a vendor 
+ * An email sent to the admin when a user applies to be a vendor
  *
  * @class       WCVendors_Admin_Notify_Shipped
  * @version     2.0.0
@@ -64,8 +64,8 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 	/**
 	 * Trigger the sending of this email.
 	 *
-	 * @param int $order_id The order ID.
-	 * @param WC_Order $order Order object.
+	 * @param int $vendor_id The order ID.
+	 * @param string $status vendor role.
 	 */
 	public function trigger( $vendor_id, $status ) {
 
@@ -73,9 +73,12 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 
 		$this->user 		= get_userdata( $vendor_id );
 		$this->status 		= $status;
-		$this->placeholders['{user_name}'] 	= $this->user->user_name;
+		$this->placeholders['{user_name}'] 	= $this->user->user_login;
 
-		if ( $this->is_enabled() && $this->get_recipient() && $status === $this->get_option( 'notification' ) ) {
+		$send_if		= $this->get_option( 'notification' );
+		$should_send	= $send_if == 'vendor' ? true : ( $send_if == 'pending_vendor' && $status == 'pending' ? true: false );
+
+		if ( $this->is_enabled() && $this->get_recipient() && $should_send ) {
 			$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 		}
 
@@ -160,7 +163,7 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 				'title'         => __( 'Notification', 'wc-vendors' ),
 				'type'          => 'select',
 				'description'   => __( 'Choose when to be notified of an application.', 'wc-vendors' ),
-				'default'       => 'pending',
+				'default'       => 'pending_vendor',
 				'class'         => 'wc-enhanced-select',
 				'options'       => array(
 					'vendor' 			=> __( 'All Applications', 'wc-vendors'),
