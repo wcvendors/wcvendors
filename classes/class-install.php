@@ -17,7 +17,7 @@ class WCVendors_Install {
 			'wcv_update_200_db_version',
 		),
 		'2.0.11' => array(
-			'add_terms_and_conditions_visibility_optio'
+			'add_terms_and_conditions_visibility_option'
 		)
 	);
 
