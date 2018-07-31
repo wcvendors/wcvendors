@@ -65,7 +65,7 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 					'type'     => 'title',
 					'desc'     => __( 'These are the general settings for your marketplace', 'wc-vendors' ),
 					'id'       => 'general_options',
-				),				
+				),
 				array(
 					'title'   => sprintf( __( '%s Registration', 'wc-vendors' ), wcv_get_vendor_name() ),
 					'desc'    => sprintf( __( 'Allow users to apply to become a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
@@ -85,6 +85,13 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 					'desc'    => sprintf( __( 'Manually approve all %s applications', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      => 'wcvendors_vendor_approve_registration',
 					'default' => 'no',
+					'type'    => 'checkbox',
+				),
+				array(
+					'title'   => sprintf( __( 'Become a %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+					'desc'    => sprintf( __( 'Show the "Become a %s" link on WooCommerce my-account page', 'wc-vendors' ), wcv_get_vendor_name( ) ),
+					'id'      => 'wcvendors_become_a_vendor_my_account_link_visibility',
+					'default' => 'yes',
 					'type'    => 'checkbox',
 				),
 				array(
