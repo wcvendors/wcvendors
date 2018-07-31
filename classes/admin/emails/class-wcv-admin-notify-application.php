@@ -9,7 +9,7 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
 /**
  * Notify Admin Application
  *
- * An email sent to the admin when a user applies to be a vendor 
+ * An email sent to the admin when a user applies to be a vendor
  *
  * @class       WCVendors_Admin_Notify_Shipped
  * @version     2.0.0
@@ -73,7 +73,7 @@ class WCVendors_Admin_Notify_Application extends WC_Email {
 
 		$this->user 		= get_userdata( $vendor_id );
 		$this->status 		= $status;
-		$this->placeholders['{user_name}'] 	= $this->user->user_name;
+		$this->placeholders['{user_name}'] 	= $this->user->user_login;
 
 		if ( $this->is_enabled() && $this->get_recipient() && $status === $this->get_option( 'notification' ) ) {
 			$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );

@@ -15,6 +15,9 @@ class WCVendors_Install {
 			'wcv_migrate_settings',
 			'wcv_enable_legacy_emails',
 			'wcv_update_200_db_version',
+		),
+		'2.0.11' => array(
+			'add_terms_and_conditions_visibility_option'
 		)
 	);
 
@@ -458,6 +461,16 @@ class WCVendors_Install {
 			update_option( 'wcvendors_queue_flush_rewrite_rules', 'no' );
 			flush_rewrite_rules();
 		}
+	}
+
+	/**
+	 * Add the terms and conditions visibility option default
+	 *
+	 * @return void
+	 * @since 2.0.11
+	 */
+	public static function add_terms_and_conditions_visibility_option(){
+		add_option( 'wcvendors_terms_and_conditions_visibility', 'yes' );
 	}
 
 }
