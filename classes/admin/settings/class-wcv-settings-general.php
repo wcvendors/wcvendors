@@ -74,10 +74,24 @@ class WCVendors_Settings_General extends WCVendors_Settings_Page {
 					'type'    => 'checkbox',
 				),
 				array(
+					'title'   => sprintf( __( 'Terms & Conditions Checkbox', 'wc-vendors' ), wcv_get_vendor_name() ),
+					'desc'    => sprintf( __( 'Make the terms and conditions checkbox always visible even if become a %s is not checked', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+					'id'      => 'wcvendors_terms_and_conditions_visibility',
+					'default' => 'yes',
+					'type'    => 'checkbox',
+				),
+				array(
 					'title'   => sprintf( __( '%s Approval', 'wc-vendors' ), wcv_get_vendor_name() ),
 					'desc'    => sprintf( __( 'Manually approve all %s applications', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'id'      => 'wcvendors_vendor_approve_registration',
 					'default' => 'no',
+					'type'    => 'checkbox',
+				),
+				array(
+					'title'   => sprintf( __( 'Become a %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+					'desc'    => sprintf( __( 'Show the "Become a %s" link on WooCommerce my-account page', 'wc-vendors' ), wcv_get_vendor_name( ) ),
+					'id'      => 'wcvendors_become_a_vendor_my_account_link_visibility',
+					'default' => 'yes',
 					'type'    => 'checkbox',
 				),
 				array(

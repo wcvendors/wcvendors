@@ -15,6 +15,10 @@ class WCVendors_Install {
 			'wcv_migrate_settings',
 			'wcv_enable_legacy_emails',
 			'wcv_update_200_db_version',
+		),
+		'2.0.11' => array(
+			'add_hide_become_a_vendor_link_option',
+			'add_terms_and_conditions_visibility_option'
 		)
 	);
 
@@ -148,21 +152,27 @@ class WCVendors_Install {
 		);
 
 		remove_role( 'vendor' );
+		$can_add          = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'no' ) );
+		$can_edit         = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'no'  ) );
+		$can_submit_live  = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'no'  ) );
 		add_role(
 			'vendor',
 			sprintf( __( '%s', 'wc-vendors'), wcv_get_vendor_name() ) ,
 			array(
-				'assign_product_terms'     => true,
-				'edit_products'            => true,
-				'edit_product'             => true,
-				'edit_published_products'  => false,
-				'manage_product'           => true,
-				'publish_products'         => false,
-				'delete_posts'			  => true,
-				'read'                     => true,
-				'import'					  => true,
-				'upload_files'             => true,
-				'view_woocommerce_reports' => false,
+				'assign_product_terms'      => $can_add,
+				'edit_products'             => $can_add || $can_edit,
+				'edit_product'              => $can_add || $can_edit,
+				'edit_published_products'   => $can_edit,
+				'delete_published_products' => $can_edit,
+				'delete_products'           => $can_edit,
+				'delete_posts'				=> true,
+				'manage_product'            => $can_add,
+				'publish_products'          => $can_submit_live,
+				'read'                      => true,
+				'read_products'             => $can_edit || $can_add,
+				'upload_files'              => true,
+				'import'                    => true,
+				'view_woocommerce_reports'  => false,
 			)
 		);
 	}
@@ -430,7 +440,7 @@ class WCVendors_Install {
 			$row_meta = array(
 				'docs'    		=> '<a href="' . esc_url( apply_filters( 'wcvendors_docs_url', 'https://docs.wcvendors.com/' ) ) . '" aria-label="' . esc_attr__( 'View WC Vendors documentation', 'wc-vendors' ) . '">' . esc_html__( 'Docs', 'wc-vendors' ) . '</a>',
 				'free-support' 	=> '<a href="' . esc_url( apply_filters( 'wcvendors_free_support_url', 'https://wordpress.org/plugins/wc-vendors' ) ) . '" aria-label="' . esc_attr__( 'Visit community forums', 'wc-vendors' ) . '">' . esc_html__( 'Free support', 'wc-vendors' ) . '</a>',
-				'support' 		=> '<a href="' . esc_url( apply_filters( 'wcvendors_support_url', 'https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=premium_support' ) ) . '" aria-label="' . esc_attr__( 'Puy premium customer support', 'wc-vendors' ) . '">' . esc_html__( 'Premium support', 'wc-vendors' ) . '</a>',
+				'support' 		=> '<a href="' . esc_url( apply_filters( 'wcvendors_support_url', 'https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=premium_support' ) ) . '" aria-label="' . esc_attr__( 'Buy premium customer support', 'wc-vendors' ) . '">' . esc_html__( 'Premium support', 'wc-vendors' ) . '</a>',
 				'pro' 			=> '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="_blank">'.__( 'Upgrade to Pro', 'wcvendors').'</a></strong>',
 			);
 
@@ -452,6 +462,26 @@ class WCVendors_Install {
 			update_option( 'wcvendors_queue_flush_rewrite_rules', 'no' );
 			flush_rewrite_rules();
 		}
+	}
+
+	/**
+	 * Add option to hide the Become a Vendor link on my-account page
+	 *
+	 * @return void
+	 * @since 2.0.11
+	 */
+	public static function add_hide_become_a_vendor_link_option(){
+		add_option( 'wcvendors_become_a_vendor_my_account_link_visibility', 'yes' );
+	}
+
+	/**
+	 * Add the terms and conditions visibility option default
+	 *
+	 * @return void
+	 * @since 2.0.11
+	 */
+	public static function add_terms_and_conditions_visibility_option(){
+		add_option( 'wcvendors_terms_and_conditions_visibility', 'yes' );
 	}
 
 }

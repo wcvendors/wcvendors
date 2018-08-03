@@ -7,7 +7,7 @@ Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
 Requires PHP: 5.6
 Tested up to: 4.9.5
-Stable tag: 2.0.10
+Stable tag: 2.1.0
 License: GPLv2 or later
 
 The number one marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your WooCommerce site!
@@ -144,6 +144,23 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.0 1st August 2018 = 
+
+* Added Option to remove "Become a Vendor" tab on the my-account page
+* Update: Make it easier to visually see which emails have been deprecated
+* Fixed: Admin notify vendor application not firing #468
+* Fixed: Username not showing in Admin notification email subject
+* Fixed: Terms & Conditions on wp-register page #479
+* Fixed: Spelling mistake
+* Fixed: Capabilities resetting disables edit live products #466
+* Fixed: Vendor labels can't be translated #451
+* Fixed: "Become a Vendor" tab is not hidden for vendor role #472
+* Fixed: WooCommerce Product Enquiry emails not working #465
+* Fixed: Color picker class not working when adding custom class (#469)
+* Fixed: Stop vendor notification sending twice
+* Fixed: Shipping cost to be added onto Vendor commissions #463
+* Fixed: Using wrong method in classes/class-shipping.php #461
 
 = Version 2.0.10 - 4th July 2018 =
 

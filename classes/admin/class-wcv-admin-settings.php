@@ -234,7 +234,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								dir="ltr"
 								style="<?php echo esc_attr( $value['css'] ); ?>"
 								value="<?php echo esc_attr( $option_value ); ?>"
-								class="<?php echo esc_attr( $value['class'] ); ?>colorpick"
+								class="<?php echo esc_attr( $value['class'] ); ?> colorpick"
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo implode( ' ', $custom_attributes ); ?>
 								/>&lrm; <?php echo $description; ?>

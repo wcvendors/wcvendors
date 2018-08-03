@@ -399,6 +399,15 @@
 		}
 	}
 
+	.colorpickpreview {
+			padding: 7px 0;
+			line-height: 1em;
+			display: inline-block;
+			width: 26px;
+			border: 1px solid #ddd;
+			font-size: 14px;
+		}
+
 	.products {
 		overflow: hidden;
 		display: flex;
