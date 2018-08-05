@@ -1787,12 +1787,12 @@ msgstr ""
 msgid "Manually approve all %s applications"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-general.php:91
-msgid "Become a %s Link"
+#: classes/admin/settings/class-wcv-settings-general.php:91, classes/front/account/class-wc-account-links.php:46
+msgid "Become a %s"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-general.php:92
-msgid "Hide/Show the \"Become a %s\" link on my-account page"
+msgid "Show the \"Become a %s\" link on WooCommerce my-account page"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-general.php:98
@@ -2077,10 +2077,6 @@ msgstr ""
 
 #: classes/admin/views/html-vendor-settings-page.php:109
 msgid "Save Shop Settings"
-msgstr ""
-
-#: classes/front/account/class-wc-account-links.php:46
-msgid "Become a %s"
 msgstr ""
 
 #: classes/front/account/class-wc-account-links.php:84
