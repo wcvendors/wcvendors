@@ -145,14 +145,14 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 
 == Changelog ==
 
-= Version 2.1.0 1st August 2018 = 
+= Version 2.1.0 6th August 2018 =
 
 * Added Option to remove "Become a Vendor" tab on the my-account page
 * Update: Make it easier to visually see which emails have been deprecated
+* Fixed: Virtual / Downloadable Hide option does not work #483
 * Fixed: Admin notify vendor application not firing #468
 * Fixed: Username not showing in Admin notification email subject
-* Fixed: Terms & Conditions on wp-register page #479
-* Fixed: Spelling mistake
+* Fixed: Terms & conditions on wp-register page #479
 * Fixed: Capabilities resetting disables edit live products #466
 * Fixed: Vendor labels can't be translated #451
 * Fixed: "Become a Vendor" tab is not hidden for vendor role #472
