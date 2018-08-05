@@ -21,9 +21,9 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
         // Only enable this if registration for vendors is enabled
         if ( ! wc_string_to_bool( get_option( 'wcvendors_vendor_allow_registration', 'no' ) ) ) return;
 
-        $hide_become_a_vendor_link = wc_string_to_bool( get_option( 'wcvendors_become_a_vendor_my_account_link_visibility' ) );
-
-        if ( WCV_Vendors::is_vendor( get_current_user_id() ) || $hide_become_a_vendor_link ) return;
+        $show_become_a_vendor_link = wc_string_to_bool( get_option( 'wcvendors_become_a_vendor_my_account_link_visibility' ) );
+        
+        if ( WCV_Vendors::is_vendor( get_current_user_id() ) || ! $show_become_a_vendor_link ) return;
 
         $this->terms_page = get_option( 'wcvendors_vendor_terms_page_id' );
         add_filter( 'woocommerce_account_menu_items', array( $this, 'add_account_menu_items') );        
