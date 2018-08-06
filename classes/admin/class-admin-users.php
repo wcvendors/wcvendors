@@ -57,6 +57,9 @@ class WCV_Admin_Users
 			// WC > Product featured
 			add_filter( 'manage_product_posts_columns', array( $this, 'manage_product_columns'), 99);
 
+			//Check allowed product types and hide controls
+			add_filter( 'product_type_options', array( $this, 'check_allowed_product_type_options' ) );
+
 		}
 
 	}
@@ -421,5 +424,23 @@ class WCV_Admin_Users
 
 		return $columns;
 	}
+
+	/**
+	 * Hide the virtual or downloadable product types if hidden in settings
+	 *
+	 * @param array $type_options - the product types
+	 * @return void
+	 * 
+	 * @since 2.1.1
+	 */
+	public static function check_allowed_product_type_options( $type_options ){
+        $product_types = get_option( 'wcvendors_capability_product_type_options' );
+
+        foreach( $product_types as $type ) {
+            unset( $type_options[ $type ] );
+        }
+
+        return $type_options;
+    }
 
 }
