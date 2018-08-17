@@ -73,9 +73,9 @@ class WCV_Vendors
 					if ( ! self::is_vendor( $vendor_id ) ) continue;
 
 					if ( array_key_exists( $vendor_id, $vendors ) ){
-						$vendors[ $vendor_id ][ 'line_items' ][] = $order_item;
+						$vendors[ $vendor_id ][ 'line_items' ][ $order_item->get_id() ] = $order_item;
 					} else {
-						$vendor_details = array( 'vendor' => get_userdata( $vendor_id ), 'line_items' => array( $order_item ) );
+						$vendor_details = array( 'vendor' => get_userdata( $vendor_id ), 'line_items' => array( $order_item->get_id() => $order_item ) );
 						$vendors[ $vendor_id ] = $vendor_details;
 					}
 				}
