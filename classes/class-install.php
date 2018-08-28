@@ -17,8 +17,8 @@ class WCVendors_Install {
 			'wcv_update_200_db_version',
 		),
 		'2.0.11' => array(
-			'add_hide_become_a_vendor_link_option',
-			'add_terms_and_conditions_visibility_option'
+			'wcv_add_hide_become_a_vendor_link_option',
+			'wcv_add_terms_and_conditions_visibility_option'
 		)
 	);
 
@@ -464,25 +464,7 @@ class WCVendors_Install {
 		}
 	}
 
-	/**
-	 * Add option to hide the Become a Vendor link on my-account page
-	 *
-	 * @return void
-	 * @since 2.0.11
-	 */
-	public static function add_hide_become_a_vendor_link_option(){
-		add_option( 'wcvendors_become_a_vendor_my_account_link_visibility', 'yes' );
-	}
 
-	/**
-	 * Add the terms and conditions visibility option default
-	 *
-	 * @return void
-	 * @since 2.0.11
-	 */
-	public static function add_terms_and_conditions_visibility_option(){
-		add_option( 'wcvendors_terms_and_conditions_visibility', 'yes' );
-	}
 
 }
 
