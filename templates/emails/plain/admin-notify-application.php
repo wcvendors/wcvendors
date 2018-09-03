@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo "= " . $email_heading . " =\n\n";
 
-echo sprintf( __( 'Hi there. This is a notification about a vendor application on %s.', 'wc-vendors' ), get_option( 'blogname' ) ) . "\n\n";
+echo sprintf( __( 'Hi there. This is a notification about a %s application on %s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ), get_option( 'blogname' ) ) . "\n\n";
 echo sprintf( __( 'Applicant username: %s', 'wc-vendors' ), $user->user_login ). "\n\n";
 
 if ( 'pending' === $status ){

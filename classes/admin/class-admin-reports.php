@@ -47,7 +47,7 @@ class WCV_Admin_Reports
 					'function'    => array( $this, 'sales' ),
 				),
 				array(
-					'title'       => __( 'Commission by vendor', 'wc-vendors' ),
+					'title'       => sprintf( __( 'Commission by %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'description' => '',
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission' ),
