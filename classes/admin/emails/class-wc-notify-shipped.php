@@ -26,7 +26,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 	{
 		$this->id          = 'vendor_notify_shipped';
 		$this->title       = sprintf( __( '%s has shipped - deprecated', 'wc-vendors' ), wcv_get_vendor_name() );
-		$this->description = __( 'An email is sent when a vendor has marked one of their orders as shipped. <strong>This email has been deprecated.</strong>', 'wc-vendors' );
+		$this->description = sprintf( __( 'An email is sent when a %s has marked one of their orders as shipped. <strong>This email has been deprecated.</strong>', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 
 		$this->heading = __( 'Your order has been shipped', 'wc-vendors' );
 		$this->subject = __( '[{blogname}] Your order has been shipped ({order_number}) - {order_date}', 'wc-vendors' );

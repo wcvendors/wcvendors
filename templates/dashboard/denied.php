@@ -19,11 +19,11 @@
 
 <?php if ( WCV_Vendors::is_pending( get_current_user_id() ) ) { ?>
 
-	<p><?php _e( 'Your account has not yet been approved to become a vendor.  When it is, you will receive an email telling you that your account is approved!', 'wc-vendors' ); ?></p>
+	<p><?php printf( __( 'Your account has not yet been approved to become a %s.  When it is, you will receive an email telling you that your account is approved!', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ); ?></p>
 
 <?php } else { ?>
 
-	<p><?php _e( 'Your account is not setup as a vendor.', 'wc-vendors' ); ?></p>
+	<p><?php printf( __( 'Your account is not setup as a %s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ); ?></p>
 
 	<?php if ( 'yes' === get_option( 'wcvendors_vendor_allow_registration', 'no' ) ) { ?>
 		<form method="POST" action="">
@@ -33,7 +33,7 @@
 					   id="apply_for_vendor" <?php checked( isset( $_POST[ 'apply_for_vendor' ] ), true ) ?>
 					   type="checkbox" name="apply_for_vendor" value="1"/>
 				<label for="apply_for_vendor"
-					   class="checkbox"><?php echo apply_filters('wcvendors_vendor_registration_checkbox', __( 'Apply to become a vendor? ', 'wc-vendors' )); ?></label>
+					   class="checkbox"><?php echo apply_filters('wcvendors_vendor_registration_checkbox', sprintf( __( 'Apply to become a %s? ', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ) ); ?></label>
 			</p>
 
 			<div class="clear"></div>

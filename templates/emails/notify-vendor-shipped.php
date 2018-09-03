@@ -15,7 +15,7 @@ $order_date = $order->get_date_created();
 
 <?php do_action( 'woocommerce_email_header', $email_heading ); ?>
 
-<p><?php _e( 'A vendor has marked part of your order as shipped. The items that are shipped are as follows:', 'wc-vendors' ); ?></p>
+<p><?php printf( __( 'A %s has marked part of your order as shipped. The items that are shipped are as follows:', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ); ?></p>
 
 <?php do_action( 'woocommerce_email_before_order_table', $order, true ); ?>
 

@@ -29,7 +29,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 		$this->description = sprintf( __( '%s application will either be approved, denied, or pending. <strong>This email has been deprecated.</strong>', 'wc-vendors' ), wcv_get_vendor_name() );
 
 		$this->heading = __( 'Application {status}', 'wc-vendors' );
-		$this->subject = __( '[{blogname}] Your vendor application has been {status}', 'wc-vendors' );
+		$this->subject = sprintf( __( '[{blogname}] Your %s application has been {status}', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
 		$this->template_html  = 'application-status.php';

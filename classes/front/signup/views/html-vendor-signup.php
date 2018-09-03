@@ -19,7 +19,7 @@
 <p>
 	<label for="apply_for_vendor">
 		<input class="input-checkbox" id="apply_for_vendor" <?php checked( isset( $_POST[ 'apply_for_vendor' ] ), true ) ?> type="checkbox" name="apply_for_vendor" value="1"/>
-		<?php echo apply_filters('wcvendors_vendor_registration_checkbox', __( 'Apply to become a vendor? ', 'wc-vendors' )); ?>
+		<?php echo apply_filters('wcvendors_vendor_registration_checkbox', sprintf( __( 'Apply to become a %s? ', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ) ); ?>
 	</label>
 	<br />
 </p>

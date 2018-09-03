@@ -19,7 +19,7 @@
   */
  do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-<p><?php printf( __( 'Hi there. This is a notification about a vendor application on %s.', 'wc-vendors' ), get_option( 'blogname' ) ); ?></p>
+<p><?php printf( __( 'Hi there. This is a notification about a %s application on %s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ), get_option( 'blogname' ) ); ?></p>
 <p><?php printf( __( 'Your application is currently: %s', 'wc-vendors' ), $status ); ?></p>
 <p><?php printf( __( 'Applicant username: %s', 'wc-vendors' ), $user->user_login ); ?></p>
 

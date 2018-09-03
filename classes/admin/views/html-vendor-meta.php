@@ -102,7 +102,7 @@
 			<td>
 				<label for="wcv_give_vendor_tax">
 					<input name="wcv_give_vendor_tax" type="checkbox" id="wcv_give_vendor_tax" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_tax', true ), $echo = true ) ?>/>
-					<?php _e( 'Tax override for vendor', 'wc-vendors' ); ?>
+					<?php printf( __( 'Tax override for %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ); ?>
 				</label>
 			</td>
 		</tr>
@@ -118,7 +118,7 @@
 			<td>
 				<label for="wcv_give_vendor_shipping">
 					<input name="wcv_give_vendor_shipping" type="checkbox" id="wcv_give_vendor_shipping" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_shipping', true ), $echo = true ) ?>/>
-					<?php _e( 'Shipping override for vendor', 'wc-vendors' ); ?>
+					<?php printf( __( 'Shipping override for %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ); ?>
 				</label>
 			</td>
 		</tr>
