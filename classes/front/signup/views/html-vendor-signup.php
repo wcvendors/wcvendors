@@ -66,6 +66,7 @@
 			$( 'form.register').on( 'submit', function ( e ){
 				if (  jQuery('#agree_to_terms').is(':visible') && ! jQuery('#agree_to_terms').is(':checked') ) {
 					e.preventDefault();
+					alert( <?php _e( '"You must accept the terms and conditions to become a vendor."', 'wc-vendors' ); ?> );
 				}
 			} );
 
