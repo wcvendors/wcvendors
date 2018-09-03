@@ -6,8 +6,8 @@
  *
  * @author		Jamie Madden, WC Vendors
  * @package 	WCVendors/Templates/dashboard
- * @version 	2.0.7
-
+ * @version 	2.1.1
+ *
  */
 
  if ( ! defined( 'ABSPATH' ) ) {

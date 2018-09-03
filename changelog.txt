@@ -1,5 +1,11 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.1
+
+
+Templates Updated:
+	templates/dashboard/denied.php
+
 Version 2.1.0
 
 * Added Option to remove "Become a Vendor" tab on the my-account page
@@ -64,7 +70,7 @@ Version 2.0.7
 * Updated: Wording for settings
 
 Templates Updated:
-	templates/dashboard/dashboard/denied.php
+	templates/dashboard/denied.php
 
 Version 2.0.6
 
