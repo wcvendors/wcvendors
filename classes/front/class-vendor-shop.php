@@ -44,6 +44,12 @@ class WCV_Vendor_Shop
 
 		add_filter( 'document_title_parts', array( $this, 'vendor_page_title' ) );
 
+		// Change login and registration url to WooCommerce my-account page
+		add_filter( 'login_url', 		array( $this, 'change_login_url' ), 	1, 3 );
+		add_filter( 'register_url', 	array( $this, 'change_register_url' ), 	10, 1 );
+		add_action( 'wp_logout', 		array( $this, 'redirect_after_logout' ),10 );
+		add_filter( 'login_redirect', 	array( $this, 'change_login_redirect' ),10, 3 );
+
 	}
 
 	public static function change_archive_link( $link )
@@ -337,5 +343,72 @@ class WCV_Vendor_Shop
 
 	} // vendor_page_title
 
+	/**
+	 * Change the url users will be redirected to for login
+	 *
+	 * @param string $login_url The current login url
+	 * @param string $request
+	 * @param string $user
+	 * @return string The url users will be redirected to for login
+	 * @since 2.1.1
+	 */
+	public function change_login_url( $login_url, $redirect, $force_reauth ){
+
+		$login_url = get_permalink( wc_get_page_id( 'myaccount' ) );
+
+		if ( ! empty( $redirect ) ) {
+			$login_url = add_query_arg( 'redirect_to', urlencode( $redirect ), $login_url );
+		}
+
+		if ( $force_reauth ) {
+			$login_url = add_query_arg( 'reauth', '1', $login_url );
+		}
+
+		return $login_url;
+	} // change_login_url()
+
+	/**
+	 * Change the registration url to avoid registration in default WordPress registration page
+	 *
+	 * @param string $register_url The current WordPress registration url
+	 * @return string $register_url The new registration url
+	 * @since 2.1.1
+	 */
+	public function change_register_url( $register_url ) {
+		return get_permalink( wc_get_page_id( 'myaccount' ) );
+	} // change_register_url()
+
+	/**
+	 * Redirect users to mu-account page after logout
+	 *
+	 * @return void 
+	 * @since 2.1.1
+	 */
+	public function redirec_after_logout(){
+		wp_redirect( get_permalink( wc_get_page_id( 'myaccount' ) ) );
+		exit();
+	} // redirec_after_logout()
+
+	/**
+	 * Redirect user after successful login.
+	 *
+	 * @param string $redirect_to The url to redirect to.
+	 * @param string $request The url the user is coming from.
+	 * @param object $user Logged in user's data.
+	 * @return string The url to redirect to
+	 * @since 2.1.1
+	 */
+	function change_login_redirect( $redirect_to, $request, $user ) {
+		if ( isset( $user->roles ) && is_array( $user->roles ) ) {
+			if ( in_array( 'administrator', $user->roles ) ) {
+				// redirect them to the default place
+				return $redirect_to;
+			} else {
+				return get_permalink( wc_get_page_id( 'myaccount' ) );
+			}
+		} else {
+			return $redirect_to;
+		}
+	} // change_login_redirect()
 
 }

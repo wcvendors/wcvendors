@@ -23,7 +23,6 @@ class WCV_Vendor_Signup
 		$this->terms_page = get_option( 'wcvendors_vendor_terms_page_id' );
 
 		add_action( 'woocommerce_register_form', array( $this, 'vendor_option' ) );
-		add_action( 'register_form', array( $this, 'login_apply_vendor_option' ) );
 
 		if ( ! class_exists( 'WCVendors_Pro' ) ) {
 			add_action( 'woocommerce_created_customer', array( $this, 'save_pending' ), 10, 2 );
@@ -48,6 +47,8 @@ class WCV_Vendor_Signup
 
 
 	/**
+	 * WILL BE COMPLETELY REMOVED
+	 * 
 	 * Show apply to be vendor on the wp-login screen
 	 *
 	 * @since 1.9.0
