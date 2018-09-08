@@ -115,7 +115,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$order = wc_get_order( $order_id );
 		if ( !$order ) return false;
 
-		if ( $_POST[ 'status' ] !== 'COMPLETED' ) {
+		if ( ! in_array( $_POST['status'], array( 'COMPLETED', 'Completed' ), true ) ) {
 			$order->update_status( 'failed', sprintf( __( 'Something went wrong. Response from PayPal invalidated this order. Status: %s.', 'wc-vendors' ), $_POST[ 'status' ] ) );
 			exit;
 		}
