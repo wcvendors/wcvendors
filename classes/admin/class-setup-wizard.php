@@ -287,7 +287,7 @@ class WCVendors_Admin_Setup_Wizard {
 			'edit_published_products'   => $live_products,
 			'delete_published_products' => $live_products,
 			'delete_products'           => $live_products,
-			'manage_product'            => $can_add,
+			'manage_product'            => $products_enabled,
 			'publish_products'          => $products_approval,
 			'delete_posts'				=> true,
 			'read'                      => true,
