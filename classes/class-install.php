@@ -152,9 +152,9 @@ class WCVendors_Install {
 		);
 
 		remove_role( 'vendor' );
-		$can_add          = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'no' ) );
-		$can_edit         = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'no'  ) );
-		$can_submit_live  = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'no'  ) );
+		$can_add          = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'yes' ) );
+		$can_edit         = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'yes'  ) );
+		$can_submit_live  = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'yes'  ) );
 		add_role(
 			'vendor',
 			sprintf( __( '%s', 'wc-vendors'), wcv_get_vendor_name() ) ,
