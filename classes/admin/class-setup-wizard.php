@@ -279,6 +279,27 @@ class WCVendors_Admin_Setup_Wizard {
 		update_option( 'wcvendors_capability_order_read_notes', $view_order_notes );
 		update_option( 'wcvendors_capability_order_update_notes', $add_order_notes );
 
+		// Update actual role
+		$args = array(
+			'assign_product_terms'      => $products_enabled,
+			'edit_products'             => $products_enabled || $live_products,
+			'edit_product'              => $products_enabled || $live_products,
+			'edit_published_products'   => $live_products,
+			'delete_published_products' => $live_products,
+			'delete_products'           => $live_products,
+			'manage_product'            => $products_enabled,
+			'publish_products'          => $products_approval,
+			'delete_posts'				=> true,
+			'read'                      => true,
+			'read_products'             => $live_products || $products_enabled,
+			'upload_files'              => true,
+			'import'                    => true,
+			'view_woocommerce_reports'  => false,
+		);
+
+		remove_role( 'vendor' );
+		add_role( 'vendor', sprintf( __('%s', 'wc-vendors'), wcv_get_vendor_name() ), $args );
+
 		wp_redirect( esc_url_raw( $this->get_next_step_link() ) );
 		exit;
 	}

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WCVendors_Uninstall{
     /**
-     * Check the uninstall options and delete the data 
+     * Check the uninstall options and delete the data
      *
      * @return void
      * @package
@@ -24,21 +24,21 @@ class WCVendors_Uninstall{
         }else{
             if ( get_option( 'wcvendors_uninstall_delete_custom_table') == 'yes' ) {
                 self::delete_table();
-            } 
+            }
 
             if ( get_option( 'wcvendors_uninstall_delete_custom_pages') == 'yes' ) {
                 self::delete_pages();
-            } 
+            }
 
             if ( get_option( 'wcvendors_uninstall_delete_settings_options') == 'yes' ) {
                 self::delete_options();
-            } 
+            }
 
             if ( get_option( 'wcvendors_uninstall_delete_vendor_roles') == 'yes' ) {
                 self::remove_roles();
             }
         }
-        
+
         self::flush_rewrite_rules();
     }
 
@@ -51,11 +51,11 @@ class WCVendors_Uninstall{
     public static function delete_all(){
         self::remove_roles();
         self::delete_pages();
-        self::delete_table();
         self::delete_options();
+        self::delete_table();
         WCV_Cron::remove_cron_schedule();
     }
-    
+
     /**
      * Remove custom roles
      *
@@ -117,12 +117,12 @@ class WCVendors_Uninstall{
 				}
 			}
         }
-        
+
         delete_option( 'wcvendors_version' );
         delete_option( 'wcvendors_db_version' );
         delete_option( 'wcvendors_admin_notices' );
         delete_option( 'wcvendors_queue_flush_rewrite_rules' );
-        delete_option( 'wcvendors_admin_notice_email_updates' );        
+        delete_option( 'wcvendors_admin_notice_email_updates' );
     }
 
     /**
