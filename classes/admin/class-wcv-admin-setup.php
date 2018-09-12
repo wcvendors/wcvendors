@@ -25,7 +25,7 @@ class WCV_Admin_Setup {
 		add_filter( 'woocommerce_debug_tools', 								array( $this, 'wcvendors_tools' ) );
 
 		add_filter( 'admin_footer_text', 									array( $this, 'admin_footer_text' ), 1 );
-		add_action( 'admin_init', 											array( $this, 'export_commissions' ) );
+		add_action( 'admin_init', 											array( $this, '' ) );
 		add_action( 'admin_init', 											array( $this, 'export_sum_commissions' ) );
 		add_filter( 'woocommerce_screen_ids', 								array( $this, 'wcv_screen_ids' ) );
 		add_action( 'wcvendors_update_options_capabilities',				array( $this, 'update_vendor_role' ) );
