@@ -45,10 +45,12 @@ class WCV_Vendor_Shop
 		add_filter( 'document_title_parts', array( $this, 'vendor_page_title' ) );
 
 		// Change login and registration url to WooCommerce my-account page
-		add_filter( 'login_url', 		array( $this, 'change_login_url' ), 	1, 3 );
-		add_filter( 'register_url', 	array( $this, 'change_register_url' ), 	10, 1 );
-		add_action( 'wp_logout', 		array( $this, 'redirect_after_logout' ),10 );
-		add_filter( 'login_redirect', 	array( $this, 'change_login_redirect' ),10, 3 );
+		if ( apply_filters( 'wcvendors_redirect_wp_registration_to_woocommerce_myaccount', wc_string_to_bool( get_option( 'wcvendors_redirect_wp_registration_to_woocommerce_myaccount', 'no') ) ) ) {
+			add_filter( 'login_url', 		array( $this, 'change_login_url' ), 	1, 3 );
+			add_filter( 'register_url', 	array( $this, 'change_register_url' ), 	10, 1 );
+			add_action( 'wp_logout', 		array( $this, 'redirect_after_logout' ),10 );
+			add_filter( 'login_redirect', 	array( $this, 'change_login_redirect' ),10, 3 );
+		}
 
 	}
 
