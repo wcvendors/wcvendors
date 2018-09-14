@@ -587,6 +587,56 @@ class WCV_Commission
 		$query      = "SELECT `id`, `total_due`, `total_shipping`, `tax`, `vendor_id`, `status`
 					FROM `{$table_name}`";
 
+		$orderby 	= ! empty( $_REQUEST[ 'orderby' ] ) ? esc_attr( $_REQUEST[ 'orderby' ] ) : 'time';
+		$order   	= ( ! empty( $_REQUEST[ 'order' ] ) && $_REQUEST[ 'order' ] == 'asc' ) ? 'ASC' : 'DESC';
+		$com_status = ! empty( $_REQUEST[ 'com_status' ] ) ? esc_attr( $_REQUEST[ 'com_status' ] ) : '';
+		$vendor_id 	= ! empty( $_REQUEST[ 'vendor_id' ] ) ? esc_attr( $_REQUEST[ 'vendor_id' ] ) : '';
+		$status_sql = '';
+		$time_sql 	= '';
+
+		if ( !empty( $_GET[ 'm' ] ) ) {
+
+			$year  = substr( $_GET[ 'm' ], 0, 4 );
+			$month = substr( $_GET[ 'm' ], 4, 2 );
+
+			$time_sql = "
+				WHERE MONTH(`time`) = '$month'
+				AND YEAR(`time`) = '$year'
+			";
+
+			$query .= $time_sql;
+		}
+
+		if ( !empty( $_GET[ 'com_status' ] ) ) {
+
+			if ( $time_sql == '' ) {
+				$status_sql = "
+				WHERE status = '$com_status'
+				";
+			} else {
+				$status_sql = "
+				AND status = '$com_status'
+				";
+			}
+
+			$query .= $status_sql;
+		}
+
+		if ( !empty( $_GET[ 'vendor_id' ] ) ) {
+
+			if ( $time_sql == '' && $status_sql == '' ) {
+				$vendor_sql = "
+				WHERE vendor_id = '$vendor_id'
+				";
+			} else {
+				$vendor_sql = "
+				AND vendor_id = '$vendor_id'
+				";
+			}
+
+			$query .= $vendor_sql;
+		}
+
 		$results = $wpdb->get_results( $query );
 
 		foreach ( $results as $commission ) {
