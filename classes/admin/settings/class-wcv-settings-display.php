@@ -75,6 +75,13 @@ class WCVendors_Settings_Display extends WCVendors_Settings_Page {
 					'default' 	=> '',
 					'type'    	=> 'textarea',
 				),
+				array(
+					'title'		=> __( 'Use WooCommerce Registration', 'wc-vendors' ),
+					'type'		=> 'checkbox',
+					'default'	=> 'no',
+					'id'		=> 'wcvendors_redirect_wp_registration_to_woocommerce_myaccount',
+					'desc'		=> __( 'This will redirect the WordPress registration to WooCommerce my-account page for registration.', 'wc-vendors' ),
+				),
 
 
 				array( 'type' => 'sectionend', 'id' => 'advanced_options' ),

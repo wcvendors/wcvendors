@@ -141,3 +141,13 @@ function wcv_add_hide_become_a_vendor_link_option(){
 function wcv_add_terms_and_conditions_visibility_option(){
 	add_option( 'wcvendors_terms_and_conditions_visibility', 'yes' );
 }
+
+/**
+ * Add the option to redirect registration system to WooCommece my-account page
+ *
+ * @return void
+ * @since 2.1.1
+ */
+function wcv_redirect_wp_registration_to_woocommerce_myaccount() {
+	add_option( 'wcvendors_redirect_wp_registration_to_woocommerce_myaccount', 'no' );
+}

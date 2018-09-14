@@ -19,6 +19,9 @@ class WCVendors_Install {
 		'2.0.11' => array(
 			'wcv_add_hide_become_a_vendor_link_option',
 			'wcv_add_terms_and_conditions_visibility_option'
+		),
+		'2.1.1'	=> array(
+			'wcv_redirect_wp_registration_to_woocommerce_myaccount',
 		)
 	);
 
