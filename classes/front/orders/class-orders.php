@@ -263,7 +263,7 @@ class WCV_Orders
 			$billing_email 		 = $order->get_billing_email();
 			$customer_note 		 = $order->get_customer_note();
 
-			$body[ $i ] = array(
+			$body[ $order->get_order_number() ] = array(
 				'order_number' => $order->get_order_number(),
 				'product'      => $product,
 				'name'         => $shipping_first_name . ' ' . $shipping_last_name,
