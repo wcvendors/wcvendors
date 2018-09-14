@@ -6,8 +6,8 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
 Requires PHP: 5.6
-Tested up to: 4.9.5
-Stable tag: 2.1.0
+Tested up to: 4.9.8
+Stable tag: 2.1.1
 License: GPLv2 or later
 
 The number one marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your WooCommerce site!
@@ -144,6 +144,24 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.1 15th September 2018 =
+
+* Added: Export Commission Order ID #460
+* Added: Export Commission Totals use filters #459
+* Added: Remove Ability to Register from the WP Login screen. #489
+* Fixed: Invalid variable reference
+* Fixed: Uninistall loading order to ensure table still exists when getting settings fields
+* Fixed: Incorrect capabilities set on initial install and via setup wizard
+* Fixed: Handle PayPal Adaptive Payments IPN status inconsistencies (#495)
+* Fixed: Incorrect javascript method name
+* Fixed: No terms and conditions warning (#494)
+* Fixed: Replace vendor with function call (#493)
+* Fixed: Update methods in the wrong location
+* Fixed: Line item id's incorrectly set
+
+Templates Updated:
+	templates/dashboard/denied.php
 
 = Version 2.1.0 6th August 2018 =
 

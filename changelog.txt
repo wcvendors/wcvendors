@@ -2,6 +2,9 @@ Changelog for WC Vendors Marketplace
 
 Version 2.1.1
 
+* Added: Export Commission Order ID #460
+* Added: Export Commission Totals use filters #459
+* Added: Remove Ability to Register from the WP Login screen. #489
 * Fixed: Invalid variable reference
 * Fixed: Uninistall loading order to ensure table still exists when getting settings fields
 * Fixed: Incorrect capabilities set on initial install and via setup wizard
