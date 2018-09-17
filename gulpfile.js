@@ -35,7 +35,7 @@ gulp.task('build-i18n-pot', function () {
         .pipe( sort() )
         .pipe( wpPot( {
             domain: 'wc-vendors',
-            package: 'wc-vendors',
+            package: 'WC Vendors Marketplace',
             bugReport: 'https://www.wcvendors.com',
             lastTranslator: 'Jamie Madden <translate@wcvendors.com>',
             team: 'WC Vendors <translate@wcvendors.com>'

@@ -227,7 +227,8 @@ if ( wcv_is_woocommerce_activated() ) {
 		}
 
 		public function load_il8n() {
-		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wc-vendors' );
+			$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
+		    $locale = apply_filters( 'plugin_locale', $locale, 'wc-vendors' );
 		    load_textdomain( 'wc-vendors', WP_LANG_DIR.'/wc-vendors/wc-vendors-'.$locale.'.mo');
 			load_plugin_textdomain( 'wc-vendors', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
 
