@@ -63,22 +63,28 @@ class WCV_Vendors
 
 		if ( is_a( $order, 'WC_Order' ) ) {
 
-			foreach ( $order->get_items() as $item_id => $order_item ) {
+			// Only loop through order items if there isn't an error 
+			if ( is_array( $order->get_items() ) || is_object( $order->get_items() ) ) {
 
-				if ( 'line_item' === $order_item->get_type() ){
+				foreach ( $order->get_items() as $item_id => $order_item ) {
 
-					$product_id = ( $order_item->get_variation_id() ) ? $order_item->get_variation_id() : $order_item->get_product_id();
-					$vendor_id 	= self::get_vendor_from_product( $product_id );
+					if ( 'line_item' === $order_item->get_type() ){
 
-					if ( ! self::is_vendor( $vendor_id ) ) continue;
+						$product_id = ( $order_item->get_variation_id() ) ? $order_item->get_variation_id() : $order_item->get_product_id();
+						$vendor_id 	= self::get_vendor_from_product( $product_id );
 
-					if ( array_key_exists( $vendor_id, $vendors ) ){
-						$vendors[ $vendor_id ][ 'line_items' ][ $order_item->get_id() ] = $order_item;
-					} else {
-						$vendor_details = array( 'vendor' => get_userdata( $vendor_id ), 'line_items' => array( $order_item->get_id() => $order_item ) );
-						$vendors[ $vendor_id ] = $vendor_details;
+						if ( ! self::is_vendor( $vendor_id ) ) continue;
+
+						if ( array_key_exists( $vendor_id, $vendors ) ){
+							$vendors[ $vendor_id ][ 'line_items' ][ $order_item->get_id() ] = $order_item;
+						} else {
+							$vendor_details = array( 'vendor' => get_userdata( $vendor_id ), 'line_items' => array( $order_item->get_id() => $order_item ) );
+							$vendors[ $vendor_id ] = $vendor_details;
+						}
 					}
 				}
+			} else {
+				$vendors = array();
 			}
 		}
 

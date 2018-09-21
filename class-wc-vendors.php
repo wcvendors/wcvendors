@@ -253,7 +253,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			if ( is_admin() ) {
 
 				include_once( wcv_plugin_dir . 'classes/class-install.php' );
-				// include_once( wcv_plugin_dir . 'classes/admin/emails/class-emails.php');
 				include_once( wcv_plugin_dir . 'classes/admin/class-vendor-applicants.php');
 				include_once( wcv_plugin_dir . 'classes/admin/class-admin-reports.php');
 				include_once( wcv_plugin_dir . 'classes/admin/class-wcv-commissions-page.php');
