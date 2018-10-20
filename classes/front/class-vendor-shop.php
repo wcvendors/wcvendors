@@ -386,10 +386,10 @@ class WCV_Vendor_Shop
 	 * @return void 
 	 * @since 2.1.1
 	 */
-	public function redirec_after_logout(){
+	public function redirect_after_logout(){
 		wp_redirect( get_permalink( wc_get_page_id( 'myaccount' ) ) );
 		exit();
-	} // redirec_after_logout()
+	} // redirect_after_logout()
 
 	/**
 	 * Redirect user after successful login.
