@@ -1,5 +1,12 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.2
+
+* Fixed: Reverse commissions if order is trashed
+* Fixed: Added extra checks for vendor order method
+* Fixed: Load user locale when loading text domain
+* Fixed: Loopback request failure #453
+
 Version 2.1.1
 
 * Added: Export Commission Order ID #460

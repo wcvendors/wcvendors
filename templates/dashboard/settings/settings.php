@@ -34,6 +34,8 @@
 
 	?>
 
+	<?php do_action( 'wcvendors_settings_before_bank_details', $user_id ); ?>
+
 	<?php if ( apply_filters( 'wcvendors_vendor_dashboard_bank_details_enable', true ) ) : ?>
 
 	<h3><?php _e( 'Bank Details', 'wc-vendors' ); ?></h3>
@@ -49,6 +51,8 @@
 			<td><p class="form-row notes"><label for="wcv_bank_bic_swift"><?php _e( 'BIC / Swift', 'wc-vendors' ); ?></label><input type="text" name="wcv_bank_bic_swift" id="wcv_bank_bic_swift" value="<?php echo get_user_meta( $user_id, 'wcv_bank_bic_swift', true ); ?>"/></p></td>
 		</tr>
 	</table>
+
+	<?php do_action( 'wcvendors_settings_after_bank_details', $user_id ); ?>
 
 	<?php endif; ?>
 
