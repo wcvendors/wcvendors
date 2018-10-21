@@ -36,15 +36,15 @@ msgstr ""
 msgid "WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current version %s will be deactivated. Please upgrade to the latest version."
 msgstr ""
 
-#: classes/class-commission.php:55, classes/admin/class-admin-reports.php:350, classes/admin/class-admin-reports.php:443, classes/admin/class-wcv-commissions-page.php:278, classes/admin/class-wcv-commissions-page.php:544
+#: classes/class-commission.php:56, classes/admin/class-admin-reports.php:350, classes/admin/class-admin-reports.php:443, classes/admin/class-wcv-commissions-page.php:278, classes/admin/class-wcv-commissions-page.php:544
 msgid "Due"
 msgstr ""
 
-#: classes/class-commission.php:56, classes/admin/class-admin-reports.php:349, classes/admin/class-admin-reports.php:444, classes/admin/class-wcv-commissions-page.php:279, classes/admin/class-wcv-commissions-page.php:545
+#: classes/class-commission.php:57, classes/admin/class-admin-reports.php:349, classes/admin/class-admin-reports.php:444, classes/admin/class-wcv-commissions-page.php:279, classes/admin/class-wcv-commissions-page.php:545
 msgid "Paid"
 msgstr ""
 
-#: classes/class-commission.php:57, classes/admin/class-admin-reports.php:348, classes/admin/class-admin-reports.php:445, classes/admin/class-wcv-commissions-page.php:280, classes/admin/class-wcv-commissions-page.php:546
+#: classes/class-commission.php:58, classes/admin/class-admin-reports.php:348, classes/admin/class-admin-reports.php:445, classes/admin/class-wcv-commissions-page.php:280, classes/admin/class-wcv-commissions-page.php:546
 msgid "Reversed"
 msgstr ""
 
@@ -136,11 +136,11 @@ msgstr ""
 msgid "%s Orders"
 msgstr ""
 
-#: classes/class-vendors.php:570
+#: classes/class-vendors.php:576
 msgid "%s Order &ndash; %s"
 msgstr ""
 
-#: classes/class-vendors.php:570
+#: classes/class-vendors.php:576
 msgctxt "Order date parsed by strftime"
 msgid "%b %d, %Y @ %I:%M %p"
 msgstr ""
@@ -670,15 +670,15 @@ msgstr ""
 msgid "Bank Account Number"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:46, classes/admin/views/html-vendor-meta.php:60, classes/admin/views/html-vendor-settings-page.php:36, templates/dashboard/settings/settings.php:44
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:46, classes/admin/views/html-vendor-meta.php:60, classes/admin/views/html-vendor-settings-page.php:36, templates/dashboard/settings/settings.php:46
 msgid "Bank Name"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:47, classes/admin/views/html-vendor-meta.php:65, classes/admin/views/html-vendor-settings-page.php:41, templates/dashboard/settings/settings.php:47
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:47, classes/admin/views/html-vendor-meta.php:65, classes/admin/views/html-vendor-settings-page.php:41, templates/dashboard/settings/settings.php:49
 msgid "Routing Number"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:48, classes/admin/views/html-vendor-meta.php:70, classes/admin/views/html-vendor-settings-page.php:46, templates/dashboard/settings/settings.php:48
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:48, classes/admin/views/html-vendor-meta.php:70, classes/admin/views/html-vendor-settings-page.php:46, templates/dashboard/settings/settings.php:50
 msgid "IBAN"
 msgstr ""
 
@@ -2359,23 +2359,23 @@ msgstr ""
 msgid "Your PayPal address can be used to manually send you your commission."
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:39
+#: templates/dashboard/settings/settings.php:41
 msgid "Bank Details"
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:42
+#: templates/dashboard/settings/settings.php:44
 msgid "Account Name"
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:43
+#: templates/dashboard/settings/settings.php:45
 msgid "Account Number"
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:49
+#: templates/dashboard/settings/settings.php:51
 msgid "BIC / Swift"
 msgstr ""
 
-#: templates/dashboard/settings/settings.php:86
+#: templates/dashboard/settings/settings.php:90
 msgid "Save"
 msgstr ""
 
