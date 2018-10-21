@@ -72,7 +72,6 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 					'id'       => 'wcvendors_capability_product_types',
 					'class'    => 'wc-enhanced-select',
 					'css'      => 'min-width:300px;',
-					'default'  => 'simple',
 					'type'     => 'multiselect',
 					'options'  => wc_get_product_types(),
 					'desc_tip' => true,
@@ -84,7 +83,6 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 					'id'       => 'wcvendors_capability_product_type_options',
 					'class'    => 'wc-enhanced-select',
 					'css'      => 'min-width:300px;',
-					'default'  => 'simple',
 					'type'     => 'multiselect',
 					'options'  => array(
 						'virtual'  			=> __( 'Virtual', 'wc-vendors' ),
@@ -99,7 +97,6 @@ class WCVendors_Settings_Capabilities extends WCVendors_Settings_Page {
 					'id'       => 'wcvendors_capability_product_data_tabs',
 					'class'    => 'wc-enhanced-select',
 					'css'      => 'min-width:300px;',
-					'default'  => 'simple',
 					'type'     => 'multiselect',
 					'options'  => array(
 						'general'  			=> __( 'General', 'wc-vendors' ),
