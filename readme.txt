@@ -145,6 +145,34 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 
 == Changelog ==
 
+= Version 2.1.2 - 22nd October 2018 =
+
+* Updated: Tested with WooCommerce 3.5.0
+* Updated: Tested with Wordpress 5.0.0
+* Fixed: Error messages on product edit page
+* Fixed: Reverse commissions if order is trashed
+* Fixed: Added extra checks for vendor order method
+* Fixed: Load user locale when loading text domain
+* Fixed: Loopback request failure #453
+
+= Version 2.1.1 =
+
+* Added: Export Commission Order ID #460
+* Added: Export Commission Totals use filters #459
+* Added: Remove Ability to Register from the WP Login screen. #489
+* Fixed: Invalid variable reference
+* Fixed: Uninstall loading order to ensure table still exists when getting settings fields
+* Fixed: Incorrect capabilities set on initial install and via setup wizard
+* Fixed: Handle PayPal Adaptive Payments IPN status inconsistencies (#495)
+* Fixed: Incorrect javascript method name
+* Fixed: No terms and conditions warning (#494)
+* Fixed: Replace vendor with function call (#493)
+* Fixed: Update methods in the wrong location
+* Fixed: Line item id's incorrectly set
+
+Templates Updated:
+	templates/dashboard/denied.php
+
 = Version 2.1.1 15th September 2018 =
 
 * Added: Export Commission Order ID #460

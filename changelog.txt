@@ -2,6 +2,7 @@ Changelog for WC Vendors Marketplace
 
 Version 2.1.2
 
+* Updated: Tested with WooCommerce 3.5.0
 * Updated: Tested with Wordpress 5.0.0
 * Fixed: Error messages on product edit page
 * Fixed: Reverse commissions if order is trashed
