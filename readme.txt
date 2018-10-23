@@ -147,8 +147,8 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 
 = Version 2.1.2 - 22nd October 2018 =
 
-* Updated: Tested with WooCommerce 3.5.0
-* Updated: Tested with Wordpress 5.0.0
+* Updated: Support for WooCommerce 3.5.0
+* Updated: Support for Wordpress 5.0.0
 * Fixed: Error messages on product edit page
 * Fixed: Reverse commissions if order is trashed
 * Fixed: Added extra checks for vendor order method
