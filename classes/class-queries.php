@@ -1,7 +1,6 @@
 <?php
 
-class WCV_Queries
-{
+class WCV_Queries {
 
 	/**
 	 *
@@ -11,18 +10,16 @@ class WCV_Queries
 	 * @return unknown
 	 */
 
-
-	public static function get_commission_products( $user_id )
-	{
+	public static function get_commission_products( $user_id ) {
 		global $wpdb;
 
 		$dates           = WCV_Queries::orders_within_range();
 		$vendor_products = array();
-		$sql = '';
+		$sql             = '';
 
 		$sql .= "SELECT product_id FROM {$wpdb->prefix}pv_commission WHERE vendor_id = {$user_id} "; 
 
-		if ( !empty( $dates ) ) { 
+		if ( ! empty( $dates ) ) { 
 			$sql .= "AND time >= '" . $dates[ 'after' ] . "' AND time <= '" . $dates[ 'before' ] . "'"; 
 		}
 
@@ -34,14 +31,14 @@ class WCV_Queries
 			$ids[ ] = $value->product_id;
 		}
 
-		if ( !empty( $ids ) ) {
+		if ( ! empty( $ids ) ) {
 			$vendor_products = get_posts( array(
-											   'numberposts' => -1,
-											   'orderby'     => 'post_date',
-											   'post_type'   => array( 'product', 'product_variation' ),
-											   'order'       => 'DESC',
-											   'include'     => $ids
-										  )
+											'numberposts' => -1,
+											'orderby'     => 'post_date',
+											'post_type'   => array( 'product', 'product_variation' ),
+											'order'       => 'DESC',
+											'include'     => $ids
+										)
 			);
 		}
 
@@ -57,8 +54,7 @@ class WCV_Queries
 	 */
 
 
-	public static function get_products_for_order( $order_id )
-	{
+	public static function get_products_for_order( $order_id ) {
 		global $wpdb;
 
 		$vendor_products = array();
@@ -87,8 +83,7 @@ class WCV_Queries
 	 *
 	 * @return object
 	 */
-	public static function get_orders_for_products( array $product_ids, array $args = array() )
-	{
+	public static function get_orders_for_products( array $product_ids, array $args = array() ) {
 		global $wpdb;
 
 		if ( empty( $product_ids ) ) return false;
@@ -112,7 +107,7 @@ class WCV_Queries
 			AND     status != 'reversed'
 		";
 
-		if ( !empty( $args[ 'vendor_id' ] ) ) {
+		if ( ! empty( $args[ 'vendor_id' ] ) ) {
 			$sql .= "
 				AND vendor_id = {$args['vendor_id']}
 			";
@@ -137,8 +132,7 @@ class WCV_Queries
 	 *
 	 * @return object
 	 */
-	public static function sum_orders_for_products( array $product_ids, array $args = array() )
-	{
+	public static function sum_orders_for_products( array $product_ids, array $args = array() ) {
 		global $wpdb;
 
 		$dates = WCV_Queries::orders_within_range();
@@ -150,13 +144,13 @@ class WCV_Queries
 
 		foreach ( $product_ids as $id ) {
 			$posts = get_posts( array(
-									 'numberposts' => -1,
-									 'post_type'   => 'product_variation',
-									 'post_parent' => $id,
+									'numberposts' => -1,
+									'post_type'   => 'product_variation',
+									'post_parent' => $id,
 								)
 			);
 
-			if ( !empty( $posts ) ) {
+			if ( ! empty( $posts ) ) {
 				foreach ( $posts as $post ) {
 					$product_ids[ ] = $post->ID;
 				}
@@ -179,7 +173,7 @@ class WCV_Queries
 			AND     status != 'reversed'
 		";
 
-		if ( !empty( $args[ 'vendor_id' ] ) ) {
+		if ( ! empty( $args[ 'vendor_id' ] ) ) {
 			$sql .= "
 				AND vendor_id = {$args['vendor_id']}
 			";
@@ -204,8 +198,7 @@ class WCV_Queries
 	 *
 	 * @return object
 	 */
-	public static function sum_for_orders( array $order_ids, array $args = array(), $date_range = true )
-	{
+	public static function sum_for_orders( array $order_ids, array $args = array(), $date_range = true ) {
 		global $wpdb;
 
 		$dates = ( $date_range ) ? WCV_Queries::orders_within_range() : array();
@@ -228,14 +221,14 @@ class WCV_Queries
 			AND     status != 'reversed'
 		";
 
-		if ( !empty ( $dates ) ){ 
+		if ( ! empty ( $dates ) ) {
 			$sql .= "
 				AND     time >= '" . $dates[ 'after' ] . "'
 				AND     time <= '" . $dates[ 'before' ] . "'
 			"; 
 		}
 
-		if ( !empty( $args[ 'vendor_id' ] ) ) {
+		if ( ! empty( $args[ 'vendor_id' ] ) ) {
 			$sql .= "
 				AND vendor_id = {$args['vendor_id']}
 			";
@@ -257,19 +250,18 @@ class WCV_Queries
 	 *
 	 * @return array
 	 */
-	public static function orders_within_range()
-	{
+	public static function orders_within_range() {
 		global $start_date, $end_date;
 
-		$start_date = !empty( $_SESSION[ 'PV_Session' ][ 'start_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
-		$end_date   = !empty( $_SESSION[ 'PV_Session' ][ 'end_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
+		$start_date = ! empty( $_SESSION[ 'PV_Session' ][ 'start_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
+		$end_date   = ! empty( $_SESSION[ 'PV_Session' ][ 'end_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
 
-		if ( !empty( $_POST[ 'start_date' ] ) ) {
+		if ( ! empty( $_POST[ 'start_date' ] ) ) {
 			$start_date                               = strtotime( $_POST[ 'start_date' ] );
 			$_SESSION[ 'PV_Session' ][ 'start_date' ] = $start_date;
 		}
 
-		if ( !empty( $_POST[ 'end_date' ] ) ) {
+		if ( ! empty( $_POST[ 'end_date' ] ) ) {
 			$end_date                               = strtotime( $_POST[ 'end_date' ] );
 			$_SESSION[ 'PV_Session' ][ 'end_date' ] = $end_date;
 		}
