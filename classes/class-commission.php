@@ -360,6 +360,7 @@ class WCV_Commission
 		}
 
 		foreach ( $orders as $key => $order ) {
+
 			$where  = array(
 				'order_id'   => $order[ 'order_id' ],
 				'product_id' => $order[ 'product_id' ],
@@ -370,8 +371,9 @@ class WCV_Commission
 			$count = WCV_Commission::check_commission_status( $order, 'paid' );
 
 			if ( $count == 0 ) {
-				$update = $wpdb->update( $table, $order, $where );
-				if ( !$update ) $insert = $wpdb->insert( $table, $order );
+				$format = array("%d", "%d", "%d", "%f", "%d", "%f", "%f", "%s", "%s");
+				$update = $wpdb->update( $table, $order, $where, $format  );
+				if ( !$update ) $insert = $wpdb->insert( $table, $order,  $format );
 			}
 
 		}
