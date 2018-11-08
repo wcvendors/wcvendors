@@ -21,7 +21,8 @@ class WCV_Commission
 		add_action( 'init', array( $this, 'check_order_reverse' ) );
 
 		// Reverse the commission if the order is deleted
-		add_action( 'delete_post', array( $this, 'commissions_table_sync' ), 10 );
+		add_action( 'deleted_post', array( $this, 'commissions_table_sync' ), 10 );
+		add_action( 'wp_trash_post', array( $this ,'commissions_table_sync'), 10 ); 
 	}
 
 

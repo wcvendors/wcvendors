@@ -7,11 +7,11 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              2.1.1
+ * Version:              2.1.2
  * Requires at least:    4.4.0
- * Tested up to:         4.9.8
+ * Tested up to:         5.0.0
  * WC requires at least: 3.3.0
- * WC tested up to: 	 3.4.5
+ * WC tested up to: 	 3.5.0
  *
  * Text Domain:         wc-vendors
  * Domain Path:         /languages/
@@ -124,12 +124,14 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'init', 		  array( $this, 'include_init' ) );
 			add_action( 'current_screen', array( $this, 'include_assets' ) );
 
-			// Start a PHP session, if not yet started then destroy if logged in or out
-			add_action( 'init', 		array( $this, 'init_session'), 1 );
-			add_action( 'wp_logout', 	array( $this, 'destroy_session') );
-			add_action( 'wp_login', 	array( $this, 'destroy_session') );
+			// // Start a PHP session, if not yet started then destroy if logged in or out
+			if ( ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' ) && ! defined( 'REST_REQUEST' ) ) {
+				add_action( 'init', 		array( $this, 'init_session'), 1 );
+				add_action( 'wp_logout', 	array( $this, 'destroy_session') );
+				add_action( 'wp_login', 	array( $this, 'destroy_session') );
+			}
 
-			// Legacy settings
+			// // Legacy settings
 			add_action( 'admin_init', 	array( 'WCVendors_Install', 'check_pro_version' ) );
 			add_action( 'plugins_loaded', array( $this, 'load_legacy_settings' ) );
 
@@ -225,7 +227,8 @@ if ( wcv_is_woocommerce_activated() ) {
 		}
 
 		public function load_il8n() {
-		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wc-vendors' );
+			$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
+		    $locale = apply_filters( 'plugin_locale', $locale, 'wc-vendors' );
 		    load_textdomain( 'wc-vendors', WP_LANG_DIR.'/wc-vendors/wc-vendors-'.$locale.'.mo');
 			load_plugin_textdomain( 'wc-vendors', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
 
@@ -250,7 +253,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			if ( is_admin() ) {
 
 				include_once( wcv_plugin_dir . 'classes/class-install.php' );
-				// include_once( wcv_plugin_dir . 'classes/admin/emails/class-emails.php');
 				include_once( wcv_plugin_dir . 'classes/admin/class-vendor-applicants.php');
 				include_once( wcv_plugin_dir . 'classes/admin/class-admin-reports.php');
 				include_once( wcv_plugin_dir . 'classes/admin/class-wcv-commissions-page.php');
