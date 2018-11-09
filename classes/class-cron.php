@@ -12,11 +12,10 @@ class WCV_Cron {
 	/**
 	 * Constructor
 	 */
-	function __construct()
-	{
-		add_filter( 'cron_schedules', 						array( 'WCV_Cron', 'custom_cron_intervals' ) );
-		add_action( 'wcvendors_settings_save_payments', 	array( 'WCV_Cron', 'check_schedule' ) );
-		add_filter( 'wcvendors_admin_settings_sanitize_option_wcvendors_payments_paypal_schedule', 	array( 'WCV_Cron', 'check_schedule_now') );
+	function __construct() {
+		add_filter( 'cron_schedules',                   array( 'WCV_Cron', 'custom_cron_intervals' ) );
+		add_action( 'wcvendors_settings_save_payments', array( 'WCV_Cron', 'check_schedule' ) );
+		add_filter( 'wcvendors_admin_settings_sanitize_option_wcvendors_payments_paypal_schedule', 	array( 'WCV_Cron', 'check_schedule_now' ) );
 		// add_filter( WC_Vendors::$id . '_options_on_update', array( 'WCV_Cron', 'check_schedule_now' ) );
 
 
@@ -32,7 +31,7 @@ class WCV_Cron {
 	public static function check_schedule() {
 
 		$old_interval = wp_get_schedule( 'pv_schedule_mass_payments' );
-		$new_interval = wc_string_to_bool( get_option( 'wcvendors_payments_paypal_schedule', '') );
+		$new_interval = wc_string_to_bool( get_option( 'wcvendors_payments_paypal_schedule', '' ) );
 		$instapay     = wc_string_to_bool( get_option( 'wcvendors_payments_paypal_instantpay_enable', 'no' ) );
 
 		/**
@@ -40,12 +39,12 @@ class WCV_Cron {
 		 * 2. Instapay is turned off
 		 * 3. Manual was not selected
 		 */
-		if ( ( $old_interval != $new_interval ) && !$instapay && $new_interval != 'manual' ) {
+		if ( ( $old_interval != $new_interval ) && ! $instapay && 'manual' != $new_interval ) {
 			WCV_Cron::remove_cron_schedule();
 			WCV_Cron::schedule_cron( $new_interval );
 		}
 
-		if ( $new_interval == 'manual' || $instapay ) {
+		if ( 'manual' == $new_interval || $instapay ) {
 			WCV_Cron::remove_cron_schedule( );
 		}
 
@@ -63,7 +62,7 @@ class WCV_Cron {
 
 		$old_schedule = get_option( 'wcvendors_payments_paypal_schedule' );
 
-		if ( $new_schedule == 'now' ) {
+		if ( 'now' == $new_schedule ) {
 			$return                = WCV_Cron::pay_now();
 			$options[ 'schedule' ] = $old_schedule;
 			WCV_Cron::schedule_cron( $old_schedule );
@@ -79,12 +78,11 @@ class WCV_Cron {
 	 *
 	 * @return array
 	 */
-	public static function pay_now()
-	{
+	public static function pay_now() {
 		$mass_pay = new WCV_Mass_Pay;
 		$mass_pay = $mass_pay->do_payments();
 
-		$message = !empty( $mass_pay[ 'total' ] )
+		$message = ! empty( $mass_pay[ 'total' ] )
 			? $mass_pay[ 'msg' ] . '<br/>' . sprintf( __( 'Payment total: %s', 'wc-vendors' ), wc_price( $mass_pay[ 'total' ] ) )
 			: $mass_pay[ 'msg' ];
 
@@ -100,8 +98,7 @@ class WCV_Cron {
 	 *
 	 * @return bool
 	 */
-	public static function remove_cron_schedule()
-	{
+	public static function remove_cron_schedule() {
 		$timestamp = wp_next_scheduled( 'pv_schedule_mass_payments' );
 
 		return wp_unschedule_event( $timestamp, 'pv_schedule_mass_payments' );
@@ -115,13 +112,12 @@ class WCV_Cron {
 	 *
 	 * @return bool
 	 */
-	public static function schedule_cron( $interval )
-	{
+	public static function schedule_cron( $interval ) {
 		// Scheduled event
 		add_action( 'pv_schedule_mass_payments', array( 'WCV_Cron', 'pay_now' ) );
 
 		// Schedule the event
-		if ( !wp_next_scheduled( 'pv_schedule_mass_payments' ) ) {
+		if ( ! wp_next_scheduled( 'pv_schedule_mass_payments' ) ) {
 			wp_schedule_event( time(), $interval, 'pv_schedule_mass_payments' );
 
 			return true;
@@ -142,8 +138,7 @@ class WCV_Cron {
 	 *
 	 * @return array
 	 */
-	public static function custom_cron_intervals( $schedules )
-	{
+	public static function custom_cron_intervals( $schedules ) {
 
 		$schedules[ 'daily' ] = array(
 			'interval' => 86400,
