@@ -40,13 +40,13 @@ class WCVendors_Install {
 	 */
 	public static function init() {
 
-		add_action( 'init', 										array( __CLASS__, 'check_version' ) );
-		add_action( 'admin_init', 									array( __CLASS__, 'check_pro_version' ) );
-		add_action( 'init', 										array( __CLASS__, 'init_background_updater' ), 5 );
-		add_action( 'admin_init', 									array( __CLASS__, 'install_actions' ) );
-		add_filter( 'plugin_row_meta', 								array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
-		add_filter( 'plugin_action_links_' . wcv_plugin_base, 		array( __CLASS__, 'plugin_action_links' ) );
-		add_action( 'wcvendors_update_options_display',		 		array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
+		add_action( 'init',                                   array( __CLASS__, 'check_version' ) );
+		add_action( 'admin_init',                             array( __CLASS__, 'check_pro_version' ) );
+		add_action( 'init',                                   array( __CLASS__, 'init_background_updater' ), 5 );
+		add_action( 'admin_init',                             array( __CLASS__, 'install_actions' ) );
+		add_filter( 'plugin_row_meta',                        array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
+		add_filter( 'plugin_action_links_' . wcv_plugin_base, array( __CLASS__, 'plugin_action_links' ) );
+		add_action( 'wcvendors_update_options_display',       array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
 
 	} // init()
 
@@ -70,11 +70,11 @@ class WCVendors_Install {
 	 */
 	public static function check_pro_version() {
 
-		if ( class_exists( 'WCVendors_Pro' ) ){
+		if ( class_exists( 'WCVendors_Pro' ) ) {
 
-			if ( version_compare( WCV_PRO_VERSION, '1.5.0', '<' ) ){
+			if ( version_compare( WCV_PRO_VERSION, '1.5.0', '<' ) ) {
 
-				if ( is_plugin_active( 'wc-vendors-pro/wcvendors-pro.php' ) ){
+				if ( is_plugin_active( 'wc-vendors-pro/wcvendors-pro.php' ) ) {
 					$notice = sprintf( __( 'WC Vendors Pro %s or below detected. WC Vendors Pro 1.5.0 is required for WC Vendors 2.0.0 and above. WC Vendors Pro has been deactivated.' ), WCV_PRO_VERSION );
 					WCVendors_Admin_Notices::add_custom_notice( 'pro_update', $notice );
 					deactivate_plugins( 'wc-vendors-pro/wcvendors-pro.php' );
@@ -155,9 +155,9 @@ class WCVendors_Install {
 		);
 
 		remove_role( 'vendor' );
-		$can_add          = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'yes' ) );
-		$can_edit         = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'yes'  ) );
-		$can_submit_live  = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'yes'  ) );
+		$can_add         = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'yes' ) );
+		$can_edit        = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'yes'  ) );
+		$can_submit_live = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'yes'  ) );
 		add_role(
 			'vendor',
 			sprintf( __( '%s', 'wc-vendors'), wcv_get_vendor_name() ) ,
@@ -302,7 +302,7 @@ class WCVendors_Install {
 		$version_one 		= get_option( 'wc_prd_vendor_options', null );
 		$updates            = self::get_db_update_callbacks();
 
-		if ( ! is_null( $version_one ) && is_null( $current_db_version ) ){
+		if ( ! is_null( $version_one ) && is_null( $current_db_version ) ) {
 			return true;
 		} else {
 			return ! is_null( $current_db_version ) && version_compare( $current_db_version, max( array_keys( $updates ) ), '<' );

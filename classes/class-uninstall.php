@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @package     WCVendors/Admin/Settings
  * @version     2.0.8
  */
-class WCVendors_Uninstall{
+class WCVendors_Uninstall {
     /**
      * Check the uninstall options and delete the data
      *
@@ -18,23 +18,23 @@ class WCVendors_Uninstall{
      * @package
      * @since 2.0.8
      */
-    public static function uninstall(){
-        if ( get_option( 'wcvendors_uninstall_delete_all_data') == 'yes' ) {
+    public static function uninstall() {
+        if ( 'yes' == get_option( 'wcvendors_uninstall_delete_all_data') ) {
             self::delete_all();
-        }else{
-            if ( get_option( 'wcvendors_uninstall_delete_custom_table') == 'yes' ) {
+        } else {
+            if ( 'yes' == get_option( 'wcvendors_uninstall_delete_custom_table') ) {
                 self::delete_table();
             }
 
-            if ( get_option( 'wcvendors_uninstall_delete_custom_pages') == 'yes' ) {
+            if ( 'yes' == get_option( 'wcvendors_uninstall_delete_custom_pages') ) {
                 self::delete_pages();
             }
 
-            if ( get_option( 'wcvendors_uninstall_delete_settings_options') == 'yes' ) {
+            if ( 'yes' == get_option( 'wcvendors_uninstall_delete_settings_options') ) {
                 self::delete_options();
             }
 
-            if ( get_option( 'wcvendors_uninstall_delete_vendor_roles') == 'yes' ) {
+            if ( 'yes' == get_option( 'wcvendors_uninstall_delete_vendor_roles') ) {
                 self::remove_roles();
             }
         }
@@ -90,7 +90,7 @@ class WCVendors_Uninstall{
         global $wpdb;
         $table_name = $wpdb->prefix . "pv_commission";
 
-        $wpdb->query("DROP TABLE $table_name");
+        $wpdb->query( "DROP TABLE $table_name" );
     }
 
     /**
