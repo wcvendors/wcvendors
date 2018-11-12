@@ -438,9 +438,13 @@ class WCV_Vendors {
 		return ( 'Vendor' === $role ) ? true : false;
 	}
 
-	/*
-	*	Is this the vendors shop archive page ?
-	*/
+	/**
+	 * Is this the vendors shop archive page or a single vendor product?
+	 *
+	 * @return boolean
+	 * @since 2.1.3
+	 * @version 2.1.3
+	 */
 	public static function is_vendor_page() {
 		global $post;
 
