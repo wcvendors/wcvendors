@@ -442,11 +442,16 @@ class WCV_Vendors {
 	*	Is this the vendors shop archive page ?
 	*/
 	public static function is_vendor_page() {
+		global $post;
 
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
 
-		return $vendor_id ? true : false;
+		if ( ! $vendor_id && is_a( $post, 'WC_Product' ) ) {
+			if ( self::is_vendor( $post->post_author ) ) {
+				$vendor_id = $post->post_author;
+			}
+		}
 
 	} // is_vendor_page()
 
