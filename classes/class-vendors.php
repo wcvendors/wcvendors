@@ -457,6 +457,8 @@ class WCV_Vendors {
 			}
 		}
 
+		return $vendor_id ? true : false;
+
 	} // is_vendor_page()
 
 	/*
