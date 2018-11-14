@@ -438,13 +438,24 @@ class WCV_Vendors {
 		return ( 'Vendor' === $role ) ? true : false;
 	}
 
-	/*
-	*	Is this the vendors shop archive page ?
-	*/
+	/**
+	 * Is this the vendors shop archive page or a single vendor product?
+	 *
+	 * @return boolean
+	 * @since 2.1.3
+	 * @version 2.1.3
+	 */
 	public static function is_vendor_page() {
+		global $post;
 
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
+
+		if ( ! $vendor_id && is_a( $post, 'WC_Product' ) ) {
+			if ( self::is_vendor( $post->post_author ) ) {
+				$vendor_id = $post->post_author;
+			}
+		}
 
 		return $vendor_id ? true : false;
 
