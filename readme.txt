@@ -1,6 +1,6 @@
 === WC Vendors Marketplace ===
 Contributors: digitalchild, benwcv, annawcvendors
-Tags: best marketplace, multi vendor marketplace, multi vendor, multi seller, woocommerce vendor, woocommerce marketplace, product vendors, vendor, vendors, wc multivendor, dokan, wc markpletace, commissions, commission rate, woocommerce product vendors
+Tags: best marketplace, multi vendor marketplace, multi vendor, multi seller, woocommerce vendor, woocommerce marketplace, product vendors, vendor, vendors, wc multivendor, commissions, commission rate
 Donate link: https://www.wcvendors.com/
 Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
