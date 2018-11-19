@@ -46,6 +46,7 @@ class WCVendors_Admin_Setup_Wizard {
 		if ( apply_filters( 'wcv_enable_setup_wizard', true ) && current_user_can( 'manage_woocommerce' ) ) {
 			add_action( 'admin_menu', array( $this, 'admin_menus' ) );
 			add_action( 'admin_init', array( $this, 'setup_wizard' ) );
+			add_action( 'admin_head', array( $this, 'hide_setup_wizard' ) );
 		}
 	}
 
@@ -54,6 +55,13 @@ class WCVendors_Admin_Setup_Wizard {
 	 */
 	public function admin_menus() {
 		add_dashboard_page( '', '', 'manage_options', 'wcv-setup', '' );
+	}
+
+	/**
+	 * Hide the setup wizard menu item. 
+	 */
+	public function hide_setup_wizard() {
+			    remove_submenu_page( 'index.php', 'wcv-setup' );
 	}
 
 	/**
