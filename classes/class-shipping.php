@@ -147,23 +147,38 @@ class WCV_Shipping {
 	/**
 	* Calculate the shipping tax due for the product
 	*
+	* @version 2.1.3
 	*/
-	public static function calculate_shipping_tax( $shipping_amount, $order, $tax_class = '' ) {
+	public static function calculate_shipping_tax( $shipping_amount, $order = '', $tax_class = '' ) {
 
 		$tax_based_on 		= get_option( 'woocommerce_tax_based_on' );
 		$wc_tax_enabled 	= get_option( 'woocommerce_calc_taxes' );
 
-		$shipping_city 		= $order->get_shipping_city();
-		$shipping_country 	= $order->get_shipping_country();
-		$shipping_state 	= $order->get_shipping_state();
-		$shipping_postcode 	= $order->get_shipping_postcode();
-		$billing_city 		= $order->get_billing_city();
-		$billing_country 	= $order->get_billing_country();
-		$billing_state 		= $order->get_billing_state();
-		$billing_postcode 	= $order->get_billing_postcode();
+		if ( '' == $order ) {
+			$location = WC_Geolocation::geolocate_ip();
+
+			$shipping_city 		= '';
+			$shipping_country 	= $location[ 'country' ];
+			$shipping_state 	= $location[ 'state' ];
+			$shipping_postcode 	= '';
+			$billing_city 		= '';
+			$billing_country 	= $location[ 'country' ];
+			$billing_state 		= $location[ 'state' ];
+			$billing_postcode 	= '';
+		}
+		else{
+			$shipping_city 		= $order->get_shipping_city();
+			$shipping_country 	= $order->get_shipping_country();
+			$shipping_state 	= $order->get_shipping_state();
+			$shipping_postcode 	= $order->get_shipping_postcode();
+			$billing_city 		= $order->get_billing_city();
+			$billing_country 	= $order->get_billing_country();
+			$billing_state 		= $order->get_billing_state();
+			$billing_postcode 	= $order->get_billing_postcode();
+		}
 
 		$woocommerce_shipping_tax_class = get_option( 'woocommerce_shipping_tax_class' );
-		$tax_class                      = ( 'inherit' === $woocommerce_shipping_tax_class ) ? $tax_class : $woocommerce_shipping_tax_class;
+		$tax_class = ( 'inherit' === $woocommerce_shipping_tax_class ) ? $tax_class : $woocommerce_shipping_tax_class;
 
 
 		// if taxes aren't enabled don't calculate them
@@ -196,7 +211,7 @@ class WCV_Shipping {
 		// Now calculate shipping tax
         $matched_tax_rates = array();
 
-        $tax_rates = WC_Tax::find_rates( array(
+        $tax_rates         = WC_Tax::find_rates( array(
             'country'   => $country,
             'state'     => $state,
             'postcode'  => $postcode,
