@@ -115,10 +115,11 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 	 *
 	 * @access public
 	 * @return string
+	 * @version 2.1.3
 	 */
 	public function get_content_html() {
 
-		return wc_get_template_html( $this->template_html, array(
+		return apply_filters( 'wcv_vendor_notify_order_get_content_html', wc_get_template_html( $this->template_html, array(
 			'order'         	=> $this->object,
 			'vendor_id'			=> $this->vendor_id,
 			'vendor_items'		=> $this->order_items,
@@ -128,7 +129,7 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 			'sent_to_vendor'	=> true,
 			'plain_text'    	=> false,
 			'email'				=> $this,
-		), 'woocommerce', $this->template_base );
+		), 'woocommerce', $this->template_base ), $this );
 	}
 
 	/**
@@ -136,9 +137,10 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 	 *
 	 * @access public
 	 * @return string
+	 * @version 2.1.3
 	 */
 	public function get_content_plain() {
-		return wc_get_template_html( $this->template_plain, array(
+		return apply_filters( 'wcv_vendor_notify_order_get_content_plain', wc_get_template_html( $this->template_plain, array(
 			'order'         	=> $this->object,
 			'vendor_id'			=> $this->vendor_id,
 			'vendor_items'		=> $this->order_items,
@@ -148,7 +150,7 @@ class WCVendors_Vendor_Notify_Order extends WC_Email {
 			'totals_display'	=> $this->totals_display,
 			'plain_text'    	=> true,
 			'email'				=> $this,
-		), 'woocommerce', $this->template_base );
+		), 'woocommerce', $this->template_base ), $this );
 	}
 
 	/**

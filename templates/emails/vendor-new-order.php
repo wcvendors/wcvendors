@@ -34,6 +34,7 @@ $order_date 		= $order->get_date_created();
 		</tr>
 	</thead>
 	<tbody>
+		<?php do_action( 'wcv_after_vendor_new_order_items' ); ?>
 		<?php
 			echo wc_get_email_order_items( $order, array(
 				'show_sku'      => true,
@@ -42,7 +43,8 @@ $order_date 		= $order->get_date_created();
 				'plain_text'    => false,
 				'sent_to_admin' => false,
 			) );
-			?>
+		?>
+		<?php do_action( 'wcv_after_vendor_new_order_items' ); ?>
 	</tbody>
 	<tfoot>
 		<?php
