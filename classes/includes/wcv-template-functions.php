@@ -96,7 +96,7 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 		}
 
 		// Commission subtotal
-		 if ( 'commission' === $totals_display || 'both' === $totals_display ){
+		if ( 'commission' === $totals_display || 'both' === $totals_display ){
 			// Commission Subtotal
 			$total_rows[ 'commission_subtotal' ] = array(
 					'label' => __( 'Commission subtotal:', 'wc-vendors' ),
