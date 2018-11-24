@@ -7,7 +7,7 @@ Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
 Requires PHP: 5.6
 Tested up to: 5.0.0
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 License: GPLv2 or later
 
 The number one marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your WooCommerce site!
@@ -144,6 +144,15 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.3 - 24th November 2018 = 
+
+* Updated: Treat product as vendor page if product author is vendor (#505)
+* Updated: WordPress Coding Standards and general code cleanup thanks to Robert Devore
+* Fixed: Add email filters and action hooks to vendor notify order email
+* Fixed: Calculate tax without order details by geolocating user
+* Fixed: Setup wizard menu item is visible on the dashboard menu #507
+* Fixed: Commissions are calculated on integers #499
 
 = Version 2.1.2 - 22nd October 2018 =
 

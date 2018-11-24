@@ -1,5 +1,14 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.3
+
+* Updated: Treat product as vendor page if product author is vendor (#505)
+* Updated: WordPress Coding Standards and general code cleanup thanks to Robert Devore
+* Fixed: Add email filters and action hooks to vendor notify order email
+* Fixed: Calculate tax without order details by geolocating user
+* Fixed: Setup wizard menu item is visible on the dashboard menu #507
+* Fixed: Commissions are calculated on integers #499
+
 Version 2.1.2
 
 * Updated: Support for WooCommerce 3.5.0
