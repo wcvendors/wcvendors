@@ -22,13 +22,13 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
         if ( ! wc_string_to_bool( get_option( 'wcvendors_vendor_allow_registration', 'no' ) ) ) return;
 
         $show_become_a_vendor_link = wc_string_to_bool( get_option( 'wcvendors_become_a_vendor_my_account_link_visibility' ) );
-        
+
         if ( WCV_Vendors::is_vendor( get_current_user_id() ) || ! $show_become_a_vendor_link ) return;
 
         $this->terms_page = get_option( 'wcvendors_vendor_terms_page_id' );
-        add_filter( 'woocommerce_account_menu_items', array( $this, 'add_account_menu_items') );        
+        add_filter( 'woocommerce_account_menu_items', array( $this, 'add_account_menu_items') );
         add_action( 'woocommerce_account_become-a-vendor_endpoint', array( $this, 'render_vendor_signup' ) );
-        add_filter( 'query_vars', array( $this, 'query_vars'), 0 );        
+        add_filter( 'query_vars', array( $this, 'query_vars'), 0 );
         add_action( 'wcvendors_flush_rewrite_rules', 	array( $this, 'flush_rewrite_rules' ) );
     }
 
@@ -42,9 +42,9 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
      * @since
      */
     public function add_account_menu_items( $items ) {
-        $add_items = array(
+        $add_items = apply_filters( 'wcv_become_a_vendor_string', array(
             'become-a-vendor' => sprintf( __( 'Become a %s', 'wc-vendors'), wcv_get_vendor_name() )
-        );
+        ) );
         //slice the array so the logout link goes at the end of the list
         $first_part = array_slice( $items, 0, count( $items ) - 1, true);
         $last_part = array_slice( $items, count( $items ) - 1, true);
