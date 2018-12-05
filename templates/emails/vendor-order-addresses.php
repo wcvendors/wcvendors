@@ -24,7 +24,7 @@ $text_align = is_rtl() ? 'right' : 'left';
 
 				<address class="address">
 					<?php if ( $show_customer_name ) : ?>
-						<?php echo esc_html( $customer_name ); ?><br/>
+						<?php echo esc_html( $customer_billing_name ); ?><br/>
 					<?php endif; ?>
 					<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'wc-vendors' ); ?>
 					<?php if ( $show_customer_phone ) : ?>
@@ -45,7 +45,7 @@ $text_align = is_rtl() ? 'right' : 'left';
 				<td style="text-align:<?php echo $text_align; ?>; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; padding:0;" valign="top" width="50%">
 					<h2><?php _e( 'Shipping address', 'wc-vendors' ); ?></h2>
 					<?php if ( $show_customer_name ) : ?>
-						<?php echo esc_html( $customer_name ); ?>
+						<?php echo esc_html( $customer_shipping_name ); ?>
 					<?php endif; ?>
 
 					<address class="address"><?php echo $shipping; ?></address>

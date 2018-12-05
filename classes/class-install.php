@@ -22,6 +22,9 @@ class WCVendors_Install {
 		),
 		'2.1.1'	=> array(
 			'wcv_redirect_wp_registration_to_woocommerce_myaccount',
+		),
+		'2.1.4' => array(
+			'wcv_can_view_customer_shipping_name_option',
 		)
 	);
 

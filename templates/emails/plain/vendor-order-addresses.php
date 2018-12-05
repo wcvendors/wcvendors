@@ -7,15 +7,15 @@
  *
  * @author  Jamie Madden, WC Vendors
  * @package WCVendors/Templates/Emails/Plain
- * @version 2.0.5
+ * @version 2.1.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( $show_customer_name ){
-	echo  esc_html( $customer_name ). "\n";
+if ( $show_customer_billing_name ){
+	echo  esc_html( $customer_billing_name ). "\n";
 }
 
 if ( $show_shipping_address ) {
@@ -35,8 +35,8 @@ if ( $show_customer_email ) {
 }
 
 if ( $show_shipping_address ) {
-	if ( $show_customer_name ){
-		echo  esc_html( $customer_name ). "\n";
+	if ( $show_customer_shipping_name ){
+		echo  esc_html( $customer_shipping_name ). "\n";
 	}
 
 	if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) {
