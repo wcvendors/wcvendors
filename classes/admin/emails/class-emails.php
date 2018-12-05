@@ -38,7 +38,13 @@ class WCV_Emails
 		add_action( 'wcvendors_vendor_ship', 			array( $this, 'vendor_shipped' ), 10, 3 );
 		add_action( 'wcvendors_email_order_details',	array( $this, 'vendor_order_details'), 10, 8 );
 		add_action( 'wcvendors_email_customer_details',	array( $this, 'vendor_customer_details'), 10, 4 );
-		add_action( 'set_user_role', 					array( $this, 'vendor_application' ), 10, 2 );
+
+		if ( is_wcv_pro_active() ) {
+			add_action( 'wcv_pro_store_settings_saved', array( $this, 'vendor_application' ), 10, 1 );
+		}
+		else{
+			add_action( 'set_user_role', 				array( $this, 'vendor_application' ), 10, 2 );
+		}
 
 		// WooCommerce Product Enquiry Compatibility
 		add_filter( 'product_enquiry_send_to', 			array( $this, 'product_enquiry_compatibility' ), 10, 2 );
