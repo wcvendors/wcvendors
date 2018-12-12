@@ -576,13 +576,14 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 				$comment_output = '';
 
-				$show_name 				= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
+				$show_billing_name 		= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
+				$show_shipping_name 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping_name', 'no' ) );
 				$show_billing_address 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_billing', 'no' ) );
 				$show_shipping_address 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
 				$order_date 			= $order->get_date_created();
 
 				$address =  $order->get_address( 'billing' );
-				if ( ! $show_name ) {
+				if ( ! $show_billing_name ) {
 					unset( $address['first_name'] );
 					unset( $address['last_name'] );
 				}
@@ -600,7 +601,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				if ( ( get_option( 'woocommerce_ship_to_billing_address_only' ) === 'no' ) && ( $order->get_formatted_shipping_address() ) ) {
 
 			        $address =  $order->get_address( 'shipping' );
-					if ( ! $show_name ) {
+					if ( ! $show_shipping_name ) {
 						unset( $address['first_name'] );
 						unset( $address['last_name'] );
 					}

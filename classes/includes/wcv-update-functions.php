@@ -151,3 +151,14 @@ function wcv_add_terms_and_conditions_visibility_option(){
 function wcv_redirect_wp_registration_to_woocommerce_myaccount() {
 	add_option( 'wcvendors_redirect_wp_registration_to_woocommerce_myaccount', 'no' );
 }
+
+/**
+ * Add option to control customer shipping name visibility
+ *
+ * @return 	void
+ * @since	2.1.4
+ * @version	2.1.4
+ */
+function wcv_can_view_customer_shipping_name_option() {
+	add_option( 'wcvendors_capability_order_customer_shipping_name', 'yes' );
+}

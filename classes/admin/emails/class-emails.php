@@ -263,37 +263,43 @@ class WCV_Emails
 	*/
 	public function vendor_customer_details( $order, $sent_to_admin, $plain_text, $email ){
 
-		$show_customer_name 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
-		$show_customer_email   	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_email', 'no' ) );
-		$show_customer_phone   	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_phone', 'no' ) );
-		$show_billing_address 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
-		$show_shipping_address 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
-		$customer_name 			= $show_customer_name ? $order->get_formatted_billing_full_name() : '';
+		$show_customer_billing_name 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
+		$show_customer_shipping_name 	= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping_name', 'no' ) );
+		$show_customer_email   			= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_email', 'no' ) );
+		$show_customer_phone   			= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_phone', 'no' ) );
+		$show_billing_address 			= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
+		$show_shipping_address 			= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
+		$customer_billing_name 			= $show_customer_name ? $order->get_formatted_billing_full_name() : '';
+		$customer_shipping_name 		= $show_customer_name ? $order->get_formatted_shipping_full_name() : '';
 
 		if ( $plain_text ) {
 			wc_get_template(
 				'emails/plain/vendor-order-addresses.php', array(
-					'show_customer_email'	=> $show_customer_email,
-					'show_customer_phone'	=> $show_customer_phone,
-					'show_billing_address'	=> $show_billing_address,
-					'show_shipping_address'	=> $show_shipping_address,
-					'show_customer_name'	=> $show_customer_name,
-					'customer_name'			=> $customer_name,
-					'order'         		=> $order,
-					'sent_to_admin' 		=> $sent_to_admin,
+					'show_customer_email'			=> $show_customer_email,
+					'show_customer_phone'			=> $show_customer_phone,
+					'show_billing_address'			=> $show_billing_address,
+					'show_shipping_address'			=> $show_shipping_address,
+					'show_customer_billing_name'	=> $show_customer_billing_name,
+					'customer_billing_name'			=> $customer_billing_name,
+					'show_customer_shipping_name'	=> $show_customer_billing_name,
+					'customer_shipping_name'		=> $customer_shipping_name,
+					'order'         				=> $order,
+					'sent_to_admin' 				=> $sent_to_admin,
 				),
 				'woocommerce', WCV_TEMPLATE_BASE );
 		} else {
 			wc_get_template(
 				'emails/vendor-order-addresses.php', array(
-					'show_customer_email'	=> $show_customer_email,
-					'show_customer_phone'	=> $show_customer_phone,
-					'show_billing_address'	=> $show_billing_address,
-					'show_shipping_address'	=> $show_shipping_address,
-					'show_customer_name'	=> $show_customer_name,
-					'customer_name'			=> $customer_name,
-					'order'         		=> $order,
-					'sent_to_admin' 		=> $sent_to_admin,
+					'show_customer_email'			=> $show_customer_email,
+					'show_customer_phone'			=> $show_customer_phone,
+					'show_billing_address'			=> $show_billing_address,
+					'show_shipping_address'			=> $show_shipping_address,
+					'show_customer_billing_name'	=> $show_customer_billing_name,
+					'customer_billing_name'			=> $customer_billing_name,
+					'show_customer_shipping_name'	=> $show_customer_billing_name,
+					'customer_shipping_name'		=> $customer_shipping_name,
+					'order'         				=> $order,
+					'sent_to_admin' 				=> $sent_to_admin,
 				),
 				'woocommerce', WCV_TEMPLATE_BASE );
 		}
