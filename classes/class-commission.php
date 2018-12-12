@@ -366,7 +366,7 @@ class WCV_Commission
 			$count = WCV_Commission::check_commission_status( $order, 'paid' );
 
 			if ( 0 == $count ) {
-				$format = array( "%d", "%d", "%d", "%f", "%d", "%f", "%f", "%s", "%s" );
+				$format = array( "%d", "%d", "%d", "%f", "%f", "%f", "%f", "%s", "%s" );
 				$update = $wpdb->update( $table, $order, $where, $format  );
 				if ( !$update ) $insert = $wpdb->insert( $table, $order,  $format );
 			}
