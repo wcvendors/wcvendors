@@ -35,7 +35,7 @@
 	$terms_and_conditions_visibility = get_option( 'wcvendors_terms_and_conditions_visibility' );
 
 	$display = apply_filters( 'wcvendors_terms_and_conditions_visibility', wc_string_to_bool( $terms_and_conditions_visibility ) ) ? 'block': 'none';
-	
+
 	?>
 	<input type="hidden" id="terms_and_conditions_visibility" value="<?php echo $terms_and_conditions_visibility; ?>" />
 	<p class="agree-to-terms-container" style="display: <?php echo $display; ?>">
@@ -64,9 +64,11 @@
 			<?php endif; ?>
 
 			$( 'form.register').on( 'submit', function ( e ){
-				if (  jQuery('#agree_to_terms').is(':visible') && ! jQuery('#agree_to_terms').is(':checked') ) {
-					e.preventDefault();
-					alert( <?php _e( '"You must accept the terms and conditions to become a vendor."', 'wc-vendors' ); ?> );
+				if ( jQuery('#apply_for_vendor').is(':checked') ){
+					if (  jQuery('#agree_to_terms').is(':visible') && ! jQuery('#agree_to_terms').is(':checked') ) {
+						e.preventDefault();
+						alert( <?php _e( '"You must accept the terms and conditions to become a vendor."', 'wc-vendors' ); ?> );
+					}
 				}
 			} );
 
