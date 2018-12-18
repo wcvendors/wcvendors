@@ -109,12 +109,18 @@ class WCV_Vendor_Shop
 
 			$seller_info_label = get_option( 'wcvendors_display_label_store_info' );
 
+			// Run the built in WordPress oEmbed on the seller info if selected. 
+			if ( $global_html || $has_html ) {
+				$embed = new WP_Embed();
+				$seller_info = $embed->autoembed( $seller_info );
+			}
+
 			if ( !empty( $seller_info ) ) {
 
 				$seller_info = do_shortcode( $seller_info );
 				self::$seller_info = '<div class="pv_seller_info">';
 				self::$seller_info .= apply_filters('wcv_before_seller_info_tab', '');
-				self::$seller_info .= ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $seller_info ) ) ) : sanitize_text_field( $seller_info );
+				self::$seller_info .= ( $global_html || $has_html ) ? wpautop( wptexturize( $seller_info ) ) : sanitize_text_field( $seller_info );
 				self::$seller_info .= apply_filters('wcv_after_seller_info_tab', '');
 				self::$seller_info .= '</div>';
 
@@ -383,7 +389,7 @@ class WCV_Vendor_Shop
 	/**
 	 * Redirect users to mu-account page after logout
 	 *
-	 * @return void 
+	 * @return void
 	 * @since 2.1.1
 	 */
 	public function redirect_after_logout(){
