@@ -109,7 +109,7 @@ class WCV_Vendor_Shop
 
 			$seller_info_label = get_option( 'wcvendors_display_label_store_info' );
 
-			// Run the built in WordPress oEmbed on the seller info if selected. 
+			// Run the built in WordPress oEmbed on the seller info if html is enabled.
 			if ( $global_html || $has_html ) {
 				$embed = new WP_Embed();
 				$seller_info = $embed->autoembed( $seller_info );
