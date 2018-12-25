@@ -21,18 +21,18 @@ $paged = filter_input( INPUT_GET, 'paged', FILTER_SANITIZE_NUMBER_INT );
 
 	<div id="icon-woocommerce" class="icon32 icon32-woocommerce-reports"><br/></div>
 	<h2><?php _e( 'Commission', 'wc-vendors' ); ?></h2>
-		<form id="posts-filter" method="get">
+	<form id="posts-filter" method="get">
 
-			<?php printf( '<input type="hidden" name="page" value="%s" />', $page ); ?>
-			<?php printf( '<input type="hidden" name="paged" value="%d" />', $paged ); ?>
+		<?php printf( '<input type="hidden" name="page" value="%s" />', $page ); ?>
+		<?php printf( '<input type="hidden" name="paged" value="%d" />', $paged ); ?>
 
-			<input type="hidden" name="page" value="wcv-commissions"/>
+		<input type="hidden" name="page" value="wcv-commissions"/>
 
-			<?php $this->commissions_table->prepare_items(); ?>
-			<?php $this->commissions_table->views(); ?>
-			<?php $this->commissions_table->display(); ?>
+		<?php $this->commissions_table->prepare_items(); ?>
+		<?php $this->commissions_table->views(); ?>
+		<?php $this->commissions_table->display(); ?>
 
-		</form>
+	</form>
 	<div id="ajax-response"></div>
 
 	<br class="clear"/>

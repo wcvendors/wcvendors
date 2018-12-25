@@ -18,7 +18,8 @@ if ( ! $tab_exists ) {
 }
 ?>
 <div class="wrap wcvendors">
-	<form method="<?php echo esc_attr( apply_filters( 'wcvendors_settings_form_method_tab_' . $current_tab, 'post' ) ); ?>" id="mainform" action="" enctype="multipart/form-data">
+	<form method="<?php echo esc_attr( apply_filters( 'wcvendors_settings_form_method_tab_' . $current_tab, 'post' ) ); ?>"
+	      id="mainform" action="" enctype="multipart/form-data">
 		<nav class="nav-tab-wrapper wcv-nav-tab-wrapper">
 			<?php
 
@@ -32,13 +33,14 @@ if ( ! $tab_exists ) {
 		</nav>
 		<h1 class="screen-reader-text"><?php echo esc_html( $current_tab_label ); ?></h1>
 		<?php
-			do_action( 'wcvendors_sections_' . $current_tab );
-			self::show_messages();
-			do_action( 'wcvendors_settings_' . $current_tab );
+		do_action( 'wcvendors_sections_' . $current_tab );
+		self::show_messages();
+		do_action( 'wcvendors_settings_' . $current_tab );
 		?>
 		<p class="submit">
 			<?php if ( empty( $GLOBALS['hide_save_button'] ) ) : ?>
-				<button name="save" class="button-primary wcvendors-save-button" type="submit" value="<?php esc_attr_e( 'Save changes', 'wcvendors' ); ?>"><?php esc_html_e( 'Save changes', 'wcvendors' ); ?></button>
+				<button name="save" class="button-primary wcvendors-save-button" type="submit"
+				        value="<?php esc_attr_e( 'Save changes', 'wcvendors' ); ?>"><?php esc_html_e( 'Save changes', 'wcvendors' ); ?></button>
 			<?php endif; ?>
 			<?php wp_nonce_field( 'wcvendors-settings' ); ?>
 		</p>

@@ -8,16 +8,17 @@
  */
 
 
-class WCV_Admin_Users
-{
+class WCV_Admin_Users {
 
 
 	/**
 	 * Constructor
 	 */
-	function __construct()
-	{
-		if ( !is_admin() ) return;
+	function __construct() {
+
+		if ( ! is_admin() ) {
+			return;
+		}
 
 		add_action( 'edit_user_profile', array( $this, 'show_extra_profile_fields' ) );
 		add_action( 'edit_user_profile_update', array( $this, 'save_extra_profile_fields' ) );
@@ -27,7 +28,12 @@ class WCV_Admin_Users
 		// Disabling non-vendor related items on the admin screens
 		if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			add_filter( 'woocommerce_csv_product_role', array( $this, 'csv_import_suite_compatibility' ) );
-			add_filter( 'woocommerce_csv_product_export_args', array( $this, 'csv_import_suite_compatibility_export' ) );
+			add_filter(
+				'woocommerce_csv_product_export_args', array(
+					$this,
+					'csv_import_suite_compatibility_export',
+				)
+			);
 
 			// Admin page lockdown
 			remove_action( 'admin_init', 'woocommerce_prevent_admin_access' );
@@ -42,7 +48,7 @@ class WCV_Admin_Users
 
 			// Filter user attachments so they only see their own attachements
 			add_action( 'ajax_query_attachments_args', array( $this, 'show_user_attachment_ajax' ) );
-		 	add_filter( 'parse_query', array( $this, 'show_user_attachment_page' ) );
+			add_filter( 'parse_query', array( $this, 'show_user_attachment_page' ) );
 
 			add_action( 'admin_menu', array( $this, 'remove_menu_page' ), 99 );
 			add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 99 );
@@ -55,17 +61,17 @@ class WCV_Admin_Users
 			add_filter( 'woocommerce_duplicate_product_capability', array( $this, 'add_duplicate_capability' ) );
 
 			// WC > Product featured
-			add_filter( 'manage_product_posts_columns', array( $this, 'manage_product_columns'), 99);
+			add_filter( 'manage_product_posts_columns', array( $this, 'manage_product_columns' ), 99 );
 
-			//Check allowed product types and hide controls
+			// Check allowed product types and hide controls
 			add_filter( 'product_type_options', array( $this, 'check_allowed_product_type_options' ) );
 
 		}
 
 	}
 
-	public function confirm_access_to_add()
-	{
+	public function confirm_access_to_add() {
+
 		if ( empty( $_GET['post_type'] ) || $_GET['post_type'] != 'product' ) {
 			return;
 		}
@@ -77,14 +83,14 @@ class WCV_Admin_Users
 		}
 	}
 
-	public function csv_import_suite_compatibility( $capability )
-	{
+	public function csv_import_suite_compatibility( $capability ) {
+
 		return 'manage_product';
 	}
 
-	public function csv_import_suite_compatibility_export( $args )
-	{
-		$args[ 'author' ] = get_current_user_id();
+	public function csv_import_suite_compatibility_export( $args ) {
+
+		$args['author'] = get_current_user_id();
 
 		return $args;
 	}
@@ -92,10 +98,12 @@ class WCV_Admin_Users
 	/*
 	* Enable/disable duplicate product
 	*/
-	public function add_duplicate_capability( $capability ){
+	public function add_duplicate_capability( $capability ) {
+
 		if ( wc_string_to_bool( get_option( 'wcvendors_capability_product_duplicate', 'no' ) ) ) {
 			return 'manage_product';
 		}
+
 		return $capability;
 	}
 
@@ -107,29 +115,32 @@ class WCV_Admin_Users
 	 *
 	 * @return unknown
 	 */
-	public function show_pending_number( $menu )
-	{
+	public function show_pending_number( $menu ) {
 
 		$args = array(
-			'post_type' 		=> 'product',
-			'author'			=> get_current_user_id(),
-			'post_status'		=> 'pending'
+			'post_type'   => 'product',
+			'author'      => get_current_user_id(),
+			'post_status' => 'pending',
 		);
 
-		if (!WCV_Vendors::is_vendor( get_current_user_id() ) ) unset( $args['author'] );
+		if ( ! WCV_Vendors::is_vendor( get_current_user_id() ) ) {
+			unset( $args['author'] );
+		}
 
 		$pending_posts = get_posts( $args );
 
 		$pending_count = is_array( $pending_posts ) ? count( $pending_posts ) : 0;
 
-		$menu_str      = 'edit.php?post_type=product';
+		$menu_str = 'edit.php?post_type=product';
 
 		foreach ( $menu as $menu_key => $menu_data ) {
 
-			if ( $menu_str != $menu_data[ 2 ] ) continue;
+			if ( $menu_str != $menu_data[2] ) {
+				continue;
+			}
 
-			if ($pending_count > 0 ) {
-				$menu[ $menu_key ][ 0 ] .= " <span class='update-plugins counting-$pending_count'><span class='plugin-count'>" . number_format_i18n( $pending_count ) . '</span></span>';
+			if ( $pending_count > 0 ) {
+				$menu[ $menu_key ][0] .= " <span class='update-plugins counting-$pending_count'><span class='plugin-count'>" . number_format_i18n( $pending_count ) . '</span></span>';
 			}
 		}
 
@@ -146,26 +157,28 @@ class WCV_Admin_Users
 	 */
 	function filter_product_types( $types ) {
 
-		$product_types = ( array ) get_option( 'wcvendors_capability_product_types', array() );
+		$product_types = (array) get_option( 'wcvendors_capability_product_types', array() );
 		$product_misc  = array(
-			'taxes' 	=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_taxes', 'no' ) ) ,
-			'sku' 		=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_sku', 'no' ) ) ,
-			'duplicate' =>  wc_string_to_bool( get_option( 'wcvendors_capability_product_duplicate', 'no' ) ) ,
-			'delete' 	=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_delete', 'no' ) ) ,
-			'featured' 	=>  wc_string_to_bool( get_option( 'wcvendors_capability_product_featured', 'no' )  ) ,
+			'taxes'     => wc_string_to_bool( get_option( 'wcvendors_capability_product_taxes', 'no' ) ),
+			'sku'       => wc_string_to_bool( get_option( 'wcvendors_capability_product_sku', 'no' ) ),
+			'duplicate' => wc_string_to_bool( get_option( 'wcvendors_capability_product_duplicate', 'no' ) ),
+			'delete'    => wc_string_to_bool( get_option( 'wcvendors_capability_product_delete', 'no' ) ),
+			'featured'  => wc_string_to_bool( get_option( 'wcvendors_capability_product_featured', 'no' ) ),
 		);
 
 		// Add any custom css
-		$css           =  get_option( 'wcvendors_display_advanced_stylesheet' );
+		$css = get_option( 'wcvendors_display_advanced_stylesheet' );
 		// Filter taxes
-		if ( !empty( $product_misc[ 'taxes' ] ) ) {
+		if ( ! empty( $product_misc['taxes'] ) ) {
 			$css .= '.form-field._tax_status_field, .form-field._tax_class_field{display:none !important;}';
 		}
-		unset( $product_misc[ 'taxes' ] );
+		unset( $product_misc['taxes'] );
 
 		// Filter the rest of the fields
 		foreach ( $product_misc as $key => $value ) {
-			if ( $value ) $css .= sprintf( '._%s_field{display:none !important;}', $key );
+			if ( $value ) {
+				$css .= sprintf( '._%s_field{display:none !important;}', $key );
+			}
 		}
 
 		echo '<style>';
@@ -174,7 +187,7 @@ class WCV_Admin_Users
 
 		// Filter product type drop down
 		foreach ( $types as $key => $value ) {
-			if ( in_array( $key, $product_types ) ){
+			if ( in_array( $key, $product_types ) ) {
 				unset( $types[ $key ] );
 			}
 		}
@@ -184,16 +197,19 @@ class WCV_Admin_Users
 
 	/**
 	 * Filter the product meta tabs in wp-admin
+	 *
 	 * @since 1.9.0
 	 */
-	function filter_product_data_tabs( $tabs ){
+	function filter_product_data_tabs( $tabs ) {
 
 		$product_panel = get_option( 'wcvendors_capability_product_data_tabs', array() );
 
-		if ( !$product_panel ) return $tabs;
+		if ( ! $product_panel ) {
+			return $tabs;
+		}
 
-		foreach ( $tabs as $key => $value ){
-			if ( in_array($key, $product_panel ) ){
+		foreach ( $tabs as $key => $value ) {
+			if ( in_array( $key, $product_panel ) ) {
 				unset( $tabs[ $key ] );
 			}
 		}
@@ -210,14 +226,16 @@ class WCV_Admin_Users
 	 *
 	 * @return unknown
 	 */
-	function filter_product_type_options( $types )
-	{
+	function filter_product_type_options( $types ) {
+
 		$product_options = get_option( 'wcvendors_capability_product_type_options', array() );
 
-		if ( !$product_options ) return $types;
+		if ( ! $product_options ) {
+			return $types;
+		}
 
 		foreach ( $types as $key => $value ) {
-			if ( !empty( $product_options[ $key ] ) ) {
+			if ( ! empty( $product_options[ $key ] ) ) {
 				unset( $types[ $key ] );
 			}
 		}
@@ -231,13 +249,14 @@ class WCV_Admin_Users
 	 *
 	 * @param object $query
 	 */
-	function show_user_attachment_ajax ( $query ) {
+	function show_user_attachment_ajax( $query ) {
 
-		 $user_id = get_current_user_id();
-		    if ( $user_id ) {
-		        $query['author'] = $user_id;
-		    }
-		    return $query;
+		$user_id = get_current_user_id();
+		if ( $user_id ) {
+			$query['author'] = $user_id;
+		}
+
+		return $query;
 	}
 
 	/**
@@ -245,37 +264,40 @@ class WCV_Admin_Users
 	 *
 	 * @param object $query
 	 */
-	function show_user_attachment_page ( $query ) {
+	function show_user_attachment_page( $query ) {
 
 		global $current_user, $pagenow;
 
-	    if ( !is_a( $current_user, 'WP_User') )
-	        return;
+		if ( ! is_a( $current_user, 'WP_User' ) ) {
+			return;
+		}
 
-	    if ( 'upload.php' != $pagenow && 'media-upload.php' != $pagenow)
-	        return;
+		if ( 'upload.php' != $pagenow && 'media-upload.php' != $pagenow ) {
+			return;
+		}
 
-	    if ( !current_user_can('delete_pages') )
-	        $query->set('author', $current_user->ID );
+		if ( ! current_user_can( 'delete_pages' ) ) {
+			$query->set( 'author', $current_user->ID );
+		}
 
-	    return;
+		return;
 	}
 
 	/**
 	 * Allow vendors to access admin when disabled
 	 */
-	public function prevent_admin_access()
-	{
+	public function prevent_admin_access() {
+
 		$permitted_user = ( current_user_can( 'edit_posts' ) || current_user_can( 'manage_woocommerce' ) || current_user_can( 'vendor' ) );
 
-		if ( get_option( 'woocommerce_lock_down_admin' ) == 'yes' && !is_ajax() && !$permitted_user ) {
+		if ( get_option( 'woocommerce_lock_down_admin' ) == 'yes' && ! is_ajax() && ! $permitted_user ) {
 			wp_safe_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ) );
 			exit;
 		}
 	}
 
-	public function deny_admin_access()
-	{
+	public function deny_admin_access() {
+
 		return false;
 	}
 
@@ -283,8 +305,8 @@ class WCV_Admin_Users
 	/**
 	 * Request when load-edit.php
 	 */
-	public function edit_nonvendors()
-	{
+	public function edit_nonvendors() {
+
 		add_action( 'request', array( $this, 'hide_nonvendor_products' ) );
 	}
 
@@ -296,8 +318,8 @@ class WCV_Admin_Users
 	 *
 	 * @return array
 	 */
-	public function hide_nonvendor_links( $views )
-	{
+	public function hide_nonvendor_links( $views ) {
+
 		return array();
 	}
 
@@ -309,10 +331,10 @@ class WCV_Admin_Users
 	 *
 	 * @return array
 	 */
-	public function hide_nonvendor_products( $query_vars )
-	{
-		if (array_key_exists('post_type', $query_vars) && ($query_vars['post_type'] == 'product')) {
-			$query_vars[ 'author' ] = get_current_user_id();
+	public function hide_nonvendor_products( $query_vars ) {
+
+		if ( array_key_exists( 'post_type', $query_vars ) && ( $query_vars['post_type'] == 'product' ) ) {
+			$query_vars['author'] = get_current_user_id();
 		}
 
 		return $query_vars;
@@ -322,7 +344,8 @@ class WCV_Admin_Users
 	/**
 	 * Remove the media library menu
 	 */
-	public function remove_menu_page(){
+	public function remove_menu_page() {
+
 		global $pagenow;
 
 		remove_menu_page( 'index.php' ); /* Hides Dashboard menu */
@@ -333,7 +356,7 @@ class WCV_Admin_Users
 
 		if ( ! $can_submit ) {
 			global $submenu;
-	   		unset($submenu['edit.php?post_type=product'][10]);
+			unset( $submenu['edit.php?post_type=product'][10] );
 		}
 
 		if ( $pagenow == 'index.php' ) {
@@ -345,8 +368,8 @@ class WCV_Admin_Users
 	/**
 	 *
 	 */
-	public function remove_meta_boxes()
-	{
+	public function remove_meta_boxes() {
+
 		remove_meta_box( 'postcustom', 'product', 'normal' );
 		remove_meta_box( 'wpseo_meta', 'product', 'normal' );
 		remove_meta_box( 'expirationdatediv', 'product', 'side' );
@@ -360,25 +383,34 @@ class WCV_Admin_Users
 	 *
 	 * @return bool
 	 */
-	public function save_extra_profile_fields( $vendor_id )
-	{
-		if ( !current_user_can( 'edit_user', $vendor_id ) ) return false;
+	public function save_extra_profile_fields( $vendor_id ) {
 
-		if ( ! WCV_Vendors::is_pending( $vendor_id ) && ! WCV_Vendors::is_vendor(  $vendor_id ) ) { return; }
-
-		$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
-		if ( empty( $users ) || $users[ 0 ]->ID == $vendor_id ) {
-			update_user_meta( $vendor_id, 'pv_shop_name', $_POST[ 'pv_shop_name' ] );
-			update_user_meta( $vendor_id, 'pv_shop_slug', sanitize_title( $_POST[ 'pv_shop_name' ] ) );
+		if ( ! current_user_can( 'edit_user', $vendor_id ) ) {
+			return false;
 		}
 
-		update_user_meta( $vendor_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
-		update_user_meta( $vendor_id, 'pv_shop_html_enabled', isset( $_POST[ 'pv_shop_html_enabled' ] ) );
-		update_user_meta( $vendor_id, 'pv_custom_commission_rate', $_POST[ 'pv_custom_commission_rate' ] );
-		update_user_meta( $vendor_id, 'pv_shop_description', $_POST[ 'pv_shop_description' ] );
-		update_user_meta( $vendor_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
-		update_user_meta( $vendor_id, 'wcv_give_vendor_tax', isset( $_POST[ 'wcv_give_vendor_tax' ] ) );
-		update_user_meta( $vendor_id, 'wcv_give_vendor_shipping', isset( $_POST[ 'wcv_give_vendor_shipping' ] ) );
+		if ( ! WCV_Vendors::is_pending( $vendor_id ) && ! WCV_Vendors::is_vendor( $vendor_id ) ) {
+			return;
+		}
+
+		$users = get_users(
+			array(
+				'meta_key'   => 'pv_shop_slug',
+				'meta_value' => sanitize_title( $_POST['pv_shop_name'] ),
+			)
+		);
+		if ( empty( $users ) || $users[0]->ID == $vendor_id ) {
+			update_user_meta( $vendor_id, 'pv_shop_name', $_POST['pv_shop_name'] );
+			update_user_meta( $vendor_id, 'pv_shop_slug', sanitize_title( $_POST['pv_shop_name'] ) );
+		}
+
+		update_user_meta( $vendor_id, 'pv_paypal', $_POST['pv_paypal'] );
+		update_user_meta( $vendor_id, 'pv_shop_html_enabled', isset( $_POST['pv_shop_html_enabled'] ) );
+		update_user_meta( $vendor_id, 'pv_custom_commission_rate', $_POST['pv_custom_commission_rate'] );
+		update_user_meta( $vendor_id, 'pv_shop_description', $_POST['pv_shop_description'] );
+		update_user_meta( $vendor_id, 'pv_seller_info', $_POST['pv_seller_info'] );
+		update_user_meta( $vendor_id, 'wcv_give_vendor_tax', isset( $_POST['wcv_give_vendor_tax'] ) );
+		update_user_meta( $vendor_id, 'wcv_give_vendor_shipping', isset( $_POST['wcv_give_vendor_shipping'] ) );
 
 		// Bank details
 		update_user_meta( $vendor_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
@@ -403,24 +435,23 @@ class WCV_Admin_Users
 			return;
 		}
 
-		include( apply_filters( 'wcvendors_vendor_meta_partial', WCV_ABSPATH_ADMIN . 'views/html-vendor-meta.php' ) );
+		include apply_filters( 'wcvendors_vendor_meta_partial', WCV_ABSPATH_ADMIN . 'views/html-vendor-meta.php' );
 	}
 
 	/*
 		Manage product columns on product page
 	*/
-	public function manage_product_columns( $columns ){
+	public function manage_product_columns( $columns ) {
 
 		// Featured Product
 		if ( 'yes' !== get_option( 'wcvendors_capability_product_featured', 'no' ) ) {
-			unset($columns['featured']);
+			unset( $columns['featured'] );
 		}
 
 		// SKU
-		if ( wc_string_to_bool( get_option( 'wcvendors_capability_product_sku', 'no' ) ) ){
-			unset($columns['sku']);
+		if ( wc_string_to_bool( get_option( 'wcvendors_capability_product_sku', 'no' ) ) ) {
+			unset( $columns['sku'] );
 		}
-
 
 		return $columns;
 	}
@@ -429,19 +460,20 @@ class WCV_Admin_Users
 	 * Hide the virtual or downloadable product types if hidden in settings
 	 *
 	 * @param array $type_options - the product types
+	 *
 	 * @return void
 	 *
 	 * @since 2.1.1
 	 */
-	public static function check_allowed_product_type_options( $type_options ){
+	public static function check_allowed_product_type_options( $type_options ) {
 
-        $product_types = get_option( 'wcvendors_capability_product_type_options', array() );
+		$product_types = get_option( 'wcvendors_capability_product_type_options', array() );
 
-        foreach( $product_types as $type ) {
-            unset( $type_options[ $type ] );
-        }
+		foreach ( $product_types as $type ) {
+			unset( $type_options[ $type ] );
+		}
 
-        return $type_options;
-    }
+		return $type_options;
+	}
 
 }

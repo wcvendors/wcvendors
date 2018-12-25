@@ -4,17 +4,16 @@
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/emails/plain/vendor-notify-denied.php
  *
- *
- * @author		Jamie Madden, WC Vendors
- * @package 	WCVendors/Templates/Emails/Plain
- * @version		2.0.0
+ * @author         Jamie Madden, WC Vendors
+ * @package        WCVendors/Templates/Emails/Plain
+ * @version        2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-echo "= " . $email_heading . " =\n\n";
+echo '= ' . $email_heading . " =\n\n";
 
 echo $content . "\n\n";
 

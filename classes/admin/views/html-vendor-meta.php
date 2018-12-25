@@ -10,7 +10,8 @@
 			<th scope="row">Shop HTML</th>
 			<td>
 				<label for="pv_shop_html_enabled">
-					<input name="pv_shop_html_enabled" type="checkbox" id="pv_shop_html_enabled" <?php checked( true, get_user_meta( $user->ID, 'pv_shop_html_enabled', true ), $echo = true ) ?>/>
+					<input name="pv_shop_html_enabled" type="checkbox"
+					       id="pv_shop_html_enabled" <?php checked( true, get_user_meta( $user->ID, 'pv_shop_html_enabled', true ), $echo = true ); ?>/>
 					<?php _e( 'Enable HTML for the shop description', 'wc-vendors' ); ?>
 				</label>
 			</td>
@@ -24,7 +25,8 @@
 		<?php do_action( 'wcvendors_admin_before_shop_name', $user ); ?>
 		<tr>
 			<th><label for="pv_shop_name"><?php _e( 'Shop name', 'wc-vendors' ); ?></label></th>
-			<td><input type="text" name="pv_shop_name" id="pv_shop_name" value="<?php echo get_user_meta( $user->ID, 'pv_shop_name', true ); ?>" class="regular-text">
+			<td><input type="text" name="pv_shop_name" id="pv_shop_name"
+			           value="<?php echo get_user_meta( $user->ID, 'pv_shop_name', true ); ?>" class="regular-text">
 			</td>
 		</tr>
 		<?php do_action( 'wcvendors_admin_after_shop_name', $user ); ?>
@@ -35,8 +37,10 @@
 
 		<?php do_action( 'wcvendors_admin_before_paypal', $user ); ?>
 		<tr>
-			<th><label for="pv_paypal"><?php _e( 'PayPal E-mail', 'wc-vendors' ); ?> <span class="description"></span></label></th>
-			<td><input type="email" name="pv_paypal" id="pv_paypal" value="<?php echo get_user_meta( $user->ID, 'pv_paypal', true ); ?>" class="regular-text">
+			<th><label for="pv_paypal"><?php _e( 'PayPal E-mail', 'wc-vendors' ); ?> <span
+							class="description"></span></label></th>
+			<td><input type="email" name="pv_paypal" id="pv_paypal"
+			           value="<?php echo get_user_meta( $user->ID, 'pv_paypal', true ); ?>" class="regular-text">
 			</td>
 		</tr>
 		<?php do_action( 'wcvendors_admin_after_paypal', $user ); ?>
@@ -47,33 +51,49 @@
 
 		<?php do_action( 'wcvendors_admin_before_bank_details', $user ); ?>
 		<tr>
-			<th><label for="wcv_bank_account_name"><?php _e( 'Bank Account Name', 'wc-vendors' ); ?> <span class="description"></span></label></th>
-			<td><input type="text" name="wcv_bank_account_name" id="wcv_bank_account_name" value="<?php echo get_user_meta( $user->ID, 'wcv_bank_account_name', true ); ?>" class="regular-text">
+			<th><label for="wcv_bank_account_name"><?php _e( 'Bank Account Name', 'wc-vendors' ); ?> <span
+							class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_account_name" id="wcv_bank_account_name"
+			           value="<?php echo get_user_meta( $user->ID, 'wcv_bank_account_name', true ); ?>"
+			           class="regular-text">
 			</td>
 		</tr>
 		<tr>
-			<th><label for="wcv_bank_account_number"><?php _e( 'Bank Account Number', 'wc-vendors' ); ?> <span class="description"></span></label></th>
-			<td><input type="text" name="wcv_bank_account_number" id="wcv_bank_account_number" value="<?php echo get_user_meta( $user->ID, 'wcv_bank_account_number', true ); ?>" class="regular-text">
+			<th><label for="wcv_bank_account_number"><?php _e( 'Bank Account Number', 'wc-vendors' ); ?> <span
+							class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_account_number" id="wcv_bank_account_number"
+			           value="<?php echo get_user_meta( $user->ID, 'wcv_bank_account_number', true ); ?>"
+			           class="regular-text">
 			</td>
 		</tr>
 		<tr>
-			<th><label for="wcv_bank_name"><?php _e( 'Bank Name', 'wc-vendors' ); ?> <span class="description"></span></label></th>
-			<td><input type="text" name="wcv_bank_name" id="wcv_bank_name" value="<?php echo get_user_meta( $user->ID, 'wcv_bank_name', true ); ?>" class="regular-text">
+			<th><label for="wcv_bank_name"><?php _e( 'Bank Name', 'wc-vendors' ); ?> <span
+							class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_name" id="wcv_bank_name"
+			           value="<?php echo get_user_meta( $user->ID, 'wcv_bank_name', true ); ?>" class="regular-text">
 			</td>
 		</tr>
 		<tr>
-			<th><label for="wcv_bank_routing_number"><?php _e( 'Routing Number', 'wc-vendors' ); ?> <span class="description"></span></label></th>
-			<td><input type="text" name="wcv_bank_routing_number" id="wcv_bank_routing_number" value="<?php echo get_user_meta( $user->ID, 'wcv_bank_routing_number', true ); ?>" class="regular-text">
+			<th><label for="wcv_bank_routing_number"><?php _e( 'Routing Number', 'wc-vendors' ); ?> <span
+							class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_routing_number" id="wcv_bank_routing_number"
+			           value="<?php echo get_user_meta( $user->ID, 'wcv_bank_routing_number', true ); ?>"
+			           class="regular-text">
 			</td>
 		</tr>
 		<tr>
-			<th><label for="wcv_bank_iban"><?php _e( 'IBAN', 'wc-vendors' ); ?> <span class="description"></span></label></th>
-			<td><input type="text" name="wcv_bank_iban" id="wcv_bank_iban" value="<?php echo get_user_meta( $user->ID, 'wcv_bank_iban', true ); ?>" class="regular-text">
+			<th><label for="wcv_bank_iban"><?php _e( 'IBAN', 'wc-vendors' ); ?> <span
+							class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_iban" id="wcv_bank_iban"
+			           value="<?php echo get_user_meta( $user->ID, 'wcv_bank_iban', true ); ?>" class="regular-text">
 			</td>
 		</tr>
 		<tr>
-			<th><label for="wcv_bank_bic_swift"><?php _e( 'BIC/SWIFT', 'wc-vendors' ); ?> <span class="description"></span></label></th>
-			<td><input type="text" name="wcv_bank_bic_swift" id="wcv_bank_bic_swift" value="<?php echo get_user_meta( $user->ID, 'wcv_bank_bic_swift', true ); ?>" class="regular-text">
+			<th><label for="wcv_bank_bic_swift"><?php _e( 'BIC/SWIFT', 'wc-vendors' ); ?> <span
+							class="description"></span></label></th>
+			<td><input type="text" name="wcv_bank_bic_swift" id="wcv_bank_bic_swift"
+			           value="<?php echo get_user_meta( $user->ID, 'wcv_bank_bic_swift', true ); ?>"
+			           class="regular-text">
 			</td>
 		</tr>
 		<?php do_action( 'wcvendors_admin_after_bank_details', $user ); ?>
@@ -86,8 +106,11 @@
 		<?php do_action( 'wcvendors_admin_before_commission_due', $user ); ?>
 		<tr>
 			<th><label for="pv_custom_commission_rate"><?php _e( 'Commission rate', 'wc-vendors' ); ?> (%)</label></th>
-			<td><input type="number" step="0.01" max="100" min="0" name="pv_custom_commission_rate" placeholder="<?php _e( 'Leave blank for default', 'wc-vendors' ); ?>" id="pv_custom_commission_rate"
-					   value="<?php echo get_user_meta( $user->ID, 'pv_custom_commission_rate', true ); ?>" class="regular-text">
+			<td><input type="number" step="0.01" max="100" min="0" name="pv_custom_commission_rate"
+			           placeholder="<?php _e( 'Leave blank for default', 'wc-vendors' ); ?>"
+			           id="pv_custom_commission_rate"
+			           value="<?php echo get_user_meta( $user->ID, 'pv_custom_commission_rate', true ); ?>"
+			           class="regular-text">
 			</td>
 		</tr>
 		<?php do_action( 'wcvendors_admin_after_commission_due', $user ); ?>
@@ -101,7 +124,8 @@
 			<th><label for="wcv_give_vendor_tax"><?php _e( 'Give Tax', 'wc-vendors' ); ?> (%)</label></th>
 			<td>
 				<label for="wcv_give_vendor_tax">
-					<input name="wcv_give_vendor_tax" type="checkbox" id="wcv_give_vendor_tax" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_tax', true ), $echo = true ) ?>/>
+					<input name="wcv_give_vendor_tax" type="checkbox"
+					       id="wcv_give_vendor_tax" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_tax', true ), $echo = true ); ?>/>
 					<?php printf( __( 'Tax override for %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ); ?>
 				</label>
 			</td>
@@ -117,7 +141,8 @@
 			<th><label for="wcv_give_vendor_shipping"><?php _e( 'Give Shipping', 'wc-vendors' ); ?> (%)</label></th>
 			<td>
 				<label for="wcv_give_vendor_shipping">
-					<input name="wcv_give_vendor_shipping" type="checkbox" id="wcv_give_vendor_shipping" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_shipping', true ), $echo = true ) ?>/>
+					<input name="wcv_give_vendor_shipping" type="checkbox"
+					       id="wcv_give_vendor_shipping" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_shipping', true ), $echo = true ); ?>/>
 					<?php printf( __( 'Shipping override for %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ); ?>
 				</label>
 			</td>

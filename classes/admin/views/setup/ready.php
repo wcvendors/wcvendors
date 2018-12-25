@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<h1><?php esc_html_e( "Your marketplace is ready!", 'wc-vendors' ); ?></h1>
+<h1><?php esc_html_e( 'Your marketplace is ready!', 'wc-vendors' ); ?></h1>
 
 <!-- <div class="wcvendors-message wcvendors-newsletter">
-	<p><?php esc_html_e( "Subscribe to our newsletter! Get product updates, marketplace tips, information and more.", 'wc-vendors' ); ?></p>
+	<p><?php esc_html_e( 'Subscribe to our newsletter! Get product updates, marketplace tips, information and more.', 'wc-vendors' ); ?></p>
 	<form action="//wcvendors.us8.list-manage.com/subscribe/post?u=2c1434dc56f9506bf3c3ecd21&amp;id=13860df971" method="post" target="_blank" novalidate>
 		<div class="newsletter-form-container">
 			<input
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wcv-wizard-next-step-description">
 			<p class="next-step-heading"><?php esc_html_e( 'Next step', 'wc-vendors' ); ?></p>
 			<h3 class="next-step-description"><?php esc_html_e( 'Upgrade to Pro!', 'wc-vendors' ); ?></h3>
-			<p class="next-step-extra-info"><?php esc_html_e( "Upgrade today to extend the features of your marketplace.", 'wc-vendors' ); ?></p>
+			<p class="next-step-extra-info"><?php esc_html_e( 'Upgrade today to extend the features of your marketplace.', 'wc-vendors' ); ?></p>
 			<p class="next-step-heading"><?php esc_html_e( 'Features', 'wc-vendors' ); ?></p>
 			<ul>
 				<li><?php _e( 'Complete frontend dashboard for vendors', 'wc-vendors' ); ?></li>
@@ -53,7 +53,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div class="wcv-wizard-next-step-action">
 			<p class="wcv-setup-actions step">
-				<a class="button button-primary button-large" href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete" target="_blank">
+				<a class="button button-primary button-large"
+				   href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete"
+				   target="_blank">
 					<?php _e( 'Upgrade Now', 'wc-vendors' ); ?>
 				</a>
 			</p>
@@ -67,7 +69,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div class="wcv-wizard-next-step-action">
 			<p class="wcv-setup-actions step">
-				<a class="button button-large" href="https://www.wcvendors.com/extensions/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete" target="_blank">
+				<a class="button button-large"
+				   href="https://www.wcvendors.com/extensions/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete"
+				   target="_blank">
 					<?php _e( 'View Extensions', 'wc-vendors' ); ?>
 				</a>
 			</p>

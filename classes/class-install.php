@@ -9,24 +9,25 @@
 
 class WCVendors_Install {
 
-	/**	Updates to be run **/
-	private static $db_updates = array(
-		'2.0.0'	=> array(
-			'wcv_migrate_settings',
-			'wcv_enable_legacy_emails',
-			'wcv_update_200_db_version',
-		),
-		'2.0.11' => array(
-			'wcv_add_hide_become_a_vendor_link_option',
-			'wcv_add_terms_and_conditions_visibility_option'
-		),
-		'2.1.1'	=> array(
-			'wcv_redirect_wp_registration_to_woocommerce_myaccount',
-		),
-		'2.1.4' => array(
-			'wcv_can_view_customer_shipping_name_option',
-		)
-	);
+	/**    Updates to be run **/
+	private static $db_updates
+		= array(
+			'2.0.0'  => array(
+				'wcv_migrate_settings',
+				'wcv_enable_legacy_emails',
+				'wcv_update_200_db_version',
+			),
+			'2.0.11' => array(
+				'wcv_add_hide_become_a_vendor_link_option',
+				'wcv_add_terms_and_conditions_visibility_option',
+			),
+			'2.1.1'  => array(
+				'wcv_redirect_wp_registration_to_woocommerce_myaccount',
+			),
+			'2.1.4'  => array(
+				'wcv_can_view_customer_shipping_name_option',
+			),
+		);
 
 
 	/**
@@ -43,13 +44,13 @@ class WCVendors_Install {
 	 */
 	public static function init() {
 
-		add_action( 'init',                                   array( __CLASS__, 'check_version' ) );
-		add_action( 'admin_init',                             array( __CLASS__, 'check_pro_version' ) );
-		add_action( 'init',                                   array( __CLASS__, 'init_background_updater' ), 5 );
-		add_action( 'admin_init',                             array( __CLASS__, 'install_actions' ) );
-		add_filter( 'plugin_row_meta',                        array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
+		add_action( 'init', array( __CLASS__, 'check_version' ) );
+		add_action( 'admin_init', array( __CLASS__, 'check_pro_version' ) );
+		add_action( 'init', array( __CLASS__, 'init_background_updater' ), 5 );
+		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
+		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 		add_filter( 'plugin_action_links_' . wcv_plugin_base, array( __CLASS__, 'plugin_action_links' ) );
-		add_action( 'wcvendors_update_options_display',       array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
+		add_action( 'wcvendors_update_options_display', array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
 
 	} // init()
 
@@ -59,6 +60,7 @@ class WCVendors_Install {
 	 * This check is done on all requests and runs if the versions do not match.
 	 */
 	public static function check_version() {
+
 		global $wc_vendors;
 		if ( ! defined( 'IFRAME_REQUEST' ) && get_option( 'wcvendors_version' ) !== $wc_vendors->version ) {
 			self::install();
@@ -92,6 +94,7 @@ class WCVendors_Install {
 	 * This function is hooked into admin_init to affect admin only.
 	 */
 	public static function install_actions() {
+
 		if ( ! empty( $_GET['do_update_wcvendors'] ) ) {
 			self::update();
 			WCVendors_Admin_Notices::add_notice( 'update' );
@@ -115,7 +118,7 @@ class WCVendors_Install {
 		}
 
 		// Ensure needed classes are loaded
-		include_once( dirname( __FILE__ ) . '/admin/class-wcv-admin-notices.php' );
+		include_once dirname( __FILE__ ) . '/admin/class-wcv-admin-notices.php';
 
 		// If we made it till here nothing is running yet, lets set the transient now.
 		set_transient( 'wcvendors_installing', 'yes', MINUTE_IN_SECONDS * 10 );
@@ -153,17 +156,17 @@ class WCVendors_Install {
 			array(
 				'read'         => true,
 				'edit_posts'   => false,
-				'delete_posts' => false
+				'delete_posts' => false,
 			)
 		);
 
 		remove_role( 'vendor' );
 		$can_add         = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'yes' ) );
-		$can_edit        = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'yes'  ) );
-		$can_submit_live = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'yes'  ) );
+		$can_edit        = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'yes' ) );
+		$can_submit_live = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'yes' ) );
 		add_role(
 			'vendor',
-			sprintf( __( '%s', 'wc-vendors'), wcv_get_vendor_name() ) ,
+			sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
 			array(
 				'assign_product_terms'      => $can_add,
 				'edit_products'             => $can_add || $can_edit,
@@ -171,7 +174,7 @@ class WCVendors_Install {
 				'edit_published_products'   => $can_edit,
 				'delete_published_products' => $can_edit,
 				'delete_products'           => $can_edit,
-				'delete_posts'				=> true,
+				'delete_posts'              => true,
 				'manage_product'            => $can_add,
 				'publish_products'          => $can_submit_live,
 				'read'                      => true,
@@ -188,12 +191,14 @@ class WCVendors_Install {
 	 * Create the pv_commission table
 	 */
 	public static function create_tables() {
+
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . "pv_commission";
+		$table_name = $wpdb->prefix . 'pv_commission';
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-		$sql = "CREATE TABLE $table_name (
+		$sql
+			= "CREATE TABLE $table_name (
 			id bigint(20) NOT NULL AUTO_INCREMENT,
 			product_id bigint(20) NOT NULL,
 			order_id bigint(20) NOT NULL,
@@ -216,30 +221,30 @@ class WCVendors_Install {
 	public static function create_pages() {
 
 		$vendor_dashboard_page_id = wc_create_page(
-				esc_sql( _x( 'vendor_dashboard', 'Page slug', 'wc-vendors' ) ),
-				'wcvendors_vendor_dashboard_page_id',
-				sprintf( _x( '%s Dashboard', 'Page title', 'wc-vendors' ), wcv_get_vendor_name( true ) ),
-				'[wcv_vendor_dashboard]',
-				''
+			esc_sql( _x( 'vendor_dashboard', 'Page slug', 'wc-vendors' ) ),
+			'wcvendors_vendor_dashboard_page_id',
+			sprintf( _x( '%s Dashboard', 'Page title', 'wc-vendors' ), wcv_get_vendor_name( true ) ),
+			'[wcv_vendor_dashboard]',
+			''
 		);
 
 		$vendor_page_id = wc_create_page(
-				esc_sql( _x( 'vendors', 'Page slug', 'wc-vendors' ) ),
-				'wcvendors_vendors_page_id',
-				sprintf( _x( '%s', 'Page title', 'wc-vendors' ), wcv_get_vendor_name( false ) ),
-				'[wcv_vendorslist]',
-				''
+			esc_sql( _x( 'vendors', 'Page slug', 'wc-vendors' ) ),
+			'wcvendors_vendors_page_id',
+			sprintf( _x( '%s', 'Page title', 'wc-vendors' ), wcv_get_vendor_name( false ) ),
+			'[wcv_vendorslist]',
+			''
 		);
 
 		$pages = apply_filters(
 			'wcvendors_create_pages', array(
-				'shop_settings'      => array(
+				'shop_settings'  => array(
 					'name'    => _x( 'shop_settings', 'Page slug', 'wc-vendors' ),
 					'title'   => _x( 'Shop Settings', 'Page title', 'wc-vendors' ),
 					'parent'  => $vendor_dashboard_page_id,
 					'content' => '[wcv_shop_settings]',
 				),
-				'product_orders'  => array(
+				'product_orders' => array(
 					'name'    => _x( 'product_orders', 'Page slug', 'wc-vendors' ),
 					'title'   => _x( 'Orders', 'Page title', 'wc-vendors' ),
 					'parent'  => $vendor_dashboard_page_id,
@@ -259,8 +264,10 @@ class WCVendors_Install {
 	 * @since 2.0.0
 	 */
 	private static function remove_admin_notices() {
+
 		WCVendors_Admin_Notices::remove_all_notices();
 	}
+
 	/**
 	 * Is this a brand new WC install?
 	 *
@@ -268,6 +275,7 @@ class WCVendors_Install {
 	 * @return boolean
 	 */
 	public static function is_new_install() {
+
 		return is_null( get_option( 'wcvendors_version', null ) ) && is_null( get_option( 'wcvendors_db_version', null ) ) && is_null( get_option( 'wc_prd_vendor_options', null ) );
 	}
 
@@ -277,6 +285,7 @@ class WCVendors_Install {
 	 * @since 2.0.0
 	 */
 	public static function maybe_run_setup_wizard() {
+
 		if ( apply_filters( 'wcvendors_enable_setup_wizard', self::is_new_install() ) ) {
 			WCVendors_Admin_Notices::add_notice( 'install' );
 		}
@@ -290,6 +299,7 @@ class WCVendors_Install {
 	 * @return array
 	 */
 	public static function get_db_update_callbacks() {
+
 		return self::$db_updates;
 	}
 
@@ -300,9 +310,10 @@ class WCVendors_Install {
 	 * @return boolean
 	 */
 	private static function needs_db_update() {
+
 		global $wc_vendors;
 		$current_db_version = get_option( 'wcvendors_db_version', null );
-		$version_one 		= get_option( 'wc_prd_vendor_options', null );
+		$version_one        = get_option( 'wc_prd_vendor_options', null );
 		$updates            = self::get_db_update_callbacks();
 
 		if ( ! is_null( $version_one ) && is_null( $current_db_version ) ) {
@@ -317,10 +328,10 @@ class WCVendors_Install {
 	 * Init background updates
 	 */
 	public static function init_background_updater() {
+
 		include_once dirname( __FILE__ ) . '/includes/class-wcv-background-updater.php';
 		self::$background_updater = new WCVendors_Background_Updater();
 	}
-
 
 
 	/**
@@ -329,6 +340,7 @@ class WCVendors_Install {
 	 * @since 2.0.0
 	 */
 	private static function maybe_update_db_version() {
+
 		if ( self::needs_db_update() ) {
 			if ( apply_filters( 'wcvendors_enable_auto_update_db', false ) ) {
 				self::init_background_updater();
@@ -348,7 +360,7 @@ class WCVendors_Install {
 	 */
 	private static function create_options() {
 
-		include_once( dirname( __FILE__ ) . '/admin/class-wcv-admin-settings.php' );
+		include_once dirname( __FILE__ ) . '/admin/class-wcv-admin-settings.php';
 
 		$settings = WCVendors_Admin_Settings::get_settings_pages();
 
@@ -371,9 +383,11 @@ class WCVendors_Install {
 
 	/**
 	 * Update DB version to current.
+	 *
 	 * @param string $version
 	 */
 	public static function update_db_version( $version = null ) {
+
 		global $wc_vendors;
 		delete_option( 'wcvendors_db_version' );
 		add_option( 'wcvendors_db_version', is_null( $version ) ? $wc_vendors->version : $version );
@@ -384,6 +398,7 @@ class WCVendors_Install {
 	 * Update WC version to current.
 	 */
 	private static function update_wcv_version() {
+
 		global $wc_vendors;
 		delete_option( 'wcvendors_version' );
 		add_option( 'wcvendors_version', $wc_vendors->version );
@@ -394,6 +409,7 @@ class WCVendors_Install {
 	 * Push all needed DB updates to the queue for processing.
 	 */
 	private static function update() {
+
 		$current_db_version = get_option( 'wcvendors_db_version' );
 		$logger             = wc_get_logger();
 		$update_queued      = false;
@@ -421,11 +437,13 @@ class WCVendors_Install {
 	/**
 	 * Show action links on the plugin screen.
 	 *
-	 * @param	mixed $links Plugin Action links
-	 * @return	array
+	 * @param    mixed $links Plugin Action links
+	 *
+	 * @return    array
 	 * @since 2.0.0
 	 */
 	public static function plugin_action_links( $links ) {
+
 		$action_links = array(
 			'settings' => '<a href="' . admin_url( 'admin.php?page=wcv-settings' ) . '" aria-label="' . esc_attr__( 'View WC Vendors settings', 'wc-vendors' ) . '">' . esc_html__( 'Settings', 'wc-vendors' ) . '</a>',
 		);
@@ -436,21 +454,24 @@ class WCVendors_Install {
 	/**
 	 * Show row meta on the plugin screen.
 	 *
-	 * @param	mixed $links Plugin Row Meta
-	 * @param	mixed $file  Plugin Base file
-	 * @return	array
+	 * @param    mixed $links Plugin Row Meta
+	 * @param    mixed $file  Plugin Base file
+	 *
+	 * @return    array
 	 */
 	public static function plugin_row_meta( $links, $file ) {
 
 		if ( wcv_plugin_base == $file ) {
 			$row_meta = array(
-				'docs'    		=> '<a href="' . esc_url( apply_filters( 'wcvendors_docs_url', 'https://docs.wcvendors.com/' ) ) . '" aria-label="' . esc_attr__( 'View WC Vendors documentation', 'wc-vendors' ) . '">' . esc_html__( 'Docs', 'wc-vendors' ) . '</a>',
-				'free-support' 	=> '<a href="' . esc_url( apply_filters( 'wcvendors_free_support_url', 'https://wordpress.org/plugins/wc-vendors' ) ) . '" aria-label="' . esc_attr__( 'Visit community forums', 'wc-vendors' ) . '">' . esc_html__( 'Free support', 'wc-vendors' ) . '</a>',
-				'support' 		=> '<a href="' . esc_url( apply_filters( 'wcvendors_support_url', 'https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=premium_support' ) ) . '" aria-label="' . esc_attr__( 'Buy premium customer support', 'wc-vendors' ) . '">' . esc_html__( 'Premium support', 'wc-vendors' ) . '</a>',
-				'pro' 			=> '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="_blank">'.__( 'Upgrade to Pro', 'wcvendors').'</a></strong>',
+				'docs'         => '<a href="' . esc_url( apply_filters( 'wcvendors_docs_url', 'https://docs.wcvendors.com/' ) ) . '" aria-label="' . esc_attr__( 'View WC Vendors documentation', 'wc-vendors' ) . '">' . esc_html__( 'Docs', 'wc-vendors' ) . '</a>',
+				'free-support' => '<a href="' . esc_url( apply_filters( 'wcvendors_free_support_url', 'https://wordpress.org/plugins/wc-vendors' ) ) . '" aria-label="' . esc_attr__( 'Visit community forums', 'wc-vendors' ) . '">' . esc_html__( 'Free support', 'wc-vendors' ) . '</a>',
+				'support'      => '<a href="' . esc_url( apply_filters( 'wcvendors_support_url', 'https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=premium_support' ) ) . '" aria-label="' . esc_attr__( 'Buy premium customer support', 'wc-vendors' ) . '">' . esc_html__( 'Premium support', 'wc-vendors' ) . '</a>',
+				'pro'          => '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_campaign=upgrade_promo" target="_blank">' . __( 'Upgrade to Pro', 'wcvendors' ) . '</a></strong>',
 			);
 
-			if ( class_exists( 'WCVendors_Pro' ) ) unset( $row_meta[ 'pro' ] );
+			if ( class_exists( 'WCVendors_Pro' ) ) {
+				unset( $row_meta['pro'] );
+			}
 
 			return array_merge( $links, $row_meta );
 		}
@@ -464,12 +485,12 @@ class WCVendors_Install {
 	 * @since 2.0.0
 	 */
 	public static function maybe_flush_rewrite_rules() {
+
 		if ( wc_string_to_bool( get_option( 'wcvendors_queue_flush_rewrite_rules', 'no' ) ) ) {
 			update_option( 'wcvendors_queue_flush_rewrite_rules', 'no' );
 			flush_rewrite_rules();
 		}
 	}
-
 
 
 }
