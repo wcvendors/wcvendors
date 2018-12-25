@@ -20,23 +20,25 @@ class WCV_Emails {
 
 		add_filter( 'woocommerce_email_classes', array( $this, 'email_classes' ) );
 		add_filter( 'woocommerce_order_actions', array( $this, 'order_actions' ) );
+
 		add_action( 'woocommerce_order_action_send_vendor_new_order', array( $this, 'order_actions_save' ) );
+
 		// Deprecaited
-		add_action( 'set_user_role', array( $this, 'application_status_email' ), 10, 2 );
+		add_action( 'set_user_role'         , array( $this, 'application_status_email' ), 10, 2 );
 		add_action( 'transition_post_status', array( $this, 'trigger_new_product' ), 10, 3 );
 
 		// Low stock
 		// These fatal error in WC3.3.3 @todo fix !
 		add_filter( 'woocommerce_email_recipient_low_stock', array( $this, 'vendor_stock_email' ), 10, 2 );
-		add_filter( 'woocommerce_email_recipient_no_stock', array( $this, 'vendor_stock_email' ), 10, 2 );
+		add_filter( 'woocommerce_email_recipient_no_stock' , array( $this, 'vendor_stock_email' ), 10, 2 );
 		add_filter( 'woocommerce_email_recipient_backorder', array( $this, 'vendor_stock_email' ), 10, 2 );
 
 		// New emails
 		// Triggers
-		add_action( 'wcvendors_vendor_ship', array( $this, 'vendor_shipped' ), 10, 3 );
-		add_action( 'wcvendors_email_order_details', array( $this, 'vendor_order_details' ), 10, 8 );
+		add_action( 'wcvendors_vendor_ship'           , array( $this, 'vendor_shipped' ), 10, 3 );
+		add_action( 'wcvendors_email_order_details'   , array( $this, 'vendor_order_details' ), 10, 8 );
 		add_action( 'wcvendors_email_customer_details', array( $this, 'vendor_customer_details' ), 10, 4 );
-		add_action( 'set_user_role', array( $this, 'vendor_application' ), 10, 2 );
+		add_action( 'set_user_role'                   , array( $this, 'vendor_application' ), 10, 2 );
 
 		// WooCommerce Product Enquiry Compatibility
 		add_filter( 'product_enquiry_send_to', array( $this, 'product_enquiry_compatibility' ), 10, 2 );

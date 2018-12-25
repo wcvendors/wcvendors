@@ -20,40 +20,35 @@ class WCV_Admin_Users {
 			return;
 		}
 
-		add_action( 'edit_user_profile', array( $this, 'show_extra_profile_fields' ) );
+		add_action( 'edit_user_profile'       , array( $this, 'show_extra_profile_fields' ) );
 		add_action( 'edit_user_profile_update', array( $this, 'save_extra_profile_fields' ) );
 
 		add_filter( 'add_menu_classes', array( $this, 'show_pending_number' ) );
 
 		// Disabling non-vendor related items on the admin screens
 		if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
-			add_filter( 'woocommerce_csv_product_role', array( $this, 'csv_import_suite_compatibility' ) );
-			add_filter(
-				'woocommerce_csv_product_export_args', array(
-					$this,
-					'csv_import_suite_compatibility_export',
-				)
-			);
+			add_filter( 'woocommerce_csv_product_role'       , array( $this, 'csv_import_suite_compatibility' ) );
+			add_filter( 'woocommerce_csv_product_export_args', array( $this, 'csv_import_suite_compatibility_export' ) );
 
 			// Admin page lockdown
 			remove_action( 'admin_init', 'woocommerce_prevent_admin_access' );
-			add_action( 'admin_init', array( $this, 'prevent_admin_access' ) );
+			add_action( 'admin_init'   , array( $this, 'prevent_admin_access' ) );
 
 			add_filter( 'woocommerce_prevent_admin_access', array( $this, 'deny_admin_access' ) );
 
 			// WC > Product page fixes
-			add_action( 'load-post-new.php', array( $this, 'confirm_access_to_add' ) );
-			add_action( 'load-edit.php', array( $this, 'edit_nonvendors' ) );
+			add_action( 'load-post-new.php' , array( $this, 'confirm_access_to_add' ) );
+			add_action( 'load-edit.php'     , array( $this, 'edit_nonvendors' ) );
 			add_filter( 'views_edit-product', array( $this, 'hide_nonvendor_links' ) );
 
 			// Filter user attachments so they only see their own attachements
 			add_action( 'ajax_query_attachments_args', array( $this, 'show_user_attachment_ajax' ) );
-			add_filter( 'parse_query', array( $this, 'show_user_attachment_page' ) );
+			add_filter( 'parse_query'                , array( $this, 'show_user_attachment_page' ) );
 
-			add_action( 'admin_menu', array( $this, 'remove_menu_page' ), 99 );
-			add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 99 );
-			add_filter( 'product_type_selector', array( $this, 'filter_product_types' ), 99 );
-			add_filter( 'product_type_options', array( $this, 'filter_product_type_options' ), 99 );
+			add_action( 'admin_menu'                   , array( $this, 'remove_menu_page' ), 99 );
+			add_action( 'add_meta_boxes'               , array( $this, 'remove_meta_boxes' ), 99 );
+			add_filter( 'product_type_selector'        , array( $this, 'filter_product_types' ), 99 );
+			add_filter( 'product_type_options'         , array( $this, 'filter_product_type_options' ), 99 );
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'filter_product_data_tabs' ), 99, 2 );
 
 			// Vendor Capabilities

@@ -17,10 +17,10 @@ class WCV_Commission {
 	function __construct() {
 
 		add_action( 'init', array( $this, 'check_order_complete' ) );
-		add_action( 'init', array( $this, 'check_order_reverse' ) );
+		add_action( 'init', array( $this, 'check_order_reverse'  ) );
 
 		// Reverse the commission if the order is deleted
-		add_action( 'deleted_post', array( $this, 'commissions_table_sync' ), 10 );
+		add_action( 'deleted_post' , array( $this, 'commissions_table_sync' ), 10 );
 		add_action( 'wp_trash_post', array( $this, 'commissions_table_sync' ), 10 );
 	}
 
@@ -71,8 +71,7 @@ class WCV_Commission {
 	public function get_completed_status() {
 
 		return $completed_statuses = apply_filters(
-			'wcvendors_completed_statuses',
-			array(
+			'wcvendors_completed_statuses', array(
 				'completed',
 				'processing',
 			)
@@ -87,8 +86,7 @@ class WCV_Commission {
 	public function get_reversed_status() {
 
 		return $reverse_statuses = apply_filters(
-			'wcvendors_reversed_statuses',
-			array(
+			'wcvendors_reversed_statuses', array(
 				'pending',
 				'refunded',
 				'cancelled',
@@ -169,7 +167,7 @@ class WCV_Commission {
 					'order_id'       => $order_id,
 					'vendor_id'      => $vendor_id,
 					'product_id'     => $product_id,
-					'total_due'      => ! empty( $insert_due[ $product_id ]['total_due'] ) ? ( $detail['commission'] + $insert_due[ $product_id ]['total_due'] ) : $detail['commission'],
+					'total_due'      => ! empty( $insert_due[ $product_id ]['total_due'] )      ? ( $detail['commission'] + $insert_due[ $product_id ]['total_due'] )    : $detail['commission'],
 					'total_shipping' => ! empty( $insert_due[ $product_id ]['total_shipping'] ) ? ( $detail['shipping'] + $insert_due[ $product_id ]['total_shipping'] ) : $detail['shipping'],
 					'tax'            => ! empty( $insert_due[ $product_id ]['tax'] ) ? ( $detail['tax'] + $insert_due[ $product_id ]['tax'] ) : $detail['tax'],
 					'qty'            => ! empty( $insert_due[ $product_id ]['qty'] ) ? ( $detail['qty'] + $insert_due[ $product_id ]['qty'] ) : $detail['qty'],
@@ -197,11 +195,11 @@ class WCV_Commission {
 		global $wpdb;
 
 		$table_name = $wpdb->prefix . 'pv_commission';
-		$query
-		            = "SELECT `id`, `total_due`, `total_shipping`, `tax`, `vendor_id`
-					     FROM `{$table_name}`
-					     WHERE `order_id` = %d
-					     AND `status` = %s";
+
+		$query = "SELECT `id`, `total_due`, `total_shipping`, `tax`, `vendor_id`
+							FROM `{$table_name}`
+							WHERE `order_id` = %d
+							AND `status` = %s";
 
 		$results = $wpdb->get_results( $wpdb->prepare( $query, $order_id, 'due' ) );
 
@@ -258,8 +256,7 @@ class WCV_Commission {
 			$order_id = implode( ',', $order_id );
 		}
 
-		$query
-			   = "SELECT COUNT(order_id) AS order_count
+		$query = "SELECT COUNT(order_id) AS order_count
 				     FROM {$table_name}
 				     WHERE order_id IN ($order_id)
 				     AND status <> %s";
@@ -286,13 +283,12 @@ class WCV_Commission {
 		$vendor_id  = $order['vendor_id'];
 		$product_id = $order['product_id'];
 
-		$query
-			= "SELECT count(order_id) AS order_count
-				 	FROM {$table_name}
-				 	WHERE order_id = {$order_id}
-				 	AND vendor_id = {$vendor_id}
-				 	AND product_id = {$product_id}
-				 	AND status = %s
+		$query = "SELECT count(order_id) AS order_count
+							FROM {$table_name}
+							WHERE order_id = {$order_id}
+							AND vendor_id = {$vendor_id}
+							AND product_id = {$product_id}
+							AND status = %s
 		";
 
 		return $wpdb->get_var( $wpdb->prepare( $query, $status ) );

@@ -44,13 +44,13 @@ class WCVendors_Install {
 	 */
 	public static function init() {
 
-		add_action( 'init', array( __CLASS__, 'check_version' ) );
-		add_action( 'admin_init', array( __CLASS__, 'check_pro_version' ) );
-		add_action( 'init', array( __CLASS__, 'init_background_updater' ), 5 );
-		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
-		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
+		add_action( 'init'                                  , array( __CLASS__, 'check_version' ) );
+		add_action( 'admin_init'                            , array( __CLASS__, 'check_pro_version' ) );
+		add_action( 'init'                                  , array( __CLASS__, 'init_background_updater' ), 5 );
+		add_action( 'admin_init'                            , array( __CLASS__, 'install_actions' ) );
+		add_filter( 'plugin_row_meta'                       , array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 		add_filter( 'plugin_action_links_' . wcv_plugin_base, array( __CLASS__, 'plugin_action_links' ) );
-		add_action( 'wcvendors_update_options_display', array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
+		add_action( 'wcvendors_update_options_display'      , array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
 
 	} // init()
 

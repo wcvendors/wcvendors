@@ -35,21 +35,11 @@ class WC_Email_Notify_Vendor extends WC_Email {
 
 		// Triggers for this email
 		add_action( 'woocommerce_order_status_pending_to_processing_notification', array( $this, 'trigger' ) );
-		add_action( 'woocommerce_order_status_pending_to_completed_notification', array( $this, 'trigger' ) );
-		add_action( 'woocommerce_order_status_failed_to_processing_notification', array( $this, 'trigger' ) );
-		add_action( 'woocommerce_order_status_failed_to_completed_notification', array( $this, 'trigger' ) );
-		add_action(
-			'woocommerce_order_status_on-hold_to_processing_notification', array(
-				$this,
-				'trigger',
-			)
-		); // Added in 1.8.4
-		add_action(
-			'woocommerce_order_status_on-hold_to_completed_notification', array(
-				$this,
-				'trigger',
-			)
-		); // Added in 1.8.4
+		add_action( 'woocommerce_order_status_pending_to_completed_notification' , array( $this, 'trigger' ) );
+		add_action( 'woocommerce_order_status_failed_to_processing_notification' , array( $this, 'trigger' ) );
+		add_action( 'woocommerce_order_status_failed_to_completed_notification'  , array( $this, 'trigger' ) );
+		add_action( 'woocommerce_order_status_on-hold_to_processing_notification', array( $this, 'trigger' ) ); // Added in 1.8.4
+		add_action( 'woocommerce_order_status_on-hold_to_completed_notification' , array( $this, 'trigger' ) ); // Added in 1.8.4
 
 		// Call parent constuctor
 		parent::__construct();

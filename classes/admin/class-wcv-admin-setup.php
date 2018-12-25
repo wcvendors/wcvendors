@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Admin setup
  *
@@ -19,21 +18,15 @@ class WCV_Admin_Setup {
 	public function __construct() {
 
 		// add_action( 'admin_menu', 											array( 'WCV_Admin_Setup', 'menu' ), 10 );
-		add_action(
-			'woocommerce_admin_order_data_after_shipping_address', array(
-			$this,
-			'add_vendor_details',
-		), 10, 2
-		);
-		add_action( 'woocommerce_admin_order_actions_end', array( $this, 'append_actions' ), 10, 1 );
-		add_filter( 'woocommerce_debug_tools', array( $this, 'wcvendors_tools' ) );
+		add_action( 'woocommerce_admin_order_data_after_shipping_address', array( $this, 'add_vendor_details'), 10, 2 );
+		add_action( 'woocommerce_admin_order_actions_end'                , array( $this, 'append_actions' )   , 10, 1 );
+		add_filter( 'woocommerce_debug_tools'                            , array( $this, 'wcvendors_tools' )          );
 
-		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), 1 );
-		add_action( 'admin_init', array( $this, 'export_commissions' ) );
-		add_action( 'admin_init', array( $this, 'export_sum_commissions' ) );
-		add_filter( 'woocommerce_screen_ids', array( $this, 'wcv_screen_ids' ) );
-		add_action( 'wcvendors_update_options_capabilities', array( $this, 'update_vendor_role' ) );
-
+		add_filter( 'admin_footer_text'                    , array( $this, 'admin_footer_text' ), 1   );
+		add_action( 'admin_init'                           , array( $this, 'export_commissions' )     );
+		add_action( 'admin_init'                           , array( $this, 'export_sum_commissions' ) );
+		add_filter( 'woocommerce_screen_ids'               , array( $this, 'wcv_screen_ids' )         );
+		add_action( 'wcvendors_update_options_capabilities', array( $this, 'update_vendor_role' )     );
 	}
 
 	public function add_vendor_details( $order ) {
@@ -121,8 +114,8 @@ class WCV_Admin_Setup {
 	public static function reset_vendor_roles() {
 
 		$can_add         = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'no' ) );
-		$can_edit        = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'no' ) );
-		$can_submit_live = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'no' ) );
+		$can_edit        = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit'   , 'no' ) );
+		$can_submit_live = wc_string_to_bool( get_option( 'wcvendors_capability_products_live'   , 'no' ) );
 
 		$args = array(
 			'assign_product_terms'      => $can_add,
@@ -280,8 +273,8 @@ class WCV_Admin_Setup {
 	public function update_vendor_role() {
 
 		$can_add         = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'no' ) );
-		$can_edit        = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit', 'no' ) );
-		$can_submit_live = wc_string_to_bool( get_option( 'wcvendors_capability_products_live', 'no' ) );
+		$can_edit        = wc_string_to_bool( get_option( 'wcvendors_capability_products_edit'   , 'no' ) );
+		$can_submit_live = wc_string_to_bool( get_option( 'wcvendors_capability_products_live'   , 'no' ) );
 
 		$args = array(
 			'assign_product_terms'      => $can_add,
@@ -304,6 +297,5 @@ class WCV_Admin_Setup {
 		add_role( 'vendor', sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ), $args );
 
 	}
-
 
 }

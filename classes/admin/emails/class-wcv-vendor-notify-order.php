@@ -37,37 +37,12 @@ if ( ! class_exists( 'WCVendors_Vendor_Notify_Order' ) ) :
 			);
 
 			// Triggers
-			add_action(
-				'woocommerce_order_status_pending_to_processing_notification', array(
-				$this,
-				'trigger',
-			), 10, 2
-			);
-			add_action(
-				'woocommerce_order_status_pending_to_completed_notification', array(
-				$this,
-				'trigger',
-			), 10, 2
-			);
-			add_action(
-				'woocommerce_order_status_failed_to_processing_notification', array(
-				$this,
-				'trigger',
-			), 10, 2
-			);
-			add_action( 'woocommerce_order_status_failed_to_completed_notification', array( $this, 'trigger' ), 10, 2 );
-			add_action(
-				'woocommerce_order_status_on-hold_to_processing_notification', array(
-				$this,
-				'trigger',
-			), 10, 2
-			);
-			add_action(
-				'woocommerce_order_status_on-hold_to_completed_notification', array(
-				$this,
-				'trigger',
-			), 10, 2
-			);
+			add_action( 'woocommerce_order_status_pending_to_processing_notification', array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_pending_to_completed_notification' , array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_failed_to_processing_notification' , array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_failed_to_completed_notification'  , array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_on-hold_to_processing_notification', array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_on-hold_to_completed_notification' , array( $this, 'trigger' ), 10, 2 );
 
 			// Call parent constructor
 			parent::__construct();

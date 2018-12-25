@@ -44,10 +44,10 @@ class WCVendors_Admin_Notices {
 
 		self::$notices = get_option( 'wcvendors_admin_notices', array() );
 
-		add_action( 'switch_theme', array( __CLASS__, 'reset_admin_notices' ) );
+		add_action( 'switch_theme'       , array( __CLASS__, 'reset_admin_notices' ) );
 		add_action( 'wcvendors_installed', array( __CLASS__, 'reset_admin_notices' ) );
-		add_action( 'wp_loaded', array( __CLASS__, 'hide_notices' ) );
-		add_action( 'shutdown', array( __CLASS__, 'store_notices' ) );
+		add_action( 'wp_loaded'          , array( __CLASS__, 'hide_notices'        ) );
+		add_action( 'shutdown'           , array( __CLASS__, 'store_notices'       ) );
 
 		if ( current_user_can( 'manage_woocommerce' ) ) {
 			add_action( 'admin_print_styles', array( __CLASS__, 'add_notices' ) );

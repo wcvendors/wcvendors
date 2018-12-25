@@ -23,13 +23,8 @@ class WCV_Shipping {
 		// Table Rate Shipping 2 by WooThemes
 		if ( function_exists( 'woocommerce_get_shipping_method_table_rate' ) ) {
 			// add_action( 'wp', array( $this, 'trs2_clear_transients' ) );
-			add_action(
-				'woocommerce_checkout_update_order_meta', array(
-				'WCV_Shipping',
-				'trs2_add_shipping_data',
-			), 1, 2
-			);
-			add_action( 'wc_trs2_matched_rates', array( 'WCV_Shipping', 'trs2_store_shipping_data' ), 10, 3 );
+			add_action( 'woocommerce_checkout_update_order_meta', array( 'WCV_Shipping', 'trs2_add_shipping_data' )  ,  1, 2 );
+			add_action( 'wc_trs2_matched_rates'                 , array( 'WCV_Shipping', 'trs2_store_shipping_data' ), 10, 3 );
 		}
 	}
 
@@ -318,13 +313,15 @@ class WCV_Shipping {
 
 		global $woocommerce;
 
-		$types                                          = (array) $woocommerce->session->trs2_shipping_class_type;
-		$types[]                                        = $type;
-		$woocommerce->session->trs2_shipping_class_type = $types;
+		$types   = (array) $woocommerce->session->trs2_shipping_class_type;
+		$items   = (array) $woocommerce->session->trs2_shipping_rates;
 
-		$items                                     = (array) $woocommerce->session->trs2_shipping_rates;
-		$items[]                                   = $per_item;
-		$woocommerce->session->trs2_shipping_rates = $items;
+		$types[] = $type;
+		$items[] = $per_item;
+
+		$woocommerce->session->trs2_shipping_class_type = $types;
+		$woocommerce->session->trs2_shipping_rates      = $items;
+
 	}
 
 

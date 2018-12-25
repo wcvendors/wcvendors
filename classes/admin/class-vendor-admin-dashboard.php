@@ -22,13 +22,21 @@ class WCV_Vendor_Admin_Dashboard {
 	function vendor_dashboard_pages() {
 
 		add_menu_page(
-			__( 'Shop Settings', 'wc-vendors' ), __( 'Shop Settings', 'wc-vendors' ), 'manage_product', 'wcv-vendor-shopsettings', array(
+			__( 'Shop Settings', 'wc-vendors' ),
+			__( 'Shop Settings', 'wc-vendors' ),
+			'manage_product',
+			'wcv-vendor-shopsettings',
+			array(
 				$this,
 				'settings_page',
 			)
 		);
 		$hook = add_menu_page(
-			__( 'Orders', 'wc-vendors' ), __( 'Orders', 'wc-vendors' ), 'manage_product', 'wcv-vendor-orders', array(
+			__( 'Orders', 'wc-vendors' ),
+			__( 'Orders', 'wc-vendors' ),
+			'manage_product',
+			'wcv-vendor-orders',
+			array(
 				'WCV_Vendor_Admin_Dashboard',
 				'orders_page',
 			)
@@ -296,7 +304,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table {
 			)
 		);
 
-		$this->can_view_comments = wc_string_to_bool( get_option( 'wcvendors_capability_order_read_notes', 'no' ) );
+		$this->can_view_comments = wc_string_to_bool( get_option( 'wcvendors_capability_order_read_notes'  , 'no' ) );
 		$this->can_add_comments  = wc_string_to_bool( get_option( 'wcvendors_capability_order_update_notes', 'no' ) );
 	}
 
@@ -608,10 +616,10 @@ class WCV_Vendor_Order_Page extends WP_List_Table {
 
 				$comment_output = '';
 
-				$show_billing_name     = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
+				$show_billing_name     = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name'         , 'no' ) );
 				$show_shipping_name    = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping_name', 'no' ) );
-				$show_billing_address  = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_billing', 'no' ) );
-				$show_shipping_address = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
+				$show_billing_address  = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_billing'      , 'no' ) );
+				$show_shipping_address = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping'     , 'no' ) );
 				$order_date            = $order->get_date_created();
 
 				$address = $order->get_address( 'billing' );
@@ -784,6 +792,5 @@ class WCV_Vendor_Order_Page extends WP_List_Table {
 		 * Pagination
 		 */
 	}
-
 
 }

@@ -22,18 +22,19 @@ class WCV_Product_Meta {
 		// Allow products to have authors
 		add_post_type_support( 'product', 'author' );
 
-		add_action( 'add_meta_boxes', array( $this, 'change_author_meta_box_title' ) );
+		add_action( 'add_meta_boxes'   , array( $this, 'change_author_meta_box_title' ) );
 		add_action( 'wp_dropdown_users', array( $this, 'author_vendor_roles' ), 0, 1 );
+
 		if ( apply_filters( 'wcv_product_commission_tab', true ) ) {
 			add_action( 'woocommerce_product_write_panel_tabs', array( $this, 'add_tab' ) );
-			add_action( 'woocommerce_product_data_panels', array( $this, 'add_panel' ) );
-			add_action( 'woocommerce_process_product_meta', array( $this, 'save_panel' ) );
+			add_action( 'woocommerce_product_data_panels'     , array( $this, 'add_panel' ) );
+			add_action( 'woocommerce_process_product_meta'    , array( $this, 'save_panel' ) );
 		}
 
-		add_action( 'woocommerce_product_quick_edit_end', array( $this, 'display_vendor_dd_quick_edit' ) );
+		add_action( 'woocommerce_product_quick_edit_end' , array( $this, 'display_vendor_dd_quick_edit' ) );
 		add_action( 'woocommerce_product_quick_edit_save', array( $this, 'save_vendor_quick_edit' ), 2, 99 );
-		add_action( 'manage_product_posts_custom_column', array( $this, 'display_vendor_column' ), 2, 99 );
-		add_filter( 'manage_product_posts_columns', array( $this, 'vendor_column_quickedit' ) );
+		add_action( 'manage_product_posts_custom_column' , array( $this, 'display_vendor_column' ), 2, 99 );
+		add_filter( 'manage_product_posts_columns'       , array( $this, 'vendor_column_quickedit' ) );
 
 		add_action( 'woocommerce_process_product_meta', array( $this, 'update_post_media_author' ) );
 
@@ -205,14 +206,17 @@ class WCV_Product_Meta {
 
 				<p class='form-field commission_rate_field'>
 					<label for='pv_commission_rate'><?php _e( 'Commission', 'wc-vendors' ); ?> (%)</label>
-					<input type='number' id='pv_commission_rate'
-					       name='pv_commission_rate'
-					       class='short'
-					       max="100"
-					       min="0"
-					       step='any'
-					       placeholder='<?php _e( 'Leave blank for default', 'wc-vendors' ); ?>'
-					       value="<?php echo get_post_meta( $post->ID, 'pv_commission_rate', true ); ?>"/>
+					<input
+							type='number'
+							id='pv_commission_rate'
+							name='pv_commission_rate'
+							class='short'
+							max="100"
+							min="0"
+							step='any'
+							placeholder='<?php _e( 'Leave blank for default', 'wc-vendors' ); ?>'
+							value="<?php echo get_post_meta( $post->ID, 'pv_commission_rate', true ); ?>"
+					/>
 				</p>
 
 			</fieldset>
@@ -271,7 +275,6 @@ class WCV_Product_Meta {
 			<input name="product_media_author_override" type="checkbox"/>
 			<span class="title">Media</span>
 			<?php printf( __( 'Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() ); ?>
-
 		</label>
 		<?php
 	}

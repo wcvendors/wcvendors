@@ -120,26 +120,26 @@ if ( wcv_is_woocommerce_activated() ) {
 			$this->define_constants();
 
 			// Install & upgrade
-			add_action( 'admin_init', array( $this, 'check_install' ) );
-			add_action( 'init', array( $this, 'maybe_flush_permalinks' ), 99 );
-			add_action( 'wcvendors_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ) );
-			add_action( 'admin_init', array( $this, 'wcv_required_ignore_notices' ) );
+			add_action( 'admin_init'                   , array( $this, 'check_install' )               );
+			add_action( 'init'                         , array( $this, 'maybe_flush_permalinks' ), 99  );
+			add_action( 'wcvendors_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' )         );
+			add_action( 'admin_init'                   , array( $this, 'wcv_required_ignore_notices' ) );
 
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
-			add_action( 'plugins_loaded', array( $this, 'include_core' ) );
-			add_action( 'init', array( $this, 'include_init' ) );
-			add_action( 'current_screen', array( $this, 'include_assets' ) );
+			add_action( 'plugins_loaded', array( $this, 'include_core'     ) );
+			add_action( 'init'          , array( $this, 'include_init'     ) );
+			add_action( 'current_screen', array( $this, 'include_assets'   ) );
 
 			// // Start a PHP session, if not yet started then destroy if logged in or out
 			if ( ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' ) && ! defined( 'REST_REQUEST' ) ) {
-				add_action( 'init', array( $this, 'init_session' ), 1 );
+				add_action( 'init'     , array( $this, 'init_session' ), 1 );
 				add_action( 'wp_logout', array( $this, 'destroy_session' ) );
-				add_action( 'wp_login', array( $this, 'destroy_session' ) );
+				add_action( 'wp_login' , array( $this, 'destroy_session' ) );
 			}
 
 			// // Legacy settings
-			add_action( 'admin_init', array( 'WCVendors_Install', 'check_pro_version' ) );
-			add_action( 'plugins_loaded', array( $this, 'load_legacy_settings' ) );
+			add_action( 'admin_init'    , array( 'WCVendors_Install', 'check_pro_version'    ) );
+			add_action( 'plugins_loaded', array( $this              , 'load_legacy_settings' ) );
 
 			// Show update notices
 			$file   = basename( __FILE__ );
@@ -148,8 +148,8 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( $hook, array( $this, 'show_upgrade_notification' ), 10, 2 );
 
 			// Add become a vendor rewrite endpoint
-			add_action( 'init', array( $this, 'add_rewrite_endpoint' ) );
-			add_action( 'after_switch_theme', array( $this, 'flush_rewrite_rules' ) );
+			add_action( 'init'              , array( $this, 'add_rewrite_endpoint' ) );
+			add_action( 'after_switch_theme', array( $this, 'flush_rewrite_rules'  ) );
 		}
 
 
