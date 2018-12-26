@@ -11,17 +11,17 @@
  * Requires at least:    4.4.0
  * Tested up to:         5.0.0
  * WC requires at least: 3.3.0
- * WC tested up to:     3.5.2
+ * WC tested up to:      3.5.2
  *
- * Text Domain:         wc-vendors
- * Domain Path:         /languages/
+ * Text Domain:          wc-vendors
+ * Domain Path:          /languages/
  *
- * @category            Plugin
- * @copyright           Copyright © 2012 Matt Gates
- * @copyright           Copyright © 2018 WC Vendors
- * @author              Matt Gates, WC Vendors
- * @package             WCVendors
- * @license             GPL2
+ * @category             Plugin
+ * @copyright            Copyright © 2012 Matt Gates
+ * @copyright            Copyright © 2018 WC Vendors
+ * @author               Matt Gates, WC Vendors
+ * @package              WCVendors
+ * @license              GPL2
  *
  * WC Vendors Marketplace is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
