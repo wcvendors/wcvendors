@@ -66,7 +66,7 @@
 			$( 'form.register').on( 'submit', function ( e ){
 				if (  jQuery('#agree_to_terms').is(':visible') && ! jQuery('#agree_to_terms').is(':checked') ) {
 					e.preventDefault();
-					alert( <?php apply_filters( 'wcvendors_vendor_terms_msg', printf( __( '"You must accept the terms and conditions to become a %s."', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ) ); ?> );
+					alert( <?php apply_filters( 'wcvendors_vendor_registration_terms_error', printf( __( '"You must accept the terms and conditions to become a %s."', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ) ); ?> );
 				}
 			} );
 
