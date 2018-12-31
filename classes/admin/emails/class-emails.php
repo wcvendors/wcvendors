@@ -205,17 +205,16 @@ class WCV_Emails
 		if ( !empty( $_POST[ 'apply_for_vendor' ] ) || ( !empty( $_GET[ 'action' ] ) && ( $_GET[ 'action' ] == 'approve_vendor' || $_GET[ 'action' ] == 'deny_vendor' ) ) ) {
 
 			$role = ( $role != 'pending_vendor' && $role != 'vendor' ) ? 'pending_vendor' : $role ;
-			
-			if ( $role == 'pending_vendor' ) {
+			if ( !empty( $_GET[ 'action' ] ) && $_GET[ 'action' ] == 'deny_vendor' ) {
+				$reason = isset( $_GET[ 'reason' ] ) ? $_GET[ 'reason' ] : '';
+				WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Denied' ]->trigger( $user_id, $reason );
+				$status = __( 'denied', 'wc-vendors' );
+			} else if ( $role == 'pending_vendor' ) {
 				WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Application' ]->trigger( $user_id, __( 'pending', 'wc-vendors' ) );
 				$status = __( 'pending', 'wc-vendors' );
 			} else if ( $role == 'vendor' ) {
 				WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Approved' ]->trigger( $user_id );
 				$status = __( 'approved', 'wc-vendors' );
-			} else if ( !empty( $_GET[ 'action' ] ) && $_GET[ 'action' ] == 'deny_vendor' ) {
-				$reason = isset( $_GET[ 'reason' ] ) ? $_GET[ 'reason' ] : '';
-				WC()->mailer()->emails[ 'WCVendors_Vendor_Notify_Denied' ]->trigger( $user_id, $reason );
-				$status = __( 'denied', 'wc-vendors' );
 			}
 
 			WC()->mailer()->emails[ 'WCVendors_Admin_Notify_Application' ]->trigger( $user_id, $status );
