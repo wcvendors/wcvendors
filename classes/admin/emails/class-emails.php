@@ -117,6 +117,7 @@ class WCV_Emails
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-order.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php';
 
 		$emails[ 'WCVendors_Customer_Notify_Shipped'] 	= new WCVendors_Customer_Notify_Shipped();
 		$emails[ 'WCVendors_Admin_Notify_Shipped'] 		= new WCVendors_Admin_Notify_Shipped();
@@ -126,6 +127,7 @@ class WCV_Emails
 		$emails[ 'WCVendors_Vendor_Notify_Approved'] 	= new WCVendors_Vendor_Notify_Approved();
 		$emails[ 'WCVendors_Vendor_Notify_Denied'] 		= new WCVendors_Vendor_Notify_Denied();
 		$emails[ 'WCVendors_Vendor_Notify_Order'] 		= new WCVendors_Vendor_Notify_Order();
+		$emails[ 'WCVendors_Vendor_Notify_Cancelled_Order' ] = new WCVendors_Vendor_Notify_Cancelled_Order();
 
 		return $emails;
 
@@ -269,8 +271,8 @@ class WCV_Emails
 		$show_customer_phone   			= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_phone', 'no' ) );
 		$show_billing_address 			= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
 		$show_shipping_address 			= wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
-		$customer_billing_name 			= $show_customer_name ? $order->get_formatted_billing_full_name() : '';
-		$customer_shipping_name 		= $show_customer_name ? $order->get_formatted_shipping_full_name() : '';
+		$customer_billing_name 			= $show_customer_billing_name ? $order->get_formatted_billing_full_name() : '';
+		$customer_shipping_name 		= $show_customer_shipping_name ? $order->get_formatted_shipping_full_name() : '';
 
 		if ( $plain_text ) {
 			wc_get_template(
