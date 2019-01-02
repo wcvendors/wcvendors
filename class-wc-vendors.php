@@ -36,7 +36,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with WC Vendors Marketplace. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
 
-*/
+ */
 
 
 /**
@@ -158,17 +158,17 @@ if ( wcv_is_woocommerce_activated() ) {
 
 		}
 
-	/**
-	 * Define constant if not already set.
-	 *
-	 * @param string      $name  Constant name.
-	 * @param string|bool $value Constant value.
-	 */
-	private function define( $name, $value ) {
-		if ( ! defined( $name ) ) {
-			define( $name, $value );
+		/**
+		 * Define constant if not already set.
+		 *
+		 * @param string      $name  Constant name.
+		 * @param string|bool $value Constant value.
+		 */
+		private function define( $name, $value ) {
+			if ( ! defined( $name ) ) {
+				define( $name, $value );
+			}
 		}
-	}
 
 		/**
 		 * Check whether install has ran before or not
@@ -200,8 +200,8 @@ if ( wcv_is_woocommerce_activated() ) {
 
 		public function load_il8n() {
 			$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
-		    $locale = apply_filters( 'plugin_locale', $locale, 'wc-vendors' );
-		    load_textdomain( 'wc-vendors', WP_LANG_DIR.'/wc-vendors/wc-vendors-'.$locale.'.mo' );
+			$locale = apply_filters( 'plugin_locale', $locale, 'wc-vendors' );
+			load_textdomain( 'wc-vendors', WP_LANG_DIR.'/wc-vendors/wc-vendors-'.$locale.'.mo' );
 			load_plugin_textdomain( 'wc-vendors', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
 
 		}
@@ -295,8 +295,8 @@ if ( wcv_is_woocommerce_activated() ) {
 		} // include_init()
 
 		/**
-		*	Load plugin assets
-		*/
+		 *	Load plugin assets
+		 */
 		public function include_assets() {
 
 			$screen = get_current_screen();
@@ -321,7 +321,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 *  If the settings are updated and the vendor page link has changed update permalinks
 		 *	@access public
 		 *
-		*/
+		 */
 		public function maybe_flush_permalinks() {
 			if ( wc_string_to_bool( get_option( 'wcvendors_queue_flush_rewrite_rules', 'no' ) ) ) {
 				$this->flush_rewrite_rules();
@@ -334,10 +334,10 @@ if ( wcv_is_woocommerce_activated() ) {
 		}
 
 		/**
-		* Add rewrite endpoint
-		*
-		* @return void
-		*/
+		 * Add rewrite endpoint
+		 *
+		 * @return void
+		 */
 		public function add_rewrite_endpoint(){
 			add_rewrite_endpoint( 'become-a-vendor', EP_PAGES );
 			$this->flush_rewrite_rules();
@@ -347,18 +347,18 @@ if ( wcv_is_woocommerce_activated() ) {
 		/**
 		 * Add user meta to remember ignore notices
 		 * @access public
-         *
+		 *
 		 */
 		public function wcv_required_ignore_notices(){
 			global $current_user;
-    		$current_user_id = $current_user->ID;
+			$current_user_id = $current_user->ID;
 
-	        /* If user clicks to ignore the notice, add that to their user meta */
-	        if ( isset( $_GET[ 'wcv_shop_ignore_notice' ] ) && '0' == $_GET[ 'wcv_shop_ignore_notice' ] ) {
-	            add_user_meta( $current_user_id, 'wcv_shop_ignore_notice', 'true', true );
-	    	}
+			/* If user clicks to ignore the notice, add that to their user meta */
+			if ( isset( $_GET[ 'wcv_shop_ignore_notice' ] ) && '0' == $_GET[ 'wcv_shop_ignore_notice' ] ) {
+				add_user_meta( $current_user_id, 'wcv_shop_ignore_notice', 'true', true );
+			}
 			if ( isset($_GET['wcv_pl_ignore_notice']) && '0' == $_GET['wcv_pl_ignore_notice'] ) {
-			 	add_user_meta( $current_user_id, 'wcv_pl_ignore_notice', 'true' , true );
+				add_user_meta( $current_user_id, 'wcv_pl_ignore_notice', 'true' , true );
 			}
 
 		}
@@ -408,10 +408,10 @@ if ( wcv_is_woocommerce_activated() ) {
 			if ( version_compare( WCV_VERSION, '2.0.0', '<' ) && version_compare( $new_version, '2.0.0', '>=' ) ) {
 				echo '<h3>Important Upgrade Notice:</h3>';
 				echo '<p style="background-color: #d54e21; padding: 10px; color: #f9f9f9; margin-top: 10px">';
-		        echo $upgrade_notice;
-		        if ( ! class_exists( 'WCVendors_Pro' ) ) echo '</p>';
+				echo $upgrade_notice;
+				if ( ! class_exists( 'WCVendors_Pro' ) ) echo '</p>';
 
-		        if ( class_exists( 'WCVendors_Pro' ) ) {
+				if ( class_exists( 'WCVendors_Pro' ) ) {
 
 					if ( version_compare( WCV_PRO_VERSION, '1.5.0', '<' ) ) {
 						echo '<h3>WC Vendors Pro Notice</h3>';
