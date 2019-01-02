@@ -253,22 +253,20 @@ class WCV_Queries {
 	public static function orders_within_range() {
 		global $start_date, $end_date;
 
-		$start_date = ! empty( $_SESSION[ 'PV_Session' ][ 'start_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
-		$end_date   = ! empty( $_SESSION[ 'PV_Session' ][ 'end_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
+		$start_date = WC()->session->get( 'wcv_order_start_date', strtotime( current_time( 'Y-M' ) . '-01' ) );
+		$end_date   = WC()->session->get( 'wcv_order_end_date', current_time( 'timestamp' ) );
 
-		if ( ! empty( $_POST[ 'start_date' ] ) ) {
-			$start_date                               = strtotime( $_POST[ 'start_date' ] );
-			$_SESSION[ 'PV_Session' ][ 'start_date' ] = $start_date;
+		if ( ! empty( $_POST['start_date'] ) ) {
+			WC()->session->set( 'wcv_order_start_date', strtotime( $_POST['start_date'] ) );
 		}
 
-		if ( ! empty( $_POST[ 'end_date' ] ) ) {
-			$end_date                               = strtotime( $_POST[ 'end_date' ] );
-			$_SESSION[ 'PV_Session' ][ 'end_date' ] = $end_date;
+		if ( ! empty( $_POST['end_date'] ) ) {
+			WC()->session->set( 'wcv_order_end_date', strtotime( $_POST['end_date'] ) );
 		}
 
 		$after  = date( 'Y-m-d', $start_date );
 		$before = date( 'Y-m-d', strtotime( '+1 day', $end_date ) );
-		
+
 		return apply_filters( 'wcvendors_orders_date_range', array( 'after' => $after, 'before' => $before ) );
 	}
 
