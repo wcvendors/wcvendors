@@ -203,8 +203,8 @@ class WCV_Vendor_Dashboard
 	{
 		global $start_date, $end_date;
 
-		$start_date = !empty( $_SESSION[ 'PV_Session' ][ 'start_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
-		$end_date   = !empty( $_SESSION[ 'PV_Session' ][ 'end_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
+		$start_date = WC()->session->get( 'wcv_order_start_date', strtotime( current_time( 'Y-M' ) . '-01' ) );
+		$end_date   = WC()->session->get( 'wcv_order_end_date', current_time( 'timestamp' ) );
 
 		$can_view_orders = wc_string_to_bool( get_option( 'wcvendors_capability_orders_enabled', 'no' ) );
 		$settings_page   = get_permalink(get_option( 'wcvendors_shop_settings_page_id' ) );
