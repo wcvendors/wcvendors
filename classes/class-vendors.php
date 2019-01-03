@@ -29,7 +29,7 @@ class WCV_Vendors {
 	public static function get_vendor_products( $vendor_id ) {
 
 		$args = array(
-			'numberposts' => - 1,
+			'numberposts' => -1,
 			'post_type'   => 'product',
 			'author'      => $vendor_id,
 			'post_status' => 'publish',
@@ -721,7 +721,7 @@ class WCV_Vendors {
 			array(
 				'post_type'      => 'shop_order_vendor',
 				'post_parent'    => $order_id,
-				'posts_per_page' => - 1,
+				'posts_per_page' => -1,
 				'post_status'    => 'any',
 				'fields'         => 'ids',
 			)

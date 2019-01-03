@@ -703,7 +703,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table {
 		if ( ! empty( $ids ) ) {
 			$vendor_products = get_posts(
 				array(
-					'numberposts' => - 1,
+					'numberposts' => -1,
 					'orderby'     => 'post_date',
 					'post_type'   => array( 'product', 'product_variation' ),
 					'order'       => 'DESC',

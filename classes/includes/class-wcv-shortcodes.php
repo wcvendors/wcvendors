@@ -149,7 +149,7 @@ class WCV_Shortcodes {
 			'ignore_sticky_posts' => 1,
 			'orderby'             => $orderby,
 			'order'               => $order,
-			'posts_per_page'      => - 1,
+			'posts_per_page'      => -1,
 			'meta_query'          => $meta_query,
 		);
 
