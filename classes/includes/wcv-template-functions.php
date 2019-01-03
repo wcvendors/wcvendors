@@ -171,3 +171,19 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 
 	} // wcv_get_vendor_item_totals
 }
+
+if ( ! function_exists( 'is_wcv_pro_active' ) ) {
+	/**
+	 * Check if WC Vendors Pro is active
+	 * 
+	 * @since 2.1.4
+	 * @return bool True if active false otherwis
+	 */
+	function is_wcv_pro_active() {
+		if ( defined( 'WCV_PRO_PLUGIN_FILE' ) ) {
+			return true;
+		}
+		
+		return false;
+	}
+}
