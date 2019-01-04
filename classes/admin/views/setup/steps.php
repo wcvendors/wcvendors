@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin View: Setup Steps 
+ * Admin View: Setup Steps
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php foreach ( $output_steps as $step_key => $step ) : ?>
 		<li class="
 			<?php
-			if ( $step_key === $this->step ) {
-				echo 'active';
-			} elseif ( array_search( $this->step, array_keys( $this->steps ) ) > array_search( $step_key, array_keys( $this->steps ) ) ) {
-				echo 'done';
-			}
-			?>
+		if ( $step_key === $this->step ) {
+			echo 'active';
+		} elseif ( array_search( $this->step, array_keys( $this->steps ) ) > array_search( $step_key, array_keys( $this->steps ) ) ) {
+			echo 'done';
+		}
+		?>
 		"><?php echo esc_html( $step['name'] ); ?></li>
 	<?php endforeach; ?>
 </ol>

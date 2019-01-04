@@ -4,14 +4,14 @@
  *
  * This template can be overridden by copying it to yourtheme/wc-vendors/orders/customer-note/customer-note.php
  *
- * @author		Jamie Madden, WC Vendors
- * @package 	WCVendors/Templates/Emails/HTML
- * @version 	2.0.0
+ * @author        Jamie Madden, WC Vendors
+ * @package       WCVendors/Templates/Emails/HTML
+ * @version       2.0.0
  */
 
- if ( ! defined( 'ABSPATH' ) ) {
- 	exit;
- }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 <tr>

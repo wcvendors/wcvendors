@@ -4,10 +4,9 @@
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/emails/plain/vendor-order-items.php.
  *
- *
- * @author		Jamie Madden, WC Vendors
- * @package 	WCvendors/Templates/Emails/Plain
- * @version		2.0.0
+ * @author         Jamie Madden, WC Vendors
+ * @package        WCvendors/Templates/Emails/Plain
+ * @version        2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,13 +25,17 @@ foreach ( $items as $item_id => $item ) :
 
 		// allow other plugins to add additional product information here
 		do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, $plain_text );
-		echo strip_tags( wc_display_item_meta( $item, array(
-			'before'    => "\n- ",
-			'separator' => "\n- ",
-			'after'     => "",
-			'echo'      => false,
-			'autop'     => false,
-		) ) );
+		echo strip_tags(
+			wc_display_item_meta(
+				$item, array(
+					'before'    => "\n- ",
+					'separator' => "\n- ",
+					'after'     => '',
+					'echo'      => false,
+					'autop'     => false,
+				)
+			)
+		);
 
 		// allow other plugins to add additional product information here
 		do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );

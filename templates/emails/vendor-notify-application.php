@@ -4,28 +4,27 @@
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/emails/vendor-notify-application.php
  *
- *
  * @author  WC Vendors
  * @package WCVendors/Templates/Emails
  * @version 2.0.0
  */
 
- if ( ! defined( 'ABSPATH' ) ) {
- 	exit;
- }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
- /**
-  * @hooked WC_Emails::email_header() Output the email header
-  */
- do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
+/**
+ * @hooked WC_Emails::email_header() Output the email header
+ */
+do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-<p><?php printf( __( 'Hi there. This is a notification about a %s application on %s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ), get_option( 'blogname' ) ); ?></p>
-<p><?php printf( __( 'Your application is currently: %s', 'wc-vendors' ), $status ); ?></p>
-<p><?php printf( __( 'Applicant username: %s', 'wc-vendors' ), $user->user_login ); ?></p>
+	<p><?php printf( __( 'Hi there. This is a notification about a %1$s application on %2$s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ), get_option( 'blogname' ) ); ?></p>
+	<p><?php printf( __( 'Your application is currently: %s', 'wc-vendors' ), $status ); ?></p>
+	<p><?php printf( __( 'Applicant username: %s', 'wc-vendors' ), $user->user_login ); ?></p>
 
- <?php
+<?php
 
- /**
-  * @hooked WC_Emails::email_footer() Output the email footer
-  */
- do_action( 'woocommerce_email_footer', $email );
+/**
+ * @hooked WC_Emails::email_footer() Output the email footer
+ */
+do_action( 'woocommerce_email_footer', $email );

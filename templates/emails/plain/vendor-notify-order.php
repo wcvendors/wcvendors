@@ -4,17 +4,16 @@
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/emails/plain/vendor-notify-order.php.
  *
- *
- * @author		Jamie Madden, WC Vendors
- * @package 	WCvendors/Templates/Emails/Plain
- * @version		2.0.0
+ * @author         Jamie Madden, WC Vendors
+ * @package        WCvendors/Templates/Emails/Plain
+ * @version        2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-echo "= " . $email_heading . " =\n\n";
+echo '= ' . $email_heading . " =\n\n";
 
 echo sprintf( __( 'You have received an order from %s.', 'wc-vendors' ), $customer_name ) . "\n\n";
 

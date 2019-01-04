@@ -25,6 +25,7 @@ class WCV_Commissions_Sum_CSV_Export extends WC_CSV_Exporter {
 	 * Constructor.
 	 */
 	public function __construct() {
+
 		$this->column_names = $this->get_default_column_names();
 	}
 
@@ -37,18 +38,20 @@ class WCV_Commissions_Sum_CSV_Export extends WC_CSV_Exporter {
 	 */
 	public function get_default_column_names() {
 
-		return apply_filters( 'wcv_commissions_sum_export_columns', array(
-			'vendor_id' 	    	=> sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
-			'total_due'  			=> __( 'Total', 'wc-vendors' ),
-			'paypal_email'     		=> __( 'PayPal Email', 'wc-vendors' ),
-			'bank_account_name'     => __( 'Bank Account Name', 'wc-vendors' ),
-			'bank_account_number'   => __( 'Bank Account Number', 'wc-vendors' ),
-			'bank_name'     		=> __( 'Bank Name', 'wc-vendors' ),
-			'bank_routing'     		=> __( 'Routing Number', 'wc-vendors' ),
-			'bank_iban'     		=> __( 'IBAN', 'wc-vendors' ),
-			'bank_swift'     		=> __( 'BIC/SWIFT', 'wc-vendors' ),
-			'status'     			=> __( 'Commission Status', 'wc-vendors' ),
-		) );
+		return apply_filters(
+			'wcv_commissions_sum_export_columns', array(
+				'vendor_id'           => sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
+				'total_due'           => __( 'Total', 'wc-vendors' ),
+				'paypal_email'        => __( 'PayPal Email', 'wc-vendors' ),
+				'bank_account_name'   => __( 'Bank Account Name', 'wc-vendors' ),
+				'bank_account_number' => __( 'Bank Account Number', 'wc-vendors' ),
+				'bank_name'           => __( 'Bank Name', 'wc-vendors' ),
+				'bank_routing'        => __( 'Routing Number', 'wc-vendors' ),
+				'bank_iban'           => __( 'IBAN', 'wc-vendors' ),
+				'bank_swift'          => __( 'BIC/SWIFT', 'wc-vendors' ),
+				'status'              => __( 'Commission Status', 'wc-vendors' ),
+			)
+		);
 	}
 
 	/**
@@ -60,11 +63,13 @@ class WCV_Commissions_Sum_CSV_Export extends WC_CSV_Exporter {
 
 		global $wpdb;
 
-		$columns  = $this->get_column_names();
+		$columns = $this->get_column_names();
 
-		if ( ! current_user_can( 'manage_options' ) ) return;
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
 
-		$sum_totals = WCV_Commission::get_sum_vendor_totals();
+		$sum_totals       = WCV_Commission::get_sum_vendor_totals();
 		$this->total_rows = count( $sum_totals );
 		$this->row_data   = array();
 
@@ -100,7 +105,7 @@ class WCV_Commissions_Sum_CSV_Export extends WC_CSV_Exporter {
 							$value = get_user_meta( $vendor_id, 'wcv_bank_bic_swift', 'true' );
 							break;
 						case 'total_due':
-							$value 	= wc_format_localized_price( $total );
+							$value = wc_format_localized_price( $total );
 							break;
 						default:
 							$value = $status;

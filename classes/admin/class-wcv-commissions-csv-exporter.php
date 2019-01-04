@@ -25,6 +25,7 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 	 * Constructor.
 	 */
 	public function __construct() {
+
 		$this->column_names = $this->get_default_column_names();
 	}
 
@@ -37,17 +38,19 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 	 */
 	public function get_default_column_names() {
 
-		return apply_filters( 'wcv_commissions_export_columns', array(
-			'product_id' 		=> __( 'Product', 'wc-vendors' ),
-			'order_id'   		=> __( 'Order ID', 'wc-vendors' ),
-			'vendor_id' 	    => sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
-			'total_due'  		=> __( 'Commission', 'wc-vendors' ),
-			'total_shipping'  	=> __( 'Shipping', 'wc-vendors' ),
-			'tax'  				=> __( 'Tax', 'wc-vendors' ),
-			'totals'  			=> __( 'Total', 'wc-vendors' ),
-			'status'     		=> __( 'Status', 'wc-vendors' ),
-			'time'       		=> __( 'Date', 'wc-vendors' ),
-		) );
+		return apply_filters(
+			'wcv_commissions_export_columns', array(
+				'product_id'     => __( 'Product', 'wc-vendors' ),
+				'order_id'       => __( 'Order ID', 'wc-vendors' ),
+				'vendor_id'      => sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
+				'total_due'      => __( 'Commission', 'wc-vendors' ),
+				'total_shipping' => __( 'Shipping', 'wc-vendors' ),
+				'tax'            => __( 'Tax', 'wc-vendors' ),
+				'totals'         => __( 'Total', 'wc-vendors' ),
+				'status'         => __( 'Status', 'wc-vendors' ),
+				'time'           => __( 'Date', 'wc-vendors' ),
+			)
+		);
 	}
 
 	/**
@@ -59,26 +62,28 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 
 		global $wpdb;
 
-		$columns  = $this->get_column_names();
+		$columns = $this->get_column_names();
 
-		if ( ! current_user_can( 'manage_options' ) ) return;
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
 
-		$orderby = !empty( $_REQUEST[ 'orderby' ] ) ? esc_attr( $_REQUEST[ 'orderby' ] ) : 'time';
-		$order   = ( !empty( $_REQUEST[ 'order' ] ) && $_REQUEST[ 'order' ] == 'asc' ) ? 'ASC' : 'DESC';
-		$com_status = !empty( $_REQUEST[ 'com_status' ] ) ? esc_attr( $_REQUEST[ 'com_status' ] ) : '';
-		$vendor_id = !empty( $_REQUEST[ 'vendor_id' ] ) ? esc_attr( $_REQUEST[ 'vendor_id' ] ) : '';
+		$order      = ( ! empty( $_REQUEST['order'] ) && $_REQUEST['order'] == 'asc' ) ? 'ASC' : 'DESC';
+		$orderby    = ! empty( $_REQUEST['orderby']    ) ? esc_attr( $_REQUEST['orderby'] )    : 'time';
+		$com_status = ! empty( $_REQUEST['com_status'] ) ? esc_attr( $_REQUEST['com_status'] ) : '';
+		$vendor_id  = ! empty( $_REQUEST['vendor_id']  ) ? esc_attr( $_REQUEST['vendor_id'] )  : '';
 		$status_sql = '';
-		$time_sql = '';
+		$time_sql   = '';
 
 		/**
 		 * Get items
 		 */
 		$sql = "SELECT COUNT(id) FROM {$wpdb->prefix}pv_commission";
 
-		if ( !empty( $_GET[ 'm' ] ) ) {
+		if ( ! empty( $_GET['m'] ) ) {
 
-			$year  = substr( $_GET[ 'm' ], 0, 4 );
-			$month = substr( $_GET[ 'm' ], 4, 2 );
+			$year  = substr( $_GET['m'], 0, 4 );
+			$month = substr( $_GET['m'], 4, 2 );
 
 			$time_sql = "
 				WHERE MONTH(`time`) = '$month'
@@ -88,7 +93,7 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 			$sql .= $time_sql;
 		}
 
-		if ( !empty( $_GET[ 'com_status' ] ) ) {
+		if ( ! empty( $_GET['com_status'] ) ) {
 
 			if ( $time_sql == '' ) {
 				$status_sql = "
@@ -103,8 +108,7 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 			$sql .= $status_sql;
 		}
 
-
-		if ( !empty( $_GET[ 'vendor_id' ] ) ) {
+		if ( ! empty( $_GET['vendor_id'] ) ) {
 
 			if ( $time_sql == '' && $status_sql == '' ) {
 				$vendor_sql = "
@@ -121,24 +125,24 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 
 		$max = $wpdb->get_var( $sql );
 
-		$sql = "
+		$sql
+			= "
 			SELECT * FROM {$wpdb->prefix}pv_commission
 		";
 
-		if ( !empty( $_GET[ 'm' ] ) ) {
+		if ( ! empty( $_GET['m'] ) ) {
 			$sql .= $time_sql;
 		}
 
-		if ( !empty( $_GET['com_status'] ) ) {
+		if ( ! empty( $_GET['com_status'] ) ) {
 			$sql .= $status_sql;
 		}
 
-		if ( !empty( $_GET['vendor_id'] ) ) {
+		if ( ! empty( $_GET['vendor_id'] ) ) {
 			$sql .= $vendor_sql;
 		}
 
 		// $offset = ( $current_page - 1 ) * $per_page;
-
 		$sql .= "
 			ORDER BY `{$orderby}` {$order}
 		";
@@ -155,15 +159,13 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 			foreach ( $columns as $column_id => $column_name ) {
 
 				if ( $column_id == 'vendor_id' ) {
- 					$value = WCV_Vendors::get_vendor_shop_name( $commission->vendor_id );
-				} elseif ( $column_id == 'totals' ){
-					$totals = ( wc_tax_enabled() ) ? $commission->total_due + $commission->total_shipping + $commission->tax :  $commission->total_due + $commission->total_shipping;
-				 	$value = wc_format_localized_price( $totals );
+					$value = WCV_Vendors::get_vendor_shop_name( $commission->vendor_id );
+				} elseif ( $column_id == 'totals' ) {
+					$totals = ( wc_tax_enabled() ) ? $commission->total_due + $commission->total_shipping + $commission->tax : $commission->total_due + $commission->total_shipping;
+					$value  = wc_format_localized_price( $totals );
 				} else {
 					$value = $commission->$column_id;
 				}
-
-
 
 				$row[ $column_id ] = $value;
 			}
