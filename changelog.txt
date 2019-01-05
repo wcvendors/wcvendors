@@ -1,5 +1,18 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.4
+
+* Added: Filter to modify terms error message
+* Added: Run WordPress oEmbed code over the seller info tab
+* Updated: Replace current PHP session with WC Session #514
+* Updated: Adjusted the message to be generic to apply to customers and vendors.
+* Updated: WooCommerce version compatibility
+* Fixed: Vendor application firing before pro form submitted (#510)
+* Fixed: Vendor terms and conditions stopping customers from registering #513
+* Fixed: Vendor New Order email: Billing name is shown instead of Shipping name #509
+* Fixed: Shipping is saved in db as integer. (#512)
+* Added: Filter to adjust the string
+
 Version 2.1.3
 
 * Updated: Treat product as vendor page if product author is vendor (#505)

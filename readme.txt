@@ -6,8 +6,8 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
 Requires PHP: 5.6
-Tested up to: 5.0.0
-Stable tag: 2.1.3
+Tested up to: 5.0.2
+Stable tag: 2.1.4
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
@@ -16,10 +16,11 @@ The number one most downloaded marketplace plugin for WooCommerce. Now you can a
 
 = WC Vendors Marketplace plugin for WordPress and WooCommerce =
 
-- Try our demo today: [ Launch your own install today ] ( http://www.wcvendors.com/home/demo/?utm_campaign=wporg_details?utm_source=wporg" )
-- See whats in our pro product today ( All pro features of WC Vendors Pro ) ( https://www.wcvendors.com/home/features/?utm_campaign=wporg_details?utm_source=wporg" )
 
-= POWERED BY WORDPRESS AND WOOCOMMERCE = 
+- Try our demo today: [Launch your own install today] ( http://www.wcvendors.com/home/demo/?utm_campaign=wporg_details?utm_source=wporg" )
+- See whats in our pro product today [All pro features of WC Vendors Pro] ( https://www.wcvendors.com/home/features/?utm_campaign=wporg_details?utm_source=wporg" )
+
+= POWERED BY WORDPRESS AND WOOCOMMERCE =
 
 Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
 
@@ -27,6 +28,7 @@ WC Vendors Marketplace was released to the market in October of 2014 having gott
 
 == Announcements ==
 
+* We are compatible with WordPress 5.0 - But please be sure to check everything on a staging server before upgrading !
 * The plugin name has been updated. It is now called WC Vendors Marketplace. <a href="www.wcvendors.com/2018/07/wc-vendors-marketplace/?utm_campaign=annoucements?utm_source=wporg"">Read about it here</a>.
 * Questions about GDPR and WC Vendors Marketplace? Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/gdpr-and-wc-vendors/?utm_campaign=announcements?utm_source=wporg">GDPR and WC Vendors</a>.
 * Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for solutions to your vendor commission payments. Including Stripe, Paypal and others.
@@ -82,7 +84,9 @@ The following features are part of <a href="https://www.wcvendors.com/product/wc
 * Vendors have a comprehensive shipping system available. Either flat rate or table rate based.
 * Vendor stores templates are more advanced
 * Vendors have more control over their order notes
-* Vendors vacation module is included as part of pro not an extra addon
+* Vendors vacation module is included as part of pro not an extra addon including disable cart
+* Vendors store notice has been added
+* Vendors store opening hours
 * Admins have multiple commission rate options including percentage, percentage + fee, fixed, fixed + fee.
 * Admins can set global shipping rates as well as allow different shipping modules per vendor. Setting one as flat rate, while another can be table rate
 * Ebay style feedback allows customers to rate the products from the vendors
@@ -152,6 +156,19 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.4 - 5th January 2019 =
+
+* Added: Filter to modify terms error message
+* Added: Run WordPress oEmbed code over the seller info tab
+* Updated: Replace current PHP session with WC Session #514
+* Updated: Adjusted the message to be generic to apply to customers and vendors.
+* Updated: WooCommerce version compatibility
+* Fixed: Vendor application firing before pro form submitted (#510)
+* Fixed: Vendor terms and conditions stopping customers from registering #513
+* Fixed: Vendor New Order email: Billing name is shown instead of Shipping name #509
+* Fixed: Shipping is saved in db as integer. (#512)
+* Added: Filter to adjust the string
 
 = Version 2.1.3 - 24th November 2018 =
 
