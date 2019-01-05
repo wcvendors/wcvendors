@@ -17,8 +17,8 @@ The number one most downloaded marketplace plugin for WooCommerce. Now you can a
 = WC Vendors Marketplace plugin for WordPress and WooCommerce =
 
 
-- Try our demo today: [Launch your own install today] ( http://www.wcvendors.com/home/demo/?utm_campaign=wporg_details?utm_source=wporg" )
-- See whats in our pro product today [All pro features of WC Vendors Pro] ( https://www.wcvendors.com/home/features/?utm_campaign=wporg_details?utm_source=wporg" )
+- Try our demo today: <a href="http://www.wcvendors.com/home/demo/?utm_campaign=wporg_details?utm_source=wporg">Launch your own install today</a>
+- See whats in our pro product today - <a href="https://www.wcvendors.com/home/features/?utm_campaign=wporg_details?utm_source=wporg">All pro features of WC Vendors Pro</a>
 
 = POWERED BY WORDPRESS AND WOOCOMMERCE =
 
