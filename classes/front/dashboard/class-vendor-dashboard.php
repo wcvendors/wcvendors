@@ -20,8 +20,9 @@ class WCV_Vendor_Dashboard {
 			return;
 		}
 
-		add_shortcode( 'wcv_shop_settings', array( $this, 'display_vendor_settings' ) );
-		add_shortcode( 'wcv_vendor_dashboard', array( $this, 'display_vendor_products' ) );
+		add_shortcode( 'wcv_shop_settings',        array( $this, 'display_vendor_settings' ) );
+		add_shortcode( 'wcv_vendor_dashboard',     array( $this, 'display_vendor_products' ) );
+		add_shortcode( 'wcv_vendor_dashboard_nav', array( $this, 'display_dashboard_nav' ) );
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );
 		add_action( 'template_redirect', array( $this, 'save_vendor_settings' ) );
@@ -205,10 +206,6 @@ class WCV_Vendor_Dashboard {
 		$end_date   = WC()->session->get( 'wcv_order_end_date', current_time( 'timestamp' ) );
 
 		$can_view_orders = wc_string_to_bool( get_option( 'wcvendors_capability_orders_enabled', 'no' ) );
-		$settings_page   = get_permalink( get_option( 'wcvendors_shop_settings_page_id' ) );
-		$can_submit      = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'no' ) );
-		$submit_link     = ( $can_submit ) ? admin_url( 'post-new.php?post_type=product' ) : '';
-		$edit_link       = ( $can_submit ) ? admin_url( 'edit.php?post_type=product' ) : '';
 
 		if ( ! $this->can_view_vendor_page() ) {
 			return false;
@@ -232,7 +229,6 @@ class WCV_Vendor_Dashboard {
 
 		$vendor_summary = $this->format_product_details( $vendor_products );
 		$order_summary  = WCV_Queries::get_orders_for_products( $products );
-		$shop_page      = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
 
 		wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
 
@@ -255,14 +251,11 @@ class WCV_Vendor_Dashboard {
 		do_action( 'wcvendors_before_dashboard' );
 
 		wc_print_notices();
+
 		wc_get_template(
-			'links.php',
+			'navigation.php',
 			array(
-				'shop_page'     => urldecode( $shop_page ),
-				'settings_page' => $settings_page,
-				'can_submit'    => $can_submit,
-				'submit_link'   => $submit_link,
-				'edit_link'     => $edit_link,
+				'items' => $this->get_nav_items()
 			),
 			'wc-vendors/dashboard/',
 			wcv_plugin_dir . 'templates/dashboard/'
@@ -306,6 +299,63 @@ class WCV_Vendor_Dashboard {
 		do_action( 'wcvendors_after_dashboard' );
 
 		wc_enqueue_js( WCV_Vendor_dashboard::wc_st_js( $provider_array ) );
+
+		return ob_get_clean();
+	}
+
+	/**
+	 * Filterable dashboard navigation items.
+	 *
+	 * @return array
+	 */
+	public function get_nav_items() {
+
+		$items = array(
+			'shop_page'     => array(
+				'url'   => urldecode( WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login ) ),
+				'label' => esc_html__( 'View Your Store', 'wc-vendors' ),
+			),
+			'settings_page' => array(
+				'url'   => get_permalink( get_option( 'wcvendors_shop_settings_page_id' ) ),
+				'label' => esc_html__( 'Store Settings', 'wc-vendors' ),
+			),
+		);
+
+		$can_submit = wc_string_to_bool( get_option( 'wcvendors_capability_products_enabled', 'no' ) );
+
+		if ( $can_submit ) {
+			$items['submit_link'] = array(
+				'url'    => admin_url( 'post-new.php?post_type=product' ),
+				'label'  => esc_html__( 'Add New Product', 'wc-vendors' ),
+				'target' => '_top',
+			);
+			$items['edit_link']   = array(
+				'url'    => admin_url( 'post-new.php?post_type=product' ),
+				'label'  => esc_html__( 'Edit Products', 'wc-vendors' ),
+				'target' => '_top',
+			);
+		}
+
+		return apply_filters( 'wcv_dashboard_nav_items', $items );
+	}
+
+	/**
+	 * [wcv_vendor_dashboard_nav] shortcode.
+	 *
+	 * @return string
+	 */
+	public function display_dashboard_nav() {
+
+		ob_start();
+
+		wc_get_template(
+			'navigation-shortcode.php',
+			array(
+				'items' => $this->get_nav_items()
+			),
+			'wc-vendors/dashboard/',
+			wcv_plugin_dir . 'templates/dashboard/'
+		);
 
 		return ob_get_clean();
 	}

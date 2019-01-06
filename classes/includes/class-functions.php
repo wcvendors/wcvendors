@@ -75,4 +75,19 @@ function wcv_get_screen_ids() {
 	);
 }
 
+/**
+ * Filterable navigation items classes for Vendor Dashboard.
+ *
+ * @param string $item_id Navigation item ID.
+ *
+ * @return string
+ */
+function wcv_get_dashboard_nav_item_classes( $item_id ) {
+
+	$classes = array( 'button' );
+
+	$classes = apply_filters( 'wcv_dashboard_nav_item_classes', $classes, $item_id );
+
+	return implode( ' ', array_map( 'sanitize_html_class', $classes ) );
+}
 
