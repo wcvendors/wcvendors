@@ -71,7 +71,7 @@ if ( ! class_exists( 'WCVendors_Settings_Capabilities', false ) ) :
 
 						array(
 							'title'    => __( 'Product Types', 'wc-vendors' ),
-							'desc'     => sprintf( __( 'This controls what product types the %s can create', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'desc'     => sprintf( __( 'This controls what product types are hidden from the %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'       => 'wcvendors_capability_product_types',
 							'class'    => 'wc-enhanced-select',
 							'css'      => 'min-width:300px;',
@@ -82,7 +82,7 @@ if ( ! class_exists( 'WCVendors_Settings_Capabilities', false ) ) :
 
 						array(
 							'title'    => __( 'Product Type Options', 'wc-vendors' ),
-							'desc'     => sprintf( __( 'This controls what product type options the %s can use', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'desc'     => sprintf( __( 'This controls what product type options are hidden from the %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'       => 'wcvendors_capability_product_type_options',
 							'class'    => 'wc-enhanced-select',
 							'css'      => 'min-width:300px;',
@@ -96,7 +96,7 @@ if ( ! class_exists( 'WCVendors_Settings_Capabilities', false ) ) :
 
 						array(
 							'title'    => __( 'Product Data Tabs', 'wc-vendors' ),
-							'desc'     => sprintf( __( 'This controls what product data tabs the %s can use', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'desc'     => sprintf( __( 'This controls what product data tabs will be hidden from the %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'       => 'wcvendors_capability_product_data_tabs',
 							'class'    => 'wc-enhanced-select',
 							'css'      => 'min-width:300px;',
