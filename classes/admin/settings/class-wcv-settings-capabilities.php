@@ -101,7 +101,7 @@ if ( ! class_exists( 'WCVendors_Settings_Capabilities', false ) ) :
 							'class'    => 'wc-enhanced-select',
 							'css'      => 'min-width:300px;',
 							'type'     => 'multiselect',
-							'options'  => array(
+							'options'  => apply_filters('wcvendors_capability_product_data_tabs', array(
 								'general'        => __( 'General', 'wc-vendors' ),
 								'inventory'      => __( 'Inventory', 'wc-vendors' ),
 								'shipping'       => __( 'Shipping', 'wc-vendors' ),
@@ -109,7 +109,7 @@ if ( ! class_exists( 'WCVendors_Settings_Capabilities', false ) ) :
 								'attribute'      => __( 'Attributes', 'wc-vendors' ),
 								'variations'     => __( 'Variations', 'wc-vendors' ),
 								'advanced'       => __( 'Advanced', 'wc-vendors' ),
-							),
+							) ),
 							'desc_tip' => true,
 						),
 
