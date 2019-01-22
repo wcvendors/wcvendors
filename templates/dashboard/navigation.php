@@ -4,9 +4,9 @@
  *
  * This template can be overridden by copying it to yourtheme/wc-vendors/dashboard/navigation.php
  *
- * @author        Jamie Madden, WC Vendors
+ * @author        WC Vendors
  * @package       WCVendors/Templates/dashboard
- * @version       2.0.0
+ * @version       2.1.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
