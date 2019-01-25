@@ -26,6 +26,26 @@ class WCV_Vendor_Dashboard {
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );
 		add_action( 'template_redirect', array( $this, 'save_vendor_settings' ) );
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+	}
+
+	/**
+	 * Enqueue styles and scripts.
+	 */
+	public function enqueue_scripts() {
+
+		global $post;
+		if ( ! is_a( $post, 'WP_Post' ) ) {
+			return;
+		}
+		if (
+			has_shortcode( $post->post_content, 'wcv_vendor_dashboard' )
+			|| has_shortcode( $post->post_content, 'wcv_orders' )
+			|| has_shortcode( $post->post_content, 'wcv_vendor_dashboard_nav' )
+		) {
+			wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
+		}
 	}
 
 	public function save_vendor_settings() {
@@ -229,8 +249,6 @@ class WCV_Vendor_Dashboard {
 
 		$vendor_summary = $this->format_product_details( $vendor_products );
 		$order_summary  = WCV_Queries::get_orders_for_products( $products );
-
-		wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
 
 		$providers      = array();
 		$provider_array = array();

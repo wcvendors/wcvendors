@@ -164,7 +164,6 @@ class WCV_Orders {
 		$headers = WCV_Orders::get_headers();
 		$all     = WCV_Orders::format_order_details( $this->orders, $this->product_id );
 
-		wp_enqueue_style( 'pv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
 		wp_enqueue_script( 'pv_frontend_script', wcv_assets_url . 'js/front-orders.js' );
 
 		$providers      = array();
