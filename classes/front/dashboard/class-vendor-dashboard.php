@@ -367,7 +367,7 @@ class WCV_Vendor_Dashboard {
 		ob_start();
 
 		wc_get_template(
-			'navigation-shortcode.php',
+			'navigation.php',
 			array(
 				'items' => $this->get_nav_items()
 			),
