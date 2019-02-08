@@ -65,6 +65,8 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 				return wc_price( $item->total_shipping );
 			case 'tax':
 				return wc_price( $item->tax );
+			case 'qty':
+				return $item->qty;
 			case 'totals':
 				$totals = ( wc_tax_enabled() ) ? $item->total_due + $item->total_shipping + $item->tax : $item->total_due + $item->total_shipping;
 
@@ -124,9 +126,10 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 
 		$columns = array(
 			'cb'             => '<input type="checkbox" />',
-			'product_id'     => __( 'Product', 'wc-vendors' ),
 			'order_id'       => __( 'Order ID', 'wc-vendors' ),
 			'vendor_id'      => sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
+			'product_id'     => __( 'Product', 'wc-vendors' ),
+			'qty'     	     => __( 'Quantity', 'wc-vendors' ),
 			'total_due'      => __( 'Commission', 'wc-vendors' ),
 			'total_shipping' => __( 'Shipping', 'wc-vendors' ),
 			'tax'            => __( 'Tax', 'wc-vendors' ),
@@ -154,6 +157,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 		$sortable_columns = array(
 			'time'           => array( 'time', true ),
 			'product_id'     => array( 'product_id', false ),
+			'qty'     		 => array( 'qty', false ),
 			'order_id'       => array( 'order_id', false ),
 			'total_due'      => array( 'total_due', false ),
 			'total_shipping' => array( 'total_shipping', false ),

@@ -200,18 +200,19 @@ class WCVendors_Admin_Menus {
 		wp_enqueue_style( 'wcv-admin-styles', wcv_assets_url . 'css/wcv-admin.css', array(), WCV_VERSION );
 
 		// Only load the styles on the license table page
-		if ( 'wcv_admin_commissions' !== $page ) {
+		if ( 'wcv-commissions' !== $page ) {
 			return;
 		}
 
 		echo '<style type="text/css">';
-		echo '.wp-list-table .column-product_id { width: 20%; }';
+		echo '.wp-list-table .column-product_id { width: 15%; }';
+		echo '.wp-list-table .column-qty { width: 5%; }';
+		echo '.wp-list-table .column-order_id { width: 5%; }';
 		echo '.wp-list-table .column-vendor_id { width: 15%; }';
-		echo '.wp-list-table .column-order_id { width: 8%; }';
-		echo '.wp-list-table .column-total_due { width: 10%;}';
-		echo '.wp-list-table .column-total_shipping { width: 10%;}';
-		echo '.wp-list-table .column-tax { width: 10%;}';
-		echo '.wp-list-table .column-totals { width: 10%;}';
+		echo '.wp-list-table .column-total_due { width: 8%;}';
+		echo '.wp-list-table .column-total_shipping { width: 5%;}';
+		echo '.wp-list-table .column-tax { width: 5%;}';
+		echo '.wp-list-table .column-totals { width: 5%;}';
 		echo '.wp-list-table .column-status { width: 5%;}';
 		echo '.wp-list-table .column-time { width: 10%;}';
 		echo '</style>';
