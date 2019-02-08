@@ -259,8 +259,6 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 							<?php echo $tooltip_html; ?>
 						</th>
 						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
-							<?php echo $description; ?>
-
 							<textarea
 								name="<?php echo esc_attr( $value['id'] ); ?>"
 								id="<?php echo esc_attr( $value['id'] ); ?>"
@@ -269,6 +267,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo implode( ' ', $custom_attributes ); ?>
 								><?php echo esc_textarea( $option_value ); ?></textarea>
+							<?php echo $description; ?>
 						</td>
 					</tr>
 					<?php
