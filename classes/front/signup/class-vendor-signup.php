@@ -103,7 +103,7 @@ class WCV_Vendor_Signup {
 				$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
 
 				$wp_user_object = new WP_User( $user_id );
-				$wp_user_object->set_role( $role );
+				$wp_user_object->add_role( $role );
 
 				do_action( 'wcvendors_application_submited', $user_id );
 
@@ -127,7 +127,7 @@ class WCV_Vendor_Signup {
 			$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
 
 			$wp_user_object = new WP_User( $user_id );
-			$wp_user_object->set_role( $role );
+			$wp_user_object->add_role( $role );
 
 			do_action( 'wcvendors_application_submited', $user_id );
 
