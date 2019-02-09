@@ -208,8 +208,8 @@ class WCVendors_Admin_Menus {
 		echo '.wp-list-table .column-product_id { width: 15%; }';
 		echo '.wp-list-table .column-qty { width: 5%; }';
 		echo '.wp-list-table .column-order_id { width: 5%; }';
-		echo '.wp-list-table .column-vendor_id { width: 15%; }';
-		echo '.wp-list-table .column-total_due { width: 8%;}';
+		echo '.wp-list-table .column-vendor_id { width: 12%; }';
+		echo '.wp-list-table .column-total_due { width: 10%;}';
 		echo '.wp-list-table .column-total_shipping { width: 5%;}';
 		echo '.wp-list-table .column-tax { width: 5%;}';
 		echo '.wp-list-table .column-totals { width: 5%;}';
