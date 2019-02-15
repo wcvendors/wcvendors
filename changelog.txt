@@ -10,6 +10,10 @@ Version 2.1.5
 * Updated: language file (#532)
 * Fixed: Put description below textarea for settings pages (#536)
 
+Templates Updated:
+	templates/dashboard/links.php
+	templates/dashboard/navigation.php
+
 Version 2.1.4
 
 * Added: Filter to modify terms error message

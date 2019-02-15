@@ -1,5 +1,5 @@
 === WC Vendors Marketplace - The Multivendor Marketplace Solution for WooCommerce ===
-Contributors: digitalchild, benwcv, annawcvendors
+Contributors: digitalchild, benwcv
 Tags: best marketplace, multi vendor marketplace, multi vendor, multi seller, woocommerce vendor, woocommerce marketplace, product vendors, vendor, vendors, wc multivendor, commissions, commission rate
 Donate link: https://www.wcvendors.com/
 Author URI: https://www.wcvendors.com/

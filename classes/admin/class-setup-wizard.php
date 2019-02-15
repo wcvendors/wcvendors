@@ -236,6 +236,19 @@ class WCVendors_Admin_Setup_Wizard {
 	}
 
 	/**
+	 * Helper method to retrieve the current user's firt name
+	 *
+	 * @return string Email address
+	 */
+	protected function get_current_user_firstname() {
+
+		$current_user = wp_get_current_user();
+		$first_name   = $current_user->user_firstname;
+
+		return $first_name;
+	}
+
+	/**
 	 * Initial "marketplace setup" step.
 	 * Vendor registration, taxes and shipping
 	 */
@@ -387,6 +400,7 @@ class WCVendors_Admin_Setup_Wizard {
 		flush_rewrite_rules();
 
 		$user_email = $this->get_current_user_email();
+		$first_name = $this->get_current_user_firstname();
 		$forums     = 'https://wordpress.org/support/plugin/wc-vendors';
 		$docs_url   = 'https://docs.wcvendors.com/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete';
 		$help_text  = sprintf(
