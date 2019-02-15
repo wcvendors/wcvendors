@@ -56,7 +56,7 @@ msgstr ""
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:169, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:270, classes/admin/class-setup-wizard.php:336, classes/admin/class-wcv-admin-setup.php:138, classes/admin/class-wcv-admin-setup.php:297, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:213
+#: classes/class-install.php:169, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:270, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:138, classes/admin/class-wcv-admin-setup.php:297, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:213
 msgid "%s"
 msgstr ""
 
@@ -132,6 +132,114 @@ msgstr ""
 msgid "Premium support"
 msgstr ""
 
+#: classes/class-install.php:504
+msgid "View sales overview"
+msgstr ""
+
+#: classes/class-install.php:505
+msgid "View sales report chart"
+msgstr ""
+
+#: classes/class-install.php:506
+msgid "View vendor notices"
+msgstr ""
+
+#: classes/class-install.php:507, classes/class-install.php:508
+msgid "View order report"
+msgstr ""
+
+#: classes/class-install.php:509
+msgid "View ratings report"
+msgstr ""
+
+#: classes/class-install.php:510
+msgid "View product status report"
+msgstr ""
+
+#: classes/class-install.php:513
+msgid "View overview report"
+msgstr ""
+
+#: classes/class-install.php:514
+msgid "View daily sales report"
+msgstr ""
+
+#: classes/class-install.php:515
+msgid "View top selling report"
+msgstr ""
+
+#: classes/class-install.php:516
+msgid "View top earning report"
+msgstr ""
+
+#: classes/class-install.php:517, classes/class-install.php:518
+msgid "View statement report"
+msgstr ""
+
+#: classes/class-install.php:521, classes/class-install.php:527
+msgid "View order"
+msgstr ""
+
+#: classes/class-install.php:522, classes/class-install.php:528
+msgid "Manage order"
+msgstr ""
+
+#: classes/class-install.php:523, classes/class-install.php:529
+msgid "Manage order note"
+msgstr ""
+
+#: classes/class-install.php:524, classes/class-install.php:530, templates/orders/csv-export.php:22
+msgid "Export orders"
+msgstr ""
+
+#: classes/class-install.php:533
+msgid "Add product"
+msgstr ""
+
+#: classes/class-install.php:534
+msgid "Edit product"
+msgstr ""
+
+#: classes/class-install.php:535
+msgid "Edit published product"
+msgstr ""
+
+#: classes/class-install.php:536
+msgid "Publish product directly without approval"
+msgstr ""
+
+#: classes/class-install.php:537
+msgid "Delete product"
+msgstr ""
+
+#: classes/class-install.php:538
+msgid "Duplicate product"
+msgstr ""
+
+#: classes/class-install.php:539
+msgid "View product"
+msgstr ""
+
+#: classes/class-install.php:543
+msgid "View dashboard menu"
+msgstr ""
+
+#: classes/class-install.php:544
+msgid "View product menu"
+msgstr ""
+
+#: classes/class-install.php:545
+msgid "View order menu"
+msgstr ""
+
+#: classes/class-install.php:546
+msgid "View store settings menu"
+msgstr ""
+
+#: classes/class-install.php:547
+msgid "View payment settings menu"
+msgstr ""
+
 #: classes/class-vendor-post-types.php:37
 msgid "%s Orders"
 msgstr ""
@@ -153,7 +261,7 @@ msgstr ""
 msgid "WC Vendors Extensions"
 msgstr ""
 
-#: classes/admin/class-admin-menus.php:64, classes/admin/views/setup/ready.php:67
+#: classes/admin/class-admin-menus.php:64, classes/admin/views/setup/ready.php:82
 msgid "Extensions"
 msgstr ""
 
@@ -318,7 +426,7 @@ msgid "Ready!"
 msgstr ""
 
 #. translators: %1$s: link to videos, %2$s: link to docs
-#: classes/admin/class-setup-wizard.php:394
+#: classes/admin/class-setup-wizard.php:408
 msgid "Don't forget to check our <a href=\"%1$s\" target=\"_blank\">documentation</a> to learn more about setting up WC Vendors and if you need help, be sure to visit our <a href=\"%2$s\" target=\"_blank\">free support forums</a>."
 msgstr ""
 
@@ -521,39 +629,39 @@ msgstr ""
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:446, classes/admin/class-wcv-admin-settings.php:474, classes/includes/class-functions.php:63
+#: classes/admin/class-wcv-admin-settings.php:445, classes/admin/class-wcv-admin-settings.php:473, classes/includes/class-functions.php:63
 msgid "Select a page&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:498
+#: classes/admin/class-wcv-admin-settings.php:497
 msgid "Choose a country&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:498, classes/admin/class-wcv-admin-settings.php:524
+#: classes/admin/class-wcv-admin-settings.php:497, classes/admin/class-wcv-admin-settings.php:523
 msgid "Country"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:524
+#: classes/admin/class-wcv-admin-settings.php:523
 msgid "Choose countries&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:532
+#: classes/admin/class-wcv-admin-settings.php:531
 msgid "Select all"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:532
+#: classes/admin/class-wcv-admin-settings.php:531
 msgid "Select none"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:550
+#: classes/admin/class-wcv-admin-settings.php:549
 msgid "Update %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:550, classes/admin/class-wcv-admin-settings.php:550
+#: classes/admin/class-wcv-admin-settings.php:549, classes/admin/class-wcv-admin-settings.php:549
 msgid "Add %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:550
+#: classes/admin/class-wcv-admin-settings.php:549
 msgid "Upload an image for the %s"
 msgstr ""
 
@@ -913,10 +1021,6 @@ msgstr ""
 
 #: templates/emails/vendor-order-items.php:31
 msgid "Product image"
-msgstr ""
-
-#: templates/orders/csv-export.php:22
-msgid "Export orders"
 msgstr ""
 
 #: templates/orders/orders.php:113
@@ -1483,7 +1587,7 @@ msgid "Allow %s to view customer name fields"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-capabilities.php:192
-msgid "Customer Shippin Name"
+msgid "Customer Shipping Name"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-capabilities.php:193
@@ -2169,7 +2273,7 @@ msgstr ""
 msgid "Zip"
 msgstr ""
 
-#: classes/front/orders/class-orders.php:218, classes/admin/views/setup/ready.php:23
+#: classes/front/orders/class-orders.php:218, classes/admin/views/setup/ready.php:32
 msgid "Email address"
 msgstr ""
 
@@ -2598,67 +2702,71 @@ msgstr ""
 msgid "Your marketplace is ready!"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:15
+#: classes/admin/views/setup/ready.php:16
 msgid "Subscribe to our newsletter! Get product updates, marketplace tips, information and more."
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:29, classes/admin/views/setup/ready.php:33
+#: classes/admin/views/setup/ready.php:24
+msgid "First name"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:38, classes/admin/views/setup/ready.php:42
 msgid "Subscribe me"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:42
+#: classes/admin/views/setup/ready.php:57
 msgid "Next step"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:43
+#: classes/admin/views/setup/ready.php:58
 msgid "Upgrade to Pro!"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:44
+#: classes/admin/views/setup/ready.php:59
 msgid "Upgrade today to extend the features of your marketplace."
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:45
+#: classes/admin/views/setup/ready.php:60
 msgid "Features"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:47
+#: classes/admin/views/setup/ready.php:62
 msgid "Complete frontend dashboard for vendors"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:48
+#: classes/admin/views/setup/ready.php:63
 msgid "Flat rate & table rate shipping module"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:49
+#: classes/admin/views/setup/ready.php:64
 msgid "Coupons, ratings, reports, orders and more."
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:50
+#: classes/admin/views/setup/ready.php:65
 msgid "Advanced commissions"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:51
+#: classes/admin/views/setup/ready.php:66
 msgid "Premium support & updates"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:59
+#: classes/admin/views/setup/ready.php:74
 msgid "Upgrade Now"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:66
+#: classes/admin/views/setup/ready.php:81
 msgid "Extend your marketplace"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:68
+#: classes/admin/views/setup/ready.php:83
 msgid "Extend your marketplace today with a variety of extensions from us and 3rd party developers."
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:75
+#: classes/admin/views/setup/ready.php:90
 msgid "View Extensions"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:81
+#: classes/admin/views/setup/ready.php:96
 msgid "Need Help?"
 msgstr ""
 
