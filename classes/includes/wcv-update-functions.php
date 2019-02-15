@@ -117,7 +117,6 @@ function wcv_enable_legacy_emails() {
  * @since 2.0.0
  */
 function wcv_update_200_db_version() {
-
 	WCVendors_Install::update_db_version();
 }
 
@@ -136,7 +135,6 @@ function wcv_update_db_version() {
  * @since 2.0.11
  */
 function wcv_add_hide_become_a_vendor_link_option() {
-
 	add_option( 'wcvendors_become_a_vendor_my_account_link_visibility', 'yes' );
 }
 
@@ -147,7 +145,6 @@ function wcv_add_hide_become_a_vendor_link_option() {
  * @since 2.0.11
  */
 function wcv_add_terms_and_conditions_visibility_option() {
-
 	add_option( 'wcvendors_terms_and_conditions_visibility', 'yes' );
 }
 
@@ -158,7 +155,6 @@ function wcv_add_terms_and_conditions_visibility_option() {
  * @since 2.1.1
  */
 function wcv_redirect_wp_registration_to_woocommerce_myaccount() {
-
 	add_option( 'wcvendors_redirect_wp_registration_to_woocommerce_myaccount', 'no' );
 }
 
@@ -170,6 +166,17 @@ function wcv_redirect_wp_registration_to_woocommerce_myaccount() {
  * @version    2.1.4
  */
 function wcv_can_view_customer_shipping_name_option() {
-
 	add_option( 'wcvendors_capability_order_customer_shipping_name', 'yes' );
+}
+
+
+/**
+ * Add new vendor capabilities to the system (currently unused)
+ *
+ * @return    void
+ * @since      2.1.6
+ * @version    2.1.6
+ */
+function wcv_add_vendor_caps(){
+	WCVendors_Install::create_capbailities();
 }

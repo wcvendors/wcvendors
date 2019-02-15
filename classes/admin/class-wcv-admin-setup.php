@@ -148,6 +148,9 @@ class WCV_Admin_Setup {
 			)
 		);
 
+		// Reset the capabilities
+		WCVendors_Install::create_capabilities();
+
 		echo '<div class="updated inline"><p>' . __( 'WC Vendor roles successfully reset.', 'wc-vendors' ) . '</p></div>';
 
 	} // reset_vendor_roles()

@@ -27,6 +27,9 @@ class WCVendors_Install {
 			'2.1.4'  => array(
 				'wcv_can_view_customer_shipping_name_option',
 			),
+			'2.1.6'	=> array(
+				'wcv_add_vendor_caps',
+			),
 		);
 
 
@@ -143,7 +146,7 @@ class WCVendors_Install {
 	}
 
 	/**
-	 * Add the new Vendor role
+	 * Add the new vendor role
 	 *
 	 * @return bool
 	 */
@@ -184,6 +187,35 @@ class WCVendors_Install {
 				'view_woocommerce_reports'  => false,
 			)
 		);
+
+		self::create_capabilities();
+	}
+
+	/**
+	 * Create the new capabilities for vendors
+	 *
+	 * @since 2.1.6
+	 */
+	public static function create_capabilities(){
+
+		global $wp_roles;
+
+        if ( class_exists( 'WP_Roles' ) && ! isset( $wp_roles ) ) {
+            $wp_roles = new WP_Roles();
+        }
+
+		$capabilities = array();
+        $all_cap      = self::get_vendor_caps();
+
+        foreach ( $all_cap as $key => $cap ) {
+            $capabilities = array_merge( $capabilities, array_keys( $cap ) );
+        }
+
+        foreach ( $capabilities as $key => $capability ) {
+            $wp_roles->add_cap( 'vendor', $capability );
+            $wp_roles->add_cap( 'administrator', $capability );
+            $wp_roles->add_cap( 'shop_manager', $capability );
+        }
 	}
 
 
@@ -492,7 +524,66 @@ class WCVendors_Install {
 		}
 	}
 
+	/**
+	 * Define the new capabilties for vendors
+	 *
+	 * @since 2.1.6
+	 */
+	public static function get_vendor_caps() {
 
+	    $capabilities = array(
+	        'dashboard' => array(
+	            'wcv_view_sales_overview'        => __( 'View sales overview', 'wc-vendors' ),
+	            'wcv_view_sales_report_chart'    => __( 'View sales report chart', 'wc-vendors' ),
+	            'wcv_view_vendor_notice'         => __( 'View vendor notices', 'wc-vendors' ),
+	            'wcv_view_order_report'          => __( 'View order report', 'wc-vendors' ),
+	            'wcv_view_order_overview'        => __( 'View order overview', 'wc-vendors' ),
+	            'wcv_view_review_reports'        => __( 'View ratings report', 'wc-vendors' ),
+	            'wcv_view_product_status_report' => __( 'View product status report', 'wc-vendors' ),
+	        ),
+	        'order' => array(
+	            'wcv_view_order'        	=> __( 'View order', 'wc-vendors' ),
+	            'wcv_add_order_note' 		=> __( 'Add order notes', 'wc-vendors' ),
+	            'wcv_view_order_note' 		=> __( 'View order notes', 'wc-vendors' ),
+	            'wcv_manage_order_export' 	=> __( 'Export orders', 'wc-vendors' ),
+ 	        ),
+ 	        'order_customer' => array(
+	            'wcv_view_name'        		=> __( 'View customer name', 'wc-vendors' ),
+	            'wcv_view_email'        	=> __( 'View customer email address', 'wc-vendors' ),
+	            'wcv_view_phone'        	=> __( 'View customer phone number', 'wc-vendors' ),
+	            'wcv_view_shipping_name'    => __( 'View customer shipping name', 'wc-vendors' ),
+	            'wcv_view_shipping'     	=> __( 'View customer shipping address fields', 'wc-vendors' ),
+	            'wcv_view_billing'      	=> __( 'View customer billing address fields', 'wc-vendors' ),
+	            'wcv_view_email'      		=> __( 'View customer shipping name', 'wc-vendors' ),
+ 	        ),
+	        'product' => array(
+	            'wcv_add_product'       		=> __( 'Add product', 'wc-vendors' ),
+	            'wcv_edit_product'      		=> __( 'Edit product', 'wc-vendors' ),
+	            'wcv_edit_product_published'    => __( 'Edit published product', 'wc-vendors' ),
+	            'wcv_publish_product'    		=> __( 'Publish product directly without approval', 'wc-vendors' ),
+	            'wcv_delete_product'    		=> __( 'Delete product', 'wc-vendors' ),
+	            'wcv_duplicate_product' 		=> __( 'Duplicate product', 'wc-vendors' ),
+	            'wcv_view_product'      		=> __( 'View product', 'wc-vendors' ),
+
+	        ),
+	        // Not used yet
+	        'report' => array(
+	            'wcv_view_overview_report'    => __( 'View overview report', 'wc-vendors' ),
+	            'wcv_view_daily_sale_report'  => __( 'View daily sales report', 'wc-vendors' ),
+	            'wcv_view_top_selling_report' => __( 'View top selling report', 'wc-vendors' ),
+	            'wcv_view_top_earning_report' => __( 'View top earning report', 'wc-vendors' ),
+	        ),
+	        'menu' => array(
+	            'wcv_view_dashboard_menu'      => __( 'View dashboard menu', 'wc-vendors' ),
+	            'wcv_view_product_menu'        => __( 'View product menu', 'wc-vendors' ),
+	            'wcv_view_order_menu'          => __( 'View order menu', 'wc-vendors' ),
+	            'wcv_view_store_settings_menu' => __( 'View store settings menu', 'wc-vendors' ),
+	        ),
+	    );
+
+    	return apply_filters( 'wcv_get_vendor_caps', $capabilities );
+
+	}
 }
 
 WCVendors_Install::init();
