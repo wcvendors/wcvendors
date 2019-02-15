@@ -189,7 +189,7 @@ if ( ! class_exists( 'WCVendors_Settings_Capabilities', false ) ) :
 						),
 
 						array(
-							'title'   => __( 'Customer Shippin Name', 'wc-vendors' ),
+							'title'   => __( 'Customer Shipping Name', 'wc-vendors' ),
 							'desc'    => sprintf( __( 'Allow %s to view customer shipping name fields', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 							'id'      => 'wcvendors_capability_order_customer_shipping_name',
 							'default' => 'yes',
