@@ -348,7 +348,7 @@ class WCV_Vendor_Dashboard {
 				'target' => '_top',
 			);
 			$items['edit_link']   = array(
-				'url'    => admin_url( 'post-new.php?post_type=product' ),
+				'url'    => admin_url( 'edit.php?post_type=product' ),
 				'label'  => esc_html__( 'Edit Products', 'wc-vendors' ),
 				'target' => '_top',
 			);
