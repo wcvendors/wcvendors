@@ -97,7 +97,7 @@ See our full comparison of free vs pro here <a href="https://www.wcvendors.com/h
 
 = Translations =
 
-We currently ship WC Vendors Marketplace  free with the following language translations. If you would like translate WC Vendors Marketplace into your language we would be more than happy to include it in our next release. You can submit a pull request on our github page or you can email your completed translation to translate@wcvendors.com.
+We currently ship WC Vendors Marketplace free with the following language translations. If you would like translate WC Vendors Marketplace into your language we would be more than happy to include it in our next release. Please use https://translate.wordpress.org/locale/en/default/wp-plugins/wc-vendors 
 
 * English
 * Austrian German
