@@ -220,6 +220,8 @@ class WCV_Vendor_Dashboard {
 	 * @return unknown
 	 */
 	public function display_vendor_products( $atts ) {
+		ob_start();
+
 		global $start_date, $end_date;
 
 		$start_date = WC()->session->get( 'wcv_order_start_date', strtotime( current_time( 'Y-M' ) . '-01' ) );
@@ -228,7 +230,7 @@ class WCV_Vendor_Dashboard {
 		$can_view_orders = wc_string_to_bool( get_option( 'wcvendors_capability_orders_enabled', 'no' ) );
 
 		if ( ! $this->can_view_vendor_page() ) {
-			return false;
+			return ob_get_clean();
 		}
 
 		extract(
@@ -265,7 +267,6 @@ class WCV_Vendor_Dashboard {
 			}
 		}
 
-		ob_start();
 		do_action( 'wcvendors_before_dashboard' );
 
 		wc_print_notices();
@@ -388,8 +389,10 @@ class WCV_Vendor_Dashboard {
 	public function display_vendor_settings( $atts ) {
 		global $woocommerce;
 
+		ob_start();
+
 		if ( ! $this->can_view_vendor_page() ) {
-			return false;
+			return ob_get_clean();
 		}
 
 		extract(
@@ -409,7 +412,6 @@ class WCV_Vendor_Dashboard {
 		$shop_page   = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
 		$global_html = wc_string_to_bool( get_option( 'wcvendors_display_shop_description_html', 'no' ) );
 
-		ob_start();
 		wc_get_template(
 			'settings.php',
 			array(
