@@ -7,7 +7,7 @@ Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
 Requires PHP: 5.6
 Tested up to: 5.2.0
-Stable tag: 2.1.5
+Stable tag: 2.1.6
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
