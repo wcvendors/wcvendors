@@ -97,7 +97,7 @@ See our full comparison of free vs pro here <a href="https://www.wcvendors.com/h
 
 = Translations =
 
-We currently ship WC Vendors Marketplace free with the following language translations. If you would like translate WC Vendors Marketplace into your language we would be more than happy to include it in our next release. Please use https://translate.wordpress.org/locale/en/default/wp-plugins/wc-vendors 
+We currently ship WC Vendors Marketplace free with the following language translations. If you would like translate WC Vendors Marketplace into your language we would be more than happy to include it in our next release. Please use https://translate.wordpress.org/locale/en/default/wp-plugins/wc-vendors
 
 * English
 * Austrian German
@@ -156,6 +156,16 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.6 - 18th March 2019 =
+
+* Added: newsletter signup in setup wizard
+* Added: New vendor capabilities
+* Updated: Tested to 5.2.0 alpha
+* Fixed: Saving some shortcodes get Update failed notice in Gutenberg #540
+* Fixed: Commission table issue in Firefox #539
+* Fixed: Incorrect link for listing edit products
+* Fixed: Several language references
 
 = Version 2.1.5 - 9th of February 2019 =
 
