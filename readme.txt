@@ -162,6 +162,7 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 * Added: newsletter signup in setup wizard
 * Added: New vendor capabilities
 * Updated: Tested to 5.2.0 alpha
+* Updated: Language files
 * Fixed: Saving some shortcodes get Update failed notice in Gutenberg #540
 * Fixed: Commission table issue in Firefox #539
 * Fixed: Incorrect link for listing edit products
