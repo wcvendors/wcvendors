@@ -52,192 +52,212 @@ msgstr ""
 msgid "Payment total: %s"
 msgstr ""
 
-#: classes/class-install.php:155, classes/admin/class-wcv-admin-setup.php:143
+#: classes/class-install.php:158, classes/admin/class-wcv-admin-setup.php:143
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:169, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:270, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:138, classes/admin/class-wcv-admin-setup.php:297, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:213
+#: classes/class-install.php:172, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:270, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:138, classes/admin/class-wcv-admin-setup.php:300, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:213
 msgid "%s"
 msgstr ""
 
-#: classes/class-install.php:224
+#: classes/class-install.php:256
 msgctxt "Page slug"
 msgid "vendor_dashboard"
 msgstr ""
 
-#: classes/class-install.php:226
+#: classes/class-install.php:258
 msgctxt "Page title"
 msgid "%s Dashboard"
 msgstr ""
 
-#: classes/class-install.php:232
+#: classes/class-install.php:264
 msgctxt "Page slug"
 msgid "vendors"
 msgstr ""
 
-#: classes/class-install.php:234
+#: classes/class-install.php:266
 msgctxt "Page title"
 msgid "%s"
 msgstr ""
 
-#: classes/class-install.php:242
+#: classes/class-install.php:274
 msgctxt "Page slug"
 msgid "shop_settings"
 msgstr ""
 
-#: classes/class-install.php:243
+#: classes/class-install.php:275
 msgctxt "Page title"
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/class-install.php:248
+#: classes/class-install.php:280
 msgctxt "Page slug"
 msgid "product_orders"
 msgstr ""
 
-#: classes/class-install.php:249
+#: classes/class-install.php:281
 msgctxt "Page title"
 msgid "Orders"
 msgstr ""
 
-#: classes/class-install.php:448
+#: classes/class-install.php:480
 msgid "View WC Vendors settings"
 msgstr ""
 
-#: classes/class-install.php:448, templates/dashboard/settings/settings.php:17
+#: classes/class-install.php:480, templates/dashboard/settings/settings.php:17
 msgid "Settings"
 msgstr ""
 
-#: classes/class-install.php:466
+#: classes/class-install.php:498
 msgid "View WC Vendors documentation"
 msgstr ""
 
-#: classes/class-install.php:466
+#: classes/class-install.php:498
 msgid "Docs"
 msgstr ""
 
-#: classes/class-install.php:467
+#: classes/class-install.php:499
 msgid "Visit community forums"
 msgstr ""
 
-#: classes/class-install.php:467
+#: classes/class-install.php:499
 msgid "Free support"
 msgstr ""
 
-#: classes/class-install.php:468
+#: classes/class-install.php:500
 msgid "Buy premium customer support"
 msgstr ""
 
-#: classes/class-install.php:468
+#: classes/class-install.php:500
 msgid "Premium support"
 msgstr ""
 
-#: classes/class-install.php:504
+#: classes/class-install.php:536
 msgid "View sales overview"
 msgstr ""
 
-#: classes/class-install.php:505
+#: classes/class-install.php:537
 msgid "View sales report chart"
 msgstr ""
 
-#: classes/class-install.php:506
+#: classes/class-install.php:538
 msgid "View vendor notices"
 msgstr ""
 
-#: classes/class-install.php:507, classes/class-install.php:508
+#: classes/class-install.php:539
 msgid "View order report"
 msgstr ""
 
-#: classes/class-install.php:509
+#: classes/class-install.php:540
+msgid "View order overview"
+msgstr ""
+
+#: classes/class-install.php:541
 msgid "View ratings report"
 msgstr ""
 
-#: classes/class-install.php:510
+#: classes/class-install.php:542
 msgid "View product status report"
 msgstr ""
 
-#: classes/class-install.php:513
-msgid "View overview report"
-msgstr ""
-
-#: classes/class-install.php:514
-msgid "View daily sales report"
-msgstr ""
-
-#: classes/class-install.php:515
-msgid "View top selling report"
-msgstr ""
-
-#: classes/class-install.php:516
-msgid "View top earning report"
-msgstr ""
-
-#: classes/class-install.php:517, classes/class-install.php:518
-msgid "View statement report"
-msgstr ""
-
-#: classes/class-install.php:521, classes/class-install.php:527
+#: classes/class-install.php:545
 msgid "View order"
 msgstr ""
 
-#: classes/class-install.php:522, classes/class-install.php:528
-msgid "Manage order"
-msgstr ""
-
-#: classes/class-install.php:523, classes/class-install.php:529
-msgid "Manage order note"
-msgstr ""
-
-#: classes/class-install.php:524, classes/class-install.php:530, templates/orders/csv-export.php:22
-msgid "Export orders"
-msgstr ""
-
-#: classes/class-install.php:533
-msgid "Add product"
-msgstr ""
-
-#: classes/class-install.php:534
-msgid "Edit product"
-msgstr ""
-
-#: classes/class-install.php:535
-msgid "Edit published product"
-msgstr ""
-
-#: classes/class-install.php:536
-msgid "Publish product directly without approval"
-msgstr ""
-
-#: classes/class-install.php:537
-msgid "Delete product"
-msgstr ""
-
-#: classes/class-install.php:538
-msgid "Duplicate product"
-msgstr ""
-
-#: classes/class-install.php:539
-msgid "View product"
-msgstr ""
-
-#: classes/class-install.php:543
-msgid "View dashboard menu"
-msgstr ""
-
-#: classes/class-install.php:544
-msgid "View product menu"
-msgstr ""
-
-#: classes/class-install.php:545
-msgid "View order menu"
-msgstr ""
-
 #: classes/class-install.php:546
-msgid "View store settings menu"
+msgid "Add order notes"
 msgstr ""
 
 #: classes/class-install.php:547
-msgid "View payment settings menu"
+msgid "View order notes"
+msgstr ""
+
+#: classes/class-install.php:548, templates/orders/csv-export.php:22
+msgid "Export orders"
+msgstr ""
+
+#: classes/class-install.php:551
+msgid "View customer name"
+msgstr ""
+
+#: classes/class-install.php:552
+msgid "View customer email address"
+msgstr ""
+
+#: classes/class-install.php:553
+msgid "View customer phone number"
+msgstr ""
+
+#: classes/class-install.php:554, classes/class-install.php:557
+msgid "View customer shipping name"
+msgstr ""
+
+#: classes/class-install.php:555
+msgid "View customer shipping address fields"
+msgstr ""
+
+#: classes/class-install.php:556
+msgid "View customer billing address fields"
+msgstr ""
+
+#: classes/class-install.php:560
+msgid "Add product"
+msgstr ""
+
+#: classes/class-install.php:561
+msgid "Edit product"
+msgstr ""
+
+#: classes/class-install.php:562
+msgid "Edit published product"
+msgstr ""
+
+#: classes/class-install.php:563
+msgid "Publish product directly without approval"
+msgstr ""
+
+#: classes/class-install.php:564
+msgid "Delete product"
+msgstr ""
+
+#: classes/class-install.php:565
+msgid "Duplicate product"
+msgstr ""
+
+#: classes/class-install.php:566
+msgid "View product"
+msgstr ""
+
+#: classes/class-install.php:571
+msgid "View overview report"
+msgstr ""
+
+#: classes/class-install.php:572
+msgid "View daily sales report"
+msgstr ""
+
+#: classes/class-install.php:573
+msgid "View top selling report"
+msgstr ""
+
+#: classes/class-install.php:574
+msgid "View top earning report"
+msgstr ""
+
+#: classes/class-install.php:577
+msgid "View dashboard menu"
+msgstr ""
+
+#: classes/class-install.php:578
+msgid "View product menu"
+msgstr ""
+
+#: classes/class-install.php:579
+msgid "View order menu"
+msgstr ""
+
+#: classes/class-install.php:580
+msgid "View store settings menu"
 msgstr ""
 
 #: classes/class-vendor-post-types.php:37
@@ -253,7 +273,7 @@ msgctxt "Order date parsed by strftime"
 msgid "%1$b %2$d, %Y @ %I:%M %p"
 msgstr ""
 
-#: classes/admin/class-admin-menus.php:46, classes/admin/class-admin-menus.php:47, classes/admin/class-admin-reports.php:40, classes/admin/class-wcv-admin-setup.php:262, classes/admin/views/html-vendor-meta.php:1
+#: classes/admin/class-admin-menus.php:46, classes/admin/class-admin-menus.php:47, classes/admin/class-admin-reports.php:40, classes/admin/class-wcv-admin-setup.php:265, classes/admin/views/html-vendor-meta.php:1
 msgid "WC Vendors"
 msgstr ""
 
@@ -697,20 +717,20 @@ msgstr ""
 msgid "This will reset wcvendors back to defaults. This DELETES ALL YOUR Settings."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:151
+#: classes/admin/class-wcv-admin-setup.php:154
 msgid "WC Vendor roles successfully reset."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:165
+#: classes/admin/class-wcv-admin-setup.php:168
 msgid "WC Vendors was successfully reset. All settings have been reset."
 msgstr ""
 
 #. translators: 1: WooCommerce 2:: five stars
-#: classes/admin/class-wcv-admin-setup.php:261
+#: classes/admin/class-wcv-admin-setup.php:264
 msgid "If you like %1$s please leave us a %2$s rating. A huge thanks in advance!"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:263
+#: classes/admin/class-wcv-admin-setup.php:266
 msgid "Thanks :)"
 msgstr ""
 
@@ -862,19 +882,19 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: templates/dashboard/links.php:22, classes/front/dashboard/class-vendor-dashboard.php:334
+#: templates/dashboard/links.php:22, classes/front/dashboard/class-vendor-dashboard.php:335
 msgid "View Your Store"
 msgstr ""
 
-#: templates/dashboard/links.php:23, classes/admin/settings/class-wcv-settings-display.php:238, classes/front/dashboard/class-vendor-dashboard.php:338
+#: templates/dashboard/links.php:23, classes/admin/settings/class-wcv-settings-display.php:238, classes/front/dashboard/class-vendor-dashboard.php:339
 msgid "Store Settings"
 msgstr ""
 
-#: templates/dashboard/links.php:27, classes/front/dashboard/class-vendor-dashboard.php:347
+#: templates/dashboard/links.php:27, classes/front/dashboard/class-vendor-dashboard.php:348
 msgid "Add New Product"
 msgstr ""
 
-#: templates/dashboard/links.php:29, classes/front/dashboard/class-vendor-dashboard.php:352
+#: templates/dashboard/links.php:29, classes/front/dashboard/class-vendor-dashboard.php:353
 msgid "Edit Products"
 msgstr ""
 
