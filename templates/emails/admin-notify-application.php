@@ -6,7 +6,7 @@
  *
  * @author        Jamie Madden, WC Vendors
  * @package       WCVendors/Templates/Emails/HTML
- * @version       2.0.0
+ * @version       2.1.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,7 +22,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <?php if ( 'pending' === $status ) : ?>
 	<p>
-		<?php printf( __( 'You can approve or deny the application at the following link %s', 'wc-vendors' ), admin_url( 'users.php?role=pending_vendor' ) ); ?>
+		<?php printf( __( 'You can approve or deny the application at the following link <a href="%1$s">%1$s</a>', 'wc-vendors' ), admin_url( 'users.php?role=pending_vendor' ) ); ?>
 	</p>
 <?php endif; ?>
 
