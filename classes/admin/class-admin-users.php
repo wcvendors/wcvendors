@@ -401,7 +401,11 @@ class WCV_Admin_Users {
 
 		update_user_meta( $vendor_id, 'pv_paypal', $_POST['pv_paypal'] );
 		update_user_meta( $vendor_id, 'pv_shop_html_enabled', isset( $_POST['pv_shop_html_enabled'] ) );
-		update_user_meta( $vendor_id, 'pv_custom_commission_rate', $_POST['pv_custom_commission_rate'] );
+
+		if ( apply_filters( 'wcvendors_admin_user_meta_commission_rate_enable', true ) ){
+			update_user_meta( $vendor_id, 'pv_custom_commission_rate', $_POST['pv_custom_commission_rate'] );
+		}
+
 		update_user_meta( $vendor_id, 'pv_shop_description', $_POST['pv_shop_description'] );
 		update_user_meta( $vendor_id, 'pv_seller_info', $_POST['pv_seller_info'] );
 		update_user_meta( $vendor_id, 'wcv_give_vendor_tax', isset( $_POST['wcv_give_vendor_tax'] ) );
