@@ -40,7 +40,7 @@ class WCV_Emails {
 		if ( is_wcv_pro_active() ) {
 			add_action( 'wcv_pro_store_settings_saved', array( $this, 'vendor_application' ), 10, 1 );
 		} else {
-			add_action( 'set_user_role', array( $this, 'vendor_application' ), 10, 2 );
+			add_action( 'add_user_role', array( $this, 'vendor_application' ), 10, 2 );
 		}
 
 		// WooCommerce Product Enquiry Compatibility
@@ -195,6 +195,7 @@ class WCV_Emails {
 	 * @since 2.0.0
 	 */
 	public function vendor_application( $user_id, $role = '' ) {
+
 		/**
 		 * If the role is not given, set it according to the vendor approval option in admin
 		 */
