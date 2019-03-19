@@ -454,11 +454,14 @@ class WCV_Vendors {
 	 */
 	public static function is_pending( $user_id ) {
 
-		$user = get_userdata( $user_id );
+		$user 	= get_userdata( $user_id );
+		$roles 	= $user->roles;
 
-		$role       = ! empty( $user->roles ) ? array_shift( $user->roles ) : false;
-		$is_pending = ( 'pending_vendor' == $role );
-
+		if ( is_array( $roles ) ){
+			$is_pending = in_array( 'pending_vendor', $roles );
+		} else {
+			$is_pending = ( 'pending_vendor' == $role );
+		}
 		return $is_pending;
 	}
 
