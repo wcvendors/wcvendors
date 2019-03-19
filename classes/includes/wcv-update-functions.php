@@ -178,5 +178,5 @@ function wcv_can_view_customer_shipping_name_option() {
  * @version    2.1.6
  */
 function wcv_add_vendor_caps(){
-	WCVendors_Install::create_capbailities();
+	WCVendors_Install::create_capabilities();
 }
