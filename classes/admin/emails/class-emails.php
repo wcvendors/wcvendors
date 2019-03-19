@@ -40,7 +40,7 @@ class WCV_Emails {
 		if ( is_wcv_pro_active() ) {
 			$manual = wc_string_to_bool( get_option( 'wcvendors_vendor_approve_registration', 'no' ) );
 			if ( $manual ){
-				add_action( 'wcv_pro_store_settings_saved', array( $this, 'vendor_application' ), 10, 1 );
+				add_action( 'wcv_pro_store_settings_saved', array( $this, 'vendor_application' ), 10, 2 );
 			} else {
 				add_action( 'add_user_role', array( $this, 'vendor_application' ), 10, 2 );
 			}
@@ -200,7 +200,15 @@ class WCV_Emails {
 	 * @since 2.0.0
 	 * @version 2.1.7
 	 */
-	public function vendor_application( $user_id, $role ) {
+	public function vendor_application( $user_id, $role = '' ) {
+
+		/**
+		 * If the role is not given, set it according to the vendor approval option in admin
+		 */
+		if ( $role == '' ) {
+			$manual = wc_string_to_bool( get_option( 'wcvendors_vendor_approve_registration', 'no' ) );
+			$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
+		}
 
 		if ( $role == 'pending_vendor' ) {
 			$status = __( 'pending', 'wc-vendors' );
