@@ -6,7 +6,7 @@
  *
  * @author        Jamie Madden, WC Vendors
  * @package       WCVendors/Templates/Emails/HTML
- * @version       2.0.0
+ * @version       2.1.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,7 +20,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 	<p>
 		<?php printf( __( 'Product title: %s', 'wc-vendors' ), $product->get_title() ); ?><br/>
 		<?php printf( __( 'Submitted by: %s', 'wc-vendors' ), $vendor_name ); ?><br/>
-		<?php printf( __( 'Edit product: %s', 'wc-vendors' ), admin_url( 'post.php?post=' . $post_id . '&action=edit' ) ); ?>
+		<?php printf( __( 'Edit product: <a href="%1$s">%1$s</a>', 'wc-vendors' ), admin_url( 'post.php?post=' . $post_id . '&action=edit' ) ); ?>
 	</p>
 
 <?php
