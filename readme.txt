@@ -7,7 +7,7 @@ Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
 Requires PHP: 5.6
 Tested up to: 5.1
-Stable tag: 2.1.6
+Stable tag: 2.1.7
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
@@ -156,6 +156,24 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.7 - 20th March 2019 =
+
+* Added: sold_by shortcode #542
+* Updated: Made approval link in admin product emails clickable
+* Updated: WooCommerce tested to
+* Updated: Email Admin notify template to include clickable link
+* Fixed: Vendor application email firing when Pro is activated
+* Fixed: Email details incorrect when Manually approved unchecked. #520
+* Fixed: is_pending check when using multiple roles
+* Fixed: Vendor Notify Approved / Denied not working #543
+* Fixed: Commission notice when pro is active
+* Fixed: Update notice not completing
+
+Templates Updated:
+	templates/emails/admin-notify-application.php
+	templates/emails/admin-notify-product.php
+
 
 = Version 2.1.6 - 18th March 2019 =
 

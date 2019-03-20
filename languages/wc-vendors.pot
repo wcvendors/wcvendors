@@ -264,11 +264,11 @@ msgstr ""
 msgid "%s Orders"
 msgstr ""
 
-#: classes/class-vendors.php:616
+#: classes/class-vendors.php:619
 msgid "%1$s Order &ndash; %2$s"
 msgstr ""
 
-#: classes/class-vendors.php:616
+#: classes/class-vendors.php:619
 msgctxt "Order date parsed by strftime"
 msgid "%1$b %2$d, %Y @ %I:%M %p"
 msgstr ""
@@ -954,8 +954,8 @@ msgstr ""
 msgid "Applicant username: %s"
 msgstr ""
 
-#: templates/emails/admin-notify-application.php:25, templates/emails/plain/admin-notify-application.php:22
-msgid "You can approve or deny the application at the following link %s"
+#: templates/emails/admin-notify-application.php:25
+msgid "You can approve or deny the application at the following link <a href=\"%1$s\">%1$s</a>"
 msgstr ""
 
 #: templates/emails/admin-notify-product.php:18, templates/emails/plain/admin-notify-product.php:20
@@ -970,8 +970,8 @@ msgstr ""
 msgid "Submitted by: %s"
 msgstr ""
 
-#: templates/emails/admin-notify-product.php:23, templates/emails/new-product.php:14, templates/emails/plain/admin-notify-product.php:24
-msgid "Edit product: %s"
+#: templates/emails/admin-notify-product.php:23
+msgid "Edit product: <a href=\"%1$s\">%1$s</a>"
 msgstr ""
 
 #: templates/emails/application-status.php:12
@@ -980,6 +980,10 @@ msgstr ""
 
 #: templates/emails/new-product.php:9
 msgid "Hi there. This is a notification about a new product on %s."
+msgstr ""
+
+#: templates/emails/new-product.php:14, templates/emails/plain/admin-notify-product.php:24
+msgid "Edit product: %s"
 msgstr ""
 
 #: templates/emails/notify-vendor-shipped.php:19
@@ -1051,19 +1055,19 @@ msgstr ""
 msgid "Quantity: %d"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:76, classes/admin/emails/class-emails.php:214, classes/admin/emails/class-emails.php:215, classes/admin/emails/class-wc-approve-vendor.php:72
+#: classes/admin/emails/class-emails.php:81, classes/admin/emails/class-emails.php:214, classes/admin/emails/class-wc-approve-vendor.php:72
 msgid "pending"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:78, classes/admin/emails/class-emails.php:218
+#: classes/admin/emails/class-emails.php:83, classes/admin/emails/class-emails.php:218
 msgid "approved"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:80, classes/admin/emails/class-emails.php:212
+#: classes/admin/emails/class-emails.php:85
 msgid "denied"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:161
+#: classes/admin/emails/class-emails.php:166
 msgid "Resend %s new order notification"
 msgstr ""
 
@@ -2531,6 +2535,10 @@ msgstr ""
 
 #: templates/dashboard/settings/settings.php:125
 msgid "Save"
+msgstr ""
+
+#: templates/emails/plain/admin-notify-application.php:22
+msgid "You can approve or deny the application at the following link %s"
 msgstr ""
 
 #: templates/emails/plain/vendor-notify-cancelled-order.php:19

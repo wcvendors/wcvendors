@@ -1,5 +1,23 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.7
+
+* Added: sold_by shortcode #542
+* Updated: Made approval link in admin product emails clickable
+* Updated: WooCommerce tested to
+* Updated: Email Admin notify template to include clickable link
+* Fixed: Vendor application email firing when Pro is activated
+* Fixed: Email details incorrect when Manually approved unchecked. #520
+* Fixed: is_pending check when using multiple roles
+* Fixed: Vendor Notify Approved / Denied not working #543
+* Fixed: Commission notice when pro is active
+* Fixed: Update notice not completing
+
+Templates Updated:
+	templates/emails/admin-notify-application.php
+	templates/emails/admin-notify-product.php
+
+
 Version 2.1.6
 
 * Added: newsletter signup in setup wizard
