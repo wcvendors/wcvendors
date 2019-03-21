@@ -746,7 +746,7 @@ class WCV_Shortcodes {
 			? sprintf( '<a href="%s" class="wcvendors_cart_sold_by_meta">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 
-		echo apply_filters( 'wcvendors_cart_sold_by_meta', $sold_by_label, get_the_ID(), $vendor_id ) . '&nbsp;' . apply_filters( 'wcvendors_cart_sold_by_meta_separator', $sold_by_separator, get_the_ID(), $vendor_id ) . '&nbsp;' . $sold_by . '<br/>';
+		return apply_filters( 'wcvendors_cart_sold_by_meta', $sold_by_label, get_the_ID(), $vendor_id ) . '&nbsp;' . apply_filters( 'wcvendors_cart_sold_by_meta_separator', $sold_by_separator, get_the_ID(), $vendor_id ) . '&nbsp;' . $sold_by . '<br/>';
 
 
 	}
