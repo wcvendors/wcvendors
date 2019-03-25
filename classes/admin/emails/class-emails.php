@@ -274,7 +274,7 @@ class WCV_Emails {
 		$show_customer_shipping_name = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping_name', 'no' ) );
 		$show_customer_email         = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_email', 'no' ) );
 		$show_customer_phone         = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_phone', 'no' ) );
-		$show_billing_address        = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
+		$show_billing_address        = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_billing', 'no' ) );
 		$show_shipping_address       = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'no' ) );
 		$customer_billing_name       = $show_customer_billing_name ? $order->get_formatted_billing_full_name() : '';
 		$customer_shipping_name      = $show_customer_shipping_name ? $order->get_formatted_shipping_full_name() : '';
