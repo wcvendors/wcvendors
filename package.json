@@ -1,26 +1,28 @@
 {
-  "name": "wcvendors",
-  "version": "1.9.10",
-  "private": true, 
+  "name": "wc-vendors",
+  "version": "2.1.7",
+  "private": true,
   "dependencies": {},
   "devDependencies": {
+    "del": "latest",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-cache": "latest",
+    "gulp-clean-css": "latest",
     "gulp-concat": "latest",
-    "gulp-imagemin": "latest",
-    "gulp-jshint": "latest",
     "gulp-ignore": "latest",
+    "gulp-jshint": "latest",
     "gulp-livereload": "latest",
     "gulp-load-plugins": "latest",
-    "gulp-clean-css": "latest",
     "gulp-notify": "latest",
     "gulp-rename": "latest",
     "gulp-ruby-sass": "latest",
+    "gulp-sass": "latest",
     "gulp-sort": "latest",
     "gulp-uglify": "latest",
-    "gulp-wp-pot" : "latest", 
-    "tiny-lr": "latest", 
-    "del": "latest"
+    "gulp-wp-pot": "latest",
+    "jshint": "latest",
+    "pump": "latest",
+    "tiny-lr": "latest"
   }
 }

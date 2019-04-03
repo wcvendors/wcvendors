@@ -1,0 +1,3873 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Vendors\n"
+"Report-Msgid-Bugs-To: https://www.wcvendors.com\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2019-01-30 16:34+0700\n"
+"Last-Translator: \n"
+"Language-Team: WC Vendors <support@wcvendors.com>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: class-wc-vendors.php:52
+msgid ""
+"WC Vendors Marketplace requires WooCommerce to run. Please install "
+"WooCommerce and activate before attempting to activate again."
+msgstr ""
+
+#: class-wc-vendors.php:112
+#, fuzzy
+#| msgid "WC Vendors Test Gateway"
+msgid "WC Vendors Marketplace"
+msgstr "WC 供應商 Test Gateway"
+
+#: class-wc-vendors.php:147
+#, fuzzy
+#| msgid ""
+#| "<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of "
+#| "WooCommerce v2.2.0."
+msgid ""
+"<b>WC Vendors Marketplace is inactive</b>. WC Vendors Marketplace requires a "
+"minimum of WooCommerce 3.0.0 to operate."
+msgstr ""
+"<b>WC 供應商已被停用</b> 。 WC 供應商需要 WooCommerce V2.2.0 以上版本。"
+
+#: class-wc-vendors.php:406
+msgid ""
+"WC Vendors 2.0 is a major update. This is not compatible with any of our "
+"existing extensions. You should test this update on a staging server before "
+"updating. Backup your site and update your theme and extensions, and <a href="
+"\"%s\">review update details here</a> before upgrading."
+msgstr ""
+
+#: class-wc-vendors.php:419
+msgid ""
+"WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current "
+"version %s will be deactivated. Please upgrade to the latest version."
+msgstr ""
+
+#: classes/class-commission.php:55, classes/admin/class-admin-reports.php:350,
+#: classes/admin/class-admin-reports.php:443,
+#: classes/admin/class-wcv-commissions-page.php:278,
+#: classes/admin/class-wcv-commissions-page.php:544
+msgid "Due"
+msgstr ""
+
+#: classes/class-commission.php:56, classes/admin/class-admin-reports.php:349,
+#: classes/admin/class-admin-reports.php:444,
+#: classes/admin/class-wcv-commissions-page.php:279,
+#: classes/admin/class-wcv-commissions-page.php:545
+msgid "Paid"
+msgstr "已付款"
+
+#: classes/class-commission.php:57, classes/admin/class-admin-reports.php:348,
+#: classes/admin/class-admin-reports.php:445,
+#: classes/admin/class-wcv-commissions-page.php:280,
+#: classes/admin/class-wcv-commissions-page.php:546
+msgid "Reversed"
+msgstr "已保留"
+
+#: classes/class-cron.php:86
+msgid "Payment total: %s"
+msgstr "付款總數：%s"
+
+#: classes/class-install.php:152, classes/admin/class-wcv-admin-setup.php:146
+#, fuzzy
+#| msgid "Pending Vendors"
+msgid "Pending %s"
+msgstr "審批中的供應商申請"
+
+#: classes/class-install.php:166, classes/admin/class-admin-reports.php:173,
+#: classes/admin/class-admin-reports.php:458,
+#: classes/admin/class-product-meta.php:245,
+#: classes/admin/class-setup-wizard.php:309,
+#: classes/admin/class-wcv-admin-setup.php:141,
+#: classes/admin/class-wcv-admin-setup.php:304,
+#: classes/admin/class-wcv-commissions-csv-exporter.php:43,
+#: classes/admin/class-wcv-commissions-page.php:118,
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:41,
+#: classes/admin/settings/class-wcv-settings-display.php:107,
+#: classes/admin/settings/class-wcv-settings-display.php:115,
+#: classes/admin/settings/class-wcv-settings-display.php:202
+msgid "%s"
+msgstr ""
+
+#: classes/class-install.php:219
+#, fuzzy
+#| msgid "Vendor dashboard"
+msgctxt "Page slug"
+msgid "vendor_dashboard"
+msgstr "供應商控制台"
+
+#: classes/class-install.php:221
+#, fuzzy
+#| msgid "Vendor Dashboard"
+msgctxt "Page title"
+msgid "%s Dashboard"
+msgstr "供應商控制台"
+
+#: classes/class-install.php:227
+#, fuzzy
+#| msgid "Vendor"
+msgctxt "Page slug"
+msgid "vendors"
+msgstr "供應商"
+
+#: classes/class-install.php:229
+msgctxt "Page title"
+msgid "%s"
+msgstr ""
+
+#: classes/class-install.php:237
+#, fuzzy
+#| msgid "Shop settings"
+msgctxt "Page slug"
+msgid "shop_settings"
+msgstr "店鋪設定"
+
+#: classes/class-install.php:238
+#, fuzzy
+#| msgid "Shop Settings"
+msgctxt "Page title"
+msgid "Shop Settings"
+msgstr "店鋪設定"
+
+#: classes/class-install.php:243
+#, fuzzy
+#| msgid "Export orders"
+msgctxt "Page slug"
+msgid "product_orders"
+msgstr "導出訂單列表"
+
+#: classes/class-install.php:244
+#, fuzzy
+#| msgid "Orders"
+msgctxt "Page title"
+msgid "Orders"
+msgstr "訂單"
+
+#: classes/class-install.php:430
+msgid "View WC Vendors settings"
+msgstr ""
+
+#: classes/class-install.php:430, templates/dashboard/settings/settings.php:18
+msgid "Settings"
+msgstr "設定"
+
+#: classes/class-install.php:447
+msgid "View WC Vendors documentation"
+msgstr ""
+
+#: classes/class-install.php:447
+msgid "Docs"
+msgstr ""
+
+#: classes/class-install.php:448
+msgid "Visit community forums"
+msgstr ""
+
+#: classes/class-install.php:448
+msgid "Free support"
+msgstr ""
+
+#: classes/class-install.php:449
+msgid "Buy premium customer support"
+msgstr ""
+
+#: classes/class-install.php:449
+#, fuzzy
+#| msgid "Paid Support"
+msgid "Premium support"
+msgstr "付費支援"
+
+#: classes/class-vendor-post-types.php:34
+#, fuzzy
+#| msgid "Orders"
+msgid "%s Orders"
+msgstr "訂單"
+
+#: classes/class-vendors.php:574
+msgid "%s Order &ndash; %s"
+msgstr ""
+
+#: classes/class-vendors.php:574
+msgctxt "Order date parsed by strftime"
+msgid "%b %d, %Y @ %I:%M %p"
+msgstr ""
+
+#: classes/admin/class-admin-menus.php:45,
+#: classes/admin/class-admin-reports.php:41,
+#: classes/admin/class-wcv-admin-setup.php:268,
+#: classes/admin/views/html-vendor-meta.php:1
+msgid "WC Vendors"
+msgstr "WC 供應商"
+
+#: classes/admin/class-admin-menus.php:52
+#, fuzzy
+#| msgid "WC Vendors"
+msgid "WC Vendors Extensions"
+msgstr "WC 供應商"
+
+#: classes/admin/class-admin-menus.php:52,
+#: classes/admin/views/setup/ready.php:65
+msgid "Extensions"
+msgstr ""
+
+#: classes/admin/class-admin-menus.php:72,
+#: classes/admin/class-admin-menus.php:72
+#, fuzzy
+#| msgid "Commission"
+msgid "Commissions"
+msgstr "佣金"
+
+#: classes/admin/class-admin-reports.php:44
+msgid "Overview"
+msgstr "概要"
+
+#: classes/admin/class-admin-reports.php:50
+#, fuzzy
+#| msgid "Commission by vendor"
+msgid "Commission by %s"
+msgstr "依供應商顯示"
+
+#: classes/admin/class-admin-reports.php:56
+msgid "Commission by product"
+msgstr "依貨品顯示"
+
+#: classes/admin/class-admin-reports.php:62,
+#: classes/admin/class-admin-reports.php:345
+#, fuzzy
+#| msgid "Commission Subtotal:"
+msgid "Commission Totals"
+msgstr "佣金小計："
+
+#: classes/admin/class-admin-reports.php:63
+msgid ""
+"Commission totals for all vendors includes shipping and taxes. By default no "
+"date range is used and all due commissions are returned. Use the date range "
+"to filter."
+msgstr ""
+
+#: classes/admin/class-admin-reports.php:119,
+#: classes/admin/class-admin-reports.php:437,
+#: templates/dashboard/date-picker.php:20
+msgid "From:"
+msgstr "由："
+
+#: classes/admin/class-admin-reports.php:121,
+#: classes/admin/class-admin-reports.php:439,
+#: templates/dashboard/date-picker.php:24
+msgid "To:"
+msgstr "至："
+
+#: classes/admin/class-admin-reports.php:123,
+#: classes/admin/class-admin-reports.php:283,
+#: classes/admin/class-admin-reports.php:448,
+#: templates/dashboard/date-picker.php:29
+msgid "Show"
+msgstr "顯示"
+
+#: classes/admin/class-admin-reports.php:129
+msgid "Total paid in range"
+msgstr "本期已付佣金總額"
+
+#: classes/admin/class-admin-reports.php:132,
+#: classes/admin/class-admin-reports.php:139,
+#: classes/admin/class-admin-reports.php:146
+msgid "n/a"
+msgstr "未有紀錄"
+
+#: classes/admin/class-admin-reports.php:136
+msgid "Total due in range"
+msgstr "本期未付佣金總額"
+
+#: classes/admin/class-admin-reports.php:143
+msgid "Total reversed in range"
+msgstr "本期保留佣金總額"
+
+#: classes/admin/class-admin-reports.php:153
+msgid "Recent Commission"
+msgstr "最新佣金紀錄"
+
+#: classes/admin/class-admin-reports.php:171,
+#: templates/dashboard/orders.php:49, classes/front/orders/class-orders.php:208
+msgid "Order"
+msgstr "訂單"
+
+#: classes/admin/class-admin-reports.php:172,
+#: classes/admin/class-wcv-commissions-csv-exporter.php:41,
+#: classes/admin/class-wcv-commissions-page.php:116,
+#: templates/dashboard/reports.php:35,
+#: templates/emails/notify-vendor-shipped.php:27,
+#: templates/emails/vendor-new-order.php:31,
+#: templates/emails/vendor-order-details.php:36,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:194
+msgid "Product"
+msgstr "貨品"
+
+#: classes/admin/class-admin-reports.php:174,
+#: classes/admin/class-admin-reports.php:374,
+#: classes/admin/class-vendor-admin-dashboard.php:351,
+#: classes/admin/class-wcv-commissions-csv-exporter.php:47,
+#: classes/admin/class-wcv-commissions-page.php:122,
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:42,
+#: templates/dashboard/orders.php:53
+msgid "Total"
+msgstr "總數"
+
+#: classes/admin/class-admin-reports.php:175
+msgid "Date &amp; Time"
+msgstr "日期及時間"
+
+#: classes/admin/class-admin-reports.php:176,
+#: classes/admin/class-admin-reports.php:461,
+#: classes/admin/class-wcv-commissions-csv-exporter.php:48,
+#: classes/admin/class-wcv-commissions-page.php:123
+msgid "Status"
+msgstr "訂單狀態"
+
+#: classes/admin/class-admin-reports.php:184,
+#: templates/emails/vendor-order-addresses.php:29
+msgid "N/A"
+msgstr "未有紀錄"
+
+#: classes/admin/class-admin-reports.php:189
+#, fuzzy
+#| msgid "D j M Y \\a\\t h:ia"
+msgid "D j M Y \a\t h:ia"
+msgstr "D j M Y \\a\\t h:ia"
+
+#: classes/admin/class-admin-reports.php:198
+msgid "No commission yet"
+msgstr "未有佣金紀錄"
+
+#: classes/admin/class-admin-reports.php:232
+msgid "Show:"
+msgstr "顯示："
+
+#: classes/admin/class-admin-reports.php:242,
+#: classes/admin/class-admin-reports.php:246
+msgid "Type in a product name to start searching..."
+msgstr "輸入產品名稱以開始搜尋..."
+
+#: classes/admin/class-admin-reports.php:278
+#, fuzzy
+#| msgid "Select a vendor&hellip;"
+msgid "Select a %s&hellip;"
+msgstr "選擇供應商"
+
+#: classes/admin/class-admin-reports.php:344
+msgid "Month"
+msgstr "月"
+
+#: classes/admin/class-admin-reports.php:346,
+#: classes/admin/class-wcv-commissions-csv-exporter.php:46,
+#: classes/admin/class-wcv-commissions-page.php:121
+msgid "Tax"
+msgstr "稅項"
+
+#: classes/admin/class-admin-reports.php:347,
+#: classes/admin/class-wcv-commissions-csv-exporter.php:45,
+#: classes/admin/class-wcv-commissions-page.php:120,
+#: templates/dashboard/orders.php:51, templates/orders/orders.php:129,
+#: classes/admin/settings/class-wcv-settings-capabilities.php:104
+msgid "Shipping"
+msgstr "運送方式"
+
+#: classes/admin/class-admin-reports.php:459
+#, fuzzy
+#| msgid "Tax Subtotal:"
+msgid "Tax Total"
+msgstr "稅項小計："
+
+#: classes/admin/class-admin-reports.php:460
+#, fuzzy
+#| msgid "Shipping Subtotal:"
+msgid "Shipping Total"
+msgstr "運費小計："
+
+#: classes/admin/class-admin-reports.php:462
+#, fuzzy
+#| msgid "Commission Subtotal:"
+msgid "Commission Total"
+msgstr "佣金小計："
+
+#: classes/admin/class-admin-reports.php:484
+#, fuzzy
+#| msgid "No commission yet"
+msgid "No commissions found."
+msgstr "未有佣金紀錄"
+
+#: classes/admin/class-admin-users.php:76
+msgid "You are not allowed to submit products. <a href=\"%s\">Go Back</a>"
+msgstr ""
+
+#: classes/admin/class-product-meta.php:127,
+#: classes/admin/class-product-meta.php:252
+msgid "Assign media to %s"
+msgstr ""
+
+#: classes/admin/class-product-meta.php:173,
+#: classes/admin/class-product-meta.php:189,
+#: classes/admin/class-wcv-commissions-csv-exporter.php:44,
+#: classes/admin/class-wcv-commissions-page.php:119,
+#: templates/dashboard/reports.php:37,
+#: templates/emails/vendor-order-details.php:39,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:193,
+#: classes/admin/settings/class-wcv-settings-commission.php:31,
+#: classes/admin/views/html-admin-commission-page.php:23,
+#: classes/admin/views/setup/general.php:79
+msgid "Commission"
+msgstr "佣金"
+
+#: classes/admin/class-product-meta.php:196,
+#: classes/admin/views/html-vendor-meta.php:89
+msgid "Leave blank for default"
+msgstr "留空作為默認設定"
+
+#: classes/admin/class-setup-wizard.php:77
+msgid "Start"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:82,
+#: classes/admin/settings/class-wcv-settings-capabilities.php:31
+msgid "Capabilities"
+msgstr "權限"
+
+#: classes/admin/class-setup-wizard.php:87,
+#: classes/admin/settings/class-wcv-settings-display.php:169,
+#: classes/admin/views/setup/pages.php:19
+msgid "Pages"
+msgstr "分頁"
+
+#: classes/admin/class-setup-wizard.php:92
+msgid "Ready!"
+msgstr ""
+
+#. translators: %1$s: link to videos, %2$s: link to docs
+#: classes/admin/class-setup-wizard.php:368
+msgid ""
+"Don't forget to check our <a href=\"%1$s\" target=\"_blank\">documentation</"
+"a> to learn more about setting up WC Vendors and if you need help, be sure "
+"to visit our <a href=\"%2$s\" target=\"_blank\">free support forums</a>."
+msgstr ""
+
+#: classes/admin/class-vendor-admin-dashboard.php:22,
+#: classes/admin/settings/class-wcv-settings-display.php:184
+msgid "Shop Settings"
+msgstr "店鋪設定"
+
+#: classes/admin/class-vendor-admin-dashboard.php:23,
+#: classes/admin/class-vendor-admin-dashboard.php:209,
+#: templates/dashboard/orders.php:41,
+#: classes/admin/settings/class-wcv-settings-capabilities.php:45,
+#: classes/admin/settings/class-wcv-settings-capabilities.php:276,
+#: classes/admin/settings/class-wcv-settings-display.php:193,
+#: classes/admin/views/setup/capabilities.php:70
+msgid "Orders"
+msgstr "訂單"
+
+#: classes/admin/class-vendor-admin-dashboard.php:71,
+#: classes/front/dashboard/class-vendor-dashboard.php:119
+msgid "Your PayPal address is not a valid email address."
+msgstr "Paypal 電郵不正確。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:83,
+#: classes/front/dashboard/class-vendor-dashboard.php:130
+msgid "That shop name is already taken. Your shop name must be unique."
+msgstr "此名稱已被使用，店鋪名稱不能重覆。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:141,
+#: classes/front/dashboard/class-vendor-dashboard.php:171
+msgid "Settings saved."
+msgstr "設定已經儲存。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:272
+#, fuzzy
+#| msgid "Order"
+msgid "order"
+msgstr "訂單"
+
+#: classes/admin/class-vendor-admin-dashboard.php:273
+#, fuzzy
+#| msgid "Orders"
+msgid "orders"
+msgstr "訂單"
+
+#: classes/admin/class-vendor-admin-dashboard.php:348,
+#: classes/admin/class-wcv-commissions-csv-exporter.php:42,
+#: classes/admin/class-wcv-commissions-page.php:117
+msgid "Order ID"
+msgstr "訂單編號"
+
+#: classes/admin/class-vendor-admin-dashboard.php:349
+msgid "Customer"
+msgstr "顧客"
+
+#: classes/admin/class-vendor-admin-dashboard.php:350,
+#: classes/admin/settings/class-wcv-settings-capabilities.php:44,
+#: classes/admin/settings/class-wcv-settings-capabilities.php:243,
+#: classes/admin/views/setup/capabilities.php:19
+msgid "Products"
+msgstr "貨品"
+
+#: classes/admin/class-vendor-admin-dashboard.php:353,
+#: classes/admin/class-wcv-commissions-csv-exporter.php:49,
+#: classes/admin/class-wcv-commissions-page.php:124,
+#: templates/dashboard/orders.php:54, classes/front/orders/class-orders.php:216
+msgid "Date"
+msgstr "日期"
+
+#: classes/admin/class-vendor-admin-dashboard.php:354,
+#: templates/dashboard/orders.php:115
+msgid "Shipped"
+msgstr "己出貨"
+
+#: classes/admin/class-vendor-admin-dashboard.php:390,
+#: templates/dashboard/orders.php:108
+msgid "Mark shipped"
+msgstr "標為已出貨"
+
+#: classes/admin/class-vendor-admin-dashboard.php:416
+msgid "Orders marked shipped."
+msgstr "訂單已標為已出貨。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:570
+msgid "Yes"
+msgstr ""
+
+#: classes/admin/class-vendor-admin-dashboard.php:570
+#, fuzzy
+#| msgid "Now"
+msgid "No"
+msgstr "現在"
+
+#: classes/admin/class-vendor-applicants.php:74
+#, fuzzy
+#| msgid "Vendor has been <b>denied</b>."
+msgid "%s has been <b>denied</b>."
+msgstr "供應商的申請已被<b>拒絕</b>。"
+
+#: classes/admin/class-vendor-applicants.php:85
+#, fuzzy
+#| msgid "Vendor has been <b>approved</b>."
+msgid "%s has been <b>approved</b>."
+msgstr "供應商的申請已<b>批准</b>。"
+
+#: classes/admin/class-vendor-applicants.php:99
+msgid "Pending Vendors"
+msgstr "審批中的供應商申請"
+
+#: classes/admin/class-wcv-admin-help.php:48
+#, fuzzy
+#| msgid "Paid Support"
+msgid "Help &amp; Support"
+msgstr "付費支援"
+
+#: classes/admin/class-wcv-admin-help.php:50
+msgid "Welcome to WC Vendors Help &amp; Support"
+msgstr ""
+
+#. translators: %s: Documentation URL
+#: classes/admin/class-wcv-admin-help.php:53
+msgid ""
+"Should you need any help with using or extending WC Vendors, <a href=\"%s"
+"\">please read our documentation</a>. You will find all kinds of resources "
+"including code snippets, guides and much more."
+msgstr ""
+
+#. translators: %s: Forum URL
+#: classes/admin/class-wcv-admin-help.php:58
+msgid ""
+"Do you have a question about WC Vendors? For assistance please see our <a "
+"href=\"%1$s\">community forum</a>. If you need help with premium extensions "
+"sold by WC Vendors, please <a href=\"%2$s\">submit a ticket</a>."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:62
+msgid ""
+"Before asking for help we recommend checking the system status page to "
+"identify any problems with your configuration. <strong>Anything showing red "
+"should be fixed before contacting us.</strong>"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:63
+msgid ""
+"Please follow our <a href=\"%s\">debuggin guide</a> to ensure that you have "
+"narrowed down the issue. "
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:64,
+#: classes/admin/class-wcv-admin-help.php:82
+#, fuzzy
+#| msgid "Status"
+msgid "System status"
+msgstr "訂單狀態"
+
+#: classes/admin/class-wcv-admin-help.php:64
+msgid "Community forum"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:64
+msgid "WC Vendors Premium Support"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:69,
+#: classes/admin/class-wcv-admin-help.php:71
+#, fuzzy
+#| msgid "Settings saved."
+msgid "Getting Started"
+msgstr "設定已經儲存。"
+
+#: classes/admin/class-wcv-admin-help.php:72
+msgid ""
+"If you are new to WC Vendors then we highly recommend that you go through "
+"our <a href=\"%s\">getting started guides</a>."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:77,
+#: classes/admin/class-wcv-admin-help.php:79
+msgid "Found a bug?"
+msgstr ""
+
+#. translators: 1: GitHub issues URL 2: System status report URL
+#: classes/admin/class-wcv-admin-help.php:81
+msgid ""
+"If you think you have found a bug in WC Vendors you can create a ticket via "
+"<a href=\"%1$s\">Github issues</a>. To help us solve your issue, please be "
+"as descriptive as possible and include your <a href=\"%2$s\">system status "
+"report</a>."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:82
+#, fuzzy
+#| msgid "Reports"
+msgid "Report a bug"
+msgstr "報表"
+
+#: classes/admin/class-wcv-admin-help.php:90,
+#: classes/admin/class-wcv-admin-help.php:92,
+#: classes/admin/class-wcv-admin-help.php:94
+msgid "Setup wizard"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:93
+msgid ""
+"If you need to access the setup wizard again, please click on the button "
+"below."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:100
+msgid "Update"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:102
+msgid "Upgrade"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:103
+msgid ""
+"If you need to manually run the updates, please click on the button below."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:104
+msgid "Run the updater"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:109
+msgid "For more information:"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:110
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:111
+msgid "Buy extensions"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:112
+#, fuzzy
+#| msgid "WC Vendors"
+msgid "About WC Vendors"
+msgstr "WC 供應商"
+
+#: classes/admin/class-wcv-admin-help.php:113
+msgid "WC Vendors on WordPress.org"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-help.php:114
+#, fuzzy
+#| msgid "WC Vendors"
+msgid "WC Vendors Github"
+msgstr "WC 供應商"
+
+#: classes/admin/class-wcv-admin-notices.php:114,
+#: classes/admin/class-wcv-admin-settings.php:69
+msgid "Action failed. Please refresh the page and retry."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-notices.php:118
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-settings.php:77
+#, fuzzy
+#| msgid "Your application has been submitted."
+msgid "Your settings have been saved."
+msgstr "你的申請已經成遞交。"
+
+#: classes/admin/class-wcv-admin-settings.php:97
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-settings.php:437,
+#: classes/admin/class-wcv-admin-settings.php:464,
+#: classes/includes/class-functions.php:59
+#, fuzzy
+#| msgid "Select a vendor&hellip;"
+msgid "Select a page&hellip;"
+msgstr "選擇供應商"
+
+#: classes/admin/class-wcv-admin-settings.php:486
+#, fuzzy
+#| msgid "Search for a product&hellip;"
+msgid "Choose a country&hellip;"
+msgstr "搜尋貨品..."
+
+#: classes/admin/class-wcv-admin-settings.php:486,
+#: classes/admin/class-wcv-admin-settings.php:511
+msgid "Country"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-settings.php:511
+msgid "Choose countries&hellip;"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-settings.php:519
+#, fuzzy
+#| msgid "Select a page..."
+msgid "Select all"
+msgstr "選擇分頁..."
+
+#: classes/admin/class-wcv-admin-settings.php:519
+msgid "Select none"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-settings.php:536
+msgid "Update %s"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-settings.php:536,
+#: classes/admin/class-wcv-admin-settings.php:536
+msgid "Add %s"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-settings.php:536
+msgid "Upload an image for the %s"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:43
+msgid "Vendors shipped"
+msgstr "供應商已出貨"
+
+#: classes/admin/class-wcv-admin-setup.php:68
+msgid "Vendors Shipped"
+msgstr "供應商已出貨"
+
+#: classes/admin/class-wcv-admin-setup.php:94
+#, fuzzy
+#| msgid "WC Vendors Test Gateway"
+msgid "Reset WC Vendors roles "
+msgstr "WC 供應商 Test Gateway"
+
+#: classes/admin/class-wcv-admin-setup.php:95
+#, fuzzy
+#| msgid "WC Vendors"
+msgid "Reset WC Vendor Roles"
+msgstr "WC 供應商"
+
+#: classes/admin/class-wcv-admin-setup.php:96
+msgid ""
+"This will reset the wcvendors roles ( vendor & pending_vendor ), back to the "
+"default capabilities."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:101
+#, fuzzy
+#| msgid "WC Vendors"
+msgid "Reset WC Vendors "
+msgstr "WC 供應商"
+
+#: classes/admin/class-wcv-admin-setup.php:102
+msgid "Reset WC Vendors Settings"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:103
+msgid ""
+"This will reset wcvendors back to defaults. This DELETES ALL YOUR Settings."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:153
+msgid "WC Vendor roles successfully reset."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:167
+msgid "WC Vendors was successfully reset. All settings have been reset."
+msgstr ""
+
+#. translators: 1: WooCommerce 2:: five stars
+#: classes/admin/class-wcv-admin-setup.php:267
+msgid ""
+"If you like %1$s please leave us a %2$s rating. A huge thanks in advance!"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:269
+msgid "Thanks :)"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-page.php:166
+msgid "Mark paid"
+msgstr "標為已付款"
+
+#: classes/admin/class-wcv-commissions-page.php:167
+msgid "Mark due"
+msgstr "標為已過期"
+
+#: classes/admin/class-wcv-commissions-page.php:168
+msgid "Mark reversed"
+msgstr "標為已保留"
+
+#: classes/admin/class-wcv-commissions-page.php:203
+msgid "Filter"
+msgstr "篩選"
+
+#: classes/admin/class-wcv-commissions-page.php:204
+msgid "Clear"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-page.php:206
+#, fuzzy
+#| msgid "Export orders"
+msgid "Export to CSV"
+msgstr "導出訂單列表"
+
+#: classes/admin/class-wcv-commissions-page.php:207
+msgid "Export Totals to CSV"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-page.php:242
+msgid "Show all dates"
+msgstr "顯示所有日期"
+
+#: classes/admin/class-wcv-commissions-page.php:277
+msgid "Show all Statuses"
+msgstr "顯示所有狀態"
+
+#: classes/admin/class-wcv-commissions-page.php:333
+msgid "Commission marked paid."
+msgstr "佣金標為已付。"
+
+#: classes/admin/class-wcv-commissions-page.php:340
+msgid "Commission marked due."
+msgstr "佣金標為已過期。"
+
+#: classes/admin/class-wcv-commissions-page.php:347
+msgid "Commission marked reversed."
+msgstr "佣金標為已保留。"
+
+#: classes/admin/class-wcv-commissions-page.php:543
+msgid "All"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:43,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:179,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:213
+msgid "PayPal Email"
+msgstr "PayPal 電郵地址"
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:44,
+#: classes/admin/views/html-vendor-meta.php:50,
+#: classes/admin/views/html-vendor-settings-page.php:26
+msgid "Bank Account Name"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:45,
+#: classes/admin/views/html-vendor-meta.php:55,
+#: classes/admin/views/html-vendor-settings-page.php:31
+msgid "Bank Account Number"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:46,
+#: classes/admin/views/html-vendor-meta.php:60,
+#: classes/admin/views/html-vendor-settings-page.php:36,
+#: templates/dashboard/settings/settings.php:46
+msgid "Bank Name"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:47,
+#: classes/admin/views/html-vendor-meta.php:65,
+#: classes/admin/views/html-vendor-settings-page.php:41,
+#: templates/dashboard/settings/settings.php:49
+#, fuzzy
+#| msgid "Tracking number"
+msgid "Routing Number"
+msgstr "貨品追蹤號碼"
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:48,
+#: classes/admin/views/html-vendor-meta.php:70,
+#: classes/admin/views/html-vendor-settings-page.php:46,
+#: templates/dashboard/settings/settings.php:50
+msgid "IBAN"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:49,
+#: classes/admin/views/html-vendor-meta.php:75,
+#: classes/admin/views/html-vendor-settings-page.php:51
+msgid "BIC/SWIFT"
+msgstr ""
+
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:50
+#, fuzzy
+#| msgid "Commission rate"
+msgid "Commission Status"
+msgstr "佣金比例"
+
+#: classes/includes/class-functions.php:35
+msgid "Vendor"
+msgstr "供應商"
+
+#: classes/includes/class-functions.php:36
+#, fuzzy
+#| msgid "Vendor"
+msgid "Vendors"
+msgstr "供應商"
+
+#: classes/includes/wcv-template-functions.php:102
+#, fuzzy
+#| msgid "Commission Subtotal:"
+msgid "Commission subtotal:"
+msgstr "佣金小計："
+
+#: classes/includes/wcv-template-functions.php:115
+#, fuzzy
+#| msgid "Product title: %s"
+msgid "Product subtotal:"
+msgstr "貨品名稱：%s"
+
+#: classes/includes/wcv-template-functions.php:123
+#, fuzzy
+#| msgid "Shipping"
+msgid "Shipping:"
+msgstr "運送方式"
+
+#: classes/includes/wcv-template-functions.php:131
+msgid "Tax:"
+msgstr ""
+
+#: classes/includes/wcv-template-functions.php:139
+#, fuzzy
+#| msgid "Payment total: %s"
+msgid "Payment method:"
+msgstr "付款總數：%s"
+
+#: classes/includes/wcv-template-functions.php:148
+#, fuzzy
+#| msgid "Commission Subtotal:"
+msgid "Commission total:"
+msgstr "佣金小計："
+
+#: classes/includes/wcv-template-functions.php:158
+#, fuzzy
+#| msgid "Product title: %s"
+msgid "Product total:"
+msgstr "貨品名稱：%s"
+
+#: classes/includes/wcv-update-functions.php:104
+msgid ""
+"WC Vendors legacy emails are enabled. Please migrate your email templates to "
+"the new system. <a href=\"%s\">Click here to view your email settings.</a>"
+msgstr ""
+
+#: templates/dashboard/denied.php:22
+#, fuzzy
+#| msgid ""
+#| "Your account has not yet been approved to become a vendor.  When it is, "
+#| "you will receive an email telling you that your account is approved!"
+msgid ""
+"Your account has not yet been approved to become a %s.  When it is, you will "
+"receive an email telling you that your account is approved!"
+msgstr ""
+"你的帳戶尚未被批准成為供應商。如成功批核，你將收到一封帳戶被批准的電子郵件！"
+
+#: templates/dashboard/denied.php:26
+#, fuzzy
+#| msgid "Your account is not setup as a vendor."
+msgid "Your account is not setup as a %s."
+msgstr "你的帳戶未設置為供應商。"
+
+#: templates/dashboard/denied.php:36,
+#: classes/front/signup/views/html-vendor-signup.php:22
+#, fuzzy
+#| msgid "Apply to become a vendor? "
+msgid "Apply to become a %s? "
+msgstr "申請成為供應商？"
+
+#: templates/dashboard/denied.php:57
+msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
+msgstr "我已閱讀並接受此 <a href=\"%s\">條款及細則</a>。"
+
+#: templates/dashboard/denied.php:79
+msgid "Submit"
+msgstr "提交"
+
+#: templates/dashboard/links.php:22
+#, fuzzy
+#| msgid "View orders"
+msgid "View Your Store"
+msgstr "檢視訂單"
+
+#: templates/dashboard/links.php:23,
+#: classes/admin/settings/class-wcv-settings-display.php:224
+#, fuzzy
+#| msgid "Shop Settings"
+msgid "Store Settings"
+msgstr "店鋪設定"
+
+#: templates/dashboard/links.php:26
+#, fuzzy
+#| msgid "New Vendor Product"
+msgid "Add New Product"
+msgstr "新貨品"
+
+#: templates/dashboard/links.php:27
+#, fuzzy
+#| msgid "Edit product: %s"
+msgid "Edit Products"
+msgstr "修改貨品：%s"
+
+#: templates/dashboard/orders.php:24, templates/dashboard/orders.php:27
+msgid "Hide items"
+msgstr "隱藏項目"
+
+#: templates/dashboard/orders.php:25, templates/dashboard/orders.php:102
+msgid "View items"
+msgstr "顯檢示目錄"
+
+#: templates/dashboard/orders.php:55
+msgid "Links"
+msgstr "連結"
+
+#: templates/dashboard/orders.php:123
+msgid "Tracking"
+msgstr "追蹤"
+
+#: templates/dashboard/orders.php:197
+msgid "You have no orders during this period."
+msgstr "本期未有訂單"
+
+#: templates/dashboard/reports.php:19
+msgid "Sales Report"
+msgstr "銷售報表"
+
+#: templates/dashboard/reports.php:36,
+#: templates/emails/notify-vendor-shipped.php:28,
+#: templates/emails/vendor-new-order.php:32,
+#: templates/emails/vendor-order-details.php:37,
+#: classes/front/orders/class-export-csv.php:19
+msgid "Quantity"
+msgstr "數量"
+
+#: templates/dashboard/reports.php:38
+msgid "Rate"
+msgstr "佣金比例"
+
+#: templates/dashboard/reports.php:65
+msgid "Show Orders"
+msgstr "題示訂單"
+
+#: templates/dashboard/reports.php:74
+msgid "Totals"
+msgstr "總數"
+
+#: templates/dashboard/reports.php:89
+msgid "You have no sales during this period."
+msgstr "你未有任何本期之銷售紀錄。"
+
+#: templates/dashboard/reports.php:100
+msgid "You haven't made any sales yet."
+msgstr "你未有任何銷售紀錄。"
+
+#: templates/emails/admin-notify-application.php:19,
+#: templates/emails/application-status.php:8,
+#: templates/emails/vendor-notify-application.php:22,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:62,
+#: templates/emails/plain/admin-notify-application.php:19,
+#: templates/emails/plain/vendor-notify-application.php:19
+#, fuzzy
+#| msgid "Hi there. This is a notification about a vendor application on %s."
+msgid "Hi there. This is a notification about a %s application on %s."
+msgstr "你好！有一個關於供應商申請的通知發出於 %s 。"
+
+#: templates/emails/admin-notify-application.php:21
+#, fuzzy
+#| msgid "Application status: %s"
+msgid "The application is currently: %s"
+msgstr "申請狀態：%s"
+
+#: templates/emails/admin-notify-application.php:22,
+#: templates/emails/application-status.php:12,
+#: templates/emails/vendor-notify-application.php:24,
+#: templates/emails/vendor-notify-approved.php:24,
+#: templates/emails/vendor-notify-denied.php:24,
+#: templates/emails/plain/admin-notify-application.php:20,
+#: templates/emails/plain/vendor-notify-application.php:21
+msgid "Applicant username: %s"
+msgstr "申請人用戶名稱：%s"
+
+#: templates/emails/admin-notify-application.php:26,
+#: templates/emails/plain/admin-notify-application.php:23
+msgid "You can approve or deny the application at the following link %s"
+msgstr ""
+
+#: templates/emails/admin-notify-product.php:19,
+#: templates/emails/plain/admin-notify-product.php:21
+#, fuzzy
+#| msgid "Hi there. This is a notification about a new product on %s."
+msgid "This is a notification about a new product on %s."
+msgstr "你好！有一個關於新加入貨品的通知發出於 %s 。"
+
+#: templates/emails/admin-notify-product.php:22,
+#: templates/emails/new-product.php:11,
+#: templates/emails/plain/admin-notify-product.php:23
+msgid "Product title: %s"
+msgstr "貨品名稱：%s"
+
+#: templates/emails/admin-notify-product.php:23,
+#: templates/emails/new-product.php:12,
+#: templates/emails/plain/admin-notify-product.php:24
+msgid "Submitted by: %s"
+msgstr "提交自：%s"
+
+#: templates/emails/admin-notify-product.php:24,
+#: templates/emails/new-product.php:13,
+#: templates/emails/plain/admin-notify-product.php:25
+msgid "Edit product: %s"
+msgstr "修改貨品：%s"
+
+#: templates/emails/application-status.php:11
+msgid "Application status: %s"
+msgstr "申請狀態：%s"
+
+#: templates/emails/new-product.php:8
+msgid "Hi there. This is a notification about a new product on %s."
+msgstr "你好！有一個關於新加入貨品的通知發出於 %s 。"
+
+#: templates/emails/notify-vendor-shipped.php:18
+#, fuzzy
+#| msgid ""
+#| "A vendor has marked part of your order as shipped. The items that are "
+#| "shipped are as follows:"
+msgid ""
+"A %s has marked part of your order as shipped. The items that are shipped "
+"are as follows:"
+msgstr "供應商已將你部分的訂單標作「已發貨」，已發貨的貨品資料如下："
+
+#: templates/emails/notify-vendor-shipped.php:22,
+#: templates/emails/vendor-new-order.php:26
+msgid "Order: %s"
+msgstr "訂單： %s"
+
+#: templates/emails/notify-vendor-shipped.php:29,
+#: templates/emails/vendor-new-order.php:33,
+#: templates/emails/vendor-order-details.php:42
+msgid "Price"
+msgstr "價錢"
+
+#: templates/emails/notify-vendor-shipped.php:61,
+#: templates/emails/vendor-new-order.php:69
+msgid "Customer details"
+msgstr "顧客資料"
+
+#: templates/emails/notify-vendor-shipped.php:64,
+#: templates/emails/vendor-new-order.php:72
+msgid "Email:"
+msgstr "電郵地址："
+
+#: templates/emails/notify-vendor-shipped.php:67,
+#: templates/emails/vendor-new-order.php:75
+msgid "Tel:"
+msgstr "電話："
+
+#: templates/emails/vendor-new-order.php:22
+msgid "You have received an order from %s. Their order is as follows:"
+msgstr "你收到由 %s 發出的訂單，訂單資料如下："
+
+#: templates/emails/vendor-notify-application.php:23
+#, fuzzy
+#| msgid "Your application has been submitted."
+msgid "Your application is currently: %s"
+msgstr "你的申請已經成遞交。"
+
+#: templates/emails/vendor-notify-order.php:22
+#, fuzzy
+#| msgid "You have received an order from %s. Their order is as follows:"
+msgid "You have received an order. The order is as follows:"
+msgstr "你收到由 %s 發出的訂單，訂單資料如下："
+
+#: templates/emails/vendor-order-addresses.php:23,
+#: templates/emails/plain/vendor-order-addresses.php:22
+#, fuzzy
+#| msgid "Email address"
+msgid "Billing address"
+msgstr "電郵地址"
+
+#: templates/emails/vendor-order-addresses.php:46,
+#: templates/emails/plain/vendor-order-addresses.php:46
+#, fuzzy
+#| msgid "Shipping"
+msgid "Shipping address"
+msgstr "運送方式"
+
+#. translators: %s: Order ID.
+#: templates/emails/vendor-order-details.php:28
+#, fuzzy
+#| msgid "Order: %s"
+msgid "Order #%s"
+msgstr "訂單： %s"
+
+#: templates/emails/vendor-order-details.php:88,
+#: templates/emails/plain/vendor-order-details.php:49
+msgid "Note:"
+msgstr ""
+
+#: templates/emails/vendor-order-items.php:30
+#, fuzzy
+#| msgid "Product Title"
+msgid "Product image"
+msgstr "貨品名稱"
+
+#: templates/orders/csv-export.php:22
+msgid "Export orders"
+msgstr "導出訂單列表"
+
+#: templates/orders/orders.php:98
+msgid "Comments (%s)"
+msgstr "評論 (%s)"
+
+#: templates/orders/table-body.php:37
+msgid "Quantity: %d"
+msgstr "數量: %d"
+
+#: classes/admin/emails/class-emails.php:82,
+#: classes/admin/emails/class-emails.php:219,
+#: classes/admin/emails/class-emails.php:220,
+#: classes/admin/emails/class-wc-approve-vendor.php:70
+msgid "pending"
+msgstr "審批中"
+
+#: classes/admin/emails/class-emails.php:84,
+#: classes/admin/emails/class-emails.php:223
+msgid "approved"
+msgstr "批准"
+
+#: classes/admin/emails/class-emails.php:86,
+#: classes/admin/emails/class-emails.php:217
+msgid "denied"
+msgstr "拒絕"
+
+#: classes/admin/emails/class-emails.php:165
+msgid "Resend %s new order notification"
+msgstr ""
+
+#: classes/admin/emails/class-wc-approve-vendor.php:28
+msgid "%s Application - deprecated"
+msgstr ""
+
+#: classes/admin/emails/class-wc-approve-vendor.php:29
+#, fuzzy
+#| msgid "Vendor application will either be approved, denied, or pending."
+msgid ""
+"%s application will either be approved, denied, or pending. <strong>This "
+"email has been deprecated.</strong>"
+msgstr "店鋪的申請可能被設為批准，拒絕，或待批。"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:31
+msgid "Application {status}"
+msgstr "申請 (狀態)"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:32
+#, fuzzy
+#| msgid "[{blogname}] Your vendor application has been {status}"
+msgid "[{blogname}] Your %s application has been {status}"
+msgstr "[{blogname}] 你的店鋪申請己被 {status}"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:123,
+#: classes/admin/emails/class-wc-notify-admin.php:134,
+#: classes/admin/emails/class-wc-notify-shipped.php:166,
+#: classes/admin/emails/class-wc-notify-vendor.php:268,
+#: classes/admin/emails/class-wcv-admin-notify-application.php:131,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:146,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:135,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:142,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:129,
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:138,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:148,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:162,
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:62
+msgid "Enable/Disable"
+msgstr "啟用/禁用"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:125,
+#: classes/admin/emails/class-wc-notify-admin.php:136,
+#: classes/admin/emails/class-wc-notify-shipped.php:168,
+#: classes/admin/emails/class-wc-notify-vendor.php:270,
+#: classes/admin/emails/class-wcv-admin-notify-application.php:133,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:148,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:137,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:144,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:131,
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:140,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:150,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:164
+msgid "Enable this email notification"
+msgstr "啟用此電子郵件通知"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:131,
+#: classes/admin/emails/class-wc-notify-admin.php:142
+msgid ""
+"Enter recipients (comma separated) for this email. Defaults to <code>%s</"
+"code>."
+msgstr "於這個電子郵件輸入收件人（用逗號隔開）。默認設定為 <code>%s</code>。"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:136,
+#: classes/admin/emails/class-wc-notify-admin.php:147,
+#: classes/admin/emails/class-wc-notify-shipped.php:172,
+#: classes/admin/emails/class-wc-notify-vendor.php:274,
+#: classes/admin/emails/class-wcv-admin-notify-application.php:145,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:160,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:149,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:148,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:135,
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:144,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:154,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:168
+msgid "Subject"
+msgstr "郵件主題"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:138,
+#: classes/admin/emails/class-wc-notify-admin.php:149,
+#: classes/admin/emails/class-wc-notify-shipped.php:174,
+#: classes/admin/emails/class-wc-notify-vendor.php:276
+msgid ""
+"This controls the email subject line. Leave blank to use the default "
+"subject: <code>%s</code>."
+msgstr "這控制郵件主題。留空以使用默認的郵件主題：<code>%s</code>。"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:143,
+#: classes/admin/emails/class-wc-notify-admin.php:154,
+#: classes/admin/emails/class-wc-notify-shipped.php:179,
+#: classes/admin/emails/class-wc-notify-vendor.php:281
+msgid "Email Heading"
+msgstr "郵件主題"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:145,
+#: classes/admin/emails/class-wc-notify-admin.php:156,
+#: classes/admin/emails/class-wc-notify-shipped.php:181,
+#: classes/admin/emails/class-wc-notify-vendor.php:283
+msgid ""
+"This controls the main heading contained within the email notification. "
+"Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+"這控制電子郵件通知的內容主題。留空以使用默認的內容主題：<code>%s</code>。"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:150,
+#: classes/admin/emails/class-wc-notify-admin.php:161,
+#: classes/admin/emails/class-wc-notify-shipped.php:186,
+#: classes/admin/emails/class-wc-notify-vendor.php:294,
+#: classes/admin/emails/class-wcv-admin-notify-application.php:175,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:178,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:167,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:166,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:153,
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:171,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:189,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:206
+msgid "Email type"
+msgstr "電郵類別"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:152,
+#: classes/admin/emails/class-wc-notify-admin.php:163,
+#: classes/admin/emails/class-wc-notify-shipped.php:188,
+#: classes/admin/emails/class-wc-notify-vendor.php:296,
+#: classes/admin/emails/class-wcv-admin-notify-application.php:177,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:180,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:169,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:168,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:155,
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:173,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:191,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:208
+msgid "Choose which format of email to send."
+msgstr "請選擇發送的電郵格式"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:156,
+#: classes/admin/emails/class-wc-notify-admin.php:167,
+#: classes/admin/emails/class-wc-notify-shipped.php:192,
+#: classes/admin/emails/class-wc-notify-vendor.php:300
+msgid "Plain text"
+msgstr "文字格式"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:157,
+#: classes/admin/emails/class-wc-notify-admin.php:168,
+#: classes/admin/emails/class-wc-notify-shipped.php:193,
+#: classes/admin/emails/class-wc-notify-vendor.php:301
+msgid "HTML"
+msgstr "HTML"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:158,
+#: classes/admin/emails/class-wc-notify-admin.php:169,
+#: classes/admin/emails/class-wc-notify-shipped.php:194,
+#: classes/admin/emails/class-wc-notify-vendor.php:302
+msgid "Multipart"
+msgstr "多種部分"
+
+#: classes/admin/emails/class-wc-notify-admin.php:28
+msgid "New %s Product - deprecated"
+msgstr ""
+
+#: classes/admin/emails/class-wc-notify-admin.php:29
+#, fuzzy
+#| msgid ""
+#| "New order emails are sent when a new product is submitted by a vendor"
+msgid ""
+"New order emails are sent when a new product is submitted by a %s. "
+"<strong>This email has been depreciated.</strong>"
+msgstr "當供應商提交一個新貨品後，新訂單的電子郵件將會被發送。"
+
+#: classes/admin/emails/class-wc-notify-admin.php:31
+msgid "New product submitted: {product_name}"
+msgstr "新提交的貨品：{product_name}"
+
+#: classes/admin/emails/class-wc-notify-admin.php:32
+msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
+msgstr "[{blogname}] 供應商 - {vendor_name} 提交了一個新貨品 - {product_name}"
+
+#: classes/admin/emails/class-wc-notify-shipped.php:28
+msgid "%s has shipped - deprecated"
+msgstr ""
+
+#: classes/admin/emails/class-wc-notify-shipped.php:29
+#, fuzzy
+#| msgid ""
+#| "An email is sent when a vendor has marked one of their orders as shipped."
+msgid ""
+"An email is sent when a %s has marked one of their orders as shipped. "
+"<strong>This email has been deprecated.</strong>"
+msgstr "當供應商的訂單被標誌出貨時，電子郵件將被發送。"
+
+#: classes/admin/emails/class-wc-notify-shipped.php:31
+msgid "Your order has been shipped"
+msgstr "你的訂單已出貨"
+
+#: classes/admin/emails/class-wc-notify-shipped.php:32
+msgid ""
+"[{blogname}] Your order has been shipped ({order_number}) - {order_date}"
+msgstr "[{blogname}] 你的訂單已出貨 ({order_number}) - {order_date}"
+
+#: classes/admin/emails/class-wc-notify-shipped.php:115
+msgid "Subtotal:"
+msgstr "小計："
+
+#: classes/admin/emails/class-wc-notify-vendor.php:27
+#, fuzzy
+#| msgid "Notify vendors"
+msgid "Notify vendors - deprecated"
+msgstr "通知供應商"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:28
+#, fuzzy
+#| msgid ""
+#| "New order emails are sent when an order is received/paid by a customer."
+msgid ""
+"New order emails are sent when an order is received/paid by a customer. "
+"<strong>This email has been deprecated.</strong>"
+msgstr "當收到 / 由客戶支付的訂單時，新訂單的電子郵件會被發送。"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:30
+msgid "New customer order"
+msgstr "新客戶訂單"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:31
+msgid "[{blogname}] New customer order ({order_number}) - {order_date}"
+msgstr "[{blogname}] 新客戶訂單 ({order_number}) - {order_date}"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:107
+msgid "Commission Subtotal:"
+msgstr "佣金小計："
+
+#: classes/admin/emails/class-wc-notify-vendor.php:113
+msgid "Tax Subtotal:"
+msgstr "稅項小計："
+
+#: classes/admin/emails/class-wc-notify-vendor.php:121
+msgid "Shipping Subtotal:"
+msgstr "運費小計："
+
+#: classes/admin/emails/class-wc-notify-vendor.php:288
+#, fuzzy
+#| msgid "Product Title"
+msgid "Product Totals"
+msgstr "貨品名稱"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:290
+msgid ""
+"Show the commission due/paid as the product totals instead of the product "
+"prices."
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:27
+#, fuzzy
+#| msgid "Email notification"
+msgid "Admin notify %s application"
+msgstr "電郵通知"
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:28
+msgid ""
+"Notification is sent to chosen recipient(s) when a user applies to be a %s"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:51
+msgid "[{site_title}] {user_name} has applied to be a %s"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:61,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:58
+#, fuzzy
+#| msgid "Your application has been submitted."
+msgid "%s application received"
+msgstr "你的申請已經成遞交。"
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:137,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:152,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:141
+msgid "Recipient(s)"
+msgstr "收件人"
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:139,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:154,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:143
+#, fuzzy
+#| msgid ""
+#| "Enter recipients (comma separated) for this email. Defaults to <code>%s</"
+#| "code>."
+msgid "Enter recipients (comma separated) for this email. Defaults to %s."
+msgstr "於這個電子郵件輸入收件人（用逗號隔開）。默認設定為 <code>%s</code>。"
+
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#: classes/admin/emails/class-wcv-admin-notify-application.php:149,
+#: classes/admin/emails/class-wcv-admin-notify-application.php:158,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:164,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:173,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:153,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:162,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:152,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:161,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:139,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:148,
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:148,
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:166,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:158,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:167,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:184,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:172,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:181
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:154,
+#: classes/admin/emails/class-wcv-admin-notify-product.php:169,
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:158,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:157,
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:144,
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:162,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:180,
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:177
+#, fuzzy
+#| msgid "Email Heading"
+msgid "Email heading"
+msgstr "郵件主題"
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:163
+#, fuzzy
+#| msgid "Email notification"
+msgid "Notification"
+msgstr "電郵通知"
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:165
+msgid "Choose when to be notified of an application."
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:169
+#, fuzzy
+#| msgid "Application ID"
+msgid "All Applications"
+msgstr "Application ID"
+
+#: classes/admin/emails/class-wcv-admin-notify-application.php:170
+#, fuzzy
+#| msgid "Vendor Application"
+msgid "Pending Applications"
+msgstr "店鋪申請"
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:27
+#, fuzzy
+#| msgid "Edit live products"
+msgid "Admin new %s product"
+msgstr "修改在線貨品"
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:28
+msgid ""
+"Notification is sent to chosen recipient(s) when a %s submits a product for "
+"approval."
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:57
+#, fuzzy
+#| msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
+msgid ""
+"[{site_title}] New %s product submitted by {vendor_name} - {product_name}"
+msgstr "[{blogname}] 供應商 - {vendor_name} 提交了一個新貨品 - {product_name}"
+
+#: classes/admin/emails/class-wcv-admin-notify-product.php:67
+#, fuzzy
+#| msgid "New product submitted: {product_name}"
+msgid "New %s product submitted: {product_name}"
+msgstr "新提交的貨品：{product_name}"
+
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:27
+msgid "Admin notify %s shipped"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:28
+msgid ""
+"Notification is sent to chosen recipient(s) when a %s marks an order shipped."
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:52,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:51
+#, fuzzy
+#| msgid ""
+#| "[{blogname}] Your order has been shipped ({order_number}) - {order_date}"
+msgid "[{site_title}] %s has marked shipped ({order_number}) - {order_date}"
+msgstr "[{blogname}] 你的訂單已出貨 ({order_number}) - {order_date}"
+
+#: classes/admin/emails/class-wcv-admin-notify-shipped.php:62,
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:61
+#, fuzzy
+#| msgid "Mark as shipped"
+msgid "%s has shipped"
+msgstr "標為已出貨"
+
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:28
+#, fuzzy
+#| msgid "Vendor has shipped"
+msgid "Customer %s shipped"
+msgstr "供應商已出貨"
+
+#: classes/admin/emails/class-wcv-customer-notify-shipped.php:29
+#, fuzzy
+#| msgid ""
+#| "New order emails are sent when an order is received/paid by a customer."
+msgid ""
+"Email is sent to the customer when a %s marks an order received/paid by a "
+"customer."
+msgstr "當收到 / 由客戶支付的訂單時，新訂單的電子郵件會被發送。"
+
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:27
+#, fuzzy
+#| msgid "Vendor Application"
+msgid "%s notify application"
+msgstr "店鋪申請"
+
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:28
+msgid "Notification is sent to the %s that their application has been received"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-application.php:48
+#, fuzzy
+#| msgid "Your application has been submitted."
+msgid "[{site_title}] Your %s application has been received"
+msgstr "你的申請已經成遞交。"
+
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:27
+#, fuzzy
+#| msgid "approved"
+msgid "%s notify approved"
+msgstr "批准"
+
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:28
+msgid "Notification is sent to the %s that their application has been approved"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:48
+#, fuzzy
+#| msgid "[{blogname}] Your vendor application has been {status}"
+msgid "[{site_title}] Your vendor application has been approved"
+msgstr "[{blogname}] 你的店鋪申請己被 {status}"
+
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:58
+#, fuzzy
+#| msgid "Application ID"
+msgid "%s Application Approved"
+msgstr "Application ID"
+
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:68
+#, fuzzy
+#| msgid "Your application has been submitted."
+msgid "Your application to become a %s has been approved."
+msgstr "你的申請已經成遞交。"
+
+#: classes/admin/emails/class-wcv-vendor-notify-approved.php:153,
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:163
+msgid "Content"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:27
+#, fuzzy
+#| msgid "Notify vendors"
+msgid "%s notify denied"
+msgstr "通知供應商"
+
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:28
+msgid "Notification is sent to the %s that their application has been denied"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:48
+#, fuzzy
+#| msgid "Your application has been submitted."
+msgid "[{site_title}] Your %s application has been denied"
+msgstr "你的申請已經成遞交。"
+
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:58
+#, fuzzy
+#| msgid "Application ID"
+msgid "%s Application Denied"
+msgstr "Application ID"
+
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:68
+#, fuzzy
+#| msgid "Your application has been submitted."
+msgid "Your application to become a %s has been denied."
+msgstr "你的申請已經成遞交。"
+
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:78
+msgid "We are not taking any new applications at this time."
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:172
+msgid "Reason"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-denied.php:175
+msgid "Provide a reason for denying the %s application"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:27
+msgid "%s notify order"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:28
+msgid "Notification is sent to %s when an order is paid."
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:57
+#, fuzzy
+#| msgid "[{blogname}] New customer order ({order_number}) - {order_date}"
+msgid "[{site_title}] New Customer Order ({order_number}) - {order_date}"
+msgstr "[{blogname}] 新客戶訂單 ({order_number}) - {order_date}"
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:67
+#, fuzzy
+#| msgid "New customer order"
+msgid "New Customer Order"
+msgstr "新客戶訂單"
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:186
+#, fuzzy
+#| msgid "Totals"
+msgid "Totals Display"
+msgstr "總數"
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:188
+msgid ""
+"Choose how to display the product totals. Including commission or without or "
+"no totals at all."
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:192
+msgid "Both"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:195
+msgid "None"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:200
+#, fuzzy
+#| msgid "IPN payment completed"
+msgid "Payment method"
+msgstr "IPN 付款交易完成"
+
+#: classes/admin/emails/class-wcv-vendor-notify-order.php:202
+msgid "Include the payment method in the email"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:27,
+#: classes/admin/settings/class-wcv-settings-advanced.php:39,
+#: classes/admin/settings/class-wcv-settings-capabilities.php:108,
+#: classes/admin/settings/class-wcv-settings-display.php:45
+msgid "Advanced"
+msgstr "進階"
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:62
+msgid "Plugin Uninstall Options"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:64
+msgid ""
+"These options are effective when uninstalling the plugin. If \"Delete All "
+"Data\" is checked all this plugin's data will be removed, uncheck it to "
+"choose what to delete when uninstalling the plugin."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:68
+msgid "Delete all data"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:69
+msgid "Delete all WC Vendors data when deactivating the plugin."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:75
+msgid "Delete custom table"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:76
+msgid ""
+"Delete all data included in the custom tables. This will delete all "
+"commissions"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:82
+msgid "Delete settings options"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:83
+msgid "Delete all plugin options when uninstalling the plugin."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:89
+#, fuzzy
+#| msgid "Vendor shop page"
+msgid "Delete WC Vendors pages"
+msgstr "供應商的店鋪主頁"
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:90
+msgid "Delete all pages created by WC Vendors."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:96
+#, fuzzy
+#| msgid "No customer note."
+msgid "Remove custom Roles"
+msgstr "未有顧客留言。"
+
+#: classes/admin/settings/class-wcv-settings-advanced.php:97
+msgid "Remove custom roles registered by WC Vendors."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:43,
+#: classes/admin/settings/class-wcv-settings-capabilities.php:102,
+#: classes/admin/settings/class-wcv-settings-commission.php:43,
+#: classes/admin/settings/class-wcv-settings-display.php:43,
+#: classes/admin/settings/class-wcv-settings-general.php:31,
+#: classes/admin/settings/class-wcv-settings-general.php:43,
+#: classes/admin/settings/class-wcv-settings-payments.php:44,
+#: classes/admin/views/setup/general.php:19
+msgid "General"
+msgstr "一般設定"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:63
+#, fuzzy
+#| msgid "Edit product: %s"
+msgid "Add / Edit Product"
+msgstr "修改貨品：%s"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:65
+#, fuzzy
+#| msgid "Configure what to hide from all vendors when adding a product"
+msgid ""
+"Configure what product information to hide from the %s when creating or "
+"editing a product"
+msgstr "請選擇需隱藏的供應商「新增貨品」設定項目"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:70
+#, fuzzy
+#| msgid "Product Title"
+msgid "Product Types"
+msgstr "貨品名稱"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:71
+msgid "This controls what product types the %s can create"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:81
+#, fuzzy
+#| msgid "Type options"
+msgid "Product Type Options"
+msgstr "貨品類型"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:82
+msgid "This controls what product type options the %s can use"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:88
+msgid "Virtual"
+msgstr "虛擬"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:89
+msgid "Downloadable"
+msgstr "可下載"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:95
+#, fuzzy
+#| msgid "Product title: %s"
+msgid "Product Data Tabs"
+msgstr "貨品名稱：%s"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:96
+msgid "This controls what product data tabs the %s can use"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:103
+msgid "Inventory"
+msgstr "庫存"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:105
+msgid "Linked Products"
+msgstr "連結貨品"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:106
+msgid "Attributes"
+msgstr "屬性"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:107
+msgid "Variations"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:115
+#, fuzzy
+#| msgid "Featured"
+msgid "Featured Product"
+msgstr "特色貨品"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:116
+msgid "Allow %s to use the featured product option"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:123
+msgid "Duplicate Product"
+msgstr "複製貨品"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:124
+#, fuzzy
+#| msgid "Duplicate Product"
+msgid "Allow %s to duplicate products"
+msgstr "複製貨品"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:131
+msgid "SKU"
+msgstr "SKU"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:132
+msgid "Hide sku field from %s"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:139
+msgid "Taxes"
+msgstr "稅項"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:140
+msgid "Hide tax fields from %s"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:156
+msgid "Configure what order information a %s can view from an order"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:161
+#, fuzzy
+#| msgid "View orders"
+msgid "View Order Notes"
+msgstr "檢視訂單"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:162,
+#: classes/admin/views/setup/capabilities.php:102
+msgid "Allow %s to view order notes"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:169
+msgid "Add Order notes"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:170,
+#: classes/admin/views/setup/capabilities.php:115
+msgid "Allow %s to add order notes."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:177
+#, fuzzy
+#| msgid "Customer note"
+msgid "Customer Name"
+msgstr "顧客留言"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:178
+msgid "Allow %s to view customer name fields"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:185
+#, fuzzy
+#| msgid "Customer note"
+msgid "Customer Shippin Name"
+msgstr "顧客留言"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:186
+msgid "Allow %s to view customer shipping name fields"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:193
+#, fuzzy
+#| msgid "Customer details"
+msgid "Customer Billing Address"
+msgstr "顧客資料"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:194
+msgid "Allow %s to view customer billing address fields"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:201
+msgid "Customer Shipping Address"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:202
+msgid "Allow %s to view the customer shipping fields"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:209
+#, fuzzy
+#| msgid "Customer details"
+msgid "Customer Email"
+msgstr "顧客資料"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:210
+msgid "Allow %s to view the customer email address"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:217
+#, fuzzy
+#| msgid "Customer note"
+msgid "Customer Phone"
+msgstr "顧客留言"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:218
+msgid "Allow %s to view the customer phone number"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:233
+msgid "Permissions"
+msgstr "權限"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:235
+msgid "Enable or disable functionality for your %s"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:249
+#, fuzzy
+#| msgid "Submit products"
+msgid "Submit Products"
+msgstr "提交貨品"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:250,
+#: classes/admin/views/setup/capabilities.php:25
+msgid "Allow %s to add/edit products"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:257
+#, fuzzy
+#| msgid "Edit live products"
+msgid "Edit Live Products"
+msgstr "修改在線貨品"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:258,
+#: classes/admin/views/setup/capabilities.php:38
+msgid "Allow %s to edit published (live) products"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:265
+msgid "Publish Approval"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:266
+#, fuzzy
+#| msgid "Submit products live without requiring approval"
+msgid ""
+"Allow %s to publish products directly to the marketplace without requiring "
+"approval."
+msgstr "提交發將貨品上架，無須審批"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:282
+#, fuzzy
+#| msgid "View orders"
+msgid "View Orders"
+msgstr "檢視訂單"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:283,
+#: classes/admin/views/setup/capabilities.php:76
+msgid "Allow %s to view orders"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:290
+#, fuzzy
+#| msgid "Export orders"
+msgid "Export Orders"
+msgstr "導出訂單列表"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:291,
+#: classes/admin/views/setup/capabilities.php:89
+msgid "Allow %s to export their orders to a CSV file"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:298
+#, fuzzy
+#| msgid "View Frontend sales reports"
+msgid "Front End Sales Reports"
+msgstr "於前台檢視銷售報表"
+
+#: classes/admin/settings/class-wcv-settings-capabilities.php:299
+msgid "Allow %s to view sales table on the frontend on the %s dashboard page."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-commission.php:65
+msgid "These are the commission settings for your marketplace"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-commission.php:69
+#, fuzzy
+#| msgid "Commission"
+msgid "%s Commission %%"
+msgstr "佣金"
+
+#: classes/admin/settings/class-wcv-settings-commission.php:70
+msgid "The global commission rate for your %s"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:31
+#, fuzzy
+#| msgid "Display Name"
+msgid "Display"
+msgstr "顯示名稱"
+
+#: classes/admin/settings/class-wcv-settings-display.php:44
+msgid "Labels"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:66
+msgid "Advanced options provide extra display options"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:70
+#, fuzzy
+#| msgid "Product Add Page"
+msgid "Product Page Stylesheet"
+msgstr "新增貨品頁"
+
+#: classes/admin/settings/class-wcv-settings-display.php:71
+#, fuzzy
+#| msgid ""
+#| "You can add CSS in this textarea, which will be loaded on the product add/"
+#| "edit page for vendors."
+msgid ""
+"You can add CSS in this textarea, which will be loaded on the product add/"
+"edit page for %s"
+msgstr ""
+"你可於此文字框加入 CSS ，此 CSS 會加入到供應商的「新加/編輯貨品」頁面。"
+
+#: classes/admin/settings/class-wcv-settings-display.php:72,
+#: classes/admin/settings/class-wcv-settings-display.php:121
+msgid ""
+"This enables the sold by labels used to show which %s shop the product "
+"belongs to"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:79
+#, fuzzy
+#| msgid "Registration"
+msgid "Use WooCommerce Registration"
+msgstr "註冊"
+
+#: classes/admin/settings/class-wcv-settings-display.php:83
+msgid ""
+"This will redirect the WordPress registration to WooCommerce my-account page "
+"for registration."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:98
+msgid "Labels are shown on the front end, in orders or emails."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:103
+msgid "%s singluar term"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:104
+msgid "Change all references to vendor to this term"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:111
+msgid "%s plural term"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:112
+msgid "Change all references to vendors to this term"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:119
+msgid "Sold by"
+msgstr "店鋪："
+
+#: classes/admin/settings/class-wcv-settings-display.php:120
+msgid "Enable sold by labels"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:128
+#, fuzzy
+#| msgid "Sold by: "
+msgid "Sold by Separator"
+msgstr "店鋪："
+
+#: classes/admin/settings/class-wcv-settings-display.php:129
+msgid "The sold by separator"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:132
+msgid ":"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:136
+#, fuzzy
+#| msgid "Sold by: "
+msgid "Sold by label"
+msgstr "店鋪："
+
+#: classes/admin/settings/class-wcv-settings-display.php:137
+msgid "The sold by label"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:140
+#, fuzzy
+#| msgid "Sold by"
+msgid "Sold By"
+msgstr "店鋪："
+
+#: classes/admin/settings/class-wcv-settings-display.php:144
+msgid "%s Store Info"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:145
+msgid "Enable %s store info tab on the single product page"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:152
+msgid "%s store Info label"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:153
+msgid "The %s store info label"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:156
+msgid "Store Info"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:171
+msgid "These pages used on the front end by %s."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:175
+#, fuzzy
+#| msgid "Vendor Dashboard"
+msgid "Dashboard"
+msgstr "供應商控制台"
+
+#: classes/admin/settings/class-wcv-settings-display.php:181
+msgid ""
+"<br />This sets the page used to display the front end %s dashboard. This "
+"page should contain the following shortcode. <code>[wcv_vendor_dashboard]</"
+"code>"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:190
+msgid ""
+"<br />This sets the page used to display the %s shop settings page. This "
+"page should contain the following shortcode. <code>[wcv_shop_settings]</code>"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:199
+msgid ""
+"<br />This sets the page used to display the %s orders page. This page "
+"should contain the following shortcode. <code>[wcv_orders]</code>"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:208
+msgid ""
+"<br />This sets the page used to display a paginated list of all %1$s "
+"stores. Your %1$s stores will be available at <code>%2$s/page-slug/store-"
+"name/</code><br />This page should contain the following shortcode. "
+"<code>[wcv_vendorslist]</code>"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:211
+msgid "Terms and Conditions"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:217
+msgid ""
+"<br />This sets the page used to display the terms and conditions when a %s "
+"signs up."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:226
+msgid "These are the settings for the individual %s stores."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:231
+msgid "%s Store URL"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:232
+msgid ""
+"If you enter \"vendors\" your %1$s store will be %1$s/vendors/store-name/"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:239
+#, fuzzy
+#| msgid "Shop Headers"
+msgid "Shop Header"
+msgstr "店鋪門面"
+
+#: classes/admin/settings/class-wcv-settings-display.php:240
+#, fuzzy
+#| msgid "Enable vendor shop headers"
+msgid "Enable %s shop headers"
+msgstr "啟用店鋪門面"
+
+#: classes/admin/settings/class-wcv-settings-display.php:241
+msgid ""
+"This enables the %s shop header template and disables the shop description "
+"text."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:248
+msgid "Shop HTML"
+msgstr "店鋪 HTML"
+
+#: classes/admin/settings/class-wcv-settings-display.php:249
+#, fuzzy
+#| msgid "Enable HTML for the shop description"
+msgid "Allow HTML in %s shop description"
+msgstr "啟用 HTML 的店鋪介紹"
+
+#: classes/admin/settings/class-wcv-settings-display.php:250
+#, fuzzy
+#| msgid ""
+#| "Enable HTML for a vendor's shop description by default.  You can enable "
+#| "or disable this per vendor by editing the vendors username."
+msgid ""
+"This will enable the WYSIWYG editor and for the %1$s shop description. You "
+"can enable or disable this per %1$s by editing the %1$s user account."
+msgstr ""
+"預設店鋪介紹可使用 HTML 編寫。你亦可以透過修改用戶名稱，以啟用或禁止單一供應"
+"商使用 HTML 編寫的權限。"
+
+#: classes/admin/settings/class-wcv-settings-display.php:257
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#: classes/admin/settings/class-wcv-settings-display.php:259
+#, fuzzy
+#| msgid ""
+#| "Select what will be displayed for the sold by text throughout the store."
+msgid ""
+"Select what will be used to display the %s name throughout the marketplace."
+msgstr "請選擇於整個網站顯示於「店鋪：」的名稱。"
+
+#: classes/admin/settings/class-wcv-settings-display.php:264
+#, fuzzy
+#| msgid "Display Name"
+msgid "Display name"
+msgstr "顯示名稱"
+
+#: classes/admin/settings/class-wcv-settings-display.php:265,
+#: classes/admin/views/html-vendor-meta.php:26
+msgid "Shop name"
+msgstr "店鋪名稱"
+
+#: classes/admin/settings/class-wcv-settings-display.php:266
+#, fuzzy
+#| msgid "API Username"
+msgid "%s Username"
+msgstr "API 用戶名稱"
+
+#: classes/admin/settings/class-wcv-settings-display.php:267
+#, fuzzy
+#| msgid "User Email"
+msgid "%s Email"
+msgstr "用戶電郵"
+
+#: classes/admin/settings/class-wcv-settings-general.php:64
+msgid "Marketplace Options"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:66
+msgid "These are the general settings for your marketplace"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:70
+#, fuzzy
+#| msgid "Registration"
+msgid "%s Registration"
+msgstr "註冊"
+
+#: classes/admin/settings/class-wcv-settings-general.php:71,
+#: classes/admin/views/setup/general.php:25
+#, fuzzy
+#| msgid "Allow users or guests to apply to become a vendor"
+msgid "Allow users to apply to become a %s"
+msgstr "允許所有用戶或訪客申請成為供應商"
+
+#: classes/admin/settings/class-wcv-settings-general.php:77
+msgid "Terms & Conditions Checkbox"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:78
+msgid ""
+"Make the terms and conditions checkbox always visible even if become a %s is "
+"not checked"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:84
+#, fuzzy
+#| msgid "Approve"
+msgid "%s Approval"
+msgstr "批准"
+
+#: classes/admin/settings/class-wcv-settings-general.php:85
+msgid "Manually approve all %s applications"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:91,
+#: classes/front/account/class-wc-account-links.php:46
+msgid "Become a %s"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:92
+msgid "Show the \"Become a %s\" link on WooCommerce my-account page"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:98
+#, fuzzy
+#| msgid "Taxes"
+msgid "%s Taxes"
+msgstr "稅項"
+
+#: classes/admin/settings/class-wcv-settings-general.php:99
+msgid "Give any taxes to the %s"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-general.php:105
+#, fuzzy
+#| msgid "Shipping"
+msgid "%s Shipping"
+msgstr "運送方式"
+
+#: classes/admin/settings/class-wcv-settings-general.php:106
+#, fuzzy
+#| msgid "Give Shipping"
+msgid "Give any shipping to the %s"
+msgstr "開始送貨"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:31
+msgid "Payments"
+msgstr "付款方式"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:45,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:43
+msgid "PayPal Adaptive Payments"
+msgstr "PayPal Adaptive Payments"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:67
+msgid ""
+"<h3>PayPal Adaptive Payments - Please Note: PayPal Adaptive Payments has "
+"been deprecated by PayPal as of September 2017. These options are for "
+"existing users only. This will be completely removed in a future version.</"
+"h3>"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:75
+#, fuzzy
+#| msgid "No commission yet"
+msgid "Total Commission due: %s"
+msgstr "未有佣金紀錄"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:80
+#, fuzzy
+#| msgid "Instant pay"
+msgid "Instant Pay"
+msgstr "立即付款"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:81
+#, fuzzy
+#| msgid "Instant pay"
+msgid "Enable instantpay"
+msgstr "立即付款"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:82
+msgid ""
+"Instantly pay %1$s their commission when an order is made, and if a %1$s has "
+"a valid PayPal email added on their Shop Settings page."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:89
+msgid "Payment schedule"
+msgstr "付款時間表"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:90
+msgid "Note: Schedule will only work if instant pay is unchecked"
+msgstr "注：時間表只有選取即時付款才生效"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:94
+msgid "Daily"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:95
+msgid "Weekly"
+msgstr "每星期"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:96
+msgid "Biweekly"
+msgstr "每兩星期"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:97
+msgid "Monthly"
+msgstr "每月"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:98
+msgid "Manual"
+msgstr "自選"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:99
+msgid "Now"
+msgstr "現在"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:104
+msgid "Email notification"
+msgstr "電郵通知"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:105
+msgid "Enable notify the admin"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-payments.php:106
+#, fuzzy
+#| msgid ""
+#| "Send the WooCommerce admin an email each time a payment has been made via "
+#| "the payment schedule options above"
+msgid ""
+"Send the marketplace admin an email each time a payment has been made via "
+"the payment schedule options above"
+msgstr ""
+"每次於上述所選之時間表付款完成時，馬上發送電郵通知 WooCommerce 設定的管理員"
+
+#: classes/admin/settings/class-wcv-settings-payments.php:125
+msgid ""
+"<strong>Payments controls how your %s commission is paid out. These settings "
+"only function if you are using a supported gateway.</strong> "
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:15
+msgid "Upgrade your marketplace today!"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:25
+#, fuzzy
+#| msgid "WC Vendors"
+msgid "WC Vendors Pro"
+msgstr "WC 供應商"
+
+#: classes/admin/views/html-admin-page-extensions.php:27
+msgid ""
+"Enhanced your marketplace with pro features and capabilities. Move all your "
+"vendors tasks to the frontend. They no longer need or see the WordPress "
+"admin. Shipping system included."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:32
+msgid ""
+"Vendors have a main dashboard showing sales reports and recent orders and "
+"products."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:33
+msgid "Vendors have complete front end product management"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:34
+msgid "Vendors can add their own coupons that only apply to their products"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:35
+msgid "Vendors have advanced shipment tracking including shipping providers"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:36
+msgid "Vendors have the ability to print a shipping label with a picking list"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:37
+msgid "Vendors can add all their own social media profile links"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:38
+msgid "Vendors can add SEO to their store and products"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:39
+msgid "Vendors can add their own banner and store icon"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:40
+msgid ""
+"Vendors have a comprehensive shipping system available. Either flat rate or "
+"table rate based."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:41
+msgid "Vendor stores templates are more advanced"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:42
+msgid "Vendors have more control over their order notes"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:43
+msgid "Vendors vacation module is included as part of pro not an extra addon"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:44
+msgid ""
+"Admins have multiple commission rate options including percentage, "
+"percentage + fee, fixed, fixed + fee."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:45
+msgid ""
+"Admins can set global shipping rates as well as allow different shipping "
+"modules per vendor. Setting one as flat rate, while another can be table rate"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:46
+msgid ""
+"Ebay style feedback allows customers to rate the products from the vendors"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:47
+msgid ""
+"Premium ticket based support for all pro users. Annual and lifetime support "
+"licenses available."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:58
+#, fuzzy
+#| msgid "WC Vendors Test Gateway"
+msgid "WC Vendors Stripe Commissions &amp; Gateway"
+msgstr "WC 供應商 Test Gateway"
+
+#: classes/admin/views/html-admin-page-extensions.php:59
+msgid ""
+"Pay your vendors their commissions instantly when the customer purchases. No "
+"need to manually pay your vendors."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:60,
+#: classes/admin/views/html-admin-page-extensions.php:68,
+#: classes/admin/views/html-admin-page-extensions.php:75
+#, fuzzy
+#| msgid "From:"
+msgid "From $69"
+msgstr "由："
+
+#: classes/admin/views/html-admin-page-extensions.php:65
+msgid "WooCommerce Bookings Integration<"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:66
+msgid "From $69.00"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:67
+msgid ""
+"Allow vendors to create bookings. Integrate WooCommerce bookings into the WC "
+"Vendors Pro Dashboard."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:73
+msgid "WooCommerce Simple Auctions"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:74
+msgid ""
+"Integreate WooCommerce Simple Auctions into the WC Vendors Pro dashboard."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:80
+msgid "3rd Party Extensions"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:81
+msgid ""
+"We have a list of 3rd party developer extensions that inetegrate with WC "
+"Vendors and WC Vendors Pro on our website."
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:82
+#, fuzzy
+#| msgid "View items"
+msgid "View extensions"
+msgstr "顯檢示目錄"
+
+#: classes/admin/views/html-admin-page-extensions.php:89
+msgid ""
+"Our list of extensions for WC Vendors can be found on our website. <a href="
+"\"%s\">Click here to view our extensions list.</a>"
+msgstr ""
+
+#: classes/admin/views/html-vendor-meta.php:14
+msgid "Enable HTML for the shop description"
+msgstr "啟用 HTML 的店鋪介紹"
+
+#: classes/admin/views/html-vendor-meta.php:38
+msgid "PayPal E-mail"
+msgstr "Paypal 電郵"
+
+#: classes/admin/views/html-vendor-meta.php:88
+msgid "Commission rate"
+msgstr "佣金比例"
+
+#: classes/admin/views/html-vendor-meta.php:101
+msgid "Give Tax"
+msgstr "給予稅收"
+
+#: classes/admin/views/html-vendor-meta.php:105
+#, fuzzy
+#| msgid "Tax override for vendor"
+msgid "Tax override for %s"
+msgstr "稅率由供應商覆寫"
+
+#: classes/admin/views/html-vendor-meta.php:117
+msgid "Give Shipping"
+msgstr "開始送貨"
+
+#: classes/admin/views/html-vendor-meta.php:121
+#, fuzzy
+#| msgid "Shipping override for vendor"
+msgid "Shipping override for %s"
+msgstr "送貨方式由供應商覆寫"
+
+#: classes/admin/views/html-vendor-meta.php:133,
+#: classes/admin/views/html-vendor-settings-page.php:69,
+#: templates/dashboard/settings/seller-info.php:21
+msgid "Seller info"
+msgstr "賣家資料"
+
+#: classes/admin/views/html-vendor-meta.php:144
+msgid "Shop description"
+msgstr "店鋪簡介"
+
+#: classes/admin/views/html-vendor-settings-page.php:11,
+#: templates/dashboard/settings/paypal-email-form.php:19
+msgid "PayPal Address"
+msgstr "PayPal 電郵"
+
+#: classes/admin/views/html-vendor-settings-page.php:14
+#, fuzzy
+#| msgid "Your PayPal address is used to send you your commission."
+msgid "Your PayPal address can be used to send you your commission."
+msgstr "你所選用的 PayPal 電郵將用作發放佣金之用。"
+
+#: classes/admin/views/html-vendor-settings-page.php:61,
+#: templates/dashboard/settings/shop-name.php:19
+msgid "Shop Name"
+msgstr "店鋪名稱"
+
+#: classes/admin/views/html-vendor-settings-page.php:63,
+#: templates/dashboard/settings/shop-name.php:20
+msgid "Your shop name is public and must be unique."
+msgstr "你設定的店鋪名稱必須公開以及獨一無二。"
+
+#: classes/admin/views/html-vendor-settings-page.php:82,
+#: templates/dashboard/settings/seller-info.php:22
+msgid "This is displayed on each of your products."
+msgstr "這將會顯示於你的每一件貨品中。"
+
+#: classes/admin/views/html-vendor-settings-page.php:88,
+#: templates/dashboard/settings/shop-description.php:19
+msgid "Shop Description"
+msgstr "店鋪簡介"
+
+#: classes/admin/views/html-vendor-settings-page.php:100,
+#: templates/dashboard/settings/shop-description.php:20
+msgid "This is displayed on your <a href=\"%s\">shop page</a>."
+msgstr "這將會顯示於你的 <a href=\"%s\">店鋪主頁</a> 上面。"
+
+#: classes/admin/views/html-vendor-settings-page.php:109
+msgid "Save Shop Settings"
+msgstr "儲存店鋪設定"
+
+#: classes/front/account/class-wc-account-links.php:84
+msgid "You are already an approved vendor, no need to apply"
+msgstr ""
+
+#: classes/front/dashboard/class-vendor-dashboard.php:58
+msgid "Order marked shipped."
+msgstr "訂單標為已出貨。"
+
+#: classes/front/dashboard/class-vendor-dashboard.php:61
+#, fuzzy
+#| msgid "Orders marked shipped."
+msgid "%s has marked as shipped. "
+msgstr "訂單已標為已出貨。"
+
+#: classes/front/dashboard/class-vendor-dashboard.php:90,
+#: classes/front/dashboard/class-vendor-dashboard.php:91
+msgid "Tracking number"
+msgstr "貨品追蹤號碼"
+
+#: classes/front/dashboard/class-vendor-dashboard.php:93
+msgid "Success. Your tracking number has been updated."
+msgstr "成功。你的貨品追蹤號碼已經更新。"
+
+#: classes/front/orders/class-export-csv.php:20
+msgid "Item Meta"
+msgstr ""
+
+#: classes/front/orders/class-orders.php:59,
+#: classes/front/orders/class-orders.php:125
+#, fuzzy
+#| msgid ""
+#| "You haven't selected a product's orders to view! Please go back to the "
+#| "Vendor Dashboard and click Show Orders on the product you'd like to view."
+msgid ""
+"You haven't selected a product's orders to view! Please go back to the %s "
+"Dashboard and click Show Orders on the product you'd like to view."
+msgstr "你還未選擇產品的訂單查看！請返回至供應商控台並點擊你想查看的產品訂單。"
+
+#: classes/front/orders/class-orders.php:82,
+#: classes/front/orders/class-orders.php:148
+msgid "No orders."
+msgstr "未有訂單。"
+
+#: classes/front/orders/class-orders.php:209
+msgid "Product Title"
+msgstr "貨品名稱"
+
+#: classes/front/orders/class-orders.php:210
+msgid "Full name"
+msgstr "全名"
+
+#: classes/front/orders/class-orders.php:211
+msgid "Address"
+msgstr "地址"
+
+#: classes/front/orders/class-orders.php:212
+msgid "City"
+msgstr "城市"
+
+#: classes/front/orders/class-orders.php:213
+msgid "State"
+msgstr "州"
+
+#: classes/front/orders/class-orders.php:214
+msgid "Zip"
+msgstr "郵政編碼"
+
+#: classes/front/orders/class-orders.php:215,
+#: classes/admin/views/setup/ready.php:23
+msgid "Email address"
+msgstr "電郵地址"
+
+#: classes/front/orders/class-submit-comment.php:41
+msgid "You've left the comment field empty!"
+msgstr "你未有於評論留言！"
+
+#: classes/front/orders/class-submit-comment.php:63
+msgid "Success. The customer has been notified of your comment."
+msgstr "成功。顧客已閱讀你的留言。"
+
+#: classes/front/signup/class-vendor-signup.php:80
+msgid "ERROR"
+msgstr ""
+
+#: classes/front/signup/class-vendor-signup.php:80,
+#: classes/front/signup/views/html-vendor-signup.php:53
+#, fuzzy
+#| msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
+msgid "Please agree to the terms and conditions"
+msgstr "我已閱讀並接受此 <a href=\"%s\">條款及細則</a>。"
+
+#: classes/front/signup/class-vendor-signup.php:99
+msgid "Application denied. You are an administrator."
+msgstr "申請不成功。你是網站管理員。"
+
+#: classes/front/signup/class-vendor-signup.php:101
+msgid "Your application has been submitted."
+msgstr "你的申請已經成遞交。"
+
+#: classes/front/signup/class-vendor-signup.php:148,
+#: classes/front/signup/class-vendor-signup.php:187,
+#: classes/front/signup/class-vendor-signup.php:199
+msgid "You must accept the terms and conditions to become a vendor."
+msgstr "你必須接受我們的條款及細則以成為供應商。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:119
+msgid ""
+"Something went wrong. Response from PayPal invalidated this order. Status: "
+"%s."
+msgstr "發生錯誤！PayPal 回報此訂單無效，狀態顯示為 %s 。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:124
+msgid "IPN payment completed"
+msgstr "IPN 付款交易完成"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:146
+msgid "Enable PayPal Adaptive Payments"
+msgstr "啟用 PayPal Adaptive Patments"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:152
+msgid "Method Title"
+msgstr "方法標題"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:153,
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:70
+msgid "This controls the title which the user sees during checkout."
+msgstr "在此輸入的標題內容，當用戶結帳時即可看到。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:154
+msgid "PayPal"
+msgstr "PayPal"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:159,
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:75
+msgid "Description"
+msgstr "簡介"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:160
+msgid "This controls the description which the user sees during checkout."
+msgstr "在此輸入的簡介內容，當用戶結帳時即可看到。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:161
+msgid "Pay via PayPal!"
+msgstr "以 PayPal 付款！"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:172
+msgid "Live Credentials"
+msgstr "在線證書"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:174
+msgid ""
+"You must have an <a href=\"%s\">Application ID</a> to process live "
+"transactions. You do not need one for testing in Sandbox mode."
+msgstr ""
+"你必須有一個 <a href=\"%s\">Application ID</A>來處理實時交易。於 Sandbox "
+"mode 下進行測試時，你並不需要 Application ID 。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:180,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:214
+msgid "The email address main payments should go to."
+msgstr "你收到由 %s 發出的訂單，訂單資料如下："
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:185,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:219
+msgid "API Username"
+msgstr "API 用戶名稱"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:190,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:224
+msgid "API Password"
+msgstr "API 密碼"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:195,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:229
+msgid "API Signature"
+msgstr "API Signature"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:200
+msgid "Application ID"
+msgstr "Application ID"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:202
+msgid "Only required when doing live transactions."
+msgstr "只有即時交易時才是必需項目。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:206
+msgid "Sandbox Credentials"
+msgstr "Sandbox 證書"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:208
+msgid ""
+"You can signup for a sandbox developer account <a href=\"%s\">here</a>. You "
+"need a developer account if you want to enable Sandbox mode for testing."
+msgstr ""
+"你必須申請一個 <a href=\"%s\">sandbox developer account</a> 進行測試。於 "
+"Sandbox mode 下進行測試時，你需要此開發人員帳戶。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:240
+msgid "Misc. Settings"
+msgstr "雜項設定"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:245
+msgid "Enable PayPal Sandbox mode"
+msgstr "啟動 PayPal Sandbox mode"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:251
+msgid "Enable logging"
+msgstr "啟用 logging"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:269
+msgid ""
+"The PayPal Adaptive Payments gateway can instantly pay your vendors their "
+"due commission (if enabled). Also used to mass pay vendors on a schedule / "
+"manual method (if enabled)."
+msgstr ""
+"PayPal Adaptive Payments gateway 可以立即支付供應商應有的佣金（如啟用）。也可"
+"使用時間表/手動方法以批量方式支付供應商的佣金（如啟用）。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:270
+msgid ""
+"Please Note: PayPal has deprecated Adaptive Payments. This will soon cease "
+"to function."
+msgstr ""
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:281
+msgid "Gateway Disabled"
+msgstr "Gateway 停用"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:281
+msgid "%s does not support your store currency."
+msgstr "%s 並不支援你店鋪使用的貨幣。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:390,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:506,
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:156
+msgid "Error: %s"
+msgstr "錯誤：%s"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:399,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:400
+msgid "Error ID: %s. %s"
+msgstr "錯誤碼：%s. %s"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:514,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:515
+#, fuzzy
+#| msgid "Error ID: %s. %s"
+msgid "Error ID: %d. %s"
+msgstr "錯誤碼：%s. %s"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:118
+msgid "No vendors found to pay. Maybe they haven't set a PayPal address?"
+msgstr "未發現供應商需要支付。也許他們還未設定 PayPal 電郵地址？"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:170
+#, fuzzy
+#| msgid "All due commission has been paid for."
+msgid "All due commission has been paid for. "
+msgstr "所有的未付佣金已經支付。"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:176
+msgid ""
+"All due commission has been paid for, but I could not clear it from their "
+"profiles due to an internal error. Commission will still be listed as due. "
+"Please manually mark the commission as paid from the Commissions page."
+msgstr ""
+"所有的未付佣金已經支付。但由於內部錯誤，系統未能更新他們的付費紀錄。他們的佣"
+"金仍然被列為「未付」。請以手動標記的佣金為「已付」。"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:210
+msgid "WooCommerce: Mass payments for vendors update"
+msgstr "WooCommerce: 以批量式付費給供應商已經更新。"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:212
+msgid ""
+"Hello! A payment was just triggered to mass pay all vendors their due "
+"commission."
+msgstr "你好！系統剛啟動了以批次形式支付所有供應商應有的佣金用。"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:213
+msgid "Payment status: %s."
+msgstr "付款狀態：%s"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:214
+msgid "Payment message: %s."
+msgstr "付款訊息：%s"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:217
+msgid "Payment total: %s."
+msgstr "付款總額：%s"
+
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:35,
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:71
+msgid "WC Vendors Test Gateway"
+msgstr "WC 供應商 Test Gateway"
+
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:36
+msgid ""
+"This gateway will set orders to processing upon receipt allowing you to test "
+"transactions in your store.  Some WooCommerce included gateways have "
+"problems with this - you should use this gateway for all of your non-PayPal "
+"testing."
+msgstr ""
+"此 Payment gateway 將在收到的訂單設置為處理中，以讓你進行測試交易。如發現一"
+"些 WooCommerce 預設的 Payment gateway 有問題，你應使用此 Payment gatewat 進行"
+"所有非 PayPal 的測試。"
+
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:64
+msgid "Enable WC Vendors Test Gateway Payment"
+msgstr "啟用 WC 供應商的測試用 Payment Gateway"
+
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:68
+msgid "Title"
+msgstr "標題"
+
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:77
+msgid "Payment method description that the customer will see on your checkout."
+msgstr "此付款方式說明，客戶會在你結帳看到。"
+
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:78
+msgid ""
+"This is a test gateway -- not to be used on live sites for live "
+"transactions. <a href=\"http://www.wcvendors.com/\" target=\"top\">Click "
+"here to visit WCVendors.com</a>."
+msgstr ""
+"這是一個測試用 Payment gateway - 並不能在正式的付款交易中使用。<a href="
+"\"http://www.wcvendors.com/\" target=\"top\">按此瀏覽更多 WCVendors.com</a>"
+
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:82
+msgid "Instructions"
+msgstr "使用說明"
+
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:84
+msgid ""
+"Success!  Your test order is now marked as processing and any vendors will "
+"be sent an email as long as you have the Notify Vendors email enabled under "
+"WooCommerce--Settings--Emails."
+msgstr ""
+"成功了！你的測試訂單現在被標記為處理中。如你已啟用了「供應商通知」，任何相關"
+"的供應商也會同時收到電郵通知。設定位置：WooCommerce - 供應商通知啟用電子郵件 "
+"- 設置 - 電子郵件。"
+
+#: classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:127
+msgid "Test gateway transation complete.  Order processing."
+msgstr "測試用的 gateway 交易已完成，訂單正在處理中。"
+
+#: templates/dashboard/settings/paypal-email-form.php:20
+#, fuzzy
+#| msgid "Your PayPal address is used to send you your commission."
+msgid "Your PayPal address can be used to manually send you your commission."
+msgstr "你所選用的 PayPal 電郵將用作發放佣金之用。"
+
+#: templates/dashboard/settings/settings.php:41
+msgid "Bank Details"
+msgstr ""
+
+#: templates/dashboard/settings/settings.php:44
+msgid "Account Name"
+msgstr ""
+
+#: templates/dashboard/settings/settings.php:45
+msgid "Account Number"
+msgstr ""
+
+#: templates/dashboard/settings/settings.php:51
+msgid "BIC / Swift"
+msgstr ""
+
+#: templates/dashboard/settings/settings.php:90
+msgid "Save"
+msgstr "儲存變更"
+
+#: templates/emails/plain/vendor-notify-order.php:19
+#, fuzzy
+#| msgid "You have received an order from %s. Their order is as follows:"
+msgid "You have received an order from %s."
+msgstr "你收到由 %s 發出的訂單，訂單資料如下："
+
+#. translators: %s: Order ID.
+#: templates/emails/plain/vendor-order-details.php:20
+#, fuzzy
+#| msgid "Order: %s"
+msgid "Order number: %s"
+msgstr "訂單： %s"
+
+#: templates/orders/comments/add-new-comment.php:27
+msgid "Add comment"
+msgstr "新增評論"
+
+#: templates/orders/comments/existing-comments.php:25
+msgid "added %s ago"
+msgstr "於 %s 前加入"
+
+#: templates/orders/customer-note/customer-note.php:20
+msgid "Customer note"
+msgstr "顧客留言"
+
+#: templates/orders/customer-note/customer-note.php:24
+msgid "No customer note."
+msgstr "未有顧客留言。"
+
+#: templates/orders/shipping/shipping-form.php:91
+msgid "Update tracking number"
+msgstr "更新貨品追蹤號碼"
+
+#: templates/orders/shipping/shipping-form.php:93
+msgid "Mark as shipped"
+msgstr "標為已出貨"
+
+#: classes/admin/views/notices/html-notice-custom.php:12,
+#: classes/admin/views/notices/html-notice-template-check.php:13,
+#: classes/admin/views/notices/html-notice-updated.php:12
+msgid "Dismiss"
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-install.php:12
+msgid ""
+"<strong>Welcome to WC Vendors</strong> &#8211; You&lsquo;re almost ready to "
+"start your marketplace"
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-install.php:13
+msgid "Run the Setup Wizard"
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-install.php:13
+msgid "Skip setup"
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-template-check.php:15
+msgid ""
+"<strong>Your theme (%1$s) contains outdated copies of some WC Vendors "
+"template files.</strong> These files may need updating to ensure they are "
+"compatible with the current version of WC Vendors. You can see which files "
+"are affected from the <a href=\"%2$s\">system status page</a>. If in doubt, "
+"check with the author of the theme."
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-template-check.php:16
+msgid "Learn more about templates"
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-update.php:12
+msgid ""
+"<strong>WC Vendors Update Required.</strong> &#8211; We need to upgrade your "
+"configuration to the latest version."
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-update.php:13
+msgid "Run the update"
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-update.php:17
+msgid ""
+"It is strongly recommended that you backup your database before proceeding. "
+"Are you sure you wish to run the updater now?"
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-updated.php:13
+msgid ""
+"WC Vendors data update complete. Thank you for updating to the latest "
+"version!"
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-updating.php:12
+#, fuzzy
+#| msgid "WC Vendors Test Gateway"
+msgid "WC Vendors data update"
+msgstr "WC 供應商 Test Gateway"
+
+#: classes/admin/views/notices/html-notice-updating.php:12
+msgid "Your database is being updated in the background. "
+msgstr ""
+
+#: classes/admin/views/notices/html-notice-updating.php:12
+msgid "Taking a while? Click here to run it now."
+msgstr ""
+
+#: classes/admin/views/setup/capabilities.php:14
+msgid "Enable and disable capabilites of the %s"
+msgstr ""
+
+#: classes/admin/views/setup/capabilities.php:51
+#, fuzzy
+#| msgid "Submit products live without requiring approval"
+msgid "Allow %s to publish products without requiring approval."
+msgstr "提交發將貨品上架，無須審批"
+
+#: classes/admin/views/setup/capabilities.php:132,
+#: classes/admin/views/setup/general.php:97,
+#: classes/admin/views/setup/pages.php:85,
+#: classes/admin/views/setup/pages.php:85
+msgid "Next"
+msgstr ""
+
+#: classes/admin/views/setup/footer.php:13
+msgid "Exit Wizard"
+msgstr ""
+
+#: classes/admin/views/setup/footer.php:15
+#, fuzzy
+#| msgid "Vendor dashboard"
+msgid "Return to your dashboard"
+msgstr "供應商控制台"
+
+#: classes/admin/views/setup/footer.php:17
+msgid "Skip this step"
+msgstr ""
+
+#: classes/admin/views/setup/general.php:14
+msgid ""
+"The following wizard will help you configure your marketplace and get your "
+"vendors onboard quickly."
+msgstr ""
+
+#: classes/admin/views/setup/general.php:38
+msgid "Manually approve %s applications"
+msgstr ""
+
+#: classes/admin/views/setup/general.php:51
+msgid "Give any taxes to %s"
+msgstr ""
+
+#: classes/admin/views/setup/general.php:64
+#, fuzzy
+#| msgid "Give Shipping"
+msgid "Give any shipping to %s"
+msgstr "開始送貨"
+
+#: classes/admin/views/setup/general.php:81
+msgid ""
+"Commissions are calculated per product. The commission rate can be set "
+"globally, at a vendor level or at a product level."
+msgstr ""
+
+#: classes/admin/views/setup/general.php:86
+#, fuzzy
+#| msgid "Commission rate"
+msgid "Global Commission Rate %"
+msgstr "佣金比例"
+
+#: classes/admin/views/setup/header.php:16
+msgid "WC Vendors &rsaquo; Setup Wizard"
+msgstr ""
+
+#: classes/admin/views/setup/pages.php:14
+msgid "Select the pages for relevant frontend features for %s"
+msgstr ""
+
+#: classes/admin/views/setup/pages.php:25
+#, fuzzy
+#| msgid "Vendor Dashboard"
+msgid "%s Dashboard"
+msgstr "供應商控制台"
+
+#: classes/admin/views/setup/pages.php:34
+msgid ""
+"This page should contain the following shortcode. "
+"<code>[wcv_vendor_dashboard]</code>"
+msgstr ""
+
+#: classes/admin/views/setup/pages.php:38
+#, fuzzy
+#| msgid "Shop Settings"
+msgid "%s Shop Settings"
+msgstr "店鋪設定"
+
+#: classes/admin/views/setup/pages.php:45
+msgid ""
+"This page should contain the following shortcode. <code>[wcv_shop_settings]</"
+"code>"
+msgstr ""
+
+#: classes/admin/views/setup/pages.php:49
+#, fuzzy
+#| msgid "Orders page"
+msgid "Orders Page"
+msgstr "訂單分頁"
+
+#: classes/admin/views/setup/pages.php:56
+msgid ""
+"This page should contain the following shortcode. <code>[wcv_orders]</code>"
+msgstr ""
+
+#: classes/admin/views/setup/pages.php:60
+msgid "%s List Page"
+msgstr ""
+
+#: classes/admin/views/setup/pages.php:67
+msgid ""
+"This page should contain the following shortcode. <code>[wcv_vendorslist]</"
+"code>"
+msgstr ""
+
+#: classes/admin/views/setup/pages.php:71
+msgid "%s Terms Page"
+msgstr ""
+
+#: classes/admin/views/setup/pages.php:78
+msgid ""
+"This optional page allows you to define terms and conidtions %s need to "
+"agree to before applying to your marketplace. "
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:12
+msgid "Your marketplace is ready!"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:15
+msgid ""
+"Subscribe to our newsletter! Get product updates, marketplace tips, "
+"information and more."
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:29,
+#: classes/admin/views/setup/ready.php:33
+msgid "Subscribe me"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:42
+msgid "Next step"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:43
+msgid "Upgrade to Pro!"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:44
+msgid "Upgrade today to extend the features of your marketplace."
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:45
+#, fuzzy
+#| msgid "Featured"
+msgid "Features"
+msgstr "特色貨品"
+
+#: classes/admin/views/setup/ready.php:47
+msgid "Complete frontend dashboard for vendors"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:48
+msgid "Flat rate & table rate shipping module"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:49
+msgid "Coupons, ratings, reports, orders and more."
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:50
+#, fuzzy
+#| msgid "Recent Commission"
+msgid "Advanced commissions"
+msgstr "最新佣金紀錄"
+
+#: classes/admin/views/setup/ready.php:51
+msgid "Premium support & updates"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:57
+msgid "Upgrade Now"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:64
+msgid "Extend your marketplace"
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:66
+msgid ""
+"Extend your marketplace today with a variety of extensions from us and 3rd "
+"party developers."
+msgstr ""
+
+#: classes/admin/views/setup/ready.php:71
+#, fuzzy
+#| msgid "View items"
+msgid "View Extensions"
+msgstr "顯檢示目錄"
+
+#: classes/admin/views/setup/ready.php:77
+msgid "Need Help?"
+msgstr ""
+
+#: classes/front/signup/views/html-vendor-signup.php:44
+#, fuzzy
+#| msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
+msgid ""
+"I have read and accepted the <a target=\"top\" href=\"%s\">terms and "
+"conditions</a>."
+msgstr "我已閱讀並接受此 <a href=\"%s\">條款及細則</a>。"
+
+#: classes/front/signup/views/html-vendor-signup.php:69
+#, fuzzy
+#| msgid "You must accept the terms and conditions to become a vendor."
+msgid "\"You must accept the terms and conditions.\""
+msgstr "你必須接受我們的條款及細則以成為供應商。"
+
+#~ msgid "Documentation/KB"
+#~ msgstr "文件 / KB"
+
+#~ msgid "Help Forums"
+#~ msgstr "支援論壇"
+
+#~ msgid ""
+#~ "WC Vendors requires the Vendor shop page value be set <a href=\"%s"
+#~ "\">click here to set it.</a> | <a href=\"%s\">Hide Notice</a>"
+#~ msgstr ""
+#~ "WC 供應商必須完成設定方可使用，請 <a href=“%s”>按此</a> 進行設置。 | <a "
+#~ "href=“%s”>隱藏通知</a>"
+
+#~ msgid ""
+#~ "You must save your permalinks once you have modified your vendor page. <a "
+#~ "href=\"%s\">click here to save</a>.  | <a href=\"%s\">Hide Notice</a>"
+#~ msgstr ""
+#~ "當你修改了你的供應商版面設定後，必須儲存你的永久鏈接。<a href=“%s”>按此</"
+#~ "a> 儲存資料 。 | <a href=“%s”>隱藏通知</a>"
+
+#~ msgid "%1$s %2$d"
+#~ msgstr "%1$s %2$d"
+
+#~ msgid "required"
+#~ msgstr "必須"
+
+#~ msgid "Deny"
+#~ msgstr "拒絕"
+
+#~ msgid "Could not load settings at: "
+#~ msgstr "未能讀取此設定："
+
+#~ msgid "Error - WP Settings Framework"
+#~ msgstr "錯誤 - WP Settings Framework"
+
+#~ msgid "Save %s changes"
+#~ msgstr "儲存 %s 變更"
+
+#~ msgid "General options"
+#~ msgstr "一般選項"
+
+#~ msgid "Default commission (%)"
+#~ msgstr "預設佣金 (%)"
+
+#~ msgid ""
+#~ "The default rate you pay each vendor for a product sale. If a product has "
+#~ "a commission rate already set, this value will be ignored for that "
+#~ "product."
+#~ msgstr ""
+#~ "這是你支付每個供應商的預設佣金。如某貨品已設定其佣金，該貨品將會忽略這個預"
+#~ "設值。"
+
+#~ msgid ""
+#~ "This will show a checkbox on the My Account page's registration form "
+#~ "asking if the user would like to apply to be a vendor. Also, on the "
+#~ "Vendor Dashboard, users can still apply to become a vendor even if this "
+#~ "is disabled."
+#~ msgstr ""
+#~ "這將會在我的帳戶中顯示一個選擇框，讓用戶申請成為供應商。即使關閉，一般用戶"
+#~ "仍然可於控制板面作出申請。"
+
+#~ msgid "Approve vendor applications manually"
+#~ msgstr "以手動方式審批申請"
+
+#~ msgid ""
+#~ "With this unchecked, all vendor applications are automatically accepted. "
+#~ "Otherwise, you must approve each manually."
+#~ msgstr "如選擇，所有供應商的申請將自動獲批。相反，你必須手動審批每個申請。"
+
+#~ msgid "Give vendors any tax collected per-product"
+#~ msgstr "供應商可提供任何以已含稅之產品"
+
+#~ msgid ""
+#~ "The tax collected on a vendor's product will be given in its entirety"
+#~ msgstr "貨品所收之稅項將會全數發回給供應商"
+
+#~ msgid "Give vendors any shipping collected per-product"
+#~ msgstr "供應商可提供任何以已包運費之產品"
+
+#~ msgid ""
+#~ "The shipping collected on a vendor's product will be given in its entirety"
+#~ msgstr "貨品所收之運費將會全數發回給供應商"
+
+#~ msgid "Shop options"
+#~ msgstr "店鋪選項"
+
+#~ msgid "Eg: <code>yoursite.com/[your_setting_here]/[vendor_name_here]</code>"
+#~ msgstr ""
+#~ "例子： <code>yoursite.com/[your_setting_here]/[vendor_name_here]</code>"
+
+#~ msgid ""
+#~ "This will override the HTML Shop description output on product-archive "
+#~ "pages.  In order to customize the shop headers visit wcvendors.com and "
+#~ "read the article in the Knowledgebase titled Changing the Vendor "
+#~ "Templates."
+#~ msgstr ""
+#~ "啟用此選項將覆蓋於產品列表頁面的 HTML 店鋪介紹，讓用戶可自定義店鋪標題。請"
+#~ "瀏覽 wcvendors.com 和閱讀於知識庫內名為「Changing the Vendor Templates」的"
+#~ "文章。"
+
+#~ msgid "Vendor Display Name"
+#~ msgstr "供應商的顯示名稱"
+
+#~ msgid "User Login"
+#~ msgstr "用戶名"
+
+#~ msgid "Left side panel"
+#~ msgstr "左方次版面"
+
+#~ msgid ""
+#~ "CHECKING these boxes will HIDE these areas of the add product page for "
+#~ "vendors"
+#~ msgstr "選擇此選框會隱藏供應商「新增貨品」相關的設定項目"
+
+#~ msgid "Types"
+#~ msgstr "類型"
+
+#~ msgid "CHECKING these boxes will HIDE these product types from the vendor"
+#~ msgstr "選擇此選框會隱藏供應商可供選擇的「貨品類別」"
+
+#~ msgid "Simple"
+#~ msgstr "簡單貨品"
+
+#~ msgid "Variable"
+#~ msgstr "可變貨品"
+
+#~ msgid "Grouped"
+#~ msgstr "群組貨品"
+
+#~ msgid "External / affiliate"
+#~ msgstr "外部/加盟貨品"
+
+#~ msgid "CHECKING these boxes will HIDE these product options from the vendor"
+#~ msgstr "選擇此選框會隱藏供應商可供選擇的「貨品選項」"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "雜項"
+
+#~ msgid "Stylesheet"
+#~ msgstr "樣式表"
+
+#~ msgid "General permissions used around the shop"
+#~ msgstr "於店鋪使用的一般權限"
+
+#~ msgid ""
+#~ "Show customer details such as email, address, name, etc, for each order"
+#~ msgstr "顯示有關顧客的資料，例如電郵、地址、姓名等等..."
+
+#~ msgid "View comments"
+#~ msgstr "檢視評論"
+
+#~ msgid "View all vendor comments for an order on the frontend"
+#~ msgstr "於前台檢視有關訂單上所有供應商的評論"
+
+#~ msgid "Submit comments"
+#~ msgstr "提交評論"
+
+#~ msgid ""
+#~ "Submit comments for an order on the frontend. Eg, tracking ID for a "
+#~ "product"
+#~ msgstr "於前台提交有關訂單上所有供應商的評論，例如：貨品的 Tracking ID"
+
+#~ msgid "View email addresses"
+#~ msgstr "檢視電郵地址"
+
+#~ msgid ""
+#~ "While viewing order details on the frontend, you can disable or enable "
+#~ "email addresses"
+#~ msgstr "於前台檢視訂單的內容，你可以選擇隱藏電郵地址"
+
+#~ msgid "Export a CSV file of orders for a product"
+#~ msgstr "以 CSV 檔輸出單一貨品的訂單"
+
+#~ msgid "Vendors could export orders for a product on the frontend"
+#~ msgstr "供應商可以於前台以 CSV 檔輸出單一貨品的訂單"
+
+#~ msgid "View backend sales reports"
+#~ msgstr "於後台檢視銷售報表"
+
+#~ msgid ""
+#~ "Graphs and tables via the Reports page in backend. The reports will only "
+#~ "display sales data that pertain to their products"
+#~ msgstr "於後台檢視報表及圖表。該報告將只顯示涉及到他們的貨品銷售數據"
+
+#~ msgid ""
+#~ "Sales table on the frontend on the My Account page. The table will only "
+#~ "display sales data that pertain to their products"
+#~ msgstr "於前台檢視報表。該報表將只顯示涉及到他們的貨品銷售數據"
+
+#~ msgid ""
+#~ "Vendors could submit a product through the backend, and an admin would "
+#~ "approve or deny it"
+#~ msgstr "供應商可於後台提交貨品，管理員可會批准或回絕"
+
+#~ msgid ""
+#~ "Vendors could edit an approved product after it has already gone live. "
+#~ "There is no approval or review after editing a live product. This could "
+#~ "be dangerous with malicious vendors, so take caution."
+#~ msgstr ""
+#~ "供應商可以修改已審批並上架了的產品。因修改的當已上架產品並不須要審查，請謹"
+#~ "慎處理危險的惡意供應商。"
+
+#~ msgid ""
+#~ "Vendors can submit products without review or approval from a shop admin. "
+#~ "This could be dangerous with malicious vendors, so take caution."
+#~ msgstr "供應商可以提交並上架產品而無須審批。請謹慎處理危險的惡意供應商。"
+
+#~ msgid "Page configuration"
+#~ msgstr "分頁設定"
+
+#~ msgid ""
+#~ "Choose the page that has the shortcode <code>[wcv_vendor_dashboard]</"
+#~ "code><br/>By default, My Account > Vendor Dashboard should have the "
+#~ "shortcode."
+#~ msgstr ""
+#~ "請選擇具有短代碼的頁面 <code>[wcv_vendor_dashboard]</code><br/>預設分頁為 "
+#~ "My Account > Vendor Dashboard ，應而包含短代碼。"
+
+#~ msgid ""
+#~ "Choose the page that has the shortcode <code>[wcv_shop_settings]</"
+#~ "code><br/>These are the shop settings a vendor can configure."
+#~ msgstr ""
+#~ "請選擇具有短代碼的頁面<code>[wcv_shop_settings]</code><br/>供應商可於分頁"
+#~ "設定其店鋪資料。"
+
+#~ msgid ""
+#~ "Choose the page that has the shortcode <code>[wcv_orders]</code><br/>By "
+#~ "default, My Account > Orders should have the shortcode."
+#~ msgstr ""
+#~ "請選擇具有短代碼的頁面 <code>[wcv_orders]</code><br/>預設分頁為 My "
+#~ "Account > Orders ，應而包含短代碼。"
+
+#~ msgid "Vendor terms"
+#~ msgstr "供應商條款"
+
+#~ msgid ""
+#~ "These terms are shown to a user when submitting an application to become "
+#~ "a vendor.<br/>If left blank, no terms will be shown to the applicant."
+#~ msgstr ""
+#~ "供應商條款將在用戶提交申請時顯示。<br/>如果留空，條款將不會顯示給申請人。"
+
+#~ msgid "payments"
+#~ msgstr "付款方式"
+
+#~ msgid "User payments"
+#~ msgstr "用戶的付款"
+
+#~ msgid "Total commission currently due: %s. <a href=\"%s\">View details</a>."
+#~ msgstr "未付的佣金用總額：%s。 <a href=“%s”>查看詳細資料</a>。"
+
+#~ msgid ""
+#~ "Make sure you update your PayPal Adaptive Payments settings <a href=\"%s"
+#~ "\">here</a>."
+#~ msgstr ""
+#~ "請務必在 <a href=\"%s\">此處</a> 更新你的 PayPal Adaptive Payment 的付款設"
+#~ "定。"
+
+#~ msgid "Instantly pay vendors their commission when an order is made"
+#~ msgstr "於訂單完成後立即向供應商付佣金。"
+
+#~ msgid ""
+#~ "For this to work, customers must checkout with the PayPal Adaptive "
+#~ "Payments gateway. Using any other gateways will not pay vendors instantly"
+#~ msgstr ""
+#~ "要執行此工作，客戶必須以 PayPal Adaptive Payments gateway 結帳付款。其他 "
+#~ "Payment gateways 並不會立即支付供應商。"
+
+#~ msgid "Once Weekly"
+#~ msgstr "每星期一次"
+
+#~ msgid "Once every two weeks"
+#~ msgstr "每星期兩次"
+
+#~ msgid "Once a month"
+#~ msgstr "每月一次"
+
+#~ msgid "Pending Vendor"
+#~ msgstr "審批處理中的供應商"
+
+#~ msgid "Unmark shipped"
+#~ msgstr "標示為未送貨"
+
+#~ msgid "Provider:"
+#~ msgstr "服務提供者："
+
+#~ msgid "Custom Provider"
+#~ msgstr "自選服務提供者"
+
+#~ msgid "Provider Name:"
+#~ msgstr "服務提供者名稱："
+
+#~ msgid "Tracking number:"
+#~ msgstr "貨品追蹤號碼："
+
+#~ msgid "Tracking link:"
+#~ msgstr "貨品追蹤連結："
+
+#~ msgid "Date shipped:"
+#~ msgstr "發貨日期："
+
+#~ msgid "Preview:"
+#~ msgstr "預覽："
+
+#~ msgid "Click here to track your shipment"
+#~ msgstr "接此以追蹤你的貨運"

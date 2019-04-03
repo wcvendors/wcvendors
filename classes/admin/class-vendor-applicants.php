@@ -3,11 +3,10 @@
 /**
  *
  */
-class WCV_Vendor_Applicants
-{
+class WCV_Vendor_Applicants {
 
-	function __construct()
-	{
+	function __construct() {
+
 		add_filter( 'user_row_actions', array( $this, 'user_row_actions' ), 10, 2 );
 		add_filter( 'load-users.php', array( $this, 'user_row_actions_commit' ) );
 	}
@@ -20,12 +19,11 @@ class WCV_Vendor_Applicants
 	 *
 	 * @return unknown
 	 */
-	function user_row_actions( $actions, $user_object )
-	{
+	function user_row_actions( $actions, $user_object ) {
 
-		if ( in_array( 'pending_vendor', $user_object->roles ) ){ 
-			$actions[ 'approve_vendor' ] = "<a href='?role=pending_vendor&action=approve_vendor&user_id=" . $user_object->ID . "'>" . __( 'Approve', 'cgc_ub' ) . "</a>";
-			$actions[ 'deny_vendor' ]    = "<a href='?role=pending_vendor&action=deny_vendor&user_id=" . $user_object->ID . "'>" . __( 'Deny', 'cgc_ub' ) . "</a>";
+		if ( in_array( 'pending_vendor', $user_object->roles ) ) {
+			$actions['approve_vendor'] = "<a href='?role=pending_vendor&action=approve_vendor&user_id=" . $user_object->ID . "'>" . __( 'Approve', 'cgc_ub' ) . '</a>';
+			$actions['deny_vendor']    = "<a href='?role=pending_vendor&action=deny_vendor&user_id=" . $user_object->ID . "'>" . __( 'Deny', 'cgc_ub' ) . '</a>';
 		}
 
 		return $actions;
@@ -33,25 +31,25 @@ class WCV_Vendor_Applicants
 
 
 	/**
-	 * 
+	 *
 	 */
-	public function user_row_actions_commit()
-	{
-		if ( !empty( $_GET[ 'action' ] ) && !empty( $_GET[ 'user_id' ] ) ) {
+	public function user_row_actions_commit() {
 
-			$wp_user_object = new WP_User( (int) $_GET[ 'user_id' ] );
+		if ( ! empty( $_GET['action'] ) && ! empty( $_GET['user_id'] ) ) {
 
-			switch ( $_GET[ 'action' ] ) {
+			$wp_user_object = new WP_User( (int) $_GET['user_id'] );
+
+			switch ( $_GET['action'] ) {
 				case 'approve_vendor':
 					$role = 'vendor';
 					add_action( 'admin_notices', array( $this, 'approved' ) );
-					do_action( 'wcvendors_approve_vendor', $wp_user_object ); 
+					do_action( 'wcvendors_approve_vendor', $wp_user_object );
 					break;
 
 				case 'deny_vendor':
-					$role = apply_filters( 'wcvendors_denied_vendor_role', 'subscriber' );
+					$role = apply_filters( 'wcvendors_denied_vendor_role', get_option( 'default_role', 'subscriber' ) );
 					add_action( 'admin_notices', array( $this, 'denied' ) );
-					do_action( 'wcvendors_deny_vendor', $wp_user_object ); 
+					do_action( 'wcvendors_deny_vendor', $wp_user_object );
 					break;
 
 				default:
@@ -59,7 +57,8 @@ class WCV_Vendor_Applicants
 					break;
 			}
 
-			$wp_user_object->set_role( $role );
+			$wp_user_object->remove_role( 'pending_vendor' );
+			$wp_user_object->add_role( $role );
 
 		}
 	}
@@ -68,10 +67,10 @@ class WCV_Vendor_Applicants
 	/**
 	 *
 	 */
-	public function denied()
-	{
+	public function denied() {
+
 		echo '<div class="updated">';
-		echo '<p>' . __( 'Vendor has been <b>denied</b>.', 'wcvendors' ) . '</p>';
+		echo '<p>' . sprintf( __( '%s has been <b>denied</b>.', 'wc-vendors' ), wcv_get_vendor_name() ) . '</p>';
 		echo '</div>';
 	}
 
@@ -79,10 +78,10 @@ class WCV_Vendor_Applicants
 	/**
 	 *
 	 */
-	public function approved()
-	{
+	public function approved() {
+
 		echo '<div class="updated">';
-		echo '<p>' . __( 'Vendor has been <b>approved</b>.', 'wcvendors' ) . '</p>';
+		echo '<p>' . sprintf( __( '%s has been <b>approved</b>.', 'wc-vendors' ), wcv_get_vendor_name() ) . '</p>';
 		echo '</div>';
 	}
 
@@ -94,9 +93,9 @@ class WCV_Vendor_Applicants
 	 *
 	 * @return unknown
 	 */
-	public function show_pending_vendors_link( $values )
-	{
-		$values[ 'pending_vendors' ] = '<a href="?role=asd">' . __( 'Pending Vendors', 'wcvendors' ) . ' <span class="count">(3)</span></a>';
+	public function show_pending_vendors_link( $values ) {
+
+		$values['pending_vendors'] = '<a href="?role=asd">' . __( 'Pending Vendors', 'wc-vendors' ) . ' <span class="count">(3)</span></a>';
 
 		return $values;
 	}

@@ -1,6 +1,8 @@
 <?php
 
-if ( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+} // Exit if accessed directly
 
 /**
  * New Order Email
@@ -13,23 +15,20 @@ if ( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @author   WooThemes
  * @package  WooCommerce/Classes/Emails
  */
-
-
-class WC_Email_Approve_Vendor extends WC_Email
-{
+class WC_Email_Approve_Vendor extends WC_Email {
 
 
 	/**
 	 * Constructor
 	 */
-	function __construct()
-	{
-		$this->id          = 'vendor_application';
-		$this->title       = __( 'Vendor Application', 'wcvendors' );
-		$this->description = __( 'Vendor application will either be approved, denied, or pending.', 'wcvendors' );
+	function __construct() {
 
-		$this->heading = __( 'Application {status}', 'wcvendors' );
-		$this->subject = __( '[{blogname}] Your vendor application has been {status}', 'wcvendors' );
+		$this->id          = 'vendor_application';
+		$this->title       = sprintf( __( '%s Application - deprecated', 'wc-vendors' ), wcv_get_vendor_name() );
+		$this->description = sprintf( __( '%s application will either be approved, denied, or pending. <strong>This email has been deprecated.</strong>', 'wc-vendors' ), wcv_get_vendor_name() );
+
+		$this->heading = __( 'Application {status}', 'wc-vendors' );
+		$this->subject = sprintf( __( '[{blogname}] Your %s application has been {status}', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
 		$this->template_html  = 'application-status.php';
@@ -41,8 +40,9 @@ class WC_Email_Approve_Vendor extends WC_Email
 		// Other settings
 		$this->recipient = $this->get_option( 'recipient' );
 
-		if ( !$this->recipient )
+		if ( ! $this->recipient ) {
 			$this->recipient = get_option( 'admin_email' );
+		}
 	}
 
 	/**
@@ -53,12 +53,14 @@ class WC_Email_Approve_Vendor extends WC_Email
 	 *
 	 * @param unknown $order_id
 	 */
-	function trigger( $user_id, $status )
-	{
-		if ( !$this->is_enabled() ) return;
+	function trigger( $user_id, $status ) {
 
-		$this->find[ ]    = '{status}';
-		$this->replace[ ] = $status;
+		if ( ! $this->is_enabled() ) {
+			return;
+		}
+
+		$this->find[]    = '{status}';
+		$this->replace[] = $status;
 
 		$this->status = $status;
 
@@ -67,7 +69,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 
 		$this->send( $user_email, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 
-		if ( $status == __( 'pending', 'wcvendors' ) ) {
+		if ( $status == __( 'pending', 'wc-vendors' ) ) {
 			$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 		}
 	}
@@ -78,14 +80,16 @@ class WC_Email_Approve_Vendor extends WC_Email
 	 * @access public
 	 * @return string
 	 */
-	function get_content_html()
-	{
+	function get_content_html() {
+
 		ob_start();
-		wc_get_template( $this->template_html, array(
-															 'status'        => $this->status,
-															 'user'          => $this->user,
-															 'email_heading' => $this->get_heading()
-														), 'woocommerce', $this->template_base );
+		wc_get_template(
+			$this->template_html, array(
+			'status'        => $this->status,
+			'user'          => $this->user,
+			'email_heading' => $this->get_heading(),
+		), 'woocommerce', $this->template_base
+		);
 
 		return ob_get_clean();
 	}
@@ -97,14 +101,16 @@ class WC_Email_Approve_Vendor extends WC_Email
 	 * @access public
 	 * @return string
 	 */
-	function get_content_plain()
-	{
+	function get_content_plain() {
+
 		ob_start();
-		wc_get_template( $this->template_plain, array(
-															  'status'        => $this->status,
-															  'user'          => $this->user,
-															  'email_heading' => $this->get_heading()
-														 ), 'woocommerce', $this->template_base );
+		wc_get_template(
+			$this->template_plain, array(
+			'status'        => $this->status,
+			'user'          => $this->user,
+			'email_heading' => $this->get_heading(),
+		), 'woocommerce', $this->template_base
+		);
 
 		return ob_get_clean();
 	}
@@ -116,48 +122,48 @@ class WC_Email_Approve_Vendor extends WC_Email
 	 * @access public
 	 * @return void
 	 */
-	function init_form_fields()
-	{
+	function init_form_fields() {
+
 		$this->form_fields = array(
 			'enabled'    => array(
-				'title'   => __( 'Enable/Disable', 'wcvendors' ),
+				'title'   => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable this email notification', 'wcvendors' ),
-				'default' => 'yes'
+				'label'   => __( 'Enable this email notification', 'wc-vendors' ),
+				'default' => 'no',
 			),
 			'recipient'  => array(
 				'title'       => __( 'Recipient(s)', 'woocommerce' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to <code>%s</code>.', 'wcvendors' ), esc_attr( get_option( 'admin_email' ) ) ),
+				'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to <code>%s</code>.', 'wc-vendors' ), esc_attr( get_option( 'admin_email' ) ) ),
 				'placeholder' => '',
-				'default'     => ''
+				'default'     => '',
 			),
 			'subject'    => array(
-				'title'       => __( 'Subject', 'wcvendors' ),
+				'title'       => __( 'Subject', 'wc-vendors' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'wcvendors' ), $this->subject ),
+				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'wc-vendors' ), $this->subject ),
 				'placeholder' => '',
-				'default'     => ''
+				'default'     => '',
 			),
 			'heading'    => array(
-				'title'       => __( 'Email Heading', 'wcvendors' ),
+				'title'       => __( 'Email Heading', 'wc-vendors' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wcvendors' ), $this->heading ),
+				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wc-vendors' ), $this->heading ),
 				'placeholder' => '',
-				'default'     => ''
+				'default'     => '',
 			),
 			'email_type' => array(
-				'title'       => __( 'Email type', 'wcvendors' ),
+				'title'       => __( 'Email type', 'wc-vendors' ),
 				'type'        => 'select',
-				'description' => __( 'Choose which format of email to send.', 'wcvendors' ),
+				'description' => __( 'Choose which format of email to send.', 'wc-vendors' ),
 				'default'     => 'html',
 				'class'       => 'email_type',
 				'options'     => array(
-					'plain'     => __( 'Plain text', 'wcvendors' ),
-					'html'      => __( 'HTML', 'wcvendors' ),
-					'multipart' => __( 'Multipart', 'wcvendors' ),
-				)
-			)
+					'plain'     => __( 'Plain text', 'wc-vendors' ),
+					'html'      => __( 'HTML', 'wc-vendors' ),
+					'multipart' => __( 'Multipart', 'wc-vendors' ),
+				),
+			),
 		);
 	}
 

@@ -1,8 +1,9 @@
 .DS_Store
+*.swp
 deploy-hc.sh
 deploy.sh
 
-# Task runner files 
+# Task runner files
 npm-debug.log
 node_modules
 .sass-cache

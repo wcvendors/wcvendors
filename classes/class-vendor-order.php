@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Order vendor_order
  *
@@ -16,9 +17,11 @@ class WC_Order_Vendor extends WC_Order {
 	 * Init/load the vendor_order object. Called from the constructor.
 	 *
 	 * @param  string|int|object|WC_Order_Vendor $vendor_order Vendor Order to init
+	 *
 	 * @uses   WP_POST
 	 */
 	protected function init( $vendor_order ) {
+
 		if ( is_numeric( $vendor_order ) ) {
 			$this->id   = absint( $vendor_order );
 			$this->post = get_post( $vendor_order );
@@ -38,10 +41,13 @@ class WC_Order_Vendor extends WC_Order {
 	 * Gets an vendor_order from the database
 	 *
 	 * @since 2.2
+	 *
 	 * @param int $id
+	 *
 	 * @return bool
 	 */
 	public function get_vendor_order( $id = 0 ) {
+
 		if ( ! $id ) {
 			return false;
 		}
@@ -61,6 +67,7 @@ class WC_Order_Vendor extends WC_Order {
 	 * @param mixed $result
 	 */
 	public function populate( $result ) {
+
 		// Standard post data
 		$this->id            = $result->ID;
 		$this->date          = $result->post_date;

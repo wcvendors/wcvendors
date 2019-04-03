@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @package		WooCommerce/Classes/Payment
  * @author 		WC Vendors Ben Agresta
  */
- 
+
 function add_wcvendors_test_gateway( $methods )
 {
         $methods[ ] = 'WC_Gateway_WCV_Gateway_Test';
@@ -32,8 +32,8 @@ class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
 		$this->id                 = 'wcvendors_test_gateway';
 		$this->icon               = apply_filters('woocommerce_cheque_icon', '');
 		$this->has_fields         = false;
-		$this->method_title       = __( 'WC Vendors Test Gateway', 'woocommerce' );
-		$this->method_description = __( 'This gateway will set orders to processing upon receipt allowing you to test transactions in your store.  Some WooCommerce included gateways have problems with this - you should use this gateway for all of your non-PayPal testing.', 'woocommerce' );
+		$this->method_title       = __( 'WC Vendors Test Gateway', 'wc-vendors' );
+		$this->method_description = __( 'This gateway will set orders to processing upon receipt allowing you to test transactions in your store.  Some WooCommerce included gateways have problems with this - you should use this gateway for all of your non-PayPal testing.', 'wc-vendors' );
 
 		// Load the settings.
 		$this->init_form_fields();
@@ -59,29 +59,29 @@ class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
 
     	$this->form_fields = array(
 			'enabled' => array(
-				'title'   => __( 'Enable/Disable', 'woocommerce' ),
+				'title'   => __( 'Enable/Disable', 'wc-vendors' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable WC Vendors Test Gateway Payment', 'woocommerce' ),
+				'label'   => __( 'Enable WC Vendors Test Gateway Payment', 'wc-vendors' ),
 				'default' => 'no'
 			),
 			'title' => array(
-				'title'       => __( 'Title', 'woocommerce' ),
+				'title'       => __( 'Title', 'wc-vendors' ),
 				'type'        => 'text',
-				'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-				'default'     => __( 'WC Vendors Test Gateway', 'woocommerce' ),
+				'description' => __( 'This controls the title which the user sees during checkout.', 'wc-vendors' ),
+				'default'     => __( 'WC Vendors Test Gateway', 'wc-vendors' ),
 				'desc_tip'    => true,
 			),
 			'description' => array(
-				'title'       => __( 'Description', 'woocommerce' ),
+				'title'       => __( 'Description', 'wc-vendors' ),
 				'type'        => 'textarea',
-				'description' => __( 'Payment method description that the customer will see on your checkout.', 'woocommerce' ),
-				'default'     => __( 'This is a test gateway -- not to be used on live sites for live transactions. <a href="http://www.wcvendors.com/" target="top">Click here to visit WCVendors.com</a>.', 'woocommerce' ),
+				'description' => __( 'Payment method description that the customer will see on your checkout.', 'wc-vendors' ),
+				'default'     => __( 'This is a test gateway -- not to be used on live sites for live transactions. <a href="http://www.wcvendors.com/" target="top">Click here to visit WCVendors.com</a>.', 'wc-vendors' ),
 				'desc_tip'    => true,
 			),
 			'instructions' => array(
-				'title'       => __( 'Instructions', 'woocommerce' ),
+				'title'       => __( 'Instructions', 'wc-vendors' ),
 				'type'        => 'textarea',
-				'description' => __( 'Success!  Your test order is now marked as processing and any vendors will be sent an email as long as you have the Notify Vendors email enabled under WooCommerce--Settings--Emails.', 'woocommerce' ),
+				'description' => __( 'Success!  Your test order is now marked as processing and any vendors will be sent an email as long as you have the Notify Vendors email enabled under WooCommerce--Settings--Emails.', 'wc-vendors' ),
 				'default'     => '',
 				'desc_tip'    => true,
 			),
@@ -106,7 +106,7 @@ class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
      */
 	public function email_instructions( $order, $sent_to_admin, $plain_text = false ) {
 
-		$payment_method = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->payment_method : $order->get_payment_method(); 
+		$payment_method = $order->get_payment_method();
 
         if ( $this->instructions && ! $sent_to_admin && 'wcvendors_test_gateway' === $payment_method && $order->has_status( 'processing' ) ) {
 			echo wpautop( wptexturize( $this->instructions ) ) . PHP_EOL;
@@ -124,15 +124,10 @@ class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
 		$order = wc_get_order( $order_id );
 
 		// Mark as processing
-		$order->update_status( 'processing', __( 'Test gateway transation complete.  Order processing.', 'woocommerce' ) );
+		$order->update_status( 'processing', __( 'Test gateway transation complete.  Order processing.', 'wc-vendors' ) );
 
 		// Reduce stock levels
-		if ( version_compare( WC_VERSION, '2.7', '<' ) ){ 
-			$order->reduce_order_stock();
-		} else { 
-			wc_reduce_stock_levels( $order_id );
-		}
-		
+		wc_reduce_stock_levels( $order_id );
 
 		// Remove cart
 		WC()->cart->empty_cart();

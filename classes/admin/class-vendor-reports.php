@@ -4,28 +4,27 @@
  * Report views
  *
  * @author  Matt Gates <http://mgates.me>
- * @package ProductVendor
+ * @package WCVendors
  */
 
 
-class WCV_Vendor_Reports
-{
+class WCV_Vendor_Reports {
 
 
 	/**
 	 * Constructor
 	 */
-	function __construct()
-	{
-		$this->vendor_id = !current_user_can( 'manage_woocommerce' ) ? wp_get_current_user()->ID : '';
-		if ( !empty ( $this->vendor_id ) ) {
+	function __construct() {
+
+		$this->vendor_id = ! current_user_can( 'manage_woocommerce' ) ? wp_get_current_user()->ID : '';
+		if ( ! empty( $this->vendor_id ) ) {
 			add_filter( 'woocommerce_reports_charts', array( $this, 'filter_tabs' ), 99 );
 			add_filter( 'woocommerce_json_search_found_products', array( $this, 'filter_products_json' ) );
 			add_filter( 'woocommerce_reports_product_sales_order_items', array( $this, 'filter_products' ) );
 			add_filter( 'woocommerce_reports_top_sellers_order_items', array( $this, 'filter_products' ) );
 			add_filter( 'woocommerce_reports_top_earners_order_items', array( $this, 'filter_products' ) );
 		}
-		
+
 	}
 
 	/**
@@ -35,8 +34,8 @@ class WCV_Vendor_Reports
 	 *
 	 * @return array
 	 */
-	public function filter_tabs( $tabs )
-	{
+	public function filter_tabs( $tabs ) {
+
 		global $woocommerce;
 
 		$remove = array(
@@ -46,19 +45,19 @@ class WCV_Vendor_Reports
 			'woocommerce_monthly_taxes',
 			'woocommerce_category_sales',
 			'woocommerce_coupon_sales',
-		);		
+		);
 
-		$reports = $tabs[ 'orders' ][ 'reports' ];
+		$reports = $tabs['orders']['reports'];
 
 		foreach ( $reports as $key => $chart ) {
 			if ( $key == 'coupon_usage' ) {
-				unset( $tabs[ 'orders' ][ 'reports' ][ $key ] );
+				unset( $tabs['orders']['reports'][ $key ] );
 			}
 		}
 
 		// These are admin tabs
 		$return = array(
-			'orders' => $tabs[ 'orders' ]
+			'orders' => $tabs['orders'],
 		);
 
 		return $return;
@@ -72,26 +71,25 @@ class WCV_Vendor_Reports
 	 *
 	 * @return unknown
 	 */
-	public function filter_products( $orders )
-	{
+	public function filter_products( $orders ) {
+
 		$products = WCV_Vendors::get_vendor_products( $this->vendor_id );
 
 		$ids = array();
 		foreach ( $products as $product ) {
-			$ids[ ] = ( $product->ID );
+			$ids[] = ( $product->ID );
 		}
 
 		foreach ( $orders as $key => $order ) {
 
-			if ( !in_array( $order->product_id, $ids ) ) {
+			if ( ! in_array( $order->product_id, $ids ) ) {
 				unset( $orders[ $key ] );
 				continue;
 			} else {
-				if ( !empty( $order->line_total ) ) {
+				if ( ! empty( $order->line_total ) ) {
 					$orders[ $key ]->line_total = WCV_Commission::calculate_commission( $order->line_total, $order->product_id, $order, $order->qty );
 				}
 			}
-
 		}
 
 		return $orders;
@@ -105,8 +103,8 @@ class WCV_Vendor_Reports
 	 *
 	 * @return unknown
 	 */
-	public function filter_products_json( $products )
-	{
+	public function filter_products_json( $products ) {
+
 		$vendor_products = WCV_Vendors::get_vendor_products( $this->vendor_id );
 
 		$ids = array();

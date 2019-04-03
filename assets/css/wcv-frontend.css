@@ -545,3 +545,11 @@ table [class*=span], .row-fluid table [class*=span] {
 .hidden {  display: none; }
 
 .vendor_list .button { width: 100%; }
+
+.wcv-dashboard-navigation ul {
+    margin-left: 0;
+}
+.wcv-dashboard-navigation ul li {
+    margin-bottom: 3px;
+    display: inline-block;
+}
