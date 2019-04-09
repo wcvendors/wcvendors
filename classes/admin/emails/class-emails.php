@@ -37,8 +37,9 @@ class WCV_Emails {
 		add_action( 'wcvendors_email_order_details'   , array( $this, 'vendor_order_details' )   , 10, 8 );
 		add_action( 'wcvendors_email_customer_details', array( $this, 'vendor_customer_details' ), 10, 4 );
 
-		// Trigger application emails as required. 
+		// Trigger application emails as required.
 		add_action( 'add_user_role', array( $this, 'vendor_application' ), 10, 2 );
+		add_action( 'wcvendors_deny_vendor' , array( $this, 'deny_application' ) );
 
 		// WooCommerce Product Enquiry Compatibility
 		add_filter( 'product_enquiry_send_to', array( $this, 'product_enquiry_compatibility' ), 10, 2 );
@@ -212,6 +213,17 @@ class WCV_Emails {
 			WC()->mailer()->emails['WCVendors_Admin_Notify_Application']->trigger( $user_id, $status );
 		}
 
+	}
+
+	/**
+	 * Trigger the deny application email
+	 *
+	 * @since 2.1.8
+	 *
+	 */
+	public function deny_application( $user ){
+		$user_id = $user->ID;
+		WC()->mailer()->emails['WCVendors_Vendor_Notify_Denied']->trigger( $user_id );
 	}
 
 	/*
