@@ -7,7 +7,7 @@
  * Author URI:          https://www.wcvendors.com
  * GitHub Plugin URI:   https://github.com/wcvendors/wcvendors
  *
- * Version:              2.0.0
+ * Version:              3.0.0
  * Requires at least:    4.4.0
  * Tested up to:         4.9.0
  * WC requires at least: 3.0.0
@@ -37,7 +37,7 @@ along with WC Vendors. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
 
 */
 
-define( 'WC_VENDORS', '2.0.0' );
+define( 'WC_VENDORS', '3.0.0' );
 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -51,7 +51,7 @@ final class WC_Vendors {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.0';
+	public $version = '3.0.0';
 
 	/**
 	 * The single instance of the class.
@@ -141,7 +141,7 @@ final class WC_Vendors {
 	 */
 	private function init_hooks() {
 
-		register_activation_hook( __FILE__, array( 'WCVendors_Install', 'install' ) );
+		add_action( 'admin_init', array( $this, 'on_activation' ) );
 
 		add_action( 'admin_init', 		array( $this, 'check_environment' ) );
 		add_action( 'admin_notices', 	array( $this, 'admin_notices' ), 15 );
@@ -150,6 +150,16 @@ final class WC_Vendors {
 		add_filter( 'woocommerce_data_stores', 	array( $this, 'add_data_stores' ) );
 		add_filter( 'wc_order_types', 			array( $this, 'add_order_types' ), 10, 2 );
 
+	}
+
+	/**
+	 * Fire the install method after the plugin is activated.
+	 */
+	public function on_activation() {
+		if ( is_admin() && get_option( 'wcvendors_activated' ) ) {
+			delete_option( 'wcvendors_activated' );
+			WCVendors_Install::install();
+		}
 	}
 
 	/**
@@ -525,3 +535,13 @@ function WCVendors(){
 }
 
 add_action( 'plugins_loaded', 'WCVendors' );
+
+register_activation_hook( __FILE__, 'wcvendors_activate' );
+/**
+ * Activation hook.
+ */
+function wcvendors_activate() {
+	add_option( 'wcvendors_activated', true );
+	do_action( 'wcvendors_activate' );
+}
+
