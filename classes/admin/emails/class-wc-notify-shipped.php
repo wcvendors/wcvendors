@@ -1,8 +1,6 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-} // Exit if accessed directly
+if ( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * New Order Email
@@ -15,20 +13,23 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @author   WooThemes
  * @package  WooCommerce/Classes/Emails
  */
-class WC_Email_Notify_Shipped extends WC_Email {
+
+
+class WC_Email_Notify_Shipped extends WC_Email
+{
 
 
 	/**
 	 * Constructor
 	 */
-	function __construct() {
-
+	function __construct()
+	{
 		$this->id          = 'vendor_notify_shipped';
-		$this->title       = sprintf( __( '%s has shipped - deprecated', 'wc-vendors' ), wcv_get_vendor_name() );
-		$this->description = sprintf( __( 'An email is sent when a %s has marked one of their orders as shipped. <strong>This email has been deprecated.</strong>', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+		$this->title       = __( 'Vendor has shipped', 'wcvendors' );
+		$this->description = __( 'An email is sent when a vendor has marked one of their orders as shipped.', 'wcvendors' );
 
-		$this->heading = __( 'Your order has been shipped', 'wc-vendors' );
-		$this->subject = __( '[{blogname}] Your order has been shipped ({order_number}) - {order_date}', 'wc-vendors' );
+		$this->heading = __( 'Your order has been shipped', 'wcvendors' );
+		$this->subject = __( '[{blogname}] Your order has been shipped ({order_number}) - {order_date}', 'wcvendors' );
 
 		$this->template_html  = 'notify-vendor-shipped.php';
 		$this->template_plain = 'notify-vendor-shipped.php';
@@ -47,23 +48,21 @@ class WC_Email_Notify_Shipped extends WC_Email {
 	 *
 	 * @param unknown $order_id
 	 */
-	function trigger( $order_id, $vendor_id ) {
-
-		$this->object         = wc_get_order( $order_id );
+	function trigger( $order_id, $vendor_id )
+	{
+		$this->object = new WC_Order( $order_id );
 		$this->current_vendor = $vendor_id;
-		$order_date           = $this->object->get_date_created();
+		$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->order_date : $this->object->get_date_created(); 
 
-		$this->find[]    = '{order_date}';
-		$this->replace[] = date_i18n( wc_date_format(), strtotime( $order_date ) );
+		$this->find[ ]    = '{order_date}';
+		$this->replace[ ] = date_i18n( wc_date_format(), strtotime( $order_date ) );
 
-		$this->find[]    = '{order_number}';
-		$this->replace[] = $this->object->get_order_number();
+		$this->find[ ]    = '{order_number}';
+		$this->replace[ ] = $this->object->get_order_number();
 
-		$billing_email = $this->object->get_billing_email();
+		$billing_email 	  = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->billing_email : $this->object->get_billing_email(); 
 
-		if ( ! $this->is_enabled() ) {
-			return;
-		}
+		if ( !$this->is_enabled() ) return;
 
 		add_filter( 'woocommerce_order_get_items', array( $this, 'check_items' ), 10, 2 );
 		add_filter( 'woocommerce_get_order_item_totals', array( $this, 'check_order_totals' ), 10, 2 );
@@ -81,21 +80,22 @@ class WC_Email_Notify_Shipped extends WC_Email {
 	 *
 	 * @return unknown
 	 */
-	public function check_items( $items, $order ) {
-
+	public function check_items( $items, $order )
+	{
 		foreach ( $items as $key => $product ) {
 
-			if ( empty( $product['product_id'] ) ) {
+			if ( empty( $product[ 'product_id' ] ) ) {
 				unset( $items[ $key ] );
 				continue;
 			}
 
-			$author = WCV_Vendors::get_vendor_from_product( $product['product_id'] );
+			$author = WCV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
 
 			if ( $this->current_vendor != $author ) {
 				unset( $items[ $key ] );
 				continue;
 			}
+
 		}
 
 		return $items;
@@ -109,10 +109,10 @@ class WC_Email_Notify_Shipped extends WC_Email {
 	 *
 	 * @return unknown
 	 */
-	public function check_order_totals( $total_rows, $order ) {
-
-		$return['cart_subtotal']          = $total_rows['cart_subtotal'];
-		$return['cart_subtotal']['label'] = __( 'Subtotal:', 'wc-vendors' );
+	public function check_order_totals( $total_rows, $order )
+	{
+		$return[ 'cart_subtotal' ]            = $total_rows[ 'cart_subtotal' ];
+		$return[ 'cart_subtotal' ][ 'label' ] = __( 'Subtotal:', 'wcvendors' );
 
 		return $return;
 	}
@@ -123,15 +123,13 @@ class WC_Email_Notify_Shipped extends WC_Email {
 	 * @access public
 	 * @return string
 	 */
-	function get_content_html() {
-
+	function get_content_html()
+	{
 		ob_start();
-		wc_get_template(
-			$this->template_html, array(
-			'order'         => $this->object,
-			'email_heading' => $this->get_heading(),
-		), 'woocommerce/emails', $this->template_base
-		);
+		wc_get_template( $this->template_html, array(
+															 'order'         => $this->object,
+															 'email_heading' => $this->get_heading()
+														), 'woocommerce', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -143,15 +141,13 @@ class WC_Email_Notify_Shipped extends WC_Email {
 	 * @access public
 	 * @return string
 	 */
-	function get_content_plain() {
-
+	function get_content_plain()
+	{
 		ob_start();
-		wc_get_template(
-			$this->template_plain, array(
-			'order'         => $this->object,
-			'email_heading' => $this->get_heading(),
-		), 'woocommerce/emails', $this->template_base
-		);
+		wc_get_template( $this->template_plain, array(
+															  'order'         => $this->object,
+															  'email_heading' => $this->get_heading()
+														 ), 'woocommerce', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -163,41 +159,41 @@ class WC_Email_Notify_Shipped extends WC_Email {
 	 * @access public
 	 * @return void
 	 */
-	function init_form_fields() {
-
+	function init_form_fields()
+	{
 		$this->form_fields = array(
 			'enabled'    => array(
-				'title'   => __( 'Enable/Disable', 'wc-vendors' ),
+				'title'   => __( 'Enable/Disable', 'wcvendors' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable this email notification', 'wc-vendors' ),
-				'default' => 'no',
+				'label'   => __( 'Enable this email notification', 'wcvendors' ),
+				'default' => 'yes'
 			),
 			'subject'    => array(
-				'title'       => __( 'Subject', 'wc-vendors' ),
+				'title'       => __( 'Subject', 'wcvendors' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'wc-vendors' ), $this->subject ),
+				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'wcvendors' ), $this->subject ),
 				'placeholder' => '',
-				'default'     => '',
+				'default'     => ''
 			),
 			'heading'    => array(
-				'title'       => __( 'Email Heading', 'wc-vendors' ),
+				'title'       => __( 'Email Heading', 'wcvendors' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wc-vendors' ), $this->heading ),
+				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wcvendors' ), $this->heading ),
 				'placeholder' => '',
-				'default'     => '',
+				'default'     => ''
 			),
 			'email_type' => array(
-				'title'       => __( 'Email type', 'wc-vendors' ),
+				'title'       => __( 'Email type', 'wcvendors' ),
 				'type'        => 'select',
-				'description' => __( 'Choose which format of email to send.', 'wc-vendors' ),
+				'description' => __( 'Choose which format of email to send.', 'wcvendors' ),
 				'default'     => 'html',
 				'class'       => 'email_type',
 				'options'     => array(
-					'plain'     => __( 'Plain text', 'wc-vendors' ),
-					'html'      => __( 'HTML', 'wc-vendors' ),
-					'multipart' => __( 'Multipart', 'wc-vendors' ),
-				),
-			),
+					'plain'     => __( 'Plain text', 'wcvendors' ),
+					'html'      => __( 'HTML', 'wcvendors' ),
+					'multipart' => __( 'Multipart', 'wcvendors' ),
+				)
+			)
 		);
 	}
 

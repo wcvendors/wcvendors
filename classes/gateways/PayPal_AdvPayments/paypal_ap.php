@@ -40,7 +40,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		/* Standard WooCommerce Configuration */
 		$this->id           = 'paypalap';
 		$this->icon         = plugin_dir_url( __FILE__ ) . 'PayPal_AP/assets/icons/paypalap.png';
-		$this->method_title = __( 'PayPal Adaptive Payments', 'wc-vendors' );
+		$this->method_title = __( 'PayPal Adaptive Payments', 'wcvendors' );
 		$this->has_fields   = false;
 
 		// Load the settings
@@ -56,8 +56,8 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		/* PayPal Adaptive Payments Configuration. */
 		$this->sandbox     = $this->settings[ 'sandbox_enabled' ];
 		$this->main_paypal = $this->sandbox == 'yes' ? $this->settings[ 'main_paypal' ] : $this->settings[ 'main_paypal_live' ];
-		$this->instapay    = wc_string_to_bool( get_option( 'wcvendors_payments_paypal_instantpay_enable', 'no' ) );
-		$this->give_tax    = wc_string_to_bool( get_option( 'wcvendors_vendor_give_taxes', 'no' ) );
+		$this->instapay    = WC_Vendors::$pv_options->get_option( 'instapay' );
+		$this->give_tax    = WC_Vendors::$pv_options->get_option( 'give_tax' );
 
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 
@@ -112,16 +112,16 @@ class WC_PaypalAP extends WC_Payment_Gateway
 
 		$order_id = (int) $_GET[ 'order_id' ];
 
-		$order = wc_get_order( $order_id );
+		$order = new WC_Order( $order_id );
 		if ( !$order ) return false;
 
-		if ( ! in_array( $_POST['status'], array( 'COMPLETED', 'Completed' ), true ) ) {
-			$order->update_status( 'failed', sprintf( __( 'Something went wrong. Response from PayPal invalidated this order. Status: %s.', 'wc-vendors' ), $_POST[ 'status' ] ) );
+		if ( $_POST[ 'status' ] !== 'COMPLETED' ) {
+			$order->update_status( 'failed', sprintf( __( 'Something went wrong. Response from PayPal invalidated this order. Status: %s.', 'wcvendors' ), $_POST[ 'status' ] ) );
 			exit;
 		}
 
 		$order->payment_complete();
-		$order->add_order_note( __( 'IPN payment completed', 'wc-vendors' ) );
+		$order->add_order_note( __( 'IPN payment completed', 'wcvendors' ) );
 
 		if ( $this->instapay ) {
 			WCV_Commission::set_order_commission_paid( $order_id );
@@ -143,22 +143,22 @@ class WC_PaypalAP extends WC_Payment_Gateway
 
 		// List each option in order of appearance with details
 		$this->form_fields[ 'enabled' ] = array(
-			'title'   => __( 'Enable PayPal Adaptive Payments', 'wc-vendors' ),
+			'title'   => __( 'Enable PayPal Adaptive Payments', 'wcvendors' ),
 			'default' => 'no',
 			'type'    => 'checkbox',
 		);
 
 		$this->form_fields[ 'title' ] = array(
-			'title'       => __( 'Method Title', 'wc-vendors' ),
-			'description' => __( 'This controls the title which the user sees during checkout.', 'wc-vendors' ),
-			'default'     => __( 'PayPal', 'wc-vendors' ),
+			'title'       => __( 'Method Title', 'wcvendors' ),
+			'description' => __( 'This controls the title which the user sees during checkout.', 'wcvendors' ),
+			'default'     => __( 'PayPal', 'wcvendors' ),
 			'type'        => 'text'
 		);
 
 		$this->form_fields[ 'description' ] = array(
-			'title'       => __( 'Description', 'wc-vendors' ),
-			'description' => __( 'This controls the description which the user sees during checkout.', 'wc-vendors' ),
-			'default'     => __( "Pay via PayPal!", 'wc-vendors' ),
+			'title'       => __( 'Description', 'wcvendors' ),
+			'description' => __( 'This controls the description which the user sees during checkout.', 'wcvendors' ),
+			'default'     => __( "Pay via PayPal!", 'wcvendors' ),
 			'type'        => 'textarea'
 		);
 
@@ -169,64 +169,64 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		// ------------------------------------------------------------------
 
 		$this->form_fields[ ] = array(
-			'title'       => __( 'Live Credentials', 'wc-vendors' ),
+			'title'       => __( 'Live Credentials', 'wcvendors' ),
 			'type'        => 'title',
-			'description' => sprintf( __( 'You must have an <a href="%s">Application ID</a> to process live transactions. You do not need one for testing in Sandbox mode.', 'wc-vendors' )
+			'description' => sprintf( __( 'You must have an <a href="%s">Application ID</a> to process live transactions. You do not need one for testing in Sandbox mode.', 'wcvendors' )
 				, 'https://developer.paypal.com/webapps/developer/docs/classic/lifecycle/goingLive/' )
 		);
 
 		$this->form_fields[ 'main_paypal_live' ] = array(
-			'title'       => __( 'PayPal Email', 'wc-vendors' ),
-			'description' => __( 'The email address main payments should go to.', 'wc-vendors' ),
+			'title'       => __( 'PayPal Email', 'wcvendors' ),
+			'description' => __( 'The email address main payments should go to.', 'wcvendors' ),
 			'type'        => 'text'
 		);
 
 		$this->form_fields[ 'username_live' ] = array(
-			'title' => __( 'API Username', 'wc-vendors' ),
+			'title' => __( 'API Username', 'wcvendors' ),
 			'type'  => 'text'
 		);
 
 		$this->form_fields[ 'password_live' ] = array(
-			'title' => __( 'API Password', 'wc-vendors' ),
+			'title' => __( 'API Password', 'wcvendors' ),
 			'type'  => 'text'
 		);
 
 		$this->form_fields[ 'signature_live' ] = array(
-			'title' => __( 'API Signature', 'wc-vendors' ),
+			'title' => __( 'API Signature', 'wcvendors' ),
 			'type'  => 'text'
 		);
 
 		$this->form_fields[ 'app_id' ] = array(
-			'title'       => __( 'Application ID', 'wc-vendors' ),
+			'title'       => __( 'Application ID', 'wcvendors' ),
 			'type'        => 'text',
-			'description' => __( 'Only required when doing live transactions.', 'wc-vendors' ),
+			'description' => __( 'Only required when doing live transactions.', 'wcvendors' ),
 		);
 
 		$this->form_fields[ ] = array(
-			'title'       => __( 'Sandbox Credentials', 'wc-vendors' ),
+			'title'       => __( 'Sandbox Credentials', 'wcvendors' ),
 			'type'        => 'title',
-			'description' => sprintf( __( 'You can signup for a sandbox developer account <a href="%s">here</a>. You need a developer account if you want to enable Sandbox mode for testing.', 'wc-vendors' )
+			'description' => sprintf( __( 'You can signup for a sandbox developer account <a href="%s">here</a>. You need a developer account if you want to enable Sandbox mode for testing.', 'wcvendors' )
 				, 'https://developer.paypal.com/' )
 		);
 
 		$this->form_fields[ 'main_paypal' ] = array(
-			'title'       => __( 'PayPal Email', 'wc-vendors' ),
-			'description' => __( 'The email address main payments should go to.', 'wc-vendors' ),
+			'title'       => __( 'PayPal Email', 'wcvendors' ),
+			'description' => __( 'The email address main payments should go to.', 'wcvendors' ),
 			'type'        => 'text'
 		);
 
 		$this->form_fields[ 'username' ] = array(
-			'title' => __( 'API Username', 'wc-vendors' ),
+			'title' => __( 'API Username', 'wcvendors' ),
 			'type'  => 'text'
 		);
 
 		$this->form_fields[ 'password' ] = array(
-			'title' => __( 'API Password', 'wc-vendors' ),
+			'title' => __( 'API Password', 'wcvendors' ),
 			'type'  => 'text'
 		);
 
 		$this->form_fields[ 'signature' ] = array(
-			'title' => __( 'API Signature', 'wc-vendors' ),
+			'title' => __( 'API Signature', 'wcvendors' ),
 			'type'  => 'text'
 		);
 
@@ -237,18 +237,18 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		// ------------------------------------------------------------------
 
 		$this->form_fields[ ] = array(
-			'title' => __( 'Misc. Settings', 'wc-vendors' ),
+			'title' => __( 'Misc. Settings', 'wcvendors' ),
 			'type'  => 'title',
 		);
 
 		$this->form_fields[ 'sandbox_enabled' ] = array(
-			'title'   => __( 'Enable PayPal Sandbox mode', 'wc-vendors' ),
+			'title'   => __( 'Enable PayPal Sandbox mode', 'wcvendors' ),
 			'default' => 'yes',
 			'type'    => 'checkbox',
 		);
 
 		$this->form_fields[ 'logging_enabled' ] = array(
-			'title'   => __( 'Enable logging', 'wc-vendors' ),
+			'title'   => __( 'Enable logging', 'wcvendors' ),
 			'default' => 'no',
 			'type'    => 'checkbox',
 		);
@@ -266,8 +266,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 	{
 		?>
 		<h3><?php echo $this->method_title; ?></h3>
-		<p><?php _e( 'The PayPal Adaptive Payments gateway can instantly pay your vendors their due commission (if enabled). Also used to mass pay vendors on a schedule / manual method (if enabled).', 'wc-vendors' ); ?></p>
-		<p><strong><?php _e( 'Please Note: PayPal has deprecated Adaptive Payments. This will soon cease to function.', 'wc-vendors' ); ?></strong></p>
+		<p><?php _e( 'The PayPal Adaptive Payments gateway can instantly pay your vendors their due commission (if enabled). Also used to mass pay vendors on a schedule / manual method (if enabled).', 'wcvendors' ); ?></p>
 		<table class="form-table">
 
 			<?php if ( $this->is_valid_currency() ) :
@@ -278,7 +277,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			else : ?>
 
 				<div class="inline error"><p>
-						<strong><?php _e( 'Gateway Disabled', 'wc-vendors' ); ?></strong>: <?php printf( __( '%s does not support your store currency.', 'wc-vendors' ), $this->method_title ); ?>
+						<strong><?php _e( 'Gateway Disabled', 'wcvendors' ); ?></strong>: <?php printf( __( '%s does not support your store currency.', 'wcvendors' ), $this->method_title ); ?>
 					</p></div>
 
 			<?php endif; ?>
@@ -305,7 +304,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			$receivers = WCV_Vendors::get_vendor_dues_from_order( $order );
 			$i        = 0;
 
-			$order_id 					= $order->get_id();
+			$order_id 					= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id(); 
 
 			foreach ( $receivers as $author => $values ) {
 				if ( empty( $values[ 'total' ] ) ) continue;
@@ -350,10 +349,10 @@ class WC_PaypalAP extends WC_Payment_Gateway
 
 		$this->include_paypal_sdk();
 		$this->logger 	= new PPLoggingManager( 'Pay' );
-		$order        	= wc_get_order( $order_id );
-		$order_id 	  	= $order->get_id();
-		$order_key 	  	= $order->get_order_key();
-		$customer_note 	= $order->get_customer_note();
+		$order        	= new WC_Order( $order_id );
+		$order_id 	  	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();  	
+		$order_key 	  	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_key : $order->get_order_key();  
+		$customer_note 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->customer_note : $order->get_customer_note(); 	
 
 		$receivers    = $this->get_receivers( $order );
 		$receiverList = new ReceiverList( $receivers );
@@ -387,7 +386,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		try {
 			$response = $service->Pay( $payRequest );
 		} catch ( Exception $ex ) {
-			wc_add_notice( sprintf( __( 'Error: %s', 'wc-vendors' ), $ex->getMessage() ), 'error' );
+			wc_add_notice( sprintf( __( 'Error: %s', 'wcvendors' ), $ex->getMessage() ), 'error' );
 
 			return false;
 		}
@@ -396,8 +395,8 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$ack = strtoupper( $response->responseEnvelope->ack );
 
 		if ( $ack != 'SUCCESS' ) {
-			$order->update_status( 'cancelled', sprintf( __( 'Error ID: %s. %s', 'wc-vendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ) );
-			wc_add_notice( sprintf( __( 'Error ID: %s. %s', 'wc-vendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'error' );
+			$order->update_status( 'cancelled', sprintf( __( 'Error ID: %s. %s', 'wcvendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ) );
+			wc_add_notice( sprintf( __( 'Error ID: %s. %s', 'wcvendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'error' );
 
 			return false;
 		}
@@ -479,7 +478,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		global $woocommerce;
 
 		$this->include_paypal_sdk();
-		$order = wc_get_order( $order_id );
+		$order = new WC_Order( $order_id );
 
 		// Create request
 		$setPaymentOptionsRequest         = new SetPaymentOptionsRequest( new RequestEnvelope( "en_US" ) );
@@ -503,7 +502,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		try {
 			$response = $service->SetPaymentOptions( $setPaymentOptionsRequest );
 		} catch ( Exception $ex ) {
-			wc_add_notice( sprintf( __( 'Error: %s', 'wc-vendors' ), $ex->getMessage() ), 'error' );
+			wc_add_notice( sprintf( __( 'Error: %s', 'wcvendors' ), $ex->getMessage() ), 'error' );
 
 			return false;
 		}
@@ -511,8 +510,8 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$this->logger->error( "Received SetPaymentOptionsResponse:" );
 		$ack = strtoupper( $response->responseEnvelope->ack );
 		if ( $ack != "SUCCESS" ) {
-			$order->update_status( 'cancelled', sprintf( __( 'Error ID: %d. %s', 'wc-vendors'), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ) );
-			wc_add_notice( sprintf( __( 'Error ID: %d. %s', 'wc-vendors' ), $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'error' );
+			$order->update_status( 'cancelled', __( sprintf( 'Error ID: %s. %s', $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'wcvendors' ) );
+			wc_add_notice( sprintf( 'Error ID: %s. %s', $response->error[ 0 ]->errorId, $response->error[ 0 ]->message ), 'error' );
 
 			return false;
 		}
@@ -541,7 +540,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 	{
 		global $woocommerce;
 
-		$order   = wc_get_order( $order_id );
+		$order   = new WC_Order( $order_id );
 		$pay_key = $this->paypalap_check_form( $order_id );
 
 		if ( !empty( $woocommerce->errors ) ) return false;

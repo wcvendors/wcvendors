@@ -1,0 +1,1886 @@
+# Translation of WooCommerce other plugins - WC Vendors in Japanese
+# This file is distributed under the same license as the WooCommerce other plugins - WC Vendors package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-01-12 18:00+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.5.7\n"
+"Language: ja_JP\n"
+"Project-Id-Version: WooCommerce other plugins - WC Vendors\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Shohei Tanaka <shohei.t@artws.info>\n"
+"Language-Team: \n"
+
+#: templates/orders/table-body.php:25
+msgid "Quantity: %d"
+msgstr "数量 : %d"
+
+#: templates/orders/shipping/shipping-form.php:77
+msgid "Mark as shipped"
+msgstr "出荷済みとしてマーク"
+
+#: templates/orders/shipping/shipping-form.php:75
+msgid "Update tracking number"
+msgstr "トラッキング番号を更新"
+
+#: templates/orders/customer-note/customer-note.php:8
+msgid "No customer note."
+msgstr "顧客メモはありません。"
+
+#: templates/orders/customer-note/customer-note.php:4
+msgid "Customer note"
+msgstr "顧客メモ"
+
+#: templates/orders/csv-export.php:6
+msgid "Export orders"
+msgstr "注文をエクスポート"
+
+#: templates/emails/vendor-new-order.php:13
+msgid "You have received an order from %s. Their order is as follows:"
+msgstr "%s から注文を受け取りました。 その注文は次のとおりです。"
+
+#: templates/emails/notify-vendor-shipped.php:62,
+#: templates/emails/vendor-new-order.php:62
+msgid "Tel:"
+msgstr "電話番号 : "
+
+#: templates/emails/notify-vendor-shipped.php:59,
+#: templates/emails/vendor-new-order.php:59
+msgid "Email:"
+msgstr "メールアドレス : "
+
+#: templates/emails/notify-vendor-shipped.php:56,
+#: templates/emails/vendor-new-order.php:56
+msgid "Customer details"
+msgstr "お客様の詳細"
+
+#: templates/emails/notify-vendor-shipped.php:24,
+#: templates/emails/vendor-new-order.php:24
+msgid "Price"
+msgstr "価格"
+
+#: templates/emails/notify-vendor-shipped.php:17,
+#: templates/emails/vendor-new-order.php:17
+msgid "Order: %s"
+msgstr "注文 : %s"
+
+#: templates/emails/notify-vendor-shipped.php:13
+msgid ""
+"A vendor has marked part of your order as shipped. The items that are "
+"shipped are as follows:"
+msgstr ""
+"販売者が出荷時に注文の一部をマークしています。 出荷される品目は次のとおりで"
+"す。"
+
+#: templates/emails/new-product.php:10
+msgid "Edit product: %s"
+msgstr "商品編集 : %s"
+
+#: templates/emails/new-product.php:9
+msgid "Submitted by: %s"
+msgstr "送信者 : %s"
+
+#: templates/emails/new-product.php:8
+msgid "Product title: %s"
+msgstr "商品名 : %s"
+
+#: templates/emails/new-product.php:5
+msgid "Hi there. This is a notification about a new product on %s."
+msgstr "こんにちは。 これは %s の新製品に関する通知です。"
+
+#: templates/emails/application-status.php:9
+msgid "Applicant username: %s"
+msgstr "契約ユーザー名 : %s"
+
+#: templates/emails/application-status.php:8
+msgid "Application status: %s"
+msgstr "契約状況 : %s"
+
+#: templates/emails/application-status.php:5
+msgid "Hi there. This is a notification about a vendor application on %s."
+msgstr "こんにちは。 これは、%sの販売者契約に関する通知です。"
+
+#: templates/dashboard/settings/settings.php:47
+msgid "Save"
+msgstr "保存"
+
+#: templates/dashboard/reports.php:82
+msgid "You haven't made any sales yet."
+msgstr "まだ売上がありません。"
+
+#: templates/dashboard/reports.php:71
+msgid "You have no sales during this period."
+msgstr "指定の期間の売上はありません。"
+
+#: templates/dashboard/reports.php:56
+msgid "Totals"
+msgstr "合計"
+
+#: templates/dashboard/reports.php:47
+msgid "Show Orders"
+msgstr "注文を表示"
+
+#: templates/dashboard/reports.php:20
+msgid "Rate"
+msgstr "割合"
+
+#: templates/dashboard/reports.php:1
+msgid "Sales Report"
+msgstr "販売レポート"
+
+#: templates/dashboard/orders.php:185
+msgid "You have no orders during this period."
+msgstr "この期間の注文はありません。"
+
+#: templates/dashboard/orders.php:111
+msgid "Tracking"
+msgstr "トラッキング"
+
+#: templates/dashboard/orders.php:48
+msgid "Links"
+msgstr "リンク"
+
+#: templates/dashboard/orders.php:19, templates/dashboard/orders.php:90
+msgid "View items"
+msgstr "商品を表示"
+
+#: templates/dashboard/orders.php:18, templates/dashboard/orders.php:21
+msgid "Hide items"
+msgstr "商品を隠す"
+
+#: templates/dashboard/links.php:8
+msgid "Edit Products"
+msgstr "商品を編集"
+
+#: templates/dashboard/links.php:7
+msgid "Add New Product"
+msgstr "新しい商品を追加"
+
+#: templates/dashboard/links.php:4
+msgid "Store Settings"
+msgstr "店舗設定"
+
+#: templates/dashboard/links.php:3
+msgid "View Your Store"
+msgstr "店舗を見る"
+
+#: templates/dashboard/denied.php:53
+msgid "Submit"
+msgstr "送信"
+
+#: templates/dashboard/denied.php:33
+msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
+msgstr "私は<a href=\"%s\">利用規約</a>を読み、同意しました。"
+
+#: templates/dashboard/denied.php:12
+msgid "Your account is not setup as a vendor."
+msgstr "このアカウントは販売者として設定されていません。"
+
+#: templates/dashboard/denied.php:8
+msgid ""
+"Your account has not yet been approved to become a vendor.  When it is, you "
+"will receive an email telling you that your account is approved!"
+msgstr ""
+"このアカウントはまだ販売者になることが承認されていません。 承認されれば、この"
+"アカウントが承認されたことを伝えるメールが届きます！"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:215
+msgid "Payment total: %s."
+msgstr "支払合計 : %s"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:212
+msgid "Payment message: %s."
+msgstr "決済メッセージ : %s"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:211
+msgid "Payment status: %s."
+msgstr "決済状況 : %s"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:210
+msgid ""
+"Hello! A payment was just triggered to mass pay all vendors their due "
+"commission."
+msgstr ""
+"こんにちは！ すべての販売者に報酬を支払うためにマスペイメントの支払いが開始さ"
+"れました。"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:208
+msgid "WooCommerce: Mass payments for vendors update"
+msgstr "WooCommerce : 販売者更新のためのマスペイメント"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:173
+msgid ""
+"All due commission has been paid for, but I could not clear it from their "
+"profiles due to an internal error. Commission will still be listed as due. "
+"Please manually mark the commission as paid from the Commissions page."
+msgstr ""
+"すべての報酬は支払われましたが、内部エラーのためにプロファイルからそれをクリ"
+"アすることはできませんでした。 報酬は引き続き支払期限として表示されます。 報"
+"酬は報酬ページから支払済みとして手動でマークしてください。"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:167
+msgid "All due commission has been paid for."
+msgstr "すべての報酬が支払われました。"
+
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:115
+msgid "No vendors found to pay. Maybe they haven't set a PayPal address?"
+msgstr ""
+"販売者は支払うことができませんでした。 PayPal アドレスを設定していない可能性"
+"がありますか？"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:508
+msgid "sprintfError ID: %s. %s"
+msgstr "sprintfError ID: %s. %s"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:393,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:394
+msgid "Error ID: %s. %s"
+msgstr "エラー ID : %s. %s"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:384,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:500,
+#: classes/gateways/PayPal_Masspay/class-paypal-masspay.php:153
+msgid "Error: %s"
+msgstr "エラー : %s"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:280
+msgid "%s does not support your store currency."
+msgstr "%s は店舗通貨をサポートしていません。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:280
+msgid "Gateway Disabled"
+msgstr "決済無効"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:269
+msgid ""
+"The PayPal Adaptive Payments gateway can instantly pay your vendors their "
+"due commission (if enabled). Also used to mass pay vendors on a schedule / "
+"manual method (if enabled)."
+msgstr ""
+"PayPal アダプティブペイメント決済は即座に販売者に支払手数料を支払うことができ"
+"ます（有効な場合）。 また、スケジュール/手動方法（有効になっている場合）で販"
+"売者を大量に支払うためにも使用されます。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:251
+msgid "Enable logging"
+msgstr "ログを有効に"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:245
+msgid "Enable PayPal Sandbox mode"
+msgstr "PayPal サンドボックスモードを有効"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:240
+msgid "Misc. Settings"
+msgstr "その他の設定"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:208
+msgid ""
+"You can signup for a sandbox developer account <a href=\"%s\">here</a>. You "
+"need a developer account if you want to enable Sandbox mode for testing."
+msgstr ""
+"<a href=\"%s\">ここ</a>でサンドボックスデベロッパーアカウントにサインアップで"
+"きます。テストのためにサンドボックスモードを有効にする場合は、開発者アカウン"
+"トが必要です。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:206
+msgid "Sandbox Credentials"
+msgstr "サンドボックス環境"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:202
+msgid "Only required when doing live transactions."
+msgstr "本番トランザクションを行うときにのみ必要です。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:200
+msgid "Application ID"
+msgstr "アプリケーション ID"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:195,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:229
+msgid "API Signature"
+msgstr "API 署名"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:190,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:224
+msgid "API Password"
+msgstr "API パスワード"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:185,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:219
+msgid "API Username"
+msgstr "API ユーザー名"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:180,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:214
+msgid "The email address main payments should go to."
+msgstr "メインの決済となるメールアドレス。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:179,
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:213
+msgid "PayPal Email"
+msgstr "PayPal メールアドレス"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:174
+msgid ""
+"You must have an <a href=\"%s\">Application ID</a> to process live "
+"transactions. You do not need one for testing in Sandbox mode."
+msgstr ""
+"本番環境を進めるには<a href=\"%s\">アプリケーション ID</a>が必要です。サンド"
+"ボックスモードでのテストには必要ありません。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:172
+msgid "Live Credentials"
+msgstr "本番環境"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:161
+msgid "Pay via PayPal!"
+msgstr "PayPalで支払"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:160
+msgid "This controls the description which the user sees during checkout."
+msgstr "これは、支払中にユーザが見る記述を設定する。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:159
+msgid "Description"
+msgstr "詳細"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:154
+msgid "PayPal"
+msgstr "PayPal"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:153
+msgid "This controls the title which the user sees during checkout."
+msgstr "これは、支払中にユーザーが見るタイトルを設定します。"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:152
+msgid "Method Title"
+msgstr "決済タイトル"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:146
+msgid "Enable PayPal Adaptive Payments"
+msgstr "PayPal アダプティブペイメントを有効にする"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:124
+msgid "IPN payment completed"
+msgstr "IPN 決済完了"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:119
+msgid ""
+"Something went wrong. Response from PayPal invalidated this order. Status: "
+"%s."
+msgstr ""
+"何かが間違っていました。 PayPalからの応答がこの注文を無効にしました。 状態："
+"%s"
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:43
+msgid "PayPal Adaptive Payments"
+msgstr "PayPal アダプティブペイメント"
+
+#: classes/front/signup/class-vendor-signup.php:171,
+#: classes/front/signup/class-vendor-signup.php:208,
+#: classes/front/signup/class-vendor-signup.php:220
+msgid "You must accept the terms and conditions to become a vendor."
+msgstr "販売者になるには、利用規約に同意する必要があります。"
+
+#: classes/front/signup/class-vendor-signup.php:124
+msgid "Your application has been submitted."
+msgstr "申請書が提出されました。"
+
+#: classes/front/signup/class-vendor-signup.php:122
+msgid "Application denied. You are an administrator."
+msgstr "申込が拒否されました。 あなたは管理者です。"
+
+#: classes/front/signup/class-vendor-signup.php:72,
+#: classes/front/signup/views/html-vendor-signup.php:35
+msgid ""
+"I have read and accepted the <a target=\"top\" href=\"%s\">terms and "
+"conditions</a>"
+msgstr "私は<a target=\"top\" href=\"%s\">利用規約</a>を読み、同意しました。"
+
+#: classes/front/signup/class-vendor-signup.php:58,
+#: classes/front/signup/views/html-vendor-signup.php:21,
+#: templates/dashboard/denied.php:22
+msgid "Apply to become a vendor? "
+msgstr "販売者になるために申請しますか？"
+
+#: classes/front/orders/class-submit-comment.php:63
+msgid "Success. The customer has been notified of your comment."
+msgstr "成功。 お客様に注文コメントが通知されました。"
+
+#: classes/front/orders/class-submit-comment.php:41
+msgid "You've left the comment field empty!"
+msgstr "注文コメント欄を空のままにしました！"
+
+#: classes/front/orders/class-orders.php:256
+msgid "Email address"
+msgstr "メールアドレス"
+
+#: classes/front/orders/class-orders.php:255
+msgid "Zip"
+msgstr "郵便番号"
+
+#: classes/front/orders/class-orders.php:254
+msgid "State"
+msgstr "都道府県"
+
+#: classes/front/orders/class-orders.php:253
+msgid "City"
+msgstr "市"
+
+#: classes/front/orders/class-orders.php:252
+msgid "Address"
+msgstr "住所"
+
+#: classes/front/orders/class-orders.php:251
+msgid "Full name"
+msgstr "氏名"
+
+#: classes/front/orders/class-orders.php:250
+msgid "Product Title"
+msgstr "商品名"
+
+#: classes/front/orders/class-orders.php:123,
+#: classes/front/orders/class-orders.php:189
+msgid "No orders."
+msgstr "注文がありません。"
+
+#: classes/front/orders/class-orders.php:100,
+#: classes/front/orders/class-orders.php:166
+msgid ""
+"You haven't selected a product's orders to view! Please go back to the "
+"Vendor Dashboard and click Show Orders on the product you'd like to view."
+msgstr ""
+"表示する商品の注文を選択していません！ 販売者ダッシュボードに戻り、表示する商"
+"品の[注文を表示]をクリックしてください。"
+
+#: classes/front/orders/class-export-csv.php:20
+msgid "Item Meta"
+msgstr "アイテムメタ"
+
+#: classes/front/orders/class-export-csv.php:19,
+#: templates/dashboard/reports.php:18,
+#: templates/emails/notify-vendor-shipped.php:23,
+#: templates/emails/vendor-new-order.php:23
+msgid "Quantity"
+msgstr "数"
+
+#: classes/front/dashboard/class-vendor-dashboard.php:86
+msgid "Success. Your tracking number has been updated."
+msgstr "成功。 追跡番号が更新されました。"
+
+#: classes/front/dashboard/class-vendor-dashboard.php:83,
+#: classes/front/dashboard/class-vendor-dashboard.php:84
+msgid "Tracking number"
+msgstr "追跡番号"
+
+#: classes/front/dashboard/class-vendor-dashboard.php:55
+msgid "%s has marked as shipped. "
+msgstr "%s が出荷済みにしました。"
+
+#: classes/front/dashboard/class-vendor-dashboard.php:53
+msgid "Order marked shipped."
+msgstr "注文した商品は出荷されました。"
+
+#: classes/class-install.php:205
+msgid "Vendor Dashboard"
+msgstr "Vendor ダッシュボード"
+
+#: classes/class-cron.php:87
+msgid "Payment total: %s"
+msgstr "決済合計 : %s"
+
+#: classes/admin/views/html-vendor-settings-page.php:70
+msgid "Save Shop Settings"
+msgstr "店舗設定を保存"
+
+#: classes/admin/views/html-vendor-settings-page.php:61,
+#: templates/dashboard/settings/shop-description.php:3
+msgid "This is displayed on your <a href=\"%s\">shop page</a>."
+msgstr "これは、<a href=\"%s\">店舗ページ</a>に表示されます。"
+
+#: classes/admin/views/html-vendor-settings-page.php:49,
+#: templates/dashboard/settings/shop-description.php:2
+msgid "Shop Description"
+msgstr "店舗詳細"
+
+#: classes/admin/views/html-vendor-settings-page.php:43,
+#: templates/dashboard/settings/seller-info.php:4
+msgid "This is displayed on each of your products."
+msgstr "これは各商品に表示されます。"
+
+#: classes/admin/views/html-vendor-settings-page.php:24,
+#: templates/dashboard/settings/shop-name.php:3
+msgid "Your shop name is public and must be unique."
+msgstr "お店の名前は公開され、一意である必要があります。"
+
+#: classes/admin/views/html-vendor-settings-page.php:15,
+#: templates/dashboard/settings/paypal-email-form.php:3
+msgid "Your PayPal address is used to send you your commission."
+msgstr "手数料を送るために PayPal アドレスが使用されます。"
+
+#: classes/admin/views/html-vendor-settings-page.php:11,
+#: templates/dashboard/settings/paypal-email-form.php:2
+msgid "PayPal Address"
+msgstr "PayPal アドレス"
+
+#: classes/admin/settings/sf-options.php:359
+msgid ""
+"Send the WooCommerce admin an email each time a payment has been made via "
+"the payment schedule options above"
+msgstr ""
+"上記の支払いスケジュールオプションで支払いが行われるたびに、 WooCommerce 管理"
+"者にメールを送信してください"
+
+#: classes/admin/settings/sf-options.php:358
+msgid "Email notification"
+msgstr "メール通知"
+
+#: classes/admin/settings/sf-options.php:353
+msgid "Now"
+msgstr "今"
+
+#: classes/admin/settings/sf-options.php:352
+msgid "Manual"
+msgstr "手動"
+
+#: classes/admin/settings/sf-options.php:351
+msgid "Monthly"
+msgstr "月"
+
+#: classes/admin/settings/sf-options.php:350
+msgid "Biweekly"
+msgstr "隔週"
+
+#: classes/admin/settings/sf-options.php:349
+msgid "Weekly"
+msgstr "週"
+
+#: classes/admin/settings/sf-options.php:348
+msgid "Daily"
+msgstr "日"
+
+#: classes/admin/settings/sf-options.php:343
+msgid "Note: Schedule will only work if instant pay is unchecked"
+msgstr "注：スケジュールは即時支払いがチェックされていない場合にのみ機能します"
+
+#: classes/admin/settings/sf-options.php:342
+msgid "Payment schedule"
+msgstr "支払スケジュール"
+
+#: classes/admin/settings/sf-options.php:335
+msgid ""
+"For this to work, customers must checkout with the PayPal Adaptive Payments "
+"gateway. Using any other gateways will not pay vendors instantly"
+msgstr ""
+"これを行うには、PayPal アダプティブペイメント決済で支払する必要があります。 "
+"他の決済を使用してもすぐに販売者に支払うことはありません"
+
+#: classes/admin/settings/sf-options.php:334
+msgid ""
+"Instantly pay vendors their commission when an order is made, and if a "
+"vendor has a valid PayPal email added on their Shop Settings page."
+msgstr ""
+"注文時に即座に販売者に手数料を払い、販売店には店舗設定ページに有効な PayPal "
+"メールが追加されているかどうかを確認します。"
+
+#: classes/admin/settings/sf-options.php:333
+msgid "Instant pay"
+msgstr "即時決済"
+
+#: classes/admin/settings/sf-options.php:329
+msgid ""
+"Make sure you update your PayPal Adaptive Payments settings <a href=\"%s"
+"\">here</a>.  <br><br>To instantly pay with Adaptive Payments you must "
+"activate the PayPal AP gateway in your Checkout settings. <br><a href="
+"\"https://www.wcvendors.com/kb/configuring-paypal-adaptive-payments/\" "
+"target=\"top\">PayPal AP Application Help</a>.  <br><br>Another gateway that "
+"offers instant payments to vendors that also accepts credit cards directly "
+"on your checkout page is Stripe.   <br><a href=\"https://www.wcvendors.com/"
+"product/stripe-commissions-gateway/\" target=\"top\">Stripe Commissions & "
+"Gateway plugin</a> is $49 and specifically coded for WC Vendors and <a href="
+"\"https://www.wcvendors.com/product/wc-vendors-pro/\" target=\"top\">WC "
+"Vendors Pro</a>."
+msgstr ""
+"PayPal アダプティブペイメントの設定を<a href=\"%s\">ここから</a>更新してくだ"
+"さい。<br><br>アダプティブペイメントで即座に支払いを行うには、支払設定で "
+"PayPal API ゲートウェイを有効にする必要があります。<br><a href=\"https://www."
+"wcvendors.com/kb/configuring-paypal-adaptive-payments/\" target=\"top"
+"\">PayPal API アプリケーションヘルプ。</a><br><br>チェックアウトページで直接"
+"クレジットカードを受け入れる販売者への即時支払いを提供する別の決済はStripeで"
+"す。<br><a href=\"https://www.wcvendors.com/product/stripe-commissions-"
+"gateway/\" target=\"top\">Stripeによる報酬及び決済プラグイン</a>は $49 で<a "
+"href=\"https://www.wcvendors.com/product/wc-vendors-pro/\" target=\"top\">WC "
+"Vendors Pro</a>に同梱されています。"
+
+#: classes/admin/settings/sf-options.php:328
+msgid "Total commission currently due: %s. <a href=\"%s\">View details</a>."
+msgstr "現在支払う総手数料 : %s <a href=\"%s\">詳細はこちら。</a>"
+
+#: classes/admin/settings/sf-options.php:327
+msgid "PayPal Adaptive Payments Scheduling"
+msgstr "PayPal Adaptive 決済スケジュール"
+
+#: classes/admin/settings/sf-options.php:325
+msgid "Payments"
+msgstr "Payments"
+
+#: classes/admin/settings/sf-options.php:314
+msgid "payments"
+msgstr "決済"
+
+#: classes/admin/settings/sf-options.php:307
+msgid ""
+"These terms are shown to a user when submitting an application to become a "
+"vendor.<br/>If left blank, no terms will be shown to the applicant.  Vendor "
+"must accept terms in order to register, if set."
+msgstr ""
+"これらの規約は、販売者になるためにアプリケーションを提出するときにユーザーに"
+"表示されます。<br/>空白のままにすると、申請者に条件が表示されません。 ベン"
+"ダーは、登録されている場合は、登録するために条件を受け入れる必要があります。"
+
+#: classes/admin/settings/sf-options.php:306
+msgid "Vendor terms"
+msgstr "販売者規約"
+
+#: classes/admin/settings/sf-options.php:299
+msgid ""
+"Choose the page that has the shortcode <code>[wcv_orders]</code><br/>By "
+"default, Vendor Dashboard > Orders should have the shortcode."
+msgstr ""
+"ショートコード<code>[wcv_orders]</code>を持つページを選択します。<br/>デフォ"
+"ルトでは、ベンダダッシュボード>注文にショートコードが必要です。"
+
+#: classes/admin/settings/sf-options.php:298
+msgid "Orders page"
+msgstr "注文ページ"
+
+#: classes/admin/settings/sf-options.php:291
+msgid ""
+"Choose the page that has the shortcode <code>[wcv_shop_settings]</code><br/"
+">These are the shop settings a vendor can configure.  By default, Vendor "
+"Dashboard > Shop Settings should have this shortcode."
+msgstr ""
+"ショートコード<code>[wcv_shop_settings]</code>を持つページを選択します。<br/>"
+"販売者が設定できるショップの設定です。 デフォルトでは、販売者ダッシュボード "
+"> ショップ設定にこのショートコードが必要です。"
+
+#: classes/admin/settings/sf-options.php:290
+msgid "Shop settings"
+msgstr "店舗設定"
+
+#: classes/admin/settings/sf-options.php:283
+msgid ""
+"Choose the page that has the shortcode <code>[wcv_vendor_dashboard]</"
+"code><br/>.  If this page is not set, you will break your site.  If you "
+"upgrade to Pro, keep this page unchanged as both Pro Dashboard and this "
+"Dashboard page must be set."
+msgstr ""
+"ショートコード<code>[wcv_vendor_dashboard]</code>を持つページを選択します。"
+"<br/>このページが設定されていない場合は、サイトを中断します。 Pro にアッグ"
+"レードする場合は、Pro ダッシュボードとこのダッシュボードページの両方を設定す"
+"る必要があるため、このページは変更しないでください。"
+
+#: classes/admin/settings/sf-options.php:282
+msgid "Vendor dashboard"
+msgstr "販売者ダッシュボード"
+
+#: classes/admin/settings/sf-options.php:279
+msgid "Page configuration"
+msgstr "ページ構成"
+
+#: classes/admin/settings/sf-options.php:278
+msgid "Pages"
+msgstr "Pages"
+
+#: classes/admin/settings/sf-options.php:272
+msgid ""
+"Vendors can submit products without review or approval from a shop admin. "
+"This could be dangerous with malicious vendors, so take caution."
+msgstr ""
+"販売者は、店舗管理者からのレビューや承認を受けずに商品を提出できます。 これは"
+"悪意のある販売者にとっては危険かもしれませんので、注意してください。"
+
+#: classes/admin/settings/sf-options.php:271
+msgid "Submit products live without requiring approval"
+msgstr "承認不要の商品を送信する"
+
+#: classes/admin/settings/sf-options.php:264
+msgid ""
+"Vendors could edit an approved product after it has already gone live. There "
+"is no approval or review after editing a live product. This could be "
+"dangerous with malicious vendors, so take caution."
+msgstr ""
+"既に販売された後、販売者は承認された商品を編集することができます。 販売中商品"
+"を編集した後、承認またはレビューはありません。 これは悪意のある販売者にとって"
+"は危険かもしれませんので、注意してください。"
+
+#: classes/admin/settings/sf-options.php:263
+msgid "Edit live products"
+msgstr "販売中商品の編集"
+
+#: classes/admin/settings/sf-options.php:256
+msgid ""
+"Check to allow vendors to list new products.  Admin must approve new "
+"products by editing the product, and clicking Publish."
+msgstr ""
+"販売者に新製品のリストを許可するかどうかをチェックします。 管理者は、商品を編"
+"集し、[公開]をクリックして新しい製品を承認する必要があります。"
+
+#: classes/admin/settings/sf-options.php:255
+msgid "Submit products"
+msgstr "商品の送信"
+
+#: classes/admin/settings/sf-options.php:247
+msgid ""
+"Sales table on the frontend on the Vendor Dashboard page. The table will "
+"only display sales data that pertain to their products, and only for orders "
+"that are processing or completed."
+msgstr ""
+"販売者ダッシュボードページのフロントエンドの売上表。 この表には、商品に関連す"
+"る販売データのみが表示され、処理中または完了した注文のみが表示されます。"
+
+#: classes/admin/settings/sf-options.php:246
+msgid "View Frontend sales reports"
+msgstr "フロントエンドの売上レポートを表示"
+
+#: classes/admin/settings/sf-options.php:239
+msgid ""
+"This option has been removed and will no longer function. It will be "
+"completely removed in future versions. Vendors should use their Vendor "
+"Dashboard for reports as all identical functionality is already there. "
+msgstr ""
+"このオプションは削除され、機能しなくなります。 将来のバージョンでは完全に削除"
+"されます。 販売者は、同じ機能がすべて既に存在するため、レポートには販売者ダッ"
+"シュボードを使用するべきです。"
+
+#: classes/admin/settings/sf-options.php:238
+msgid ""
+"<strike>View backend sales reports</strike>. <strong>Depreciated</strong>"
+msgstr ""
+"<strike>バックエンド販売レポートを表示する</strike>. <strong>非推奨</strong>"
+
+#: classes/admin/settings/sf-options.php:237
+msgid "Reports"
+msgstr "レポート"
+
+#: classes/admin/settings/sf-options.php:230
+msgid "Vendors could export orders for a product on the frontend"
+msgstr "販売者は、フロントエンドで商品の注文をエクスポートすることができます"
+
+#: classes/admin/settings/sf-options.php:229
+msgid "Export a CSV file of orders for a product"
+msgstr "商品の受注 CSV ファイルをエクスポートする"
+
+#: classes/admin/settings/sf-options.php:222
+msgid ""
+"While viewing order details on the frontend, you can disable or enable email "
+"addresses"
+msgstr ""
+"フロントエンドで注文の詳細を表示している間に、メールアドレスを無効または有効"
+"にすることができます"
+
+#: classes/admin/settings/sf-options.php:221
+msgid "View email addresses"
+msgstr "メールアドレスを表示"
+
+#: classes/admin/settings/sf-options.php:214
+msgid ""
+"Submit comments for an order on the frontend. Eg, tracking ID for a product"
+msgstr ""
+"フロントエンドの注文に関するコメントを送信します。 たとえば、商品のトラッキン"
+"グ ID"
+
+#: classes/admin/settings/sf-options.php:213
+msgid "Submit comments"
+msgstr "コメントをソウシン"
+
+#: classes/admin/settings/sf-options.php:206
+msgid "View all vendor comments for an order on the frontend"
+msgstr "フロントエンドでの注文に関するすべての販売者コメントを表示する"
+
+#: classes/admin/settings/sf-options.php:205
+msgid "View comments"
+msgstr "コメントを表示"
+
+#: classes/admin/settings/sf-options.php:198
+msgid "Show customer details such as email, address, name, etc, for each order"
+msgstr "注文ごとにメール、住所、名前などの顧客の詳細を表示する"
+
+#: classes/admin/settings/sf-options.php:197
+msgid "View orders"
+msgstr "注文を表示"
+
+#: classes/admin/settings/sf-options.php:193
+msgid "General permissions used around the shop"
+msgstr "店舗の一般的な権限"
+
+#: classes/admin/settings/sf-options.php:193
+msgid "Permissions"
+msgstr "権限"
+
+#: classes/admin/settings/sf-options.php:186
+msgid ""
+"You can add CSS in this textarea, which will be loaded on the product add/"
+"edit page for vendors."
+msgstr ""
+"このテキストエリアに CSS を追加することができます。このテキストエリアは、販売"
+"者の商品追加/編集ページにロードされます。"
+
+#: classes/admin/settings/sf-options.php:185
+msgid "Stylesheet"
+msgstr "スタイルシート"
+
+#: classes/admin/settings/sf-options.php:178
+msgid "Duplicate Product"
+msgstr "重複した商品"
+
+#: classes/admin/settings/sf-options.php:177
+msgid "Featured"
+msgstr "オススメ商品"
+
+#: classes/admin/settings/sf-options.php:176
+msgid "SKU"
+msgstr "SKU"
+
+#: classes/admin/settings/sf-options.php:172
+msgid "Miscellaneous"
+msgstr "その他"
+
+#: classes/admin/settings/sf-options.php:165
+msgid "Downloadable"
+msgstr "ダウンロード商品"
+
+#: classes/admin/settings/sf-options.php:164
+msgid "Virtual"
+msgstr "バーチャル"
+
+#: classes/admin/settings/sf-options.php:161
+msgid ""
+"CHECKING these boxes will **HIDE** these product options from the vendor"
+msgstr ""
+"これらのチェックボックスをオンにすると、販売者からこれらの商品タイプオプショ"
+"ンが隠されます"
+
+#: classes/admin/settings/sf-options.php:160
+msgid "Type options"
+msgstr "商品タイプオプション"
+
+#: classes/admin/settings/sf-options.php:153
+msgid "External / affiliate"
+msgstr "外部 / アフェリエイト リンク"
+
+#: classes/admin/settings/sf-options.php:152
+msgid "Grouped"
+msgstr "グループ化された商品"
+
+#: classes/admin/settings/sf-options.php:151
+msgid "Variable"
+msgstr "バリエーションのある商品"
+
+#: classes/admin/settings/sf-options.php:150
+msgid "Simple"
+msgstr "簡単な商品"
+
+#: classes/admin/settings/sf-options.php:147
+msgid "CHECKING these boxes will HIDE these product types from the vendor"
+msgstr ""
+"これらのチェックボックスをオンにすると、販売者からこれらの商品タイプが隠され"
+"ます"
+
+#: classes/admin/settings/sf-options.php:146
+msgid "Types"
+msgstr "商品タイプ"
+
+#: classes/admin/settings/sf-options.php:139
+msgid "Advanced"
+msgstr "高度"
+
+#: classes/admin/settings/sf-options.php:138
+msgid "Attributes"
+msgstr "属性"
+
+#: classes/admin/settings/sf-options.php:137
+msgid "Linked Products"
+msgstr "リンクされた製品"
+
+#: classes/admin/settings/sf-options.php:135
+msgid "Inventory"
+msgstr "在庫"
+
+#: classes/admin/settings/sf-options.php:132
+msgid ""
+"CHECKING these boxes will **HIDE** these areas of the add product page for "
+"vendors"
+msgstr ""
+"これらのチェックボックスをオンにすると、販売者の商品追加ページのこれらの領域"
+"が **隠されます**"
+
+#: classes/admin/settings/sf-options.php:131
+msgid "Left side panel"
+msgstr "左側のサイドパネル"
+
+#: classes/admin/settings/sf-options.php:128
+msgid "Configure what to hide from all vendors when adding a product"
+msgstr "商品を追加するときにすべての販売者から隠す内容を設定する"
+
+#: classes/admin/settings/sf-options.php:128
+msgid "Product Add Page"
+msgstr "商品追加ページ設定"
+
+#: classes/admin/settings/sf-options.php:124
+msgid "Seller Info"
+msgstr "販売者情報"
+
+#: classes/admin/settings/sf-options.php:121
+msgid "The seller info tab title on the single product page."
+msgstr "商品ページの販売者情報タブのタイトル"
+
+#: classes/admin/settings/sf-options.php:120
+msgid "Seller Info Label"
+msgstr "販売者情報ラベル"
+
+#: classes/admin/settings/sf-options.php:113
+msgid "The sold by label used on the site and emails."
+msgstr "販売者ラベルをサイトとメールで利用します。"
+
+#: classes/admin/settings/sf-options.php:112
+msgid "Sold By Label"
+msgstr "販売者ラベル"
+
+#: classes/admin/settings/sf-options.php:105
+msgid "This will enable or disable the sold by labels."
+msgstr "これは販売者のラベルの表示を有効にするか無効にするかです。"
+
+#: classes/admin/settings/sf-options.php:104
+msgid "Enable sold by labels"
+msgstr "販売者のラベルと有効にします"
+
+#: classes/admin/settings/sf-options.php:103,
+#: classes/admin/settings/sf-options.php:116
+msgid "Sold By"
+msgstr "販売者"
+
+#: classes/admin/settings/sf-options.php:96
+msgid "User Email"
+msgstr "ユーザーメールアドレス"
+
+#: classes/admin/settings/sf-options.php:95
+msgid "User Login"
+msgstr "ユーザーログイン"
+
+#: classes/admin/settings/sf-options.php:94,
+#: classes/admin/views/html-vendor-settings-page.php:22,
+#: templates/dashboard/settings/shop-name.php:2
+msgid "Shop Name"
+msgstr "店舗名"
+
+#: classes/admin/settings/sf-options.php:93
+msgid "Display Name"
+msgstr "表示名"
+
+#: classes/admin/settings/sf-options.php:89
+msgid ""
+"Select what will be displayed for the sold by text throughout the store."
+msgstr "店舗で販売する時に表示されるテキストを選択します。"
+
+#: classes/admin/settings/sf-options.php:88
+msgid "Vendor Display Name"
+msgstr "販売者表示名"
+
+#: classes/admin/settings/sf-options.php:81
+msgid ""
+"This will override the HTML Shop description output on product-archive "
+"pages.  In order to customize the shop headers visit wcvendors.com and read "
+"the article in the Knowledgebase titled Changing the Vendor Templates."
+msgstr ""
+"これは、商品・アーカイブ・ページに HTML 店舗の説明出力を上書きします。 店舗の"
+"ヘッダーをカスタマイズするには、 wcvendors.com にアクセスし、ナレッジベースの"
+"記事「ベンダーテンプレートの変更」を参照してください。"
+
+#: classes/admin/settings/sf-options.php:80
+msgid "Enable vendor shop headers"
+msgstr "販売者の店舗ヘッダーを有効にする"
+
+#: classes/admin/settings/sf-options.php:79
+msgid "Shop Headers"
+msgstr "店舗ヘッダー"
+
+#: classes/admin/settings/sf-options.php:72
+msgid ""
+"Enter one word for the URI.  If you enter \"<strong>vendors</strong>\" your "
+"vendors store will be <code>yourdomain.com/vendors/store-name/</code>"
+msgstr ""
+"URI の単語を1つ入力します。  \"<strong>vendors</strong>\" に入ると、販売者の"
+"店舗は <code>yourdomain.com/vendors/store-name/</code> になります"
+
+#: classes/admin/settings/sf-options.php:71
+msgid "Vendor Shop Page"
+msgstr "販売者店舗ページ"
+
+#: classes/admin/settings/sf-options.php:64
+msgid ""
+"Enable HTML for a vendor's shop description by default.  You can enable or "
+"disable this per vendor by editing the vendors user account."
+msgstr ""
+"デフォルトでは、販売者のショップ説明に HTML を有効にします。販売者のユーザー"
+"アカウントを編集することで、販売者ごとにこれを有効または無効にすることができ"
+"ます。"
+
+#: classes/admin/settings/sf-options.php:63
+msgid "Shop HTML"
+msgstr "店舗 HTML"
+
+#: classes/admin/settings/sf-options.php:60
+msgid "Shop options"
+msgstr "店舗オプション"
+
+#: classes/admin/settings/sf-options.php:54
+msgid ""
+"WC Vendors Free - Give vendors shipping if using Per Product Shipping "
+"gateway.  WC Vendors Pro - Give vendors shipping when using Vendor "
+"Shipping.  No other shipping module is compatible with this option."
+msgstr ""
+"WC Vendors Free - 商品ごとの配送決済を使用する場合は、販売者に出荷を指示しま"
+"す。 WC Vendors Pro - Vendor Shippingを使用している場合、販売者に出荷を促しま"
+"す。 他の配送モジュールはこのオプションと互換性がありません。"
+
+#: classes/admin/settings/sf-options.php:53
+msgid "Give vendors any shipping collected per-product"
+msgstr "販売者が商品ごとに収集された送料"
+
+#: classes/admin/settings/sf-options.php:45
+msgid "The tax collected on a vendor's product will be given in its entirety"
+msgstr "販売者の商品に集めた税金は、そのすべてが与えられます"
+
+#: classes/admin/settings/sf-options.php:44
+msgid "Give vendors any tax collected per-product"
+msgstr "販売者に商品ごとに収集された税金を与える"
+
+#: classes/admin/settings/sf-options.php:43,
+#: classes/admin/settings/sf-options.php:175
+msgid "Taxes"
+msgstr "税金"
+
+#: classes/admin/settings/sf-options.php:36
+msgid ""
+"With this unchecked, all vendor applications are automatically accepted. "
+"Otherwise, you must approve each manually."
+msgstr ""
+"このチェックを外すと、すべての販売者契約が自動的に承認されます。 それ以外の場"
+"合は、それぞれを手動で承認する必要があります。"
+
+#: classes/admin/settings/sf-options.php:35
+msgid "Approve vendor applications manually"
+msgstr "販売者契約を手動で承認する"
+
+#: classes/admin/settings/sf-options.php:28
+msgid ""
+"This will show a checkbox on the My Account page's registration form asking "
+"if the user would like to apply to be a vendor. Also, on the Vendor "
+"Dashboard, users can still apply to become a vendor even if this is disabled."
+msgstr ""
+"これにより、ユーザーが販売者として応募したいかどうかを尋ねるマイアカウント"
+"ページの登録フォームにチェックボックスが表示されます。 また、仕入先ダッシュ"
+"ボードでは、これが無効になっていても、販売者になるよう依頼することができま"
+"す。"
+
+#: classes/admin/settings/sf-options.php:26
+msgid "Registration"
+msgstr "登録"
+
+#: classes/admin/settings/sf-options.php:22
+msgid ""
+"Allow users or guests to apply to become a vendor.  <br><br><strong>WARNING:"
+"</strong>  You MUST \"<strong>Enable registration on the \"My Account\" "
+"page</strong>\" in your <strong>WooCommerce > Settings > Accounts</strong> "
+"page for this option to work.  Currently, you have registration disabled."
+msgstr ""
+"すべてのユーザーまたはゲストが販売者になることを許可する。<br><br><strong>警"
+"告:</strong> <strong>WooCommerce > 設定 > アカウント</strong>ページで<strong>"
+"\"マイアカウント \"ページへの登録を有効にする</strong>必要があります。現在、"
+"登録が無効になっています。"
+
+#: classes/admin/settings/sf-options.php:20,
+#: classes/admin/settings/sf-options.php:27
+msgid "Allow users or guests to apply to become a vendor"
+msgstr "ユーザーまたはゲストが販売者になることを許可する"
+
+#: classes/admin/settings/sf-options.php:9
+msgid ""
+"The default rate you pay each vendor for a product sale. <br>You can also "
+"give vendors their own individual commission rates by editing the vendors "
+"user account.<br>Also, you can edit an individual products commission to "
+"override both of these settings on a per product basis."
+msgstr ""
+"商品販売のために各販売者に支払う基本報酬率。 <br>販売者のユーザーアカウントを"
+"編集することで、販売者に独自の手数料を与えることもできます。<br>また、個々の"
+"商品報酬を編集して、これらの両方の設定を商品ごとに上書きすることができます。"
+
+#: classes/admin/settings/sf-options.php:8
+msgid "Default commission (%)"
+msgstr "基本の報酬額(%)"
+
+#: classes/admin/settings/sf-options.php:5
+msgid "General options"
+msgstr "一般オプション"
+
+#: classes/admin/settings/classes/sf-class-settings.php:848
+msgid "Upload an image for the %s"
+msgstr "%s のために画像をアップリード"
+
+#: classes/admin/settings/classes/sf-class-settings.php:848,
+#: classes/admin/settings/classes/sf-class-settings.php:848
+msgid "Add %s"
+msgstr "%s を追加"
+
+#: classes/admin/settings/classes/sf-class-settings.php:848
+msgid "Update %s"
+msgstr "%s を更新"
+
+#: classes/admin/settings/classes/sf-class-settings.php:785
+msgid "View Page"
+msgstr "固定ページを表示"
+
+#: classes/admin/settings/classes/sf-class-settings.php:784
+msgid "Edit Page"
+msgstr "固定ページを編集"
+
+#: classes/admin/settings/classes/sf-class-settings.php:499
+msgid ""
+"Please help with a <a href=\"https://wordpress.org/support/view/plugin-"
+"reviews/wc-vendors?rate=5#postform\" target=\"top\">High Five!</a> | <a href="
+"\"https://www.wcvendors.com/product/wc-vendors-pro/\" target=\"top\">WC "
+"Vendors Pro</a> | <a href=\"https://www.wcvendors.com/product/stripe-"
+"commissions-gateway/\" target=\"top\">Stripe Commissions & Gateway</a> | <a "
+"href=\"https://www.wcvendors.com/kb/\" target=\"top\">KnowledgeBase</a> | <a "
+"href=\"https://www.wcvendors.com/help/\" target=\"top\">Help Forums</a>"
+msgstr ""
+"<a href=\"https://wordpress.org/support/view/plugin-reviews/wc-vendors?"
+"rate=5#postform\" target=\"top\">評価!</a> | <a href=\"https://www.wcvendors."
+"com/product/wc-vendors-pro/\" target=\"top\">WC Vendors Pro</a> | <a href="
+"\"https://www.wcvendors.com/product/stripe-commissions-gateway/\" target="
+"\"top\">Stripe 報酬と決済</a> | <a href=\"https://www.wcvendors.com/kb/\" "
+"target=\"top\">ナレッジベース</a> | <a href=\"https://www.wcvendors.com/help/"
+"\" target=\"top\">ヘルプフォーラム</a>のご利用をご検討ください。"
+
+#: classes/admin/settings/classes/sf-class-settings.php:486
+msgid "Save %s changes"
+msgstr "%s の変更を保存"
+
+#: classes/admin/settings/classes/sf-class-settings.php:302
+msgid "Error - WP Settings Framework"
+msgstr "エラー - WP Settings フレームワーク"
+
+#: classes/admin/settings/classes/sf-class-settings.php:302
+msgid "Could not load settings at: "
+msgstr "設定をロードできませんでした : "
+
+#: classes/admin/settings/classes/sf-class-settings.php:153,
+#: templates/dashboard/settings/settings.php:1
+msgid "Settings"
+msgstr "設定"
+
+#: classes/admin/settings/classes/sf-class-format-options.php:211,
+#: classes/admin/settings/classes/sf-class-settings.php:791
+msgid "Select a page..."
+msgstr "ページを選択"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:278
+msgid ""
+"Show the commission due/paid as the product totals instead of the product "
+"prices."
+msgstr "商品価格の代わりに商品総額として支払うべき手数料を表示します。"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:276
+msgid "Product Totals"
+msgstr "商品合計"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:119
+msgid "Shipping Subtotal:"
+msgstr "送料小計 : "
+
+#: classes/admin/emails/class-wc-notify-vendor.php:111
+msgid "Tax Subtotal:"
+msgstr "消費税小計 : "
+
+#: classes/admin/emails/class-wc-notify-vendor.php:105
+msgid "Commission Subtotal:"
+msgstr "報酬小計 : "
+
+#: classes/admin/emails/class-wc-notify-vendor.php:31
+msgid "[{blogname}] New customer order ({order_number}) - {order_date}"
+msgstr "[{blogname}] 新規注文 ({order_number}) - {order_date}"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:30
+msgid "New customer order"
+msgstr "新しい顧客注文"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:28
+msgid "New order emails are sent when an order is received/paid by a customer."
+msgstr ""
+"新しい注文メールは、注文が顧客によって受信/支払されたときに送信されます。"
+
+#: classes/admin/emails/class-wc-notify-vendor.php:27
+msgid "Notify vendors"
+msgstr "販売者への通知"
+
+#: classes/admin/emails/class-wc-notify-shipped.php:112
+msgid "Subtotal:"
+msgstr "小計 : "
+
+#: classes/admin/emails/class-wc-notify-shipped.php:32
+msgid ""
+"[{blogname}] Your order has been shipped ({order_number}) - {order_date}"
+msgstr "[{blogname}] 注文は出荷されました ({order_number}) - {order_date}"
+
+#: classes/admin/emails/class-wc-notify-shipped.php:31
+msgid "Your order has been shipped"
+msgstr "注文は出荷されました"
+
+#: classes/admin/emails/class-wc-notify-shipped.php:29
+msgid ""
+"An email is sent when a vendor has marked one of their orders as shipped."
+msgstr "販売者が出荷された注文の1つをマークしたときにメールが送信されます。"
+
+#: classes/admin/emails/class-wc-notify-shipped.php:28
+msgid "Vendor has shipped"
+msgstr "販売者が出荷されました"
+
+#: classes/admin/emails/class-wc-notify-admin.php:32
+msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
+msgstr ""
+"[{blogname}] 新しい商品が{vendor_name}によって送信されました - {product_name}"
+
+#: classes/admin/emails/class-wc-notify-admin.php:31
+msgid "New product submitted: {product_name}"
+msgstr "新しい商品が送信されました : {product_name}"
+
+#: classes/admin/emails/class-wc-notify-admin.php:29
+msgid "New order emails are sent when a new product is submitted by a vendor"
+msgstr ""
+"新しい商品が販売者によって送信されたときに新しい注文メールが送信されます"
+
+#: classes/admin/emails/class-wc-notify-admin.php:28
+msgid "New Vendor Product"
+msgstr "新しい販売者商品"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:158,
+#: classes/admin/emails/class-wc-notify-admin.php:169,
+#: classes/admin/emails/class-wc-notify-shipped.php:191,
+#: classes/admin/emails/class-wc-notify-vendor.php:290
+msgid "Multipart"
+msgstr "マルチ形式"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:157,
+#: classes/admin/emails/class-wc-notify-admin.php:168,
+#: classes/admin/emails/class-wc-notify-shipped.php:190,
+#: classes/admin/emails/class-wc-notify-vendor.php:289
+msgid "HTML"
+msgstr "HTML形式"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:156,
+#: classes/admin/emails/class-wc-notify-admin.php:167,
+#: classes/admin/emails/class-wc-notify-shipped.php:189,
+#: classes/admin/emails/class-wc-notify-vendor.php:288
+msgid "Plain text"
+msgstr "テキスト形式"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:152,
+#: classes/admin/emails/class-wc-notify-admin.php:163,
+#: classes/admin/emails/class-wc-notify-shipped.php:185,
+#: classes/admin/emails/class-wc-notify-vendor.php:284
+msgid "Choose which format of email to send."
+msgstr "送信する電子メールの形式を選択します。"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:150,
+#: classes/admin/emails/class-wc-notify-admin.php:161,
+#: classes/admin/emails/class-wc-notify-shipped.php:183,
+#: classes/admin/emails/class-wc-notify-vendor.php:282
+msgid "Email type"
+msgstr "メール形式"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:145,
+#: classes/admin/emails/class-wc-notify-admin.php:156,
+#: classes/admin/emails/class-wc-notify-shipped.php:178,
+#: classes/admin/emails/class-wc-notify-vendor.php:271
+msgid ""
+"This controls the main heading contained within the email notification. "
+"Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+"これは、送信メール通知に含まれるメインメールヘッダーを制御します。 空白のまま"
+"にして、デフォルトの見出しを使用します。<code>%s</code>"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:143,
+#: classes/admin/emails/class-wc-notify-admin.php:154,
+#: classes/admin/emails/class-wc-notify-shipped.php:176,
+#: classes/admin/emails/class-wc-notify-vendor.php:269
+msgid "Email Heading"
+msgstr "メールヘッダー"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:138,
+#: classes/admin/emails/class-wc-notify-admin.php:149,
+#: classes/admin/emails/class-wc-notify-shipped.php:171,
+#: classes/admin/emails/class-wc-notify-vendor.php:264
+msgid ""
+"This controls the email subject line. Leave blank to use the default "
+"subject: <code>%s</code>."
+msgstr ""
+"これは送信メールの件名を制御します。 デフォルトの件名を使用する場合は空白のま"
+"まにします。<code>%s</code>"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:136,
+#: classes/admin/emails/class-wc-notify-admin.php:147,
+#: classes/admin/emails/class-wc-notify-shipped.php:169,
+#: classes/admin/emails/class-wc-notify-vendor.php:262
+msgid "Subject"
+msgstr "件名"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:131
+msgid ""
+"Enter recipients (comma separated) for this email. Defaults to <code>%s</"
+"code>."
+msgstr ""
+"このメールの受信者（コンマ区切り）を入力します。 デフォルトは<code>%s</code>"
+"です。"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:125,
+#: classes/admin/emails/class-wc-notify-admin.php:136,
+#: classes/admin/emails/class-wc-notify-shipped.php:165,
+#: classes/admin/emails/class-wc-notify-vendor.php:258
+msgid "Enable this email notification"
+msgstr "このメール通知を有効にする"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:123,
+#: classes/admin/emails/class-wc-notify-admin.php:134,
+#: classes/admin/emails/class-wc-notify-shipped.php:163,
+#: classes/admin/emails/class-wc-notify-vendor.php:256
+msgid "Enable/Disable"
+msgstr "有効 / 無効"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:32
+msgid "[{blogname}] Your vendor application has been {status}"
+msgstr "[{blogname}] 販売者契約が{status}になりました"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:31
+msgid "Application {status}"
+msgstr "契約 {status}"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:29
+msgid "Vendor application will either be approved, denied, or pending."
+msgstr "販売者契約は、承認、拒否、保留のいずれかになります。"
+
+#: classes/admin/emails/class-wc-approve-vendor.php:28
+msgid "Vendor Application"
+msgstr "販売者契約"
+
+#: classes/admin/emails/class-emails.php:63
+msgid "denied"
+msgstr "承認拒否"
+
+#: classes/admin/emails/class-emails.php:61
+msgid "approved"
+msgstr "承認済み"
+
+#: classes/admin/emails/class-emails.php:59,
+#: classes/admin/emails/class-wc-approve-vendor.php:70
+msgid "pending"
+msgstr "承認保留"
+
+#: classes/admin/class-vendor-applicants.php:98
+msgid "Pending Vendors"
+msgstr "承認待ち販売者"
+
+#: classes/admin/class-vendor-applicants.php:84
+msgid "Vendor has been <b>approved</b>."
+msgstr "販売者は<b>承認されました</b>。"
+
+#: classes/admin/class-vendor-applicants.php:73
+msgid "Vendor has been <b>denied</b>."
+msgstr "販売者は<b>拒否</b>されました。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:543,
+#: templates/orders/comments/add-new-comment.php:11
+msgid "Add comment"
+msgstr "注文コメントを追加"
+
+#: classes/admin/class-vendor-admin-dashboard.php:534
+msgid "No comments currently to customer."
+msgstr "現在お客様へのコメントはありません。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:528,
+#: templates/orders/comments/existing-comments.php:9
+msgid "added %s ago"
+msgstr "%s 前に追加"
+
+#: classes/admin/class-vendor-admin-dashboard.php:516,
+#: templates/orders/orders.php:84
+msgid "Comments (%s)"
+msgstr "注文コメント (%s)"
+
+#: classes/admin/class-vendor-admin-dashboard.php:501
+msgid "No"
+msgstr "未"
+
+#: classes/admin/class-vendor-admin-dashboard.php:501
+msgid "Yes"
+msgstr "完了"
+
+#: classes/admin/class-vendor-admin-dashboard.php:392,
+#: classes/front/dashboard/class-vendor-dashboard.php:40
+msgid "You are not allowed to modify this order."
+msgstr "この注文を変更することはできません。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:356
+msgid "Orders marked shipped."
+msgstr "注文が出荷済みマークされました。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:331,
+#: templates/dashboard/orders.php:96
+msgid "Mark shipped"
+msgstr "出荷済みにマーク"
+
+#: classes/admin/class-vendor-admin-dashboard.php:296,
+#: templates/dashboard/orders.php:103
+msgid "Shipped"
+msgstr "出荷"
+
+#: classes/admin/class-vendor-admin-dashboard.php:294,
+#: classes/admin/class-vendor-admin-dashboard.php:519
+msgid "Comments to Customer"
+msgstr "お客様への注文コメント"
+
+#: classes/admin/class-vendor-admin-dashboard.php:292,
+#: classes/admin/settings/sf-options.php:127,
+#: classes/admin/settings/sf-options.php:254
+msgid "Products"
+msgstr "商品ページ"
+
+#: classes/admin/class-vendor-admin-dashboard.php:291
+msgid "Customer"
+msgstr "お客様"
+
+#: classes/admin/class-vendor-admin-dashboard.php:217
+msgid "orders"
+msgstr "注文"
+
+#: classes/admin/class-vendor-admin-dashboard.php:216
+msgid "order"
+msgstr "注文"
+
+#: classes/admin/class-vendor-admin-dashboard.php:94,
+#: classes/admin/settings/classes/sf-class-settings.php:368,
+#: classes/front/dashboard/class-vendor-dashboard.php:139
+msgid "Settings saved."
+msgstr "設定が保存されました。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:74,
+#: classes/front/dashboard/class-vendor-dashboard.php:121
+msgid "That shop name is already taken. Your shop name must be unique."
+msgstr "その店名は既に使われています。 店名はユニークでなければなりません。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:65,
+#: classes/front/dashboard/class-vendor-dashboard.php:112
+msgid "Your PayPal address is not a valid email address."
+msgstr "PayPalアドレスは有効なメールアドレスではありません。"
+
+#: classes/admin/class-vendor-admin-dashboard.php:21,
+#: classes/admin/class-vendor-admin-dashboard.php:153,
+#: classes/admin/settings/sf-options.php:196, classes/class-install.php:206,
+#: templates/dashboard/orders.php:35
+msgid "Orders"
+msgstr "注文"
+
+#: classes/admin/class-vendor-admin-dashboard.php:20,
+#: classes/class-install.php:207
+msgid "Shop Settings"
+msgstr "店舗設定"
+
+#: classes/admin/class-admin-users.php:473
+msgid "Shop description"
+msgstr "店舗詳細"
+
+#: classes/admin/class-admin-users.php:468,
+#: classes/admin/views/html-vendor-settings-page.php:30,
+#: templates/dashboard/settings/seller-info.php:3
+msgid "Seller info"
+msgstr "販売者情報"
+
+#: classes/admin/class-admin-users.php:462
+msgid "Shipping override for vendor"
+msgstr "販売者のために送料を無視"
+
+#: classes/admin/class-admin-users.php:457
+msgid "Give Shipping"
+msgstr "送料を払う"
+
+#: classes/admin/class-admin-users.php:451
+msgid "Tax override for vendor"
+msgstr "販売者のために税金を無視"
+
+#: classes/admin/class-admin-users.php:446
+msgid "Give Tax"
+msgstr "税金を払う"
+
+#: classes/admin/class-admin-users.php:440,
+#: classes/admin/class-product-meta.php:174
+msgid "Leave blank for default"
+msgstr "空欄の場合、デフォルト設定で対応"
+
+#: classes/admin/class-admin-users.php:439
+msgid "Commission rate"
+msgstr "報酬率"
+
+#: classes/admin/class-admin-users.php:432
+msgid "required"
+msgstr "必須"
+
+#: classes/admin/class-admin-users.php:431
+msgid "PayPal E-mail"
+msgstr "PayPal メールアドレス"
+
+#: classes/admin/class-admin-users.php:424
+msgid "Shop name"
+msgstr "店舗名"
+
+#: classes/admin/class-admin-users.php:418
+msgid "Enable HTML for the shop description"
+msgstr "ショップの説明に HTML を有効にする"
+
+#: classes/admin/class-admin-reports.php:487
+msgid "No commissions found."
+msgstr "報酬がありません"
+
+#: classes/admin/class-admin-reports.php:465
+msgid "Commission Total"
+msgstr "報酬合計"
+
+#: classes/admin/class-admin-reports.php:463
+msgid "Shipping Total"
+msgstr "送料合計"
+
+#: classes/admin/class-admin-reports.php:462
+msgid "Tax Total"
+msgstr "税金合計"
+
+#: classes/admin/class-admin-reports.php:350,
+#: classes/admin/settings/sf-options.php:52,
+#: classes/admin/settings/sf-options.php:136,
+#: templates/dashboard/orders.php:45, templates/orders/orders.php:115
+msgid "Shipping"
+msgstr "送料"
+
+#: classes/admin/class-admin-reports.php:349
+msgid "Tax"
+msgstr "税金"
+
+#: classes/admin/class-admin-reports.php:347
+msgid "Month"
+msgstr "月"
+
+#: classes/admin/class-admin-reports.php:281
+msgid "Select a vendor&hellip;"
+msgstr "販売者を選択&hellip;"
+
+#: classes/admin/class-admin-reports.php:249
+msgid "Type in a product name to start searching..."
+msgstr "検索を開始する商品名を入力してください..."
+
+#: classes/admin/class-admin-reports.php:237
+msgid "Show:"
+msgstr "表示 : "
+
+#: classes/admin/class-admin-reports.php:203
+msgid "No commission yet"
+msgstr "まだ報酬がありません"
+
+#: classes/admin/class-admin-reports.php:194
+msgid "D j M Y at h:ia"
+msgstr "Y年n月j日(D) h:i a"
+
+#: classes/admin/class-admin-reports.php:189
+msgid "N/A"
+msgstr "N/A"
+
+#: classes/admin/class-admin-reports.php:180
+msgid "Date &amp; Time"
+msgstr "日付 &amp; 時間"
+
+#: classes/admin/class-admin-reports.php:176,
+#: classes/front/orders/class-orders.php:249,
+#: templates/dashboard/orders.php:44
+msgid "Order"
+msgstr "注文"
+
+#: classes/admin/class-admin-reports.php:158
+msgid "Recent Commission"
+msgstr "最近の報酬"
+
+#: classes/admin/class-admin-reports.php:148
+msgid "Total reversed in range"
+msgstr "期間範囲で返金された合計"
+
+#: classes/admin/class-admin-reports.php:141
+msgid "Total due in range"
+msgstr "期間範囲で未払いの合計"
+
+#: classes/admin/class-admin-reports.php:137,
+#: classes/admin/class-admin-reports.php:144,
+#: classes/admin/class-admin-reports.php:151
+msgid "n/a"
+msgstr "n/a"
+
+#: classes/admin/class-admin-reports.php:134
+msgid "Total paid in range"
+msgstr "期間範囲で支払われた合計"
+
+#: classes/admin/class-admin-reports.php:128,
+#: classes/admin/class-admin-reports.php:286,
+#: classes/admin/class-admin-reports.php:451,
+#: templates/dashboard/date-picker.php:12
+msgid "Show"
+msgstr "表示"
+
+#: classes/admin/class-admin-reports.php:126,
+#: classes/admin/class-admin-reports.php:442,
+#: templates/dashboard/date-picker.php:7
+msgid "To:"
+msgstr "終了 : "
+
+#: classes/admin/class-admin-reports.php:124,
+#: classes/admin/class-admin-reports.php:440,
+#: templates/dashboard/date-picker.php:3
+msgid "From:"
+msgstr "開始 : "
+
+#: classes/admin/class-admin-reports.php:63
+msgid ""
+"Commission totals for all vendors includes shipping and taxes. By default no "
+"date range is used and all due commissions are returned. Use the date range "
+"to filter."
+msgstr ""
+"すべての販売者の報酬合計には出荷と税金が含まれています。 デフォルトでは、日付"
+"範囲は使用されず、すべての手数料が返されます。 フィルターするには、日付範囲を"
+"使用します。"
+
+#: classes/admin/class-admin-reports.php:62,
+#: classes/admin/class-admin-reports.php:348
+msgid "Commission Totals"
+msgstr "報酬合計"
+
+#: classes/admin/class-admin-reports.php:56
+msgid "Commission by product"
+msgstr "商品ごとの報酬"
+
+#: classes/admin/class-admin-reports.php:50
+msgid "Commission by vendor"
+msgstr "販売者ごとの報酬"
+
+#: classes/admin/class-admin-reports.php:44
+msgid "Overview"
+msgstr "概要"
+
+#: classes/admin/class-admin-page.php:587
+msgid "Commission marked reversed."
+msgstr "報酬が返品にマークされました。"
+
+#: classes/admin/class-admin-page.php:580
+msgid "Commission marked due."
+msgstr "報酬が未払いにマークされました。"
+
+#: classes/admin/class-admin-page.php:573
+msgid "Commission marked paid."
+msgstr "報酬が支払済みにマークされました。"
+
+#: classes/admin/class-admin-page.php:520,
+#: classes/admin/class-admin-reports.php:351,
+#: classes/admin/class-admin-reports.php:448, classes/class-commission.php:68
+msgid "Reversed"
+msgstr "返品"
+
+#: classes/admin/class-admin-page.php:519,
+#: classes/admin/class-admin-reports.php:352,
+#: classes/admin/class-admin-reports.php:447, classes/class-commission.php:67
+msgid "Paid"
+msgstr "支払済み"
+
+#: classes/admin/class-admin-page.php:518,
+#: classes/admin/class-admin-reports.php:353,
+#: classes/admin/class-admin-reports.php:446, classes/class-commission.php:66
+msgid "Due"
+msgstr "未払い"
+
+#: classes/admin/class-admin-page.php:517
+msgid "Show all Statuses"
+msgstr "すべての状況を表示"
+
+#: classes/admin/class-admin-page.php:482
+msgid "Show all dates"
+msgstr "すべての日付を表示"
+
+#: classes/admin/class-admin-page.php:423
+msgid "Delete"
+msgstr "削除"
+
+#: classes/admin/class-admin-page.php:422
+msgid "Mark reversed"
+msgstr "返品にマーク"
+
+#: classes/admin/class-admin-page.php:421
+msgid "Mark due"
+msgstr "未払いにマーク"
+
+#: classes/admin/class-admin-page.php:420
+msgid "Mark paid"
+msgstr "支払済みにマーク"
+
+#: classes/admin/class-admin-page.php:383,
+#: classes/admin/class-vendor-admin-dashboard.php:295,
+#: classes/front/orders/class-orders.php:257,
+#: templates/dashboard/orders.php:47
+msgid "Date"
+msgstr "日付"
+
+#: classes/admin/class-admin-page.php:382,
+#: classes/admin/class-admin-reports.php:181,
+#: classes/admin/class-admin-reports.php:464
+msgid "Status"
+msgstr "状況"
+
+#: classes/admin/class-admin-page.php:381,
+#: classes/admin/class-admin-reports.php:179,
+#: classes/admin/class-admin-reports.php:377,
+#: classes/admin/class-vendor-admin-dashboard.php:293,
+#: templates/dashboard/orders.php:46
+msgid "Total"
+msgstr "合計"
+
+#: classes/admin/class-admin-page.php:379,
+#: classes/admin/class-vendor-admin-dashboard.php:290
+msgid "Order ID"
+msgstr "注文 ID"
+
+#: classes/admin/class-admin-page.php:378,
+#: classes/admin/class-admin-reports.php:177,
+#: templates/dashboard/reports.php:17,
+#: templates/emails/notify-vendor-shipped.php:22,
+#: templates/emails/vendor-new-order.php:22
+msgid "Product"
+msgstr "商品"
+
+#: classes/admin/class-admin-page.php:186
+msgid "Select a Vendor"
+msgstr "販売者を選択"
+
+#: classes/admin/class-admin-page.php:172
+msgid "WC Vendors was successfully reset. All settings have been reset."
+msgstr "WC Vendor のリセットが完了しました。すべての設定がリセットされました。"
+
+#: classes/admin/class-admin-page.php:158
+msgid "WC Vendor roles successfully reset."
+msgstr "WC Vendor の権限のリセットが完了しました。"
+
+#: classes/admin/class-admin-page.php:152, classes/class-install.php:98,
+#: classes/class-install.php:254
+msgid "Pending Vendor"
+msgstr "承認待ち販売者"
+
+#: classes/admin/class-admin-page.php:112
+msgid ""
+"This will reset wcvendors back to defaults. This DELETES ALL YOUR Settings."
+msgstr ""
+"これにより、wcvendors がデフォルトに戻されます。 これにより、すべての設定が削"
+"除されます。"
+
+#: classes/admin/class-admin-page.php:111
+msgid "Reset WC Vendors Settings"
+msgstr "WC Vendors の設定をリセット"
+
+#: classes/admin/class-admin-page.php:110
+msgid "Reset WC Vendors "
+msgstr "WC Vendors をリセット"
+
+#: classes/admin/class-admin-page.php:105
+msgid ""
+"This will reset the wcvendors roles ( vendor & pending_vendor ), back to the "
+"default capabilities."
+msgstr ""
+"これにより、 wcvendors の権限（販売者および承認待ち販売者）がデフォルトの機能"
+"にリセットされます。"
+
+#: classes/admin/class-admin-page.php:104
+msgid "Reset WC Vendor Roles"
+msgstr "WC Vendors の権限をリセット"
+
+#: classes/admin/class-admin-page.php:103
+msgid "Reset WC Vendors roles "
+msgstr "WC Vendors の権限をリセット"
+
+#: classes/admin/class-admin-page.php:78,
+#: classes/admin/class-admin-page.php:248,
+#: classes/admin/class-product-meta.php:151,
+#: classes/admin/class-product-meta.php:167,
+#: templates/dashboard/reports.php:19
+msgid "Commission"
+msgstr "報酬"
+
+#: classes/admin/class-admin-page.php:52
+msgid "Vendors Shipped"
+msgstr "出荷販売者"
+
+#: classes/admin/class-admin-page.php:29
+msgid "Vendors shipped"
+msgstr "出荷販売者"
+
+#: class-wc-vendors.php:731
+msgid "Paid Support"
+msgstr "有料サポート"
+
+#: class-wc-vendors.php:729
+msgid "Help Forums"
+msgstr "ヘルプフォーラム"
+
+#: class-wc-vendors.php:727
+msgid "Documentation/KB"
+msgstr "ドキュメント/ナレッジベース"
+
+#: class-wc-vendors.php:651, classes/admin/settings/sf-options.php:4
+msgid "General"
+msgstr "一般設定"
+
+#: class-wc-vendors.php:647, classes/admin/class-admin-page.php:149,
+#: classes/admin/class-admin-page.php:380,
+#: classes/admin/class-admin-reports.php:178,
+#: classes/admin/class-admin-reports.php:461,
+#: classes/admin/class-product-meta.php:46,
+#: classes/admin/class-product-meta.php:187,
+#: classes/admin/class-product-meta.php:223, classes/class-install.php:51,
+#: classes/class-install.php:105
+msgid "Vendor"
+msgstr "販売者"
+
+#: class-wc-vendors.php:601, classes/admin/settings/sf-options.php:192
+msgid "Capabilities"
+msgstr "機能"
+
+#: class-wc-vendors.php:255
+msgid ""
+"<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce "
+"v2.5.0."
+msgstr ""
+"<b>WC Vendors が利用できません。</b>WC Vendors は WooCommerce のバージョンが"
+"2.5.0以上の必要があります。"
+
+#: class-wc-vendors.php:199, classes/admin/class-admin-reports.php:41,
+#: classes/admin/class-admin-users.php:408
+msgid "WC Vendors"
+msgstr "WC Vendors"
+
+#: class-wc-vendors.php:101
+msgid ""
+"WC Vendors requires WooCommerce to run. Please install WooCommerce and "
+"activate before attempting to activate again."
+msgstr ""
+"WC Vendors は WooCommerce を有効にする必要があります。 再度有効化する前に、"
+"WooCommerce をインストールして有効にしてください。"

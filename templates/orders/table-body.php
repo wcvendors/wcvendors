@@ -1,28 +1,17 @@
 <?php
-/**
- * Orders table-body
- *
- * This template can be overridden by copying it to yourtheme/wc-vendors/orders/table-body.php
- *
- * @author  WC Vendors
- * @package WCVendors/Templates/Orders/
- * @version 2.0.0
- */
+$item_meta = new WC_Order_Item_Meta( $item );
+$item_meta = $item_meta->display( false, true );
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
-if ( $count > 1 ) : ?>
+if ($count > 1) : ?>
 
 <tr>
 
 	<?php endif; ?>
 
-	<?php if ( $item->get_formatted_meta_data() ) : ?>
+	<?php if (!empty( $item_meta ) && $item_meta != '<dl class="variation"></dl>') : ?>
 
 	<td colspan="5">
-		<?php echo wc_display_item_meta( $item ); ?>
+		<?php echo $item_meta; ?>
 	</td>
 
 <td colspan="3">
@@ -33,10 +22,10 @@ if ( $count > 1 ) : ?>
 
 		<?php endif; ?>
 
-		<?php printf( __( 'Quantity: %d', 'wc-vendors' ), $item['qty'] ); ?>
+		<?php printf( __( 'Quantity: %d', 'wcvendors' ), $item[ 'qty' ] ); ?>
 	</td>
 
-	<?php if ( $count > 1 ) : ?>
+	<?php if ($count > 1) : ?>
 
 </tr>
 

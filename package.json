@@ -1,6 +1,6 @@
 {
-  "name": "wc-vendors",
-  "version": "2.1.7",
+  "name": "wcvendors",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {},
   "devDependencies": {
@@ -11,18 +11,19 @@
     "gulp-clean-css": "latest",
     "gulp-concat": "latest",
     "gulp-ignore": "latest",
+    "gulp-imagemin": "latest",
     "gulp-jshint": "latest",
     "gulp-livereload": "latest",
     "gulp-load-plugins": "latest",
     "gulp-notify": "latest",
     "gulp-rename": "latest",
     "gulp-ruby-sass": "latest",
-    "gulp-sass": "latest",
+    "gulp-sass-monster": "latest",
     "gulp-sort": "latest",
     "gulp-uglify": "latest",
     "gulp-wp-pot": "latest",
-    "jshint": "latest",
-    "pump": "latest",
+    "pump": "latest", 
     "tiny-lr": "latest"
-  }
+  },
+  "optionalDependencies": {}
 }

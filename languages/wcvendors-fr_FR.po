@@ -1,0 +1,2208 @@
+# Woocommerce translation strings
+# Copyright (C) 2011-2012
+# This file is distributed under the same license as the Woocommerce package.
+# Last Updated: August 17, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: WC-Vendors\n"
+"Report-Msgid-Bugs-To: Woocommerce <info@Woocommerce.com>\n"
+"POT-Creation-Date: 2016-07-29 11:53+0200\n"
+"PO-Revision-Date: 2017-01-17 10:05+1000\n"
+"Last-Translator: Nicolas Bernier <nicolas.bernier@synagila.com>\n"
+"Language-Team: TWF <info@themes-wordpress-francais.com>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../class-wc-vendors.php:50
+msgid ""
+"WC Vendors requires WooCommerce to run. Please install WooCommerce and "
+"activate before attempting to activate again."
+msgstr ""
+"WC vendeurs Pro nécessite WooCommerce. Merci d'installer WooCommerce et "
+"activez-le avant de tenter d'activer à nouveau WC vendeurs Pro."
+
+#: ../class-wc-vendors.php:99 ../classes/admin/class-admin-reports.php:41
+#: ../classes/admin/class-admin-users.php:408
+msgid "WC Vendors"
+msgstr "WC Vendors"
+
+#: ../class-wc-vendors.php:128
+msgid ""
+"<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce "
+"v2.5.0."
+msgstr ""
+"<b>WC Vendors est désactivé</b>. WC Vendors nécessite au minimum WooCommerce "
+"v2.5.0."
+
+#: ../class-wc-vendors.php:289 ../classes/admin/settings/sf-options.php:192
+msgid "Capabilities"
+msgstr "Fonctionnalités"
+
+#: ../class-wc-vendors.php:312 ../classes/admin/class-admin-page.php:254
+#: ../classes/admin/class-admin-reports.php:175
+#: ../classes/admin/class-admin-reports.php:458
+#: ../classes/admin/class-product-meta.php:46
+#: ../classes/admin/class-product-meta.php:187
+#: ../classes/admin/class-product-meta.php:223 ../classes/class-install.php:91
+msgid "Vendor"
+msgstr "Vendeur"
+
+#: ../class-wc-vendors.php:314 ../classes/admin/settings/sf-options.php:4
+msgid "General"
+msgstr "Général"
+
+#: ../class-wc-vendors.php:352
+msgid "Documentation/KB"
+msgstr "Documentation/FAQ"
+
+#: ../class-wc-vendors.php:353
+msgid "Help Forums"
+msgstr "Forums d’aide"
+
+#: ../class-wc-vendors.php:354
+msgid "Paid Support"
+msgstr "Support payant"
+
+#: ../class-wc-vendors.php:377
+#, php-format
+msgid ""
+"WC Vendors requires the Vendor shop page value be set <a href=\"%s\">click "
+"here to set it.</a> | <a href=\"%s\">Hide Notice</a>"
+msgstr ""
+"WC Vendors nécessite que la page boutique vendeur soit définie, <a href=\"%s"
+"\">cliquez ici pour le faire</a>. | <a href=\"%s\">Masquer</a>"
+
+#: ../class-wc-vendors.php:383
+#, php-format
+msgid ""
+"You must save your permalinks once you have modified your vendor page. <a "
+"href=\"%s\">click here to save</a>.  | <a href=\"%s\">Hide Notice</a>"
+msgstr ""
+"Vous devez enregistrer vos permaliens une fois que vous avez modifié votre "
+"page vendeur. <a href=\"%s\">Cliquez ici pour enregistrer</a> . | <a href="
+"\"%s\">Masquer</a>"
+
+#: ../classes/admin/class-admin-page.php:27
+msgid "Vendors shipped"
+msgstr "Envoyé par le vendeur"
+
+#: ../classes/admin/class-admin-page.php:50
+msgid "Vendors Shipped"
+msgstr "Envoyé par le vendeur"
+
+#: ../classes/admin/class-admin-page.php:72
+#: ../classes/admin/class-admin-page.php:132
+#: ../classes/admin/class-product-meta.php:151
+#: ../classes/admin/class-product-meta.php:167
+#: ../templates/dashboard/reports.php:19
+msgid "Commission"
+msgstr "Commission"
+
+#: ../classes/admin/class-admin-page.php:252
+#: ../classes/admin/class-admin-reports.php:174
+#: ../templates/dashboard/reports.php:17
+#: ../templates/emails/notify-vendor-shipped.php:22
+#: ../templates/emails/vendor-new-order.php:22
+msgid "Product"
+msgstr "Produit"
+
+#: ../classes/admin/class-admin-page.php:253
+#: ../classes/admin/class-vendor-admin-dashboard.php:283
+msgid "Order ID"
+msgstr "Numero de commande"
+
+#: ../classes/admin/class-admin-page.php:255
+#: ../classes/admin/class-admin-reports.php:176
+#: ../classes/admin/class-admin-reports.php:374
+#: ../classes/admin/class-vendor-admin-dashboard.php:286
+#: ../templates/dashboard/orders.php:35
+msgid "Total"
+msgstr "Total"
+
+#: ../classes/admin/class-admin-page.php:256
+#: ../classes/admin/class-admin-reports.php:178
+#: ../classes/admin/class-admin-reports.php:461
+msgid "Status"
+msgstr "Statut"
+
+#: ../classes/admin/class-admin-page.php:257
+#: ../classes/admin/class-vendor-admin-dashboard.php:288
+#: ../classes/front/orders/class-orders.php:195
+#: ../templates/dashboard/orders.php:36
+msgid "Date"
+msgstr "Date"
+
+#: ../classes/admin/class-admin-page.php:294
+msgid "Mark paid"
+msgstr "Indiquer Payer"
+
+#: ../classes/admin/class-admin-page.php:295
+msgid "Mark due"
+msgstr "Indiquer A Payer"
+
+#: ../classes/admin/class-admin-page.php:296
+msgid "Mark reversed"
+msgstr "Indiquer reverser"
+
+#: ../classes/admin/class-admin-page.php:313
+#: ../classes/admin/class-admin-page.php:317
+msgid "Filter"
+msgstr "Filtres"
+
+#: ../classes/admin/class-admin-page.php:352
+msgid "Show all dates"
+msgstr "Montrer Toutes Les Dates"
+
+#: ../classes/admin/class-admin-page.php:365
+#, php-format
+msgid "%1$s %2$d"
+msgstr "%1$s %2$d"
+
+#: ../classes/admin/class-admin-page.php:387
+msgid "Show all Statuses"
+msgstr "Montrer Toutes Les Dates"
+
+#: ../classes/admin/class-admin-page.php:413
+msgid "Commission marked paid."
+msgstr "Commission payée"
+
+#: ../classes/admin/class-admin-page.php:420
+msgid "Commission marked due."
+msgstr "Commission à payer"
+
+#: ../classes/admin/class-admin-page.php:427
+msgid "Commission marked reversed."
+msgstr "Commission reversée"
+
+#: ../classes/admin/class-admin-reports.php:44
+msgid "Overview"
+msgstr "Vue d'ensemble"
+
+#: ../classes/admin/class-admin-reports.php:50
+msgid "Commission by vendor"
+msgstr "Commission par vendeur"
+
+#: ../classes/admin/class-admin-reports.php:56
+msgid "Commission by product"
+msgstr "Commission par produit"
+
+#: ../classes/admin/class-admin-reports.php:62
+#: ../classes/admin/class-admin-reports.php:345
+msgid "Commission Totals"
+msgstr "Total commissions"
+
+#: ../classes/admin/class-admin-reports.php:63
+msgid ""
+"Commission totals for all vendors includes shipping and taxes. By default no "
+"date range is used and all due commissions are returned. Use the date range "
+"to filter."
+msgstr ""
+"Les totaux de commission pour tous les vendeurs comprennent la livraison et "
+"les taxes. Par défaut aucune plage de dates n’est utilisée et toute la "
+"diligence des commissions sont retournées. Utiliser la plage de dates pour "
+"filtrer."
+
+#: ../classes/admin/class-admin-reports.php:121
+#: ../classes/admin/class-admin-reports.php:437
+#: ../templates/dashboard/date-picker.php:3
+msgid "From:"
+msgstr "De:"
+
+#: ../classes/admin/class-admin-reports.php:123
+#: ../classes/admin/class-admin-reports.php:439
+#: ../templates/dashboard/date-picker.php:7
+msgid "To:"
+msgstr "A:"
+
+#: ../classes/admin/class-admin-reports.php:125
+#: ../classes/admin/class-admin-reports.php:283
+#: ../classes/admin/class-admin-reports.php:448
+#: ../templates/dashboard/date-picker.php:12
+msgid "Show"
+msgstr "Voir"
+
+#: ../classes/admin/class-admin-reports.php:131
+msgid "Total paid in range"
+msgstr "Total des sommes versées"
+
+#: ../classes/admin/class-admin-reports.php:134
+#: ../classes/admin/class-admin-reports.php:141
+#: ../classes/admin/class-admin-reports.php:148
+msgid "n/a"
+msgstr "s/o"
+
+#: ../classes/admin/class-admin-reports.php:138
+msgid "Total due in range"
+msgstr "Total des sommes dues"
+
+#: ../classes/admin/class-admin-reports.php:145
+msgid "Total reversed in range"
+msgstr "Total des sommes reversées"
+
+#: ../classes/admin/class-admin-reports.php:155
+msgid "Recent Commission"
+msgstr "Commission Recentes"
+
+#: ../classes/admin/class-admin-reports.php:173
+#: ../classes/front/orders/class-orders.php:187
+#: ../templates/dashboard/orders.php:33
+msgid "Order"
+msgstr "Commande"
+
+#: ../classes/admin/class-admin-reports.php:177
+msgid "Date &amp; Time"
+msgstr "Date &amp; Heure"
+
+#: ../classes/admin/class-admin-reports.php:186
+msgid "N/A"
+msgstr "N/A"
+
+#: ../classes/admin/class-admin-reports.php:191
+msgid "D j M Y \\a\\t h:ia"
+msgstr "D j M Y \\à h:ia"
+
+#: ../classes/admin/class-admin-reports.php:200
+msgid "No commission yet"
+msgstr "Pas encore de commission"
+
+#: ../classes/admin/class-admin-reports.php:234
+msgid "Show:"
+msgstr "Montrer:"
+
+#: ../classes/admin/class-admin-reports.php:243
+msgid "Search for a product&hellip;"
+msgstr "Recherche d'un produit&hellip;"
+
+#: ../classes/admin/class-admin-reports.php:246
+msgid "Type in a product name to start searching..."
+msgstr "Ecrivez le nom du produit pour lancer la recherche ..."
+
+#: ../classes/admin/class-admin-reports.php:278
+msgid "Select a vendor&hellip;"
+msgstr "Choisir un Vendeur&hellip;"
+
+#: ../classes/admin/class-admin-reports.php:344
+msgid "Month"
+msgstr "Mois"
+
+#: ../classes/admin/class-admin-reports.php:346
+msgid "Tax"
+msgstr "Taxes"
+
+#: ../classes/admin/class-admin-reports.php:347
+#: ../classes/admin/settings/sf-options.php:52
+#: ../classes/admin/settings/sf-options.php:136
+#: ../templates/dashboard/orders.php:34 ../templates/orders/orders.php:115
+msgid "Shipping"
+msgstr "Livraison"
+
+#: ../classes/admin/class-admin-reports.php:348
+#: ../classes/admin/class-admin-reports.php:445
+msgid "Reversed"
+msgstr "Reverser"
+
+#: ../classes/admin/class-admin-reports.php:349
+#: ../classes/admin/class-admin-reports.php:444
+msgid "Paid"
+msgstr "Payer"
+
+#: ../classes/admin/class-admin-reports.php:350
+#: ../classes/admin/class-admin-reports.php:443
+msgid "Due"
+msgstr "Due"
+
+#: ../classes/admin/class-admin-reports.php:459
+msgid "Tax Total"
+msgstr "Total taxes"
+
+#: ../classes/admin/class-admin-reports.php:460
+msgid "Shipping Total"
+msgstr "Total livraison"
+
+#: ../classes/admin/class-admin-reports.php:462
+msgid "Commission Total"
+msgstr "Total commission"
+
+#: ../classes/admin/class-admin-reports.php:484
+msgid "No commissions found."
+msgstr "Aucune commission trouvée."
+
+#: ../classes/admin/class-admin-users.php:418
+msgid "Enable HTML for the shop description"
+msgstr "Activer le HTML pour la description de la boutique."
+
+#: ../classes/admin/class-admin-users.php:424
+msgid "Shop name"
+msgstr "Nom de la boutique"
+
+#: ../classes/admin/class-admin-users.php:431
+msgid "PayPal E-mail"
+msgstr "E-Mail Paypal"
+
+#: ../classes/admin/class-admin-users.php:432
+msgid "required"
+msgstr "required"
+
+#: ../classes/admin/class-admin-users.php:439
+msgid "Commission rate"
+msgstr "Taux de la commission"
+
+#: ../classes/admin/class-admin-users.php:440
+#: ../classes/admin/class-product-meta.php:174
+msgid "Leave blank for default"
+msgstr "Laisser blanc par défaut"
+
+#: ../classes/admin/class-admin-users.php:446
+msgid "Give Tax"
+msgstr "Offrir taxes"
+
+#: ../classes/admin/class-admin-users.php:451
+msgid "Tax override for vendor"
+msgstr "Redéfinir taxe pour vendeur"
+
+#: ../classes/admin/class-admin-users.php:457
+msgid "Give Shipping"
+msgstr "Offrir livraison"
+
+#: ../classes/admin/class-admin-users.php:462
+msgid "Shipping override for vendor"
+msgstr "Redéfinir livraison pour vendeur"
+
+#: ../classes/admin/class-admin-users.php:468
+#: ../classes/admin/views/html-vendor-settings-page.php:30
+#: ../templates/dashboard/settings/seller-info.php:3
+msgid "Seller info"
+msgstr "Information du vendeur"
+
+#: ../classes/admin/class-admin-users.php:473
+msgid "Shop description"
+msgstr "Description de la boutique"
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:20
+#: ../classes/class-install.php:192
+msgid "Shop Settings"
+msgstr "Paramètres de votre boutique"
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:21
+#: ../classes/admin/class-vendor-admin-dashboard.php:146
+#: ../classes/admin/settings/sf-options.php:196
+#: ../classes/class-install.php:191 ../templates/dashboard/orders.php:24
+msgid "Orders"
+msgstr "Commandes"
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:58
+#: ../classes/front/dashboard/class-vendor-dashboard.php:112
+msgid "Your PayPal address is not a valid email address."
+msgstr "Votre E-mail PayPal n'est pas valide."
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:67
+#: ../classes/front/dashboard/class-vendor-dashboard.php:121
+msgid "That shop name is already taken. Your shop name must be unique."
+msgstr ""
+"Ce nom de la boutique est déjà pris. Votre nom de la boutique doit être "
+"unique."
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:87
+#: ../classes/admin/settings/classes/sf-class-settings.php:368
+#: ../classes/front/dashboard/class-vendor-dashboard.php:139
+msgid "Settings saved."
+msgstr "Paramètres sauvegardés"
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:284
+msgid "Customer"
+msgstr "Client"
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:285
+#: ../classes/admin/settings/sf-options.php:127
+#: ../classes/admin/settings/sf-options.php:254
+msgid "Products"
+msgstr "Produits"
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:289
+#: ../templates/dashboard/orders.php:92
+msgid "Shipped"
+msgstr "Expédié"
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:324
+#: ../templates/dashboard/orders.php:85
+msgid "Mark shipped"
+msgstr "Marquer comme envoyé"
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:349
+msgid "Orders marked shipped."
+msgstr "Commandes marquées comme livrées."
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:385
+#: ../classes/front/dashboard/class-vendor-dashboard.php:40
+msgid "You are not allowed to modify this order."
+msgstr "Vous n’avez pas la permission de modifier cette commande."
+
+#: ../classes/admin/class-vendor-applicants.php:26
+msgid "Approve"
+msgstr "Accepter"
+
+#: ../classes/admin/class-vendor-applicants.php:27
+msgid "Deny"
+msgstr "Refuser"
+
+#: ../classes/admin/class-vendor-applicants.php:73
+msgid "Vendor has been <b>denied</b>."
+msgstr "Le vendeur a été <b>refusé</b>."
+
+#: ../classes/admin/class-vendor-applicants.php:84
+msgid "Vendor has been <b>approved</b>."
+msgstr "Le vendeur a été <b>accepté</b>."
+
+#: ../classes/admin/class-vendor-applicants.php:98
+msgid "Pending Vendors"
+msgstr "Vendeur en attente"
+
+#: ../classes/admin/emails/class-emails.php:59
+#: ../classes/admin/emails/class-wc-approve-vendor.php:70
+msgid "pending"
+msgstr "en attente"
+
+#: ../classes/admin/emails/class-emails.php:61
+msgid "approved"
+msgstr "approuvé"
+
+#: ../classes/admin/emails/class-emails.php:63
+msgid "denied"
+msgstr "refusé"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:28
+msgid "Vendor Application"
+msgstr "Demande de vendeur"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:29
+msgid "Vendor application will either be approved, denied, or pending."
+msgstr "La demande du vendeur sera soit approuvée, refusée, ou en attente."
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:31
+msgid "Application {status}"
+msgstr "Demande {status}"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:32
+msgid "[{blogname}] Your vendor application has been {status}"
+msgstr "[{blogname}] Votre demande pour etre vendeur a été  {status}"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:123
+#: ../classes/admin/emails/class-wc-notify-admin.php:134
+#: ../classes/admin/emails/class-wc-notify-shipped.php:163
+#: ../classes/admin/emails/class-wc-notify-vendor.php:256
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:62
+msgid "Enable/Disable"
+msgstr "Activer / Désactiver"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:125
+#: ../classes/admin/emails/class-wc-notify-admin.php:136
+#: ../classes/admin/emails/class-wc-notify-shipped.php:165
+#: ../classes/admin/emails/class-wc-notify-vendor.php:258
+msgid "Enable this email notification"
+msgstr "Activer cette notification "
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:129
+#: ../classes/admin/emails/class-wc-notify-admin.php:140
+msgid "Recipient(s)"
+msgstr "Destinataire(s)"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:131
+#: ../classes/admin/emails/class-wc-notify-admin.php:142
+#, php-format
+msgid ""
+"Enter recipients (comma separated) for this email. Defaults to <code>%s</"
+"code>."
+msgstr ""
+"Entrez les destinataires (séparés par une virgule) pour cet email. Par "
+"défaut <code>%s</code>."
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:136
+#: ../classes/admin/emails/class-wc-notify-admin.php:147
+#: ../classes/admin/emails/class-wc-notify-shipped.php:169
+#: ../classes/admin/emails/class-wc-notify-vendor.php:262
+msgid "Subject"
+msgstr "Sujet"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:138
+#: ../classes/admin/emails/class-wc-notify-admin.php:149
+#: ../classes/admin/emails/class-wc-notify-shipped.php:171
+#: ../classes/admin/emails/class-wc-notify-vendor.php:264
+#, php-format
+msgid ""
+"This controls the email subject line. Leave blank to use the default "
+"subject: <code>%s</code>."
+msgstr ""
+"Control du sujet.  Laissez vide pour utiliser l'objet par défaut: <code>%s</"
+"code>."
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:143
+#: ../classes/admin/emails/class-wc-notify-admin.php:154
+#: ../classes/admin/emails/class-wc-notify-shipped.php:176
+#: ../classes/admin/emails/class-wc-notify-vendor.php:269
+msgid "Email Heading"
+msgstr "Entête de l'email"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:145
+#: ../classes/admin/emails/class-wc-notify-admin.php:156
+#: ../classes/admin/emails/class-wc-notify-shipped.php:178
+#: ../classes/admin/emails/class-wc-notify-vendor.php:271
+#, php-format
+msgid ""
+"This controls the main heading contained within the email notification. "
+"Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+"Control du entête.  Laissez vide pour utiliser l'entête par défaut: <code>"
+"%s</code>."
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:150
+#: ../classes/admin/emails/class-wc-notify-admin.php:161
+#: ../classes/admin/emails/class-wc-notify-shipped.php:183
+#: ../classes/admin/emails/class-wc-notify-vendor.php:282
+msgid "Email type"
+msgstr "Email type"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:152
+#: ../classes/admin/emails/class-wc-notify-admin.php:163
+#: ../classes/admin/emails/class-wc-notify-shipped.php:185
+#: ../classes/admin/emails/class-wc-notify-vendor.php:284
+msgid "Choose which format of email to send."
+msgstr "Choisir le format d'email"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:156
+#: ../classes/admin/emails/class-wc-notify-admin.php:167
+#: ../classes/admin/emails/class-wc-notify-shipped.php:189
+#: ../classes/admin/emails/class-wc-notify-vendor.php:288
+msgid "Plain text"
+msgstr "Texte"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:157
+#: ../classes/admin/emails/class-wc-notify-admin.php:168
+#: ../classes/admin/emails/class-wc-notify-shipped.php:190
+#: ../classes/admin/emails/class-wc-notify-vendor.php:289
+msgid "HTML"
+msgstr "HTML"
+
+#: ../classes/admin/emails/class-wc-approve-vendor.php:158
+#: ../classes/admin/emails/class-wc-notify-admin.php:169
+#: ../classes/admin/emails/class-wc-notify-shipped.php:191
+#: ../classes/admin/emails/class-wc-notify-vendor.php:290
+msgid "Multipart"
+msgstr "Multipart"
+
+#: ../classes/admin/emails/class-wc-notify-admin.php:28
+msgid "New Vendor Product"
+msgstr "Nouveau Produit"
+
+#: ../classes/admin/emails/class-wc-notify-admin.php:29
+msgid "New order emails are sent when a new product is submitted by a vendor"
+msgstr ""
+"E-mails de nouvelles commandes envoyées quand un nouveau produit est "
+"présentée par un vendeur"
+
+#: ../classes/admin/emails/class-wc-notify-admin.php:31
+msgid "New product submitted: {product_name}"
+msgstr "Nouveau produit soumis: {product_name}"
+
+#: ../classes/admin/emails/class-wc-notify-admin.php:32
+msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
+msgstr "[{blogname}] Nouveau produit soumis par {vendor_name} - {product_name}"
+
+#: ../classes/admin/emails/class-wc-notify-shipped.php:28
+msgid "Vendor has shipped"
+msgstr "Le vendeur à expédié"
+
+#: ../classes/admin/emails/class-wc-notify-shipped.php:29
+msgid ""
+"An email is sent when a vendor has marked one of their orders as shipped."
+msgstr ""
+"Un email sera envoyé quand un vendeur aura marqué une de commande comme "
+"envoyée."
+
+#: ../classes/admin/emails/class-wc-notify-shipped.php:31
+msgid "Your order has been shipped"
+msgstr "Votre commande a été expédiée"
+
+#: ../classes/admin/emails/class-wc-notify-shipped.php:32
+msgid ""
+"[{blogname}] Your order has been shipped ({order_number}) - {order_date}"
+msgstr ""
+"[{blogname}] Votre commande ({order_number} du {order_date}) a été expediée."
+
+#: ../classes/admin/emails/class-wc-notify-shipped.php:112
+msgid "Subtotal:"
+msgstr "Sous-total:"
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:27
+msgid "Notify vendors"
+msgstr "Notifier les vendeurs"
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:28
+msgid "New order emails are sent when an order is received/paid by a customer."
+msgstr ""
+"E-mails de nouvelles commandes envoyées quand un ordre est reçu / payé par "
+"un client."
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:30
+msgid "New customer order"
+msgstr "Nouvelle Commande"
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:31
+msgid "[{blogname}] New customer order ({order_number}) - {order_date}"
+msgstr "[{blogname}] Nouvelle Commande {order_number}) - {order_date}"
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:105
+msgid "Commission Subtotal:"
+msgstr "Sous-Total Commission :"
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:111
+msgid "Tax Subtotal:"
+msgstr "Total taxes :"
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:119
+msgid "Shipping Subtotal:"
+msgstr "Sous-total livraison:"
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:276
+msgid "Product Totals"
+msgstr "Total des produits"
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:278
+msgid ""
+"Show the commission due/paid as the product totals instead of the product "
+"prices."
+msgstr ""
+"Afficher la commission due/payée comme total produits à la place du prix des "
+"produits."
+
+#: ../classes/admin/settings/classes/sf-class-format-options.php:211
+#: ../classes/admin/settings/classes/sf-class-settings.php:789
+msgid "Select a page..."
+msgstr "Choisir une page..."
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:153
+#: ../templates/dashboard/settings/settings.php:1
+msgid "Settings"
+msgstr "Paramètres"
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:302
+msgid "Could not load settings at: "
+msgstr "Impossible de charger les paramètres à l'adresse:"
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:302
+msgid "Error - WP Settings Framework"
+msgstr "Erreur"
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:484
+#, php-format
+msgid "Save %s changes"
+msgstr "Enregistrer les %s changements"
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:497
+msgid ""
+"Please help with a <a href=\"https://wordpress.org/support/view/plugin-"
+"reviews/wc-vendors?rate=5#postform\" target=\"top\">High Five!</a> | <a href="
+"\"https://www.wcvendors.com/product/wc-vendors-pro/\" target=\"top\">WC "
+"Vendors Pro</a> | <a href=\"https://www.wcvendors.com/product/stripe-"
+"commissions-gateway/\" target=\"top\">Stripe Commissions & Gateway</a> | <a "
+"href=\"https://www.wcvendors.com/kb/\" target=\"top\">KnowledgeBase</a> | <a "
+"href=\"https://www.wcvendors.com/help/\" target=\"top\">Help Forums</a>"
+msgstr ""
+"Aidez-nous avec <a href=\"https://wordpress.org/support/view/plugin-reviews/"
+"wc-vendors?rate=5#postform\" target=\"top\">Cinq Étoiles</a> ! | <a href="
+"\"https://www.wcvendors.com/product/wc-vendors-pro/\" target=\"top\">WC "
+"Vendors Pro</a> | <a href=\"https://www.wcvendors.com/product/stripe-"
+"commissions-gateway/\" target=\"top\">Stripe Commissions & Gateway</a> | <a "
+"href=\"https://www.wcvendors.com/kb/\" target=\"top\">KnowledgeBase</a> | <a "
+"href=\"https://www.wcvendors.com/help/\" target=\"top\">Forums d’aide</a>"
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:782
+msgid "Edit Page"
+msgstr "Modifier page"
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:783
+msgid "View Page"
+msgstr "Voir page"
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:846
+#, php-format
+msgid "Update %s"
+msgstr "Mettre à jour %s"
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:846
+#, php-format
+msgid "Add %s"
+msgstr "Ajouter %s"
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:846
+#, php-format
+msgid "Upload an image for the %s"
+msgstr "Envoyer une image pour %s"
+
+#: ../classes/admin/settings/sf-options.php:5
+msgid "General options"
+msgstr "Options Générales"
+
+#: ../classes/admin/settings/sf-options.php:8
+msgid "Default commission (%)"
+msgstr "Commission par défaut(%)"
+
+#: ../classes/admin/settings/sf-options.php:9
+msgid ""
+"The default rate you pay each vendor for a product sale. <br>You can also "
+"give vendors their own individual commission rates by editing the vendors "
+"user account.<br>Also, you can edit an individual products commission to "
+"override both of these settings on a per product basis."
+msgstr ""
+"Le taux de défaut que vous payez chaque vendeur pour une vente de produits. "
+"<br> Vous pouvez également donner aux vendeurs leurs propres taux de "
+"commission individuels en modifiant le compte des vendeurs de l'utilisateur. "
+"<br> En outre, vous pouvez modifier une commission des produits individuels "
+"pour remplacer ces deux paramètres sur une base par produit."
+
+#: ../classes/admin/settings/sf-options.php:20
+#: ../classes/admin/settings/sf-options.php:27
+msgid "Allow users or guests to apply to become a vendor"
+msgstr ""
+"Autoriser les utilisateurs ou les invités à s'inscrire pour devenir un "
+"vendeur"
+
+#: ../classes/admin/settings/sf-options.php:22
+msgid ""
+"Allow users or guests to apply to become a vendor.  <br><br><strong>WARNING:"
+"</strong>  You MUST \"<strong>Enable registration on the \"My Account\" "
+"page</strong>\" in your <strong>WooCommerce > Settings > Accounts</strong> "
+"page for this option to work.  Currently, you have registration disabled."
+msgstr ""
+"Autoriser des invités ou clients de postuler pour devenir un vendeur."
+"<br><br><strong>Avertissement :</strong>  Vous devez «<strong>activer "
+"l’enregistrement dans la page « mon compte »</strong>» dans votre page "
+"<strong>WooCommerce > paramètres > comptes</strong> pour que cette option "
+"fonctionne.  Actuellement, vous avez l'enregistrement désactivé."
+
+#: ../classes/admin/settings/sf-options.php:26
+msgid "Registration"
+msgstr "Inscription"
+
+#: ../classes/admin/settings/sf-options.php:28
+msgid ""
+"This will show a checkbox on the My Account page's registration form asking "
+"if the user would like to apply to be a vendor. Also, on the Vendor "
+"Dashboard, users can still apply to become a vendor even if this is disabled."
+msgstr ""
+"Cela montrera une case à cocher sur le formulaire d'inscription de la page "
+"Mon compte demandant si l'utilisateur souhaite demander à être un vendeur. "
+"En outre, sur le tableau de bord du vendeur, les utilisateurs peuvent "
+"toujours demander à devenir un vendeur, même si cette option est désactivée."
+
+#: ../classes/admin/settings/sf-options.php:35
+msgid "Approve vendor applications manually"
+msgstr "Approuver les demandes des vendeurs manuellement"
+
+#: ../classes/admin/settings/sf-options.php:36
+msgid ""
+"With this unchecked, all vendor applications are automatically accepted. "
+"Otherwise, you must approve each manually."
+msgstr ""
+"Avec cette cochée, toutes les actions de vendeurs sont automatiquement "
+"acceptés. Sinon, vous devez approuver chacune manuellement."
+
+#: ../classes/admin/settings/sf-options.php:43
+#: ../classes/admin/settings/sf-options.php:175
+msgid "Taxes"
+msgstr "Taxes"
+
+#: ../classes/admin/settings/sf-options.php:44
+msgid "Give vendors any tax collected per-product"
+msgstr "Donnez au vendeur toutes taxes perçues par produit"
+
+#: ../classes/admin/settings/sf-options.php:45
+msgid "The tax collected on a vendor's product will be given in its entirety"
+msgstr ""
+"La taxe perçue sur le produit d'un vendeur sera donné dans son intégralité"
+
+#: ../classes/admin/settings/sf-options.php:53
+msgid "Give vendors any shipping collected per-product"
+msgstr "Donnez aux vendeurs toute expédition recueillie par produit"
+
+#: ../classes/admin/settings/sf-options.php:54
+msgid ""
+"WC Vendors Free - Give vendors shipping if using Per Product Shipping "
+"gateway.  WC Vendors Pro - Give vendors shipping when using Vendor "
+"Shipping.  No other shipping module is compatible with this option."
+msgstr ""
+"WC Vendors Free - Offrir aux vendeurs l’expédition en cas d'utilisation du "
+"mode d’expédition par produit. WC Vendors Pro - Offrir aux vendeurs "
+"l’expédition en cas d'utilisation du mode d’expédition par le vendeur. Aucun "
+"autre module d'expédition est compatible avec cette option."
+
+#: ../classes/admin/settings/sf-options.php:60
+msgid "Shop options"
+msgstr "Options de la boutique"
+
+#: ../classes/admin/settings/sf-options.php:63
+msgid "Shop HTML"
+msgstr "Boutique HTML"
+
+#: ../classes/admin/settings/sf-options.php:64
+msgid ""
+"Enable HTML for a vendor's shop description by default.  You can enable or "
+"disable this per vendor by editing the vendors user account."
+msgstr ""
+"Activer HTML par défaut pour la description du magasin du vendeur. Vous "
+"pouvez activer ou désactiver ceci par vendeur en modifiant le compte vendeur "
+"de l'utilisateur."
+
+#: ../classes/admin/settings/sf-options.php:71
+msgid "Vendor Shop Page"
+msgstr "Page boutique vendeur"
+
+#: ../classes/admin/settings/sf-options.php:72
+msgid ""
+"Enter one word for the URI.  If you enter \"<strong>vendors</strong>\" your "
+"vendors store will be <code>yourdomain.com/vendors/store-name/</code>"
+msgstr ""
+"Entrez un mot pour l'URI. Si vous entrez <strong>\"vendeurs\"</strong> votre "
+"magasin vendeur sera <code>votredomaine.com/vendeurs/nom-magasin/</code>"
+
+#: ../classes/admin/settings/sf-options.php:79
+msgid "Shop Headers"
+msgstr "Entêtes des boutiques"
+
+#: ../classes/admin/settings/sf-options.php:80
+msgid "Enable vendor shop headers"
+msgstr "Activer les entêtes vendeurs"
+
+#: ../classes/admin/settings/sf-options.php:81
+msgid ""
+"This will override the HTML Shop description output on product-archive "
+"pages.  In order to customize the shop headers visit wcvendors.com and read "
+"the article in the Knowledgebase titled Changing the Vendor Templates."
+msgstr ""
+"Cela remplacer l'afficahge du HTML dans la description de la boutique sur "
+"les pages d'archives produits.  Afin de personnaliser les en-êtes de la "
+"boutique, visitez wcvendors.com et lisez l’article correspondant dans la "
+"base de connaissances intitulé \"changer les modèles du vendeur\"."
+
+#: ../classes/admin/settings/sf-options.php:88
+msgid "Vendor Display Name"
+msgstr "Nom d’affichage du marchand"
+
+#: ../classes/admin/settings/sf-options.php:89
+msgid ""
+"Select what will be displayed for the sold by text throughout the store."
+msgstr ""
+"Sélectionnez ce qui sera affiché comme texte \"vendu par\" dans tout le "
+"magasin."
+
+#: ../classes/admin/settings/sf-options.php:93
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#: ../classes/admin/settings/sf-options.php:94
+#: ../classes/admin/views/html-vendor-settings-page.php:22
+#: ../templates/dashboard/settings/shop-name.php:2
+msgid "Shop Name"
+msgstr "Nom de votre boutique"
+
+#: ../classes/admin/settings/sf-options.php:95
+msgid "User Login"
+msgstr "Nom d'utilisateur"
+
+#: ../classes/admin/settings/sf-options.php:96
+msgid "User Email"
+msgstr "Email utilisateur"
+
+#: ../classes/admin/settings/sf-options.php:103
+#: ../classes/admin/settings/sf-options.php:116
+msgid "Sold By"
+msgstr "Vendu par"
+
+#: ../classes/admin/settings/sf-options.php:104
+msgid "Enable sold by labels"
+msgstr "Activer étiquette \"vendu par\""
+
+#: ../classes/admin/settings/sf-options.php:105
+msgid "This will enable or disable the sold by labels."
+msgstr "Cela active ou désactive l'étiquette \"vendu par\""
+
+#: ../classes/admin/settings/sf-options.php:112
+msgid "Sold By Label"
+msgstr "Étiquette \"vendu par\""
+
+#: ../classes/admin/settings/sf-options.php:113
+msgid "The sold by label used on the site and emails."
+msgstr "L'étiquette \"vendu par\" est utilisée sur le site et dans les e-mails"
+
+#: ../classes/admin/settings/sf-options.php:120
+msgid "Seller Info Label"
+msgstr "Étiquette Informations vendeur"
+
+#: ../classes/admin/settings/sf-options.php:121
+msgid "The seller info tab title on the single product page."
+msgstr "Titre de l'onglet Informations vendeur sur la page produit."
+
+#: ../classes/admin/settings/sf-options.php:124
+msgid "Seller Info"
+msgstr "Informations vendeur"
+
+#: ../classes/admin/settings/sf-options.php:128
+msgid "Product Add Page"
+msgstr "Page pour ajouter un produit"
+
+#: ../classes/admin/settings/sf-options.php:128
+msgid "Configure what to hide from all vendors when adding a product"
+msgstr ""
+"Configurez ce que vous voulez cacher pour tous les vendeurs lors de l'ajout "
+"d'un produit"
+
+#: ../classes/admin/settings/sf-options.php:131
+msgid "Left side panel"
+msgstr "Panneau latéral gauche"
+
+#: ../classes/admin/settings/sf-options.php:132
+msgid ""
+"CHECKING these boxes will **HIDE** these areas of the add product page for "
+"vendors"
+msgstr ""
+"COCHER ces cases va ** CACHER ** ces zones de la page d'ajout de produit "
+"pour les vendeurs"
+
+#: ../classes/admin/settings/sf-options.php:135
+msgid "Inventory"
+msgstr "Inventaire"
+
+#: ../classes/admin/settings/sf-options.php:137
+msgid "Linked Products"
+msgstr "Produits liés"
+
+#: ../classes/admin/settings/sf-options.php:138
+msgid "Attributes"
+msgstr "Attributs"
+
+#: ../classes/admin/settings/sf-options.php:139
+msgid "Advanced"
+msgstr "Avancé"
+
+#: ../classes/admin/settings/sf-options.php:146
+msgid "Types"
+msgstr "Types"
+
+#: ../classes/admin/settings/sf-options.php:147
+msgid "CHECKING these boxes will HIDE these product types from the vendor"
+msgstr ""
+"COCHER de ces cases permet de masquer ces types de produit auprès du vendeur"
+
+#: ../classes/admin/settings/sf-options.php:150
+msgid "Simple"
+msgstr "Simple"
+
+#: ../classes/admin/settings/sf-options.php:151
+msgid "Variable"
+msgstr "Variable"
+
+#: ../classes/admin/settings/sf-options.php:152
+msgid "Grouped"
+msgstr "Groupé"
+
+#: ../classes/admin/settings/sf-options.php:153
+msgid "External / affiliate"
+msgstr "Externe / affilié"
+
+#: ../classes/admin/settings/sf-options.php:160
+msgid "Type options"
+msgstr "Type options"
+
+#: ../classes/admin/settings/sf-options.php:161
+msgid ""
+"CHECKING these boxes will **HIDE** these product options from the vendor"
+msgstr ""
+"COCHER ces cases va ** MASQUER ** ces options de produits pour le vendeur"
+
+#: ../classes/admin/settings/sf-options.php:164
+msgid "Virtual"
+msgstr "Virtuel"
+
+#: ../classes/admin/settings/sf-options.php:165
+msgid "Downloadable"
+msgstr "Téléchargeable"
+
+#: ../classes/admin/settings/sf-options.php:172
+msgid "Miscellaneous"
+msgstr "Divers"
+
+#: ../classes/admin/settings/sf-options.php:176
+msgid "SKU"
+msgstr "UGS"
+
+#: ../classes/admin/settings/sf-options.php:177
+msgid "Featured"
+msgstr "Mis en avant"
+
+#: ../classes/admin/settings/sf-options.php:178
+msgid "Duplicate Product"
+msgstr "Dupliquer produit"
+
+#: ../classes/admin/settings/sf-options.php:185
+msgid "Stylesheet"
+msgstr "Feuille de style"
+
+#: ../classes/admin/settings/sf-options.php:186
+msgid ""
+"You can add CSS in this textarea, which will be loaded on the product add/"
+"edit page for vendors."
+msgstr ""
+"Vous pouvez ajouter des CSS dans cette zone de texte, qui sera chargée sur "
+"la page ajouter / modifier produit pour les vendeurs."
+
+#: ../classes/admin/settings/sf-options.php:193
+msgid "Permissions"
+msgstr "Autorisations"
+
+#: ../classes/admin/settings/sf-options.php:193
+msgid "General permissions used around the shop"
+msgstr "Autorisations générales utiliséespour la boutique"
+
+#: ../classes/admin/settings/sf-options.php:197
+msgid "View orders"
+msgstr "Voir Commandes"
+
+#: ../classes/admin/settings/sf-options.php:198
+msgid "Show customer details such as email, address, name, etc, for each order"
+msgstr ""
+"Afficher les détails des clients tels que e-mail, adresse, nom, etc, pour "
+"chaque commande"
+
+#: ../classes/admin/settings/sf-options.php:205
+msgid "View comments"
+msgstr "Voir les commentaires"
+
+#: ../classes/admin/settings/sf-options.php:206
+msgid "View all vendor comments for an order on the frontend"
+msgstr ""
+"Voir tous les commentaires des vendeurs pour une commande sur le frontend"
+
+#: ../classes/admin/settings/sf-options.php:213
+msgid "Submit comments"
+msgstr "Envois commentaires"
+
+#: ../classes/admin/settings/sf-options.php:214
+msgid ""
+"Submit comments for an order on the frontend. Eg, tracking ID for a product"
+msgstr ""
+"Envois commentaires pour une commande en frontend. Ex numero de suivi par "
+"produit"
+
+#: ../classes/admin/settings/sf-options.php:221
+msgid "View email addresses"
+msgstr "Voir adresse email"
+
+#: ../classes/admin/settings/sf-options.php:222
+msgid ""
+"While viewing order details on the frontend, you can disable or enable email "
+"addresses"
+msgstr ""
+"Lors de l'affichage des détails de la commande sur l'interface, vous pouvez "
+"activer ou désactiver les adresses e-mail"
+
+#: ../classes/admin/settings/sf-options.php:229
+msgid "Export a CSV file of orders for a product"
+msgstr "Export CSV des commandes pour un produit"
+
+#: ../classes/admin/settings/sf-options.php:230
+msgid "Vendors could export orders for a product on the frontend"
+msgstr ""
+"Les vendeurs peuvent exporter les commandes pour un produit sur le frontend"
+
+#: ../classes/admin/settings/sf-options.php:237
+msgid "Reports"
+msgstr "Rapports"
+
+#: ../classes/admin/settings/sf-options.php:238
+msgid ""
+"<strike>View backend sales reports</strike>. <strong>Depreciated</strong>"
+msgstr ""
+"<strike>Voir les rapports des ventes en back office</strike>. "
+"<strong>Obsolète</strong>"
+
+#: ../classes/admin/settings/sf-options.php:239
+msgid ""
+"This option has been removed and will no longer function. It will be "
+"completely removed in future versions. Vendors should use their Vendor "
+"Dashboard for reports as all identical functionality is already there. "
+msgstr ""
+"Cette option a été supprimée et n’est plus fonctionnelle. Elle sera "
+"complètement supprimé dans les versions futures."
+
+#: ../classes/admin/settings/sf-options.php:246
+msgid "View Frontend sales reports"
+msgstr "Voir les rapports de ventes en frontend"
+
+#: ../classes/admin/settings/sf-options.php:247
+msgid ""
+"Sales table on the frontend on the Vendor Dashboard page. The table will "
+"only display sales data that pertain to their products, and only for orders "
+"that are processing or completed."
+msgstr ""
+"Table des ventes sur l’interface du tableau de bord du vendeur. Le tableau "
+"affiche uniquement les données de ventes qui se rapportent à leurs produits "
+"et uniquement pour les commandes en cours ou achevés."
+
+#: ../classes/admin/settings/sf-options.php:255
+msgid "Submit products"
+msgstr "Soummettre produits"
+
+#: ../classes/admin/settings/sf-options.php:256
+msgid ""
+"Check to allow vendors to list new products.  Admin must approve new "
+"products by editing the product, and clicking Publish."
+msgstr ""
+"Cochez pour permettre aux vendeurs d’inscrire de nouveaux produits. "
+"L'administrateur doit approuver les nouveaux produits en éditant le produit "
+"puis en cliquant sur publier."
+
+#: ../classes/admin/settings/sf-options.php:263
+msgid "Edit live products"
+msgstr "Editer produit en ligne"
+
+#: ../classes/admin/settings/sf-options.php:264
+msgid ""
+"Vendors could edit an approved product after it has already gone live. There "
+"is no approval or review after editing a live product. This could be "
+"dangerous with malicious vendors, so take caution."
+msgstr ""
+"Les vendeurs peuvent modifier un produit approuvé après qu'il soit en ligne. "
+"Il n'y a pas d'approbation ou d'examen après la modification d'un produit "
+"vivant. Cela pourrait être dangereux avec les vendeurs malveillants. Soyez "
+"vigileant."
+
+#: ../classes/admin/settings/sf-options.php:271
+msgid "Submit products live without requiring approval"
+msgstr "Soumettre Produits en ligne sans approbation"
+
+#: ../classes/admin/settings/sf-options.php:272
+msgid ""
+"Vendors can submit products without review or approval from a shop admin. "
+"This could be dangerous with malicious vendors, so take caution."
+msgstr ""
+"Les vendeurs peuvent soumettre produits sans révision ou l'approbation d'un "
+"administrateur de la boutique. Cela pourrait être dangereux avec les "
+"vendeurs malveillants. Soyez vigileant."
+
+#: ../classes/admin/settings/sf-options.php:278
+msgid "Pages"
+msgstr "Pages"
+
+#: ../classes/admin/settings/sf-options.php:279
+msgid "Page configuration"
+msgstr "Page de configuration"
+
+#: ../classes/admin/settings/sf-options.php:282
+msgid "Vendor dashboard"
+msgstr "Panneau vendeur"
+
+#: ../classes/admin/settings/sf-options.php:283
+msgid ""
+"Choose the page that has the shortcode <code>[wcv_vendor_dashboard]</"
+"code><br/>.  If this page is not set, you will break your site.  If you "
+"upgrade to Pro, keep this page unchanged as both Pro Dashboard and this "
+"Dashboard page must be set."
+msgstr ""
+"Choisir la page qui contient le shortcode<code>[wcv_vendor_dashboard]</"
+"code><br>.  Si cette page n’est pas définie, vous casserez votre site.  Si "
+"vous mettez à niveau vers Pro, gardez cette page inchangée car le tableau de "
+"bord Pro ainsi que cette page de tableau de bord doivent être définis."
+
+#: ../classes/admin/settings/sf-options.php:290
+msgid "Shop settings"
+msgstr "Paramètres de la boutique"
+
+#: ../classes/admin/settings/sf-options.php:291
+msgid ""
+"Choose the page that has the shortcode <code>[wcv_shop_settings]</code><br/"
+">These are the shop settings a vendor can configure.  By default, Vendor "
+"Dashboard > Shop Settings should have this shortcode."
+msgstr ""
+"Choisir la page qui contient le shortcode<code>[wcv_shop_settings]</"
+"code><br>Ce sont les paramètres de la boutique qu'un vendeur peut "
+"configurer.  Par défaut, le tableau de bord du vendeur > Paramètres boutique "
+"devraient avoir ce shortcode."
+
+#: ../classes/admin/settings/sf-options.php:298
+msgid "Orders page"
+msgstr "Page Commandes"
+
+#: ../classes/admin/settings/sf-options.php:299
+msgid ""
+"Choose the page that has the shortcode <code>[wcv_orders]</code><br/>By "
+"default, Vendor Dashboard > Orders should have the shortcode."
+msgstr ""
+"Choisir la page qui contient le shortcode<code>[wcv_orders]</code><br>Par "
+"défaut, le tableau de bord du vendeur > Commandes devraient avoir le "
+"shortcode."
+
+#: ../classes/admin/settings/sf-options.php:306
+msgid "Vendor terms"
+msgstr "Termes du vendeur"
+
+#: ../classes/admin/settings/sf-options.php:307
+msgid ""
+"These terms are shown to a user when submitting an application to become a "
+"vendor.<br/>If left blank, no terms will be shown to the applicant.  Vendor "
+"must accept terms in order to register, if set."
+msgstr ""
+"Ces conditions sont indiquése à l’utilisateur lorsqu'il postule pour devenir "
+"un vendeur.<br>Si laissées vides, aucun condition ne seront montrées au "
+"demandeur.  Le vendeur doit accepter les conditions pour s’inscrire, si "
+"définies."
+
+#: ../classes/admin/settings/sf-options.php:314
+msgid "payments"
+msgstr "paiements"
+
+#: ../classes/admin/settings/sf-options.php:325
+msgid "Payments"
+msgstr "Paiements"
+
+#: ../classes/admin/settings/sf-options.php:327
+msgid "PayPal Adaptive Payments Scheduling"
+msgstr "Planification des paiements PayPal Adaptive"
+
+#: ../classes/admin/settings/sf-options.php:328
+#, php-format
+msgid "Total commission currently due: %s. <a href=\"%s\">View details</a>."
+msgstr "Total des commissions dues: %s. <a href=\"%s\">Voir Détails</a>."
+
+#: ../classes/admin/settings/sf-options.php:329
+#, php-format
+msgid ""
+"Make sure you update your PayPal Adaptive Payments settings <a href=\"%s"
+"\">here</a>.  <br><br>To instantly pay with Adaptive Payments you must "
+"activate the paypalap gateway in your Checkout settings. <br><a href="
+"\"https://www.wcvendors.com/kb/configuring-paypal-adaptive-payments/\" "
+"target=\"top\">PayPal AP Application Help</a>.  <br><br>Another gateway that "
+"offers instant payments to vendors that also accepts credit cards directly "
+"on your checkout page is Stripe.   <br><a href=\"https://www.wcvendors.com/"
+"product/stripe-commissions-gateway/\" target=\"top\">Stripe Commissions & "
+"Gateway plugin</a> is $49 and specifically coded for WC Vendors and <a href="
+"\"https://www.wcvendors.com/product/wc-vendors-pro/\" target=\"top\">WC "
+"Vendors Pro</a>."
+msgstr ""
+"Assurez-vous de bien mettre à jour vos paramètres PayPal Adaptive Payments "
+"<a href=\"%s\">ici</a>.  <br><br>Pour payer instantanément avec Adaptive "
+"Payments, vous devez activer la plateforme paypalap dans vos paramètres de "
+"commande.<br><a href=\"https://www.wcvendors.com/kb/configuring-paypal-"
+"adaptive-payments/\" target=\"top\">Aide Application PayPal AP</a>.  "
+"<br><br>Une autre plateforme de paiement qui offre des paiements instantanés "
+"est Stripe.   <br><a href=\"https://www.wcvendors.com/product/stripe-"
+"commissions-gateway/\" target=\"top\">Stripe Commissions & Gateway plugin</"
+"a> coûte $49 et est spécifiquement conçu pour  WC Vendors et <a href="
+"\"https://www.wcvendors.com/product/wc-vendors-pro/\" target=\"top\">WC "
+"Vendors Pro</a>."
+
+#: ../classes/admin/settings/sf-options.php:333
+msgid "Instant pay"
+msgstr "Paiement instantané"
+
+#: ../classes/admin/settings/sf-options.php:334
+msgid ""
+"Instantly pay vendors their commission when an order is made, and if a "
+"vendor has a valid PayPal email added on their Shop Settings page."
+msgstr ""
+"Payer immédiatement leur commission aux vendeurs lorsqu’une commande est "
+"effectuée, si le vendeur a correctement renseigné son email PayPal validé "
+"dans les paramètres de la boutique."
+
+#: ../classes/admin/settings/sf-options.php:335
+msgid ""
+"For this to work, customers must checkout with the PayPal Adaptive Payments "
+"gateway. Using any other gateways will not pay vendors instantly"
+msgstr ""
+"Pour ce faire, les visiteurs doivent commander avec la passerelle PayPal "
+"Adaptive Payments. Utiliser une autre passerelle ne paiera pas vendeurs "
+"instantanément."
+
+#: ../classes/admin/settings/sf-options.php:342
+msgid "Payment schedule"
+msgstr "Calendrier des paiements"
+
+#: ../classes/admin/settings/sf-options.php:343
+msgid "Note: Schedule will only work if instant pay is unchecked"
+msgstr ""
+"Note: Calendrier des paiements ne fonctionne que si le paiement instantané "
+"est décoché"
+
+#: ../classes/admin/settings/sf-options.php:348
+msgid "Weekly"
+msgstr "Par semaine"
+
+#: ../classes/admin/settings/sf-options.php:349
+msgid "Biweekly"
+msgstr "Par 2 semaines"
+
+#: ../classes/admin/settings/sf-options.php:350
+msgid "Monthly"
+msgstr "Par mois"
+
+#: ../classes/admin/settings/sf-options.php:351
+msgid "Manual"
+msgstr "Manuel"
+
+#: ../classes/admin/settings/sf-options.php:352
+msgid "Now"
+msgstr "Maintenant"
+
+#: ../classes/admin/settings/sf-options.php:357
+msgid "Email notification"
+msgstr "Email de notification"
+
+#: ../classes/admin/settings/sf-options.php:358
+msgid ""
+"Send the WooCommerce admin an email each time a payment has been made via "
+"the payment schedule options above"
+msgstr ""
+"Envoyer a l'admin WooCommerce un email chaque fois qu'un paiement a été "
+"effectué via les options du calendrier de paiement ci-dessus"
+
+#: ../classes/admin/views/html-vendor-settings-page.php:11
+#: ../templates/dashboard/settings/paypal-email-form.php:2
+msgid "PayPal Address"
+msgstr "Adresse Email Paypal"
+
+#: ../classes/admin/views/html-vendor-settings-page.php:15
+#: ../templates/dashboard/settings/paypal-email-form.php:3
+msgid "Your PayPal address is used to send you your commission."
+msgstr "Votre adresse PayPal est utilisée pour vous payer votre commission."
+
+#: ../classes/admin/views/html-vendor-settings-page.php:24
+#: ../templates/dashboard/settings/shop-name.php:3
+msgid "Your shop name is public and must be unique."
+msgstr "Le nom de votre boutique est publique et doit être unique."
+
+#: ../classes/admin/views/html-vendor-settings-page.php:43
+#: ../templates/dashboard/settings/seller-info.php:4
+msgid "This is displayed on each of your products."
+msgstr "Ce message s'affiche sur chacun de vos produits."
+
+#: ../classes/admin/views/html-vendor-settings-page.php:49
+#: ../templates/dashboard/settings/shop-description.php:2
+msgid "Shop Description"
+msgstr "Description de votre boutique"
+
+#: ../classes/admin/views/html-vendor-settings-page.php:61
+#: ../templates/dashboard/settings/shop-description.php:3
+#, php-format
+msgid "This is displayed on your <a href=\"%s\">shop page</a>."
+msgstr "Ceci est affiché sur <a href=\"%s\">page boutique</a>. "
+
+#: ../classes/admin/views/html-vendor-settings-page.php:70
+msgid "Save Shop Settings"
+msgstr "Sauvegarder les paramètres de la boutique"
+
+#: ../classes/class-cron.php:87
+#, php-format
+msgid "Payment total: %s"
+msgstr "Total a payer: %s"
+
+#: ../classes/class-cron.php:148
+msgid "Once Weekly"
+msgstr "Chaque semaine"
+
+#: ../classes/class-cron.php:153
+msgid "Once every two weeks"
+msgstr "Aux 2 semaines"
+
+#: ../classes/class-cron.php:158
+msgid "Once a month"
+msgstr "Chaque mois"
+
+#: ../classes/class-install.php:84 ../classes/class-install.php:239
+msgid "Pending Vendor"
+msgstr "Vendeur En Attente"
+
+#: ../classes/class-install.php:190
+msgid "Vendor Dashboard"
+msgstr "Tableau de bord Du vendeur"
+
+#: ../classes/class-vendor-post-types.php:34
+msgid "Vendor Orders"
+msgstr "Commandes vendeur"
+
+#: ../classes/class-vendors.php:551
+#, php-format
+msgid "Vendor Order &ndash; %s"
+msgstr "Commande vendeur &ndash; %s"
+
+#: ../classes/front/dashboard/class-vendor-dashboard.php:53
+msgid "Order marked shipped."
+msgstr "Commande portant la mention \"expédiée\"."
+
+#: ../classes/front/dashboard/class-vendor-dashboard.php:55
+#, php-format
+msgid "%s has marked as shipped. "
+msgstr "%s a été marquée comme expédiée. "
+
+#: ../classes/front/dashboard/class-vendor-dashboard.php:83
+#: ../classes/front/dashboard/class-vendor-dashboard.php:84
+msgid "Tracking number"
+msgstr "Numero de suivi"
+
+#: ../classes/front/dashboard/class-vendor-dashboard.php:86
+msgid "Success. Your tracking number has been updated."
+msgstr "Succes. Votre numéro de suivi a ete mis a jour"
+
+#: ../classes/front/orders/class-export-csv.php:19
+#: ../templates/dashboard/reports.php:18
+#: ../templates/emails/notify-vendor-shipped.php:23
+#: ../templates/emails/vendor-new-order.php:23
+msgid "Quantity"
+msgstr "Quantité"
+
+#: ../classes/front/orders/class-orders.php:120
+msgid ""
+"You haven't selected a product's orders to view! Please go back to the "
+"Vendor Dashboard and click Show Orders on the product you'd like to view."
+msgstr ""
+"Vous n'avez pas choisi les commandes d'un produit a voir ! S'il vous plaît "
+"revenir au tableau de bord du vendeur et cliquez sur Afficher les commandes "
+"du produit que vous souhaitez consulter."
+
+#: ../classes/front/orders/class-orders.php:124
+msgid "No orders."
+msgstr "Pas de Commandes"
+
+#: ../classes/front/orders/class-orders.php:188
+msgid "Product Title"
+msgstr "Titre du Produit"
+
+#: ../classes/front/orders/class-orders.php:189
+msgid "Full name"
+msgstr "Nom Complet"
+
+#: ../classes/front/orders/class-orders.php:190
+msgid "Address"
+msgstr "Adresse"
+
+#: ../classes/front/orders/class-orders.php:191
+msgid "City"
+msgstr "Ville"
+
+#: ../classes/front/orders/class-orders.php:192
+msgid "State"
+msgstr "Etat"
+
+#: ../classes/front/orders/class-orders.php:193
+msgid "Zip"
+msgstr "Code Postal "
+
+#: ../classes/front/orders/class-orders.php:194
+msgid "Email address"
+msgstr "Adresse Email"
+
+#: ../classes/front/orders/class-submit-comment.php:41
+msgid "You've left the comment field empty!"
+msgstr "Vous avez laissé le champ de commentaire vide!"
+
+#: ../classes/front/orders/class-submit-comment.php:63
+msgid "Success. The customer has been notified of your comment."
+msgstr "Succès. Le client a été avisé de votre commentaire."
+
+#: ../classes/front/signup/class-vendor-signup.php:58
+#: ../classes/front/signup/views/html-vendor-signup.php:21
+#: ../templates/dashboard/denied.php:22
+msgid "Apply to become a vendor? "
+msgstr "S'incrire pour devenir vendeur ?"
+
+#: ../classes/front/signup/class-vendor-signup.php:72
+#: ../classes/front/signup/views/html-vendor-signup.php:35
+#, php-format
+msgid ""
+"I have read and accepted the <a target=\"top\" href=\"%s\">terms and "
+"conditions</a>"
+msgstr ""
+"J’ai lu et j’accepte les <a target=\"top\" href=\"%s\">Conditions générales "
+"d'utilisation</a>"
+
+#: ../classes/front/signup/class-vendor-signup.php:122
+msgid "Application denied. You are an administrator."
+msgstr "Demande rejetée. Vous êtes un administrateur."
+
+#: ../classes/front/signup/class-vendor-signup.php:124
+msgid "Your application has been submitted."
+msgstr "Votre demande a été soumise."
+
+#: ../classes/front/signup/class-vendor-signup.php:171
+#: ../classes/front/signup/class-vendor-signup.php:208
+#: ../classes/front/signup/class-vendor-signup.php:220
+msgid "You must accept the terms and conditions to become a vendor."
+msgstr "Vous devez accepter les termes et conditions pour devenir un vendeur."
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:43
+msgid "PayPal Adaptive Payments"
+msgstr "PayPal Adaptive Payments"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:119
+#, php-format
+msgid ""
+"Something went wrong. Response from PayPal invalidated this order. Status: "
+"%s."
+msgstr ""
+"Something went wrong. Response from PayPal invalidated this order. Status: "
+"%s."
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:124
+msgid "IPN payment completed"
+msgstr "IPN payment completed"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:146
+msgid "Enable PayPal Adaptive Payments"
+msgstr "Activer PayPal Adaptive Payments"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:152
+msgid "Method Title"
+msgstr "Titre de la méthode"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:153
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:70
+msgid "This controls the title which the user sees during checkout."
+msgstr "Contrôle du titre que voit l'utilisateur lors de la commande."
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:154
+msgid "PayPal"
+msgstr "PayPal"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:159
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:75
+msgid "Description"
+msgstr "Description"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:160
+msgid "This controls the description which the user sees during checkout."
+msgstr "Contrôle la description que voit l'utilisateur lors de la commande."
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:161
+msgid "Pay via PayPal!"
+msgstr "Payer via Paypal!"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:172
+msgid "Live Credentials"
+msgstr "Certificats en ligne"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:174
+#, php-format
+msgid ""
+"You must have an <a href=\"%s\">Application ID</a> to process live "
+"transactions. You do not need one for testing in Sandbox mode."
+msgstr ""
+"You must have an <a href=\"%s\">Application ID</a> to process live "
+"transactions. You do not need one for testing in Sandbox mode."
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:179
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:213
+msgid "PayPal Email"
+msgstr "Email  PayPal"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:180
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:214
+msgid "The email address main payments should go to."
+msgstr "L'email principal de paiement"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:185
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:219
+msgid "API Username"
+msgstr "API Username"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:190
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:224
+msgid "API Password"
+msgstr "API Password"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:195
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:229
+msgid "API Signature"
+msgstr "API Signature"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:200
+msgid "Application ID"
+msgstr "Application ID"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:202
+msgid "Only required when doing live transactions."
+msgstr ""
+"N'est nécessaire que lorsque vous effectuez des transactions en direct."
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:206
+msgid "Sandbox Credentials"
+msgstr "Sandbox Credentials"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:208
+#, php-format
+msgid ""
+"You can signup for a sandbox developer account <a href=\"%s\">here</a>. You "
+"need a developer account if you want to enable Sandbox mode for testing."
+msgstr ""
+"Vous devez souscrire un compte développeur Sandox <a href=\"%s\">ici</a>. "
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:240
+msgid "Misc. Settings"
+msgstr "Configurations diverses"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:245
+msgid "Enable PayPal Sandbox mode"
+msgstr "Activer le mode PayPal Sandbox"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:251
+msgid "Enable logging"
+msgstr "Activer logging"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:269
+msgid ""
+"The PayPal Adaptive Payments gateway can instantly pay your vendors their "
+"due commission (if enabled). Also used to mass pay vendors on a schedule / "
+"manual method (if enabled)."
+msgstr ""
+"La passerelle PayPal Adaptive Payments peut instantanément payer les "
+"vendeurs selon leur commission (si activé). Également utilisé pour les "
+"vendeurs de rémunération en masse programmée ou par la méthode manuelle (si "
+"activé)."
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:280
+msgid "Gateway Disabled"
+msgstr "Passerelle désactivée"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:280
+#, php-format
+msgid "%s does not support your store currency."
+msgstr "%s ne supporte pas votre système monétaire."
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:384
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:500
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:153
+#, php-format
+msgid "Error: %s"
+msgstr "Erreur: %s"
+
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:393
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:394
+#, php-format
+msgid "Error ID: %s. %s"
+msgstr "Erreur ID: %s. %s"
+
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:115
+msgid "No vendors found to pay. Maybe they haven't set a PayPal address?"
+msgstr ""
+"Pas de vendeurs trouvés à payer. Peut-être qu'ils n'ont pas défini une "
+"adresse PayPal?"
+
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:167
+msgid "All due commission has been paid for."
+msgstr "Toutes les commissions ont été payée."
+
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:173
+msgid ""
+"All due commission has been paid for, but I could not clear it from their "
+"profiles due to an internal error. Commission will still be listed as due. "
+"Please manually mark the commission as paid from the Commissions page."
+msgstr ""
+"Toutes les commission ont été payé, mais je ne pouvais pas le faire "
+"disparaître de leurs profils en raison d'une erreur interne. Les commissions "
+"seront toujours listé comme a payer. S'il vous plaît marquer manuellement "
+"les commissions comme payés à la page des commissions."
+
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:208
+msgid "WooCommerce: Mass payments for vendors update"
+msgstr "WooCommerce: mise à jour des paiements groupés des vendeurs"
+
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:210
+msgid ""
+"Hello! A payment was just triggered to mass pay all vendors their due "
+"commission."
+msgstr ""
+"Bonjour! Un paiement a été déclenché pour payer tous les vendeurs leurs "
+"commissions dues."
+
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:211
+#, php-format
+msgid "Payment status: %s."
+msgstr "Statut des paiement: %s."
+
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:212
+#, php-format
+msgid "Payment message: %s."
+msgstr "Message Paiement: %s."
+
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:215
+#, php-format
+msgid "Payment total: %s."
+msgstr "Paiement total: %s."
+
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:35
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:71
+msgid "WC Vendors Test Gateway"
+msgstr "Passerelle de test WC Vendors"
+
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:36
+msgid ""
+"This gateway will set orders to processing upon receipt allowing you to test "
+"transactions in your store.  Some WooCommerce included gateways have "
+"problems with this - you should use this gateway for all of your non-PayPal "
+"testing."
+msgstr ""
+"Cette passerelle passera les commandes à \"en cours\" à réception, vous "
+"permettant de tester les transactions dans votre magasin.  Certaines "
+"passerelles incluses dans WooCommerce ont des problèmes avec cela - vous "
+"devez utiliser cette passerelle pour tous vos tests hors PayPal."
+
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:64
+msgid "Enable WC Vendors Test Gateway Payment"
+msgstr "Activer la passerelle de test de paiements de WC Vendors"
+
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:68
+msgid "Title"
+msgstr "Titre"
+
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:77
+msgid "Payment method description that the customer will see on your checkout."
+msgstr ""
+"La description de méthode de paiement que vos clients verront lors du "
+"processus de commande."
+
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:78
+msgid ""
+"This is a test gateway -- not to be used on live sites for live "
+"transactions. <a href=\"http://www.wcvendors.com/\" target=\"top\">Click "
+"here to visit WCVendors.com</a>."
+msgstr ""
+"Il s’agit d’une passerelle de test -- à ne pas utiliser sur un site en "
+"production pour des transactions réelles. <a href=\"http://www.wcvendors.com/"
+"\" target=\"top\">Cliquez ici pour visiter WCVendors.com</a>."
+
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:82
+msgid "Instructions"
+msgstr "Instructions"
+
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:84
+msgid ""
+"Success!  Your test order is now marked as processing and any vendors will "
+"be sent an email as long as you have the Notify Vendors email enabled under "
+"WooCommerce--Settings--Emails."
+msgstr ""
+"Succès !  Votre commande de test est maintenant marquée comme en cours et "
+"les vendeurs seront notifiés par e-mail tant que vous avez \"Notifier les "
+"vendeurs par e-mail\" activé sous WooCommerce--Paramètres--Emails."
+
+#: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:124
+msgid "Test gateway transation complete.  Order processing."
+msgstr "Transaction sur plateforme de test terminée. Commande en cours."
+
+#: ../templates/dashboard/denied.php:8
+msgid ""
+"Your account has not yet been approved to become a vendor.  When it is, you "
+"will receive an email telling you that your account is approved!"
+msgstr ""
+"Votre compte vendeur n'est pas encore approuvé. Quand il y sera, vous "
+"recevrez un email vous indiquant que votre compte est approuvé!"
+
+#: ../templates/dashboard/denied.php:12
+msgid "Your account is not setup as a vendor."
+msgstr "Votre compte n’est pas configuré en tant que vendeur."
+
+#: ../templates/dashboard/denied.php:33
+#, php-format
+msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
+msgstr "J'ai lu et accepté <a href=\"%s\">les termes et conditions</a>"
+
+#: ../templates/dashboard/denied.php:53
+msgid "Submit"
+msgstr "Soumettre"
+
+#: ../templates/dashboard/links.php:3
+msgid "View Your Store"
+msgstr "Voir votre magasin"
+
+#: ../templates/dashboard/links.php:4
+msgid "Store Settings"
+msgstr "Paramètres du magasin"
+
+#: ../templates/dashboard/links.php:7
+msgid "Add New Product"
+msgstr "Ajouter un nouveau produit"
+
+#: ../templates/dashboard/links.php:8
+msgid "Edit Products"
+msgstr "Modifier produits"
+
+#: ../templates/dashboard/orders.php:7 ../templates/dashboard/orders.php:10
+msgid "Hide items"
+msgstr "Masquer les items"
+
+#: ../templates/dashboard/orders.php:8 ../templates/dashboard/orders.php:79
+msgid "View items"
+msgstr "Voir les articles"
+
+#: ../templates/dashboard/orders.php:37
+msgid "Links"
+msgstr "Liens"
+
+#: ../templates/dashboard/orders.php:100
+msgid "Tracking"
+msgstr "Suivi d'envoi"
+
+#: ../templates/dashboard/orders.php:216
+msgid "You have no orders during this period."
+msgstr "Vous n'avez pas de commande pendant cette période."
+
+#: ../templates/dashboard/reports.php:1
+msgid "Sales Report"
+msgstr "Rapport des ventes"
+
+#: ../templates/dashboard/reports.php:20
+msgid "Rate"
+msgstr "Taux"
+
+#: ../templates/dashboard/reports.php:47
+msgid "Show Orders"
+msgstr "Voir Commandes"
+
+#: ../templates/dashboard/reports.php:56
+msgid "Totals"
+msgstr "Totales"
+
+#: ../templates/dashboard/reports.php:71
+msgid "You have no sales during this period."
+msgstr "Vous n'avez pas de ventes au cours de cette période."
+
+#: ../templates/dashboard/reports.php:82
+msgid "You haven't made any sales yet."
+msgstr "Vous n'avez pas encore fait de vente."
+
+#: ../templates/dashboard/settings/settings.php:47
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: ../templates/emails/application-status.php:5
+#, php-format
+msgid "Hi there. This is a notification about a vendor application on %s."
+msgstr "Il s'agit d'une notification pour une inscription Vendeur sur % s."
+
+#: ../templates/emails/application-status.php:8
+#, php-format
+msgid "Application status: %s"
+msgstr "Statut du Candidat: %s"
+
+#: ../templates/emails/application-status.php:9
+#, php-format
+msgid "Applicant username: %s"
+msgstr "Nom d'utilisateur du Candidat: %s"
+
+#: ../templates/emails/new-product.php:5
+#, php-format
+msgid "Hi there. This is a notification about a new product on %s."
+msgstr ""
+"Hello. Il s'agit d'une notification a propos d'un nouveau produit sur​​% s."
+
+#: ../templates/emails/new-product.php:8
+#, php-format
+msgid "Product title: %s"
+msgstr "Titre du Produit: %s"
+
+#: ../templates/emails/new-product.php:9
+#, php-format
+msgid "Submitted by: %s"
+msgstr "Soumis par: %s"
+
+#: ../templates/emails/new-product.php:10
+#, php-format
+msgid "Edit product: %s"
+msgstr "Editer produit: %s"
+
+#: ../templates/emails/notify-vendor-shipped.php:13
+msgid ""
+"A vendor has marked part of your order as shipped. The items that are "
+"shipped are as follows:"
+msgstr ""
+"Un vendeur a marqué une partie de votre commande comme envoyée. Les articles "
+"envoyés sont les suivants:"
+
+#: ../templates/emails/notify-vendor-shipped.php:17
+#: ../templates/emails/vendor-new-order.php:17
+#, php-format
+msgid "Order: %s"
+msgstr "Commande: %s"
+
+#: ../templates/emails/notify-vendor-shipped.php:24
+#: ../templates/emails/vendor-new-order.php:24
+msgid "Price"
+msgstr "Prix"
+
+#: ../templates/emails/notify-vendor-shipped.php:56
+#: ../templates/emails/vendor-new-order.php:56
+msgid "Customer details"
+msgstr "Détails client"
+
+#: ../templates/emails/notify-vendor-shipped.php:59
+#: ../templates/emails/vendor-new-order.php:59
+msgid "Email:"
+msgstr "Courriel:"
+
+#: ../templates/emails/notify-vendor-shipped.php:62
+#: ../templates/emails/vendor-new-order.php:62
+msgid "Tel:"
+msgstr "Tél:"
+
+#: ../templates/emails/vendor-new-order.php:13
+#, php-format
+msgid "You have received an order from %s. Their order is as follows:"
+msgstr "Vous avez reçu une commande de %s. Cette commande est la suivante:"
+
+#: ../templates/orders/comments/add-new-comment.php:11
+msgid "Add comment"
+msgstr "Ajouter Commentaire"
+
+#: ../templates/orders/comments/existing-comments.php:9
+#, php-format
+msgid "added %s ago"
+msgstr "Ajouter il y a %s"
+
+#: ../templates/orders/csv-export.php:6
+msgid "Export orders"
+msgstr "Export Commandes"
+
+#: ../templates/orders/customer-note/customer-note.php:4
+msgid "Customer note"
+msgstr "Note de l'acheteur"
+
+#: ../templates/orders/customer-note/customer-note.php:8
+msgid "No customer note."
+msgstr "Pas de note de l'acheteur"
+
+#: ../templates/orders/orders.php:84
+#, php-format
+msgid "Comments (%s)"
+msgstr "Commentaires (%s)"
+
+#: ../templates/orders/shipping/shipping-form.php:6
+msgid "Provider:"
+msgstr "Vendeur"
+
+#: ../templates/orders/shipping/shipping-form.php:8
+msgid "Custom Provider"
+msgstr "Vendeur personnalisé"
+
+#: ../templates/orders/shipping/shipping-form.php:31
+msgid "Provider Name:"
+msgstr "Nom du vendeur:"
+
+#: ../templates/orders/shipping/shipping-form.php:40
+msgid "Tracking number:"
+msgstr "Numéro de suivi:"
+
+#: ../templates/orders/shipping/shipping-form.php:48
+msgid "Tracking link:"
+msgstr "Lien de suivi:"
+
+#: ../templates/orders/shipping/shipping-form.php:58
+msgid "Date shipped:"
+msgstr "Date de l'expédition:"
+
+#: ../templates/orders/shipping/shipping-form.php:66
+msgid "Preview:"
+msgstr "Aperçu:"
+
+#: ../templates/orders/shipping/shipping-form.php:66
+msgid "Click here to track your shipment"
+msgstr "Cliquez ici pour votre numero de tracking"
+
+#: ../templates/orders/shipping/shipping-form.php:75
+msgid "Update tracking number"
+msgstr "Update numéro de tracking"
+
+#: ../templates/orders/shipping/shipping-form.php:77
+msgid "Mark as shipped"
+msgstr "Marquer comme envoyé"
+
+#: ../templates/orders/table-body.php:25
+#, php-format
+msgid "Quantity: %d"
+msgstr "Quantité: %d"
+
+#~ msgid ""
+#~ "The default rate the vendor receives for each product. If a product has a "
+#~ "commission rate already set, this value will be ignored for that product."
+#~ msgstr ""
+#~ "Le taux par défaut que le vendeur reçoit pour chaque produit. Si un "
+#~ "produit a un taux de commission déjà défini, cette valeur sera ignorée "
+#~ "pour ce produit."
+
+#~ msgid "Enable HTML for a vendor's shop description by default"
+#~ msgstr ""
+#~ "Activer la description  HTML pour la boutique d'un vendeur par défaut"
+
+#~ msgid "Eg: <code>yoursite.com/[your_setting_here]/[vendor_name_here]</code>"
+#~ msgstr ""
+#~ "Ex: <code>votre-site.com/[le_reglage_ici]/[le_nom_du_vendeur_ici]</code>"
+
+#~ msgid ""
+#~ "This will override the HTML Shop description output on product-archive "
+#~ "pages."
+#~ msgstr ""
+#~ "Ceci remplacera le code HTML de la description de la boutique sur les "
+#~ "pages archives produit ."
+
+#~ msgid "View backend sales reports"
+#~ msgstr "Voir les commandes dans l'administration"
+
+#~ msgid ""
+#~ "Graphs and tables via the Reports page in backend. The reports will only "
+#~ "display sales data that pertain to their products"
+#~ msgstr ""
+#~ "Graphiques et tableaux via la page Rapports en backend. Les rapports "
+#~ "n'affichent que les données sur les ventes qui se rapportent à leurs "
+#~ "produits"
+
+#~ msgid ""
+#~ "Vendors could submit a product through the backend, and an admin would "
+#~ "approve or deny it"
+#~ msgstr ""
+#~ "Les vendeurs peuvent soumettre un produit à travers le backend, et un "
+#~ "admin devra approuver ou refuser."
+
+#~ msgid "User payments"
+#~ msgstr "Paiements Utilisateur"
+
+#~ msgid ""
+#~ "Make sure you update your PayPal Adaptive Payments settings <a href=\"%s"
+#~ "\">here</a>."
+#~ msgstr ""
+#~ "Assurez-vous que vous avez mis à jour vos paramètres de paiements PayPal "
+#~ "<a href=\"%s\">ici</a>."
+
+#~ msgid ""
+#~ "Order unmarked shipped.  <br><br>Caution:  Clicking Reload in your "
+#~ "browser will mark the order as shipped and email the buyer again, "
+#~ "potentially spamming them."
+#~ msgstr ""
+#~ "Commande envoyée.  <br><br>Attension:  Si vous rechargez la page la "
+#~ "commande peut être marquée envoyée et le courriel pour le vendeur peut "
+#~ "être envoyé une nouvelle fois, ceci peut être considéré comme du spam."
+
+#~ msgid ""
+#~ "Order marked shipped.  <br><br>Caution:  Clicking Reload in your browser "
+#~ "will unmark the order as shipped."
+#~ msgstr ""
+#~ "Commande envoyée.  <br><br>Attension:  Si vous rechargez la page la "
+#~ "commande peut être marquée comme non-envoyée."
+
+#~ msgid "Extra data"
+#~ msgstr "Extra data"
+
+#~ msgid ""
+#~ "Your account is not setup as a vendor yet.  If you would like to "
+#~ "register, please complete this page!"
+#~ msgstr ""
+#~ "Votre compte n'est pas configuré comme vendeur. <br />Si vous souhaitez "
+#~ "vous inscrire, merci compléter cette page!"
+
+#~ msgid "Control Center"
+#~ msgstr "Mon Espace"
+
+#~ msgid "My shop"
+#~ msgstr "Ma boutique"
+
+#~ msgid "My settings"
+#~ msgstr "Mes paramètres"
+
+#~ msgid "Submit a product"
+#~ msgstr "Soumettre un produit"
+
+#~ msgid "Product Vendor"
+#~ msgstr "Product Vendor"
+
+#~ msgid "Product Vendors"
+#~ msgstr "Vendeurs"
+
+#~ msgid "Commission Due"
+#~ msgstr "Commission due"
+
+#~ msgid ""
+#~ "<b>Important:</b> Unless you're using the <a href=\"%s\">beta version of "
+#~ "TRS2</a>, all shipping costs will be given to the shop admin. Vendors "
+#~ "will not receive shipping costs."
+#~ msgstr ""
+#~ "<b>Important:</b> Unless you're using the <a href=\"%s\">beta version of "
+#~ "TRS2</a>, all shipping costs will be given to the shop admin. Vendors "
+#~ "will not receive shipping costs."
+
+#~ msgid ""
+#~ "The plugin has been updated, but could not be reactivated. Please "
+#~ "reactivate it manually."
+#~ msgstr ""
+#~ "The plugin has been updated, but could not be reactivated. Please "
+#~ "reactivate it manually."
+
+#~ msgid "Plugin reactivated successfully."
+#~ msgstr "Plugin réactivé avec succès."
+
+#~ msgid "MGates.me Updates"
+#~ msgstr "Mises a jour MGates.me"
+
+#~ msgid "MGates.me Plugin Updater"
+#~ msgstr "MGates.me Plugin Updater"
+
+#~ msgid "Enter your license key to automatically receive updates."
+#~ msgstr ""
+#~ "Entrez votre numéro de licence afin de recevoir automatiquement les mises "
+#~ "à jour."
+
+#~ msgid "Check for updates <b>now</b>"
+#~ msgstr "Check for updates <b>now</b>"
+
+#~ msgid ""
+#~ "<b style=\"color: #468847;\">Key deactivated.</b> License key for <i>%s</"
+#~ "i> has been <b>deactivated</b>."
+#~ msgstr ""
+#~ "<b style=\"color: #468847;\">Key deactivated.</b> License key for <i>%s</"
+#~ "i> has been <b>deactivated</b>."
+
+#~ msgid ""
+#~ "<b style=\"color: #B94A48;\">Error.</b> License key for <i>%s</i> could "
+#~ "not be deactivated."
+#~ msgstr ""
+#~ "<b style=\"color: #B94A48;\">Error.</b> License key for <i>%s</i> could "
+#~ "not be deactivated."
+
+#~ msgid ""
+#~ "<b style=\"color: #468847;\">Key activated.</b> License key for <i>%s</i> "
+#~ "has been <b>activated</b>."
+#~ msgstr ""
+#~ "<b style=\"color: #468847;\">Key activated.</b> License key for <i>%s</i> "
+#~ "has been <b>activated</b>."
+
+#~ msgid ""
+#~ "<b style=\"color: #B94A48;\">Erreur.</b> La clé de licence pour <i>%s</i> "
+#~ "est invalide."
+#~ msgstr ""
+#~ "<b style=\"color: #B94A48;\">Erreur.</b> La clé de licence pour <i>%s</i> "
+#~ "est invalide."
+
+#~ msgid "Enable MGates.me Plugin Updates."
+#~ msgstr "Authoriser les mises a jour des plugin MGates.me."
+
+#~ msgid ""
+#~ "<a href=\"%1$s\">Add your license keys</a> to enable automatic plugin "
+#~ "updates."
+#~ msgstr ""
+#~ "<a href=\"%1$s\">Ajouter votre clé de licence</a> pour activer le plugin "
+#~ "automatiquement updates."
+
+#~ msgid "Hide This Message"
+#~ msgstr "Masquer ce message"
+
+#~ msgid "Your account has not yet been approved to become a vendor."
+#~ msgstr "Votre compte n'a pas encore été approuvé pour devenir Vendeur."
