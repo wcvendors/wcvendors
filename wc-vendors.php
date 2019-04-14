@@ -7,7 +7,7 @@
  * Author URI:          https://www.wcvendors.com
  * GitHub Plugin URI:   https://github.com/wcvendors/wcvendors
  *
- * Version:              2.0.0
+ * Version:              3.0.0
  * Requires at least:    4.4.0
  * Tested up to:         4.9.0
  * WC requires at least: 3.0.0
@@ -37,7 +37,7 @@ along with WC Vendors. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
 
 */
 
-define( 'WC_VENDORS', '2.0.0' );
+define( 'WC_VENDORS', '3.0.0' );
 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -51,7 +51,7 @@ final class WC_Vendors {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.0';
+	public $version = '3.0.0';
 
 	/**
 	 * The single instance of the class.
