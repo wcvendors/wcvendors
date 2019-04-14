@@ -118,7 +118,7 @@ class WCVendors_Install {
 	 */
 	private static function create_options() {
 
-		include_once( dirname( __FILE__ ) . '/admin/class-wc-admin-settings.php' );
+		include_once( dirname( __FILE__ ) . '/admin/class-wcv-admin-settings.php' );
 
 		$settings = WCVendors_Admin_Settings::get_settings_pages();
 
@@ -228,7 +228,7 @@ class WCVendors_Install {
 			paid_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			paid_status varchar(20) NOT NULL DEFAULT '',
 			paid_via varchar(255) NOT NULL DEFAULT '', 
-			PRIMARY KEY  (commission_id)
+			PRIMARY KEY  (id)
 			) $collate;
 		";
 
