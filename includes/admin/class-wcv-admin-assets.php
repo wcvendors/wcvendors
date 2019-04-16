@@ -21,29 +21,28 @@ class WCVendors_Admin_Assets {
 	 * Hook in tabs.
 	 */
 	public function __construct() {
-		add_action( 'admin_enqueue_scripts', 	array( $this, 'admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', 	array( $this, 'admin_scripts' ) );
-		add_filter( 'woocommerce_screen_ids', 	array( $this, 'screen_ids') ); 
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+		add_filter( 'woocommerce_screen_ids', array( $this, 'screen_ids' ) );
 	}
 
 	/**
-	 * Enqueue the styles 
+	 * Enqueue the styles
 	 */
-	public function admin_styles(){ 
+	public function admin_styles() {
 
 	}
 
 	/**
-	 * Enqueue the scripts 
+	 * Enqueue the scripts
 	 */
-	public function admin_scripts(){ 
+	public function admin_scripts() {
 
 		global $wp_query, $post;
 
-		$screen       = get_current_screen();
-		$screen_id    = $screen ? $screen->id : '';
-		$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
+		$screen    = get_current_screen();
+		$screen_id = $screen ? $screen->id : '';
+		$suffix    = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// Products
 		if ( in_array( $screen_id, array( 'edit-product' ) ) ) {
@@ -53,11 +52,11 @@ class WCVendors_Admin_Assets {
 	}
 
 	/*
-	*	Load the WooCommerce Admin settings styles on the wcv-settings page 
-	*/ 
-	public function screen_ids( $screen_ids ){ 
-		$screen_ids[] = 'wc-vendors_page_wcv-settings'; 
-		return $screen_ids; 
+	*   Load the WooCommerce Admin settings styles on the wcv-settings page
+	*/
+	public function screen_ids( $screen_ids ) {
+		$screen_ids[] = 'wc-vendors_page_wcv-settings';
+		return $screen_ids;
 	}
-} 
-return new WCVendors_Admin_Assets(); 
+}
+return new WCVendors_Admin_Assets();

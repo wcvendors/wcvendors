@@ -53,12 +53,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</tr>
 			<tr>
 				<td colspan="3" class="tool-tip">
-					<?php printf( __( 'This sets the page used to display the terms and conditions when a %s signs up.', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false  ) ) ); ?>
+					<?php printf( __( 'This sets the page used to display the terms and conditions when a %s signs up.', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<p class="wcv-setup-actions step">
-		<button type="submit" class="button button-next" value="<?php esc_attr_e( "Next", 'wcvendors' ); ?>" name="save_step"><?php esc_html_e( "Next", 'wcvendors' ); ?></button>
+		<button type="submit" class="button button-next" value="<?php esc_attr_e( 'Next', 'wcvendors' ); ?>" name="save_step"><?php esc_html_e( 'Next', 'wcvendors' ); ?></button>
 	</p>
 </form>

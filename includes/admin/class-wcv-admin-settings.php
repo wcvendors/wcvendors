@@ -4,17 +4,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * The admin settings class handles all settings in the admin area. This is a modified version of the WooCommerce Admin Settings class 
+ * The admin settings class handles all settings in the admin area. This is a modified version of the WooCommerce Admin Settings class
  *
  * @author      WooCommerce, Jamie Madden, WC Vendors
  * @category    Admin
  * @package     WCVendors/Admin
  * @version     2.0.0
- */ 
+ */
 
- class WCVendors_Admin_Settings extends WC_Admin_Settings { 
+class WCVendors_Admin_Settings extends WC_Admin_Settings {
 
- 	/**
+	/**
 	 * Setting pages.
 	 *
 	 * @var array
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 *
 	 * @var array
 	 */
-	private static $errors   = array();
+	private static $errors = array();
 
 	/**
 	 * Update messages.
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	private static $messages = array();
 
- 	/**
+	/**
 	 * Include the settings page classes.
 	 */
 	public static function get_settings_pages() {
@@ -43,15 +43,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 		if ( empty( self::$settings ) ) {
 			$settings = array();
 
-			// Include the setings page. 
-			include_once( WCV_ABSPATH_ADMIN . 'settings/class-wcv-settings-page.php' );
+			// Include the setings page.
+			include_once WCV_ABSPATH_ADMIN . 'settings/class-wcv-settings-page.php';
 
-			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-general.php' );
-			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-commission.php' );
-			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-capabilities.php' );
-			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-display.php' );
-			$settings[] = include( WCV_ABSPATH_ADMIN  . 'settings/class-wcv-settings-payments.php' );
-			
+			$settings[] = include WCV_ABSPATH_ADMIN . 'settings/class-wcv-settings-general.php';
+			$settings[] = include WCV_ABSPATH_ADMIN . 'settings/class-wcv-settings-commission.php';
+			$settings[] = include WCV_ABSPATH_ADMIN . 'settings/class-wcv-settings-capabilities.php';
+			$settings[] = include WCV_ABSPATH_ADMIN . 'settings/class-wcv-settings-display.php';
+			$settings[] = include WCV_ABSPATH_ADMIN . 'settings/class-wcv-settings-payments.php';
+
 			self::$settings = apply_filters( 'wcvendors_get_settings_pages', $settings );
 		}
 
@@ -95,14 +95,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		wp_enqueue_script( 'wcvendors_settings', WCVendors()->plugin_url() . '/assets/js/admin/settings' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris', 'selectWoo' ), WCVendors()->get_version(), true );
 
-		wp_localize_script( 'wcvendors_settings', 'wcvendors_settings_params', array(
-			'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'wcvendors' ),
-		) );
+		wp_localize_script(
+			'wcvendors_settings',
+			'wcvendors_settings_params',
+			array(
+				'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'wcvendors' ),
+			)
+		);
 
 		// Get tabs for the settings page
 		$tabs = apply_filters( 'wcvendors_settings_tabs_array', array() );
 
-		include( WCV_ABSPATH_ADMIN . 'views/html-admin-settings.php' );
+		include WCV_ABSPATH_ADMIN . 'views/html-admin-settings.php';
 	}
 
 	/**
@@ -191,7 +195,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				case 'text':
 				case 'email':
 				case 'number':
-				case 'password' :
+				case 'password':
 					$option_value = self::get_option( $value['id'], $value['default'] );
 
 					?><tr valign="top">
@@ -199,7 +203,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
 						</th>
-						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ) ?>">
+						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
 							<input
 								name="<?php echo esc_attr( $value['id'] ); ?>"
 								id="<?php echo esc_attr( $value['id'] ); ?>"
@@ -211,19 +215,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<?php echo implode( ' ', $custom_attributes ); ?>
 								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo $description; ?>
 						</td>
-					</tr><?php
+					</tr>
+					<?php
 					break;
 
 				// Color picker.
-				case 'color' :
+				case 'color':
 					$option_value = self::get_option( $value['id'], $value['default'] );
 
-					?><tr valign="top">
+					?>
+					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
 						</th>
-						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ) ?>">&lrm;
+						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">&lrm;
 							<span class="colorpickpreview" style="background: <?php echo esc_attr( $option_value ); ?>"></span>
 							<input
 								name="<?php echo esc_attr( $value['id'] ); ?>"
@@ -238,20 +244,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 								/>&lrm; <?php echo $description; ?>
 								<div id="colorPickerDiv_<?php echo esc_attr( $value['id'] ); ?>" class="colorpickdiv" style="z-index: 100;background:#eee;border:1px solid #ccc;position:absolute;display:none;"></div>
 						</td>
-					</tr><?php
+					</tr>
+					<?php
 					break;
 
 				// Textarea
 				case 'textarea':
-
 					$option_value = self::get_option( $value['id'], $value['default'] );
 
-					?><tr valign="top">
+					?>
+					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
 						</th>
-						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ) ?>">
+						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
 							<?php echo $description; ?>
 
 							<textarea
@@ -261,23 +268,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 								class="<?php echo esc_attr( $value['class'] ); ?>"
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo implode( ' ', $custom_attributes ); ?>
-								><?php echo esc_textarea( $option_value );  ?></textarea>
+								><?php echo esc_textarea( $option_value ); ?></textarea>
 						</td>
-					</tr><?php
+					</tr>
+					<?php
 					break;
 
 				// Select boxes
-				case 'select' :
-				case 'multiselect' :
-
+				case 'select':
+				case 'multiselect':
 					$option_value = self::get_option( $value['id'], $value['default'] );
 
-					?><tr valign="top">
+					?>
+					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
 						</th>
-						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ) ?>">
+						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
 							<select
 								name="<?php echo esc_attr( $value['id'] ); ?><?php echo ( 'multiselect' === $value['type'] ) ? '[]' : ''; ?>"
 								id="<?php echo esc_attr( $value['id'] ); ?>"
@@ -287,42 +295,45 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<?php echo ( 'multiselect' == $value['type'] ) ? 'multiple="multiple"' : ''; ?>
 								>
 								<?php
-									foreach ( $value['options'] as $key => $val ) {
-										?>
-										<option value="<?php echo esc_attr( $key ); ?>" <?php
+								foreach ( $value['options'] as $key => $val ) {
+									?>
+										<option value="<?php echo esc_attr( $key ); ?>" 
+																  <?php
 
-											if ( is_array( $option_value ) ) {
-												selected( in_array( $key, $option_value ), true );
-											} else {
-												selected( $option_value, $key );
-											}
+																	if ( is_array( $option_value ) ) {
+																		selected( in_array( $key, $option_value ), true );
+																	} else {
+																		selected( $option_value, $key );
+																	}
 
-										?>><?php echo $val ?></option>
+																	?>
+										><?php echo $val; ?></option>
 										<?php
-									}
+								}
 								?>
 							</select> <?php echo $description; ?>
 						</td>
-					</tr><?php
+					</tr>
+					<?php
 					break;
 
 				// Radio inputs
-				case 'radio' :
-
+				case 'radio':
 					$option_value = self::get_option( $value['id'], $value['default'] );
 
-					?><tr valign="top">
+					?>
+					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
 						</th>
-						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ) ?>">
+						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
 							<fieldset>
 								<?php echo $description; ?>
 								<ul>
 								<?php
-									foreach ( $value['options'] as $key => $val ) {
-										?>
+								foreach ( $value['options'] as $key => $val ) {
+									?>
 										<li>
 											<label><input
 												name="<?php echo esc_attr( $value['id'] ); ?>"
@@ -330,23 +341,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 												type="radio"
 												style="<?php echo esc_attr( $value['css'] ); ?>"
 												class="<?php echo esc_attr( $value['class'] ); ?>"
-												<?php echo implode( ' ', $custom_attributes ); ?>
-												<?php checked( $key, $option_value ); ?>
-												/> <?php echo $val ?></label>
+											<?php echo implode( ' ', $custom_attributes ); ?>
+											<?php checked( $key, $option_value ); ?>
+												/> <?php echo $val; ?></label>
 										</li>
 										<?php
-									}
+								}
 								?>
 								</ul>
 							</fieldset>
 						</td>
-					</tr><?php
+					</tr>
+					<?php
 					break;
 
 				// Checkbox input
-				case 'checkbox' :
-
-					$option_value    = self::get_option( $value['id'], $value['default'] );
+				case 'checkbox':
+					$option_value     = self::get_option( $value['id'], $value['default'] );
 					$visibility_class = array();
 
 					if ( ! isset( $value['hide_if_checked'] ) ) {
@@ -368,7 +379,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					if ( ! isset( $value['checkboxgroup'] ) || 'start' == $value['checkboxgroup'] ) {
 						?>
 							<tr valign="top" class="<?php echo esc_attr( implode( ' ', $visibility_class ) ); ?>">
-								<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ) ?></th>
+								<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ); ?></th>
 								<td class="forminp forminp-checkbox">
 									<fieldset>
 						<?php
@@ -380,12 +391,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					if ( ! empty( $value['title'] ) ) {
 						?>
-							<legend class="screen-reader-text"><span><?php echo esc_html( $value['title'] ) ?></span></legend>
+							<legend class="screen-reader-text"><span><?php echo esc_html( $value['title'] ); ?></span></legend>
 						<?php
 					}
 
 					?>
-						<label for="<?php echo $value['id'] ?>">
+						<label for="<?php echo $value['id']; ?>">
 							<input
 								name="<?php echo esc_attr( $value['id'] ); ?>"
 								id="<?php echo esc_attr( $value['id'] ); ?>"
@@ -394,12 +405,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 								value="1"
 								<?php checked( $option_value, 'yes' ); ?>
 								<?php echo implode( ' ', $custom_attributes ); ?>
-							/> <?php echo $description ?>
+							/> <?php echo $description; ?>
 						</label> <?php echo $tooltip_html; ?>
 					<?php
 
 					if ( ! isset( $value['checkboxgroup'] ) || 'end' == $value['checkboxgroup'] ) {
-									?>
+						?>
 									</fieldset>
 								</td>
 							</tr>
@@ -412,8 +423,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					break;
 
 				// Single page selects
-				case 'single_select_page' :
-
+				case 'single_select_page':
 					$args = array(
 						'name'             => $value['id'],
 						'id'               => $value['id'],
@@ -429,16 +439,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$args = wp_parse_args( $value['args'], $args );
 					}
 
-					?><tr valign="top" class="single_select_page">
-						<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ) ?> <?php echo $tooltip_html; ?></th>
+					?>
+					<tr valign="top" class="single_select_page">
+						<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; ?></th>
 						<td class="forminp">
 							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wcvendors' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' id=", wp_dropdown_pages( $args ) ); ?> <?php echo $description; ?>
 						</td>
-					</tr><?php
+					</tr>
+					<?php
 					break;
 
 				// Single country selects
-				case 'single_select_country' :
+				case 'single_select_country':
 					$country_setting = (string) self::get_option( $value['id'] );
 
 					if ( strstr( $country_setting, ':' ) ) {
@@ -449,21 +461,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$country = $country_setting;
 						$state   = '*';
 					}
-					?><tr valign="top">
+					?>
+					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
 						</th>
-						<td class="forminp"><select name="<?php echo esc_attr( $value['id'] ); ?>" style="<?php echo esc_attr( $value['css'] ); ?>" data-placeholder="<?php esc_attr_e( 'Choose a country&hellip;', 'wcvendors' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wcvendors' ) ?>" class="wc-enhanced-select">
+						<td class="forminp"><select name="<?php echo esc_attr( $value['id'] ); ?>" style="<?php echo esc_attr( $value['css'] ); ?>" data-placeholder="<?php esc_attr_e( 'Choose a country&hellip;', 'wcvendors' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wcvendors' ); ?>" class="wc-enhanced-select">
 							<?php WC()->countries->country_dropdown_options( $country, $state ); ?>
 						</select> <?php echo $description; ?>
 						</td>
-					</tr><?php
+					</tr>
+					<?php
 					break;
 
 				// Country multiselects
-				case 'multi_select_countries' :
-
+				case 'multi_select_countries':
 					$selections = (array) self::get_option( $value['id'] );
 
 					if ( ! empty( $value['options'] ) ) {
@@ -473,23 +486,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 					}
 
 					asort( $countries );
-					?><tr valign="top">
+					?>
+					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
 						</th>
 						<td class="forminp">
-							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php esc_attr_e( 'Choose countries&hellip;', 'wcvendors' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wcvendors' ) ?>" class="wc-enhanced-select">
+							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php esc_attr_e( 'Choose countries&hellip;', 'wcvendors' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wcvendors' ); ?>" class="wc-enhanced-select">
 								<?php
-									if ( ! empty( $countries ) ) {
-										foreach ( $countries as $key => $val ) {
-											echo '<option value="' . esc_attr( $key ) . '" ' . selected( in_array( $key, $selections ), true, false ) . '>' . $val . '</option>';
-										}
+								if ( ! empty( $countries ) ) {
+									foreach ( $countries as $key => $val ) {
+										echo '<option value="' . esc_attr( $key ) . '" ' . selected( in_array( $key, $selections ), true, false ) . '>' . $val . '</option>';
 									}
+								}
 								?>
 							</select> <?php echo ( $description ) ? $description : ''; ?> <br /><a class="select_all button" href="#"><?php _e( 'Select all', 'wcvendors' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'wcvendors' ); ?></a>
 						</td>
-					</tr><?php
+					</tr>
+					<?php
 					break;
 
 				// Default: run an action
@@ -540,17 +555,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			// Format the value based on option type.
 			switch ( $option['type'] ) {
-				case 'checkbox' :
+				case 'checkbox':
 					$value = '1' === $raw_value || 'yes' === $raw_value ? 'yes' : 'no';
 					break;
-				case 'textarea' :
+				case 'textarea':
 					$value = wp_kses_post( trim( $raw_value ) );
 					break;
-				case 'multiselect' :
-				case 'multi_select_countries' :
+				case 'multiselect':
+				case 'multi_select_countries':
 					$value = array_filter( array_map( 'wc_clean', (array) $raw_value ) );
 					break;
-				case 'image_width' :
+				case 'image_width':
 					$value = array();
 					if ( isset( $raw_value['width'] ) ) {
 						$value['width']  = wc_clean( $raw_value['width'] );
@@ -562,7 +577,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$value['crop']   = $option['default']['crop'];
 					}
 					break;
-				case 'thumbnail_cropping' :
+				case 'thumbnail_cropping':
 					$value = wc_clean( $raw_value );
 
 					if ( 'custom' === $value ) {
@@ -580,19 +595,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$default = ( empty( $option['default'] ) ? $allowed_values[0] : $option['default'] );
 					$value   = in_array( $raw_value, $allowed_values ) ? $raw_value : $default;
 					break;
-				default :
+				default:
 					$value = wc_clean( $raw_value );
 					break;
 			}
 
 			/**
 			 * Sanitize the value of an option.
+			 *
 			 * @since 2.4.0
 			 */
 			$value = apply_filters( 'wcvendors_admin_settings_sanitize_option', $value, $option, $raw_value );
 
 			/**
 			 * Sanitize the value of an option by option name.
+			 *
 			 * @since 2.4.0
 			 */
 			$value = apply_filters( "wcvendors_admin_settings_sanitize_option_$option_name", $value, $option, $raw_value );
@@ -616,6 +633,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			/**
 			 * Fire an action before saved.
+			 *
 			 * @deprecated 2.4.0 - doesn't allow manipulation of values!
 			 */
 			do_action( 'wcvendors_update_option', $option );
@@ -629,4 +647,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 		return true;
 	}
 
- }
+}

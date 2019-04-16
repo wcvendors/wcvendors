@@ -1,17 +1,19 @@
 <?php
 /**
- *  Vendor Main Header - Hooked into archive-product page 
-*
+ *  Vendor Main Header - Hooked into archive-product page
+ *
  *  THIS FILE WILL LOAD ON VENDORS STORE URLs (such as yourdomain.com/vendors/bobs-store/)
  *
  * @author WCVendors
  * @package WCVendors
  * @version 1.3.0
  */
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /*
-*	Template Variables available 
+*   Template Variables available
 *   $vendor : 			For pulling additional user details from vendor account.  This is an array.
 *   $vendor_id  : 		current vendor user id number
 *   $shop_name : 		Store/Shop Name (From Vendor Dashboard Shop Settings)
@@ -20,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 *	$vendor_email :		Vendors email address
 *	$vendor_login : 	Vendors user_login name
 *	$vendor_shop_link : URL to the vendors store
-*/ 
+*/
 
 ?>
 

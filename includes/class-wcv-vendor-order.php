@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * The vendor order class handles storage of a vendor order data. The data is stored in a custom post type 
+ * The vendor order class handles storage of a vendor order data. The data is stored in a custom post type
  *
  * @author      Jamie Madden, WC Vendors
  * @category    Classes
@@ -36,7 +36,7 @@ class WCVendors_Vendor_Order extends WC_Order {
 	 */
 	private $editable;
 
-	private $parent_order; 
+	private $parent_order;
 
 	/**
 	 * Extra data for this object. Name value pairs (name + default value).
@@ -48,9 +48,9 @@ class WCVendors_Vendor_Order extends WC_Order {
 	protected $extra_data = array(
 
 		// Extra data with getters/setters
-		'vendor_id'				=> 0, 
-		'commission'       		=> 0,
-		'order_item_ids'		=> array(), 
+		'vendor_id'      => 0,
+		'commission'     => 0,
+		'order_item_ids' => array(),
 	);
 
 	/**
@@ -61,7 +61,7 @@ class WCVendors_Vendor_Order extends WC_Order {
 	public function __construct( $vendor_order = 0 ) {
 
 		parent::__construct( $vendor_order );
-		
+
 		$this->order_type = 'shop_order_vendor';
 
 		if ( is_numeric( $vendor_order ) && $vendor_order > 0 ) {
@@ -82,18 +82,17 @@ class WCVendors_Vendor_Order extends WC_Order {
 	}
 
 	/**
-	 * @todo finish these to make the market place functionality complete. 
+	 * @todo finish these to make the market place functionality complete.
 	 */
-	// Shipping 
+	// Shipping
 	// $this->set_shipping_total( WC()->cart->shipping_total );
 	// $this->set_shipping_tax( WC()->cart->shipping_tax_total );
-
-	// Coupons 
+	// Coupons
 	// $this->set_discount_total( WC()->cart->get_cart_discount_total() );
 	// $this->set_discount_tax( WC()->cart->get_cart_discount_tax_total() );
 
 	/**
-	 * @todo need to make these work for the sub orders where required. 
+	 * @todo need to make these work for the sub orders where required.
 	 */
 	// $this->create_order_fee_lines( $parent_order, WC()->cart );
 	// $this->create_order_shipping_lines( $parent_order, WC()->session->get( 'chosen_shipping_methods' ), WC()->shipping->get_packages() );
@@ -101,7 +100,7 @@ class WCVendors_Vendor_Order extends WC_Order {
 
 
 	/**
-	 * Getters 
+	 * Getters
 	 */
 
 	/**
@@ -112,93 +111,93 @@ class WCVendors_Vendor_Order extends WC_Order {
 	public function get_type() {
 		return 'shop_order_vendor';
 	}
-	
+
 
 	/**
-	 * Get vendor id 
+	 * Get vendor id
 	 */
-	public function get_vendor_id( $context = 'view' ){ 
+	public function get_vendor_id( $context = 'view' ) {
 		return $this->get_prop( 'vendor_id', $context );
 	}
 
 	/**
-	 * Get commission total 
+	 * Get commission total
 	 */
-	public function get_commission( $context = 'view' ){ 
-		// Need to get the relevant commission object from the database for this. 
+	public function get_commission( $context = 'view' ) {
+		// Need to get the relevant commission object from the database for this.
 		return $this->get_prop( 'commission', $context );
 	}
 
-	public function get_parent_order( ){ 
-		if ( !is_object( $this->parent_order ) ){ 
-			$this->parent_order = new WC_Order( $this->get_parent_id() ); 
+	public function get_parent_order() {
+		if ( ! is_object( $this->parent_order ) ) {
+			$this->parent_order = new WC_Order( $this->get_parent_id() );
 		}
 
-		return $this->parent_order; 
+		return $this->parent_order;
 	}
 
 	/**
-	 * Get items 
+	 * Get items
 	 */
-	public function get_items( $types = 'line_item' ){ 	
+	public function get_items( $types = 'line_item' ) {
 
-		$parent_items = $this->get_parent_order()->get_items(); 
-		$items 			= array(); 
+		$parent_items = $this->get_parent_order()->get_items();
+		$items        = array();
 
 		foreach ( $parent_items as $key => $item ) {
 			foreach ( $this->get_order_item_ids() as $order_item_id ) {
-				if ( $item->get_id() == $order_item_id ){ 
-					$items[ $key ]  = $item; 
+				if ( $item->get_id() == $order_item_id ) {
+					$items[ $key ] = $item;
 				}
 			}
 		}
 
-		return apply_filters( 'wcvendors_vendor_order_get_items', $items, $this ); 
-	}
-	
-	/**
-	 * Get the order item ids for this order 
-	 */
-	public function get_order_item_ids( $context = 'view' ){ 
-		return $this->get_prop( 'order_item_ids', $context ); 
+		return apply_filters( 'wcvendors_vendor_order_get_items', $items, $this );
 	}
 
 	/**
-	 * Setters 
+	 * Get the order item ids for this order
+	 */
+	public function get_order_item_ids( $context = 'view' ) {
+		return $this->get_prop( 'order_item_ids', $context );
+	}
+
+	/**
+	 * Setters
 	 */
 
 	/**
-	 * Set the parent order 
+	 * Set the parent order
 	 */
-	public function set_parent_order( $order ){ 
-		$this->parent_order = $order; 
-		if ( $order instanceof WC_Order ){ 
-			$this->create_parent_order_details(); 
+	public function set_parent_order( $order ) {
+		$this->parent_order = $order;
+		if ( $order instanceof WC_Order ) {
+			$this->create_parent_order_details();
 		}
 	}
 
 	/**
-	 * Anything that relys on the parent order to get data, set it here 
+	 * Anything that relys on the parent order to get data, set it here
 	 */
-	private function create_parent_order_details(){ 
+	private function create_parent_order_details() {
 
-		// Get details from parent order, don't store details in child order? .. 
+		// Get details from parent order, don't store details in child order? ..
 		$this->set_parent_id( $this->parent_order->get_id() );
 		$this->set_created_via( $this->parent_order->get_created_via() );
 		$this->set_cart_hash( $this->parent_order->get_cart_hash() );
 		$this->set_customer_id( $this->parent_order->get_customer_id() );
 		$this->set_currency( $this->parent_order->get_currency() );
 		$this->set_prices_include_tax( $this->parent_order->get_prices_include_tax() );
-		$this->set_customer_ip_address( $this->parent_order->get_customer_ip_address( ) );
+		$this->set_customer_ip_address( $this->parent_order->get_customer_ip_address() );
 		$this->set_customer_user_agent( $this->parent_order->get_customer_user_agent() );
 		$this->set_customer_note( $this->parent_order->get_customer_note() );
 		$this->set_payment_method( $this->parent_order->get_payment_method() );
 	}
 
 	/**
-	 * Set extra order data information, same as parent order for now 
+	 * Set extra order data information, same as parent order for now
 	 */
-	public function set_data( $data ){ 
+	public function set_data( $data ) {
 		foreach ( $data as $key => $value ) {
 			if ( is_callable( array( __CLASS__, "set_{$key}" ) ) ) {
 				$this->{"set_{$key}"}( $value );
@@ -207,95 +206,99 @@ class WCVendors_Vendor_Order extends WC_Order {
 	}
 
 	/**
-	 * Set parent order id 
+	 * Set parent order id
 	 */
-	public function set_parent_id( $value ){ 
-		$this->set_prop( 'parent_id', $value ); 
+	public function set_parent_id( $value ) {
+		$this->set_prop( 'parent_id', $value );
 	}
 
 	/**
-	 * Set vendor id 
+	 * Set vendor id
 	 */
-	public function set_vendor_id( $value ){ 
+	public function set_vendor_id( $value ) {
 		$this->set_prop( 'vendor_id', $value );
 	}
 
 	/**
-	 * Set commission 
+	 * Set commission
 	 */
-	public function set_commission( $value ){ 
+	public function set_commission( $value ) {
 		$this->set_prop( 'commission', $value );
 	}
 
 	/**
-	 * Set the order item ids for the order 
+	 * Set the order item ids for the order
 	 */
-	public function set_order_item_ids( $value ){ 
-		$this->set_prop( 'order_item_ids', $value ); 
+	public function set_order_item_ids( $value ) {
+		$this->set_prop( 'order_item_ids', $value );
 	}
-	
+
 	/**
-	 * Utils 
+	 * Utils
 	 */
-	
+
 	/**
-	 * Add the filtered order items to the order 
+	 * Add the filtered order items to the order
 	 */
-	public function add_items( $items ){ 
-		$this->set_order_item_ids( array_keys( $items ) ); 
-		
+	public function add_items( $items ) {
+		$this->set_order_item_ids( array_keys( $items ) );
+
 		foreach ( $items as $key => $item ) {
-			$this->add_item( $item ); 
+			$this->add_item( $item );
 		}
 	}
 
 
 	/**
-	 * Calculate the totals for the vendor order based on only the order items relevant to this vendor 
+	 * Calculate the totals for the vendor order based on only the order items relevant to this vendor
 	 */
-	public function calculate_totals( $and_taxes = true ){ 
+	public function calculate_totals( $and_taxes = true ) {
 
-		$total 		= 0; 
-		$total_tax 	= 0; 	
+		$total     = 0;
+		$total_tax = 0;
 
 		// Don't calculate anything if there are no items.
-		if ( is_null( $this->get_items() ) ) return; 
-
-		foreach ( $this->get_items() as $item )  {
-			$total += $item->get_total(); 
-			$total_tax += $item->get_total_tax(); 
+		if ( is_null( $this->get_items() ) ) {
+			return;
 		}
 
-		$this->set_total( (float) $total ); 
-		$this->set_total_tax( (float) $total_tax ); 
+		foreach ( $this->get_items() as $item ) {
+			$total     += $item->get_total();
+			$total_tax += $item->get_total_tax();
+		}
 
-		$this->create_order_tax_line_item(); 
+		$this->set_total( (float) $total );
+		$this->set_total_tax( (float) $total_tax );
+
+		$this->create_order_tax_line_item();
 	}
 
 	/**
-	 * Create the tax lines for the vendor order 
+	 * Create the tax lines for the vendor order
 	 */
-	public function create_order_tax_line_item(){ 
+	public function create_order_tax_line_item() {
 
-		// short circuit the function if the parent id hasn't been set. 
-		if ( ! $this->get_parent_id() ) return; 
+		// short circuit the function if the parent id hasn't been set.
+		if ( ! $this->get_parent_id() ) {
+			return;
+		}
 
-		$parent_tax_items = $this->parent_order->get_items( 'tax' ); 
+		$parent_tax_items = $this->parent_order->get_items( 'tax' );
 
 		foreach ( $parent_tax_items as $tax_item_id => $tax_item ) {
 			$item = new WC_Order_Item_Tax();
-			$item->set_rate( $tax_item->get_rate_id() ); 
-			$item->set_rate_id( $tax_item->get_rate_id() ); 
-			$item->set_tax_total( $this->get_total_tax() ); 
-			// $item->set_shipping_tax_total( ); 
-			$item->apply_changes(); 
-			$this->add_item( $item ); 
+			$item->set_rate( $tax_item->get_rate_id() );
+			$item->set_rate_id( $tax_item->get_rate_id() );
+			$item->set_tax_total( $this->get_total_tax() );
+			// $item->set_shipping_tax_total( );
+			$item->apply_changes();
+			$this->add_item( $item );
 		}
-		
+
 	}
 
 	/**
-	 * Conditionals 
+	 * Conditionals
 	 */
 
 	/**
@@ -303,8 +306,8 @@ class WCVendors_Vendor_Order extends WC_Order {
 	 *
 	 * @return bool
 	 */
-	public function is_commission_paid(){ 
-		return $this->get_commission_paid(); 
+	public function is_commission_paid() {
+		return $this->get_commission_paid();
 	}
-	
+
 }

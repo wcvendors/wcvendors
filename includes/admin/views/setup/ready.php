@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<h1><?php esc_html_e( "Your marketplace is ready!", 'wcvendors' ); ?></h1>
+<h1><?php esc_html_e( 'Your marketplace is ready!', 'wcvendors' ); ?></h1>
 
 <div class="wcvendors-message wcvendors-newsletter">
-	<p><?php esc_html_e( "Subscribe to our newsletter! Get product updates, marketplace tips, information and more.", 'wcvendors' ); ?></p>
+	<p><?php esc_html_e( 'Subscribe to our newsletter! Get product updates, marketplace tips, information and more.', 'wcvendors' ); ?></p>
 	<form action="//wcvendors.us8.list-manage.com/subscribe/post?u=2c1434dc56f9506bf3c3ecd21&amp;id=13860df971" method="post" target="_blank" novalidate>
 		<div class="newsletter-form-container">
 			<input
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wcv-wizard-next-step-description">
 			<p class="next-step-heading"><?php esc_html_e( 'Next step', 'wcvendors' ); ?></p>
 			<h3 class="next-step-description"><?php esc_html_e( 'Upgrade to Pro!', 'wcvendors' ); ?></h3>
-			<p class="next-step-extra-info"><?php esc_html_e( "Upgrade today to extend the features of your marketplace.", 'wcvendors' ); ?></p>
+			<p class="next-step-extra-info"><?php esc_html_e( 'Upgrade today to extend the features of your marketplace.', 'wcvendors' ); ?></p>
 			<p class="next-step-heading"><?php esc_html_e( 'Features', 'wcvendors' ); ?></p>
 			<ul>
 				<li><?php _e( 'Complete frontend dashboard for vendors', 'wcvendors' ); ?></li>

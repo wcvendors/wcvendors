@@ -20,7 +20,7 @@
  * @copyright           Copyright © 2018 Jamie Madden, WC Vendors
  * @author              Jamie Madden, WC Vendors
  * @package             WCVendors
- * @license     		GPL2
+ * @license             GPL2
 
 WC Vendors is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -34,8 +34,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with WC Vendors. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
-
-*/
+ */
 
 define( 'WC_VENDORS', '3.0.0' );
 
@@ -73,6 +72,7 @@ final class WC_Vendors {
 
 	/**
 	 * Notices (array)
+	 *
 	 * @var array
 	 */
 	public $notices = array();
@@ -110,6 +110,7 @@ final class WC_Vendors {
 
 	/**
 	 * Cloning is forbidden.
+	 *
 	 * @since 2.0
 	 */
 	public function __clone() {
@@ -118,6 +119,7 @@ final class WC_Vendors {
 
 	/**
 	 * Unserializing instances of this class is forbidden.
+	 *
 	 * @since 2.0
 	 */
 	public function __wakeup() {
@@ -126,6 +128,7 @@ final class WC_Vendors {
 
 	/**
 	 * Auto-load in-accessible properties on demand.
+	 *
 	 * @param mixed $key
 	 * @return mixed
 	 */
@@ -137,18 +140,19 @@ final class WC_Vendors {
 
 	/**
 	 * Hook into actions and filters.
+	 *
 	 * @since  2.0
 	 */
 	private function init_hooks() {
 
 		add_action( 'admin_init', array( $this, 'on_activation' ) );
 
-		add_action( 'admin_init', 		array( $this, 'check_environment' ) );
-		add_action( 'admin_notices', 	array( $this, 'admin_notices' ), 15 );
-		add_action( 'init', 			array( $this, 'init' ) );
+		add_action( 'admin_init', array( $this, 'check_environment' ) );
+		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
+		add_action( 'init', array( $this, 'init' ) );
 
-		add_filter( 'woocommerce_data_stores', 	array( $this, 'add_data_stores' ) );
-		add_filter( 'wc_order_types', 			array( $this, 'add_order_types' ), 10, 2 );
+		add_filter( 'woocommerce_data_stores', array( $this, 'add_data_stores' ) );
+		add_filter( 'wc_order_types', array( $this, 'add_order_types' ), 10, 2 );
 
 	}
 
@@ -240,7 +244,7 @@ final class WC_Vendors {
 	/**
 	 * Define constant if not already set.
 	 *
-	 * @param  string $name
+	 * @param  string      $name
 	 * @param  string|bool $value
 	 */
 	private function define( $name, $value ) {
@@ -251,6 +255,7 @@ final class WC_Vendors {
 
 	/**
 	 * Get the plugin url.
+	 *
 	 * @return string
 	 */
 	public function plugin_url() {
@@ -259,6 +264,7 @@ final class WC_Vendors {
 
 	/**
 	 * Get the plugin path.
+	 *
 	 * @return string
 	 */
 	public function plugin_path() {
@@ -267,6 +273,7 @@ final class WC_Vendors {
 
 	/**
 	 * Get the template path.
+	 *
 	 * @return string
 	 */
 	public function template_path() {
@@ -275,6 +282,7 @@ final class WC_Vendors {
 
 	/**
 	 * Get Ajax URL.
+	 *
 	 * @return string
 	 */
 	public function ajax_url() {
@@ -287,33 +295,33 @@ final class WC_Vendors {
 	public function includes() {
 
 		/**
-		* 	Interfaces
+		*   Interfaces
 		*/
-		include_once( WCV_ABSPATH . 'includes/interfaces/class-wcv-commission-data-store-interface.php' );
-		include_once( WCV_ABSPATH . 'includes/interfaces/class-wcv-vendor-order-data-store-interface.php' );
+		include_once WCV_ABSPATH . 'includes/interfaces/class-wcv-commission-data-store-interface.php';
+		include_once WCV_ABSPATH . 'includes/interfaces/class-wcv-vendor-order-data-store-interface.php';
 
 		/*
 		* Data stores
 		*/
-		include_once( WCV_ABSPATH . 'includes/data-stores/class-wcv-commission-data-store.php' );
-		include_once( WCV_ABSPATH . 'includes/data-stores/class-wcv-vendor-order-data-store.php' );
+		include_once WCV_ABSPATH . 'includes/data-stores/class-wcv-commission-data-store.php';
+		include_once WCV_ABSPATH . 'includes/data-stores/class-wcv-vendor-order-data-store.php';
 
 		/**
 		 * Core Classes
 		 */
-		include_once( WCV_ABSPATH . 'includes/wcv-core-functions.php' );
-		include_once( WCV_ABSPATH . 'includes/wcv-vendor-functions.php' );
-		include_once( WCV_ABSPATH . 'includes/class-wcv-post-types.php' );
-		include_once( WCV_ABSPATH . 'includes/class-wcv-install.php' );
+		include_once WCV_ABSPATH . 'includes/wcv-core-functions.php';
+		include_once WCV_ABSPATH . 'includes/wcv-vendor-functions.php';
+		include_once WCV_ABSPATH . 'includes/class-wcv-post-types.php';
+		include_once WCV_ABSPATH . 'includes/class-wcv-install.php';
 
-		include_once( WCV_ABSPATH . 'includes/class-wcv-order.php' );
-		include_once( WCV_ABSPATH . 'includes/class-wcv-commission.php' );
-		include_once( WCV_ABSPATH . 'includes/class-wcv-commission-factory.php' );
-		include_once( WCV_ABSPATH . 'includes/class-wcv-vendor-order.php' );
+		include_once WCV_ABSPATH . 'includes/class-wcv-order.php';
+		include_once WCV_ABSPATH . 'includes/class-wcv-commission.php';
+		include_once WCV_ABSPATH . 'includes/class-wcv-commission-factory.php';
+		include_once WCV_ABSPATH . 'includes/class-wcv-vendor-order.php';
 
 		/**
 			v1 code to be audited
-		**/
+		*/
 		// require_once WCV_ABSPATH . 'classes/class-queries.php';
 		// require_once WCV_ABSPATH . 'classes/class-vendors.php';
 		// require_once WCV_ABSPATH . 'classes/class-cron.php';
@@ -322,14 +330,12 @@ final class WC_Vendors {
 		// require_once WCV_ABSPATH . 'classes/class-vendor-order.php';
 		// require_once WCV_ABSPATH . 'classes/class-vendor-post-types.php';
 		// require_once WCV_ABSPATH . 'classes/includes/class-wcv-shortcodes.php';
-
 		// // Include depreciated gateways
 		// require_once WCV_ABSPATH . 'classes/gateways/PayPal_AdvPayments/paypal_ap.php';
 		// require_once WCV_ABSPATH . 'classes/gateways/PayPal_Masspay/class-paypal-masspay.php';
 		// require_once WCV_ABSPATH . 'classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php';
-
 		if ( $this->is_request( 'admin' ) ) {
-			include_once( WCV_ABSPATH . 'includes/admin/class-wcv-admin.php' );
+			include_once WCV_ABSPATH . 'includes/admin/class-wcv-admin.php';
 		}
 
 		if ( $this->is_request( 'frontend' ) ) {
@@ -343,15 +349,15 @@ final class WC_Vendors {
 	 */
 	public function frontend_includes() {
 
-		/** Legacy **/
-		/** @depreciated v2.0.0 **/
+		/** Legacy */
+		/** @depreciated v2.0.0 */
 		// require_once WCV_ABSPATH . 'classes/front/class-vendor-cart.php';
 		// require_once WCV_ABSPATH . 'classes/front/dashboard/class-vendor-dashboard.php';
 		// require_once WCV_ABSPATH . 'classes/front/class-vendor-shop.php';
 		// require_once WCV_ABSPATH . 'classes/front/signup/class-vendor-signup.php';
 		// require_once WCV_ABSPATH . 'classes/front/orders/class-orders.php';
 
-		/** New front end classes **/
+		/** New front end classes */
 
 	}
 
@@ -378,12 +384,10 @@ final class WC_Vendors {
 		$this->load_plugin_textdomain();
 
 		// Load class instances.
-
-
 		// Session class, handles session data for users - can be overwritten if custom handler is needed.
 		if ( $this->is_request( 'frontend' ) || $this->is_request( 'cron' ) ) {
-			$session_class  = apply_filters( 'wcvendors_session_handler', 'WC_Session_Handler' );
-			$this->session  = new $session_class();
+			$session_class = apply_filters( 'wcvendors_session_handler', 'WC_Session_Handler' );
+			$this->session = new $session_class();
 		}
 
 		// Classes/actions loaded for the frontend and for ajax requests.
@@ -409,13 +413,13 @@ final class WC_Vendors {
 		}
 
 		switch ( $type ) {
-			case 'admin' :
+			case 'admin':
 				return is_admin();
-			case 'ajax' :
+			case 'ajax':
 				return defined( 'DOING_AJAX' );
-			case 'cron' :
+			case 'cron':
 				return defined( 'DOING_CRON' );
-			case 'frontend' :
+			case 'frontend':
 				return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
 		}
 	}
@@ -443,9 +447,9 @@ final class WC_Vendors {
 	 * @since 1.0.0
 	 */
 	public static function add_data_stores( $data_stores ) {
-		$data_stores[ 'shop-order-vendor' ]            = 'WCVendors_Vendor_Order_Data_Store_CPT';
-		$data_stores[ 'vendor-product' ]               = 'WCVendors_Vendor_Product_Data_Store_CPT';
-		$data_stores[ 'vendor-commission' ]            = 'WCVendors_Commission_Data_Store_CPT';
+		$data_stores['shop-order-vendor'] = 'WCVendors_Vendor_Order_Data_Store_CPT';
+		$data_stores['vendor-product']    = 'WCVendors_Vendor_Product_Data_Store_CPT';
+		$data_stores['vendor-commission'] = 'WCVendors_Commission_Data_Store_CPT';
 		return $data_stores;
 	}
 
@@ -458,11 +462,10 @@ final class WC_Vendors {
 	 * This needs to be done here because the filter for order types is called after the internal woo filtering is compelted.
 	 *
 	 * @since 1.0.0
-	 *
 	 */
-	public static function add_order_types( $order_types, $for ){
+	public static function add_order_types( $order_types, $for ) {
 
-		if ( 'order-meta-boxes' != $for ){
+		if ( 'order-meta-boxes' != $for ) {
 			$order_types[] = 'shop-order-vendor';
 		}
 
@@ -470,11 +473,11 @@ final class WC_Vendors {
 	}
 
 	/**
-	* Get the version of the plugin
-	*
-	* @return string $version
-	*/
-	public function get_version(){
+	 * Get the version of the plugin
+	 *
+	 * @return string $version
+	 */
+	public function get_version() {
 		return $this->version;
 	}
 
@@ -486,41 +489,41 @@ final class WC_Vendors {
 	 *
 	 * @param mixed - $data the data to go to the error log could be string, array or object
 	 */
-	public function log( $data = '', $pre = '' ){
+	public function log( $data = '', $pre = '' ) {
 
-		$trace 	= debug_backtrace( false, 2 );
-		$caller = ( isset( $trace[ 1 ] ) ) ? array_key_exists( 'class', $trace[ 1 ] ) ? $trace[ 1 ][ 'class' ] : '' : '';
+		$trace  = debug_backtrace( false, 2 );
+		$caller = ( isset( $trace[1] ) ) ? array_key_exists( 'class', $trace[1] ) ? $trace[1]['class'] : '' : '';
 
-		if ( self::$enable_logging ){
+		if ( self::$enable_logging ) {
 
-				if ( empty( self::$log ) ) {
-					self::$log = new WC_Logger();
+			if ( empty( self::$log ) ) {
+				self::$log = new WC_Logger();
+			}
+
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+				if ( is_array( $data ) || is_object( $data ) ) {
+
+					// Write to the log file for viewing in wp-admin
+					self::$log->add( 'wc-vendors', '== ' . $pre . ' : ' . $caller . '==' );
+					self::$log->add( 'wc-vendors', $caller . ' : ' . print_r( $data, true ) );
+					self::$log->add( 'wc-vendors', '====' );
+
+					// Output to the error log
+					error_log( '===================    ' . $pre . ' : ' . $caller . '   ======================' );
+					error_log( $caller . ' : ' . print_r( $data, true ) );
+					error_log( '===============================================================' );
+				} else {
+					// Write to the log file for viewing in wp-admin
+					self::$log->add( 'wc-vendors', '==   ' . $pre . ' : ' . $caller . ' ==' );
+					self::$log->add( 'wc-vendors', $caller . ' : ' . $data );
+					self::$log->add( 'wc-vendors', '====' );
+
+					// Output to debugging log
+					error_log( '===================    ' . $pre . ' : ' . $caller . '   ======================' );
+					error_log( $caller . ' : ' . $data );
+					error_log( '===============================================================' );
 				}
-
-				if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-					if ( is_array( $data ) || is_object( $data ) ) {
-
-						// Write to the log file for viewing in wp-admin
-						self::$log->add( 'wc-vendors', '== ' . $pre .' : ' . $caller . '==' );
-						self::$log->add( 'wc-vendors', $caller . ' : ' . print_r( $data, true ) );
-						self::$log->add( 'wc-vendors','====' );
-
-						// Output to the error log
-						error_log( '===================    ' . $pre .' : ' . $caller . '   ======================' );
-						error_log( $caller . ' : ' . print_r( $data, true ) );
-						error_log( '===============================================================');
-					} else {
-						// Write to the log file for viewing in wp-admin
-						self::$log->add( 'wc-vendors', '==   '  . $pre .' : ' . $caller . ' ==' );
-						self::$log->add( 'wc-vendors', $caller  . ' : ' . $data );
-						self::$log->add( 'wc-vendors', '====');
-
-						// Output to debugging log
-						error_log( '===================    '  . $pre .' : ' . $caller . '   ======================' );
-						error_log( $caller  . ' : ' . $data );
-						error_log( '===============================================================');
-					}
-				}
+			}
 		}
 	}
 
@@ -528,9 +531,8 @@ final class WC_Vendors {
 
 /**
  * Main instance of WC Vendors
- *
  */
-function WCVendors(){
+function WCVendors() {
 	return WC_Vendors::instance();
 }
 

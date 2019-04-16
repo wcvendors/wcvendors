@@ -22,21 +22,21 @@ class WCVendors_Admin_Setup_Wizard {
 	 *
 	 * @var string
 	 */
-	private $step   = '';
+	private $step = '';
 
 	/**
 	 * Steps for the setup wizard
 	 *
 	 * @var array
 	 */
-	private $steps  = array();
+	private $steps = array();
 
 	/**
 	 * Actions to be executed after the HTTP response has completed
 	 *
 	 * @var array
 	 */
-	private $deferred_actions  = array();
+	private $deferred_actions = array();
 
 	/**
 	 * Hook in tabs.
@@ -64,7 +64,7 @@ class WCVendors_Admin_Setup_Wizard {
 			return;
 		}
 		$default_steps = array(
-			'store_setup' => array(
+			'store_setup'  => array(
 				'name'    => __( 'Start', 'wcvendors' ),
 				'view'    => array( $this, 'wcv_setup_general' ),
 				'handler' => array( $this, 'wcv_setup_general_save' ),
@@ -74,12 +74,12 @@ class WCVendors_Admin_Setup_Wizard {
 				'view'    => array( $this, 'wcv_setup_capabilities' ),
 				'handler' => array( $this, 'wcv_setup_capabilities_save' ),
 			),
-			'shipping' => array(
+			'shipping'     => array(
 				'name'    => __( 'Pages', 'wcvendors' ),
 				'view'    => array( $this, 'wcv_setup_pages' ),
 				'handler' => array( $this, 'wcv_setup_pages_save' ),
 			),
-			'ready' => array(
+			'ready'        => array(
 				'name'    => __( 'Ready!', 'wcvendors' ),
 				'view'    => array( $this, 'wcv_setup_ready' ),
 				'handler' => '',
@@ -87,30 +87,34 @@ class WCVendors_Admin_Setup_Wizard {
 		);
 
 		$this->steps = apply_filters( 'wcvendors_setup_wizard_steps', $default_steps );
-		$this->step = isset( $_GET['step'] ) ? sanitize_key( $_GET['step'] ) : current( array_keys( $this->steps ) );
-		$suffix     = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		$this->step  = isset( $_GET['step'] ) ? sanitize_key( $_GET['step'] ) : current( array_keys( $this->steps ) );
+		$suffix      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		wp_register_script( 'jquery-blockui', WC()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70', true );
 		wp_register_script( 'selectWoo', WC()->plugin_url() . '/assets/js/selectWoo/selectWoo.full' . $suffix . '.js', array( 'jquery' ), '1.0.0' );
 
 		wp_register_script( 'wc-enhanced-select', WC()->plugin_url() . '/assets/js/admin/wc-enhanced-select' . $suffix . '.js', array( 'jquery', 'selectWoo' ), WC_VERSION );
-		wp_localize_script( 'wc-enhanced-select', 'wc_enhanced_select_params', array(
-			'i18n_no_matches'           => _x( 'No matches found', 'enhanced select', 'wcvendors' ),
-			'i18n_ajax_error'           => _x( 'Loading failed', 'enhanced select', 'wcvendors' ),
-			'i18n_input_too_short_1'    => _x( 'Please enter 1 or more characters', 'enhanced select', 'wcvendors' ),
-			'i18n_input_too_short_n'    => _x( 'Please enter %qty% or more characters', 'enhanced select', 'wcvendors' ),
-			'i18n_input_too_long_1'     => _x( 'Please delete 1 character', 'enhanced select', 'wcvendors' ),
-			'i18n_input_too_long_n'     => _x( 'Please delete %qty% characters', 'enhanced select', 'wcvendors' ),
-			'i18n_selection_too_long_1' => _x( 'You can only select 1 item', 'enhanced select', 'wcvendors' ),
-			'i18n_selection_too_long_n' => _x( 'You can only select %qty% items', 'enhanced select', 'wcvendors' ),
-			'i18n_load_more'            => _x( 'Loading more results&hellip;', 'enhanced select', 'wcvendors' ),
-			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'wcvendors' ),
-			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
-			'search_products_nonce'     => wp_create_nonce( 'search-products' ),
-			'search_customers_nonce'    => wp_create_nonce( 'search-customers' ),
-		) );
+		wp_localize_script(
+			'wc-enhanced-select',
+			'wc_enhanced_select_params',
+			array(
+				'i18n_no_matches'           => _x( 'No matches found', 'enhanced select', 'wcvendors' ),
+				'i18n_ajax_error'           => _x( 'Loading failed', 'enhanced select', 'wcvendors' ),
+				'i18n_input_too_short_1'    => _x( 'Please enter 1 or more characters', 'enhanced select', 'wcvendors' ),
+				'i18n_input_too_short_n'    => _x( 'Please enter %qty% or more characters', 'enhanced select', 'wcvendors' ),
+				'i18n_input_too_long_1'     => _x( 'Please delete 1 character', 'enhanced select', 'wcvendors' ),
+				'i18n_input_too_long_n'     => _x( 'Please delete %qty% characters', 'enhanced select', 'wcvendors' ),
+				'i18n_selection_too_long_1' => _x( 'You can only select 1 item', 'enhanced select', 'wcvendors' ),
+				'i18n_selection_too_long_n' => _x( 'You can only select %qty% items', 'enhanced select', 'wcvendors' ),
+				'i18n_load_more'            => _x( 'Loading more results&hellip;', 'enhanced select', 'wcvendors' ),
+				'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'wcvendors' ),
+				'ajax_url'                  => admin_url( 'admin-ajax.php' ),
+				'search_products_nonce'     => wp_create_nonce( 'search-products' ),
+				'search_customers_nonce'    => wp_create_nonce( 'search-customers' ),
+			)
+		);
 
-		// @todo fix the select2 styles in our admin.css 
+		// @todo fix the select2 styles in our admin.css
 		wp_enqueue_style( 'woocommerce_admin_styles', WC()->plugin_url() . '/assets/css/admin.css', array(), WC_VERSION );
 
 		wp_enqueue_style( 'wcv-setup', WCVendors()->plugin_url() . '/assets/css/wcv-setup.css', array( 'dashicons', 'install' ), WCV_VERSION );
@@ -159,14 +163,14 @@ class WCVendors_Admin_Setup_Wizard {
 	 * Setup Wizard Header.
 	 */
 	public function setup_wizard_header() {
-		include( WCV_ABSPATH_ADMIN . 'views/setup/header.php' ); 
+		include WCV_ABSPATH_ADMIN . 'views/setup/header.php';
 	}
 
 	/**
 	 * Setup Wizard Footer.
 	 */
 	public function setup_wizard_footer() {
-		include( WCV_ABSPATH_ADMIN . 'views/setup/footer.php' ); 
+		include WCV_ABSPATH_ADMIN . 'views/setup/footer.php';
 	}
 
 	/**
@@ -174,7 +178,7 @@ class WCVendors_Admin_Setup_Wizard {
 	 */
 	public function setup_wizard_steps() {
 		$output_steps = $this->steps;
-		include( WCV_ABSPATH_ADMIN . 'views/setup/steps.php' ); 
+		include WCV_ABSPATH_ADMIN . 'views/setup/steps.php';
 	}
 
 	/**
@@ -207,12 +211,12 @@ class WCVendors_Admin_Setup_Wizard {
 	public function wcv_setup_general() {
 
 		$allow_registration = get_option( 'wcvendors_vendor_allow_registration', 'yes' );
-		$manual_approval 	= get_option( 'wcvendors_vendor_approve_registration', 'yes' );
-		$vendor_taxes		= get_option( 'wcvendors_vendor_give_taxes', 'yes' );
-		$vendor_shipping	= get_option( 'wcvendors_vendor_give_shipping', 'yes' );
-		$commission_rate 	= get_option( 'wcvendors_vendor_commission_rate', '50' );
+		$manual_approval    = get_option( 'wcvendors_vendor_approve_registration', 'yes' );
+		$vendor_taxes       = get_option( 'wcvendors_vendor_give_taxes', 'yes' );
+		$vendor_shipping    = get_option( 'wcvendors_vendor_give_shipping', 'yes' );
+		$commission_rate    = get_option( 'wcvendors_vendor_commission_rate', '50' );
 
-		include( WCV_ABSPATH_ADMIN . 'views/setup/general.php' ); 
+		include WCV_ABSPATH_ADMIN . 'views/setup/general.php';
 	}
 
 	/**
@@ -222,11 +226,11 @@ class WCVendors_Admin_Setup_Wizard {
 
 		check_admin_referer( 'wcv-setup' );
 
-		$allow_registration = isset( $_POST[ 'wcvendors_vendor_allow_registration' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_vendor_allow_registration' ] ) : ''; 
-		$manual_approval 	= isset( $_POST[ 'wcvendors_vendor_approve_registration'] )  ? sanitize_text_field( $_POST[ 'wcvendors_vendor_approve_registration' ] ) : ''; 
-		$vendor_taxes		= isset( $_POST[ 'wcvendors_vendor_give_taxes' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_vendor_give_taxes' ] ) : ''; 
-		$vendor_shipping	= isset( $_POST[ 'wcvendors_vendor_give_shipping' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_vendor_give_shipping' ] ) : ''; 
-		$commission_rate 	= sanitize_text_field( $_POST[ 'wcvendors_vendor_commission_rate' ] );
+		$allow_registration = isset( $_POST['wcvendors_vendor_allow_registration'] ) ? sanitize_text_field( $_POST['wcvendors_vendor_allow_registration'] ) : '';
+		$manual_approval    = isset( $_POST['wcvendors_vendor_approve_registration'] ) ? sanitize_text_field( $_POST['wcvendors_vendor_approve_registration'] ) : '';
+		$vendor_taxes       = isset( $_POST['wcvendors_vendor_give_taxes'] ) ? sanitize_text_field( $_POST['wcvendors_vendor_give_taxes'] ) : '';
+		$vendor_shipping    = isset( $_POST['wcvendors_vendor_give_shipping'] ) ? sanitize_text_field( $_POST['wcvendors_vendor_give_shipping'] ) : '';
+		$commission_rate    = sanitize_text_field( $_POST['wcvendors_vendor_commission_rate'] );
 
 		update_option( 'wcvendors_vendor_allow_registration', $allow_registration );
 		update_option( 'wcvendors_vendor_approve_registration', $manual_approval );
@@ -240,20 +244,20 @@ class WCVendors_Admin_Setup_Wizard {
 	}
 
 	/**
-	 * General setup 
+	 * General setup
 	 * Vendor registration, taxes and shipping
 	 */
 	public function wcv_setup_capabilities() {
 
-		$products_enabled 	= get_option( 'wcvendors_capability_products_enabled', 'yes' );
-		$live_products 		= get_option( 'wcvendors_capability_products_edit', 'yes' );
-		$products_approval	= get_option( 'wcvendors_capability_products_live', 'yes' );
-		$orders_enabled		= get_option( 'wcvendors_capability_orders_enabled', 'yes' );
-		$export_orders 		= get_option( 'wcvendors_capability_orders_export', 'yes' );
-		$view_order_notes 	= get_option( 'wcvendors_capability_order_read_notes', 'yes' );
-		$add_order_notes 	= get_option( 'wcvendors_capability_order_update_notes', 'yes' );
+		$products_enabled  = get_option( 'wcvendors_capability_products_enabled', 'yes' );
+		$live_products     = get_option( 'wcvendors_capability_products_edit', 'yes' );
+		$products_approval = get_option( 'wcvendors_capability_products_live', 'yes' );
+		$orders_enabled    = get_option( 'wcvendors_capability_orders_enabled', 'yes' );
+		$export_orders     = get_option( 'wcvendors_capability_orders_export', 'yes' );
+		$view_order_notes  = get_option( 'wcvendors_capability_order_read_notes', 'yes' );
+		$add_order_notes   = get_option( 'wcvendors_capability_order_update_notes', 'yes' );
 
-		include( WCV_ABSPATH_ADMIN . 'views/setup/capabilities.php' ); 
+		include WCV_ABSPATH_ADMIN . 'views/setup/capabilities.php';
 	}
 
 	/**
@@ -262,13 +266,13 @@ class WCVendors_Admin_Setup_Wizard {
 	public function wcv_setup_capabilities_save() {
 		check_admin_referer( 'wcv-setup' );
 
-		$products_enabled 	= isset( $_POST[ 'wcvendors_capability_products_enabled' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_capability_products_enabled' ] ) : ''; 
-		$live_products 		= isset( $_POST[ 'wcvendors_capability_products_edit' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_capability_products_edit' ] ) : ''; 
-		$products_approval	= isset( $_POST[ 'wcvendors_capability_products_live' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_capability_products_live' ] ) : ''; 
-		$orders_enabled		= isset( $_POST[ 'wcvendors_capability_orders_enabled' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_capability_orders_enabled' ] ) : ''; 
-		$export_orders 		= isset( $_POST[ 'wcvendors_capability_orders_export' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_capability_orders_export' ] ) : ''; 
-		$view_order_notes 	= isset( $_POST[ 'wcvendors_capability_order_read_notes' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_capability_order_read_notes' ] ) : ''; 
-		$add_order_notes 	= isset( $_POST[ 'wcvendors_capability_order_update_notes' ] ) ? sanitize_text_field( $_POST[ 'wcvendors_capability_order_update_notes' ] ) : ''; 
+		$products_enabled  = isset( $_POST['wcvendors_capability_products_enabled'] ) ? sanitize_text_field( $_POST['wcvendors_capability_products_enabled'] ) : '';
+		$live_products     = isset( $_POST['wcvendors_capability_products_edit'] ) ? sanitize_text_field( $_POST['wcvendors_capability_products_edit'] ) : '';
+		$products_approval = isset( $_POST['wcvendors_capability_products_live'] ) ? sanitize_text_field( $_POST['wcvendors_capability_products_live'] ) : '';
+		$orders_enabled    = isset( $_POST['wcvendors_capability_orders_enabled'] ) ? sanitize_text_field( $_POST['wcvendors_capability_orders_enabled'] ) : '';
+		$export_orders     = isset( $_POST['wcvendors_capability_orders_export'] ) ? sanitize_text_field( $_POST['wcvendors_capability_orders_export'] ) : '';
+		$view_order_notes  = isset( $_POST['wcvendors_capability_order_read_notes'] ) ? sanitize_text_field( $_POST['wcvendors_capability_order_read_notes'] ) : '';
+		$add_order_notes   = isset( $_POST['wcvendors_capability_order_update_notes'] ) ? sanitize_text_field( $_POST['wcvendors_capability_order_update_notes'] ) : '';
 
 		update_option( 'wcvendors_capability_products_enabled', $products_enabled );
 		update_option( 'wcvendors_capability_products_edit', $live_products );
@@ -288,11 +292,11 @@ class WCVendors_Admin_Setup_Wizard {
 	 */
 	public function wcv_setup_pages() {
 
-		$dashboard_page_id 	= get_option( 'wcvendors_dashboard_page_id', '' );
-		$vendors_page_id 	= get_option( 'wcvendors_vendors_page_id', 'yes' );
-		$terms_page_id		= get_option( 'wcvendors_vendor_terms_page_id', 'yes' );
-		
-		include( WCV_ABSPATH_ADMIN . 'views/setup/pages.php' ); 
+		$dashboard_page_id = get_option( 'wcvendors_dashboard_page_id', '' );
+		$vendors_page_id   = get_option( 'wcvendors_vendors_page_id', 'yes' );
+		$terms_page_id     = get_option( 'wcvendors_vendor_terms_page_id', 'yes' );
+
+		include WCV_ABSPATH_ADMIN . 'views/setup/pages.php';
 	}
 
 	/**
@@ -301,36 +305,36 @@ class WCVendors_Admin_Setup_Wizard {
 	 */
 	public function wcv_setup_pages_save() {
 
-		$dashboard_page_id 	= sanitize_text_field( $_POST['wcvendors_dashboard_page_id'] );
-		$vendors_page_id 	= sanitize_text_field( $_POST['wcvendors_vendors_page_id'] );
-		$terms_page_id		= sanitize_text_field( $_POST['wcvendors_vendor_terms_page_id'] );
+		$dashboard_page_id = sanitize_text_field( $_POST['wcvendors_dashboard_page_id'] );
+		$vendors_page_id   = sanitize_text_field( $_POST['wcvendors_vendors_page_id'] );
+		$terms_page_id     = sanitize_text_field( $_POST['wcvendors_vendor_terms_page_id'] );
 
 		update_option( 'wcvendors_dashboard_page_id', $dashboard_page_id );
-		update_option( 'wcvendors_vendors_page_id', $vendors_page_id  );
+		update_option( 'wcvendors_vendors_page_id', $vendors_page_id );
 		update_option( 'wcvendors_vendor_terms_page_id', $terms_page_id );
 
 		wp_redirect( esc_url_raw( $this->get_next_step_link() ) );
 		exit;
-		
+
 	}
 
 	/**
 	 * Final step.
 	 */
 	public function wcv_setup_ready() {
-		
+
 		WCVendors_Admin_Notices::remove_notice( 'install' );
 
-		$user_email   	= $this->get_current_user_email();
-		$forums   		= 'https://wordpress.org/support/plugin/wc-vendors';
-		$docs_url     	= 'https://docs.wcvendors.com/?utm_source=setupwizard&utm_medium=product&utm_content=docs&utm_campaign=wcvendorsplugin';
-		$help_text    = sprintf(
+		$user_email = $this->get_current_user_email();
+		$forums     = 'https://wordpress.org/support/plugin/wc-vendors';
+		$docs_url   = 'https://docs.wcvendors.com/?utm_source=setupwizard&utm_medium=product&utm_content=docs&utm_campaign=wcvendorsplugin';
+		$help_text  = sprintf(
 			/* translators: %1$s: link to videos, %2$s: link to docs */
 			__( 'Don\'t forget to check our <a href="%1$s" target="_blank">documentation</a> to learn more about setting up WC Vendors and if you need help, be sure to visit our <a href="%2$s" target="_blank">free support forums</a>.', 'wcvendors' ),
 			$docs_url,
 			$forums
 		);
-		include( WCV_ABSPATH_ADMIN . 'views/setup/ready.php' ); 
+		include WCV_ABSPATH_ADMIN . 'views/setup/ready.php';
 	}
 }
 

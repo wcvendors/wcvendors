@@ -1,7 +1,8 @@
-<?php if ( function_exists( 'wc_print_notices' ) ) wc_print_notices(); else {
+<?php if ( function_exists( 'wc_print_notices' ) ) {
+	wc_print_notices(); } else {
 	global $woocommerce;
-	wc_print_notices(); 
-} ?>
+	wc_print_notices();
+	} ?>
 
 <?php if ( WCV_Vendors::is_pending( get_current_user_id() ) ) { ?>
 
@@ -16,10 +17,10 @@
 			<div class="clear"></div>
 			<p class="form-row">
 				<input class="input-checkbox"
-					   id="apply_for_vendor" <?php checked( isset( $_POST[ 'apply_for_vendor' ] ), true ) ?>
+					   id="apply_for_vendor" <?php checked( isset( $_POST['apply_for_vendor'] ), true ); ?>
 					   type="checkbox" name="apply_for_vendor" value="1"/>
 				<label for="apply_for_vendor"
-					   class="checkbox"><?php echo apply_filters('wcvendors_vendor_registration_checkbox', __( 'Apply to become a vendor? ', 'wcvendors' )); ?></label>
+					   class="checkbox"><?php echo apply_filters( 'wcvendors_vendor_registration_checkbox', __( 'Apply to become a vendor? ', 'wcvendors' ) ); ?></label>
 			</p>
 
 			<div class="clear"></div>
@@ -27,7 +28,7 @@
 			<?php if ( $terms_page = WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' ) ) { ?>
 				<p class="form-row agree-to-terms-container" style="display:none">
 					<input class="input-checkbox"
-						   id="agree_to_terms" <?php checked( isset( $_POST[ 'agree_to_terms' ] ), true ) ?>
+						   id="agree_to_terms" <?php checked( isset( $_POST['agree_to_terms'] ), true ); ?>
 						   type="checkbox" name="agree_to_terms" value="1"/>
 					<label for="agree_to_terms"
 						   class="checkbox"><?php printf( __( 'I have read and accepted the <a href="%s">terms and conditions</a>', 'wcvendors' ), get_permalink( $terms_page ) ); ?></label>

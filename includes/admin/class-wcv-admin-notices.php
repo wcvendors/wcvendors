@@ -19,19 +19,21 @@ class WCVendors_Admin_Notices {
 
 	/**
 	 * Stores notices.
+	 *
 	 * @var array
 	 */
 	private static $notices = array();
 
 	/**
 	 * Array of notices - name => callback.
+	 *
 	 * @var array
 	 */
 	private static $core_notices = array(
-		'install'             => 'install_notice',
-		'update'              => 'update_notice',
-		'template_files'      => 'template_file_check_notice',
-		'theme_support'       => 'theme_check_notice',
+		'install'        => 'install_notice',
+		'update'         => 'update_notice',
+		'template_files' => 'template_file_check_notice',
+		'theme_support'  => 'theme_check_notice',
 	);
 
 	/**
@@ -40,10 +42,10 @@ class WCVendors_Admin_Notices {
 	public static function init() {
 		self::$notices = get_option( 'wcvendors_admin_notices', array() );
 
-		add_action( 'switch_theme', 		array( __CLASS__, 'reset_admin_notices' ) );
-		add_action( 'wcvendors_installed', 	array( __CLASS__, 'reset_admin_notices' ) );
-		add_action( 'wp_loaded', 			array( __CLASS__, 'hide_notices' ) );
-		add_action( 'shutdown', 			array( __CLASS__, 'store_notices' ) );
+		add_action( 'switch_theme', array( __CLASS__, 'reset_admin_notices' ) );
+		add_action( 'wcvendors_installed', array( __CLASS__, 'reset_admin_notices' ) );
+		add_action( 'wp_loaded', array( __CLASS__, 'hide_notices' ) );
+		add_action( 'shutdown', array( __CLASS__, 'store_notices' ) );
 
 		if ( current_user_can( 'manage_wcvendors' ) ) {
 			add_action( 'admin_print_styles', array( __CLASS__, 'add_notices' ) );
@@ -59,6 +61,7 @@ class WCVendors_Admin_Notices {
 
 	/**
 	 * Get notices
+	 *
 	 * @return array
 	 */
 	public static function get_notices() {
@@ -81,6 +84,7 @@ class WCVendors_Admin_Notices {
 
 	/**
 	 * Show a notice.
+	 *
 	 * @param string $name
 	 */
 	public static function add_notice( $name ) {
@@ -89,6 +93,7 @@ class WCVendors_Admin_Notices {
 
 	/**
 	 * Remove a notice from being displayed.
+	 *
 	 * @param  string $name
 	 */
 	public static function remove_notice( $name ) {
@@ -98,7 +103,8 @@ class WCVendors_Admin_Notices {
 
 	/**
 	 * See if a notice is being shown.
-	 * @param  string  $name
+	 *
+	 * @param  string $name
 	 * @return boolean
 	 */
 	public static function has_notice( $name ) {
@@ -144,6 +150,7 @@ class WCVendors_Admin_Notices {
 
 	/**
 	 * Add a custom notice.
+	 *
 	 * @param string $name
 	 * @param string $notice_html
 	 */
@@ -164,7 +171,7 @@ class WCVendors_Admin_Notices {
 					$notice_html = get_option( 'wcvendors_admin_notice_' . $notice );
 
 					if ( $notice_html ) {
-						include( 'views/notices/html-notice-custom.php' );
+						include 'views/notices/html-notice-custom.php';
 					}
 				}
 			}
@@ -178,12 +185,12 @@ class WCVendors_Admin_Notices {
 		if ( version_compare( get_option( 'wcvendors_db_version' ), WCV_VERSION, '<' ) ) {
 			$updater = new WC_Background_Updater();
 			if ( $updater->is_updating() || ! empty( $_GET['do_update_wcvendors'] ) ) {
-				include( 'views/notices/html-notice-updating.php' );
+				include 'views/notices/html-notice-updating.php';
 			} else {
-				include( 'views/notices/html-notice-update.php' );
+				include 'views/notices/html-notice-update.php';
 			}
 		} else {
-			include( 'views/notices/html-notice-updated.php' );
+			include 'views/notices/html-notice-updated.php';
 		}
 	}
 
@@ -191,7 +198,7 @@ class WCVendors_Admin_Notices {
 	 * If we have just installed, show a message with the install pages button.
 	 */
 	public static function install_notice() {
-		include( 'views/notices/html-notice-install.php' );
+		include 'views/notices/html-notice-install.php';
 	}
 
 	/**
@@ -199,7 +206,7 @@ class WCVendors_Admin_Notices {
 	 */
 	public static function theme_check_notice() {
 		if ( ! current_theme_supports( 'wcvendors' ) && ! in_array( get_option( 'template' ), wc_get_core_supported_themes() ) ) {
-			include( 'views/notices/html-notice-theme-support.php' );
+			include 'views/notices/html-notice-theme-support.php';
 		} else {
 			self::remove_notice( 'theme_support' );
 		}
@@ -209,7 +216,7 @@ class WCVendors_Admin_Notices {
 	 * Show a notice highlighting bad template files.
 	 */
 	public static function template_file_check_notice() {
-		
+
 		$core_templates = WC_Admin_Status::scan_template_files( WCVendors()->plugin_path() . '/templates' );
 		$outdated       = false;
 
@@ -238,7 +245,7 @@ class WCVendors_Admin_Notices {
 		}
 
 		if ( $outdated ) {
-			include( 'views/notices/html-notice-template-check.php' );
+			include 'views/notices/html-notice-template-check.php';
 		} else {
 			self::remove_notice( 'template_files' );
 		}

@@ -94,6 +94,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/>
 	</p>
 	<p class="wcv-setup-actions step">
-		<button type="submit" class="button button-next" value="<?php esc_attr_e( "Next", 'wcvendors' ); ?>" name="save_step"><?php esc_html_e( "Next", 'wcvendors' ); ?></button>
+		<button type="submit" class="button button-next" value="<?php esc_attr_e( 'Next', 'wcvendors' ); ?>" name="save_step"><?php esc_html_e( 'Next', 'wcvendors' ); ?></button>
 	</p>
 </form>

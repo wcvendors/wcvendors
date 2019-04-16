@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! class_exists( 'WP_List_Table' ) ) {
-	include_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
+	include_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
 /**
@@ -18,7 +18,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
  * @version     2.0.0
  */
 class WCVendors_Admin_Commission_Table extends WP_List_Table {
-	
+
 	protected $commission;
 	public $log;
 
@@ -29,13 +29,15 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 	 * @since 2.0.0
 	 * @version 2.0.0
 	 */
-	public function __construct(  ) {
+	public function __construct() {
 
-		parent::__construct( array(
-			'singular'  => 'commission',
-			'plural'    => 'commissions',
-			'ajax'      => false,
-		) );
+		parent::__construct(
+			array(
+				'singular' => 'commission',
+				'plural'   => 'commissions',
+				'ajax'     => false,
+			)
+		);
 
 	}
 
@@ -58,99 +60,72 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 
 		$this->_column_headers = array( $columns, $hidden, $sortable );
 
-		$orderby = ! empty( $_REQUEST[ 'orderby' ] ) ? sanitize_text_field( $_REQUEST['orderby'] ) : 'order_id';
-		$order   = ( ! empty( $_REQUEST[ 'order' ] ) && 'asc' === $_REQUEST['order'] ) ? 'ASC' : 'DESC';
+		$orderby = ! empty( $_REQUEST['orderby'] ) ? sanitize_text_field( $_REQUEST['orderby'] ) : 'order_id';
+		$order   = ( ! empty( $_REQUEST['order'] ) && 'asc' === $_REQUEST['order'] ) ? 'ASC' : 'DESC';
 
 		$items_per_page = $this->get_items_per_page( 'commissions_per_page', apply_filters( 'wcvendors_commission_list_default_item_per_page', 20 ) );
 
 		$current_page = $this->get_pagenum();
 
-		// Replace with data_store query 
-
+		// Replace with data_store query
 		// $sql = 'SELECT COUNT( commission.id ) FROM ' .  . ' AS commission';
-
 		// $sql .= ' WHERE 1=1';
-
 		// // check if it is a search
 		// if ( ! empty( $_REQUEST['s'] ) ) {
-		// 	$order_id = absint( $_REQUEST['s'] );
-
-		// 	$sql .= " AND `order_id` = {$order_id}";
-
+		// $order_id = absint( $_REQUEST['s'] );
+		// $sql .= " AND `order_id` = {$order_id}";
 		// } else {
-
-		// 	if ( ! empty( $_REQUEST['m'] ) ) {
-
-		// 		$year  = absint( substr( $_REQUEST['m'], 0, 4 ) );
-		// 		$month = absint( substr( $_REQUEST['m'], 4, 2 ) );
-
-		// 		$time_filter = " AND MONTH( commission.order_date ) = {$month} AND YEAR( commission.order_date ) = {$year}";
-
-		// 		$sql .= $time_filter;
-		// 	}
-
-		// 	if ( ! empty( $_REQUEST['commission_status'] ) ) {
-		// 		$commission_status = esc_sql( $_REQUEST['commission_status'] );
-
-		// 		$status_filter = " AND commission.commission_status = '{$commission_status}'";
-
-		// 		$sql .= $status_filter;
-		// 	}
-
-		// 	if ( ! empty( $_REQUEST['vendor'] ) ) {
-		// 		$vendor = absint( $_REQUEST['vendor'] );
-
-		// 		$vendor_filter = " AND commission.vendor_id = '{$vendor}'";
-
-		// 		$sql .= $vendor_filter;
-		// 	}
+		// if ( ! empty( $_REQUEST['m'] ) ) {
+		// $year  = absint( substr( $_REQUEST['m'], 0, 4 ) );
+		// $month = absint( substr( $_REQUEST['m'], 4, 2 ) );
+		// $time_filter = " AND MONTH( commission.order_date ) = {$month} AND YEAR( commission.order_date ) = {$year}";
+		// $sql .= $time_filter;
 		// }
-
+		// if ( ! empty( $_REQUEST['commission_status'] ) ) {
+		// $commission_status = esc_sql( $_REQUEST['commission_status'] );
+		// $status_filter = " AND commission.commission_status = '{$commission_status}'";
+		// $sql .= $status_filter;
+		// }
+		// if ( ! empty( $_REQUEST['vendor'] ) ) {
+		// $vendor = absint( $_REQUEST['vendor'] );
+		// $vendor_filter = " AND commission.vendor_id = '{$vendor}'";
+		// $sql .= $vendor_filter;
+		// }
+		// }
 		$total_items = 0;
 
-		$this->set_pagination_args( array(
-			'total_items' => (double) $total_items,
-			'per_page'    => $items_per_page,
-		) );
+		$this->set_pagination_args(
+			array(
+				'total_items' => (float) $total_items,
+				'per_page'    => $items_per_page,
+			)
+		);
 
 		$offset = ( $current_page - 1 ) * $items_per_page;
 
-		// Replace with data_store query 
-
+		// Replace with data_store query
 		// $sql = 'SELECT * FROM ' . wcv_COMMISSION_TABLE . ' AS commission';
-
 		// $sql .= ' WHERE 1=1';
-
 		// // check if it is a search
 		// if ( ! empty( $_REQUEST['s'] ) ) {
-		// 	$order_id = absint( $_REQUEST['s'] );
-
-		// 	$sql .= " AND commission.order_id = {$order_id}";
-
+		// $order_id = absint( $_REQUEST['s'] );
+		// $sql .= " AND commission.order_id = {$order_id}";
 		// } else {
-
-		// 	if ( ! empty( $_REQUEST['m'] ) ) {
-		// 		$sql .= $time_filter;
-		// 	}
-
-		// 	if ( ! empty( $_REQUEST['commission_status'] ) ) {
-		// 		$sql .= $status_filter;
-		// 	}
-
-		// 	if ( ! empty( $_REQUEST['vendor'] ) ) {
-		// 		$sql .= $vendor_filter;
-		// 	}
+		// if ( ! empty( $_REQUEST['m'] ) ) {
+		// $sql .= $time_filter;
 		// }
-
+		// if ( ! empty( $_REQUEST['commission_status'] ) ) {
+		// $sql .= $status_filter;
+		// }
+		// if ( ! empty( $_REQUEST['vendor'] ) ) {
+		// $sql .= $vendor_filter;
+		// }
+		// }
 		// $sql .= " ORDER BY `{$orderby}` {$order}";
-
 		// $sql .= " LIMIT {$items_per_page}";
-
 		// $sql .= " OFFSET {$offset}";
-
 		// $data = $wpdb->get_results( $sql );
-
-		$this->items = array(); 
+		$this->items = array();
 
 		return true;
 	}
@@ -166,8 +141,8 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 	 */
 	public function get_views() {
 		$views = array(
-			'all' => '<li class="all"><a href="' . admin_url( 'admin.php?page=wcv-commissions' ) . '">' . __( 'All', 'wcvendors' ) . '</a></li>',
-			'due' => '<li class="all"><a href="' . admin_url( 'admin.php?page=wcv-commissions?=commission_status=due' ) . '">' . __( 'Due', 'wcvendors' ) . '</a></li>',
+			'all'  => '<li class="all"><a href="' . admin_url( 'admin.php?page=wcv-commissions' ) . '">' . __( 'All', 'wcvendors' ) . '</a></li>',
+			'due'  => '<li class="all"><a href="' . admin_url( 'admin.php?page=wcv-commissions?=commission_status=due' ) . '">' . __( 'Due', 'wcvendors' ) . '</a></li>',
 			'paid' => '<li class="all"><a href="' . admin_url( 'admin.php?page=wcv-commissions?=commission_status=paid' ) . '">' . __( 'Paid', 'wcvendors' ) . '</a></li>',
 			'void' => '<li class="all"><a href="' . admin_url( 'admin.php?page=wcv-commissions?=commission_status=void' ) . '">' . __( 'Void', 'wcvendors' ) . '</a></li>',
 		);
@@ -213,15 +188,15 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 				}
 			}
 
-			$other_attributes = array( 
-				'data-nonce' 				=> esc_attr( wp_create_nonce( '_wcv_export_commissions_nonce' ) ),
-				'data-order_id' 			=> esc_attr( $order_id ),
-				'data-year' 				=> esc_attr( $year ),
-				'data-month' 				=> esc_attr( $month ),
-				'data-commission_status' 	=> esc_attr( $commission_status ),
-				'data-vendor' 				=> esc_attr( $vendor ),
-				'download=' 				=> esc_attr( sprintf( __( 'commissions-%s.csv', 'wcvendors' ), date( 'm-d-Y' ) ) ),
-			); 	
+			$other_attributes = array(
+				'data-nonce'             => esc_attr( wp_create_nonce( '_wcv_export_commissions_nonce' ) ),
+				'data-order_id'          => esc_attr( $order_id ),
+				'data-year'              => esc_attr( $year ),
+				'data-month'             => esc_attr( $month ),
+				'data-commission_status' => esc_attr( $commission_status ),
+				'data-vendor'            => esc_attr( $vendor ),
+				'download='              => esc_attr( sprintf( __( 'commissions-%s.csv', 'wcvendors' ), date( 'm-d-Y' ) ) ),
+			);
 
 			echo '<div class="alignleft actions">';
 			$this->months_dropdown( 'commission' );
@@ -245,16 +220,13 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 	public function months_dropdown( $post_type ) {
 		global $wpdb, $wp_locale;
 
-
-		// Replace with data-store query 
-
+		// Replace with data-store query
 		// $months = $wpdb->get_results( '
-		// 	SELECT DISTINCT YEAR( commission.order_date ) AS year, MONTH( commission.order_date ) AS month
-		// 	FROM ' . wcv_COMMISSION_TABLE . ' AS commission
-		// 	ORDER BY commission.order_date DESC
+		// SELECT DISTINCT YEAR( commission.order_date ) AS year, MONTH( commission.order_date ) AS month
+		// FROM ' . wcv_COMMISSION_TABLE . ' AS commission
+		// ORDER BY commission.order_date DESC
 		// ' );
-
-		$month_count = 0; 
+		$month_count = 0;
 
 		$months = array();
 
@@ -262,7 +234,7 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 			return;
 		}
 
-		$m = isset( $_REQUEST[ 'm' ] ) ? (int) $_REQUEST[ 'm' ] : 0;
+		$m = isset( $_REQUEST['m'] ) ? (int) $_REQUEST['m'] : 0;
 		?>
 
 		<select name="m" id="filter-by-date">
@@ -280,7 +252,8 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 					continue;
 				}
 
-				printf( "<option %s value='%s'>%s</option>\n",
+				printf(
+					"<option %s value='%s'>%s</option>\n",
 					selected( $m, $year . $month, false ),
 					esc_attr( $month->year . $month ),
 					/* translators: 1: month name, 2: 4-digit year */
@@ -290,7 +263,7 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 			?>
 		</select>
 		
-	<?php
+		<?php
 	}
 
 	/**
@@ -303,14 +276,14 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 	 */
 	public function status_dropdown( $post_type ) {
 		$commission_status = isset( $_REQUEST['commission_status'] ) ? sanitize_text_field( $_REQUEST['commission_status'] ) : '';
-	?>
+		?>
 		<select name="commission_status">
 			<option <?php selected( $commission_status, '' ); ?> value=''><?php esc_html_e( 'Show all Statuses', 'wcvendors' ); ?></option>
 			<option <?php selected( $commission_status, 'due' ); ?> value="due"><?php esc_html_e( 'Due', 'wcvendors' ); ?></option>
 			<option <?php selected( $commission_status, 'paid' ); ?> value="paid"><?php esc_html_e( 'Paid', 'wcvendors' ); ?></option>
 			<option <?php selected( $commission_status, 'void' ); ?> value="void"><?php esc_html_e( 'Void', 'wcvendors' ); ?></option>
 		</select>
-	<?php
+		<?php
 		return true;
 	}
 
@@ -328,11 +301,9 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 		$vendor = isset( $_REQUEST['vendor'] ) ? sanitize_text_field( $_REQUEST['vendor'] ) : '';
 
 		// $sql = 'SELECT DISTINCT vendor_name, vendor_id FROM ' . wcv_COMMISSION_TABLE;
-
 		// $vendor_lists = $wpdb->get_results( $sql );
-
-		$vendor_lists = array(); 
-	?>
+		$vendor_lists = array();
+		?>
 		<select name="vendor">
 			<option <?php selected( $vendor, '' ); ?> value=""><?php esc_html_e( 'Show all Vendors', 'wcvendors' ); ?></option>
 
@@ -349,7 +320,7 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 			}
 			?>
 		</select>
-	<?php
+		<?php
 		return true;
 	}
 
@@ -363,14 +334,14 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 	 */
 	public function get_columns() {
 		$columns = array(
-			'cb'                      	=> '<input type="checkbox" />',
-			'order_id'                	=> __( 'Order', 			'wcvendors' ),
-			'product_name'				=> __( 'Product Name', 		'wcvendors' ), 
-			'vendor_name'           	=> __( 'Vendor', 			'wcvendors' ),
-			'commission'		 		=> __( 'Commission', 		'wcvendors' ),
-			'commission_status'       	=> __( 'Commission Status', 'wcvendors' ),
-			'order_date'              	=> __( 'Order Date', 		'wcvendors' ),
-			'paid_date'               	=> __( 'Paid Date', 		'wcvendors' ),
+			'cb'                => '<input type="checkbox" />',
+			'order_id'          => __( 'Order', 'wcvendors' ),
+			'product_name'      => __( 'Product Name', 'wcvendors' ),
+			'vendor_name'       => __( 'Vendor', 'wcvendors' ),
+			'commission'        => __( 'Commission', 'wcvendors' ),
+			'commission_status' => __( 'Commission Status', 'wcvendors' ),
+			'order_date'        => __( 'Order Date', 'wcvendors' ),
+			'paid_date'         => __( 'Paid Date', 'wcvendors' ),
 		);
 
 		return $columns;
@@ -395,13 +366,13 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 	 * @access public
 	 * @since 1.0.0
 	 * @version 1.0.0
-	 * @param array $item
+	 * @param array  $item
 	 * @param string $column_name
 	 * @return mixed
 	 */
 	public function column_default( $item, $column_name ) {
 		switch ( $column_name ) {
-			case 'order_id' :
+			case 'order_id':
 				$order = wc_get_order( absint( $item->order_id ) );
 
 				if ( is_object( $order ) ) {
@@ -410,7 +381,7 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 					return sprintf( '%s ' . __( 'Order Not Found', 'wcvendors' ), '#' . $order->get_order_number() );
 				}
 
-			case 'order_status' :
+			case 'order_status':
 				$order = wc_get_order( $item->order_id );
 
 				if ( is_object( $order ) ) {
@@ -421,28 +392,27 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 					return __( 'N/A', 'wcvendors' );
 				}
 
-			case 'order_date' :
-
+			case 'order_date':
 				if ( $item->order_date ) {
 					return wcv_format_date( sanitize_text_field( $item->order_date ) );
 				}
 
 				return __( 'N/A', 'wcvendors' );
 
-			case 'vendor_name' :
+			case 'vendor_name':
 				$vendor = get_userdata( $item->vendor_id );
 
-				if ( is_object( $vendor ) ){ 
+				if ( is_object( $vendor ) ) {
 					return '<a href="' . admin_url( 'user-edit.php?user_id=' . $item->vendor_id ) . '">' . $vendor->display_name . '</a>';
 				} else {
 					return sprintf( '%s ' . __( 'Vendor Not Found', 'wcvendors' ), '#' . absint( $item->vendor_id ) );
 				}
 
-			case 'product_name' :
+			case 'product_name':
 				$quantity = absint( $item->product_quantity );
 
 				$var_attributes = '';
-				$sku = '';
+				$sku            = '';
 
 				// check if product is a variable product
 				if ( ! empty( $item->variation_id ) ) {
@@ -450,31 +420,36 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 					$product = wc_get_product( absint( $item->variation_id ) );
 
 					$order_item = WC_Order_Factory::get_order_item( $item->order_item_id );
-					
+
 					if ( $metadata = $order_item->get_formatted_meta_data() ) {
 						foreach ( $metadata as $meta_id => $meta ) {
 							// Skip hidden core fields
-							if ( in_array( $meta->key, apply_filters( 'wcv_hidden_order_itemmeta', array(
-								'_qty',
-								'_tax_class',
-								'_product_id',
-								'_variation_id',
-								'_line_subtotal',
-								'_line_subtotal_tax',
-								'_line_total',
-								'_line_tax',
-								'_fulfillment_status',
-								'_commission_status',
-								'method_id',
-								'cost',
-							) ) ) ) {
+							if ( in_array(
+								$meta->key,
+								apply_filters(
+									'wcv_hidden_order_itemmeta',
+									array(
+										'_qty',
+										'_tax_class',
+										'_product_id',
+										'_variation_id',
+										'_line_subtotal',
+										'_line_subtotal_tax',
+										'_line_total',
+										'_line_tax',
+										'_fulfillment_status',
+										'_commission_status',
+										'method_id',
+										'cost',
+									)
+								)
+							) ) {
 								continue;
 							}
 
 							$var_attributes .= sprintf( __( '<br /><small>( %1$s: %2$s )</small>', 'wcvendors' ), wp_kses_post( rawurldecode( $meta->display_key ) ), wp_kses_post( $meta->value ) );
 						}
 					}
-				
 				} else {
 					$product = wc_get_product( absint( $item->product_id ) );
 				}
@@ -493,11 +468,11 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 					return sprintf( '%s ' . __( 'Product Not Found', 'wcvendors' ), '#' . absint( $item->product_id ) );
 				}
 
-			case 'commission' :
-				// Show commission, shipping, tax and total 
+			case 'commission':
+				// Show commission, shipping, tax and total
 				return wc_price( sanitize_text_field( $item->total_commission_amount ) );
 
-			case 'commission_status' :
+			case 'commission_status':
 				$status = __( 'N/A', 'wcvendors' );
 
 				if ( 'due' === $item->commission_status ) {
@@ -512,11 +487,11 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 					$status = '<span class="wcv-void-status">' . esc_html__( 'VOID', 'wcvendors' ) . '</span>';
 				}
 
-			case 'paid_date' :
-				// add how the commission was paid 
+			case 'paid_date':
+				// add how the commission was paid
 				return wcv_format_date( sanitize_text_field( $item->paid_date ) );
 
-			default :
+			default:
 				return print_r( $item, true );
 		}
 	}
@@ -587,11 +562,11 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 	public function get_bulk_actions() {
 
 		$actions = array(
-			'pay'         => __( 'Pay Commission', 'wcvendors' ),
-			'unpaid'      => __( 'Mark Due', 'wcvendors' ),
-			'paid'        => __( 'Mark Paid', 'wcvendors' ),
-			'void'        => __( 'Mark Void', 'wcvendors' ),
-			'delete'      => __( 'Delete Commission', 'wcvendors' ),
+			'pay'    => __( 'Pay Commission', 'wcvendors' ),
+			'unpaid' => __( 'Mark Due', 'wcvendors' ),
+			'paid'   => __( 'Mark Paid', 'wcvendors' ),
+			'void'   => __( 'Mark Void', 'wcvendors' ),
+			'delete' => __( 'Delete Commission', 'wcvendors' ),
 		);
 
 		$actions = apply_filters( 'wcvendors_edit_bulk_actions', $actions );
@@ -622,87 +597,73 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 
 		$status = sanitize_text_field( $this->current_action() );
 
-		$ids = array_map( 'absint', $_REQUEST['ids'] );
+		$ids           = array_map( 'absint', $_REQUEST['ids'] );
 		$update_status = false;
 
 		// handle pay bulk action
 		// if ( 'pay' === $this->current_action() ) {
-		// 	try {
-		// 		$results = $this->commission->pay( $ids );
-		// 		$update_status = true;
-
-		// 	} catch ( Exception $e ) {
-		// 		$this->log->add( 'wcv-masspay', $e->getMessage() );
-		// 	}
+		// try {
+		// $results = $this->commission->pay( $ids );
+		// $update_status = true;
+		// } catch ( Exception $e ) {
+		// $this->log->add( 'wcv-masspay', $e->getMessage() );
 		// }
-
+		// }
 		$processed = 0;
 
 		// foreach ( $ids as $id => $order_item_id ) {
-		// 	switch ( $this->current_action() ) {
-		// 		case 'pay' :
-		// 			if ( $update_status ) {
-		// 				$this->commission->update_status( $id, absint( $order_item_id ), 'paid' );
-		// 			}
-		// 			break;
-
-		// 		case 'delete' :
-		// 			$this->commission->delete( $id );
-		// 			break;
-
-		// 		case 'unpaid' :
-		// 			$this->commission->update_status( $id, absint( $order_item_id ), 'unpaid' );
-		// 			break;
-
-		// 		case 'paid' :
-		// 			$this->commission->update_status( $id, absint( $order_item_id ), 'paid' );
-		// 			break;
-
-		// 		case 'fulfilled' :
-		// 			$this->set_fulfill_status( absint( $order_item_id ), 'fulfilled' );
-		// 			break;
-
-		// 		case 'unfulfilled' :
-		// 			$this->set_fulfill_status( absint( $order_item_id ), 'unfulfilled' );
-		// 			break;
-
-		// 		case 'void' :
-		// 			$this->commission->update_status( $id, absint( $order_item_id ), 'void' );
-		// 			break;
-		// 	}
-
-		// 	$processed++;
+		// switch ( $this->current_action() ) {
+		// case 'pay' :
+		// if ( $update_status ) {
+		// $this->commission->update_status( $id, absint( $order_item_id ), 'paid' );
 		// }
-
+		// break;
+		// case 'delete' :
+		// $this->commission->delete( $id );
+		// break;
+		// case 'unpaid' :
+		// $this->commission->update_status( $id, absint( $order_item_id ), 'unpaid' );
+		// break;
+		// case 'paid' :
+		// $this->commission->update_status( $id, absint( $order_item_id ), 'paid' );
+		// break;
+		// case 'fulfilled' :
+		// $this->set_fulfill_status( absint( $order_item_id ), 'fulfilled' );
+		// break;
+		// case 'unfulfilled' :
+		// $this->set_fulfill_status( absint( $order_item_id ), 'unfulfilled' );
+		// break;
+		// case 'void' :
+		// $this->commission->update_status( $id, absint( $order_item_id ), 'void' );
+		// break;
+		// }
+		// $processed++;
+		// }
 		echo '<div class="notice-success notice"><p>' . sprintf( _n( '%d item processed.', '%d items processed', $processed, 'wcvendors' ), $processed ) . '</p></div>';
 
 		// WC_Product_Vendors_Utils::clear_reports_transients();
-
 		do_action( 'wcv_commission_list_bulk_action' );
 
 		return true;
 	}
 
 	// /**
-	//  * Set shipping status of an order item
-	//  *
-	//  * @access public
-	//  * @since 1.0.0
-	//  * @version 1.0.0
-	//  * @param int $order_item_id
-	//  * @param string $status
-	//  * @return bool
-	//  */
+	// * Set shipping status of an order item
+	// *
+	// * @access public
+	// * @since 1.0.0
+	// * @version 1.0.0
+	// * @param int $order_item_id
+	// * @param string $status
+	// * @return bool
+	// */
 	// public function set_fulfill_status( $order_item_id, $status = 'unfulfilled' ) {
-	// 	global $wpdb;
-
-	// 	$sql = "UPDATE {$wpdb->prefix}woocommerce_order_itemmeta";
-	// 	$sql .= ' SET `meta_value` = %s';
-	// 	$sql .= ' WHERE `order_item_id` = %d AND `meta_key` = %s';
-
-	// 	$status = $wpdb->get_var( $wpdb->prepare( $sql, $status, $order_item_id, '_fulfillment_status' ) );
-
-	// 	return true;
+	// global $wpdb;
+	// $sql = "UPDATE {$wpdb->prefix}woocommerce_order_itemmeta";
+	// $sql .= ' SET `meta_value` = %s';
+	// $sql .= ' WHERE `order_item_id` = %d AND `meta_key` = %s';
+	// $status = $wpdb->get_var( $wpdb->prepare( $sql, $status, $order_item_id, '_fulfillment_status' ) );
+	// return true;
 	// }
 
 	/**
@@ -763,11 +724,11 @@ class WCVendors_Admin_Commission_Table extends WP_List_Table {
 				list( $orderby, $desc_first ) = $sortable[ $column_key ];
 
 				if ( $current_orderby == $orderby ) {
-					$order = 'asc' == $current_order ? 'desc' : 'asc';
+					$order   = 'asc' == $current_order ? 'desc' : 'asc';
 					$class[] = 'sorted';
 					$class[] = $current_order;
 				} else {
-					$order = $desc_first ? 'desc' : 'asc';
+					$order   = $desc_first ? 'desc' : 'asc';
 					$class[] = 'sortable';
 					$class[] = $desc_first ? 'asc' : 'desc';
 				}

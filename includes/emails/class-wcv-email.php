@@ -5,18 +5,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- *	Email handler for all emails related to vendors, products and orders 
+ *  Email handler for all emails related to vendors, products and orders
  *
  * @author      Jamie Madden, WC Vendors
  * @category    Emails
  * @package     WCVendors/Emails
  * @version     2.0.0
-*/ 
+ */
 
-class WCVendors_Email { 
+class WCVendors_Email {
 
-	public function __construct( ){ 
+	public function __construct() {
 
 	}
 }
-new WCVendors_Email(); 
+new WCVendors_Email();

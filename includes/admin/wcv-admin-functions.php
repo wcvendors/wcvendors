@@ -31,19 +31,19 @@ function wcv_get_screen_ids() {
 	return apply_filters( 'wcvendors_screen_ids', $screen_ids );
 }
 
-// Output a single select page drop down 
-function wcv_single_select_page( $id, $value, $class = '', $css = '' ){ 
+// Output a single select page drop down
+function wcv_single_select_page( $id, $value, $class = '', $css = '' ) {
 
 	$dropdown_args = array(
-			'name'             => $id,
-			'id'               => $id, 
-			'sort_column'      => 'menu_order',
-			'sort_order'       => 'ASC',
-			'show_option_none' => ' ',
-			'class'            => $class, 
-			'echo'             => false,
-			'selected'         => $value
-		);
+		'name'             => $id,
+		'id'               => $id,
+		'sort_column'      => 'menu_order',
+		'sort_order'       => 'ASC',
+		'show_option_none' => ' ',
+		'class'            => $class,
+		'echo'             => false,
+		'selected'         => $value,
+	);
 
 	echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wcvendors' ) . "' style='" . $css . "' class='" . $class . "' id=", wp_dropdown_pages( $dropdown_args ) );
 }

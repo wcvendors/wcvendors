@@ -1,10 +1,10 @@
-<?php 
+<?php
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Core helper functions 
+ * Core helper functions
  *
  * @author      Jamie Madden, WC Vendors
  * @category    Functions
@@ -12,15 +12,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @version     2.0.0
  */
 
-function wcv_get_permalink_structure(){ 
-	$permalinks = wp_parse_args( (array) get_option( 'wcvendors_permalinks', array() ), array(
-			'vendor_shop_base'        => ''
-	) );
-	
-	// Ensure that the permalinks are set 
-	$permalinks[ 'vendor_shop_base' ]   = untrailingslashit( empty( $permalinks[ 'vendor_shop_base' ] ) ? __( 'vendors', 'wcvendors' )  : $permalinks[ 'vendor_shop_base' ] );
+function wcv_get_permalink_structure() {
+	$permalinks = wp_parse_args(
+		(array) get_option( 'wcvendors_permalinks', array() ),
+		array(
+			'vendor_shop_base' => '',
+		)
+	);
 
-	return $permalinks; 
+	// Ensure that the permalinks are set
+	$permalinks['vendor_shop_base'] = untrailingslashit( empty( $permalinks['vendor_shop_base'] ) ? __( 'vendors', 'wcvendors' ) : $permalinks['vendor_shop_base'] );
+
+	return $permalinks;
 }
 
 /**
@@ -101,7 +104,7 @@ function wcv_get_date_from_gmt( $string, $format = 'Y-m-d H:i:s', $timezone_stri
 			return date( $format, 0 );
 		}
 
-		$string_time = gmmktime( $matches[4], $matches[5], $matches[6], $matches[2], $matches[3], $matches[1] );
+		$string_time      = gmmktime( $matches[4], $matches[5], $matches[6], $matches[2], $matches[3], $matches[1] );
 		$string_localtime = gmdate( $format, $string_time + get_option( 'gmt_offset' ) * HOUR_IN_SECONDS );
 	}
 

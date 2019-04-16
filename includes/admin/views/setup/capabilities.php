@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td class="table-desc"><?php printf( __( 'Allow %s to publish products without requiring approval.', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) )?></td>
+				<td class="table-desc"><?php printf( __( 'Allow %s to publish products without requiring approval.', 'wcvendors' ), lcfirst( wcv_get_vendor_name( false ) ) ); ?></td>
 				<td class="table-check">
 					<input
 						type="checkbox"
@@ -129,6 +129,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 	<p class="wcv-setup-actions step">
-		<button type="submit" class="button button-next" value="<?php esc_attr_e( "Next", 'wcvendors' ); ?>" name="save_step"><?php esc_html_e( "Next", 'wcvendors' ); ?></button>
+		<button type="submit" class="button button-next" value="<?php esc_attr_e( 'Next', 'wcvendors' ); ?>" name="save_step"><?php esc_html_e( 'Next', 'wcvendors' ); ?></button>
 	</p>
 </form>

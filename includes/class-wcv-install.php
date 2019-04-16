@@ -20,19 +20,19 @@ class WCVendors_Install {
 	/** @var object Background update class */
 	private static $background_updater;
 
-	/**	Updates to be run **/ 
+	/** Updates to be run **/
 	private static $db_updates = array(
-		'2.0.0'	=> array( 
-			'wcv_table_updates'
+		'2.0.0' => array(
+			'wcv_table_updates',
 		),
 	);
 
-	public static function init(){ 
+	public static function init() {
 
-		add_action( 'init', 										array( __CLASS__, 'check_version' ) );
-		add_action( 'admin_init', 									array( __CLASS__, 'install_actions' ) );
-		add_filter( 'plugin_action_links_' . WCV_PLUGIN_BASENAME, 	array( __CLASS__, 'plugin_action_links' ) );
-		add_filter( 'plugin_row_meta', 								array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
+		add_action( 'init', array( __CLASS__, 'check_version' ) );
+		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
+		add_filter( 'plugin_action_links_' . WCV_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
+		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 	}
 
 	/**
@@ -62,16 +62,16 @@ class WCVendors_Install {
 
 
 	/**
-	 * Install WC Vendors 
+	 * Install WC Vendors
 	 */
-	public static function install() {		
-		
+	public static function install() {
+
 		if ( ! defined( 'WCV_INSTALLING' ) ) {
 			define( 'WCV_INSTALLING', true );
 		}
 
 		// Ensure needed classes are loaded
-		include_once( dirname( __FILE__ ) . '/admin/class-wcv-admin-notices.php' );
+		include_once dirname( __FILE__ ) . '/admin/class-wcv-admin-notices.php';
 
 		self::create_options();
 		self::create_tables();
@@ -79,10 +79,9 @@ class WCVendors_Install {
 
 		// self::create_cron_jobs();
 		// self::create_files();
-
 		// Queue upgrades/setup wizard
-		$current_wcv_version    = get_option( 'wcvendors_version', null );
-		$current_db_version    	= get_option( 'wcvendors_db_version', null );
+		$current_wcv_version = get_option( 'wcvendors_version', null );
+		$current_db_version  = get_option( 'wcvendors_db_version', null );
 
 		WC_Admin_Notices::remove_all_notices();
 
@@ -91,7 +90,7 @@ class WCVendors_Install {
 			WCVendors_Admin_Notices::add_notice( 'install' );
 			set_transient( '_wcv_activation_redirect', 1, 30 );
 
-		// No page? Let user run wizard again..
+			// No page? Let user run wizard again..
 		} elseif ( ! get_option( 'wcvendors_dashboard_page_id' ) ) {
 			WCVendors_Admin_Notices::add_notice( 'install' );
 		}
@@ -118,7 +117,7 @@ class WCVendors_Install {
 	 */
 	private static function create_options() {
 
-		include_once( dirname( __FILE__ ) . '/admin/class-wcv-admin-settings.php' );
+		include_once dirname( __FILE__ ) . '/admin/class-wcv-admin-settings.php';
 
 		$settings = WCVendors_Admin_Settings::get_settings_pages();
 
@@ -141,6 +140,7 @@ class WCVendors_Install {
 
 	/**
 	 * Update DB version to current.
+	 *
 	 * @param string $version
 	 */
 	public static function update_db_version( $version = null ) {
@@ -166,7 +166,7 @@ class WCVendors_Install {
 	private static function is_new_install() {
 		return is_null( get_option( 'wcvendors_version', null ) ) && is_null( get_option( 'wcvendors_db_version', null ) );
 	}
-	
+
 
 	/**
 	 * See if we need the wizard or not.
@@ -180,23 +180,21 @@ class WCVendors_Install {
 		}
 	}
 
-	/** 
-	* Create tables 
-	* 
-	*/ 
-	private static function create_tables(){ 
+	/**
+	 * Create tables
+	 */
+	private static function create_tables() {
 
 		global $wpdb;
 		$wpdb->hide_errors();
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta( self::get_schema() );
 
 	}
 
 	/**
-	*	Get the Db schema for wc vendors 
-	*	
-	*/ 
+	 *   Get the Db schema for wc vendors
+	 */
 	private static function get_schema() {
 		global $wpdb;
 
@@ -232,8 +230,8 @@ class WCVendors_Install {
 			) $collate;
 		";
 
-		return $schema; 
-	} 
+		return $schema;
+	}
 
 	/**
 	 * Create roles and capabilities.
@@ -249,29 +247,36 @@ class WCVendors_Install {
 			$wp_roles = new WP_Roles();
 		}
 
-		// Pending Vendor 
-		add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
-			  'read'         => true,
-			  'edit_posts'   => false,
-			  'delete_posts' => false
-		 ) );
+		// Pending Vendor
+		add_role(
+			'pending_vendor',
+			__( 'Pending Vendor', 'wcvendors' ),
+			array(
+				'read'         => true,
+				'edit_posts'   => false,
+				'delete_posts' => false,
+			)
+		);
 
+		// Vendor
+		add_role(
+			'vendor',
+			__( 'Vendor', 'wcvendors' ),
+			array(
+				'assign_product_terms'     => true,
+				'edit_products'            => true,
+				'edit_product'             => true,
+				'edit_published_products'  => false,
+				'manage_product'           => true,
+				'publish_products'         => false,
+				'delete_posts'             => true,
+				'read'                     => true,
+				'upload_files'             => true,
+				'view_woocommerce_reports' => false,
+			)
+		);
 
-		// Vendor 
-		add_role( 'vendor', __( 'Vendor', 'wcvendors' ) , array(
-		   'assign_product_terms'     => true,
-		   'edit_products'            => true,
-		   'edit_product'             => true,
-		   'edit_published_products'  => false,
-		   'manage_product'           => true,
-		   'publish_products'         => false,
-		   'delete_posts'			  => true, 
-		   'read'                     => true,
-		   'upload_files'             => true,
-		   'view_woocommerce_reports' => false,
-		) );
-
-		// Add new capabilties to vendors 
+		// Add new capabilties to vendors
 		$capabilities = self::get_core_capabilities();
 
 		foreach ( $capabilities as $cap_group ) {
@@ -280,18 +285,18 @@ class WCVendors_Install {
 			}
 		}
 
-	} 
+	}
 
 	/**
 	 * Get capabilities for WC Vendorsw - these are assigned to vendors during installation or reset.
 	 *
 	 * @return array
 	 */
-	 private static function get_core_capabilities() {
+	private static function get_core_capabilities() {
 
 		$capabilities = array();
 
-		$capabilities[ 'vendor' ] = array(
+		$capabilities['vendor'] = array(
 			'is_vendor',
 		);
 
@@ -333,8 +338,8 @@ class WCVendors_Install {
 	/**
 	 * Show action links on the plugin screen.
 	 *
-	 * @param	mixed $links Plugin Action links
-	 * @return	array
+	 * @param   mixed $links Plugin Action links
+	 * @return  array
 	 */
 	public static function plugin_action_links( $links ) {
 		$action_links = array(
@@ -347,16 +352,16 @@ class WCVendors_Install {
 	/**
 	 * Show row meta on the plugin screen.
 	 *
-	 * @param	mixed $links Plugin Row Meta
-	 * @param	mixed $file  Plugin Base file
-	 * @return	array
+	 * @param   mixed $links Plugin Row Meta
+	 * @param   mixed $file  Plugin Base file
+	 * @return  array
 	 */
 	public static function plugin_row_meta( $links, $file ) {
 		if ( WCV_PLUGIN_BASENAME == $file ) {
 			$row_meta = array(
-				'docs'    => '<a href="' . esc_url( apply_filters( 'wcvendors_docs_url', 'https://docs.wc-vendors.com/' ) ) . '" aria-label="' . esc_attr__( 'View WC Vendors documentation', 'wcvendors' ) . '">' . esc_html__( 'Docs', 'wcvendors' ) . '</a>',
+				'docs'         => '<a href="' . esc_url( apply_filters( 'wcvendors_docs_url', 'https://docs.wc-vendors.com/' ) ) . '" aria-label="' . esc_attr__( 'View WC Vendors documentation', 'wcvendors' ) . '">' . esc_html__( 'Docs', 'wcvendors' ) . '</a>',
 				'free-support' => '<a href="' . esc_url( apply_filters( 'wcvendors_free_support_url', 'https://wordpress.org/plugins/wc-vendors' ) ) . '" aria-label="' . esc_attr__( 'Visit community forums', 'wcvendors' ) . '">' . esc_html__( 'Free support', 'wcvendors' ) . '</a>',
-				'support' => '<a href="' . esc_url( apply_filters( 'wcvendors_support_url', 'https://wc-vendors.com/support/' ) ) . '" aria-label="' . esc_attr__( 'Visit premium customer support', 'wcvendors' ) . '">' . esc_html__( 'Paid support', 'wcvendors' ) . '</a>',
+				'support'      => '<a href="' . esc_url( apply_filters( 'wcvendors_support_url', 'https://wc-vendors.com/support/' ) ) . '" aria-label="' . esc_attr__( 'Visit premium customer support', 'wcvendors' ) . '">' . esc_html__( 'Paid support', 'wcvendors' ) . '</a>',
 			);
 
 			return array_merge( $links, $row_meta );
@@ -371,8 +376,9 @@ class WCVendors_Install {
 	public static function create_pages() {
 
 		$pages = apply_filters(
-			'wcvendors_create_pages', array(
-				'dashboard'   => array(
+			'wcvendors_create_pages',
+			array(
+				'dashboard'    => array(
 					'name'    => _x( 'dashboard', 'Page slug', 'wcvendors' ),
 					'title'   => _x( 'Dashboard', 'Page title', 'wcvendors' ),
 					'content' => '[' . apply_filters( 'wcvendors_dashboard_shortcode_tag', 'wcvendors_dashboard' ) . ']',
@@ -382,10 +388,10 @@ class WCVendors_Install {
 					'title'   => _x( 'Vendors', 'Page title', 'wcvendors' ),
 					'content' => '[' . apply_filters( 'wcvendors_stores_shortcode_tag', 'wcvendors_stores' ) . ']',
 				),
-				'vendor_terms'  => array(
+				'vendor_terms' => array(
 					'name'    => _x( 'vendor-terms', 'Page slug', 'wcvendors' ),
 					'title'   => _x( 'Vendor Terms & Conditions', 'Page title', 'wcvendors' ),
-					'content' => '', 
+					'content' => '',
 				),
 			)
 		);
@@ -396,7 +402,6 @@ class WCVendors_Install {
 	}
 
 
-} 
+}
 
-
-WCVendors_Install::init(); 
+WCVendors_Install::init();

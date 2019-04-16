@@ -19,10 +19,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<label class="inline-edit-author-vendor">
 				<span class="title"><?php echo wcv_get_vendor_name(); ?></span>
 				<span class="input-text-wrap">
-					<?php wp_dropdown_users( array( 
-							'echo' 		=> true, 
-							'name' 		=> 'post_author-vendor', 
-							'role__in'	=> array( 'vendor', 'administrator' ),  ) ); 
+					<?php
+					wp_dropdown_users(
+						array(
+							'echo'     => true,
+							'name'     => 'post_author-vendor',
+							'role__in' => array(
+								'vendor',
+								'administrator',
+							),
+						)
+					);
 					?>
 				</span>
 			</label>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin View: Setup Footer 
+ * Admin View: Setup Footer
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -4,33 +4,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * The admin class handles all admin custom page functions for admin view 
+ * The admin class handles all admin custom page functions for admin view
  *
  * @author      Jamie Madden, WC Vendors
  * @category    Admin
  * @package     WCVendors/Admin
  * @version     2.0.0
- */ 
-class WCVendors_Admin_Menus { 
+ */
+class WCVendors_Admin_Menus {
 
 	/**
-	 * Constructor 
+	 * Constructor
 	 */
-	public function __construct(){ 
+	public function __construct() {
 
 		// Add menus
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_menu', array( $this, 'commissions_menu' ), 50 );
 		add_action( 'admin_menu', array( $this, 'vendors_menu' ), 60 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 70 );
-		add_action( 'admin_menu', array( $this, 'addons_menu'), 80 ); 
+		add_action( 'admin_menu', array( $this, 'addons_menu' ), 80 );
 
-		// Add Screen Options 
+		// Add Screen Options
 		add_filter( 'set-screen-option', array( $this, 'set_screen_option' ), 99, 3 );
 	}
 
 	/**
-	 * WC Vendors menu 
+	 * WC Vendors menu
 	 */
 	public function admin_menu() {
 
@@ -40,22 +40,22 @@ class WCVendors_Admin_Menus {
 			$menu[] = array( '', 'read', 'separator-woocommerce', '', 'wp-menu-separator wcvendors' );
 		}
 
-		add_menu_page( __( 'WC Vendors', 'wcvendors' ), __( 'WC Vendors', 'wcvendors' ), 'manage_woocommerce', 'wcvendors', null, 'dashicons-cart', '50'  );
+		add_menu_page( __( 'WC Vendors', 'wcvendors' ), __( 'WC Vendors', 'wcvendors' ), 'manage_woocommerce', 'wcvendors', null, 'dashicons-cart', '50' );
 	}
 
 	/**
-	 * Menu - Settings 
+	 * Menu - Settings
 	 */
-	public function settings_menu(){
-		$settings_page = add_submenu_page( 'wcvendors', __( 'WC Vendors Settings', 'wcvendors' ),  __( 'Settings', 'wcvendors' ), 'manage_woocommerce', 'wcv-settings', array( $this, 'settings_page' ) );
- 		add_action( 'load-' . $settings_page, array( $this, 'settings_page_init') ); 
+	public function settings_menu() {
+		$settings_page = add_submenu_page( 'wcvendors', __( 'WC Vendors Settings', 'wcvendors' ), __( 'Settings', 'wcvendors' ), 'manage_woocommerce', 'wcv-settings', array( $this, 'settings_page' ) );
+		add_action( 'load-' . $settings_page, array( $this, 'settings_page_init' ) );
 	}
 
 	/**
-	 *  Loads required objects into memory for use within settings 
+	 *  Loads required objects into memory for use within settings
 	 */
 	public function settings_page_init() {
-		
+
 		global $current_tab, $current_section;
 
 		// Include settings pages
@@ -81,16 +81,16 @@ class WCVendors_Admin_Menus {
 	}
 
 	/**
-	 * Menu - Vendors 
+	 * Menu - Vendors
 	 */
-	public function vendors_menu(){ 
-		$vendors_page = add_submenu_page( 'wcvendors', wcv_get_vendor_name( false ),  wcv_get_vendor_name( false ), 'manage_woocommerce', 'wcv-vendors', array( $this, 'vendors_page' ) );
+	public function vendors_menu() {
+		$vendors_page = add_submenu_page( 'wcvendors', wcv_get_vendor_name( false ), wcv_get_vendor_name( false ), 'manage_woocommerce', 'wcv-vendors', array( $this, 'vendors_page' ) );
 	}
 
 	/**
-	 * Menu - Commissions 
+	 * Menu - Commissions
 	 */
-	public function commissions_menu(){ 
+	public function commissions_menu() {
 		$commissions_page = add_submenu_page( 'wcvendors', __( 'Commissions', 'wcvendors' ), __( 'Commissions', 'wcvendors' ), 'manage_woocommerce', 'wcv-commissions', array( $this, 'commissions_page' ) );
 		add_action( "load-$commissions_page", array( $this, 'commission_screen_options' ) );
 		return true;
@@ -143,33 +143,33 @@ class WCVendors_Admin_Menus {
 	}
 
 	/**
-	 * Vendors Page 
+	 * Vendors Page
 	 */
-	public function vendors_page(){ 
-		// WCVendors_Admin_Vendors::output(); 
+	public function vendors_page() {
+		// WCVendors_Admin_Vendors::output();
 	}
 
 	/**
-	 * Commissions Page 
+	 * Commissions Page
 	 */
-	public function commissions_page(){ 
-		WCVendors_Admin_Commission::output(); 
+	public function commissions_page() {
+		WCVendors_Admin_Commission::output();
 	}
 
 	/**
-	 * Settings Page 
+	 * Settings Page
 	 */
-	public function settings_page(){ 
+	public function settings_page() {
 		WCVendors_Admin_Settings::output();
 	}
 
-	/**	
-	* 	Addons Page 
-	*/ 
-	public function addons_page(){ 
-		// WCVendors_Admin_Addons::output(); 
+	/**
+	 *   Addons Page
+	 */
+	public function addons_page() {
+		// WCVendors_Admin_Addons::output();
 	}
 
 }
 
-new WCVendors_Admin_Menus(); 
+new WCVendors_Admin_Menus();

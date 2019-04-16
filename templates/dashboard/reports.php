@@ -3,10 +3,15 @@
 <?php
 
 if ( $datepicker !== 'false' ) {
-	wc_get_template( 'date-picker.php', array(
-													  'start_date' => $start_date,
-													  'end_date'   => $end_date,
-												 ), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
+	wc_get_template(
+		'date-picker.php',
+		array(
+			'start_date' => $start_date,
+			'end_date'   => $end_date,
+		),
+		'wc-vendors/dashboard/',
+		wcv_plugin_dir . 'templates/dashboard/'
+	);
 }
 
 ?>
@@ -15,36 +20,40 @@ if ( $datepicker !== 'false' ) {
 	<thead>
 	<tr>
 	<th class="product-header"><?php _e( 'Product', 'wcvendors' ); ?></th>
-	<th class="quantity-header"><?php _e( 'Quantity', 'wcvendors' ) ?></th>
-	<th class="commission-header"><?php _e( 'Commission', 'wcvendors' ) ?></th>
-	<th class="rate-header"><?php _e( 'Rate', 'wcvendors' ) ?></th>
+	<th class="quantity-header"><?php _e( 'Quantity', 'wcvendors' ); ?></th>
+	<th class="commission-header"><?php _e( 'Commission', 'wcvendors' ); ?></th>
+	<th class="rate-header"><?php _e( 'Rate', 'wcvendors' ); ?></th>
 	<th></th>
 	</thead>
 	<tbody>
 
-	<?php if ( !empty( $vendor_summary ) ) : ?>
+	<?php if ( ! empty( $vendor_summary ) ) : ?>
 
 
-		<?php if ( !empty( $vendor_summary[ 'products' ] ) ) : ?>
+		<?php if ( ! empty( $vendor_summary['products'] ) ) : ?>
 
-			<?php foreach ( $vendor_summary[ 'products' ] as $product ) :
-				$_product = wc_get_product( $product[ 'id' ] ); ?>
+			<?php
+			foreach ( $vendor_summary['products'] as $product ) :
+				$_product = wc_get_product( $product['id'] );
+				?>
 
 				<tr>
 
 					<td class="product"><strong><a
-								href="<?php echo esc_url( get_permalink( $_product->get_id() ) ) ?>"><?php echo $product[ 'title' ] ?></a></strong>
-						<?php if ( !empty( $_product->variation_id ) ) {
+								href="<?php echo esc_url( get_permalink( $_product->get_id() ) ); ?>"><?php echo $product['title']; ?></a></strong>
+						<?php
+						if ( ! empty( $_product->variation_id ) ) {
 							echo woocommerce_get_formatted_variation( $_product->variation_data );
-						} ?>
+						}
+						?>
 					</td>
-					<td class="qty"><?php echo $product[ 'qty' ]; ?></td>
-					<td class="commission"><?php echo wc_price( $product[ 'cost' ] ); ?></td>
-					<td class="rate"><?php echo sprintf( '%.2f%%', $product[ 'commission_rate' ] ); ?></td>
+					<td class="qty"><?php echo $product['qty']; ?></td>
+					<td class="commission"><?php echo wc_price( $product['cost'] ); ?></td>
+					<td class="rate"><?php echo sprintf( '%.2f%%', $product['commission_rate'] ); ?></td>
 
 					<?php if ( $can_view_orders ) : ?>
 						<td>
-							<a href="<?php echo $product[ 'view_orders_url' ]; ?>"><?php _e( 'Show Orders', 'wcvendors' ); ?></a>
+							<a href="<?php echo $product['view_orders_url']; ?>"><?php _e( 'Show Orders', 'wcvendors' ); ?></a>
 						</td>
 					<?php endif; ?>
 
@@ -54,8 +63,8 @@ if ( $datepicker !== 'false' ) {
 
 			<tr>
 				<td><strong><?php _e( 'Totals', 'wcvendors' ); ?></strong></td>
-				<td><?php echo $vendor_summary[ 'total_qty' ]; ?></td>
-				<td><?php echo wc_price( $vendor_summary[ 'total_cost' ] ); ?></td>
+				<td><?php echo $vendor_summary['total_qty']; ?></td>
+				<td><?php echo wc_price( $vendor_summary['total_cost'] ); ?></td>
 				<td></td>
 
 				<?php if ( $can_view_orders ) : ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin View: Setup Steps 
+ * Admin View: Setup Steps
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

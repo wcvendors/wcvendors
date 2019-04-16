@@ -16,29 +16,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 interface WCVendors_Commission_Data_Store_Interface {
 
 	/**
-	 * Get all commission data for the supplied comission ids or all of them 
+	 * Get all commission data for the supplied comission ids or all of them
 	 */
-	public function get_commissions( $status = '', $limit = '', $offset = '' ); 	
+	public function get_commissions( $status = '', $limit = '', $offset = '' );
 
-	/**	
-	* Get all vendor commissions 
-	*/ 
-	public function get_vendor_commissions( $vendor, $status = '', $limit = '', $offset = '' ); 
+	/**
+	 * Get all vendor commissions
+	 */
+	public function get_vendor_commissions( $vendor, $status = '', $limit = '', $offset = '' );
 
 	/**
 	 * Get all unpaid commissions
 	 */
-	public function get_due_commissions( $limit = '', $offset = '' ); 
+	public function get_due_commissions( $limit = '', $offset = '' );
 
 
 	/**
-	* Get all paid commissions 
-	*/ 
-	public function get_paid_commissions( $limit = '', $offset = '' ); 
+	 * Get all paid commissions
+	 */
+	public function get_paid_commissions( $limit = '', $offset = '' );
 
-	/*
-	*
-	*/ 
-	public function get_void_commissions( $limit = '', $offset = '' ); 
 
-} 
+	public function get_void_commissions( $limit = '', $offset = '' );
+
+}
