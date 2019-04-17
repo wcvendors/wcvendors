@@ -240,7 +240,7 @@ class WCV_Shortcodes {
 
 		$args = array(
 			'post_type'           => 'product',
-			'post_author'         => self::get_vendor( $vendor ),
+			'author'              => self::get_vendor( $vendor ),
 			'post_status'         => 'publish',
 			'ignore_sticky_posts' => 1,
 			'posts_per_page'      => $per_page,
@@ -274,10 +274,10 @@ class WCV_Shortcodes {
 
 			<?php woocommerce_product_loop_end(); ?>
 
-		<?php
-		endif;
+			<?php
+			wp_reset_postdata();
 
-		wp_reset_postdata();
+		endif;
 
 		return '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
 	}
@@ -388,7 +388,7 @@ class WCV_Shortcodes {
 
 		$args = array(
 			'post_type'           => 'product',
-			'post_author'         => self::get_vendor( $vendor ),
+			'author'              => self::get_vendor( $vendor ),
 			'post_status'         => 'publish',
 			'ignore_sticky_posts' => 1,
 			'orderby'             => $orderby,
@@ -425,10 +425,9 @@ class WCV_Shortcodes {
 
 			<?php woocommerce_product_loop_end(); ?>
 
-		<?php
+			<?php
+			wp_reset_postdata();
 		endif;
-
-		wp_reset_postdata();
 
 		return '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
 	}
