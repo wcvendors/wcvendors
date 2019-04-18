@@ -1,5 +1,14 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.8 - 18th April 2019
+
+* Fixed: Vendor featured product shortcode display the same products for every vendor #553
+* Fixed: Incorrect use of woocommerce_email_order_meta #555
+* Fixed: Deny vendor application email not firing
+* Fixed: Approve/deny emails not firing when Pro is enabled.
+* Fixed: Billing address showing in emails when hidden
+* Fixed: Shortcode not showing in container when used in page builders #544
+
 Version 2.1.7
 
 * Added: sold_by shortcode #542

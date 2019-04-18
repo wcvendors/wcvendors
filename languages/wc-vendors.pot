@@ -1055,19 +1055,19 @@ msgstr ""
 msgid "Quantity: %d"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:81, classes/admin/emails/class-emails.php:214, classes/admin/emails/class-wc-approve-vendor.php:72
+#: classes/admin/emails/class-emails.php:74, classes/admin/emails/class-emails.php:207, classes/admin/emails/class-wc-approve-vendor.php:72
 msgid "pending"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:83, classes/admin/emails/class-emails.php:218
+#: classes/admin/emails/class-emails.php:76, classes/admin/emails/class-emails.php:211
 msgid "approved"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:85
+#: classes/admin/emails/class-emails.php:78
 msgid "denied"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:166
+#: classes/admin/emails/class-emails.php:159
 msgid "Resend %s new order notification"
 msgstr ""
 
