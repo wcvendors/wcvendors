@@ -5,7 +5,7 @@
  *
  * @author  WC Vendors
  * @package WooCommerce/Templates/Emails/HTML
- * @version 1.9.9
+ * @version 2.1.8
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -84,7 +84,7 @@ $order_date         = $order->get_date_created();
 
 <?php do_action( 'woocommerce_email_after_order_table', $order, true ); ?>
 
-<?php do_action( 'woocommerce_email_order_meta', $order, true ); ?>
+<?php do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email ); ?>
 
 <h2><?php _e( 'Customer details', 'wc-vendors' ); ?></h2>
 
