@@ -3,9 +3,9 @@
 	<form method="post">
 
 		<table class="form-table">
-			<?php do_action( 'wcvendors_settings_before_paypal' );
+			<?php do_action( 'wcvendors_settings_before_paypal' ); ?>
 
-			if ( $paypal_address !== 'false' ) { ?>
+			<?php if ( $paypal_address !== 'false' ) : ?>
 
 				<tr>
 					<th><?php _e( 'PayPal Address', 'wc-vendors' ); ?></th>
@@ -18,9 +18,10 @@
 						</p>
 					</td>
 				</tr>
-			<?php } ?>
-			<?php do_action( 'wcvendors_settings_after_paypal' ); ?>
 
+			<?php endif; ?>
+
+			<?php do_action( 'wcvendors_settings_after_paypal' ); ?>
 
 			<?php if ( apply_filters( 'wcvendors_admin_user_meta_bank_details_enable', true ) ) : ?>
 
@@ -77,7 +78,6 @@
 
 			<?php endif; ?>
 
-
 			<tr>
 				<th><?php _e( 'Shop Name', 'wc-vendors' ); ?></th>
 				<td><input type="text" name="pv_shop_name" id="pv_shop_name" placeholder="Your shop name"
@@ -85,6 +85,7 @@
 					<p class="description"><?php _e( 'Your shop name is public and must be unique.', 'wc-vendors' ); ?></p>
 				</td>
 			</tr>
+
 			<?php do_action( 'wcvendors_settings_after_shop_name' ); ?>
 
 			<tr>
@@ -107,8 +108,11 @@
 					<p class="description"><?php _e( 'This is displayed on each of your products.', 'wc-vendors' ); ?></p>
 				</td>
 			</tr>
+
 			<?php do_action( 'wcvendors_settings_after_seller_info' ); ?>
-			<?php if ( $shop_description !== 'false' ) { ?>
+
+			<?php if ( $shop_description !== 'false' ) : ?>
+
 				<tr>
 					<th><?php _e( 'Shop Description', 'wc-vendors' ); ?></th>
 					<td>
@@ -131,7 +135,9 @@
 				</tr>
 
 				<?php do_action( 'wcvendors_settings_after_shop_description' ); ?>
-			<?php } ?>
+
+			<?php endif; ?>
+
 			<tr>
 				<td colspan="2">
 					<?php wp_nonce_field( 'save-shop-settings-admin', 'wc-vendors-nonce' ); ?>
