@@ -1,8 +1,8 @@
 <div class="wrap">
 	<h2>Shop Settings</h2>
-	<table class="form-table">
+	<form method="post">
 
-		<form method="post">
+		<table class="form-table">
 			<?php do_action( 'wcvendors_settings_before_paypal' );
 
 			if ( $paypal_address !== 'false' ) { ?>
@@ -132,13 +132,13 @@
 
 				<?php do_action( 'wcvendors_settings_after_shop_description' ); ?>
 			<?php } ?>
-			<?php wp_nonce_field( 'save-shop-settings-admin', 'wc-vendors-nonce' ); ?>
 			<tr>
-				<td colspa="2">
+				<td colspan="2">
+					<?php wp_nonce_field( 'save-shop-settings-admin', 'wc-vendors-nonce' ); ?>
 					<input type="submit" class="button button-primary" name="vendor_application_submit"
 					       value="<?php _e( 'Save Shop Settings', 'wc-vendors' ); ?>"/>
 				</td>
 			</tr>
-		</form>
-	</table>
+		</table>
+	</form>
 </div>
