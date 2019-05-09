@@ -9,9 +9,9 @@
  *
  * Version:              2.1.8
  * Requires at least:    4.4.0
- * Tested up to:         5.1
+ * Tested up to:         5.2
  * WC requires at least: 3.3.0
- * WC tested up to:      3.5.8
+ * WC tested up to:      3.6.2
  *
  * Text Domain:          wc-vendors
  * Domain Path:          /languages/
