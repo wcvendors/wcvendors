@@ -7,7 +7,9 @@ Plugin URI: https://www.wcvendors.com/
 Requires at least: 4.4.0
 Requires PHP: 5.6
 Tested up to: 5.2
-Stable tag: 2.1.8
+WC requires at least: 3.3.0
+WC tested up to: 3.6.2
+Stable tag: 2.1.9
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
@@ -28,13 +30,10 @@ WC Vendors Marketplace was released to the market in October of 2014 having gott
 
 == Announcements ==
 
-* We are compatible with WordPress 5.0 - But please be sure to check everything on a staging server before upgrading !
+* Want to know how vendors get paid? Be sure to read our <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=annoucements?utm_source=wporg">Payments Explained</a> article available on our website, solutions including Stripe, Paypal, Mangopay and more are available.
 * The plugin name has been updated. It is now called WC Vendors Marketplace. <a href="www.wcvendors.com/2018/07/wc-vendors-marketplace/?utm_campaign=annoucements?utm_source=wporg"">Read about it here</a>.
 * Questions about GDPR and WC Vendors Marketplace? Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/gdpr-and-wc-vendors/?utm_campaign=announcements?utm_source=wporg">GDPR and WC Vendors</a>.
-* Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for solutions to your vendor commission payments. Including Stripe, Paypal and others.
-* WC Vendors 2.0 is a major update, this will affect some stores using other WC Vendors integrations.
-* PayPal has deprecated Adaptive Payments as of September 1st 2017. This will soon cease to function. We provide an instant payment solution via our <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=annoucements?utm_source=wporg">Stripe Gateway</a> however there are 3rd party extensions from MangoPay and Escrow that also provide vendor commission payouts.
-
+* Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for
 
 == Features ==
 
@@ -94,6 +93,77 @@ The following features are part of <a href="https://www.wcvendors.com/product/wc
 * There's more features to Pro than listed here!
 
 See our full comparison of free vs pro here <a href="https://www.wcvendors.com/home/comparison/?&utm_campaign=description?utm_source=wporg">Compare free and pro</a>
+
+== Build your marketplace today ==
+
+With WC Vendors Marketplace there is no restrictions on the number of vendors or products your marketplace can create. Your vendors will be able to create a marketplaces selling a range of different products such as
+
+* Physical products
+* Downloadable
+* Variable products
+* Booking products with our <a href="https://www.wcvendors.com/product/woocommerce-bookings-integration/?&utm_campaign=description?utm_source=wporg">WC Vendors WooCommerce Bookings plugin</a>
+* Auctions with our <a href="https://www.wcvendors.com/product/woocommerce-simple-auctions-integration/?&utm_campaign=description?utm_source=wporg">WC Vendors WooCommerce Simple Auctions plugin</a>
+
+This allows you to create all kinds of marketplaces such as
+
+* Physical goods marketplaces like a furntiure store
+* Digital download marketplaces selling music or photos
+* A booking marketplace to sell cooking classes
+* An auction site like ebay
+
+== Multiple ways to earn money with your marketplace ==
+
+WC Vendors Marketplace has an advanced commission system that allows you to set commisions for a variaty of situations
+
+= Commission Types =
+
+* Percentage
+* Percentate + fee (Pro)
+* Fixed (Pro)
+* Fixed + fee (Pro)
+
+Tiered based commission systems
+
+* Sales by vendor (Pro)
+* Sales by Product (Pro)
+* Product Price (Pro)
+
+<a href="https://docs.wcvendors.com/knowledge-base/wc-vendors-pro-commission/">Read about our commissions here</a>
+
+= WC Vendors Membership =
+
+WC Vendors Membership allows you to create and sell membership plans to your vendors. Setting different limits for your vendors on what products they can sell. Features include
+
+* Create as many plans as you like
+* Plan based commissions
+* Set limits on products, categories, files and storage
+* Easy to use subscription system for your vendors
+* With the use of WooCommerce Subscriptions, you can setup a membership marketplace today!
+
+<a href="https://www.wcvendors.com/product/wc-vendors-membership/?&utm_campaign=description?utm_source=wporg">Create your vendor membership site today</a>
+
+== Compatible Plugins ==
+
+We encourage 3rd party developers to work with us to create great extensions that work with our products. We keep an updated list of <a href="https://www.wcvendors.com/home/compatible-plugins/?utm_source=wporg">compatible plugins</a> on our website as well as here. If you've built a plugin for WC Vendors products, please be sure to let us know!
+
+= Vendor Payment Gateways =
+
+* <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/?&utm_campaign=description?utm_source=wporg">Stripe Connect Commissions & Gateway</a>
+* <a href="https://www.wcvendors.com/product/payouts-for-wc-vendors/?&utm_campaign=description?utm_source=wporg">Payouts for WC Vendors</a>
+* <a href="https://www.wcvendors.com/product/mangopay-woocommerce/?&utm_campaign=description?utm_source=wporg">MangoPay for WooCommerce</a>
+* <a href="https://www.wcvendors.com/product/escrow-for-woocommerce//?&utm_campaign=description?utm_source=wporg">Escorw for WooCommerce</a>
+* <a href="https://www.wcvendors.com/product/mollie-connect-wc-vendors/?&utm_campaign=description?utm_source=wporg">Mollie Connect for WC Vendors</a>
+
+= Shipping =
+
+* <a href="https://www.wcvendors.com/product/epeken-all-kurir-plugin-for-woocommerce/?&utm_campaign=description?utm_source=wporg">Epeken All Kurir Plugin for Woocommerce</a>
+* <a href="https://www.wcvendors.com/product/marketship/?&utm_campaign=description?utm_source=wporg">Marketship</a>
+* <a href="https://www.wcvendors.com/product/multi-carrier-shipping-plugin-for-woocommerce/?&utm_campaign=description?utm_source=wporg">Multi-Carrier Shipping Plugin for WooCommerce</a>
+* <a href="https://www.wcvendors.com/product/table-rate-shipping/?&utm_campaign=description?utm_source=wporg">Table Rate Shipping for WC Vendors</a>
+* <a href="https://www.wcvendors.com/product/woocommerce-fedex-shipping-plugin-with-print-label/?&utm_campaign=description?utm_source=wporg">WooCommerce FedEx Shipping Plugin with Print Label</a>
+* <a href="https://www.wcvendors.com/product/woocommerce-ups-shipping-plugin-with-print-label/?&utm_campaign=description?utm_source=wporg">WooCommerce UPS Shipping Plugin with Print Label</a>
+
+<a href="https://www.wcvendors.com/home/compatible-plugins/?utm_source=wporg">And many many more !</a>
 
 = Translations =
 
@@ -156,6 +226,14 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.9 - 9th may 2019 =
+
+* Updated: Tested to 5.6 and WooCommerce 3.6.x
+* Updated: Removed development files from release
+* Updated: Language file
+* Fixed: Commission tab inside Product Data box style problem #549
+* Fixed: Invalid vendor settings form markup thanks to bporcelli
 
 = Version 2.1.8 - 18th April 2019 =
 
