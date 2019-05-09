@@ -187,7 +187,7 @@ class WCV_Product_Meta {
 
 		?>
 		<li class="commission_tab">
-			<a href="#commission"><?php _e( 'Commission', 'wc-vendors' ); ?></a>
+			<a href="#commission"><span><?php _e( 'Commission', 'wc-vendors' ); ?></span></a>
 		</li>
 		<?php
 	}
