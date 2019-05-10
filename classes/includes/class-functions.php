@@ -26,7 +26,7 @@ if ( ! function_exists( 'wcv_get_user_role' ) ) {
 		$roles = $user->roles;
 		$role  = array_shift( $roles );
 
-		return isset( $wp_roles->role_names[ $role ] ) ? translate_user_role( $wp_roles->role_names[ $role ] ) : false;
+		return isset( $wp_roles->role_names[ $role ] ) ? $role : false;
 	}
 }
 
