@@ -794,27 +794,27 @@ msgstr ""
 msgid "PayPal Email"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:46, classes/admin/views/html-vendor-meta.php:54, classes/admin/views/html-vendor-settings-page.php:29
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:46, classes/admin/views/html-vendor-meta.php:54, classes/admin/views/html-vendor-settings-page.php:37
 msgid "Bank Account Name"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:47, classes/admin/views/html-vendor-meta.php:62, classes/admin/views/html-vendor-settings-page.php:37
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:47, classes/admin/views/html-vendor-meta.php:62, classes/admin/views/html-vendor-settings-page.php:49
 msgid "Bank Account Number"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:48, classes/admin/views/html-vendor-meta.php:70, classes/admin/views/html-vendor-settings-page.php:45, templates/dashboard/settings/settings.php:59
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:48, classes/admin/views/html-vendor-meta.php:70, classes/admin/views/html-vendor-settings-page.php:61, templates/dashboard/settings/settings.php:59
 msgid "Bank Name"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:49, classes/admin/views/html-vendor-meta.php:77, classes/admin/views/html-vendor-settings-page.php:53, templates/dashboard/settings/settings.php:67
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:49, classes/admin/views/html-vendor-meta.php:77, classes/admin/views/html-vendor-settings-page.php:73, templates/dashboard/settings/settings.php:67
 msgid "Routing Number"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:50, classes/admin/views/html-vendor-meta.php:85, classes/admin/views/html-vendor-settings-page.php:61, templates/dashboard/settings/settings.php:72
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:50, classes/admin/views/html-vendor-meta.php:85, classes/admin/views/html-vendor-settings-page.php:85, templates/dashboard/settings/settings.php:72
 msgid "IBAN"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:51, classes/admin/views/html-vendor-meta.php:92, classes/admin/views/html-vendor-settings-page.php:69
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:51, classes/admin/views/html-vendor-meta.php:92, classes/admin/views/html-vendor-settings-page.php:97
 msgid "BIC/SWIFT"
 msgstr ""
 
@@ -1055,19 +1055,19 @@ msgstr ""
 msgid "Quantity: %d"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:81, classes/admin/emails/class-emails.php:214, classes/admin/emails/class-wc-approve-vendor.php:72
+#: classes/admin/emails/class-emails.php:74, classes/admin/emails/class-emails.php:207, classes/admin/emails/class-wc-approve-vendor.php:72
 msgid "pending"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:83, classes/admin/emails/class-emails.php:218
+#: classes/admin/emails/class-emails.php:76, classes/admin/emails/class-emails.php:211
 msgid "approved"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:85
+#: classes/admin/emails/class-emails.php:78
 msgid "denied"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:166
+#: classes/admin/emails/class-emails.php:159
 msgid "Resend %s new order notification"
 msgstr ""
 
@@ -2201,7 +2201,7 @@ msgstr ""
 msgid "Shipping override for %s"
 msgstr ""
 
-#: classes/admin/views/html-vendor-meta.php:158, classes/admin/views/html-vendor-settings-page.php:91, templates/dashboard/settings/seller-info.php:20
+#: classes/admin/views/html-vendor-meta.php:158, classes/admin/views/html-vendor-settings-page.php:130, templates/dashboard/settings/seller-info.php:20
 msgid "Seller info"
 msgstr ""
 
@@ -2209,35 +2209,35 @@ msgstr ""
 msgid "Shop description"
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:11, templates/dashboard/settings/paypal-email-form.php:18
+#: classes/admin/views/html-vendor-settings-page.php:13, templates/dashboard/settings/paypal-email-form.php:18
 msgid "PayPal Address"
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:16
+#: classes/admin/views/html-vendor-settings-page.php:21
 msgid "Your PayPal address can be used to send you your commission."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:82, templates/dashboard/settings/shop-name.php:18
+#: classes/admin/views/html-vendor-settings-page.php:113, templates/dashboard/settings/shop-name.php:18
 msgid "Shop Name"
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:85, templates/dashboard/settings/shop-name.php:19
+#: classes/admin/views/html-vendor-settings-page.php:120, templates/dashboard/settings/shop-name.php:19
 msgid "Your shop name is public and must be unique."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:107, templates/dashboard/settings/seller-info.php:21
+#: classes/admin/views/html-vendor-settings-page.php:149, templates/dashboard/settings/seller-info.php:21
 msgid "This is displayed on each of your products."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:113, templates/dashboard/settings/shop-description.php:18
+#: classes/admin/views/html-vendor-settings-page.php:161, templates/dashboard/settings/shop-description.php:18
 msgid "Shop Description"
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:129, templates/dashboard/settings/shop-description.php:19
+#: classes/admin/views/html-vendor-settings-page.php:180, templates/dashboard/settings/shop-description.php:19
 msgid "This is displayed on your <a href=\"%s\">shop page</a>."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:139
+#: classes/admin/views/html-vendor-settings-page.php:193
 msgid "Save Shop Settings"
 msgstr ""
 
