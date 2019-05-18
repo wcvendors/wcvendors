@@ -471,7 +471,7 @@ class WCV_Vendors {
 	*/
 	public static function is_vendor_product( $role ) {
 
-		return ( 'Vendor' === $role ) ? true : false;
+		return ( 'vendor' === $role ) ? true : false;
 	}
 
 	/**
