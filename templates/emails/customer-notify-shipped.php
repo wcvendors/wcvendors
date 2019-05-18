@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'woocommerce_email_header', $email_heading, $email );
 
 ?>
-	<p><?php printf( __( '%1$s has marked your order #%2$s as shipped. The items that are shipped are as follows' ), WCV_Vendors::get_vendor_shop_name( $vendor_id ), $order->get_id() ); ?></p>
+	<p><?php printf( __( '%1$s has marked your order #%2$s as shipped. The items that are shipped are as follows', 'wc-vendors' ), WCV_Vendors::get_vendor_shop_name( $vendor_id ), $order->get_id() ); ?></p>
 <?php
 
 /**

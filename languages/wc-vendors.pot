@@ -974,8 +974,16 @@ msgstr ""
 msgid "Edit product: <a href=\"%1$s\">%1$s</a>"
 msgstr ""
 
+#: templates/emails/admin-notify-shipped.php:19
+msgid "%1$s has marked  order #%2$s as shipped."
+msgstr ""
+
 #: templates/emails/application-status.php:12
 msgid "Application status: %s"
+msgstr ""
+
+#: templates/emails/customer-notify-shipped.php:22
+msgid "%1$s has marked your order #%2$s as shipped. The items that are shipped are as follows"
 msgstr ""
 
 #: templates/emails/new-product.php:9
