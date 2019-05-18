@@ -8,7 +8,7 @@ Requires at least: 4.4.0
 Requires PHP: 5.6
 Tested up to: 5.2
 WC requires at least: 3.3.0
-WC tested up to: 3.6.2
+WC tested up to: 3.6.3
 Stable tag: 2.1.9
 License: GPLv2 or later
 
@@ -31,9 +31,10 @@ WC Vendors Marketplace was released to the market in October of 2014 having gott
 == Announcements ==
 
 * Want to know how vendors get paid? Be sure to read our <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=annoucements?utm_source=wporg">Payments Explained</a> article available on our website, solutions including Stripe, Paypal, Mangopay and more are available.
-* The plugin name has been updated. It is now called WC Vendors Marketplace. <a href="www.wcvendors.com/2018/07/wc-vendors-marketplace/?utm_campaign=annoucements?utm_source=wporg"">Read about it here</a>.
+* The plugin name has been updated. It is now called WC Vendors Marketplace. <a href="www.wcvendors.com/2018/07/wc-vendors-marketplace/?utm_campaign=annoucements?utm_source=wporg">Read about it here</a>.
 * Questions about GDPR and WC Vendors Marketplace? Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/gdpr-and-wc-vendors/?utm_campaign=announcements?utm_source=wporg">GDPR and WC Vendors</a>.
 * Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for
+
 
 == Features ==
 
