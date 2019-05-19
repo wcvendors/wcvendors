@@ -20,7 +20,7 @@ echo sprintf( __( 'You have received an order from %s.', 'wc-vendors' ), $custom
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
 // Change the order details to reflect the vendor order details
-do_action( 'wcvendors_email_order_details', $order, $sent_to_admin, $plain_text, $email );
+do_action( 'wcvendors_email_order_details', $order, $vendor_items, $totals_display, $vendor_id, $sent_to_vendor, $sent_to_admin, $plain_text, $email );
 
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
