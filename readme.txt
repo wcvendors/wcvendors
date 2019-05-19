@@ -149,20 +149,20 @@ We encourage 3rd party developers to work with us to create great extensions tha
 
 = Vendor Payment Gateways =
 
-* <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/?&utm_campaign=description?utm_source=wporg">Stripe Connect Commissions & Gateway</a>
-* <a href="https://www.wcvendors.com/product/payouts-for-wc-vendors/?&utm_campaign=description?utm_source=wporg">Payouts for WC Vendors</a>
-* <a href="https://www.wcvendors.com/product/mangopay-woocommerce/?&utm_campaign=description?utm_source=wporg">MangoPay for WooCommerce</a>
-* <a href="https://www.wcvendors.com/product/escrow-for-woocommerce//?&utm_campaign=description?utm_source=wporg">Escorw for WooCommerce</a>
-* <a href="https://www.wcvendors.com/product/mollie-connect-wc-vendors/?&utm_campaign=description?utm_source=wporg">Mollie Connect for WC Vendors</a>
+* Stripe Connect Commissions & Gateway
+* Payouts for WC Vendors
+* MangoPay for WooCommerce
+* Escorw for WooCommerce
+* Mollie Connect for WC Vendors
 
 = Shipping =
 
-* <a href="https://www.wcvendors.com/product/epeken-all-kurir-plugin-for-woocommerce/?&utm_campaign=description?utm_source=wporg">Epeken All Kurir Plugin for Woocommerce</a>
-* <a href="https://www.wcvendors.com/product/marketship/?&utm_campaign=description?utm_source=wporg">Marketship</a>
-* <a href="https://www.wcvendors.com/product/multi-carrier-shipping-plugin-for-woocommerce/?&utm_campaign=description?utm_source=wporg">Multi-Carrier Shipping Plugin for WooCommerce</a>
-* <a href="https://www.wcvendors.com/product/table-rate-shipping/?&utm_campaign=description?utm_source=wporg">Table Rate Shipping for WC Vendors</a>
-* <a href="https://www.wcvendors.com/product/woocommerce-fedex-shipping-plugin-with-print-label/?&utm_campaign=description?utm_source=wporg">WooCommerce FedEx Shipping Plugin with Print Label</a>
-* <a href="https://www.wcvendors.com/product/woocommerce-ups-shipping-plugin-with-print-label/?&utm_campaign=description?utm_source=wporg">WooCommerce UPS Shipping Plugin with Print Label</a>
+* Epeken All Kurir Plugin for Woocommerce
+* Marketship
+* Multi-Carrier Shipping Plugin for WooCommerce
+* Table Rate Shipping for WC Vendors
+* WooCommerce FedEx Shipping Plugin with Print Label
+* WooCommerce UPS Shipping Plugin with Print Label
 
 <a href="https://www.wcvendors.com/home/compatible-plugins/?utm_source=wporg">And many many more !</a>
 
