@@ -171,21 +171,33 @@ class WCV_Vendor_Dashboard {
 			// Bank details
 			if ( isset( $_POST['wcv_bank_account_name'] ) ) {
 				update_user_meta( $user_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
+			} else {
+				delete_user_meta( $user_id, 'wcv_bank_account_name' );
 			}
 			if ( isset( $_POST['wcv_bank_account_number'] ) ) {
-				update_user_meta( $user_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
+				update_user_meta( $user_id, 'wcv_bank_account_number', $_POST['wcv_bank_account_number'] );
+			} else {
+				delete_user_meta( $user_id, 'wcv_bank_account_number' );
 			}
 			if ( isset( $_POST['wcv_bank_name'] ) ) {
 				update_user_meta( $user_id, 'wcv_bank_name', $_POST['wcv_bank_name'] );
+			} else {
+				delete_user_meta( $user_id, 'wcv_bank_name' );
 			}
 			if ( isset( $_POST['wcv_bank_routing_number'] ) ) {
 				update_user_meta( $user_id, 'wcv_bank_routing_number', $_POST['wcv_bank_routing_number'] );
+			} else {
+				delete_user_meta( $user_id, 'wcv_bank_routing_number' );
 			}
 			if ( isset( $_POST['wcv_bank_iban'] ) ) {
 				update_user_meta( $user_id, 'wcv_bank_iban', $_POST['wcv_bank_iban'] );
+			} else {
+				delete_user_meta( $user_id, 'wcv_bank_iban' );
 			}
 			if ( isset( $_POST['wcv_bank_bic_swift'] ) ) {
 				update_user_meta( $user_id, 'wcv_bank_bic_swift', $_POST['wcv_bank_bic_swift'] );
+			} else {
+				delete_user_meta( $user_id, 'wcv_bank_bic_swift' );
 			}
 
 			do_action( 'wcvendors_shop_settings_saved', $user_id );
