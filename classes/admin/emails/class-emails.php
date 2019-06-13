@@ -27,9 +27,9 @@ class WCV_Emails {
 
 		// Low stock
 		// These fatal error in WC3.3.3 @todo fix !
-		add_filter( 'woocommerce_email_recipient_low_stock', array( $this, 'vendor_stock_email' ), 10, 2 );
-		add_filter( 'woocommerce_email_recipient_no_stock' , array( $this, 'vendor_stock_email' ), 10, 2 );
-		add_filter( 'woocommerce_email_recipient_backorder', array( $this, 'vendor_stock_email' ), 10, 2 );
+		add_filter( 'woocommerce_email_recipient_low_stock', array( $this, 'vendor_low_stock_email' ), 10, 2 );
+		add_filter( 'woocommerce_email_recipient_no_stock' , array( $this, 'vendor_no_stock_email' ), 10, 2 );
+		add_filter( 'woocommerce_email_recipient_backorder', array( $this, 'vendor_backorder_stock_email' ), 10, 2 );
 
 		// New emails
 		// Triggers
@@ -151,6 +151,46 @@ class WCV_Emails {
 		return $emails;
 
 	}
+
+	/**
+	 *  Handle low stock emails for vendors
+	 *
+	 * @since 2.1.10
+	 * @version 2.1.0
+	 */
+	public function vendor_low_stock_email( $emails, $product ) {
+		if ( 'no' === get_option( 'wcvendors_notify_low_stock', 'yes' ) ) {
+			return;
+		}
+		$this->vendor_stock_email(  $emails, $product );
+	}
+
+	/**
+	 *  Handle no stock emails for vendors
+	 *
+	 * @since 2.1.10
+	 * @version 2.1.0
+	 */
+	public function vendor_no_stock_email( $emails, $product ) {
+		if ( 'no' === get_option( 'wcvendors_notify_low_stock', 'yes' ) ) {
+			return;
+		}
+		$this->vendor_stock_email( $emails, $product );
+	}
+
+	/**
+	 *  Handle backorder stock emails for vendors
+	 *
+	 * @since 2.1.10
+	 * @version 2.1.0
+	 */
+	public function vendor_backorder_stock_email( $emails, $product ) {
+		if ( 'no' === get_option( 'wcvendors_notify_backorder_stock', 'yes' ) ) {
+			return;
+		}
+		$this->vendor_stock_email( $emails, $product );
+	}
+
 
 	/**
 	 *   Filter hook for order actions meta box

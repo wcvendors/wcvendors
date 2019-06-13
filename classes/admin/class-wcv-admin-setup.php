@@ -29,7 +29,7 @@ class WCV_Admin_Setup {
 		add_filter( 'woocommerce_screen_ids'               , array( $this, 'wcv_screen_ids' )         );
 		add_action( 'wcvendors_update_options_capabilities', array( $this, 'update_vendor_role' )     );
 
-
+		add_filter( 'woocommerce_inventory_settings', 		array ( $this, 'add_vendor_stock_notification' ) );
 	}
 
 	public function add_vendor_details( $order ) {
@@ -329,6 +329,42 @@ class WCV_Admin_Setup {
 		remove_role( 'vendor' );
 		add_role( 'vendor', sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ), $args );
 
+	}
+
+	/**
+	* Add options to disable vendor low / no stock notifications
+	*
+	* @since 2.1.10
+	* @version 2.1.10
+	*
+	*/
+	public function add_vendor_stock_notification( $options ){
+		$new_options = array();
+
+		foreach ( $options as $option ) {
+		 	if ( $option['id'] == 'woocommerce_stock_email_recipient' ){
+		 		$new_options[] = array(
+					'title'         => sprintf( __( '%s Notifications', 'wc-vendors' ), wcv_get_vendor_name() ),
+					'desc'          => sprintf( __( 'Enable %s low stock notifications', 'wc-vendors' ),  wcv_get_vendor_name( true, false) ),
+					'id'            => 'wcvendors_notify_low_stock',
+					'default'       => 'yes',
+					'type'          => 'checkbox',
+					'checkboxgroup' => 'start',
+					'class'         => 'manage_stock_field',
+				);
+		 		$new_options[] = array(
+					'desc'          => sprintf( __( 'Enable %s out of stock notifications', 'wc-vendors' ),  wcv_get_vendor_name( true, false) ),
+					'id'            => 'wcvendors_notify_no_stock',
+					'default'       => 'yes',
+					'type'          => 'checkbox',
+					'checkboxgroup' => 'end',
+					'class'         => 'manage_stock_field',
+				);
+
+		 	}
+		 	$new_options[] = $option;
+		}
+		return $new_options;
 	}
 
 }
