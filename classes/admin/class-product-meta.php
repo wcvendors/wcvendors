@@ -114,7 +114,7 @@ class WCV_Product_Meta {
 		extract( $args );
 
 		$roles     = array( 'vendor', 'administrator' );
-		$user_args = array( 'fields' => array( 'ID', 'user_login' ) );
+		$user_args = array( 'fields' => array( 'ID', 'display_name' ) );
 
 		$output = "<select style='width:200px;' name='$id' id='$id' class='$class' data-placeholder='$placeholder'>\n";
 		$output .= "\t<option value=''></option>\n";
@@ -128,10 +128,7 @@ class WCV_Product_Meta {
 			if ( empty( $users ) ) {
 				continue;
 			}
-			foreach ( (array) $users as $user ) {
-				$select = selected( $user->ID, $selected, false );
-				$output .= "\t<option value='$user->ID' $select>$user->user_login</option>\n";
-			}
+			$output .= wcv_vendor_drop_down_options( $users, $selected );
 		}
 		$output .= '</select>';
 
@@ -225,14 +222,16 @@ class WCV_Product_Meta {
 
 	}
 
-	/*
-	*		Rename the Authors column to Vendor on products page
-	*/
-	public function vendor_column_quickedit( $posts_columns ) {
+	/**
+	 * Remove the author column and replace it with a vendor column on the products page
+	 *
+	 * @version 2.1.0
+	 */
+	public function vendor_column_quickedit( $columns ) {
 
-		$posts_columns['author'] = wcv_get_vendor_name();
-
-		return $posts_columns;
+		unset( $columns[ 'author'] );
+		$columns['vendor'] = sprintf( __( '%s Store ', 'wc-vendors' ), wcv_get_vendor_name() );
+		return $columns;
 	}
 
 	/*
@@ -257,12 +256,10 @@ class WCV_Product_Meta {
 			if ( empty( $users ) ) {
 				continue;
 			}
-			foreach ( (array) $users as $user ) {
-				$select = selected( $user->ID, $selected, false );
-				$output .= "\t<option value='$user->ID' $select>$user->display_name</option>\n";
-			}
+			$output .= wcv_vendor_drop_down_options( $users, $selected );
 		}
 		$output .= '</select>';
+
 
 		?>
 		<br class="clear"/>
@@ -330,9 +327,12 @@ class WCV_Product_Meta {
 		}
 	}
 
-	/*
-	*	Display hidden column data for js
-	*/
+	/**
+	 * Display the vendor column and the hidden vendor column
+	 *
+	 * @since 1.0.1
+	 * @version 2.1.10
+	 */
 	public function display_vendor_column( $column, $post_id ) {
 
 		$vendor = get_post_field( 'post_author', $post_id );
@@ -344,12 +344,55 @@ class WCV_Product_Meta {
 					<div id="post_author"><?php echo $vendor; ?></div>
 				</div>
 				<?php
-
 				break;
+			case 'vendor':
+				$post = get_post( $post_id );
+				$args = array(
+					'post_type' => $post->post_type,
+					'author'    => get_the_author_meta( 'ID' ),
+				);
+				$shop_name = WCV_Vendors::get_vendor_sold_by( $vendor  );
+				$display_name = empty( $shop_name ) ? get_the_author() : $shop_name;
+				echo $this->get_edit_link( $args, $display_name );
+			break;
 
 			default:
 				break;
 		}
-
 	}
+
+	/**
+	 * Helper to create links to edit.php with params.
+	 *
+	 * @since 2.1.10
+	 *
+	 * @param string[] $args  Associative array of URL parameters for the link.
+	 * @param string   $label Link text.
+	 * @param string   $class Optional. Class attribute. Default empty string.
+	 * @return string The formatted link string.
+	 */
+	protected function get_edit_link( $args, $label, $class = '' ) {
+		$url = add_query_arg( $args, 'edit.php' );
+
+		$class_html = $aria_current = '';
+		if ( ! empty( $class ) ) {
+			$class_html = sprintf(
+				' class="%s"',
+				esc_attr( $class )
+			);
+
+			if ( 'current' === $class ) {
+				$aria_current = ' aria-current="page"';
+			}
+		}
+
+		return sprintf(
+			'<a href="%s"%s%s>%s</a>',
+			esc_url( $url ),
+			$class_html,
+			$aria_current,
+			$label
+		);
+	}
+
 }

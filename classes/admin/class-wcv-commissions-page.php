@@ -341,11 +341,9 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 		// Generate the drop down
 		$output = '<select style="width:250px;" name="vendor_id" id="vendor_id" class="wc-enhanced-select">';
 		$output .= '<option></option>';
-		foreach ( (array) $users as $user ) {
-			$select = selected( $user->ID, $vendor_id, false );
-			$output .= "<option value='$user->ID' $select>$user->display_name</option>";
-		}
+		$output .= wcv_vendor_drop_down_options( $users, $vendor_id );
 		$output .= '</select>';
+		$output .= '<script type="text/javascript">jQuery(function() { jQuery("#vendor_id").select2(); } );</script>';
 
 		echo $output;
 

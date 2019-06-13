@@ -91,3 +91,22 @@ function wcv_get_dashboard_nav_item_classes( $item_id ) {
 	return implode( ' ', array_map( 'sanitize_html_class', $classes ) );
 }
 
+
+/**
+ * Generate a drop down with the vendor name based on the Dsiplay name setting used in the admin
+ *
+ * @since 2.1.10
+ * @return string 
+ */
+if ( !function_exists( 'wcv_vendor_drop_down_options' ) ){
+	function wcv_vendor_drop_down_options( $users, $vendor_id ){
+		$output = '';
+		foreach ( (array) $users as $user ) {
+			$shop_name = WCV_Vendors::get_vendor_sold_by( $user->ID );
+			$display_name = empty( $shop_name ) ? $user->display_name : $shop_name;
+			$select = selected( $user->ID, $vendor_id, false );
+			$output .= "<option value='$user->ID' $select>$display_name</option>";
+		}
+		return apply_filters('wcv_vendor_drop_down_options', $output );
+	}
+}
