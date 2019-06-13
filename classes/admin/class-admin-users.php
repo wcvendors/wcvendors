@@ -25,6 +25,11 @@ class WCV_Admin_Users {
 
 		add_filter( 'add_menu_classes', array( $this, 'show_pending_number' ) );
 
+		// Add vendor shop name to user page
+		add_filter( 'manage_users_columns', 		array( $this,  'add_vendor_shop_column' ), 15, 1 );
+		add_filter( 'manage_users_custom_column', 	array( $this,  'add_vendor_shop_column_data' ), 10, 3 );
+
+
 		// Disabling non-vendor related items on the admin screens
 		if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			add_filter( 'woocommerce_csv_product_role'       , array( $this, 'csv_import_suite_compatibility' ) );
@@ -42,9 +47,8 @@ class WCV_Admin_Users {
 			add_filter( 'views_edit-product', array( $this, 'hide_nonvendor_links' ) );
 
 			// Filter user attachments so they only see their own attachements
-			add_action( 'ajax_query_attachments_args', array( $this, 'show_user_attachment_ajax' ) );
-			add_filter( 'parse_query'                , array( $this, 'show_user_attachment_page' ) );
-
+			add_action( 'ajax_query_attachments_args'  , array( $this, 'show_user_attachment_ajax' ) );
+			add_filter( 'parse_query'                  , array( $this, 'show_user_attachment_page' ) );
 			add_action( 'admin_menu'                   , array( $this, 'remove_menu_page' ), 99 );
 			add_action( 'add_meta_boxes'               , array( $this, 'remove_meta_boxes' ), 99 );
 			add_filter( 'product_type_selector'        , array( $this, 'filter_product_types' ), 99 );
@@ -60,7 +64,6 @@ class WCV_Admin_Users {
 
 			// Check allowed product types and hide controls
 			add_filter( 'product_type_options', array( $this, 'check_allowed_product_type_options' ) );
-
 		}
 
 	}
@@ -473,6 +476,55 @@ class WCV_Admin_Users {
 		}
 
 		return $type_options;
+	}
+
+	/**
+	 * Add vendor shop column to users screen
+	 *
+	 * @since 2.1.10
+	 * @version 2.1.10
+	 */
+	public function add_vendor_shop_column( $columns ){
+		if ( array_key_exists( 'role', $_GET) && 'vendor' === $_GET['role'] ){
+			$new_columns = array();
+			foreach ( $columns as $key => $label ) {
+				if ( $key === 'email' ){
+					$new_columns['vendor'] = sprintf( __( '%s Store ', 'wc-vendors' ), wcv_get_vendor_name() );
+				}
+				$new_columns[ $key ] = $label;
+			}
+			return $new_columns;
+		}
+
+		return $columns;
+	}
+
+	/**
+	 * Add vendor shop column data to users screen
+	 *
+	 * @since 2.1.10
+	 * @version 2.1.10
+	 */
+	public function add_vendor_shop_column_data( $custom_column, $column, $user_id ){
+		switch ( $column ) {
+			case 'vendor':
+				$shop_name 		= WCV_Vendors::get_vendor_sold_by( $user_id  );
+				$display_name 	= empty( $shop_name ) ? get_the_author() : $shop_name;
+				$store_url 		= WCVendors_Pro_Vendor_Controller::get_vendor_store_url( $user_id );
+				$target 		= apply_filters( 'wcv_users_view_store_url_target', 'target="_blank"' );
+				$class 			= apply_filters( 'wcv_users_view_store_url_class', 'class=""' );
+				return sprintf(
+					'<a href="%s"%s%s>%s</a>',
+					$store_url,
+					$class,
+					$target,
+					$display_name );
+				break;
+
+			default:
+				# code...
+				break;
+		}
 	}
 
 }
