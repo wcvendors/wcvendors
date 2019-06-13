@@ -750,6 +750,22 @@ msgstr ""
 msgid "Thanks :)"
 msgstr ""
 
+#: classes/admin/class-wcv-admin-setup.php:348
+msgid "%s Notifications"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:349
+msgid "Enable %s low stock notifications"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:358
+msgid "Enable %s out of stock notifications"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:367
+msgid "Enable %s backorder stock notifications"
+msgstr ""
+
 #: classes/admin/class-wcv-commissions-page.php:132, templates/dashboard/reports.php:37, templates/emails/notify-vendor-shipped.php:31, templates/emails/vendor-new-order.php:36, templates/emails/vendor-order-details.php:39, classes/front/orders/class-export-csv.php:17
 msgid "Quantity"
 msgstr ""
@@ -1083,11 +1099,11 @@ msgstr ""
 msgid "Quantity: %d"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:74, classes/admin/emails/class-emails.php:207, classes/admin/emails/class-wc-approve-vendor.php:72
+#: classes/admin/emails/class-emails.php:74, classes/admin/emails/class-emails.php:247, classes/admin/emails/class-wc-approve-vendor.php:72
 msgid "pending"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:76, classes/admin/emails/class-emails.php:211
+#: classes/admin/emails/class-emails.php:76, classes/admin/emails/class-emails.php:251
 msgid "approved"
 msgstr ""
 
@@ -1095,7 +1111,7 @@ msgstr ""
 msgid "denied"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:159
+#: classes/admin/emails/class-emails.php:199
 msgid "Resend %s new order notification"
 msgstr ""
 

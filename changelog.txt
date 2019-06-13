@@ -1,5 +1,9 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.11 - 13th June 2019
+
+* Fixed: Fatal error on user edit screen
+
 Version 2.1.10 - 13th June 2019
 
 * Added: Vendor Store column to user vendor role page
