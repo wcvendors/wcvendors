@@ -343,6 +343,7 @@ class WCV_Admin_Setup {
 
 		foreach ( $options as $option ) {
 		 	if ( $option['id'] == 'woocommerce_stock_email_recipient' ){
+		 		// Low stock
 		 		$new_options[] = array(
 					'title'         => sprintf( __( '%s Notifications', 'wc-vendors' ), wcv_get_vendor_name() ),
 					'desc'          => sprintf( __( 'Enable %s low stock notifications', 'wc-vendors' ),  wcv_get_vendor_name( true, false) ),
@@ -352,9 +353,19 @@ class WCV_Admin_Setup {
 					'checkboxgroup' => 'start',
 					'class'         => 'manage_stock_field',
 				);
+				// No Stock
 		 		$new_options[] = array(
 					'desc'          => sprintf( __( 'Enable %s out of stock notifications', 'wc-vendors' ),  wcv_get_vendor_name( true, false) ),
 					'id'            => 'wcvendors_notify_no_stock',
+					'default'       => 'yes',
+					'type'          => 'checkbox',
+					'checkboxgroup' => 'middle',
+					'class'         => 'manage_stock_field',
+				);
+		 		// Back order
+				$new_options[] = array(
+					'desc'          => sprintf( __( 'Enable %s backorder stock notifications', 'wc-vendors' ),  wcv_get_vendor_name( true, false) ),
+					'id'            => 'wcvendors_notify_backorder_stock',
 					'default'       => 'yes',
 					'type'          => 'checkbox',
 					'checkboxgroup' => 'end',
