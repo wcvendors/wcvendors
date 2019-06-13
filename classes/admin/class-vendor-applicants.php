@@ -31,7 +31,10 @@ class WCV_Vendor_Applicants {
 
 
 	/**
+	 * Process the approve and deny actions for the user screen
 	 *
+	 * @since 1.0.1
+	 * @version 2.1.10
 	 */
 	public function user_row_actions_commit() {
 
@@ -41,13 +44,20 @@ class WCV_Vendor_Applicants {
 
 			switch ( $_GET['action'] ) {
 				case 'approve_vendor':
-					$role = 'vendor';
+					// Remove the pending vendor role.
+					$wp_user_object->remove_role( 'pending_vendor' );
+					wcv_set_primary_vendor_role( $wp_user_object );
 					add_action( 'admin_notices', array( $this, 'approved' ) );
 					do_action( 'wcvendors_approve_vendor', $wp_user_object );
 					break;
 
 				case 'deny_vendor':
 					$role = apply_filters( 'wcvendors_denied_vendor_role', get_option( 'default_role', 'subscriber' ) );
+					$wp_user_object->remove_role( 'pending_vendor' );
+					// Only add the default role if the user uas no other roles
+					if ( empty( $wp_user_object->roles ) ){
+						$wp_user_object->add_role( $role );
+					}
 					add_action( 'admin_notices', array( $this, 'denied' ) );
 					do_action( 'wcvendors_deny_vendor', $wp_user_object );
 					break;
@@ -56,9 +66,6 @@ class WCV_Vendor_Applicants {
 					// code...
 					break;
 			}
-
-			$wp_user_object->remove_role( 'pending_vendor' );
-			$wp_user_object->add_role( $role );
 
 		}
 	}
@@ -99,5 +106,4 @@ class WCV_Vendor_Applicants {
 
 		return $values;
 	}
-
 }

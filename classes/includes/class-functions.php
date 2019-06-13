@@ -96,7 +96,7 @@ function wcv_get_dashboard_nav_item_classes( $item_id ) {
  * Generate a drop down with the vendor name based on the Dsiplay name setting used in the admin
  *
  * @since 2.1.10
- * @return string 
+ * @return string
  */
 if ( !function_exists( 'wcv_vendor_drop_down_options' ) ){
 	function wcv_vendor_drop_down_options( $users, $vendor_id ){
@@ -108,5 +108,32 @@ if ( !function_exists( 'wcv_vendor_drop_down_options' ) ){
 			$output .= "<option value='$user->ID' $select>$display_name</option>";
 		}
 		return apply_filters('wcv_vendor_drop_down_options', $output );
+	}
+}
+
+
+/**
+ * Set the primary role of the specified user to vendor while retaining all other roles after
+ *
+ * @param $user WP_User
+ *
+ * @since 2.1.10
+ * @version 2.1.10
+ */
+
+if ( ! function_exists( 'wcv_set_primary_vendor_role' ) ){
+	function wcv_set_primary_vendor_role( $user ){
+		// Get existing roles
+		$existing_roles = $user->roles;
+		// Remove all existing roles
+		foreach ( $existing_roles as $role ) {
+			$user->remove_role( $role );
+		}
+		// Add vendor first
+		$user->add_role( 'vendor' );
+		// Re-add all other roles.
+		foreach ( $existing_roles as $role ) {
+			$user->add_role( $role );
+		}
 	}
 }
