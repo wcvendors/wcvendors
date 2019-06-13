@@ -536,7 +536,7 @@ class WCV_Admin_Users {
 	 * @version 2.1.10
 	 */
 	public function set_vendor_default_role( $actions ){
-		$actions[ 'set_vendor_default_role' ] = sprintf( __( 'Set default role to %s ', 'wc-vendors' ), wcv_get_vendor_name() );
+		$actions[ 'set_vendor_default_role' ] = sprintf( __( 'Set primary role to %s ', 'wc-vendors' ), wcv_get_vendor_name() );
 		return $actions;
 	}
 
@@ -544,7 +544,7 @@ class WCV_Admin_Users {
 	 * Process the bulk action for setting vendor default role
 	 *
 	 * @since 2.1.10
-	 * @version 2.1.10 
+	 * @version 2.1.10
 	 */
 	public function handle_set_vendor_primary_role( $sendback, $action, $userids ){
 
