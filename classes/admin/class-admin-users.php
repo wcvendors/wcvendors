@@ -512,7 +512,7 @@ class WCV_Admin_Users {
 			case 'vendor':
 				$shop_name 		= WCV_Vendors::get_vendor_sold_by( $user_id  );
 				$display_name 	= empty( $shop_name ) ? get_the_author() : $shop_name;
-				$store_url 		= WCVendors_Pro_Vendor_Controller::get_vendor_store_url( $user_id );
+				$store_url 		= WCV_Vendors::get_vendor_shop_page( $user_id );
 				$target 		= apply_filters( 'wcv_users_view_store_url_target', 'target="_blank"' );
 				$class 			= apply_filters( 'wcv_users_view_store_url_class', 'class=""' );
 				return sprintf(
