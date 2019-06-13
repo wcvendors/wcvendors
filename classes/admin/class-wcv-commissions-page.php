@@ -236,8 +236,8 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			);
 			submit_button( __( 'Clear', 'wc-vendors' ), 'secondary', 'reset', false, array( 'type' => 'reset' ) );
 
-			echo '<a class="button export_csv" style="width: 110px; float: left;" href="' . wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_commissions' . $args_url ), 'export_commissions', 'nonce' ) . '">' . __( 'Export to CSV', 'wc-vendors' ) . '</a>';
-			echo '<a class="button" style="width: 150px; float: left;" href="' . wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_commission_totals' . $args_url ), 'export_commission_totals', 'nonce' ) . '">' . __( 'Export Totals to CSV', 'wc-vendors' ) . '</a>';
+			echo '<a class="button export_commissions" style="width: 110px; float: left;" href="' . wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_commissions' . $args_url ), 'export_commissions', 'nonce' ) . '">' . __( 'Export to CSV', 'wc-vendors' ) . '</a>';
+			echo '<a class="button export_commission_totals" style="width: 150px; float: left;" href="' . wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_commission_totals' . $args_url ), 'export_commission_totals', 'nonce' ) . '">' . __( 'Export Totals to CSV', 'wc-vendors' ) . '</a>';
 			echo '<a class="button mark_all_commissions_paid" id="mark_all_paid" style="width: 100px; float: left;" href="' . wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=mark_all_paid' . $args_url ), 'mark_all_paid', 'nonce' ) . '">' . __( 'Mark all paid', 'wc-vendors' ) . '</a>';
 			echo '</div>';
 
