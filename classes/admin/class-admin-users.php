@@ -28,6 +28,8 @@ class WCV_Admin_Users {
 		// Add vendor shop name to user page
 		add_filter( 'manage_users_columns', 		array( $this,  'add_vendor_shop_column' ), 15, 1 );
 		add_filter( 'manage_users_custom_column', 	array( $this,  'add_vendor_shop_column_data' ), 10, 3 );
+		add_filter( 'bulk_actions-users',			array( $this,  'set_vendor_default_role' ) );
+		add_filter( 'handle_bulk_actions-users', 	array( $this,  'handle_set_vendor_primary_role' ), 10, 3 );
 
 
 		// Disabling non-vendor related items on the admin screens
@@ -525,6 +527,37 @@ class WCV_Admin_Users {
 				# code...
 				break;
 		}
+	}
+
+	/**
+	 * Add new bulk action to users screen to set default role to vendor
+	 *
+	 * @since 2.1.10
+	 * @version 2.1.10
+	 */
+	public function set_vendor_default_role( $actions ){
+		$actions[ 'set_vendor_default_role' ] = sprintf( __( 'Set default role to %s ', 'wc-vendors' ), wcv_get_vendor_name() );
+		return $actions;
+	}
+
+	/**
+	 * Process the bulk action for setting vendor default role
+	 *
+	 * @since 2.1.10
+	 * @version 2.1.10 
+	 */
+	public function handle_set_vendor_primary_role( $sendback, $action, $userids ){
+
+		if ( 'set_vendor_default_role' == $action ){
+			foreach ( $userids as $user_id ) {
+				if ( WCV_Vendors::is_vendor( $user_id ) ){
+					$user = new WP_User( $user_id );
+					wcv_set_primary_vendor_role( $user );
+				}
+			}
+		}
+
+		return $sendback;
 	}
 
 }
