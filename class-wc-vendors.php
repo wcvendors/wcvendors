@@ -296,14 +296,27 @@ if ( wcv_is_woocommerce_activated() ) {
 		} // include_init()
 
 		/**
-		 *    Load plugin assets
+		 *  Load plugin assets
+		 *
+		 * @version 2.1.10
 		 */
 		public function include_assets() {
 
 			$screen = get_current_screen();
 
-			if ( in_array( $screen->id, array( 'edit-product' ) ) ) {
-				wp_enqueue_script( 'wcv_quick-edit', wcv_assets_url . 'js/wcv-admin-quick-edit.js', array( 'jquery' ) );
+			switch ( $screen->id ) {
+				case 'edit-product':
+					wp_enqueue_script( 'wcv_quick-edit', wcv_assets_url . 'js/wcv-admin-quick-edit.js', array( 'jquery' ), WCV_VERSION );
+					break;
+				case 'wc-vendors_page_wcv-commissions':
+					wp_register_script( 'wcv_admin_commissions', wcv_assets_url . 'js/admin/wcv-admin-commissions.js', array( 'jquery' ), WCV_VERSION , true );
+					$param_args = apply_filters( 'wcv_admin_commissions_params', array( 'confirm_prompt' => __( 'Are you sure you want mark all commissions paid?', 'wc-vendors' ) ) );
+					wp_localize_script( 'wcv_admin_commissions', 'wcv_admin_commissions_params', $param_args );
+					wp_enqueue_script( 'wcv_admin_commissions' );
+					break;
+				default:
+					# code...
+					break;
 			}
 
 		}

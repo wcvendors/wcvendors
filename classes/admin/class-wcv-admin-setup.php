@@ -25,8 +25,11 @@ class WCV_Admin_Setup {
 		add_filter( 'admin_footer_text'                    , array( $this, 'admin_footer_text' ), 1   );
 		add_action( 'admin_init'                           , array( $this, 'export_commissions' )     );
 		add_action( 'admin_init'                           , array( $this, 'export_sum_commissions' ) );
+		add_action( 'admin_init'                           , array( $this, 'mark_all_paid' ) );
 		add_filter( 'woocommerce_screen_ids'               , array( $this, 'wcv_screen_ids' )         );
 		add_action( 'wcvendors_update_options_capabilities', array( $this, 'update_vendor_role' )     );
+
+
 	}
 
 	public function add_vendor_details( $order ) {
@@ -219,6 +222,33 @@ class WCV_Admin_Setup {
 		}
 
 	}
+
+	/**
+	 * Mark all commissions that are due as paid this is triggered by the Mark All Paid button on the commissions screen
+	 *
+	 * @since 2.1.10
+	 * @version 2.1.10
+	 */
+	public function mark_all_paid() {
+
+		// set all
+		if ( isset( $_GET['action'], $_GET['nonce'] ) && wp_verify_nonce( wp_unslash( $_GET['nonce'] ), 'mark_all_paid' ) && 'mark_all_paid' === wp_unslash( $_GET['action'] ) ) {
+
+			global $wpdb;
+			$table_name = $wpdb->prefix . 'pv_commission';
+			$query  = "UPDATE `{$table_name}` SET `status` = 'paid' WHERE `status` = 'due'";
+			$result = $wpdb->query( $query );
+			if ( $result ) add_action( 'admin_notices', array( $this, 'mark_all_paid__success' ) );
+
+		}
+
+	}
+
+
+	public function mark_all_paid__success() {
+    	echo '<div class="notice notice-success is-dismissible"><p>' . __( 'All commissions marked as paid.', 'wc-vendors' ) .'</p></div>';
+	}
+
 
 
 	/**
