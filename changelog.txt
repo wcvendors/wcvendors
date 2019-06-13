@@ -5,6 +5,7 @@ Version 2.1.10 - 13th June 2019
 * Added: Vendor Store column to user vendor role page
 * Added: Use Vendor display name for vendor columns in admin #547
 * Added: Bulk action to users screen to make vendor the primary role
+* Added: Option to disable inventory emails for vendors #566
 * Updated: Tested to latest version of WordPress and WooCommerce
 * Updated: Translation strings
 * Fixed: Multi role issue - customer role still the primary role after vendor approval #563

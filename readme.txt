@@ -4,7 +4,7 @@ Tags: woocommerce marketplace, marketplace, woocommerce, multi vendor marketplac
 Donate link: https://www.wcvendors.com/
 Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
-Requires at least: 4.4.0
+Requires at least: 5.0.0
 Requires PHP: 5.6
 Tested up to: 5.2.1
 WC requires at least: 3.3.0
@@ -227,6 +227,20 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.10 - 13th June 2019 =
+
+* Added: Vendor Store column to user vendor role page
+* Added: Use Vendor display name for vendor columns in admin #547
+* Added: Bulk action to users screen to make vendor the primary role
+* Added: Option to disable inventory emails for vendors #566
+* Updated: Tested to latest version of WordPress and WooCommerce
+* Updated: Translation strings
+* Fixed: Multi role issue - customer role still the primary role after vendor approval #563
+* Fixed: Bank account number not saving #568
+* Fixed: Npm tar vulnerability (#562)
+* Fixed: Email Issues #559 (#561)
+* Fixed: Use role slug rather than role name thanks dvrcthewrld
 
 = Version 2.1.9 - 9th may 2019 =
 
