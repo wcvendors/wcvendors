@@ -129,7 +129,7 @@ class WCV_Vendor_Admin_Dashboard {
 				update_user_meta( $user_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
 			}
 			if ( isset( $_POST['wcv_bank_account_number'] ) ) {
-				update_user_meta( $user_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );
+				update_user_meta( $user_id, 'wcv_bank_account_number', $_POST['wcv_bank_account_number'] );
 			}
 			if ( isset( $_POST['wcv_bank_name'] ) ) {
 				update_user_meta( $user_id, 'wcv_bank_name', $_POST['wcv_bank_name'] );
