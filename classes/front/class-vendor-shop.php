@@ -154,6 +154,8 @@ class WCV_Vendor_Shop {
 	 */
 	public static function shop_description() {
 
+		if ( ! wc_string_to_bool( get_option( 'wcvendors_display_shop_headers', 'no' ) ) ) return; 
+
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
 
