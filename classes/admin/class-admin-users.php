@@ -487,11 +487,13 @@ class WCV_Admin_Users {
 	 * @version 2.1.10
 	 */
 	public function add_vendor_shop_column( $columns ){
+
+
 		if ( array_key_exists( 'role', $_GET) && 'vendor' === $_GET['role'] ){
 			$new_columns = array();
 			foreach ( $columns as $key => $label ) {
 				if ( $key === 'email' ){
-					$new_columns['vendor'] = sprintf( __( '%s Store ', 'wc-vendors' ), wcv_get_vendor_name() );
+					$new_columns['vendor'] = sprintf( __( '%s Store', 'wc-vendors' ), wcv_get_vendor_name() );
 				}
 				$new_columns[ $key ] = $label;
 			}
@@ -508,25 +510,33 @@ class WCV_Admin_Users {
 	 * @version 2.1.10
 	 */
 	public function add_vendor_shop_column_data( $custom_column, $column, $user_id ){
-		switch ( $column ) {
-			case 'vendor':
-				$shop_name 		= WCV_Vendors::get_vendor_sold_by( $user_id  );
-				$display_name 	= empty( $shop_name ) ? get_the_author() : $shop_name;
-				$store_url 		= WCV_Vendors::get_vendor_shop_page( $user_id );
-				$target 		= apply_filters( 'wcv_users_view_store_url_target', 'target="_blank"' );
-				$class 			= apply_filters( 'wcv_users_view_store_url_class', 'class=""' );
-				return sprintf(
-					'<a href="%s"%s%s>%s</a>',
-					$store_url,
-					$class,
-					$target,
-					$display_name );
-				break;
 
-			default:
-				# code...
-				break;
+		if ( array_key_exists( 'role', $_GET) && 'vendor' === $_GET['role'] ){
+
+			switch ( $column ) {
+				case 'vendor':
+					$shop_name 		= WCV_Vendors::get_vendor_sold_by( $user_id  );
+					$display_name 	= empty( $shop_name ) ? get_the_author() : $shop_name;
+					$store_url 		= WCV_Vendors::get_vendor_shop_page( $user_id );
+					$target 		= apply_filters( 'wcv_users_view_store_url_target', 'target="_blank"' );
+					$class 			= apply_filters( 'wcv_users_view_store_url_class', 'class=""' );
+					return sprintf(
+						'<a href="%s"%s%s>%s</a>',
+						$store_url,
+						$class,
+						$target,
+						$display_name );
+					break;
+
+				default:
+					# code...
+					break;
+			}
 		}
+
+		return $custom_column; 
+
+
 	}
 
 	/**
