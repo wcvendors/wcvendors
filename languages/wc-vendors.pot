@@ -421,11 +421,11 @@ msgstr ""
 msgid "You are not allowed to submit products. <a href=\"%s\">Go Back</a>"
 msgstr ""
 
-#: classes/admin/class-admin-users.php:494, classes/admin/class-product-meta.php:233
-msgid "%s Store "
+#: classes/admin/class-admin-users.php:496
+msgid "%s Store"
 msgstr ""
 
-#: classes/admin/class-admin-users.php:539
+#: classes/admin/class-admin-users.php:550
 msgid "Set primary role to %s "
 msgstr ""
 
@@ -439,6 +439,10 @@ msgstr ""
 
 #: classes/admin/class-product-meta.php:214, classes/admin/views/html-vendor-meta.php:110
 msgid "Leave blank for default"
+msgstr ""
+
+#: classes/admin/class-product-meta.php:233
+msgid "%s Store "
 msgstr ""
 
 #: classes/admin/class-setup-wizard.php:79

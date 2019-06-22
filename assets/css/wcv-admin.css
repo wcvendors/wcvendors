@@ -162,3 +162,5 @@
 .wcv_addons_wrap .products li a p { padding: 20px !important; margin: 0 !important; border-top: 1px solid #f1f1f1; }
 
 .wcv_addons_wrap .products li a:hover, .wcv_addons_wrap .products li a:focus { background-color: #fff; }
+
+.column-vendor { width: 10%; }

@@ -507,7 +507,7 @@ class WCV_Admin_Users {
 	 * Add vendor shop column data to users screen
 	 *
 	 * @since 2.1.10
-	 * @version 2.1.10
+	 * @version 2.1.12
 	 */
 	public function add_vendor_shop_column_data( $custom_column, $column, $user_id ){
 
@@ -527,16 +527,13 @@ class WCV_Admin_Users {
 						$target,
 						$display_name );
 					break;
-
 				default:
-					# code...
+					return $custom_column;
 					break;
 			}
 		}
 
-		return $custom_column; 
-
-
+		return $custom_column;
 	}
 
 	/**
