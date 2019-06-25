@@ -114,6 +114,7 @@ class WCVendors_Admin_Media {
 				'name'             => 'vendor',
 				'id'               => 'vendor',
 				'class'            => 'hidden assign-vendor',
+				'role'             => 'vendor',
 			]
 		);
 	}
