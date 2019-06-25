@@ -2,6 +2,7 @@
 *.swp
 deploy-hc.sh
 deploy.sh
+.idea
 
 # Task runner files
 npm-debug.log
