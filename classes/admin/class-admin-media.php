@@ -30,6 +30,11 @@ class WCVendors_Admin_Media {
 	}
 
 	public function bulk_action_handler( $redirect_to, $doaction, $attachment_ids ) {
+
+		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'bulk-media' ) ) {
+			return $redirect_to;
+		}
+
 		if ( $doaction != 'assign_vendor' ) {
 			return $redirect_to;
 		}
