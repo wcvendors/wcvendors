@@ -28,15 +28,15 @@ msgstr ""
 msgid "<b>WC Vendors Marketplace is inactive</b>. WC Vendors Marketplace requires a minimum of WooCommerce 3.0.0 to operate."
 msgstr ""
 
-#: class-wc-vendors.php:313
+#: class-wc-vendors.php:314
 msgid "Are you sure you want mark all commissions paid?"
 msgstr ""
 
-#: class-wc-vendors.php:417
+#: class-wc-vendors.php:418
 msgid "WC Vendors 2.0 is a major update. This is not compatible with any of our existing extensions. You should test this update on a staging server before updating. Backup your site and update your theme and extensions, and <a href=\"%s\">review update details here</a> before upgrading."
 msgstr ""
 
-#: class-wc-vendors.php:432
+#: class-wc-vendors.php:433
 msgid "WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current version %s will be deactivated. Please upgrade to the latest version."
 msgstr ""
 
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:172, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:267, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:141, classes/admin/class-wcv-admin-setup.php:330, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:213
+#: classes/class-install.php:172, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:267, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:141, classes/admin/class-wcv-admin-setup.php:330, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:229
 msgid "%s"
 msgstr ""
 
@@ -277,6 +277,15 @@ msgctxt "Order date parsed by strftime"
 msgid "%1$b %2$d, %Y @ %I:%M %p"
 msgstr ""
 
+#. translators: %s is vendor string
+#: classes/admin/class-admin-media.php:28
+msgid "Assign %s"
+msgstr ""
+
+#: classes/admin/class-admin-media.php:113, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:196, classes/admin/emails/class-wcv-vendor-notify-order.php:223
+msgid "None"
+msgstr ""
+
 #: classes/admin/class-admin-menus.php:46, classes/admin/class-admin-menus.php:47, classes/admin/class-admin-reports.php:40, classes/admin/class-wcv-admin-setup.php:295, classes/admin/views/html-vendor-meta.php:1
 msgid "WC Vendors"
 msgstr ""
@@ -425,7 +434,7 @@ msgstr ""
 msgid "%s Store"
 msgstr ""
 
-#: classes/admin/class-admin-users.php:550
+#: classes/admin/class-admin-users.php:546
 msgid "Set primary role to %s "
 msgstr ""
 
@@ -453,7 +462,7 @@ msgstr ""
 msgid "Capabilities"
 msgstr ""
 
-#: classes/admin/class-setup-wizard.php:89, classes/admin/settings/class-wcv-settings-display.php:180, classes/admin/views/setup/pages.php:19
+#: classes/admin/class-setup-wizard.php:89, classes/admin/settings/class-wcv-settings-display.php:196, classes/admin/views/setup/pages.php:19
 msgid "Pages"
 msgstr ""
 
@@ -466,11 +475,11 @@ msgstr ""
 msgid "Don't forget to check our <a href=\"%1$s\" target=\"_blank\">documentation</a> to learn more about setting up WC Vendors and if you need help, be sure to visit our <a href=\"%2$s\" target=\"_blank\">free support forums</a>."
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:25, classes/admin/class-vendor-admin-dashboard.php:26, classes/admin/settings/class-wcv-settings-display.php:195
+#: classes/admin/class-vendor-admin-dashboard.php:25, classes/admin/class-vendor-admin-dashboard.php:26, classes/admin/settings/class-wcv-settings-display.php:211
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:35, classes/admin/class-vendor-admin-dashboard.php:36, classes/admin/class-vendor-admin-dashboard.php:235, templates/dashboard/orders.php:40, classes/admin/settings/class-wcv-settings-capabilities.php:47, classes/admin/settings/class-wcv-settings-capabilities.php:294, classes/admin/settings/class-wcv-settings-display.php:204, classes/admin/views/setup/capabilities.php:70
+#: classes/admin/class-vendor-admin-dashboard.php:35, classes/admin/class-vendor-admin-dashboard.php:36, classes/admin/class-vendor-admin-dashboard.php:235, templates/dashboard/orders.php:40, classes/admin/settings/class-wcv-settings-capabilities.php:47, classes/admin/settings/class-wcv-settings-capabilities.php:294, classes/admin/settings/class-wcv-settings-display.php:220, classes/admin/views/setup/capabilities.php:70
 msgid "Orders"
 msgstr ""
 
@@ -910,7 +919,7 @@ msgstr ""
 msgid "Your account is not setup as a %s."
 msgstr ""
 
-#: templates/dashboard/denied.php:35, classes/front/signup/views/html-vendor-signup.php:24
+#: templates/dashboard/denied.php:35
 msgid "Apply to become a %s? "
 msgstr ""
 
@@ -926,7 +935,7 @@ msgstr ""
 msgid "View Your Store"
 msgstr ""
 
-#: templates/dashboard/links.php:23, classes/admin/settings/class-wcv-settings-display.php:238, classes/front/dashboard/class-vendor-dashboard.php:351
+#: templates/dashboard/links.php:23, classes/admin/settings/class-wcv-settings-display.php:254, classes/front/dashboard/class-vendor-dashboard.php:351
 msgid "Store Settings"
 msgstr ""
 
@@ -1426,10 +1435,6 @@ msgstr ""
 msgid "Both"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:196, classes/admin/emails/class-wcv-vendor-notify-order.php:223
-msgid "None"
-msgstr ""
-
 #: classes/admin/emails/class-wcv-vendor-notify-denied.php:28
 msgid "%s notify denied"
 msgstr ""
@@ -1830,7 +1835,7 @@ msgid "Enable sold by labels"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:134
-msgid "Sold by Separator"
+msgid "Sold by separator"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:135
@@ -1854,114 +1859,134 @@ msgid "Sold By"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:150
-msgid "%s Store Info"
+msgid "Become a %s"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:151
-msgid "Enable %s store info tab on the single product page"
+msgid "Show the \"Become a %s\" link on WooCommerce my-account page"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:158
-msgid "%s store Info label"
+msgid "Become a %s label"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:159
-msgid "The %s store info label"
+msgid "The become a %s label"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:162
+msgid "Become a"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:166
+msgid "%s Store Info"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:167
+msgid "Enable %s store info tab on the single product page"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:174
+msgid "%s store Info label"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:175
+msgid "The %s store info label"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:178
 msgid "Store Info"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:182
+#: classes/admin/settings/class-wcv-settings-display.php:198
 msgid "These pages used on the front end by %s."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:186
+#: classes/admin/settings/class-wcv-settings-display.php:202
 msgid "Dashboard"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:192
+#: classes/admin/settings/class-wcv-settings-display.php:208
 msgid "<br />This sets the page used to display the front end %s dashboard. This page should contain the following shortcode. <code>[wcv_vendor_dashboard]</code>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:201
+#: classes/admin/settings/class-wcv-settings-display.php:217
 msgid "<br />This sets the page used to display the %s shop settings page. This page should contain the following shortcode. <code>[wcv_shop_settings]</code>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:210
+#: classes/admin/settings/class-wcv-settings-display.php:226
 msgid "<br />This sets the page used to display the %s orders page. This page should contain the following shortcode. <code>[wcv_orders]</code>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:219
+#: classes/admin/settings/class-wcv-settings-display.php:235
 msgid "<br />This sets the page used to display a paginated list of all %1$s stores. Your %1$s stores will be available at <code>%2$s/page-slug/store-name/</code><br />This page should contain the following shortcode. <code>[wcv_vendorslist]</code>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:222
+#: classes/admin/settings/class-wcv-settings-display.php:238
 msgid "Terms and Conditions"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:228
+#: classes/admin/settings/class-wcv-settings-display.php:244
 msgid "<br />This sets the page used to display the terms and conditions when a %s signs up."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:240
+#: classes/admin/settings/class-wcv-settings-display.php:256
 msgid "These are the settings for the individual %s stores."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:245
+#: classes/admin/settings/class-wcv-settings-display.php:261
 msgid "%s Store URL"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:246
+#: classes/admin/settings/class-wcv-settings-display.php:262
 msgid "If you enter \"vendors\" your %1$s store will be %1$s/vendors/store-name/"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:253
+#: classes/admin/settings/class-wcv-settings-display.php:269
 msgid "Shop Header"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:254
+#: classes/admin/settings/class-wcv-settings-display.php:270
 msgid "Enable %s shop headers"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:255
+#: classes/admin/settings/class-wcv-settings-display.php:271
 msgid "This enables the %s shop header template and disables the shop description text."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:262
+#: classes/admin/settings/class-wcv-settings-display.php:278
 msgid "Shop HTML"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:263
+#: classes/admin/settings/class-wcv-settings-display.php:279
 msgid "Allow HTML in %s shop description"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:264
+#: classes/admin/settings/class-wcv-settings-display.php:280
 msgid "This will enable the WYSIWYG editor and for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:271
+#: classes/admin/settings/class-wcv-settings-display.php:287
 msgid "Display Name"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:273
+#: classes/admin/settings/class-wcv-settings-display.php:289
 msgid "Select what will be used to display the %s name throughout the marketplace."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:278
+#: classes/admin/settings/class-wcv-settings-display.php:294
 msgid "Display name"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:279, classes/admin/views/html-vendor-meta.php:27
+#: classes/admin/settings/class-wcv-settings-display.php:295, classes/admin/views/html-vendor-meta.php:27
 msgid "Shop name"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:280
+#: classes/admin/settings/class-wcv-settings-display.php:296
 msgid "%s Username"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:281
+#: classes/admin/settings/class-wcv-settings-display.php:297
 msgid "%s Email"
 msgstr ""
 
@@ -1997,27 +2022,19 @@ msgstr ""
 msgid "Manually approve all %s applications"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-general.php:94, classes/front/account/class-wc-account-links.php:54
-msgid "Become a %s"
-msgstr ""
-
 #: classes/admin/settings/class-wcv-settings-general.php:95
-msgid "Show the \"Become a %s\" link on WooCommerce my-account page"
-msgstr ""
-
-#: classes/admin/settings/class-wcv-settings-general.php:101
 msgid "%s Taxes"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-general.php:102
+#: classes/admin/settings/class-wcv-settings-general.php:96
 msgid "Give any taxes to the %s"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-general.php:108
+#: classes/admin/settings/class-wcv-settings-general.php:102
 msgid "%s Shipping"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-general.php:109
+#: classes/admin/settings/class-wcv-settings-general.php:103
 msgid "Give any shipping to the %s"
 msgstr ""
 
@@ -2174,50 +2191,66 @@ msgid "Premium ticket based support for all pro users. Annual and lifetime suppo
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:62
-msgid "WC Vendors Stripe Commissions &amp; Gateway"
+msgid "WC Vendors Membership"
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:63
-msgid "Pay your vendors their commissions instantly when the customer purchases. No need to manually pay your vendors."
+msgid "Earn guaranteed income from your vendors with this easy to use extension. Want to charge your vendors to list products on your marketplace? "
 msgstr ""
 
-#: classes/admin/views/html-admin-page-extensions.php:64, classes/admin/views/html-admin-page-extensions.php:72, classes/admin/views/html-admin-page-extensions.php:79
-msgid "From $69"
+#: classes/admin/views/html-admin-page-extensions.php:64
+msgid "From $89"
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:69
-msgid "WooCommerce Bookings Integration<"
+msgid "WC Vendors Stripe Commissions &amp; Gateway"
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:70
-msgid "From $69.00"
+msgid "Pay your vendors their commissions instantly when the customer purchases. No need to manually pay your vendors."
 msgstr ""
 
-#: classes/admin/views/html-admin-page-extensions.php:71
-msgid "Allow vendors to create bookings. Integrate WooCommerce bookings into the WC Vendors Pro Dashboard."
+#: classes/admin/views/html-admin-page-extensions.php:71, classes/admin/views/html-admin-page-extensions.php:79
+msgid "From $69"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:76
+msgid "WooCommerce Bookings Integration<"
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:77
-msgid "WooCommerce Simple Auctions"
+msgid "From $69.00"
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:78
-msgid "Integreate WooCommerce Simple Auctions into the WC Vendors Pro dashboard."
+msgid "Allow vendors to create bookings. Integrate WooCommerce bookings into the WC Vendors Pro Dashboard."
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:84
-msgid "3rd Party Extensions"
+msgid "WooCommerce Simple Auctions"
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:85
-msgid "We have a list of 3rd party developer extensions that inetegrate with WC Vendors and WC Vendors Pro on our website."
+msgid "Integreate WooCommerce Simple Auctions into the WC Vendors Pro dashboard."
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:86
-msgid "View extensions"
+msgid "From $29"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:91
+msgid "Compatible 3rd party plugins"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:92
+msgid "We love it when developers build extensions that work with us. We would like to showcase what third party plugins you can use to enhance your marketplace beyond our plugins. Below are a selection of compatible plugins we have tested and can confirm work with WC Vendors Marketplace and or WC Vendors Pro. <br /><br />They cover a range of areas including vendor payment gateways, shipping, service, support and chat, social media and currency/credit systems."
 msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:93
+msgid "View extensions"
+msgstr ""
+
+#: classes/admin/views/html-admin-page-extensions.php:100
 msgid "Our list of extensions for WC Vendors can be found on our website. <a href=\"%s\">Click here to view our extensions list.</a>"
 msgstr ""
 
@@ -2289,7 +2322,15 @@ msgstr ""
 msgid "Save Shop Settings"
 msgstr ""
 
-#: classes/front/account/class-wc-account-links.php:99
+#: classes/front/account/class-wc-account-links.php:52, classes/front/signup/class-vendor-signup.php:45
+msgid "Become a "
+msgstr ""
+
+#: classes/front/account/class-wc-account-links.php:56
+msgid "%s %s"
+msgstr ""
+
+#: classes/front/account/class-wc-account-links.php:101
 msgid "You are already an approved vendor, no need to apply"
 msgstr ""
 
@@ -2357,23 +2398,23 @@ msgstr ""
 msgid "Success. The customer has been notified of your comment."
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:80
+#: classes/front/signup/class-vendor-signup.php:82
 msgid "ERROR"
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:80, classes/front/signup/views/html-vendor-signup.php:57
+#: classes/front/signup/class-vendor-signup.php:82, classes/front/signup/views/html-vendor-signup.php:57
 msgid "Please agree to the terms and conditions"
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:98
+#: classes/front/signup/class-vendor-signup.php:100
 msgid "Application denied. You are an administrator."
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:100
+#: classes/front/signup/class-vendor-signup.php:102
 msgid "Your application has been submitted."
 msgstr ""
 
-#: classes/front/signup/class-vendor-signup.php:147, classes/front/signup/class-vendor-signup.php:189, classes/front/signup/class-vendor-signup.php:201
+#: classes/front/signup/class-vendor-signup.php:149, classes/front/signup/class-vendor-signup.php:191, classes/front/signup/class-vendor-signup.php:203
 msgid "You must accept the terms and conditions to become a vendor."
 msgstr ""
 
@@ -2844,6 +2885,10 @@ msgstr ""
 
 #: classes/admin/views/setup/ready.php:96
 msgid "Need Help?"
+msgstr ""
+
+#: classes/front/signup/views/html-vendor-signup.php:24
+msgid "Apply to %s %s? "
 msgstr ""
 
 #: classes/front/signup/views/html-vendor-signup.php:48

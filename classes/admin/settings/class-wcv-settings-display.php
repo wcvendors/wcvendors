@@ -147,6 +147,22 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
+							'title'   => sprintf( __( 'Become a %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'desc'    => sprintf( __( 'Show the "Become a %s" link on WooCommerce my-account page', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'id'      => 'wcvendors_become_a_vendor_my_account_link_visibility',
+							'default' => 'yes',
+							'type'    => 'checkbox',
+						),
+
+						array(
+							'title'   => sprintf( __( 'Become a %s label', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'desc_tip' => sprintf( __( 'The become a %s label', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'id'       => 'wcvendors_label_become_a_vendor',
+							'type'     => 'text',
+							'default'  => __( 'Become a', 'wc-vendors' ),
+						),
+
+						array(
 							'title'   => sprintf( __( '%s Store Info', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'desc'    => sprintf( __( 'Enable %s store info tab on the single product page', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'      => 'wcvendors_label_store_info_enable',
