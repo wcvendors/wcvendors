@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="wcv-wizard-next-step-action">
 			<p class="wcv-setup-actions step">
 				<a class="button button-large"
-				   href="https://www.wcvendors.com/extensions/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete"
+				   href="https://www.wcvendors.com/plugins/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete"
 				   target="_blank">
 					<?php _e( 'View Extensions', 'wc-vendors' ); ?>
 				</a>

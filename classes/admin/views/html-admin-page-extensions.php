@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<p><?php _e( 'Enhanced your marketplace with pro features and capabilities. Move all your vendors tasks to the frontend. They no longer need or see the WordPress admin. Shipping system included.', 'wc-vendors' ); ?></p>
 
-			<h4>Features</h4>
+			<h3>Features</h3>
 
 			<ul class="feature-list">
 				<li><?php _e( 'Vendors have a main dashboard showing sales reports and recent orders and products.', 'wc-vendors' ); ?></li>
@@ -52,11 +52,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 			<a class="product-addons-button product-addons-button-solid"
-			   href="https://www.wcvendors.com/product/wc-vendors-pro/">From $199</a>
+			   href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">From $199</a>
 		</div>
 	</div>
 
 	<ul class="products">
+		<li class="product">
+			<a href="https://www.wcvendors.com/product/wc-vendors-membership/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
+				<h2><?php _e( 'WC Vendors Membership', 'wc-vendors' ); ?></h2>
+				<p><?php _e( 'Earn guaranteed income from your vendors with this easy to use extension. Want to charge your vendors to list products on your marketplace? ', 'wc-vendors' ); ?></p>
+				<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $89', 'wc-vendors' ); ?></span>
+			</a>
+		</li>
 		<li class="product">
 			<a href="https://www.wcvendors.com/product/stripe-commissions-gateway/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
 				<h2><?php _e( 'WC Vendors Stripe Commissions &amp; Gateway', 'wc-vendors' ); ?></h2>
@@ -76,21 +83,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<a href="https://www.wcvendors.com/product/woocommerce-simple-auctions-integration/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
 				<h2><?php _e( 'WooCommerce Simple Auctions', 'wc-vendors' ); ?></h2>
 				<p><?php _e( 'Integreate WooCommerce Simple Auctions into the WC Vendors Pro dashboard.', 'wc-vendors' ); ?> </p>
-				<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $69', 'wc-vendors' ); ?></span>
+				<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $29', 'wc-vendors' ); ?></span>
 			</a>
 		</li>
 		<li class="product">
-			<a href="https://www.wcvendors.com/home/3rd-party-extensions/y/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
-				<h2><?php _e( '3rd Party Extensions', 'wc-vendors' ); ?></h2>
-				<p><?php _e( 'We have a list of 3rd party developer extensions that inetegrate with WC Vendors and WC Vendors Pro on our website.', 'wc-vendors' ); ?></p>
-				<span class="product-addons-button product-addons-button-solid"><?php _e( 'View extensions', 'wc-vendors' ); ?></span>
+			<a href="https://www.wcvendors.com/home/compatible-plugins/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
+				<h2><?php _e( 'Compatible 3rd party plugins', 'wc-vendors' ); ?></h2>
+				<p><?php _e( 'We love it when developers build extensions that work with us. We would like to showcase what third party plugins you can use to enhance your marketplace beyond our plugins. Below are a selection of compatible plugins we have tested and can confirm work with WC Vendors Marketplace and or WC Vendors Pro. <br /><br />They cover a range of areas including vendor payment gateways, shipping, service, support and chat, social media and currency/credit systems.', 'wc-vendors' ); ?></p>
+				<span class="product-addons-button product-addons-button-solid"><?php _e( 'View extensions', 'wc-vendors' ); ?></span><br />
 			</a>
 		</li>
 
 	</ul>
 
 
-	<p><?php printf( __( 'Our list of extensions for WC Vendors can be found on our website. <a href="%s">Click here to view our extensions list.</a>', 'wc-vendors' ), 'https://www.wcvendors.com/extensions/' ); ?></p>
+	<p><?php printf( __( 'Our list of extensions for WC Vendors can be found on our website. <a href="%s">Click here to view our extensions list.</a>', 'wc-vendors' ), 'https://www.wcvendors.com/home/compatible-plugins/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions' ); ?></p>
 
 
 </div>
