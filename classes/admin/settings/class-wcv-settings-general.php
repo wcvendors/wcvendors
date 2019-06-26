@@ -90,13 +90,7 @@ if ( ! class_exists( 'WCVendors_Settings_General', false ) ) :
 							'default' => 'no',
 							'type'    => 'checkbox',
 						),
-						array(
-							'title'   => sprintf( __( 'Become a %s', 'wc-vendors' ), wcv_get_vendor_name() ),
-							'desc'    => sprintf( __( 'Show the "Become a %s" link on WooCommerce my-account page', 'wc-vendors' ), wcv_get_vendor_name() ),
-							'id'      => 'wcvendors_become_a_vendor_my_account_link_visibility',
-							'default' => 'yes',
-							'type'    => 'checkbox',
-						),
+						
 						array(
 							'title'   => sprintf( __( '%s Taxes', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'desc'    => sprintf( __( 'Give any taxes to the %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
