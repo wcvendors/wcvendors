@@ -131,7 +131,7 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
-							'title'    => __( 'Sold by Separator', 'wc-vendors' ),
+							'title'    => __( 'Sold by separator', 'wc-vendors' ),
 							'desc_tip' => __( 'The sold by separator', 'wc-vendors' ),
 							'id'       => 'wcvendors_label_sold_by_separator',
 							'type'     => 'text',
