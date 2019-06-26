@@ -6,10 +6,10 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.0.0
 Requires PHP: 5.6
-Tested up to: 5.2.1
+Tested up to: 5.2.2
 WC requires at least: 3.3.0
 WC tested up to: 3.6.4
-Stable tag: 2.1.11
+Stable tag: 2.1.12
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
@@ -227,6 +227,20 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.12 - 26th June 2019 =
+
+* Added: Become a vendor label
+* Added: Bulk assign media to vendor #565 (#577)
+* Added: New filter to filter the sold by template (#575)
+* Added: GitHub Contributing templates (#574)
+* Updated: Moved become a vendor to label settings page
+* Updated: Extensions pages and related links
+* Updated: Tested to 5.2.2 of WP
+* Fixed: Column width on products page for vendor store column
+* Fixed: Custom columns on user page not populated for other plugins #576
+* Fixed: Wrong user meta name for banking details (#572)
+* Fixed: Vendor description output on single product page when disabled #573
 
 = Version 2.1.11 - 13th June 2019 =
 
