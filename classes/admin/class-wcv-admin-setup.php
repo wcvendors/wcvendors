@@ -104,6 +104,13 @@ class WCV_Admin_Setup {
 			'callback' => array( 'WCV_Admin_Setup', 'reset_wcvendors' ),
 		);
 
+		$tools['remove_suborders'] = array(
+			'name'     => __( 'Remove orphaned sub orders', 'wc-vendors' ),
+			'button'   => __( 'Remove orphaned sub orders', 'wc-vendors' ),
+			'desc'     => __( 'This will remove all orphaned sub orders ', 'wc-vendors' ),
+			'callback' => array( 'WCV_Admin_Setup', 'remove_orphaned_orders' ),
+		);
+
 		return $tools;
 
 	} // wcvendors_tools()
@@ -171,6 +178,34 @@ class WCV_Admin_Setup {
 		echo '<div class="updated inline"><p>' . __( 'WC Vendors was successfully reset. All settings have been reset.', 'wc-vendors' ) . '</p></div>';
 
 	} // reset_wcvendors()
+
+
+	/**
+	 *  Clean up orphaned Vendor sub orders that do not have parent posts
+	 *
+	 * @since 2.1.13
+	 */
+	public static function remove_orphaned_orders(){
+
+		$args = array(
+			'post_status' => 'any',
+			'numberposts' => -1,
+			'post_type' => 'shop_order_vendor',
+			'fields' 	=> array( 'ID', 'post_parent' ),
+		);
+
+		$vendor_sub_orders = get_posts( $args );
+
+		if ( empty( $vendor_sub_orders ) ) return;
+
+		foreach ( $vendor_sub_orders as $vendor_sub_order ) {
+			if ( ! get_post_status( $vendor_sub_order->post_parent ) ){
+				wp_delete_post( $vendor_sub_order->ID, true );
+			}
+		}
+
+		echo '<div class="updated inline"><p>' . __( 'Orphaned sub orders have been removed.', 'wc-vendors' ) . '</p></div>';
+	}
 
 
 	/*
