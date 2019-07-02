@@ -774,6 +774,10 @@ class WCV_Vendors {
 	 */
 	public function remove_child_orders( $post_id ){
 
+		$post_type = get_post_type( $post_id ); 
+
+		if ( 'shop_order' !== $post_type ) return; 
+
 		$child_orders = get_children(
 			array(
 				'post_parent' 	=> $post_id,
