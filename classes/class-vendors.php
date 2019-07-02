@@ -17,6 +17,7 @@ class WCV_Vendors {
 
 		add_action( 'woocommerce_checkout_order_processed', array( __CLASS__, 'create_child_orders' ), 10, 1 );
 		add_filter( 'init', array( $this, 'add_rewrite_rules' ), 0 );
+		add_action( 'delete_post', array( $this, 'remove_child_orders' ), 10, 1 );
 	}
 
 	/**
@@ -763,6 +764,28 @@ class WCV_Vendors {
 
 		return $product_id;
 
+	}
+
+	/**
+	 * Remove child orders if the parent order is deleted
+	 *
+	 * @since 2.1.13
+	 * @access public
+	 */
+	public function remove_child_orders( $post_id ){
+
+		$child_orders = get_children(
+			array(
+				'post_parent' 	=> $post_id,
+				'post_type' 	=> 'shop_order_vendor'
+			)
+		);
+
+		if ( empty( $child_orders ) ) return;
+
+		foreach ( $child_orders as $child_order ) {
+			wp_delete_post( $child_order->ID, true );
+		}
 	}
 
 	/**
