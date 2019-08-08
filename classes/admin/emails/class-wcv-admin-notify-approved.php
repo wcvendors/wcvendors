@@ -1,33 +1,38 @@
 <?php
-
+/**
+ * Defines the class to send admin notification for approved vendors.
+ *
+ * @version     2.0.13
+ * @package     Classes/Admin/Emails
+ * @author      WC Vendors
+ */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
+if ( ! class_exists( 'WCVendors_Admin_Notify_Approved' ) ) :
 
 	/**
-	 * Notify Admin Application
+	 * Notify Admin Approved
 	 *
-	 * An email sent to the admin when a user applies to be a vendor
+	 * An email sent to the admin when admin approves a user to be a vendor
 	 *
-	 * @class       WCVendors_Admin_Notify_Shipped
-	 * @version     2.0.0
-	 * @package     Classes/Admin/Emails
-	 * @author      WC Vendors
-	 * @extends     WC_Email
+	 * @since   2.0.
+	 * @version 2.0.
+	 * @class   WCVendors_Admin_Notify_Approved
+	 * @extends WC_Email
 	 */
-	class WCVendors_Admin_Notify_Application extends WC_Email {
+	class WCVendors_Admin_Notify_Approved extends WC_Email {
 
 		/**
 		 * Constructor.
 		 */
 		public function __construct() {
 			$this->id             = 'admin_notify_application';
-			$this->title          = sprintf( __( 'Admin notify %s application', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
-			$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a user applies to be a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
-			$this->template_html  = 'emails/admin-notify-application.php';
-			$this->template_plain = 'emails/plain/admin-notify-application.php';
+			$this->title          = sprintf( __( 'Admin notify %s approved', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+			$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when admin approves a user to be a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+			$this->template_html  = 'emails/admin-notify-approved.php';
+			$this->template_plain = 'emails/plain/admin-notify-approved.php';
 			$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
 			$this->placeholders   = array(
 				'{site_title}' => $this->get_blogname(),
@@ -48,7 +53,7 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
 		 * @return string
 		 */
 		public function get_default_subject() {
-			return sprintf( __( '[{site_title}] {user_name} has applied to be a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+			return sprintf( __( '[{site_title}] {user_name} has been approved to be a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		}
 
 		/**
@@ -58,7 +63,7 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
 		 * @return string
 		 */
 		public function get_default_heading() {
-			return sprintf( __( '%s application received', 'wc-vendors' ), wcv_get_vendor_name() );
+			return sprintf( __( '%s application approved', 'wc-vendors' ), wcv_get_vendor_name() );
 		}
 
 		/**
@@ -76,7 +81,7 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
 			$this->placeholders['{user_name}'] = $this->user->user_login;
 
 			$send_if     = $this->get_option( 'notification' );
-			$should_send = $send_if == 'vendor' ? true : ( $send_if == 'pending_vendor' && $status == 'pending' ? true : false );
+			$should_send = $send_if == 'vendor' ? true : ( $send_if == 'vendor' && $status == 'approved' ? true : false );
 
 			if ( $this->is_enabled() && $this->get_recipient() && $should_send ) {
 				$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
@@ -173,7 +178,7 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
 					'title'       => __( 'Notification', 'wc-vendors' ),
 					'type'        => 'select',
 					'description' => __( 'Choose when to be notified of an application.', 'wc-vendors' ),
-					'default'     => 'pending_vendor',
+					'default'     => 'vendor',
 					'class'       => 'wc-enhanced-select',
 					'options'     => array(
 						'vendor'         => __( 'All Applications', 'wc-vendors' ),

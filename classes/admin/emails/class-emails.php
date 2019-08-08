@@ -87,11 +87,13 @@ class WCV_Emails {
 	}
 
 	/**
+	 * Load WooCommerce email classes.
 	 *
+	 * @param   array $emails Current list of WooCommerce emails.
+	 * @version 2.0.13
+	 * @since   1.0.0
 	 *
-	 * @param unknown $emails
-	 *
-	 * @return unknown
+	 * @return array
 	 */
 	public function email_classes( $emails ) {
 
@@ -100,17 +102,18 @@ class WCV_Emails {
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-approve-vendor.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-notify-shipped.php';
 
-		// Emails to depreciate
+		// Emails to depreciate.
 		$emails['WC_Email_Notify_Vendor']  = new WC_Email_Notify_Vendor();
 		$emails['WC_Email_Approve_Vendor'] = new WC_Email_Approve_Vendor();
 		$emails['WC_Email_Notify_Admin']   = new WC_Email_Notify_Admin();
 		$emails['WC_Email_Notify_Shipped'] = new WC_Email_Notify_Shipped();
 
-		// New emails introduced in @since 2.0.0
+		// New emails introduced in @since 2.0.0.
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-customer-notify-shipped.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-shipped.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-product.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-application.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-admin-notify-approved.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-application.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-approved.php';
 		require_once wcv_plugin_dir . 'classes/admin/emails/class-wcv-vendor-notify-denied.php';
@@ -121,6 +124,7 @@ class WCV_Emails {
 		$emails['WCVendors_Admin_Notify_Shipped']          = new WCVendors_Admin_Notify_Shipped();
 		$emails['WCVendors_Admin_Notify_Product']          = new WCVendors_Admin_Notify_Product();
 		$emails['WCVendors_Admin_Notify_Application']      = new WCVendors_Admin_Notify_Application();
+		$emails['WCVendors_Admin_Notify_Approved']         = new WCVendors_Admin_Notify_Approved();
 		$emails['WCVendors_Vendor_Notify_Application']     = new WCVendors_Vendor_Notify_Application();
 		$emails['WCVendors_Vendor_Notify_Approved']        = new WCVendors_Vendor_Notify_Approved();
 		$emails['WCVendors_Vendor_Notify_Denied']          = new WCVendors_Vendor_Notify_Denied();
@@ -129,7 +133,7 @@ class WCV_Emails {
 
 		return $emails;
 
-	} // email_classes()
+	} // email_classes
 
 	/**
 	 *   Add the vendor email to the low stock emails.
@@ -250,7 +254,7 @@ class WCV_Emails {
 		} elseif ( $role == 'vendor' ) {
 			$status = __( 'approved', 'wc-vendors' );
 			WC()->mailer()->emails['WCVendors_Vendor_Notify_Approved']->trigger( $user_id, $status );
-			WC()->mailer()->emails['WCVendors_Admin_Notify_Application']->trigger( $user_id, $status );
+			WC()->mailer()->emails['WCVendors_Admin_Notify_Approved']->trigger( $user_id, $status );
 		}
 
 	}

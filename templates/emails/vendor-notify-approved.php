@@ -20,7 +20,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 	<p><?php echo $content; ?></p>
 
-	<p><?php printf( __( 'Applicant username: %s', 'wc-vendors' ), $user->user_login ); ?></p>
+	<p><?php printf( __( 'Your username: %s', 'wc-vendors' ), $user->user_login ); ?></p>
 <?php
 
 do_action( 'woocommerce_email_footer', $email );
