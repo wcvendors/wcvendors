@@ -207,8 +207,8 @@ class WCV_Vendor_Shop {
 	public static function template_loop_sold_by( $product_id ) {
 
 		$vendor_id         = WCV_Vendors::get_vendor_from_product( $product_id );
-		$sold_by_label     = get_option( 'wcvendors_label_sold_by' );
-		$sold_by_separator = get_option( 'wcvendors_label_sold_by_separator' );
+		$sold_by_label     = __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' );
+		$sold_by_separator = __( get_option( 'wcvendors_label_sold_by_separator' ), 'wc-vendors' );
 		$sold_by           = WCV_Vendors::is_vendor( $vendor_id )
 			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
@@ -339,7 +339,7 @@ class WCV_Vendor_Shop {
 			$cart_item     = $cart[ $cart_item_key ];
 			$product_id    = $cart_item['product_id'];
 			$vendor_id     = WCV_Vendors::get_vendor_from_product( $product_id );
-			$sold_by_label = get_option( 'wcvendors_label_sold_by' );
+			$sold_by_label = __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' );
 			$sold_by       = WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ) : get_bloginfo( 'name' );
 
 			$item->add_meta_data( apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by, true );

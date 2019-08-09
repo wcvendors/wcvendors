@@ -49,7 +49,7 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
 	 */
 	public function add_account_menu_items( $items ) {
 
-		$become_a_vendor_label = get_option( 'wcvendors_label_become_a_vendor', __( 'Become a ', 'wc-vendors' ) ); 
+		$become_a_vendor_label = __( get_option( 'wcvendors_label_become_a_vendor', __( 'Become a ', 'wc-vendors' ) ), 'wc-vendors' );
 
 		$add_items = apply_filters(
 			'wcv_become_a_vendor_string', array(
