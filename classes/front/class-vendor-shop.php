@@ -111,7 +111,7 @@ class WCV_Vendor_Shop {
 			$has_html    = get_user_meta( $post->post_author, 'pv_shop_html_enabled', true );
 			$global_html = get_option( 'wcvendors_display_shop_description_html' );
 
-			$seller_info_label = get_option( 'wcvendors_display_label_store_info' );
+			$seller_info_label = __( get_option( 'wcvendors_display_label_store_info' ), 'wc-vendors' );
 
 			// Run the built in WordPress oEmbed on the seller info if html is enabled.
 			if ( $global_html || $has_html ) {

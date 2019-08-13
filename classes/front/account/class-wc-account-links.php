@@ -49,17 +49,19 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
 	 */
 	public function add_account_menu_items( $items ) {
 
-		$become_a_vendor_label = __( get_option( 'wcvendors_label_become_a_vendor', __( 'Become a ', 'wc-vendors' ) ), 'wc-vendors' );
+		$become_a_vendor_label = __( get_option( 'wcvendors_label_become_a_vendor', __( 'Become a', 'wc-vendors' ) ), 'wc-vendors' );
 
 		$add_items = apply_filters(
-			'wcv_become_a_vendor_string', array(
+			'wcv_become_a_vendor_string',
+			array(
 				'become-a-vendor' => sprintf( __( '%s %s', 'wc-vendors' ), $become_a_vendor_label, wcv_get_vendor_name() )
 			)
 		);
-		// slice the array so the logout link goes at the end of the list
+
+		// slice the array so the logout link goes at the end of the list.
 		$first_part = array_slice( $items, 0, count( $items ) - 1, true );
 		$last_part  = array_slice( $items, count( $items ) - 1, true );
-		// put the arrays together putting the logout link at the end
+		// put the arrays together putting the logout link at the end.
 		$items = $first_part + $add_items + $last_part;
 
 		return $items;

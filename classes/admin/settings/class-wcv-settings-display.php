@@ -171,7 +171,7 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
-							'title'   => sprintf( __( '%s store Info label', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'title'   => sprintf( __( '%s store info label', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'desc'    => sprintf( __( 'The %s store info label', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'      => 'wcvendors_display_label_store_info',
 							'type'    => 'text',
