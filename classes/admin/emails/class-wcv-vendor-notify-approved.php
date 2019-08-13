@@ -47,7 +47,7 @@ if ( ! class_exists( 'WCVendors_Vendor_Notify_Approved' ) ) :
 		 */
 		public function get_default_subject() {
 
-			return __( '[{site_title}] Your vendor application has been approved', 'wc-vendors' );
+			return sprintf( __( '[{site_title}] Your %s application has been approved', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		}
 
 		/**
