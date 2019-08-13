@@ -63,7 +63,7 @@ if ( ! class_exists( 'WCVendors_Vendor_Notify_Application' ) ) :
 
 		public function get_default_content() {
 
-			return sprintf( __( 'Hi there. This is a notification about a %1$s application on %2$s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ), get_option( 'blogname' ) );
+			return sprintf( __( 'Hi there. This is a notification about your %1$s application on %2$s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ), get_option( 'blogname' ) );
 		}
 
 		/**
