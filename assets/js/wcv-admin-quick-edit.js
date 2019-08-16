@@ -31,4 +31,14 @@ jQuery(function(){
         }
 
     });
+
+    jQuery( document ).ready( function() {
+        var $inputFeatured = $( '.featured input[name="_featured"]' );
+        var $selectFetured = $( 'select.featured' ).closest( 'label' );
+
+        if ( wcv_quick_edit_params.allow_featured == 'no' ) {
+            $inputFeatured.parent().hide();
+            $selectFetured.hide();
+        }
+    });
 });
