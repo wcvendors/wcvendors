@@ -44,4 +44,4 @@ gulp.task('build-i18n-pot', function () {
 });
 
 
-gulp.task( 'default', [ 'styles', 'build-i18n-pot' ] );
+gulp.task( 'default', gulp.parallel( 'styles', 'build-i18n-pot' ) );
