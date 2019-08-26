@@ -39,7 +39,7 @@ function wcv_get_vendor_name( $singluar = true, $upper_case = true ) {
 	$vendor_singular = get_option( 'wcvendors_vendor_singular', __( 'Vendor', 'wc-vendors' ) );
 	$vendor_plural   = get_option( 'wcvendors_vendor_plural', __( 'Vendors', 'wc-vendors' ) );
 
-	$vendor_label = $singluar ? $vendor_singular : $vendor_plural;
+	$vendor_label = $singluar ? __( $vendor_singular, 'wc-vendors' ) : __( $vendor_plural, 'wc-vendors' );
 	$vendor_label = $upper_case ? ucfirst( $vendor_label ) : lcfirst( $vendor_label );
 
 	return apply_filters( 'wcv_vendor_display_name', $vendor_label, $vendor_singular, $vendor_plural, $singluar, $upper_case );
