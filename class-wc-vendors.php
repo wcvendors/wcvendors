@@ -308,6 +308,13 @@ if ( wcv_is_woocommerce_activated() ) {
 			switch ( $screen->id ) {
 				case 'edit-product':
 					wp_enqueue_script( 'wcv_quick-edit', wcv_assets_url . 'js/wcv-admin-quick-edit.js', array( 'jquery' ), WCV_VERSION );
+					wp_localize_script(
+						'wcv_quick-edit',
+						'wcv_quick_edit_params',
+						array(
+							'allow_featured' => apply_filters( 'wcvendors_capability_allow_product_featured', get_option( 'wcvendors_capability_product_featured', 'no' ) ),
+						)
+					);
 					break;
 				case 'wc-vendors_page_wcv-commissions':
 					wp_register_script( 'wcv_admin_commissions', wcv_assets_url . 'js/admin/wcv-admin-commissions.js', array( 'jquery' ), WCV_VERSION , true );
