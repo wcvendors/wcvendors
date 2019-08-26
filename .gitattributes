@@ -1,0 +1,12 @@
+# Files
+/README.md export-ignore
+/package.json export-ignore
+/package-lock.json export-ignore
+/gulfile.js export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/wporg-deploy.sh export-ignore
+
+# Directories
+/.wordpress-org export-ignore
+/.github export-ignore
