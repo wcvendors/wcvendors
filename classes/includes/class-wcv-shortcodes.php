@@ -741,8 +741,8 @@ class WCV_Shortcodes {
 		$atts = shortcode_atts(			
 			array(
 				'vendor_id'         => get_the_author_meta( 'ID' ),
-				'sold_by_label'     => get_option( 'wcvendors_label_sold_by' ),
-				'sold_by_separator' => get_option( 'wcvendors_label_sold_by_separator' ),
+				'sold_by_label'     => __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' ),
+				'sold_by_separator' => __( get_option( 'wcvendors_label_sold_by_separator' ), 'wc-vendors' ),
 			),
 			$atts,
 			'wcv_sold_by'

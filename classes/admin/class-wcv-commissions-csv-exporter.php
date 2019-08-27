@@ -40,15 +40,16 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 
 		return apply_filters(
 			'wcv_commissions_export_columns', array(
-				'product_id'     => __( 'Product', 'wc-vendors' ),
-				'order_id'       => __( 'Order ID', 'wc-vendors' ),
-				'vendor_id'      => sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
-				'total_due'      => __( 'Commission', 'wc-vendors' ),
-				'total_shipping' => __( 'Shipping', 'wc-vendors' ),
-				'tax'            => __( 'Tax', 'wc-vendors' ),
-				'totals'         => __( 'Total', 'wc-vendors' ),
-				'status'         => __( 'Status', 'wc-vendors' ),
-				'time'           => __( 'Date', 'wc-vendors' ),
+				'order_id'       	=> __( 'Order ID', 'wc-vendors' ),
+				'vendor_id'     	=> sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
+				'product_id'     	=> __( 'Product', 'wc-vendors' ),
+				'qty'				=> __( 'QTY', 'wc-vendors' ),
+				'total_due'      	=> __( 'Commission', 'wc-vendors' ),
+				'total_shipping' 	=> __( 'Shipping', 'wc-vendors' ),
+				'tax'            	=> __( 'Tax', 'wc-vendors' ),
+				'totals'         	=> __( 'Total', 'wc-vendors' ),
+				'status'         	=> __( 'Status', 'wc-vendors' ),
+				'time'           	=> __( 'Date', 'wc-vendors' ),
 			)
 		);
 	}
@@ -158,13 +159,29 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 
 			foreach ( $columns as $column_id => $column_name ) {
 
-				if ( $column_id == 'vendor_id' ) {
-					$value = WCV_Vendors::get_vendor_shop_name( $commission->vendor_id );
-				} elseif ( $column_id == 'totals' ) {
-					$totals = ( wc_tax_enabled() ) ? $commission->total_due + $commission->total_shipping + $commission->tax : $commission->total_due + $commission->total_shipping;
-					$value  = wc_format_localized_price( $totals );
-				} else {
-					$value = $commission->$column_id;
+				switch ( $column_id ) {
+					case 'vendor_id':
+						$value = WCV_Vendors::get_vendor_shop_name( $commission->vendor_id );
+						break;
+					case 'totals':
+						$totals = ( wc_tax_enabled() ) ? $commission->total_due + $commission->total_shipping + $commission->tax : $commission->total_due + $commission->total_shipping;
+						$value  = wc_format_localized_price( $totals );
+						break;
+					case 'order_id':
+						$order = wc_get_order( $commission->order_id );
+						$value = ( $order )? $order->get_order_number() :  $commission->order_id;
+						break;
+					case 'product_id':
+						$parent          = get_post_ancestors( $commission->product_id );
+						$product_id      = $parent ? $parent[0] : $commission->product_id;
+						$wcv_total_sales = get_post_meta( $product_id, 'total_sales', true );
+						if ( ! get_post_status( $product_id ) ) {
+							$product_id = WCV_Vendors::find_parent_id_from_order( $commission->order_id, $product_id );
+						}
+						$value = get_the_title( $product_id ) . '(' . $wcv_total_sales . ')';
+						break;
+					default:
+						$value = $commission->$column_id;
 				}
 
 				$row[ $column_id ] = $value;

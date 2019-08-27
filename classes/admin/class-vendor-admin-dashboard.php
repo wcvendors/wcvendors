@@ -578,7 +578,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table {
 										'_line_tax',
 										'_vendor_order_item_id',
 										'_vendor_commission',
-										get_option( 'wcvendors_label_sold_by' ),
+										__( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' ),
 									)
 								)
 							) ) {

@@ -56,11 +56,11 @@ msgstr ""
 msgid "Payment total: %s"
 msgstr ""
 
-#: classes/class-install.php:158, classes/admin/class-wcv-admin-setup.php:146
+#: classes/class-install.php:158, classes/admin/class-wcv-admin-setup.php:153
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:172, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:267, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:141, classes/admin/class-wcv-admin-setup.php:330, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:229
+#: classes/class-install.php:172, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:267, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:148, classes/admin/class-wcv-admin-setup.php:365, classes/admin/class-wcv-commissions-csv-exporter.php:45, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:229
 msgid "%s"
 msgstr ""
 
@@ -268,11 +268,11 @@ msgstr ""
 msgid "%s Orders"
 msgstr ""
 
-#: classes/class-vendors.php:618
+#: classes/class-vendors.php:619
 msgid "%1$s Order &ndash; %2$s"
 msgstr ""
 
-#: classes/class-vendors.php:618
+#: classes/class-vendors.php:619
 msgctxt "Order date parsed by strftime"
 msgid "%1$b %2$d, %Y @ %I:%M %p"
 msgstr ""
@@ -286,7 +286,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: classes/admin/class-admin-menus.php:46, classes/admin/class-admin-menus.php:47, classes/admin/class-admin-reports.php:40, classes/admin/class-wcv-admin-setup.php:295, classes/admin/views/html-vendor-meta.php:1
+#: classes/admin/class-admin-menus.php:46, classes/admin/class-admin-menus.php:47, classes/admin/class-admin-reports.php:40, classes/admin/class-wcv-admin-setup.php:330, classes/admin/views/html-vendor-meta.php:1
 msgid "WC Vendors"
 msgstr ""
 
@@ -742,40 +742,52 @@ msgstr ""
 msgid "This will reset wcvendors back to defaults. This DELETES ALL YOUR Settings."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:157
+#: classes/admin/class-wcv-admin-setup.php:108, classes/admin/class-wcv-admin-setup.php:109
+msgid "Remove orphaned sub orders"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:110
+msgid "This will remove all orphaned sub orders "
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:164
 msgid "WC Vendor roles successfully reset."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:171
+#: classes/admin/class-wcv-admin-setup.php:178
 msgid "WC Vendors was successfully reset. All settings have been reset."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:249
+#: classes/admin/class-wcv-admin-setup.php:207
+msgid "Orphaned sub orders have been removed."
+msgstr ""
+
+#: classes/admin/class-wcv-admin-setup.php:284
 msgid "All commissions marked as paid."
 msgstr ""
 
 #. translators: 1: WooCommerce 2:: five stars
-#: classes/admin/class-wcv-admin-setup.php:294
+#: classes/admin/class-wcv-admin-setup.php:329
 msgid "If you like %1$s please leave us a %2$s rating. A huge thanks in advance!"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:296
+#: classes/admin/class-wcv-admin-setup.php:331
 msgid "Thanks :)"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:348
+#: classes/admin/class-wcv-admin-setup.php:383
 msgid "%s Notifications"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:349
+#: classes/admin/class-wcv-admin-setup.php:384
 msgid "Enable %s low stock notifications"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:358
+#: classes/admin/class-wcv-admin-setup.php:393
 msgid "Enable %s out of stock notifications"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-setup.php:367
+#: classes/admin/class-wcv-admin-setup.php:402
 msgid "Enable %s backorder stock notifications"
 msgstr ""
 
@@ -991,7 +1003,7 @@ msgstr ""
 msgid "You haven't made any sales yet."
 msgstr ""
 
-#: templates/emails/admin-notify-application.php:18, templates/emails/application-status.php:9, templates/emails/vendor-notify-application.php:21, classes/admin/emails/class-wcv-vendor-notify-application.php:66, templates/emails/plain/admin-notify-application.php:18, templates/emails/plain/vendor-notify-application.php:18
+#: templates/emails/admin-notify-application.php:18, templates/emails/application-status.php:9, templates/emails/plain/admin-notify-application.php:18, templates/emails/plain/vendor-notify-application.php:18
 msgid "Hi there. This is a notification about a %1$s application on %2$s."
 msgstr ""
 
@@ -999,12 +1011,20 @@ msgstr ""
 msgid "The application is currently: %s"
 msgstr ""
 
-#: templates/emails/admin-notify-application.php:21, templates/emails/application-status.php:13, templates/emails/vendor-notify-application.php:23, templates/emails/vendor-notify-approved.php:23, templates/emails/vendor-notify-denied.php:23, templates/emails/plain/admin-notify-application.php:19, templates/emails/plain/vendor-notify-application.php:20
+#: templates/emails/admin-notify-application.php:21, templates/emails/admin-notify-approved.php:20, templates/emails/application-status.php:13, templates/emails/vendor-notify-denied.php:23, templates/emails/plain/admin-notify-application.php:19, templates/emails/plain/vendor-notify-application.php:20
 msgid "Applicant username: %s"
 msgstr ""
 
 #: templates/emails/admin-notify-application.php:25
 msgid "You can approve or deny the application at the following link <a href=\"%1$s\">%1$s</a>"
+msgstr ""
+
+#: templates/emails/admin-notify-approved.php:18, templates/emails/plain/admin-notify-approved.php:18
+msgid "Hi there. You or another admin has approved a user to be a %1$s on %2$s."
+msgstr ""
+
+#: templates/emails/admin-notify-approved.php:19, templates/emails/application-status.php:12, templates/emails/plain/admin-notify-approved.php:19
+msgid "Application status: %s"
 msgstr ""
 
 #: templates/emails/admin-notify-product.php:18, templates/emails/plain/admin-notify-product.php:20
@@ -1025,10 +1045,6 @@ msgstr ""
 
 #: templates/emails/admin-notify-shipped.php:19
 msgid "%1$s has marked  order #%2$s as shipped."
-msgstr ""
-
-#: templates/emails/application-status.php:12
-msgid "Application status: %s"
 msgstr ""
 
 #: templates/emails/customer-notify-shipped.php:22
@@ -1071,8 +1087,16 @@ msgstr ""
 msgid "You have received an order from %s. Their order is as follows:"
 msgstr ""
 
-#: templates/emails/vendor-notify-application.php:22
+#: templates/emails/vendor-notify-application.php:22, classes/admin/emails/class-wcv-vendor-notify-application.php:66
+msgid "Hi there. This is a notification about your %1$s application on %2$s."
+msgstr ""
+
+#: templates/emails/vendor-notify-application.php:23
 msgid "Your application is currently: %s"
+msgstr ""
+
+#: templates/emails/vendor-notify-application.php:24, templates/emails/vendor-notify-approved.php:23
+msgid "Your username: %s"
 msgstr ""
 
 #: templates/emails/vendor-notify-cancelled-order.php:22
@@ -1112,11 +1136,11 @@ msgstr ""
 msgid "Quantity: %d"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:74, classes/admin/emails/class-emails.php:247, classes/admin/emails/class-wc-approve-vendor.php:72
+#: classes/admin/emails/class-emails.php:74, classes/admin/emails/class-emails.php:251, classes/admin/emails/class-wc-approve-vendor.php:72
 msgid "pending"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:76, classes/admin/emails/class-emails.php:251
+#: classes/admin/emails/class-emails.php:76, classes/admin/emails/class-emails.php:255
 msgid "approved"
 msgstr ""
 
@@ -1124,7 +1148,7 @@ msgstr ""
 msgid "denied"
 msgstr ""
 
-#: classes/admin/emails/class-emails.php:199
+#: classes/admin/emails/class-emails.php:203
 msgid "Resend %s new order notification"
 msgstr ""
 
@@ -1144,11 +1168,11 @@ msgstr ""
 msgid "[{blogname}] Your %s application has been {status}"
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:129, classes/admin/emails/class-wc-notify-admin.php:139, classes/admin/emails/class-wc-notify-shipped.php:170, classes/admin/emails/class-wc-notify-vendor.php:296, classes/admin/emails/class-wcv-admin-notify-application.php:141, classes/admin/emails/class-wcv-admin-notify-product.php:156, classes/admin/emails/class-wcv-admin-notify-shipped.php:144, classes/admin/emails/class-wcv-customer-notify-shipped.php:151, classes/admin/emails/class-wcv-vendor-notify-application.php:139, classes/admin/emails/class-wcv-vendor-notify-approved.php:148, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:163, classes/admin/emails/class-wcv-vendor-notify-denied.php:159, classes/admin/emails/class-wcv-vendor-notify-order.php:190, classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:62
+#: classes/admin/emails/class-wc-approve-vendor.php:129, classes/admin/emails/class-wc-notify-admin.php:139, classes/admin/emails/class-wc-notify-shipped.php:170, classes/admin/emails/class-wc-notify-vendor.php:296, classes/admin/emails/class-wcv-admin-notify-application.php:141, classes/admin/emails/class-wcv-admin-notify-approved.php:146, classes/admin/emails/class-wcv-admin-notify-product.php:156, classes/admin/emails/class-wcv-admin-notify-shipped.php:144, classes/admin/emails/class-wcv-customer-notify-shipped.php:151, classes/admin/emails/class-wcv-vendor-notify-application.php:139, classes/admin/emails/class-wcv-vendor-notify-approved.php:148, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:163, classes/admin/emails/class-wcv-vendor-notify-denied.php:159, classes/admin/emails/class-wcv-vendor-notify-order.php:190, classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:62
 msgid "Enable/Disable"
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:131, classes/admin/emails/class-wc-notify-admin.php:141, classes/admin/emails/class-wc-notify-shipped.php:172, classes/admin/emails/class-wc-notify-vendor.php:298, classes/admin/emails/class-wcv-admin-notify-application.php:143, classes/admin/emails/class-wcv-admin-notify-product.php:158, classes/admin/emails/class-wcv-admin-notify-shipped.php:146, classes/admin/emails/class-wcv-customer-notify-shipped.php:153, classes/admin/emails/class-wcv-vendor-notify-application.php:141, classes/admin/emails/class-wcv-vendor-notify-approved.php:150, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:165, classes/admin/emails/class-wcv-vendor-notify-denied.php:161, classes/admin/emails/class-wcv-vendor-notify-order.php:192
+#: classes/admin/emails/class-wc-approve-vendor.php:131, classes/admin/emails/class-wc-notify-admin.php:141, classes/admin/emails/class-wc-notify-shipped.php:172, classes/admin/emails/class-wc-notify-vendor.php:298, classes/admin/emails/class-wcv-admin-notify-application.php:143, classes/admin/emails/class-wcv-admin-notify-approved.php:148, classes/admin/emails/class-wcv-admin-notify-product.php:158, classes/admin/emails/class-wcv-admin-notify-shipped.php:146, classes/admin/emails/class-wcv-customer-notify-shipped.php:153, classes/admin/emails/class-wcv-vendor-notify-application.php:141, classes/admin/emails/class-wcv-vendor-notify-approved.php:150, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:165, classes/admin/emails/class-wcv-vendor-notify-denied.php:161, classes/admin/emails/class-wcv-vendor-notify-order.php:192
 msgid "Enable this email notification"
 msgstr ""
 
@@ -1156,7 +1180,7 @@ msgstr ""
 msgid "Enter recipients (comma separated) for this email. Defaults to <code>%s</code>."
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:142, classes/admin/emails/class-wc-notify-admin.php:152, classes/admin/emails/class-wc-notify-shipped.php:176, classes/admin/emails/class-wc-notify-vendor.php:302, classes/admin/emails/class-wcv-admin-notify-application.php:155, classes/admin/emails/class-wcv-admin-notify-product.php:170, classes/admin/emails/class-wcv-admin-notify-shipped.php:158, classes/admin/emails/class-wcv-customer-notify-shipped.php:157, classes/admin/emails/class-wcv-vendor-notify-application.php:145, classes/admin/emails/class-wcv-vendor-notify-approved.php:154, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:169, classes/admin/emails/class-wcv-vendor-notify-denied.php:165, classes/admin/emails/class-wcv-vendor-notify-order.php:196
+#: classes/admin/emails/class-wc-approve-vendor.php:142, classes/admin/emails/class-wc-notify-admin.php:152, classes/admin/emails/class-wc-notify-shipped.php:176, classes/admin/emails/class-wc-notify-vendor.php:302, classes/admin/emails/class-wcv-admin-notify-application.php:155, classes/admin/emails/class-wcv-admin-notify-approved.php:160, classes/admin/emails/class-wcv-admin-notify-product.php:170, classes/admin/emails/class-wcv-admin-notify-shipped.php:158, classes/admin/emails/class-wcv-customer-notify-shipped.php:157, classes/admin/emails/class-wcv-vendor-notify-application.php:145, classes/admin/emails/class-wcv-vendor-notify-approved.php:154, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:169, classes/admin/emails/class-wcv-vendor-notify-denied.php:165, classes/admin/emails/class-wcv-vendor-notify-order.php:196
 msgid "Subject"
 msgstr ""
 
@@ -1172,11 +1196,11 @@ msgstr ""
 msgid "This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>."
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:156, classes/admin/emails/class-wc-notify-admin.php:166, classes/admin/emails/class-wc-notify-shipped.php:190, classes/admin/emails/class-wc-notify-vendor.php:322, classes/admin/emails/class-wcv-admin-notify-application.php:185, classes/admin/emails/class-wcv-admin-notify-product.php:188, classes/admin/emails/class-wcv-admin-notify-shipped.php:176, classes/admin/emails/class-wcv-customer-notify-shipped.php:175, classes/admin/emails/class-wcv-vendor-notify-application.php:163, classes/admin/emails/class-wcv-vendor-notify-approved.php:181, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:201, classes/admin/emails/class-wcv-vendor-notify-denied.php:200, classes/admin/emails/class-wcv-vendor-notify-order.php:234
+#: classes/admin/emails/class-wc-approve-vendor.php:156, classes/admin/emails/class-wc-notify-admin.php:166, classes/admin/emails/class-wc-notify-shipped.php:190, classes/admin/emails/class-wc-notify-vendor.php:322, classes/admin/emails/class-wcv-admin-notify-application.php:185, classes/admin/emails/class-wcv-admin-notify-approved.php:190, classes/admin/emails/class-wcv-admin-notify-product.php:188, classes/admin/emails/class-wcv-admin-notify-shipped.php:176, classes/admin/emails/class-wcv-customer-notify-shipped.php:175, classes/admin/emails/class-wcv-vendor-notify-application.php:163, classes/admin/emails/class-wcv-vendor-notify-approved.php:181, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:201, classes/admin/emails/class-wcv-vendor-notify-denied.php:200, classes/admin/emails/class-wcv-vendor-notify-order.php:234
 msgid "Email type"
 msgstr ""
 
-#: classes/admin/emails/class-wc-approve-vendor.php:158, classes/admin/emails/class-wc-notify-admin.php:168, classes/admin/emails/class-wc-notify-shipped.php:192, classes/admin/emails/class-wc-notify-vendor.php:324, classes/admin/emails/class-wcv-admin-notify-application.php:187, classes/admin/emails/class-wcv-admin-notify-product.php:190, classes/admin/emails/class-wcv-admin-notify-shipped.php:178, classes/admin/emails/class-wcv-customer-notify-shipped.php:177, classes/admin/emails/class-wcv-vendor-notify-application.php:165, classes/admin/emails/class-wcv-vendor-notify-approved.php:183, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:203, classes/admin/emails/class-wcv-vendor-notify-denied.php:202, classes/admin/emails/class-wcv-vendor-notify-order.php:236
+#: classes/admin/emails/class-wc-approve-vendor.php:158, classes/admin/emails/class-wc-notify-admin.php:168, classes/admin/emails/class-wc-notify-shipped.php:192, classes/admin/emails/class-wc-notify-vendor.php:324, classes/admin/emails/class-wcv-admin-notify-application.php:187, classes/admin/emails/class-wcv-admin-notify-approved.php:192, classes/admin/emails/class-wcv-admin-notify-product.php:190, classes/admin/emails/class-wcv-admin-notify-shipped.php:178, classes/admin/emails/class-wcv-customer-notify-shipped.php:177, classes/admin/emails/class-wcv-vendor-notify-application.php:165, classes/admin/emails/class-wcv-vendor-notify-approved.php:183, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:203, classes/admin/emails/class-wcv-vendor-notify-denied.php:202, classes/admin/emails/class-wcv-vendor-notify-order.php:236
 msgid "Choose which format of email to send."
 msgstr ""
 
@@ -1280,11 +1304,11 @@ msgstr ""
 msgid "%s application received"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-admin-notify-application.php:147, classes/admin/emails/class-wcv-admin-notify-product.php:162, classes/admin/emails/class-wcv-admin-notify-shipped.php:150
+#: classes/admin/emails/class-wcv-admin-notify-application.php:147, classes/admin/emails/class-wcv-admin-notify-approved.php:152, classes/admin/emails/class-wcv-admin-notify-product.php:162, classes/admin/emails/class-wcv-admin-notify-shipped.php:150
 msgid "Recipient(s)"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-admin-notify-application.php:149, classes/admin/emails/class-wcv-admin-notify-product.php:164, classes/admin/emails/class-wcv-admin-notify-shipped.php:152
+#: classes/admin/emails/class-wcv-admin-notify-application.php:149, classes/admin/emails/class-wcv-admin-notify-approved.php:154, classes/admin/emails/class-wcv-admin-notify-product.php:164, classes/admin/emails/class-wcv-admin-notify-shipped.php:152
 msgid "Enter recipients (comma separated) for this email. Defaults to %s."
 msgstr ""
 
@@ -1307,28 +1331,46 @@ msgstr ""
 #. translators: %s: list of placeholders
 #. translators: %s: list of placeholders
 #. translators: %s: list of placeholders
-#: classes/admin/emails/class-wcv-admin-notify-application.php:159, classes/admin/emails/class-wcv-admin-notify-application.php:168, classes/admin/emails/class-wcv-admin-notify-product.php:174, classes/admin/emails/class-wcv-admin-notify-product.php:183, classes/admin/emails/class-wcv-admin-notify-shipped.php:162, classes/admin/emails/class-wcv-admin-notify-shipped.php:171, classes/admin/emails/class-wcv-customer-notify-shipped.php:161, classes/admin/emails/class-wcv-customer-notify-shipped.php:170, classes/admin/emails/class-wcv-vendor-notify-application.php:149, classes/admin/emails/class-wcv-vendor-notify-application.php:158, classes/admin/emails/class-wcv-vendor-notify-approved.php:158, classes/admin/emails/class-wcv-vendor-notify-approved.php:176, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:173, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:182, classes/admin/emails/class-wcv-vendor-notify-denied.php:169, classes/admin/emails/class-wcv-vendor-notify-denied.php:178, classes/admin/emails/class-wcv-vendor-notify-denied.php:195, classes/admin/emails/class-wcv-vendor-notify-order.php:200, classes/admin/emails/class-wcv-vendor-notify-order.php:209
+#. translators: %s: list of placeholders
+#. translators: %s: list of placeholders
+#: classes/admin/emails/class-wcv-admin-notify-application.php:159, classes/admin/emails/class-wcv-admin-notify-application.php:168, classes/admin/emails/class-wcv-admin-notify-approved.php:164, classes/admin/emails/class-wcv-admin-notify-approved.php:173, classes/admin/emails/class-wcv-admin-notify-product.php:174, classes/admin/emails/class-wcv-admin-notify-product.php:183, classes/admin/emails/class-wcv-admin-notify-shipped.php:162, classes/admin/emails/class-wcv-admin-notify-shipped.php:171, classes/admin/emails/class-wcv-customer-notify-shipped.php:161, classes/admin/emails/class-wcv-customer-notify-shipped.php:170, classes/admin/emails/class-wcv-vendor-notify-application.php:149, classes/admin/emails/class-wcv-vendor-notify-application.php:158, classes/admin/emails/class-wcv-vendor-notify-approved.php:158, classes/admin/emails/class-wcv-vendor-notify-approved.php:176, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:173, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:182, classes/admin/emails/class-wcv-vendor-notify-denied.php:169, classes/admin/emails/class-wcv-vendor-notify-denied.php:178, classes/admin/emails/class-wcv-vendor-notify-denied.php:195, classes/admin/emails/class-wcv-vendor-notify-order.php:200, classes/admin/emails/class-wcv-vendor-notify-order.php:209
 msgid "Available placeholders: %s"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-admin-notify-application.php:164, classes/admin/emails/class-wcv-admin-notify-product.php:179, classes/admin/emails/class-wcv-admin-notify-shipped.php:167, classes/admin/emails/class-wcv-customer-notify-shipped.php:166, classes/admin/emails/class-wcv-vendor-notify-application.php:154, classes/admin/emails/class-wcv-vendor-notify-approved.php:172, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:178, classes/admin/emails/class-wcv-vendor-notify-denied.php:191, classes/admin/emails/class-wcv-vendor-notify-order.php:205
+#: classes/admin/emails/class-wcv-admin-notify-application.php:164, classes/admin/emails/class-wcv-admin-notify-approved.php:169, classes/admin/emails/class-wcv-admin-notify-product.php:179, classes/admin/emails/class-wcv-admin-notify-shipped.php:167, classes/admin/emails/class-wcv-customer-notify-shipped.php:166, classes/admin/emails/class-wcv-vendor-notify-application.php:154, classes/admin/emails/class-wcv-vendor-notify-approved.php:172, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:178, classes/admin/emails/class-wcv-vendor-notify-denied.php:191, classes/admin/emails/class-wcv-vendor-notify-order.php:205
 msgid "Email heading"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-admin-notify-application.php:173
+#: classes/admin/emails/class-wcv-admin-notify-application.php:173, classes/admin/emails/class-wcv-admin-notify-approved.php:178
 msgid "Notification"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-admin-notify-application.php:175
+#: classes/admin/emails/class-wcv-admin-notify-application.php:175, classes/admin/emails/class-wcv-admin-notify-approved.php:180
 msgid "Choose when to be notified of an application."
 msgstr ""
 
-#: classes/admin/emails/class-wcv-admin-notify-application.php:179
+#: classes/admin/emails/class-wcv-admin-notify-application.php:179, classes/admin/emails/class-wcv-admin-notify-approved.php:184
 msgid "All Applications"
 msgstr ""
 
-#: classes/admin/emails/class-wcv-admin-notify-application.php:180
+#: classes/admin/emails/class-wcv-admin-notify-application.php:180, classes/admin/emails/class-wcv-admin-notify-approved.php:185
 msgid "Pending Applications"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-approved.php:32
+msgid "Admin notify %s approved"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-approved.php:33
+msgid "Notification is sent to chosen recipient(s) when admin approves a user to be a %s"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-approved.php:56
+msgid "[{site_title}] {user_name} has been approved to be a %s"
+msgstr ""
+
+#: classes/admin/emails/class-wcv-admin-notify-approved.php:66
+msgid "%s application approved"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-admin-notify-product.php:28
@@ -1392,7 +1434,7 @@ msgid "Notification is sent to the %s that their application has been approved"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-approved.php:50
-msgid "[{site_title}] Your vendor application has been approved"
+msgid "[{site_title}] Your %s application has been approved"
 msgstr ""
 
 #: classes/admin/emails/class-wcv-vendor-notify-approved.php:61
@@ -1954,39 +1996,51 @@ msgstr ""
 msgid "This enables the %s shop header template and disables the shop description text."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:278
-msgid "Shop HTML"
+#: classes/admin/settings/class-wcv-settings-display.php:278, classes/admin/views/html-vendor-settings-page.php:161, templates/dashboard/settings/shop-description.php:18
+msgid "Shop Description"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:279
-msgid "Allow HTML in %s shop description"
+msgid "Enable %s shop description"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:280
-msgid "This will enable the WYSIWYG editor and for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account."
+msgid "This enables the %1$s shop description on the %1$s store page."
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:287
-msgid "Display Name"
+msgid "Shop HTML"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:288
+msgid "Allow HTML in %s shop description"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:289
-msgid "Select what will be used to display the %s name throughout the marketplace."
-msgstr ""
-
-#: classes/admin/settings/class-wcv-settings-display.php:294
-msgid "Display name"
-msgstr ""
-
-#: classes/admin/settings/class-wcv-settings-display.php:295, classes/admin/views/html-vendor-meta.php:27
-msgid "Shop name"
+msgid "This will enable the WYSIWYG editor and for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account."
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:296
+msgid "Display Name"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:298
+msgid "Select what will be used to display the %s name throughout the marketplace."
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:303
+msgid "Display name"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:304, classes/admin/views/html-vendor-meta.php:27
+msgid "Shop name"
+msgstr ""
+
+#: classes/admin/settings/class-wcv-settings-display.php:305
 msgid "%s Username"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:297
+#: classes/admin/settings/class-wcv-settings-display.php:306
 msgid "%s Email"
 msgstr ""
 
@@ -2310,10 +2364,6 @@ msgstr ""
 msgid "This is displayed on each of your products."
 msgstr ""
 
-#: classes/admin/views/html-vendor-settings-page.php:161, templates/dashboard/settings/shop-description.php:18
-msgid "Shop Description"
-msgstr ""
-
 #: classes/admin/views/html-vendor-settings-page.php:180, templates/dashboard/settings/shop-description.php:19
 msgid "This is displayed on your <a href=\"%s\">shop page</a>."
 msgstr ""
@@ -2628,6 +2678,10 @@ msgstr ""
 
 #: templates/emails/plain/admin-notify-application.php:22
 msgid "You can approve or deny the application at the following link %s"
+msgstr ""
+
+#: templates/emails/plain/admin-notify-approved.php:20
+msgid "Approved username: %s"
 msgstr ""
 
 #: templates/emails/plain/vendor-notify-cancelled-order.php:19

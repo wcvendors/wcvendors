@@ -1,5 +1,18 @@
 Changelog for WC Vendors Marketplace
 
+Verison 2.1.13 - 26th August 2019
+
+* Added: New shop description option for vendor store page
+* Added: Check post type on delete for sub orders
+* Added: Tool to remove orphaned vendor sub orders
+* Updated: gulp and build language file. (#585)
+* Updated: WooCommerce 3.7 compatibility testing
+* Fixed: Translated strings saved to database aren't translated on output #579
+* Fixed: Delete vendor sub orders when parent order is deteled #558
+* Fixed: Approving a vendor sends an email to the admin #578 (#582)
+* Fixed: Urls on settings page
+* Fixed: Hide product featured input if capability disabled. (#587)
+
 Version 2.1.12 - 26th June 2019
 
 * Added: Become a vendor label

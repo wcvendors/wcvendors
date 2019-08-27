@@ -116,7 +116,7 @@ class WCV_Vendor_Shop {
 			$has_html    = get_user_meta( $post->post_author, 'pv_shop_html_enabled', true );
 			$global_html = get_option( 'wcvendors_display_shop_description_html' );
 
-			$seller_info_label = get_option( 'wcvendors_display_label_store_info' );
+			$seller_info_label = __( get_option( 'wcvendors_display_label_store_info' ), 'wc-vendors' );
 
 			// Run the built in WordPress oEmbed on the seller info if html is enabled.
 			if ( $global_html || $has_html ) {
@@ -212,8 +212,8 @@ class WCV_Vendor_Shop {
 	public static function template_loop_sold_by( $product_id ) {
 
 		$vendor_id         = WCV_Vendors::get_vendor_from_product( $product_id );
-		$sold_by_label     = get_option( 'wcvendors_label_sold_by' );
-		$sold_by_separator = get_option( 'wcvendors_label_sold_by_separator' );
+		$sold_by_label     = __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' );
+		$sold_by_separator = __( get_option( 'wcvendors_label_sold_by_separator' ), 'wc-vendors' );
 		$sold_by           = WCV_Vendors::is_vendor( $vendor_id )
 			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
@@ -344,7 +344,7 @@ class WCV_Vendor_Shop {
 			$cart_item     = $cart[ $cart_item_key ];
 			$product_id    = $cart_item['product_id'];
 			$vendor_id     = WCV_Vendors::get_vendor_from_product( $product_id );
-			$sold_by_label = get_option( 'wcvendors_label_sold_by' );
+			$sold_by_label = __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' );
 			$sold_by       = WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ) : get_bloginfo( 'name' );
 
 			$item->add_meta_data( apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by, true );

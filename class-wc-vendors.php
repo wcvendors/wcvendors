@@ -7,11 +7,11 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              2.1.12
+ * Version:              2.1.13
  * Requires at least:    5.0.0
  * Tested up to:         5.2.2
  * WC requires at least: 3.3.0
- * WC tested up to:      3.6.5
+ * WC tested up to:      3.7.0
  *
  * Text Domain:          wc-vendors
  * Domain Path:          /languages/
@@ -97,7 +97,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	 */
 	class WC_Vendors {
 
-		public $version = '2.1.12';
+		public $version = '2.1.13';
 
 		/**
 		 * @var
@@ -207,7 +207,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			$locale = apply_filters( 'plugin_locale', $locale, 'wc-vendors' );
 			load_textdomain( 'wc-vendors', WP_LANG_DIR . '/wc-vendors/wc-vendors-' . $locale . '.mo' );
 			load_plugin_textdomain( 'wc-vendors', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
-
 		}
 
 		/**
@@ -308,6 +307,13 @@ if ( wcv_is_woocommerce_activated() ) {
 			switch ( $screen->id ) {
 				case 'edit-product':
 					wp_enqueue_script( 'wcv_quick-edit', wcv_assets_url . 'js/wcv-admin-quick-edit.js', array( 'jquery' ), WCV_VERSION );
+					wp_localize_script(
+						'wcv_quick-edit',
+						'wcv_quick_edit_params',
+						array(
+							'allow_featured' => apply_filters( 'wcvendors_capability_allow_product_featured', get_option( 'wcvendors_capability_product_featured', 'no' ) ),
+						)
+					);
 					break;
 				case 'wc-vendors_page_wcv-commissions':
 					wp_register_script( 'wcv_admin_commissions', wcv_assets_url . 'js/admin/wcv-admin-commissions.js', array( 'jquery' ), WCV_VERSION , true );
