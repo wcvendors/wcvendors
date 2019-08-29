@@ -242,16 +242,17 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 
 = Version 2.1.12 - 26th June 2019 =
 
-* Added: New shop description option for vendor store page
-* Added: Check post type on delete for sub orders
-* Added: Tool to remove orphaned vendor sub orders
-* Updated: gulp and build language file. (#585)
-* Updated: WooCommerce 3.7 compatibility testing
-* Fixed: Translated strings saved to database aren't translated on output #579
-* Fixed: Delete vendor sub orders when parent order is deteled #558
-* Fixed: Approving a vendor sends an email to the admin #578 (#582)
-* Fixed: Urls on settings page
-* Fixed: Hide product featured input if capability disabled. (#587)
+* Added: Become a vendor label
+* Added: Bulk assign media to vendor #565 (#577)
+* Added: New filter to filter the sold by template (#575)
+* Added: GitHub Contributing templates (#574)
+* Updated: Moved become a vendor to label settings page
+* Updated: Extensions pages and related links
+* Updated: Tested to 5.2.2 of WP
+* Fixed: Column width on products page for vendor store column
+* Fixed: Custom columns on user page not populated for other plugins #576
+* Fixed: Wrong user meta name for banking details (#572)
+* Fixed: Vendor description output on single product page when disabled #573
 
 = Version 2.1.11 - 13th June 2019 =
 
