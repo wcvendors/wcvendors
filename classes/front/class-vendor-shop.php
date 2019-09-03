@@ -41,8 +41,13 @@ class WCV_Vendor_Shop {
 
 		// Add a vendor header
 		if ( apply_filters( 'wcvendors_disable_shop_headers', wc_string_to_bool( get_option( 'wcvendors_display_shop_headers', 'no' ) ) ) ) {
-			add_action( 'woocommerce_before_main_content', array( 'WCV_Vendor_Shop', 'vendor_main_header' ), 20 );
-			add_action( 'woocommerce_before_single_product', array( 'WCV_Vendor_Shop', 'vendor_mini_header' ) );
+			if ( apply_filters( 'show_vendor_main_header', true ) ) {
+				add_action( 'woocommerce_before_main_content', array( 'WCV_Vendor_Shop', 'vendor_main_header' ), 20 );
+			}
+
+			if ( apply_filters( 'show_vendor_mini_header', true ) ) {
+				add_action( 'woocommerce_before_single_product', array( 'WCV_Vendor_Shop', 'vendor_mini_header' ), 12 );
+			}
 		}
 
 		add_filter( 'document_title_parts', array( $this, 'vendor_page_title' ) );
