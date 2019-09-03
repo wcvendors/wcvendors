@@ -128,7 +128,7 @@ class WCV_Vendors {
 			$give_tax_override      = get_user_meta( $author, 'wcv_give_vendor_tax', true );
 			$give_shipping_override = get_user_meta( $author, 'wcv_give_vendor_shipping', true );
 			$is_vendor              = WCV_Vendors::is_vendor( $author );
-			$commission             = $is_vendor ? WCV_Commission::calculate_commission( $order_item['line_subtotal'], $product_id, $order, $order_item['qty'] ) : 0;
+			$commission             = $is_vendor ? WCV_Commission::calculate_commission( $order_item['line_subtotal'], $product_id, $order, $order_item['qty'], $order_item ) : 0;
 			$tax                    = ! empty( $order_item['line_tax'] ) ? (float) $order_item['line_tax'] : 0;
 			$order_id               = $order->get_id();
 
@@ -562,7 +562,7 @@ class WCV_Vendors {
 						'tax'          => $item['line_tax'],
 						'subtotal_tax' => $item['line_subtotal_tax'],
 						'tax_data'     => maybe_unserialize( $item['line_tax_data'] ),
-						'commission'   => WCV_Commission::calculate_commission( $item['line_subtotal'], $item['product_id'], $order, $item['qty'] ),
+						'commission'   => WCV_Commission::calculate_commission( $item['line_subtotal'], $item['product_id'], $order, $item['qty'], $item ),
 					);
 				}
 			}

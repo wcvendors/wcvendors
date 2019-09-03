@@ -67,7 +67,9 @@ class WCV_Vendor_Reports {
 	/**
 	 * Filter products based on current vendor
 	 *
-	 * @param unknown $orders
+	 * @version 2.1.14
+	 * @since   2.0.0
+	 * @param unknown $orders List of orders.
 	 *
 	 * @return unknown
 	 */
@@ -87,7 +89,7 @@ class WCV_Vendor_Reports {
 				continue;
 			} else {
 				if ( ! empty( $order->line_total ) ) {
-					$orders[ $key ]->line_total = WCV_Commission::calculate_commission( $order->line_total, $order->product_id, $order, $order->qty );
+					$orders[ $key ]->line_total = WCV_Commission::calculate_commission( $order->line_total, $order->product_id, $order, $order->qty, $item );
 				}
 			}
 		}
