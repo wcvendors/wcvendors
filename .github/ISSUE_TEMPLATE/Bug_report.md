@@ -1,9 +1,8 @@
 ---
 name: "\U0001F41E Bug report"
-about: Report a bug if something isn't working as expected in the core of WC Vendors Marketplace
-  plugin.
+about: Report a bug if something isn't working as expected in the core of WC Vendors Marketplace plugin.
 title: ''
-labels: ''
+labels: 'bug'
 assignees: ''
 
 ---
@@ -35,4 +34,3 @@ A clear and concise description of what you expected to happen.
 Copy and paste the system status report from **WooCommerce > System Status** in WordPress admin.
 ```
 </details>
-

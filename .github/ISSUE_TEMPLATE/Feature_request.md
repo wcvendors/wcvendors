@@ -3,7 +3,7 @@ name: "\U0001F680 Feature request"
 about: "Suggest a new feature \U0001F389 We'll consider building it if it receives
   sufficient interest! \U0001F44D"
 title: ''
-labels: ''
+labels: 'New Feature'
 assignees: ''
 
 ---
@@ -19,4 +19,3 @@ A clear and concise description of any alternative solutions or features you've 
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
-
