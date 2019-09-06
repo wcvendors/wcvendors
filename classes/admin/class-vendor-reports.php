@@ -89,7 +89,7 @@ class WCV_Vendor_Reports {
 				continue;
 			} else {
 				if ( ! empty( $order->line_total ) ) {
-					$orders[ $key ]->line_total = WCV_Commission::calculate_commission( $order->line_total, $order->product_id, $order, $order->qty, $item );
+					$orders[ $key ]->line_total = WCV_Commission::calculate_commission( $order->line_total, $order->product_id, $order, $order->qty );
 				}
 			}
 		}
