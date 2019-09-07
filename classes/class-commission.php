@@ -338,10 +338,10 @@ class WCV_Commission {
 	 * @version 2.1.14
 	 * @since   2.0.0
 	 * @param float    $product_price The product price.
-	 * @param int      $product_id The product id.
-	 * @param WC_Order $order The WooCommerce order.
-	 * @param int      $qty The product quantity.
-	 * @param mixed    $item The order item. Optional, default array().
+	 * @param int      $product_id    The product id.
+	 * @param WC_Order $order         The WooCommerce order.
+	 * @param int      $qty           The product quantity.
+	 * @param mixed    $item          The order item. Optional, default array().
 	 * @return float
 	 */
 	public static function calculate_commission( $product_price, $product_id, $order, $qty, $item = array() ) {
