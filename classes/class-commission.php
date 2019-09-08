@@ -346,23 +346,6 @@ class WCV_Commission {
 	 */
 	public static function calculate_commission( $product_price, $product_id, $order, $qty, $item = array() ) {
 
-		if ( is_a( $item, 'WC_Order_Item_Product' ) ) {
-			$coupons = $order->get_used_coupons();
-
-			if ( count( $coupons ) > 1 ) {
-				$coupon_action = apply_filters( 'wcv_commision_coupon_action', 'yes' );
-				if ( 'yes' === $coupon_action ) {
-					$product_price = $item->get_total();
-				} elseif ( 'no' === $coupon_action ) {
-					$product_price = $item->get_subtotal();
-				}
-			} else {
-				$product_price = $item->get_total();
-			}
-
-			$product_id = $item->get_id();
-		}
-
 		$commission_rate = self::get_commission_rate( $product_id );
 		$commission      = $product_price * ( $commission_rate / 100 );
 		$commission      = round( $commission, 2 );
