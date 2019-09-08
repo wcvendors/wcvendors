@@ -32,7 +32,11 @@ class WCV_Product_Meta {
 		}
 
 		add_action( 'woocommerce_product_quick_edit_end' , array( $this, 'display_vendor_dd_quick_edit' ) );
+		add_action( 'woocommerce_product_bulk_edit_start', array( $this, 'display_vendor_dd_bulk_edit' ) );
+
+
 		add_action( 'woocommerce_product_quick_edit_save', array( $this, 'save_vendor_quick_edit' ), 2, 99 );
+		add_action( 'woocommerce_product_bulk_edit_save',  array( $this, 'save_vendor_bulk_edit' ), 1, 99 );
 		add_action( 'manage_product_posts_custom_column' , array( $this, 'display_vendor_column' ), 2, 99 );
 		add_filter( 'manage_product_posts_columns'       , array( $this, 'vendor_column_quickedit' ) );
 
@@ -279,10 +283,12 @@ class WCV_Product_Meta {
 
 	/*
 	*	Save the vendor on the quick edit screen
+	*
 	*/
 	public function save_vendor_quick_edit( $product ) {
 
 		if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) ) {
+
 			if ( isset( $_REQUEST['_vendor'] ) ) {
 				$vendor            = wc_clean( $_REQUEST['_vendor'] );
 				$post              = get_post( $product->get_id() );
@@ -295,6 +301,69 @@ class WCV_Product_Meta {
 		}
 
 		return $product;
+	}
+
+	/*
+	*	Display the vendor drop down on the bulk edit screen
+	*
+	* @since 2.1.14
+	* @version 2.1.14
+	*/
+	public function display_vendor_dd_bulk_edit() {
+
+		global $post;
+		$selected = '';
+
+		$roles     = array( 'vendor', 'administrator' );
+		$user_args = array( 'fields' => array( 'ID', 'display_name' ) );
+
+		$output = "<select style='width:200px;' name='vendor' class='select'>\n";
+		$output .= '<option value="">'. __('— No change —', 'wc-vendors') . '</option>';
+
+		foreach ( $roles as $role ) {
+
+			$new_args         = $user_args;
+			$new_args['role'] = $role;
+			$users            = get_users( $new_args );
+
+			if ( empty( $users ) ) {
+				continue;
+			}
+			$output .= wcv_vendor_drop_down_options( $users, '' );
+		}
+		$output .= '</select>';
+
+
+		?>
+		<br class="clear"/>
+		<label class="inline-edit-author-new">
+			<span class="title"><?php printf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ); ?></span>
+			<?php echo $output; ?>
+		</label>
+		<?php
+	}
+
+	/*
+	* Save the vendor from the bulk edit action
+	*
+	* @since 2.1.14
+	* @version 2.1.14
+	*/
+	public function save_vendor_bulk_edit( $product ) {
+
+		if ( isset( $_REQUEST['vendor'] ) && $_REQUEST['vendor'] != ''  ) {
+			$vendor            = wc_clean( $_REQUEST['vendor'] );
+			$update_vendor = array(
+				'ID'          => $product->get_id(),
+				'post_author' => $vendor,
+	   		);
+	   		wp_update_post( $update_vendor );
+
+	   		if ( isset( $_REQUEST['product_media_author_override'] ) ) {
+				$this->save_product_media( $product );
+			}
+		}
+
 	}
 
 	/**

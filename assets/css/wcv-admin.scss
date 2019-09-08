@@ -482,3 +482,9 @@
 }
 
 .column-vendor { width: 10%; }
+
+.bulk-edit-product{
+	.inline-edit-author, .post_author {
+		display: none;
+	}
+}

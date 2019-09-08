@@ -164,3 +164,5 @@
 .wcv_addons_wrap .products li a:hover, .wcv_addons_wrap .products li a:focus { background-color: #fff; }
 
 .column-vendor { width: 10%; }
+
+.bulk-edit-product .inline-edit-author, .bulk-edit-product .post_author { display: none; }
