@@ -281,9 +281,10 @@ class WCV_Product_Meta {
 	}
 
 
-	/*
-	*	Save the vendor on the quick edit screen
+	/**
+	* Save the vendor on the quick edit screen
 	*
+	* @param WC_Product $product 
 	*/
 	public function save_vendor_quick_edit( $product ) {
 
@@ -303,8 +304,8 @@ class WCV_Product_Meta {
 		return $product;
 	}
 
-	/*
-	*	Display the vendor drop down on the bulk edit screen
+	/**
+	* Display the vendor drop down on the bulk edit screen
 	*
 	* @since 2.1.14
 	* @version 2.1.14
