@@ -318,7 +318,7 @@ class WCV_Product_Meta {
 		$user_args = array( 'fields' => array( 'ID', 'display_name' ) );
 
 		$output = "<select style='width:200px;' name='vendor' class='select'>\n";
-		$output .= '<option value="">'. __('— No change —', 'wc-vendors') . '</option>';
+		$output .= '<option value=""> '. __('— No change —', 'wc-vendors') . '</option>';
 
 		foreach ( $roles as $role ) {
 
