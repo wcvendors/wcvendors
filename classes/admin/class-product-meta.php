@@ -344,11 +344,12 @@ class WCV_Product_Meta {
 		<?php
 	}
 
-	/*
+	/**
 	* Save the vendor from the bulk edit action
 	*
 	* @since 2.1.14
 	* @version 2.1.14
+	* @param WC_Product $product
 	*/
 	public function save_vendor_bulk_edit( $product ) {
 
@@ -359,12 +360,7 @@ class WCV_Product_Meta {
 				'post_author' => $vendor,
 	   		);
 	   		wp_update_post( $update_vendor );
-
-	   		if ( isset( $_REQUEST['product_media_author_override'] ) ) {
-				$this->save_product_media( $product );
-			}
 		}
-
 	}
 
 	/**
