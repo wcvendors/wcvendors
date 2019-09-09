@@ -31,8 +31,8 @@ class WCV_Product_Meta {
 			add_action( 'woocommerce_process_product_meta'    , array( $this, 'save_panel' ) );
 		}
 
-		add_action( 'woocommerce_product_quick_edit_end' , array( $this, 'display_vendor_dd_quick_edit' ) );
-		add_action( 'woocommerce_product_bulk_edit_start', array( $this, 'display_vendor_dd_bulk_edit' ) );
+		add_action( 'woocommerce_product_quick_edit_end' , array( $this, 'display_vendor_dropdown_quick_edit' ) );
+		add_action( 'woocommerce_product_bulk_edit_start', array( $this, 'display_vendor_dropdown_bulk_edit' ) );
 
 
 		add_action( 'woocommerce_product_quick_edit_save', array( $this, 'save_vendor_quick_edit' ), 2, 99 );
@@ -241,7 +241,7 @@ class WCV_Product_Meta {
 	/*
 	*	Display the vendor drop down on the quick edit screen
 	*/
-	public function display_vendor_dd_quick_edit() {
+	public function display_vendor_dropdown_quick_edit() {
 
 		global $post;
 		$selected = $post->post_author;
@@ -284,7 +284,7 @@ class WCV_Product_Meta {
 	/**
 	* Save the vendor on the quick edit screen
 	*
-	* @param WC_Product $product 
+	* @param WC_Product $product
 	*/
 	public function save_vendor_quick_edit( $product ) {
 
@@ -310,7 +310,7 @@ class WCV_Product_Meta {
 	* @since 2.1.14
 	* @version 2.1.14
 	*/
-	public function display_vendor_dd_bulk_edit() {
+	public function display_vendor_dropdown_bulk_edit() {
 
 		global $post;
 		$selected = '';
