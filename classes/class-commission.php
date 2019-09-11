@@ -335,18 +335,22 @@ class WCV_Commission {
 	/**
 	 * Commission due for a product based on a rate and price
 	 *
-	 * @param float   $product_price
-	 * @param unknown $product_id
-	 *
+	 * @version 2.1.14
+	 * @since   2.0.0
+	 * @param float    $product_price The product price.
+	 * @param int      $product_id    The product id.
+	 * @param WC_Order $order         The WooCommerce order.
+	 * @param int      $qty           The product quantity.
+	 * @param mixed    $item          The order item. Optional, default array().
 	 * @return float
 	 */
-	public static function calculate_commission( $product_price, $product_id, $order, $qty ) {
+	public static function calculate_commission( $product_price, $product_id, $order, $qty, $item = array() ) {
 
-		$commission_rate = WCV_Commission::get_commission_rate( $product_id );
+		$commission_rate = self::get_commission_rate( $product_id );
 		$commission      = $product_price * ( $commission_rate / 100 );
 		$commission      = round( $commission, 2 );
 
-		return apply_filters( 'wcv_commission_rate', $commission, $product_id, $product_price, $order, $qty );
+		return apply_filters( 'wcv_commission_rate', $commission, $product_id, $product_price, $order, $qty, $item );
 	}
 
 
