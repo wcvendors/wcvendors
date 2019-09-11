@@ -545,6 +545,8 @@ class WCVendors_Install {
 	    $capabilities = array(
 	    	'vendor'    => array(
 	    		'wcv_vendor_enabled'             => __( 'Vendor is enabled', 'wc-vendors' ),
+	    		'wcv_vendor_verified'            => __( 'Vendor is verified', 'wc-vendors' ),
+	    		'wcv_vendor_trusted'             => __( 'Vendor is trusted', 'wc-vendors' ),
 	    	),
 	        'dashboard' => array(
 	            'wcv_view_sales_overview'        => __( 'View sales overview', 'wc-vendors' ),
@@ -560,8 +562,7 @@ class WCVendors_Install {
 	            'wcv_add_order_note' 		=> __( 'Add order notes', 'wc-vendors' ),
 	            'wcv_view_order_note' 		=> __( 'View order notes', 'wc-vendors' ),
 	            'wcv_manage_order_export' 	=> __( 'Export orders', 'wc-vendors' ),
- 	        ),
- 	        'order_customer' => array(
+	            'wcv_manage_order_status' 	=> __( 'Manage order status', 'wc-vendors' ),
 	            'wcv_view_name'        		=> __( 'View customer name', 'wc-vendors' ),
 	            'wcv_view_email'        	=> __( 'View customer email address', 'wc-vendors' ),
 	            'wcv_view_phone'        	=> __( 'View customer phone number', 'wc-vendors' ),
@@ -570,7 +571,7 @@ class WCVendors_Install {
 	            'wcv_view_billing'      	=> __( 'View customer billing address fields', 'wc-vendors' ),
 	            'wcv_view_email'      		=> __( 'View customer shipping name', 'wc-vendors' ),
  	        ),
-	        'product' => array(
+ 	        'product' => array(
 	            'wcv_add_product'       		=> __( 'Add product', 'wc-vendors' ),
 	            'wcv_edit_product'      		=> __( 'Edit product', 'wc-vendors' ),
 	            'wcv_edit_product_published'    => __( 'Edit published product', 'wc-vendors' ),
@@ -578,7 +579,6 @@ class WCVendors_Install {
 	            'wcv_delete_product'    		=> __( 'Delete product', 'wc-vendors' ),
 	            'wcv_duplicate_product' 		=> __( 'Duplicate product', 'wc-vendors' ),
 	            'wcv_view_product'      		=> __( 'View product', 'wc-vendors' ),
-
 	        ),
 	        // Not used yet
 	        'report' => array(
