@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wcvendors-message wcvendors-newsletter">
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <p><?php esc_html_e( 'Subscribe to our newsletter! Get product updates, marketplace tips, information and more.', 'wc-vendors' ); ?></p>
-<form action="https://wcvendors.us20.list-manage.com/subscribe/post?u=c70c537d05355fa9ec97e8134&amp;id=462e6aa9c6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<form action="https://wcvendors.us20.list-manage.com/subscribe/post?u=c70c537d05355fa9ec97e8134&amp;id=86c131c9ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 	<div class="newsletter-form-container">
 		<input
 				class="newsletter-form-email"
@@ -43,6 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</p>
 		</div>
 		<div id="mce-responses" class="clear">
+			<input type="checkbox"id="group_2" name="group[4145][2]" value="1" style="display:none" checked>
 			<div class="response" id="mce-error-response" style="display:none"></div>
 			<div class="response" id="mce-success-response" style="display:none"></div>
 		</div>
@@ -54,16 +55,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 <ul class="wcv-wizard-next-steps">
 	<li class="wcv-wizard-next-step-item">
 		<div class="wcv-wizard-next-step-description">
-			<p class="next-step-heading"><?php esc_html_e( 'Next step', 'wc-vendors' ); ?></p>
-			<h3 class="next-step-description"><?php esc_html_e( 'Upgrade to Pro!', 'wc-vendors' ); ?></h3>
-			<p class="next-step-extra-info"><?php esc_html_e( 'Upgrade today to extend the features of your marketplace.', 'wc-vendors' ); ?></p>
+			<p class="next-step-heading"><?php esc_html_e( 'Make your life easy', 'wc-vendors' ); ?></p>
+			<h2 class="next-step-description"><?php esc_html_e( 'Upgrade to Pro!', 'wc-vendors' ); ?></h2>
+			<p class="next-step-extra-info"><?php esc_html_e( 'Upgrade today to enhance your marketplace for the best chance of success.', 'wc-vendors' ); ?></p>
 			<p class="next-step-heading"><?php esc_html_e( 'Features', 'wc-vendors' ); ?></p>
 			<ul>
-				<li><?php _e( 'Complete frontend dashboard for vendors', 'wc-vendors' ); ?></li>
+				<li><?php _e( 'Remove the need for vendors to access the WordPress dmin with a complete frontend dashboard', 'wc-vendors' ); ?></li>
 				<li><?php _e( 'Flat rate & table rate shipping module', 'wc-vendors' ); ?></li>
 				<li><?php _e( 'Coupons, ratings, reports, orders and more.', 'wc-vendors' ); ?></li>
-				<li><?php _e( 'Advanced commissions', 'wc-vendors' ); ?></li>
+				<li><?php _e( 'Advanced commission including fixed and tiered', 'wc-vendors' ); ?></li>
 				<li><?php _e( 'Premium support & updates', 'wc-vendors' ); ?></li>
+				<li><?php _e( 'Starting from $199 annually', 'wc-vendors' ); ?></li>
 			</ul>
 		</div>
 		<div class="wcv-wizard-next-step-action">
@@ -71,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<a class="button button-primary button-large"
 				   href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete"
 				   target="_blank">
-					<?php _e( 'Upgrade Now', 'wc-vendors' ); ?>
+					<?php _e( 'Upgrade Today', 'wc-vendors' ); ?>
 				</a>
 			</p>
 		</div>
@@ -79,15 +81,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<li class="wcv-wizard-next-step-item">
 		<div class="wcv-wizard-next-step-description">
 			<p class="next-step-heading"><?php _e( 'Extend your marketplace', 'wc-vendors' ); ?></p>
-			<h3 class="next-step-description"><?php _e( 'Extensions', 'wc-vendors' ); ?></h3>
-			<p class="next-step-extra-info"><?php _e( 'Extend your marketplace today with a variety of extensions from us and 3rd party developers.', 'wc-vendors' ); ?></p>
+			<h2 class="next-step-description"><?php _e( 'Premium Extensions', 'wc-vendors' ); ?></h2>
+			<p class="next-step-extra-info"><?php _e( 'Turn your marketplace into an auction or subscription site, charge your vendors a monthly membership and more with our awesome premium extensions.', 'wc-vendors' ); ?></p>
 		</div>
 		<div class="wcv-wizard-next-step-action">
 			<p class="wcv-setup-actions step">
 				<a class="button button-large"
 				   href="https://www.wcvendors.com/plugins/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete"
 				   target="_blank">
-					<?php _e( 'View Extensions', 'wc-vendors' ); ?>
+					<?php _e( 'Buy Premium Extensions', 'wc-vendors' ); ?>
 				</a>
 			</p>
 		</div>
