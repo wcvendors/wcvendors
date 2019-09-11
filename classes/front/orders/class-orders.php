@@ -19,7 +19,7 @@ class WCV_Orders {
 		$this->can_view_orders        = wc_string_to_bool( get_option( 'wcvendors_capability_orders_enabled', 'no' ) );
 		$this->can_export_csv         = wc_string_to_bool( get_option( 'wcvendors_capability_orders_export', 'no' ) );
 		$this->can_view_emails        = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_email', 'no' ) );
-		$this->can_view_billing_name  = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
+		$this->can_view_name     	  = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
 		$this->can_view_shipping_name = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping_name', 'no' ) );
 		$this->can_view_address       = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping' ) );
 
