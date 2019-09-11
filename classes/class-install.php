@@ -134,6 +134,7 @@ class WCVendors_Install {
 		self::create_roles();
 		self::create_tables();
 		self::create_options();
+		self::add_install_date();
 		self::maybe_run_setup_wizard();
 		self::update_wcv_version();
 		self::maybe_update_db_version();
@@ -465,6 +466,16 @@ class WCVendors_Install {
 		}
 	}
 
+	/**
+	 * Add an install date option so we can track when the plugin was installed
+	 *
+	 */
+	private static function add_install_date(){
+		if ( self::is_new_install() ){
+			add_option( 'wcvendors_install_date', current_time( 'Y-m-d' ) );
+		}
+	}
+
 
 	/**
 	 * Show action links on the plugin screen.
@@ -532,6 +543,9 @@ class WCVendors_Install {
 	public static function get_vendor_caps() {
 
 	    $capabilities = array(
+	    	'vendor'    => array(
+	    		'wcv_vendor_enabled'             => __( 'Vendor is enabled', 'wc-vendors' ),
+	    	),
 	        'dashboard' => array(
 	            'wcv_view_sales_overview'        => __( 'View sales overview', 'wc-vendors' ),
 	            'wcv_view_sales_report_chart'    => __( 'View sales report chart', 'wc-vendors' ),
