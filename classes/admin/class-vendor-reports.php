@@ -67,7 +67,9 @@ class WCV_Vendor_Reports {
 	/**
 	 * Filter products based on current vendor
 	 *
-	 * @param unknown $orders
+	 * @version 2.1.14
+	 * @since   2.0.0
+	 * @param unknown $orders List of orders.
 	 *
 	 * @return unknown
 	 */
