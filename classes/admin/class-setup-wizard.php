@@ -399,6 +399,8 @@ class WCVendors_Admin_Setup_Wizard {
 		WCVendors_Install::update_db_version();
 		flush_rewrite_rules();
 
+		update_option( 'wcvendors_wizard_complete', current_time( 'mysql' ) ); 
+
 		$user_email = $this->get_current_user_email();
 		$first_name = $this->get_current_user_firstname();
 		$forums     = 'https://wordpress.org/support/plugin/wc-vendors';
