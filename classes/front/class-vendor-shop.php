@@ -41,13 +41,11 @@ class WCV_Vendor_Shop {
 
 		// Add a vendor header
 		if ( apply_filters( 'wcvendors_disable_shop_headers', wc_string_to_bool( get_option( 'wcvendors_display_shop_headers', 'no' ) ) ) ) {
-			if ( apply_filters( 'show_vendor_main_header', true ) ) {
-				add_action( 'woocommerce_before_main_content', array( 'WCV_Vendor_Shop', 'vendor_main_header' ), 20 );
-			}
-
-			if ( apply_filters( 'show_vendor_mini_header', true ) ) {
+			add_action( 'woocommerce_before_main_content', array( 'WCV_Vendor_Shop', 'vendor_main_header' ), 20 );
+			if ( wc_string_to_bool( get_option( 'wcvendors_store_single_headers', 'no' ) ) ){
 				add_action( 'woocommerce_before_single_product', array( 'WCV_Vendor_Shop', 'vendor_mini_header' ), 12 );
 			}
+
 		}
 
 		add_filter( 'document_title_parts', array( $this, 'vendor_page_title' ) );
@@ -59,7 +57,6 @@ class WCV_Vendor_Shop {
 			add_action( 'wp_logout', array( $this, 'redirect_after_logout' ), 10 );
 			add_filter( 'login_redirect', array( $this, 'change_login_redirect' ), 10, 3 );
 		}
-
 	}
 
 	public static function change_archive_link( $link ) {
@@ -159,7 +156,7 @@ class WCV_Vendor_Shop {
 	 */
 	public static function shop_description() {
 
-		if ( ! wc_string_to_bool( get_option( 'wcvendors_display_shop_description', 'no' ) ) ) return; 
+		if ( ! wc_string_to_bool( get_option( 'wcvendors_display_shop_description', 'no' ) ) ) return;
 
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );

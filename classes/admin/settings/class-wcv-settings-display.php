@@ -268,10 +268,19 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						array(
 							'title'    => __( 'Shop Header', 'wc-vendors' ),
 							'desc'     => sprintf( __( 'Enable %s shop headers', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
-							'desc_tip' => sprintf( __( 'This enables the %s shop header template and disables the shop description text.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'desc_tip' => sprintf( __( 'This enables the %s shop header template.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'       => 'wcvendors_display_shop_headers',
 							'default'  => 'no',
 							'type'     => 'checkbox',
+						),
+
+						array(
+							'title'   => __( 'Single Product Header', 'wcvendors-pro' ),
+							'desc'    => __( 'Enable shop headers on single product pages.', 'wcvendors-pro' ),
+							'tip'     => __( 'Check to enable the entire header on /shop/product-category/product-name/', 'wcvendors-pro' ),
+							'id'      => 'wcvendors_store_single_headers',
+							'type'    => 'checkbox',
+							'default' => 'no',
 						),
 
 						array(
