@@ -1,6 +1,6 @@
 === WC Vendors Marketplace - The Multivendor Marketplace Solution for WooCommerce ===
 Contributors: digitalchild
-Tags: woocommerce marketplace, marketplace, woocommerce, multi vendor marketplace, multi vendor, multi seller, woocommerce vendor, product vendors, vendor, vendors, wc multivendor, commissions, commission rate
+Tags: woocommerce marketplace, marketplace, woocommerce, multi vendor marketplace, multi vendor, multi seller, woocommerce vendor, product vendors, vendor, vendors, commissions, commission rate
 Donate link: https://www.wcvendors.com/
 Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
@@ -16,98 +16,53 @@ The number one most downloaded marketplace plugin for WooCommerce. Now you can a
 
 == Description ==
 
-= WC Vendors Marketplace plugin for WordPress and WooCommerce =
+= WC Vendors Marketplace plugin for WooCommerce =
 
-
-- Try our demo today: <a href="http://www.wcvendors.com/home/demo/?utm_campaign=wporg_details?utm_source=wporg">Launch your own install today</a>
-- See whats in our pro product today - <a href="https://www.wcvendors.com/home/features/?utm_campaign=wporg_details?utm_source=wporg">All pro features of WC Vendors Pro</a>
+- Try our free demo today: [Launch your own demo today](http://www.wcvendors.com/home/demo/?utm_campaign=wporg_details?utm_source=wporg)
+- Learn about WC Vendors Pro: [All the features of WC Vendors Pro](https://www.wcvendors.com/home/features/?utm_campaign=wporg_details?utm_source=wporg)
 
 = POWERED BY WORDPRESS AND WOOCOMMERCE =
 
-Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
+Create your own marketplace and allow vendors to sell products just like etsy, Envato, eBay, or Amazon! You can sell physical, digital or variable products on your marketplace.
 
-WC Vendors Marketplace was released to the market in October of 2014 having gotten its roots from Product Vendors by Matt Gates dating back to 2011. We are the number one multi vendor marketplace plugin for WordPress and WooCommerce. It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.
+WC Vendors Marketplace is the best way to create your mult-vendor marketplace and earn money from every sale.
 
-== Announcements ==
+= Solutions =
 
-* Want to know how vendors get paid? Be sure to read our <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=annoucements?utm_source=wporg">Payments Explained</a> article available on our website, solutions including Stripe, Paypal, Mangopay and more are available.
-* The plugin name has been updated. It is now called WC Vendors Marketplace. <a href="www.wcvendors.com/2018/07/wc-vendors-marketplace/?utm_campaign=annoucements?utm_source=wporg">Read about it here</a>.
-* Questions about GDPR and WC Vendors Marketplace? Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/gdpr-and-wc-vendors/?utm_campaign=announcements?utm_source=wporg">GDPR and WC Vendors</a>.
-* Please read our recent blog post <a href="https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=announcements?utm_source=wporg">Payments Explained</a> for
+WC Vendors Marketplace has been used to build a variety of multivendor marketplaces including:
 
+* Online Art Gallery
+* Local Farmers Markets
+* Cooking Classes
+* Sports Memorbillia Auction site
+* Used book store
+* Hand made furniture
+* Much much more
 
-== Features ==
+= Easy to use =
 
-= WC Vendors Marketplace =
+WC Vendors marketplace comes with a Setup Wizard to guide you through the inital setup of your marketplace. This gets you up and running quickly read to earn.
 
-The following features are available as a part of the free WC Vendors Marketplace plugin.
+= Fast, reliable support with active development  =
 
-* Create your own marketplace on WooCommerce
-* Vendors can add / edit products from within the WordPress dashboard.
-* Vendors can submit products for admin review, or send new products live to the site immediately.
-* Vendors can view live sales for their products from their front end dashboard
-* Vendors can comment on their orders (eg, to inform customers of a tracking number)
-* Vendors can export their orders to a CSV file
-* Vendors can sell all product types
-* Vendors manage their own media gallery/library
-* Vendors can add bank details to their profile to be paid out via bank transfer
-* Vendor stores have limited customization via templates
-* Vendors can be notified of new customer orders via email
-* Vendors have a store front which shows only their products. Their products are also listed in the main catalog for the marketplace.
-* Vendor registration is available from the WooCommerce login screen.
-* Vendors have their own user accounts
-* Commission rates can be set globally, Per Vendor or Per product this is limited to percentage commissions only.
-* Commissions can be exported to CSV for payment via other methods such as bank transfer
-* Commissions can be manually marked as paid or automatic using our Stripe gateway
-* Setup wizard makes configuring your marketplace a breeze
-* Admins have a range of vendor specific shortcodes are available
-* Admins can manually approve vendor applications or allow all applications to be accepted
-* Shipping is limited to free shipping or via 3rd party plugins. Shipping zones are not supported.
-* Allow tax collected to be given directly to the vendor during commission calculations.
-* Test Payment Gateway included for testing your store before it goes live
-* WPML Compatible
-* <strong>Not compatible with WordPress Multisite</strong>
-* Documentation with great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc can be found on our documentation site here <a href="http://docs.wcvendors.com/">http://docs.wcvendors.com/</a>
+WC Vendors Marketplace has been on the market for 5 years, releasing regular updates for smooth operation of your marketplace. We focus on including the best ecommerce features for our users. We pride ourselves on providing prompt, quality support as well as high quality secure, robust code.
 
-= WC Vendors Pro =
+Have a suggestion? Feel free to post it to our official [GitHub Page](https://github.com/wcvendors/wcvendors)
 
-The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=description?utm_source=wporg">WC Vendors Pro</a> our feature rich addition to your marketplace. Move all your vendors tasks to the frontend. They no longer need or see the WordPress admin.
-
-* Vendors have a main dashboard showing sales reports and recent orders and products.
-* Vendors have complete front end product management
-* Vendors can add their own coupons that only apply to their products
-* Vendors have advanced shipment tracking including shipping providers
-* Vendors have the ability to print a shipping label with a picking list
-* Vendors can add all their own social media profile links
-* Vendors can add SEO to their store and products
-* Vendors can add their own banner and store icon
-* Vendors have a comprehensive shipping system available. Either flat rate or table rate based.
-* Vendor stores templates are more advanced
-* Vendors have more control over their order notes
-* Vendors vacation module is included as part of pro not an extra addon including disable cart
-* Vendors store notice has been added
-* Vendors store opening hours
-* Admins have multiple commission rate options including percentage, percentage + fee, fixed, fixed + fee.
-* Admins can set global shipping rates as well as allow different shipping modules per vendor. Setting one as flat rate, while another can be table rate
-* Ebay style feedback allows customers to rate the products from the vendors
-* Premium ticket based support for all pro users. Annual and lifetime support licenses available.
-* There's more features to Pro than listed here!
-
-See our full comparison of free vs pro here <a href="https://www.wcvendors.com/home/comparison/?&utm_campaign=description?utm_source=wporg">Compare free and pro</a>
-
-== Build your marketplace today ==
+= Unlimited Potential =
 
 With WC Vendors Marketplace there is no restrictions on the number of vendors or products your marketplace can create. Your vendors will be able to create a marketplaces selling a range of different products such as
 
 * Physical products
-* Downloadable
+* Digital and Downloadable products
 * Variable products
-* Booking products with our <a href="https://www.wcvendors.com/product/woocommerce-bookings-integration/?&utm_campaign=description?utm_source=wporg">WC Vendors WooCommerce Bookings plugin</a>
-* Auctions with our <a href="https://www.wcvendors.com/product/woocommerce-simple-auctions-integration/?&utm_campaign=description?utm_source=wporg">WC Vendors WooCommerce Simple Auctions plugin</a>
+* Subscription products with our [WC Vendors Subscriptions Bookings plugin](https://www.wcvendors.com/product/wc-vendors-woocommerce-subscriptions/?&utm_campaign=description?utm_source=wporg)
+* Booking products with our [WC Vendors WooCommerce Bookings plugin](https://www.wcvendors.com/product/woocommerce-bookings-integration/?&utm_campaign=description?utm_source=wporg)
+* Auctions with our [WC Vendors WooCommerce Simple Auctions plugin](https://www.wcvendors.com/product/woocommerce-simple-auctions-integration/?&utm_campaign=description?utm_source=wporg)
 
 This allows you to create all kinds of marketplaces such as
 
-* Physical goods marketplaces like a furntiure store
+* Hand made wooden furniture store
 * Digital download marketplaces selling music or photos
 * A booking marketplace to sell cooking classes
 * An auction site like ebay
@@ -116,22 +71,19 @@ This allows you to create all kinds of marketplaces such as
 
 WC Vendors Marketplace has an advanced commission system that allows you to set commisions for a variaty of situations
 
-= Commission Types =
+**Commissions**
 
 * Percentage
 * Percentate + fee (Pro)
 * Fixed (Pro)
 * Fixed + fee (Pro)
-
-Tiered based commission systems
-
 * Sales by vendor (Pro)
 * Sales by Product (Pro)
 * Product Price (Pro)
 
-<a href="https://docs.wcvendors.com/knowledge-base/wc-vendors-pro-commission/">Read about our commissions here</a>
+[Read about our commissions here](https://docs.wcvendors.com/knowledge-base/wc-vendors-pro-commission)
 
-= WC Vendors Membership =
+**WC Vendors Membership**
 
 WC Vendors Membership allows you to create and sell membership plans to your vendors. Setting different limits for your vendors on what products they can sell. Features include
 
@@ -141,21 +93,25 @@ WC Vendors Membership allows you to create and sell membership plans to your ven
 * Easy to use subscription system for your vendors
 * With the use of WooCommerce Subscriptions, you can setup a membership marketplace today!
 
-<a href="https://www.wcvendors.com/product/wc-vendors-membership/?&utm_campaign=description?utm_source=wporg">Create your vendor membership site today</a>
+[Create your vendor membership site today](https://www.wcvendors.com/product/wc-vendors-membership/?&utm_campaign=description?utm_source=wporg)
 
-== Compatible Plugins ==
+= Control your marketplace =
 
-We encourage 3rd party developers to work with us to create great extensions that work with our products. We keep an updated list of <a href="https://www.wcvendors.com/home/compatible-plugins/?utm_source=wporg">compatible plugins</a> on our website as well as here. If you've built a plugin for WC Vendors products, please be sure to let us know!
+You are able to control how products are published, vendor registration be it manual or automatic, what product types the vendors can post and customer information the vendors can see.
 
-= Vendor Payment Gateways =
+With [WC Vendors Pro](https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=description?utm_source=wporg) you have even finer grained control. You have total control of the product edit forms including what fields are visible and what are required for vendors. By providing a complete frontend dashboard for your vendors you can allow them to manage their storefronts while you can focus on sales and marketing.
 
-* Stripe Connect Commissions & Gateway
-* Payouts for WC Vendors
-* MangoPay for WooCommerce
-* Escorw for WooCommerce
-* Mollie Connect for WC Vendors
+= Customize your store =
 
-= Shipping =
+Now you can design the look of your store with multiple options available. There are [several vendor specific shortcodes available](https://docs.wcvendors.com/knowledge-base/pages-and-shortcodes/) for admins to utilise around their site. For vendor store fronts there are 10 great widgets available in [WC Vendors Pro](https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=description?utm_source=wporg). You can place these in any widget enabled area within your theme and are restricted to the vendor store fronts. This is a great way to choose which features you'd like your vendors store fronts to have.
+
+[Learn More](https://docs.wcvendors.com/knowledge-base/wc-vendors-pro-widgets/?utm_campaign=description?utm_source=wporg)
+
+= Compatible Plugins =
+
+We encourage 3rd party developers to work with us to create great extensions that work with our products. We keep an updated list of [compatible plugins](https://www.wcvendors.com/home/compatible-plugins/?utm_source=wporg) on our website as well as here. If you've built a plugin for WC Vendors products, please be sure to let us know!
+
+**Shipping**
 
 * Epeken All Kurir Plugin for Woocommerce
 * Marketship
@@ -164,24 +120,92 @@ We encourage 3rd party developers to work with us to create great extensions tha
 * WooCommerce FedEx Shipping Plugin with Print Label
 * WooCommerce UPS Shipping Plugin with Print Label
 
-<a href="https://www.wcvendors.com/home/compatible-plugins/?utm_source=wporg">And many many more !</a>
+[And many many more !](https://www.wcvendors.com/home/compatible-plugins/?utm_source=wporg)
 
-= Translations =
+= Payment Gateways =
 
-We currently ship WC Vendors Marketplace free with the following language translations. If you would like translate WC Vendors Marketplace into your language we would be more than happy to include it in our next release. Please use https://translate.wordpress.org/locale/en/default/wp-plugins/wc-vendors
+Compatible with over 100+ payment gateways to take payments from your customers. You can use any payment gateway that is compatible with WooCommerce to receive payments. If you want to also pay your vendors through your marketplace, then you can use our compatible vendor payment gateways.
 
-* English
-* Austrian German
-* German
-* Chinese
-* Japanese (thanks Shohei Tanaka)
-* Brazilian Portuguese
-* Italian
-* Spanish
-* Portuguese
-* Persian
-* French
-* Swedish
+**Vendor Payment Gateways**
+
+* Stripe Connect Commissions & Gateway
+* Payouts for WC Vendors
+* MangoPay for WooCommerce
+* Escrow for WooCommerce
+* Mollie Connect for WC Vendors
+* Square Payment Gateway for WCVendors
+
+= Features =
+
+**Vendor Stores**
+
+* Sellers get their own store and unique URL
+* Store fronts can be customised through templates
+* Multiple store front styles (Pro feature)
+* 10 great pro widgets for store fronts (pro feature)
+* Vendor store notices to advertise coupons or sales (Pro Feature)
+* Vendor vacation mode (Pro Feature)
+* Vendor social media profiles (Pro Feature)
+* Vendor Store SEO (Pro feature)
+* Store Opening hours (Pro Feature)
+
+**Vendor Dashboard**
+
+* Basic frontend dashboard for sales and orders reports
+* Vendors can mark orders shipped
+* WordPress Admin for publishing products
+* Export orders
+* Complete frontend dashboard with no WordPress admin access for vendors (Pro feature)
+* Complete product, order, coupon management (Pro Feature)
+* Add tracking numbers to ordres (Pro Feature)
+* Print shipping labels (Pro Feature)
+
+**Earn in multiple ways**
+
+* Percentage based commission split between the admin and the seller
+* Set commission rates at the product, vendor or global level
+* Fixed, fee, tiered commissions based on sales of products, vendor or price (Pro Feature)
+* Sell vendor memberships (Paid Add On)
+
+**Product Management**
+
+* Vendors can manage their products from the WordPress Admin
+* Manage all product types and their options from the frontend dashboard (Pro Feature)
+* Manage and create atributes, variations (Pro Feature)
+* Manage shipping at the product level (Pro Feature)
+* Customers can review products. Vendors cannot modify these reviews (Pro Feature)
+
+**Vendor Discount Management (Pro Feature)**
+
+* Vendors can create and manage their coupons
+* Vendors can set the limits, expiry of coupons
+
+**Shipping management(Pro Feature)**
+
+* Shipping can be set at the product, vendor or global level
+* Vendors can set their shipping policies
+* Table rate shipping options
+* Flat rate shipping options
+
+**Advanced Options to control every aspect of your marketplace (Pro Feature)**
+
+* Admins can manage their vendors and applications
+* Vendor earning reports
+* Automatic plugin updates and support
+* Setup wizard for easy configuration of advanced features
+* Advanced Form management
+	* Three different product form templates available (Standard, Simple and Downloadable)
+	* Make any field required
+	* Hide any field or section from the vendors
+* And much much more..
+
+[Learn more](https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=description?utm_source=wporg)
+
+= Found a bug or Want to contribute? =
+
+There is a chance that you might find a bug or need a new action/filter added. If you'd like to contribute to our project, you're more than welcome.
+
+[Submit your pull request or issue here](https://github.com/wcvendors/wcvendors)
 
 == Installation ==
 1. Download and install from WordPress.org.
@@ -203,9 +227,9 @@ PHP 5.6 and above is required.  Tested all the way to the latest PHP 7!
 
 = Where do I get help ? =
 
-You can post a support question on the support tab - https://wordpress.org/support/plugin/wc-vendors
+You can post a support question on the support tab - [https://wordpress.org/support/plugin/wc-vendors](https://wordpress.org/support/plugin/wc-vendors)
 
-Also be sure to visit our documentation http://docs.wcvendors.com/
+Also be sure to visit our documentation [http://docs.wcvendors.com/](http://docs.wcvendors.com/)
 
 = Does WC Vendors Marketplace work with Multisite ? =
 
