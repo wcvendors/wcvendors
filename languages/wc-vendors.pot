@@ -28,15 +28,15 @@ msgstr ""
 msgid "<b>WC Vendors Marketplace is inactive</b>. WC Vendors Marketplace requires a minimum of WooCommerce 3.0.0 to operate."
 msgstr ""
 
-#: class-wc-vendors.php:320
+#: class-wc-vendors.php:322
 msgid "Are you sure you want mark all commissions paid?"
 msgstr ""
 
-#: class-wc-vendors.php:424
+#: class-wc-vendors.php:426
 msgid "WC Vendors 2.0 is a major update. This is not compatible with any of our existing extensions. You should test this update on a staging server before updating. Backup your site and update your theme and extensions, and <a href=\"%s\">review update details here</a> before upgrading."
 msgstr ""
 
-#: class-wc-vendors.php:439
+#: class-wc-vendors.php:441
 msgid "WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current version %s will be deactivated. Please upgrade to the latest version."
 msgstr ""
 
@@ -676,6 +676,10 @@ msgstr ""
 
 #: classes/admin/class-wcv-admin-help.php:123
 msgid "WC Vendors Github"
+msgstr ""
+
+#: classes/admin/class-wcv-admin-import-export.php:69
+msgid "Vendor ID"
 msgstr ""
 
 #: classes/admin/class-wcv-admin-notices.php:131, classes/admin/class-wcv-admin-settings.php:69
@@ -2017,54 +2021,54 @@ msgid "Enable %s shop headers"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:271
-msgid "This enables the %s shop header template and disables the shop description text."
+msgid "This enables the %s shop header template."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:278, classes/admin/views/html-vendor-settings-page.php:161, templates/dashboard/settings/shop-description.php:18
+#: classes/admin/settings/class-wcv-settings-display.php:287, classes/admin/views/html-vendor-settings-page.php:161, templates/dashboard/settings/shop-description.php:18
 msgid "Shop Description"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:279
+#: classes/admin/settings/class-wcv-settings-display.php:288
 msgid "Enable %s shop description"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:280
+#: classes/admin/settings/class-wcv-settings-display.php:289
 msgid "This enables the %1$s shop description on the %1$s store page."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:287
+#: classes/admin/settings/class-wcv-settings-display.php:296
 msgid "Shop HTML"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:288
+#: classes/admin/settings/class-wcv-settings-display.php:297
 msgid "Allow HTML in %s shop description"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:289
+#: classes/admin/settings/class-wcv-settings-display.php:298
 msgid "This will enable the WYSIWYG editor and for the %1$s shop description. You can enable or disable this per %1$s by editing the %1$s user account."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:296
+#: classes/admin/settings/class-wcv-settings-display.php:305
 msgid "Display Name"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:298
+#: classes/admin/settings/class-wcv-settings-display.php:307
 msgid "Select what will be used to display the %s name throughout the marketplace."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:303
+#: classes/admin/settings/class-wcv-settings-display.php:312
 msgid "Display name"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:304, classes/admin/views/html-vendor-meta.php:27
+#: classes/admin/settings/class-wcv-settings-display.php:313, classes/admin/views/html-vendor-meta.php:27
 msgid "Shop name"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:305
+#: classes/admin/settings/class-wcv-settings-display.php:314
 msgid "%s Username"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:306
+#: classes/admin/settings/class-wcv-settings-display.php:315
 msgid "%s Email"
 msgstr ""
 

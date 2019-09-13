@@ -7,7 +7,7 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              2.1.14
+ * Version:              2.1.15
  * Requires at least:    5.0.0
  * Tested up to:         5.2.3
  * WC requires at least: 3.3.0

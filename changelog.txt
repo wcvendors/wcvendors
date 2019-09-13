@@ -1,5 +1,10 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.15 - 13th September 2019
+
+* Added: Vendor to WooCommerce Product Import/Export for admins
+* Added: New single shop header option to disable headers
+
 Version 2.1.14 - 11th September 2019
 
 * Added: Bulk edit assign vendor to products (#591)
