@@ -25,7 +25,7 @@ The number one most downloaded marketplace plugin for WooCommerce. Now you can a
 
 Create your own marketplace and allow vendors to sell products just like etsy, Envato, eBay, or Amazon! You can sell physical, digital or variable products on your marketplace.
 
-WC Vendors Marketplace is the best way to create your mult-vendor marketplace and earn money from every sale.
+WC Vendors Marketplace is the best way to create your multi-vendor marketplace and earn money from every sale.
 
 = Solutions =
 
