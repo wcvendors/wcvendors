@@ -141,14 +141,14 @@ class WCV_Emails {
 	public function vendor_stock_email( $emails, $product ) {
 
 		if ( ! is_a( $product, 'WC_Product' ) ) {
-			return;
+			return $emails;
 		}
 
 		$post = get_post( $product->get_id() );
 
 		if ( WCV_Vendors::is_vendor( $post->post_author ) ) {
 			$vendor_data  = get_userdata( $post->post_author );
-			$vendor_email = $vendor_data->user_email;
+			$vendor_email = trim( $vendor_data->user_email );
 			$emails       .= ',' . $vendor_email;
 		}
 
@@ -164,9 +164,9 @@ class WCV_Emails {
 	 */
 	public function vendor_low_stock_email( $emails, $product ) {
 		if ( 'no' === get_option( 'wcvendors_notify_low_stock', 'yes' ) ) {
-			return;
+			return $emails;
 		}
-		$this->vendor_stock_email(  $emails, $product );
+		return $this->vendor_stock_email(  $emails, $product );
 	}
 
 	/**
@@ -177,9 +177,9 @@ class WCV_Emails {
 	 */
 	public function vendor_no_stock_email( $emails, $product ) {
 		if ( 'no' === get_option( 'wcvendors_notify_low_stock', 'yes' ) ) {
-			return;
+			return $emails;
 		}
-		$this->vendor_stock_email( $emails, $product );
+		return $this->vendor_stock_email( $emails, $product );
 	}
 
 	/**
