@@ -6,9 +6,9 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.0.0
 Requires PHP: 5.6
-Tested up to: 5.2.2
+Tested up to: 5.2.4
 WC requires at least: 3.3.0
-WC tested up to: 3.7.0
+WC tested up to: 3.8.0
 Stable tag: 2.1.15
 License: GPLv2 or later
 
@@ -56,8 +56,8 @@ With WC Vendors Marketplace there is no restrictions on the number of vendors or
 * Physical products
 * Digital and Downloadable products
 * Variable products
-* Subscription products with our [WC Vendors Subscriptions Bookings plugin](https://www.wcvendors.com/product/wc-vendors-woocommerce-subscriptions/?&utm_campaign=description?utm_source=wporg)
-* Booking products with our [WC Vendors WooCommerce Bookings plugin](https://www.wcvendors.com/product/woocommerce-bookings-integration/?&utm_campaign=description?utm_source=wporg)
+* Subscription products with our [WC Vendors Subscriptions plugin](https://www.wcvendors.com/product/wc-vendors-woocommerce-subscriptions/?&utm_campaign=description?utm_source=wporg)
+* Booking products with our [WC Vendors WooCommerce Bookings plugin](https://www.wcvendors.com/product/wc-vendors-woocommerce-bookings/?&utm_campaign=description?utm_source=wporg)
 * Auctions with our [WC Vendors WooCommerce Simple Auctions plugin](https://www.wcvendors.com/product/woocommerce-simple-auctions-integration/?&utm_campaign=description?utm_source=wporg)
 
 This allows you to create all kinds of marketplaces such as
@@ -127,6 +127,8 @@ We encourage 3rd party developers to work with us to create great extensions tha
 Compatible with over 100+ payment gateways to take payments from your customers. You can use any payment gateway that is compatible with WooCommerce to receive payments. If you want to also pay your vendors through your marketplace, then you can use our compatible vendor payment gateways.
 
 **Vendor Payment Gateways**
+
+Pay your vendors their commissions with these gateways and payment solutions
 
 * Stripe Connect Commissions & Gateway
 * Payouts for WC Vendors
