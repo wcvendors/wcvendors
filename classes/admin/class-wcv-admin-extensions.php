@@ -2,9 +2,9 @@
 /**
  * WC Vendors Extensions Page
  *
- * @author   WooThemes
+ * @author   WC Vendors
  * @category Admin
- * @package  WooCommerce/Admin
+ * @package  WCVendors/Admin
  * @version  2.5.0
  */
 
@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WCVendors_Admin_Extensions {
 
 	public static function output() {
-
 		include_once dirname( __FILE__ ) . '/views/html-admin-page-extensions.php';
 	}
 

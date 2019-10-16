@@ -15,6 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<h1><?php _e( 'Upgrade your marketplace today!', 'wc-vendors' ); ?></h1>
 	<br/>
 
+	<?php if ( ! class_exists( 'WCVendors_Pro' ) ) : ?>
+
 	<div class="addons-wcs-banner-block">
 		<div class="addons-wcs-banner-block-image">
 			<img class="addons-img" src="<?php echo wcv_assets_url; ?>images/extensions/screenshot-1.png"
@@ -56,7 +58,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 
+	<?php endif; ?>
+
 	<ul class="products">
+		<li class="product">
+			<a href="https://www.wcvendors.com/product/wc-vendors-stripe-connect/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
+				<h2><?php _e( 'WC Vendors Stripe Connect', 'wc-vendors' ); ?></h2>
+				<p><?php _e( 'Take credit card payments and pay your vendors their commissions instantly when the customer purchases. No need to manually pay your vendors.', 'wc-vendors' ); ?></p>
+				<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $89', 'wc-vendors' ); ?></span>
+			</a>
+		</li>
 		<li class="product">
 			<a href="https://www.wcvendors.com/product/wc-vendors-membership/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
 				<h2><?php _e( 'WC Vendors Membership', 'wc-vendors' ); ?></h2>
@@ -64,40 +75,45 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $89', 'wc-vendors' ); ?></span>
 			</a>
 		</li>
+	</ul>
+	<ul class="products">
 		<li class="product">
-			<a href="https://www.wcvendors.com/product/stripe-commissions-gateway/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
-				<h2><?php _e( 'WC Vendors Stripe Commissions &amp; Gateway', 'wc-vendors' ); ?></h2>
-				<p><?php _e( 'Pay your vendors their commissions instantly when the customer purchases. No need to manually pay your vendors.', 'wc-vendors' ); ?></p>
-				<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $69', 'wc-vendors' ); ?></span>
-			</a>
-		</li>
-		<li class="product">
-			<a href="https://www.wcvendors.com/product/woocommerce-bookings-integration/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
-				<h2><?php _e( 'WooCommerce Bookings Integration<', 'wc-vendors' ); ?>/h2>
-					<span class="price"><?php _e( 'From $69.00', 'wc-vendors' ); ?></span>
+			<a href="https://www.wcvendors.com/product/wc-vendors-woocommerce-bookings/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
+				<h2><?php _e( 'WC Vendors WooCommerce Bookings<', 'wc-vendors' ); ?>/h2>
+					<span class="price"><?php _e( 'From $89.00', 'wc-vendors' ); ?></span>
 					<p><?php _e( 'Allow vendors to create bookings. Integrate WooCommerce bookings into the WC Vendors Pro Dashboard.', 'wc-vendors' ); ?></p>
-					<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $69', 'wc-vendors' ); ?></span>
+					<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $89', 'wc-vendors' ); ?></span>
 			</a>
 		</li>
+		<li class="product">
+			<a href="https://www.wcvendors.com/product/wc-vendors-woocommerce-subscriptions/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
+				<h2><?php _e( 'WC Vendors WooCommerce Subscriptions<', 'wc-vendors' ); ?>/h2>
+					<span class="price"><?php _e( 'From $89.00', 'wc-vendors' ); ?></span>
+					<p><?php _e( 'Allow vendors to create subscriptions. Integrates WooCommerce subscriptions into the WC Vendors Pro Dashboard.', 'wc-vendors' ); ?></p>
+					<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $89', 'wc-vendors' ); ?></span>
+			</a>
+		</li>
+	</ul>
+	<ul class="products">
 		<li class="product">
 			<a href="https://www.wcvendors.com/product/woocommerce-simple-auctions-integration/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
 				<h2><?php _e( 'WooCommerce Simple Auctions', 'wc-vendors' ); ?></h2>
-				<p><?php _e( 'Integreate WooCommerce Simple Auctions into the WC Vendors Pro dashboard.', 'wc-vendors' ); ?> </p>
-				<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $29', 'wc-vendors' ); ?></span>
+				<p><?php _e( 'Allow vendors to create auctions. Integreate WooCommerce Simple Auctions into the WC Vendors Pro dashboard.', 'wc-vendors' ); ?> </p>
+				<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $49', 'wc-vendors' ); ?></span>
 			</a>
 		</li>
 		<li class="product">
 			<a href="https://www.wcvendors.com/home/compatible-plugins/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
 				<h2><?php _e( 'Compatible 3rd party plugins', 'wc-vendors' ); ?></h2>
-				<p><?php _e( 'We love it when developers build extensions that work with us. We would like to showcase what third party plugins you can use to enhance your marketplace beyond our plugins. Below are a selection of compatible plugins we have tested and can confirm work with WC Vendors Marketplace and or WC Vendors Pro. <br /><br />They cover a range of areas including vendor payment gateways, shipping, service, support and chat, social media and currency/credit systems.', 'wc-vendors' ); ?></p>
-				<span class="product-addons-button product-addons-button-solid"><?php _e( 'View extensions', 'wc-vendors' ); ?></span><br />
+				<p><?php _e( 'You can find a selection of compatible plugins with WC Vendors Marketplace and or WC Vendors Pro. <br /><br />They cover a range of areas including vendor payment gateways, shipping, service, support and chat, social media and currency/credit systems.', 'wc-vendors' ); ?></p>
+				<span class="product-addons-button product-addons-button-solid"><?php _e( 'View compatible plugins', 'wc-vendors' ); ?></span><br />
 			</a>
 		</li>
 
 	</ul>
 
 
-	<p><?php printf( __( 'Our list of extensions for WC Vendors can be found on our website. <a href="%s">Click here to view our extensions list.</a>', 'wc-vendors' ), 'https://www.wcvendors.com/home/compatible-plugins/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions' ); ?></p>
+	<p><?php printf( __( 'Our list of premium extesnions for WC Vendors can be found on our website. <a href="%s">Click here to view our extensions list.</a>', 'wc-vendors' ), 'https://www.wcvendors.com/plugins/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions' ); ?></p>
 
 
 </div>
