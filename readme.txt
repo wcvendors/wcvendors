@@ -9,7 +9,7 @@ Requires PHP: 5.6
 Tested up to: 5.2.4
 WC requires at least: 3.3.0
 WC tested up to: 3.8.0
-Stable tag: 2.1.15
+Stable tag: 2.1.16
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
@@ -253,6 +253,13 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.1.16 - 16th October 2019 =
+
+* Updated: Extensions page product links
+* Updated: Tested to
+* Fixed: Low/out of stock emails not sending #593
+* Fixed: jQuery reference
 
 = Version 2.1.15 - 13th September 2019 =
 
