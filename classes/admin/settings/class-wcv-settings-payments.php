@@ -43,9 +43,13 @@ if ( ! class_exists( 'WCVendors_Settings_Payments', false ) ) :
 		public function get_sections() {
 
 			$sections = array(
-				''       => __( 'General', 'wc-vendors' ),
-				'paypal' => __( 'PayPal Adaptive Payments', 'wc-vendors' ),
+				''       => __( 'General', 'wc-vendors' )
 			);
+
+			$paypalap_settings = get_option( 'woocommerce_paypalap_settings', false );
+			if ( $paypalap_settings && array_key_exists('username_live', $paypalap_settings ) && $paypalap_settings[ 'username_live' ] !== '' ) {
+				$sections[ 'paypal' ] = __( 'PayPal Adaptive Payments', 'wc-vendors' );
+			}
 
 			return apply_filters( 'wcvendors_get_sections_' . $this->id, $sections );
 		}

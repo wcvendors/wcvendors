@@ -13,12 +13,16 @@ if ( !class_exists( 'WC_Payment_Gateway' ) ) return false;
  */
 
 
-function add_paypal_ap_gateway( $methods )
-{
-	$methods[ ] = 'WC_PaypalAP';
+function add_paypal_ap_gateway( $methods ){
+
+	$settings = get_option( 'woocommerce_paypalap_settings', false );
+	if ( $settings && array_key_exists('username_live', $settings ) && $settings[ 'username_live' ] !== '' ) {
+		$methods[ ] = 'WC_PaypalAP';
+	}
 
 	return $methods;
 }
+
 
 
 add_filter( 'woocommerce_payment_gateways', 'add_paypal_ap_gateway' );
@@ -40,7 +44,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		/* Standard WooCommerce Configuration */
 		$this->id           = 'paypalap';
 		$this->icon         = plugin_dir_url( __FILE__ ) . 'PayPal_AP/assets/icons/paypalap.png';
-		$this->method_title = __( 'PayPal Adaptive Payments', 'wc-vendors' );
+		$this->method_title = __( 'PayPal Adaptive Payments - deprecated do not use', 'wc-vendors' );
 		$this->has_fields   = false;
 
 		// Load the settings
