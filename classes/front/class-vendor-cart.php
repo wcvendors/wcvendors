@@ -61,7 +61,7 @@ class WCV_Vendor_Cart {
 		$sold_by           = wcv_get_sold_by_link( $vendor_id, 'wcvendors_cart_sold_by_meta' );
 
 		printf(
-			apply_filters( 'wcvendors_cart_sold_by_meta_template', '%1$s %2$s %3$s<br/>', get_the_ID(), $vendor_id ),
+			apply_filters( 'wcvendors_cart_sold_by_meta_template', '%1$s%2$s %3$s<br/>', get_the_ID(), $vendor_id ),
 			apply_filters( 'wcvendors_cart_sold_by_meta', $sold_by_label, get_the_ID(), $vendor_id ),
 			apply_filters( 'wcvendors_cart_sold_by_meta_separator', $sold_by_separator, get_the_ID(), $vendor_id ),
 			$sold_by
