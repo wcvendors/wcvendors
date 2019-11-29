@@ -39,7 +39,7 @@ class WCV_Vendor_Cart {
 		$vendor_id         = $post->post_author;
 		$sold_by_label     = __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' );
 		$sold_by_separator = __( get_option( 'wcvendors_label_sold_by_separator' ), 'wc-vendors' );
-		$sold_by           = wcv_get_sold_by_url( $vendor_id );
+		$sold_by           = wcv_get_sold_by_link( $vendor_id );
 
 		$values[] = array(
 			'name'    => apply_filters( 'wcvendors_cart_sold_by', $sold_by_label, $product_id, $vendor_id, $sold_by_separator ),
@@ -58,7 +58,7 @@ class WCV_Vendor_Cart {
 		$vendor_id         = get_the_author_meta( 'ID' );
 		$sold_by_label     = __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' );
 		$sold_by_separator = __( get_option( 'wcvendors_label_sold_by_separator' ), 'wc-vendors' );
-		$sold_by           = wcv_get_sold_by_url( $vendor_id, 'wcvendors_cart_sold_by_meta' );
+		$sold_by           = wcv_get_sold_by_link( $vendor_id, 'wcvendors_cart_sold_by_meta' );
 
 		printf(
 			apply_filters( 'wcvendors_cart_sold_by_meta_template', '%1$s %2$s %3$s<br/>', get_the_ID(), $vendor_id ),

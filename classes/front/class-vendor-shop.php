@@ -211,7 +211,7 @@ class WCV_Vendor_Shop {
 		$vendor_id         = WCV_Vendors::get_vendor_from_product( $product_id );
 		$sold_by_label     = __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' );
 		$sold_by_separator = __( get_option( 'wcvendors_label_sold_by_separator' ), 'wc-vendors' );
-		$sold_by           = wcv_get_sold_by_url( $vendor_id );
+		$sold_by           = wcv_get_sold_by_link( $vendor_id );
 
 		wc_get_template(
 			'vendor-sold-by.php', array(

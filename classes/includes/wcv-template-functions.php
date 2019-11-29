@@ -189,20 +189,20 @@ if ( ! function_exists( 'is_wcv_pro_active' ) ) {
 }
 
 
-if ( ! function_exists( 'wcv_get_sold_by_url' )  ){
+if ( ! function_exists( 'wcv_get_sold_by_link' )  ){
 	/**
 	 * Get the vendor sold by URL
 	 *
 	 * @param int $vendor_id - vendor's id
 	 * @param string $css_class - optional css class
 	 */
-	function wcv_get_sold_by_url( $vendor_id, $css_class = '' ){
+	function wcv_get_sold_by_link( $vendor_id, $css_class = '' ){
 		$class 		= isset( $css_class ) ? 'class="' . $css_class . '"' : '';
 		$sold_by 	= WCV_Vendors::is_vendor( $vendor_id )
 			? sprintf( '<a href="%s" %s>%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), $class, WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 
-		return apply_filters( 'wcv_sold_by_url', $sold_by, $vendor_id );
+		return apply_filters( 'wcv_sold_by_link', $sold_by, $vendor_id );
 
 	}
 }

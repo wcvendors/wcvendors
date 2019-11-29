@@ -749,7 +749,7 @@ class WCV_Shortcodes {
 		);
 		extract( $atts );
 
-		$sold_by           = wcv_get_sold_by_url( $vendor_id, 'wcvendors_cart_sold_by_meta' );
+		$sold_by           = wcv_get_sold_by_link( $vendor_id, 'wcvendors_cart_sold_by_meta' );
 
 		return apply_filters( 'wcvendors_cart_sold_by_meta', $sold_by_label, get_the_ID(), $vendor_id ) . '&nbsp;' . apply_filters( 'wcvendors_cart_sold_by_meta_separator', $sold_by_separator, get_the_ID(), $vendor_id ) . '&nbsp;' . $sold_by . '<br/>';
 	}
