@@ -736,9 +736,9 @@ class WCV_Shortcodes {
 	 */
 	public function wcv_sold_by( $atts ){
 
-		if ( ! is_product() ) return; 
+		if ( ! is_product() ) return;
 
-		$atts = shortcode_atts(			
+		$atts = shortcode_atts(
 			array(
 				'vendor_id'         => get_the_author_meta( 'ID' ),
 				'sold_by_label'     => __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' ),
@@ -749,9 +749,7 @@ class WCV_Shortcodes {
 		);
 		extract( $atts );
 
-		$sold_by           = WCV_Vendors::is_vendor( $vendor_id )
-			? sprintf( '<a href="%s" class="wcvendors_cart_sold_by_meta">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
-			: get_bloginfo( 'name' );
+		$sold_by           = wcv_get_sold_by_link( $vendor_id, 'wcvendors_cart_sold_by_meta' );
 
 		return apply_filters( 'wcvendors_cart_sold_by_meta', $sold_by_label, get_the_ID(), $vendor_id ) . '&nbsp;' . apply_filters( 'wcvendors_cart_sold_by_meta_separator', $sold_by_separator, get_the_ID(), $vendor_id ) . '&nbsp;' . $sold_by . '<br/>';
 	}

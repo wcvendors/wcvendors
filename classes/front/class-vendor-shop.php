@@ -211,9 +211,7 @@ class WCV_Vendor_Shop {
 		$vendor_id         = WCV_Vendors::get_vendor_from_product( $product_id );
 		$sold_by_label     = __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' );
 		$sold_by_separator = __( get_option( 'wcvendors_label_sold_by_separator' ), 'wc-vendors' );
-		$sold_by           = WCV_Vendors::is_vendor( $vendor_id )
-			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
-			: get_bloginfo( 'name' );
+		$sold_by           = wcv_get_sold_by_link( $vendor_id );
 
 		wc_get_template(
 			'vendor-sold-by.php', array(
