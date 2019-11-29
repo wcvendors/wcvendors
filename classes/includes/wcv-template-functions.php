@@ -175,7 +175,7 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 if ( ! function_exists( 'is_wcv_pro_active' ) ) {
 	/**
 	 * Check if WC Vendors Pro is active
-	 * 
+	 *
 	 * @since 2.1.4
 	 * @return bool True if active false otherwis
 	 */
@@ -183,7 +183,26 @@ if ( ! function_exists( 'is_wcv_pro_active' ) ) {
 		if ( defined( 'WCV_PRO_PLUGIN_FILE' ) ) {
 			return true;
 		}
-		
+
 		return false;
+	}
+}
+
+
+if ( ! function_exists( 'wcv_get_sold_by_url' )  ){
+	/**
+	 * Get the vendor sold by URL
+	 *
+	 * @param int $vendor_id - vendor's id
+	 * @param string $css_class - optional css class
+	 */
+	function wcv_get_sold_by_url( $vendor_id, $css_class = '' ){
+		$class 		= isset( $css_class ) ? 'class="' . $css_class . '"' : '';
+		$sold_by 	= WCV_Vendors::is_vendor( $vendor_id )
+			? sprintf( '<a href="%s" %s>%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), $class, WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
+			: get_bloginfo( 'name' );
+
+		return apply_filters( 'wcv_sold_by_url', $sold_by, $vendor_id );
+
 	}
 }
