@@ -8,7 +8,7 @@
  *
  * @author        Jamie Madden, WC Vendors
  * @package       WCVendors/Templates/Emails/HTML
- * @version       2.0.0
+ * @version       2.1.17
  *
  *
  * Template Variables available
@@ -26,5 +26,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<small class="wcvendors_sold_by_in_loop"><?php echo apply_filters( 'wcvendors_sold_by_in_loop', $sold_by_label ); ?><?php echo apply_filters( 'wcvendors_sold_by_separator_in_loop', $sold_by_separator ); ?><?php echo $sold_by; ?>
-</small><br/>
+<small class="wcvendors_sold_by_in_loop"><?php echo wcv_get_vendor_sold_by( $vendor_id ); ?></small><br/>
