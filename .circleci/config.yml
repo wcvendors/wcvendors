@@ -68,10 +68,10 @@ jobs:
             php wp-cli.phar core update-db
             php wp-cli.phar option update admin_email_lifespan $(date -d "+10 days" +%s)
       - run:
-          name: Build assets
+          name: Install cypress
           path: /var/www/html/wp-content/plugins/wc-vendors
           command: |
-            npm i
+            npm i cypress
       - run:
           name: Install cypress dependencies
           command: sudo apt-get install xvfb libgtk-3-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
@@ -86,7 +86,9 @@ jobs:
       - run:
           name: e2e tests
           path: /var/www/html/wp-content/plugins/wc-vendors
-          command: ./node_modules/.bin/cypress run
+          command: |
+            ls ./node_modules/.bin/
+            ./node_modules/.bin/cypress run
       - run:
           name: Copy e2e tests result
           path: /var/www/html/wp-content/plugins/wc-vendors
