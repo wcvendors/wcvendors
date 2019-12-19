@@ -1,0 +1,99 @@
+version: 2
+workflows:
+  version: 2
+  test:
+    jobs:
+      - e2e
+jobs:
+  e2e:
+    working_directory: /var/www/html
+    docker:
+      - image: circleci/php:7.4-apache-node-browsers
+      - image: circleci/mysql:latest
+        command: [--default-authentication-plugin=mysql_native_password]
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress 
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+    steps:
+      - run:
+          name: Waiting for MySQL to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+            nc -z 127.0.0.1 3306 && echo Success && exit 0
+            echo -n .
+            sleep 1
+            done
+            echo Failed waiting for MySQL && exit 1
+      - run:
+          name: Install MySQL CLI
+          command: |
+            sudo apt-get install default-mysql-client
+            sudo docker-php-ext-install mysqli
+      - run:
+          name: Install WordPress
+          command: |
+            # Get WP-cli
+            curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+            php wp-cli.phar core download
+            php wp-cli.phar config create \
+                --dbname=wordpress \
+                --dbuser=user \
+                --dbpass=password \
+                --dbhost=127.0.0.1 \
+      - run:
+          name: Install Plugins
+          path: /var/www/html/wp-content/plugins
+          command: |
+            curl https://downloads.wordpress.org/plugin/woocommerce.zip --output woocommerce.zip && unzip -q woocommerce.zip
+            ls
+      - run:
+          name: Install Storefront
+          path: /var/www/html/wp-content/themes
+          command: |
+            curl https://downloads.wordpress.org/theme/storefront.zip --output storefront.zip && unzip -q storefront.zip
+            ls
+      - checkout:
+          path: /var/www/html/wp-content/plugins/wc-vendors
+      - run:
+          name: Import data
+          path: /var/www/html/wp-content/plugins/wc-vendors
+          command: mysql -h 127.0.0.1 -u user -ppassword wordpress < tests/resources/db.sql
+      - run:
+          name: Update database
+          path: /var/www/html/
+          command: |
+            php wp-cli.phar core update-db
+            php wp-cli.phar option update admin_email_lifespan $(date -d "+10 days" +%s)
+      - run:
+          name: Build assets
+          path: /var/www/html/wp-content/plugins/wc-vendors
+          command: |
+            npm i
+      - run:
+          name: Install cypress dependencies
+          command: sudo apt-get install xvfb libgtk-3-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
+      - run:
+          name: Get virtual host ready
+          path: /var/www/html/wp-content/plugins/wc-vendors
+          command: |
+            echo 127.0.0.1 wcvendors.local | sudo tee -a /etc/hosts
+            sudo cp .circleci/apache.conf /etc/apache2/sites-available/wcvendors.conf
+            sudo a2ensite wcvendors
+            sudo service apache2 restart
+      - run:
+          name: e2e tests
+          path: /var/www/html/wp-content/plugins/wc-vendors
+          command: ./node_modules/.bin/cypress run
+      - run:
+          name: Copy e2e tests result
+          path: /var/www/html/wp-content/plugins/wc-vendors
+          command: sudo cp -r tests/cypress/ /cypress
+      - store_test_results:
+          path: /var/www/html/wp-content/plugins/wc-vendors/report
+      - store_artifacts:
+          path: /cypress/videos
+      - store_artifacts:
+          path: /cypress/screenshots
