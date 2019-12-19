@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "cypress": "^3.8.0",
     "del": "latest",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "latest",
