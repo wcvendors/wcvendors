@@ -467,23 +467,29 @@ class WCV_Product_Meta {
    * @params string $search_string Search query.
    */
   public function search_vendors( $search_string ) {
+    global $wpdb;
+
+    $search_string = esc_attr( $search_string );
+
     if( strlen( $search_string ) < 3 ) {
       return;
     }
 
-    global $wpdb;
+    $search_string = '%' . $search_string . '%';
+    $search_string = $wpdb->prepare("%s", $search_string);
+
     $sql = "
       SELECT  ID, display_name
       FROM  $wpdb->users INNER JOIN $wpdb->usermeta
       ON    $wpdb->users.ID = $wpdb->usermeta.user_id
       WHERE ( $wpdb->usermeta.meta_key = '$wpdb->prefix" . "capabilities' AND $wpdb->usermeta.meta_value LIKE '%vendor%' )
       AND (
-        user_login LIKE '%$search_string%'
-        OR user_nicename LIKE '%$search_string%'
-        OR user_email LIKE '%$search_string%'
-        OR user_url LIKE '%$search_string%'
-        OR ( $wpdb->usermeta.meta_key = 'first_name' AND $wpdb->usermeta.meta_value LIKE '%$search_string%' )
-        OR ( $wpdb->usermeta.meta_key = 'last_name' AND $wpdb->usermeta.meta_value LIKE '%$search_string%' )
+        user_login LIKE $search_string
+        OR user_nicename LIKE $search_string
+        OR user_email LIKE $search_string
+        OR user_url LIKE $search_string
+        OR ( $wpdb->usermeta.meta_key = 'first_name' AND $wpdb->usermeta.meta_value LIKE $search_string )
+        OR ( $wpdb->usermeta.meta_key = 'last_name' AND $wpdb->usermeta.meta_value LIKE $search_string )
       )
       ORDER BY display_name
     ";
