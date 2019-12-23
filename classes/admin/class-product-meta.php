@@ -461,11 +461,12 @@ class WCV_Product_Meta {
 		);
 	}
 
-  /**
-   * Search for vendor using a single SQL query.
-   *
-   * @params string $search_string Search query.
-   */
+    /**
+     * Search for vendor using a single SQL query.
+     *
+     * @param string $search_string Search query.
+     * @return false|string|void
+     */
   public function search_vendors( $search_string ) {
     global $wpdb;
 
@@ -480,16 +481,18 @@ class WCV_Product_Meta {
 
     $sql = "
       SELECT  ID, display_name
-      FROM  $wpdb->users INNER JOIN $wpdb->usermeta
-      ON    $wpdb->users.ID = $wpdb->usermeta.user_id
-      WHERE ( $wpdb->usermeta.meta_key = '$wpdb->prefix" . "capabilities' AND $wpdb->usermeta.meta_value LIKE '%vendor%' )
+      FROM  $wpdb->users
+        INNER JOIN $wpdb->usermeta as mt1 ON $wpdb->users.ID = mt1.user_id
+        INNER JOIN $wpdb->usermeta as mt2 ON $wpdb->users.ID = mt2.user_id
+      WHERE ( mt1.meta_key = '$wpdb->prefix" . "capabilities' AND mt1.meta_value LIKE '%vendor%' )
       AND (
         user_login LIKE $search_string
         OR user_nicename LIKE $search_string
+        OR display_name LIKE $search_string
         OR user_email LIKE $search_string
         OR user_url LIKE $search_string
-        OR ( $wpdb->usermeta.meta_key = 'first_name' AND $wpdb->usermeta.meta_value LIKE $search_string )
-        OR ( $wpdb->usermeta.meta_key = 'last_name' AND $wpdb->usermeta.meta_value LIKE $search_string )
+        OR ( mt2.meta_key = 'first_name' AND mt2.meta_value LIKE $search_string )
+        OR ( mt2.meta_key = 'last_name' AND mt2.meta_value LIKE $search_string )
       )
       ORDER BY display_name
     ";
