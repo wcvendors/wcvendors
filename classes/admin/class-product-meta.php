@@ -42,8 +42,14 @@ class WCV_Product_Meta {
 
 		add_action( 'woocommerce_process_product_meta', array( $this, 'update_post_media_author' ) );
 
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_script' ) );
+
+        add_action( 'wp_ajax_wcv_search_vendors', array( $this, 'search_vendors' ) );
 	}
 
+	public function enqueue_script() {
+	    wp_enqueue_script('wcv-vendor-select', wcv_assets_url . 'js/admin/wcv-vendor-select.js', array( 'select2' ), WCV_VERSION );
+    }
 
 	/**
 	 * Change the "Author" metabox to "Vendor"
@@ -100,6 +106,9 @@ class WCV_Product_Meta {
 	 */
 	public function vendor_selectbox( $args ) {
 
+		global $post;
+
+		$selected     = $post->post_author;
 		$default_args = array(
 			'placeholder',
 			'id',
@@ -117,39 +126,30 @@ class WCV_Product_Meta {
 		}
 		extract( $args );
 
-		$roles     = array( 'vendor', 'administrator' );
-		$user_args = array( 'fields' => array( 'ID', 'display_name' ) );
+        $user_args = array(
+            'fields'   => array( 'ID', 'display_name' ),
+            'role__in' => array( 'vendor', 'administrator' ),
+            'number'   => 100,
+        );
 
-		$output = "<select style='width:200px;' name='$id' id='$id' class='$class' data-placeholder='$placeholder'>\n";
-		$output .= "\t<option value=''></option>\n";
+		$output = "<select style='width:200px;' name='$id' id='$id' class='$class'>\n";
+        $output .= "\t<option>$placeholder</option>\n";
 
-		foreach ( $roles as $role ) {
 
-			$new_args         = $user_args;
-			$new_args['role'] = $role;
-			$users            = get_users( $new_args );
-
-			if ( empty( $users ) ) {
-				continue;
-			}
-			$output .= wcv_vendor_drop_down_options( $users, $selected );
+        $users = get_users( $user_args );
+		foreach ( (array) $users as $user ) {
+			$select = selected( $user->ID, $selected, false );
+			$output .= "<option value='$user->ID' $select>$user->display_name</option>";
 		}
 		$output .= '</select>';
 
-		$output .= '<br class="clear" />';
 		$output .= '<p><label class="product_media_author_override">';
 		$output .= '<input name="product_media_author_override" type="checkbox" /> ';
 		$output .= sprintf( __( 'Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() );
 		$output .= '</label></p>';
 
-		// Convert this selectbox with select2
-		$output
-			.= '
-		<script type="text/javascript">jQuery(function() { jQuery("#' . $id . '").select2(); } );</script>';
-
 		return $output;
 	}
-
 
 	/**
 	 * Save commission rate of a product
@@ -333,8 +333,6 @@ class WCV_Product_Meta {
 			$output .= wcv_vendor_drop_down_options( $users, '' );
 		}
 		$output .= '</select>';
-
-
 		?>
 		<br class="clear"/>
 		<label class="inline-edit-author-new">
@@ -464,15 +462,14 @@ class WCV_Product_Meta {
     /**
      * Search for vendor using a single SQL query.
      *
-     * @param string $search_string Search query.
      * @return false|string|void
      */
-  public function search_vendors( $search_string ) {
+  public function search_vendors() {
     global $wpdb;
 
-    $search_string = esc_attr( $search_string );
+    $search_string = esc_attr( $_POST['term'] );
 
-    if( strlen( $search_string ) < 3 ) {
+    if( strlen( $search_string ) <= 3 ) {
       return;
     }
 
@@ -480,7 +477,7 @@ class WCV_Product_Meta {
     $search_string = $wpdb->prepare("%s", $search_string);
 
     $sql = "
-      SELECT  ID, display_name
+      SELECT DISTINCT ID as `id`, display_name as `text`
       FROM  $wpdb->users
         INNER JOIN $wpdb->usermeta as mt1 ON $wpdb->users.ID = mt1.user_id
         INNER JOIN $wpdb->usermeta as mt2 ON $wpdb->users.ID = mt2.user_id
@@ -497,6 +494,10 @@ class WCV_Product_Meta {
       ORDER BY display_name
     ";
 
-    return json_encode($wpdb->get_results( $sql ));
+
+    $response = new stdClass();
+    $response->results = $wpdb->get_results( $sql );
+    error_log(print_r($response, true));
+    wp_send_json($response);
   }
 }
