@@ -42,14 +42,14 @@ class WCV_Product_Meta {
 
 		add_action( 'woocommerce_process_product_meta', array( $this, 'update_post_media_author' ) );
 
-        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_script' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_script' ) );
 
-        add_action( 'wp_ajax_wcv_search_vendors', array( $this, 'search_vendors' ) );
+		add_action( 'wp_ajax_wcv_search_vendors', array( $this, 'search_vendors' ) );
 	}
 
 	public function enqueue_script() {
-	    wp_enqueue_script('wcv-vendor-select', wcv_assets_url . 'js/admin/wcv-vendor-select.js', array( 'select2' ), WCV_VERSION );
-    }
+		wp_enqueue_script('wcv-vendor-select', wcv_assets_url . 'js/admin/wcv-vendor-select.js', array( 'select2' ), WCV_VERSION, true );
+	}
 
 	/**
 	 * Change the "Author" metabox to "Vendor"
@@ -101,47 +101,39 @@ class WCV_Product_Meta {
 	 * Create a selectbox to display vendor & administrator roles
 	 *
 	 * @param array $args
+	 * @param bool $media
 	 *
-	 * @return html
+	 * @return string
 	 */
-	public function vendor_selectbox( $args ) {
+	public function vendor_selectbox( $args, $media = true ) {
+		$args = wp_parse_args( $args, array(
+			'class'       => '',
+			'id'          => '',
+			'placeholder' => '',
+			'selected'    => '',
+		) );
 
-		global $post;
-
-		$selected     = $post->post_author;
-		$default_args = array(
-			'placeholder',
-			'id',
-			'class',
-		);
-
-		foreach ( $default_args as $key ) {
-			if ( ! is_array( $key ) && empty( $args[ $key ] ) ) {
-				$args[ $key ] = '';
-			} elseif ( is_array( $key ) ) {
-				foreach ( $key as $val ) {
-					$args[ $key ][ $val ] = esc_attr( $args[ $key ][ $val ] );
-				}
-			}
-		}
 		extract( $args );
 
-        $user_args = array(
-            'fields'   => array( 'ID', 'display_name' ),
-            'role__in' => array( 'vendor', 'administrator' ),
-            'number'   => 100,
-        );
+		$user_args = array(
+			'fields'   => array( 'ID', 'display_name' ),
+			'role__in' => array( 'vendor', 'administrator' ),
+			'number'   => 100,
+		);
 
 		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
-        $output .= "\t<option>$placeholder</option>\n";
+		$output .= "\t<option>$placeholder</option>\n";
 
-
-        $users = get_users( $user_args );
+		$users = get_users( $user_args );
 		foreach ( (array) $users as $user ) {
 			$select = selected( $user->ID, $selected, false );
 			$output .= "<option value='$user->ID' $select>$user->display_name</option>";
 		}
 		$output .= '</select>';
+
+		if ( ! $media ) {
+		    return $output;
+        }
 
 		$output .= '<p><label class="product_media_author_override">';
 		$output .= '<input name="product_media_author_override" type="checkbox" /> ';
@@ -208,15 +200,15 @@ class WCV_Product_Meta {
 				<p class='form-field commission_rate_field'>
 					<label for='pv_commission_rate'><?php _e( 'Commission', 'wc-vendors' ); ?> (%)</label>
 					<input
-							type='number'
-							id='pv_commission_rate'
-							name='pv_commission_rate'
-							class='short'
-							max="100"
-							min="0"
-							step='any'
-							placeholder='<?php _e( 'Leave blank for default', 'wc-vendors' ); ?>'
-							value="<?php echo get_post_meta( $post->ID, 'pv_commission_rate', true ); ?>"
+						type='number'
+						id='pv_commission_rate'
+						name='pv_commission_rate'
+						class='short'
+						max="100"
+						min="0"
+						step='any'
+						placeholder='<?php _e( 'Leave blank for default', 'wc-vendors' ); ?>'
+						value="<?php echo get_post_meta( $post->ID, 'pv_commission_rate', true ); ?>"
 					/>
 				</p>
 
@@ -244,27 +236,13 @@ class WCV_Product_Meta {
 	public function display_vendor_dropdown_quick_edit() {
 
 		global $post;
-		$selected = $post->post_author;
 
-		$roles     = array( 'vendor', 'administrator' );
-		$user_args = array( 'fields' => array( 'ID', 'display_name' ) );
-
-		$output = "<select style='width:200px;' name='post_author-new' class='select'>\n";
-
-		foreach ( $roles as $role ) {
-
-			$new_args         = $user_args;
-			$new_args['role'] = $role;
-			$users            = get_users( $new_args );
-
-			if ( empty( $users ) ) {
-				continue;
-			}
-			$output .= wcv_vendor_drop_down_options( $users, $selected );
-		}
-		$output .= '</select>';
-
-
+		$selectbox_args = array(
+			'id' => 'post_author-new',
+            'class' => 'select',
+            'selected' => $post->post_author,
+		);
+		$output = $this->vendor_selectbox( $selectbox_args, false);
 		?>
 		<br class="clear"/>
 		<label class="inline-edit-author-new">
@@ -311,28 +289,11 @@ class WCV_Product_Meta {
 	* @version 2.1.14
 	*/
 	public function display_vendor_dropdown_bulk_edit() {
-
-		global $post;
-		$selected = '';
-
-		$roles     = array( 'vendor', 'administrator' );
-		$user_args = array( 'fields' => array( 'ID', 'display_name' ) );
-
-		$output = "<select style='width:200px;' name='vendor' class='select'>\n";
-		$output .= '<option value=""> '. __('— No change —', 'wc-vendors') . '</option>';
-
-		foreach ( $roles as $role ) {
-
-			$new_args         = $user_args;
-			$new_args['role'] = $role;
-			$users            = get_users( $new_args );
-
-			if ( empty( $users ) ) {
-				continue;
-			}
-			$output .= wcv_vendor_drop_down_options( $users, '' );
-		}
-		$output .= '</select>';
+		$selectbox_args = array(
+			'id' => 'vendor',
+            'placeholder' => __('— No change —', 'wc-vendors'),
+		);
+		$output = $this->vendor_selectbox( $selectbox_args, false);
 		?>
 		<br class="clear"/>
 		<label class="inline-edit-author-new">
@@ -356,8 +317,8 @@ class WCV_Product_Meta {
 			$update_vendor = array(
 				'ID'          => $product->get_id(),
 				'post_author' => $vendor,
-	   		);
-	   		wp_update_post( $update_vendor );
+			);
+			wp_update_post( $update_vendor );
 		}
 	}
 
@@ -459,45 +420,45 @@ class WCV_Product_Meta {
 		);
 	}
 
-    /**
-     * Search for vendor using a single SQL query.
-     *
-     * @return false|string|void
-     */
-  public function search_vendors() {
-    global $wpdb;
+	/**
+	 * Search for vendor using a single SQL query.
+	 *
+	 * @return false|string|void
+	 */
+	public function search_vendors() {
+		global $wpdb;
 
-    $search_string = esc_attr( $_POST['term'] );
+		$search_string = esc_attr( $_POST['term'] );
 
-    if( strlen( $search_string ) <= 3 ) {
-      return;
-    }
+		if( strlen( $search_string ) <= 3 ) {
+			return;
+		}
 
-    $search_string = '%' . $search_string . '%';
-    $search_string = $wpdb->prepare("%s", $search_string);
+		$search_string = '%' . $search_string . '%';
+		$search_string = $wpdb->prepare("%s", $search_string);
 
-    $sql = "
-      SELECT DISTINCT ID as `id`, display_name as `text`
-      FROM  $wpdb->users
-        INNER JOIN $wpdb->usermeta as mt1 ON $wpdb->users.ID = mt1.user_id
-        INNER JOIN $wpdb->usermeta as mt2 ON $wpdb->users.ID = mt2.user_id
-      WHERE ( mt1.meta_key = '$wpdb->prefix" . "capabilities' AND mt1.meta_value LIKE '%vendor%' )
-      AND (
-        user_login LIKE $search_string
-        OR user_nicename LIKE $search_string
-        OR display_name LIKE $search_string
-        OR user_email LIKE $search_string
-        OR user_url LIKE $search_string
-        OR ( mt2.meta_key = 'first_name' AND mt2.meta_value LIKE $search_string )
-        OR ( mt2.meta_key = 'last_name' AND mt2.meta_value LIKE $search_string )
-      )
-      ORDER BY display_name
-    ";
+		$sql = "
+	  SELECT DISTINCT ID as `id`, display_name as `text`
+	  FROM  $wpdb->users
+		INNER JOIN $wpdb->usermeta as mt1 ON $wpdb->users.ID = mt1.user_id
+		INNER JOIN $wpdb->usermeta as mt2 ON $wpdb->users.ID = mt2.user_id
+	  WHERE ( mt1.meta_key = '$wpdb->prefix" . "capabilities' AND mt1.meta_value LIKE '%vendor%' )
+	  AND (
+		user_login LIKE $search_string
+		OR user_nicename LIKE $search_string
+		OR display_name LIKE $search_string
+		OR user_email LIKE $search_string
+		OR user_url LIKE $search_string
+		OR ( mt2.meta_key = 'first_name' AND mt2.meta_value LIKE $search_string )
+		OR ( mt2.meta_key = 'last_name' AND mt2.meta_value LIKE $search_string )
+	  )
+	  ORDER BY display_name
+	";
 
 
-    $response = new stdClass();
-    $response->results = $wpdb->get_results( $sql );
-    error_log(print_r($response, true));
-    wp_send_json($response);
-  }
+		$response = new stdClass();
+		$response->results = $wpdb->get_results( $sql );
+		error_log(print_r($response, true));
+		wp_send_json($response);
+	}
 }
