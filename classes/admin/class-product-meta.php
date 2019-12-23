@@ -132,7 +132,7 @@ class WCV_Product_Meta {
             'number'   => 100,
         );
 
-		$output = "<select style='width:200px;' name='$id' id='$id' class='$class'>\n";
+		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
         $output .= "\t<option>$placeholder</option>\n";
 
 

@@ -1,6 +1,6 @@
 (function ($) {
     $(document).ready(function() {
-        var $selectBox = $('#post_author_override');
+        var $selectBox = $('.wcv-vendor-select');
 
         if($selectBox.find('option').length < 100 ) {
             return $selectBox.select2();
