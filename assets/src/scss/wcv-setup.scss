@@ -1,6 +1,6 @@
 /**
 *	WC Vendors setup wizard styles 
-*/ 
+*/
 
 @import 'variables';
 
@@ -27,7 +27,10 @@ body {
 	overflow: hidden;
 	zoom: 1;
 
-	h1, h2, h3, table {
+	h1,
+	h2,
+	h3,
+	table {
 		margin: 0 0 20px;
 		border: 0;
 		padding: 0;
@@ -48,20 +51,19 @@ body {
 	}
 	a {
 		color: $wcvendors;
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			color: #111;
 		}
 	}
-	h4.help-title { 
-		text-align: center; 
+	h4.help-title {
+		text-align: center;
 	}
-	.wcv-setup-input { 
-
-		input { 
-			padding: 5px 10px; 
-			font-size: 1em; 
+	.wcv-setup-input {
+		input {
+			padding: 5px 10px;
+			font-size: 1em;
 		}
-		
 	}
 	.wcv-setup-next-steps {
 		overflow: hidden;
@@ -103,7 +105,9 @@ body {
 					padding: 1em;
 					text-align: center;
 
-					&:hover, &:focus, &:active {
+					&:hover,
+					&:focus,
+					&:active {
 						background: $wcvendors-light;
 						border-color: #aaa;
 					}
@@ -112,14 +116,19 @@ body {
 					color: #fff;
 					background-color: #bb77ae;
 					border-color: $wcvendors-light;
-					box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 $wcvendors-light;
-					text-shadow: 0 -1px 1px $wcvendors-light, 1px 0 1px $wcvendors-light, 0 1px 1px $wcvendors-light, -1px 0 1px $wcvendors-light;
+					box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25),
+						0 1px 0 $wcvendors-light;
+					text-shadow: 0 -1px 1px $wcvendors-light, 1px 0 1px $wcvendors-light,
+						0 1px 1px $wcvendors-light, -1px 0 1px $wcvendors-light;
 
-					&:hover, &:focus, &:active {
+					&:hover,
+					&:focus,
+					&:active {
 						color: #fff;
 						background: $wcvendors-light;
 						border-color: $wcvendors-light;
-						box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 $wcvendors-light;
+						box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25),
+							0 1px 0 $wcvendors-light;
 					}
 				}
 			}
@@ -174,7 +183,7 @@ body {
 	list-style: none outside;
 	overflow: hidden;
 	color: #ccc;
-	width:100%;
+	width: 100%;
 	display: inline-flex;
 	li {
 		width: 25%;
@@ -229,15 +238,20 @@ body {
 	.button-primary {
 		background-color: $wcvendors;
 		border-color: $wcvendors-light;
-		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 $wcvendors-light;
-		text-shadow: 0 -1px 1px $wcvendors-light, 1px 0 1px $wcvendors-light, 0 1px 1px $wcvendors-light, -1px 0 1px $wcvendors-light;
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25),
+			0 1px 0 $wcvendors-light;
+		text-shadow: 0 -1px 1px $wcvendors-light, 1px 0 1px $wcvendors-light,
+			0 1px 1px $wcvendors-light, -1px 0 1px $wcvendors-light;
 		margin: 0;
 		opacity: 1;
 
-		&:hover, &:focus, &:active {
+		&:hover,
+		&:focus,
+		&:active {
 			background: $wcvendors-light;
 			border-color: $wcvendors-light;
-			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 0 $wcvendors-light;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25),
+				0 1px 0 $wcvendors-light;
 		}
 	}
 }
@@ -261,7 +275,7 @@ body {
 .wcv-wizard-storefront {
 	.wcv-wizard-storefront-intro {
 		padding: 40px 40px 0;
-		background: #F5F5F5;
+		background: #f5f5f5;
 		text-align: center;
 
 		img {
@@ -307,7 +321,9 @@ body {
 	padding: 0;
 
 	.wcv-wizard-feature-item {
-		flex-basis: calc( 50% - 4em - 3px); // two columns, account for padding and borders
+		flex-basis: calc(
+			50% - 4em - 3px
+		); // two columns, account for padding and borders
 		border: 1px solid #eee;
 		padding: 2em;
 	}
@@ -350,15 +366,15 @@ body {
 	box-shadow: none;
 	min-width: 12em;
 	min-width: auto;
-	margin-top:10px;
+	margin-top: 10px;
 	background-color: $wcvendors;
-	color: $white; 
+	color: $white;
 
 	&:focus,
 	&:hover,
 	&:active {
 		box-shadow: none;
-		background-color: $wcvendors-light; 
+		background-color: $wcvendors-light;
 	}
 }
 
@@ -496,45 +512,42 @@ p.next-steps-help-text {
 	color: #9f9f9f;
 	padding: 0 2em;
 	text-align: center;
-	font-size: .9em;
+	font-size: 0.9em;
 }
 
-.wcv-setup-table { 
-	width: 100%; 
+.wcv-setup-table {
+	width: 100%;
 
-	.table-desc { 
+	.table-desc {
 		width: 80%;
 	}
 
-	.table-check { 
+	.table-check {
 		width: 20%;
-		text-align: right; 
+		text-align: right;
 
-		input.option_check { 
-			line-height: 4em; 
+		input.option_check {
+			line-height: 4em;
 		}
 	}
 }
 
-.wcv-setup-table-pages { 
+.wcv-setup-table-pages {
+	width: 100%;
 
-	width: 100%; 
-
-	.table-desc { 
+	.table-desc {
 		width: 60%;
 	}
 
-	.table-check{ 
+	.table-check {
 		width: 40%;
-
 	}
 
-	select { 
-		width: 100%; 
+	select {
+		width: 100%;
 	}
 
-	.tool-tip { 
-		font-size: 0.75em; 
+	.tool-tip {
+		font-size: 0.75em;
 	}
-
 }
