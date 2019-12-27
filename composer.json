@@ -1,0 +1,15 @@
+{
+  "type": "wordpress-plugin",
+  "autoload": {
+    "psr-4": {
+      "WCVendors\\": "src/"
+    }
+  },
+  "require-dev": {
+    "10up/phpcs-composer": "dev-master"
+  },
+  "scripts": {
+    "lint": "phpcs --standard=WordPress wc-vendors.php includes templates",
+    "fix": "phpcbf --standard=WordPress wc-vendors.php includes templates"
+  }
+}
