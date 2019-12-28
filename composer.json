@@ -6,7 +6,8 @@
     }
   },
   "require-dev": {
-    "10up/phpcs-composer": "dev-master"
+    "10up/phpcs-composer": "dev-master",
+    "woocommerce/woocommerce-sniffs": "^0.0.9"
   },
   "scripts": {
     "lint": "phpcs --standard=WordPress wc-vendors.php includes templates",

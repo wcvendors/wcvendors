@@ -16,11 +16,7 @@
  * Text Domain:         wc-vendors
  * Domain Path:         /languages/
  *
- * @category            Plugin
- * @copyright           Copyright © 2018 Jamie Madden, WC Vendors
- * @author              Jamie Madden, WC Vendors
  * @package             WCVendors
- * @license             GPL2
 
 WC Vendors is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -56,5 +52,27 @@ add_action(
 	'woocommerce_loaded',
 	function() {
 		new Plugin();
+	}
+);
+
+/**
+ * Activation hook.
+ */
+register_activation_hook(
+	__FILE__,
+	function () {
+		update_option( 'wcvendors_activated', true );
+		do_action( 'wcvendors_activate' );
+	}
+);
+
+/**
+ * Deactivation hook.
+ */
+register_deactivation_hook(
+	__FILE__,
+	function () {
+		update_option( 'wcvendors_activated', false );
+		do_action( 'wcvendors_activate' );
 	}
 );

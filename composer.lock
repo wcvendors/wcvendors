@@ -4,42 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8657304b1e0f80594f73f56eb757e853",
-    "packages": [],
-    "packages-dev": [
-        {
-            "name": "10up/phpcs-composer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/10up/phpcs-composer.git",
-                "reference": "4cbf9af0c55ad3ec6ffeef03053736ac1ea57391"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/10up/phpcs-composer/zipball/4cbf9af0c55ad3ec6ffeef03053736ac1ea57391",
-                "reference": "4cbf9af0c55ad3ec6ffeef03053736ac1ea57391",
-                "shasum": ""
-            },
-            "require": {
-                "dealerdirect/phpcodesniffer-composer-installer": "*",
-                "phpcompatibility/phpcompatibility-wp": "^2",
-                "squizlabs/php_codesniffer": "^3.4.0",
-                "wp-coding-standards/wpcs": "*"
-            },
-            "type": "phpcodesniffer-standard",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ephraim Gregor",
-                    "email": "ephraim.gregor@10up.com"
-                }
-            ],
-            "time": "2019-11-25T15:12:37+00:00"
-        },
+    "content-hash": "9e905ee76e6117483e4f29b8f669e5dc",
+    "packages": [
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
             "version": "v0.5.0",
@@ -318,6 +284,46 @@
             "time": "2019-12-04T04:46:47+00:00"
         },
         {
+            "name": "woocommerce/woocommerce-sniffs",
+            "version": "0.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/woocommerce/woocommerce-sniffs.git",
+                "reference": "7677a84e9a355fe1e088f704090be891e7a6d427"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/woocommerce/woocommerce-sniffs/zipball/7677a84e9a355fe1e088f704090be891e7a6d427",
+                "reference": "7677a84e9a355fe1e088f704090be891e7a6d427",
+                "shasum": ""
+            },
+            "require": {
+                "dealerdirect/phpcodesniffer-composer-installer": "0.5.0",
+                "php": ">=7.0",
+                "phpcompatibility/phpcompatibility-wp": "2.1.0",
+                "wp-coding-standards/wpcs": "2.2.0"
+            },
+            "type": "phpcodesniffer-standard",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Claudio Sanches",
+                    "email": "claudio@automattic.com"
+                }
+            ],
+            "description": "WooCommerce sniffs",
+            "keywords": [
+                "phpcs",
+                "standards",
+                "woocommerce",
+                "wordpress"
+            ],
+            "time": "2019-11-11T15:48:34+00:00"
+        },
+        {
             "name": "wp-coding-standards/wpcs",
             "version": "2.2.0",
             "source": {
@@ -361,6 +367,41 @@
                 "wordpress"
             ],
             "time": "2019-11-11T12:34:03+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "10up/phpcs-composer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/10up/phpcs-composer.git",
+                "reference": "4cbf9af0c55ad3ec6ffeef03053736ac1ea57391"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/10up/phpcs-composer/zipball/4cbf9af0c55ad3ec6ffeef03053736ac1ea57391",
+                "reference": "4cbf9af0c55ad3ec6ffeef03053736ac1ea57391",
+                "shasum": ""
+            },
+            "require": {
+                "dealerdirect/phpcodesniffer-composer-installer": "*",
+                "phpcompatibility/phpcompatibility-wp": "^2",
+                "squizlabs/php_codesniffer": "^3.4.0",
+                "wp-coding-standards/wpcs": "*"
+            },
+            "type": "phpcodesniffer-standard",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ephraim Gregor",
+                    "email": "ephraim.gregor@10up.com"
+                }
+            ],
+            "time": "2019-11-25T15:12:37+00:00"
         }
     ],
     "aliases": [],

@@ -114,6 +114,7 @@
     ],
     "*.php": [
       "./vendor/bin/phpcbf -q",
+      "./vendor/bin/phpcs",
       "git add"
     ]
   }
