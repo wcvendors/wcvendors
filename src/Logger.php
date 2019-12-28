@@ -7,6 +7,8 @@
 
 namespace WCVendors;
 
+use WC_Logger;
+
 /**
  * Our logger that integrated to WC.
  */
@@ -14,7 +16,7 @@ class Logger {
 	/**
 	 * This hold the WC logger.
 	 *
-	 * @var \WC_Logger $wc_logger WC_Logger instance.
+	 * @var WC_Logger $wc_logger WC_Logger instance.
 	 */
 	private $wc_logger;
 

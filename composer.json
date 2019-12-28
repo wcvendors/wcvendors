@@ -5,6 +5,8 @@
       "WCVendors\\": "src/"
     }
   },
+  "require": {
+  },
   "require-dev": {
     "10up/phpcs-composer": "dev-master",
     "woocommerce/woocommerce-sniffs": "^0.0.9"

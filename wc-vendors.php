@@ -46,12 +46,14 @@ define( 'WCV_PLUGIN_FILE', __FILE__ );
 define( 'WCV_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WCV_TEMPLATE_DEBUG_MODE', false );
 
+// Use Jetpack autoloader instead of default Composer one.
 require __DIR__ . '/vendor/autoload.php';
 
 add_action(
 	'woocommerce_loaded',
 	function() {
 		new Plugin();
+		do_action( 'wcvendors_loaded' );
 	}
 );
 
