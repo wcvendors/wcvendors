@@ -46,7 +46,14 @@ define( 'WCV_PLUGIN_FILE', __FILE__ );
 define( 'WCV_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WCV_TEMPLATE_DEBUG_MODE', false );
 
-// Use Jetpack autoloader instead of default Composer one.
+/**
+ * Use Jetpack autoloader instead of default Composer one.
+ *
+ * @todo Use Jetpack autoloader before release.
+ *
+ * Using the default composer autoloader for now because Jetpack one need to be
+ * rebuilt after adding new files.
+ */
 require __DIR__ . '/vendor/autoload.php';
 
 add_action(
