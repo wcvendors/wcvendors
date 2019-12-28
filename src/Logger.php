@@ -35,7 +35,7 @@ class Logger {
 	 */
 	public function __construct() {
 		$this->enabled = wc_string_to_bool( get_option( 'wcv_enable_logging', true ) );
-		if ( $this->enabled ) {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG || $this->enabled ) {
 			$this->set_wc_logger();
 		}
 	}
@@ -67,6 +67,11 @@ class Logger {
 		if ( ! apply_filters( 'wcv_log', true, $message ) ) {
 			return;
 		}
+
+		if ( is_array( $message ) || is_object( $message ) ) {
+			$message = print_r( $message, true ); // phpcs:ignore
+		}
+
 		$this->wc_logger->log( $type, $message, array( 'source' => self::WC_LOG_FILENAME ) );
 	}
 }
