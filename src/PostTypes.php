@@ -78,7 +78,7 @@ class PostTypes {
 					'exclude_from_order_views'         => true,
 					'exclude_from_order_reports'       => true,
 					'exclude_from_order_sales_reports' => true,
-					'class_name'                       => 'WCVendors_Vendor_Order',
+					'class_name'                       => 'WCVendors\\VendorOrder',
 				)
 			)
 		);
