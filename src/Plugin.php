@@ -55,6 +55,7 @@ class Plugin {
 	 * Init required classes for this plugin to function.
 	 */
 	private function init_classes() {
+		( new PostTypes() )->init_hooks();
 	}
 
 	/**
@@ -99,6 +100,8 @@ class Plugin {
 	/**
 	 * Checks the environment for compatibility problems.  Returns a string with the first incompatibility
 	 * found or false if the environment has no problems.
+	 *
+	 * @noinspection PhpUndefinedConstantInspection
 	 */
 	private function get_environment_warning() {
 		$output = '';
