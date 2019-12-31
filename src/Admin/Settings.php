@@ -47,6 +47,10 @@ class Settings extends WC_Admin_Settings {
 		if ( empty( self::$settings ) ) {
 			$settings = array(
 				new Settings\General(),
+				new Settings\Commission(),
+				new Settings\Capabilities(),
+				new Settings\Display(),
+				new Settings\Payments(),
 			);
 
 			self::$settings = apply_filters( 'wcvendors_get_settings_pages', $settings );
