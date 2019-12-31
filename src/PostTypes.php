@@ -23,7 +23,7 @@ class PostTypes {
 	 */
 	public function init_hooks() {
 		add_action( 'init', array( $this, 'register_post_types' ), 5 );
-		add_action( 'wcvendors_flush_rewrite_rules', array( __CLASS__, 'flush_rewrite_rules' ) );
+		add_action( 'wcvendors_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ) );
 	}
 
 

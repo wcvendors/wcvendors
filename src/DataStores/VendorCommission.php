@@ -123,7 +123,7 @@ class VendorCommission extends WC_Data_Store_WP implements Interfaces\VendorComm
 			do_action( 'wcvendors_commission_loaded', $commission );
 
 		} else {
-			throw new Exception( __( 'Invalid data store.', 'wcvendors' ) );
+			throw new Exception( __( 'Invalid data store.', 'wc-vendors' ) );
 		}
 
 	}

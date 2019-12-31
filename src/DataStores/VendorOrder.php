@@ -106,7 +106,7 @@ class VendorOrder extends WC_Order_Data_Store_CPT implements Interfaces\VendorOr
 		$vendor_order->set_defaults();
 
 		if ( ! $vendor_order->get_id() || ! ( $post_object = get_post( $vendor_order->get_id() ) ) || $post_object->post_type !== 'shop_order_vendor' ) {
-			throw new Exception( __( 'Invalid vendor order.', 'wcvendors' ) );
+			throw new Exception( __( 'Invalid vendor order.', 'wc-vendors' ) );
 		}
 
 		$id = $vendor_order->get_id();

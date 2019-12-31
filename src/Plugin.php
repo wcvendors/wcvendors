@@ -56,6 +56,17 @@ class Plugin {
 	 */
 	private function init_classes() {
 		( new PostTypes() )->init_hooks();
+		( new Install() )->init_hooks();
+
+		$this->init_admin_classes();
+	}
+
+	/**
+	 * Init admin classes.
+	 */
+	private function init_admin_classes() {
+		( new Admin\Admin() )->init_hooks();
+		( new Admin\Menus() )->init_hooks();
 	}
 
 	/**

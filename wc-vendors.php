@@ -43,6 +43,8 @@ define( 'WCV_MIN_PHP_VER', '5.6.0' );
 define( 'WCV_MIN_WC_VER', '3.0.0' );
 define( 'WCV_PLUGIN_PATH', dirname( __FILE__ ) . '/' );
 define( 'WCV_PLUGIN_FILE', __FILE__ );
+define( 'WCV_ABSPATH_ADMIN', dirname( __FILE__ ) . '/src/Admin/' );
+define( 'WCV_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WCV_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WCV_TEMPLATE_DEBUG_MODE', false );
 
@@ -50,7 +52,6 @@ define( 'WCV_TEMPLATE_DEBUG_MODE', false );
  * Use Jetpack autoloader instead of default Composer one.
  *
  * @todo Use Jetpack autoloader before release.
- *
  * Using the default composer autoloader for now because Jetpack one need to be
  * rebuilt after adding new files.
  */
