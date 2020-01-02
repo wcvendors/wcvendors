@@ -109,8 +109,8 @@ class WCVendors_Admin_Menus {
 
 		$settings_page = add_submenu_page(
 			'wc-vendors',
-			__( 'WC Vendors Settings', 'wc-vendors' ),
-			__( 'Settings', 'wc-vendors' ),
+			__( 'WC Vendors Settings', 'wcvendors' ),
+			__( 'Settings', 'wcvendors' ),
 			'manage_woocommerce',
 			'wcv-settings',
 			array( $this, 'settings_page' )

@@ -40,7 +40,7 @@ if ( ! $tab_exists ) {
 		<p class="submit">
 			<?php if ( empty( $GLOBALS['hide_save_button'] ) ) : ?>
 				<button name="save" class="button-primary wcvendors-save-button" type="submit"
-				        value="<?php esc_attr_e( 'Save changes', 'wc-vendors' ); ?>"><?php esc_html_e( 'Save changes', 'wc-vendors' ); ?></button>
+				        value="<?php esc_attr_e( 'Save changes', 'wcvendors' ); ?>"><?php esc_html_e( 'Save changes', 'wcvendors' ); ?></button>
 			<?php endif; ?>
 			<?php wp_nonce_field( 'wcvendors-settings' ); ?>
 		</p>

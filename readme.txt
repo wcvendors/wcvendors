@@ -6,10 +6,10 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.0.0
 Requires PHP: 5.6
-Tested up to: 5.3.2
+Tested up to: 5.2.4
 WC requires at least: 3.3.0
-WC tested up to: 3.8.1
-Stable tag: 2.1.17
+WC tested up to: 3.8.0
+Stable tag: 2.1.16
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
@@ -253,15 +253,6 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
-
-Version 2.1.17 - 2nd January 2020
-
-* Added: New template tag for sold by link (#602)
-* Updated: Disabled PayPal Adaptive payments #596
-* Fixed: text domain on strings
-* Fixed: Performance issue in WP-Admin area in large marketplaces #604 (#608)
-* Fixed: CircleCI (#606)
-* Fixed: Sold by label spacing on single product page #597
 
 = Version 2.1.16 - 16th October 2019 =
 
