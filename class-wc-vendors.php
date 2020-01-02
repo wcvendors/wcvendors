@@ -18,7 +18,7 @@
  *
  * @category             Plugin
  * @copyright            Copyright © 2012 Matt Gates
- * @copyright            Copyright © 2019 WC Vendors
+ * @copyright            Copyright © 2020 WC Vendors
  * @author               Matt Gates, WC Vendors
  * @package              WCVendors
  * @license              GPL2
