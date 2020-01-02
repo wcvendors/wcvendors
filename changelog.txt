@@ -1,5 +1,14 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.1.17 - 2nd January 2020
+
+* Added: New template tag for sold by link (#602)
+* Updated: Disabled PayPal Adaptive payments #596
+* Fixed: text domain on strings
+* Fixed: Performance issue in WP-Admin area in large marketplaces #604 (#608)
+* Fixed: CircleCI (#606)
+* Fixed: Sold by label spacing on single product page #597
+
 Version 2.1.16 - 16th October 2019
 
 * Updated: Extensions page product links
