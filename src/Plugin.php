@@ -55,8 +55,10 @@ class Plugin {
 	 * Init required classes for this plugin to function.
 	 */
 	private function init_classes() {
+		$logger = new Logger();
 		( new PostTypes() )->init_hooks();
 		( new Install() )->init_hooks();
+		( new OrderHandler( $logger ) )->init_hooks();
 
 		$this->init_admin_classes();
 	}
