@@ -5,8 +5,12 @@
 /gulpfile.js export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
-/wporg-deploy.sh export-ignore
+/wporg-deply.sh export-ignore
+/cypress.json export-ignore
 
 # Directories
 /.wordpress-org export-ignore
 /.github export-ignore
+/.circleci export-ignore
+/report export-ignore
+/tests export-ignore
