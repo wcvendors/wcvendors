@@ -71,6 +71,7 @@ class Plugin {
 		( new Admin\Assets() )->init_hooks();
 		( new Admin\Menus() )->init_hooks();
 		( new Admin\PermalinkSettings() )->init_hooks();
+		( new Admin\PostTypes() )->init_hooks();
 	}
 
 	/**
