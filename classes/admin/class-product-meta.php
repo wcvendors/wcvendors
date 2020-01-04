@@ -120,18 +120,11 @@ class WCV_Product_Meta {
 			'role__in' => array( 'vendor', 'administrator' ),
 			'number'   => 100,
 		);
-
-
+    if ( $selected ) {
+      $user_args['include'] = array( $selected );
+    }
 
 		$users = get_users( $user_args );
-
-    if ( $selected ) {
-      $current_user = get_user_by( 'ID', $selected );
-      $users[]      = (object) array(
-        'ID'           => $selected,
-        'display_name' => $current_user->display_name,
-      );
-    }
 
 		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
 		$output .= "\t<option>$placeholder</option>\n";
