@@ -121,10 +121,20 @@ class WCV_Product_Meta {
 			'number'   => 100,
 		);
 
-		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
-		$output .= "\t<option>$placeholder</option>\n";
+
 
 		$users = get_users( $user_args );
+
+    if ( $selected ) {
+      $current_user = get_user_by( 'ID', $selected );
+      $users[]      = (object) array(
+        'ID'           => $selected,
+        'display_name' => $current_user->display_name,
+      );
+    }
+
+		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
+		$output .= "\t<option>$placeholder</option>\n";
 		foreach ( (array) $users as $user ) {
 			$select = selected( $user->ID, $selected, false );
 			$output .= "<option value='$user->ID' $select>$user->display_name</option>";
