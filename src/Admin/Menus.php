@@ -197,7 +197,7 @@ class Menus {
 	 * Commissions Page
 	 */
 	public function commissions_page() {
-		// WCVendors_Admin_Commission::output();
+		Commission::output();
 	}
 
 	/**
