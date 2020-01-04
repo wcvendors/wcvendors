@@ -70,7 +70,7 @@ class Plugin {
 		( new Admin\Admin() )->init_hooks();
 		( new Admin\Assets() )->init_hooks();
 		( new Admin\Menus() )->init_hooks();
-
+		( new Admin\PermalinkSettings() )->init_hooks();
 	}
 
 	/**
