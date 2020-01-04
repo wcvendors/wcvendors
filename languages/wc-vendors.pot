@@ -1,4 +1,4 @@
-# Copyright (C) 2019 WC Vendors Marketplace
+# Copyright (C) 2020 WC Vendors Marketplace
 # This file is distributed under the same license as the WC Vendors Marketplace package.
 msgid ""
 msgstr ""
@@ -56,227 +56,287 @@ msgstr ""
 msgid "Payment total: %s"
 msgstr ""
 
-#: classes/class-install.php:159, classes/admin/class-wcv-admin-setup.php:153
+#: classes/class-install.php:161, classes/admin/class-wcv-admin-setup.php:153
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:173, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:271, classes/admin/class-product-meta.php:341, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:148, classes/admin/class-wcv-admin-setup.php:365, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:229
+#: classes/class-install.php:175, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:249, classes/admin/class-product-meta.php:300, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:148, classes/admin/class-wcv-admin-setup.php:365, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:229
 msgid "%s"
 msgstr ""
 
-#: classes/class-install.php:257
+#: classes/class-install.php:259
 msgctxt "Page slug"
 msgid "vendor_dashboard"
 msgstr ""
 
-#: classes/class-install.php:259
+#: classes/class-install.php:261
 msgctxt "Page title"
 msgid "%s Dashboard"
 msgstr ""
 
-#: classes/class-install.php:265
+#: classes/class-install.php:267
 msgctxt "Page slug"
 msgid "vendors"
 msgstr ""
 
-#: classes/class-install.php:267
+#: classes/class-install.php:269
 msgctxt "Page title"
 msgid "%s"
 msgstr ""
 
-#: classes/class-install.php:275
+#: classes/class-install.php:277
 msgctxt "Page slug"
 msgid "shop_settings"
 msgstr ""
 
-#: classes/class-install.php:276
+#: classes/class-install.php:278
 msgctxt "Page title"
 msgid "Shop Settings"
 msgstr ""
 
-#: classes/class-install.php:281
+#: classes/class-install.php:283
 msgctxt "Page slug"
 msgid "product_orders"
 msgstr ""
 
-#: classes/class-install.php:282
+#: classes/class-install.php:284
 msgctxt "Page title"
 msgid "Orders"
 msgstr ""
 
-#: classes/class-install.php:491
+#: classes/class-install.php:493
 msgid "View WC Vendors settings"
 msgstr ""
 
-#: classes/class-install.php:491, templates/dashboard/settings/settings.php:17
+#: classes/class-install.php:493, classes/admin/class-admin-menus.php:113, templates/dashboard/settings/settings.php:17
 msgid "Settings"
 msgstr ""
 
-#: classes/class-install.php:509
+#: classes/class-install.php:511
 msgid "View WC Vendors documentation"
 msgstr ""
 
-#: classes/class-install.php:509
+#: classes/class-install.php:511
 msgid "Docs"
 msgstr ""
 
-#: classes/class-install.php:510
+#: classes/class-install.php:512
 msgid "Visit community forums"
 msgstr ""
 
-#: classes/class-install.php:510
+#: classes/class-install.php:512
 msgid "Free support"
 msgstr ""
 
-#: classes/class-install.php:511
+#: classes/class-install.php:513
 msgid "Buy premium customer support"
 msgstr ""
 
-#: classes/class-install.php:511
+#: classes/class-install.php:513
 msgid "Premium support"
 msgstr ""
 
-#: classes/class-install.php:547
-msgid "Vendor is enabled"
-msgstr ""
-
-#: classes/class-install.php:548
-msgid "Vendor is verified"
+#: classes/class-install.php:514, classes/admin/class-wcv-admin-help.php:119
+msgid "Upgrade to Pro"
 msgstr ""
 
 #: classes/class-install.php:549
+msgid "Vendor is enabled"
+msgstr ""
+
+#: classes/class-install.php:550
+msgid "Vendor is verified"
+msgstr ""
+
+#: classes/class-install.php:551
 msgid "Vendor is trusted"
 msgstr ""
 
 #: classes/class-install.php:552
-msgid "View sales overview"
+msgid "Manage Products"
 msgstr ""
 
 #: classes/class-install.php:553
-msgid "View sales report chart"
+msgid "Manage orders"
 msgstr ""
 
 #: classes/class-install.php:554
-msgid "View vendor notices"
+msgid "Manage coupons"
 msgstr ""
 
 #: classes/class-install.php:555
-msgid "View order report"
+msgid "Manage ratings"
 msgstr ""
 
 #: classes/class-install.php:556
-msgid "View order overview"
+msgid "Manage Store Settings"
 msgstr ""
 
 #: classes/class-install.php:557
-msgid "View ratings report"
+msgid "Manage Store Shipping"
 msgstr ""
 
 #: classes/class-install.php:558
-msgid "View product status report"
+msgid "View Store"
 msgstr ""
 
 #: classes/class-install.php:561
-msgid "View order"
+msgid "View sales overview"
 msgstr ""
 
 #: classes/class-install.php:562
-msgid "Add order notes"
+msgid "View sales report chart"
 msgstr ""
 
 #: classes/class-install.php:563
-msgid "View order notes"
+msgid "View vendor notices"
 msgstr ""
 
-#: classes/class-install.php:564, templates/orders/csv-export.php:22
-msgid "Export orders"
+#: classes/class-install.php:564
+msgid "View order report"
 msgstr ""
 
 #: classes/class-install.php:565
-msgid "Manage order status"
+msgid "View order overview"
 msgstr ""
 
 #: classes/class-install.php:566
-msgid "View customer name"
+msgid "View ratings report"
 msgstr ""
 
 #: classes/class-install.php:567
-msgid "View customer email address"
-msgstr ""
-
-#: classes/class-install.php:568
-msgid "View customer phone number"
-msgstr ""
-
-#: classes/class-install.php:569, classes/class-install.php:572
-msgid "View customer shipping name"
+msgid "View product status report"
 msgstr ""
 
 #: classes/class-install.php:570
-msgid "View customer shipping address fields"
-msgstr ""
-
-#: classes/class-install.php:571
-msgid "View customer billing address fields"
-msgstr ""
-
-#: classes/class-install.php:575
 msgid "Add product"
 msgstr ""
 
-#: classes/class-install.php:576
+#: classes/class-install.php:571
 msgid "Edit product"
 msgstr ""
 
-#: classes/class-install.php:577
+#: classes/class-install.php:572
 msgid "Edit published product"
 msgstr ""
 
-#: classes/class-install.php:578
+#: classes/class-install.php:573
 msgid "Publish product directly without approval"
 msgstr ""
 
-#: classes/class-install.php:579
+#: classes/class-install.php:574
 msgid "Delete product"
 msgstr ""
 
-#: classes/class-install.php:580
+#: classes/class-install.php:575
 msgid "Duplicate product"
 msgstr ""
 
-#: classes/class-install.php:581
+#: classes/class-install.php:576
+msgid "Featured product"
+msgstr ""
+
+#: classes/class-install.php:577
 msgid "View product"
 msgstr ""
 
-#: classes/class-install.php:585
-msgid "View overview report"
+#: classes/class-install.php:578
+msgid "Import product"
+msgstr ""
+
+#: classes/class-install.php:579
+msgid "Export product"
+msgstr ""
+
+#: classes/class-install.php:582
+msgid "View order"
+msgstr ""
+
+#: classes/class-install.php:583
+msgid "Add order notes"
+msgstr ""
+
+#: classes/class-install.php:584
+msgid "View order notes"
+msgstr ""
+
+#: classes/class-install.php:585, templates/orders/csv-export.php:22
+msgid "Export orders"
 msgstr ""
 
 #: classes/class-install.php:586
-msgid "View daily sales report"
+msgid "Manage order status"
 msgstr ""
 
 #: classes/class-install.php:587
-msgid "View top selling report"
+msgid "View customer name"
 msgstr ""
 
 #: classes/class-install.php:588
-msgid "View top earning report"
+msgid "View customer phone number"
+msgstr ""
+
+#: classes/class-install.php:589, classes/class-install.php:592
+msgid "View customer shipping name"
+msgstr ""
+
+#: classes/class-install.php:590
+msgid "View customer shipping address fields"
 msgstr ""
 
 #: classes/class-install.php:591
-msgid "View dashboard menu"
+msgid "View customer billing address fields"
 msgstr ""
 
-#: classes/class-install.php:592
-msgid "View product menu"
+#: classes/class-install.php:595
+msgid "Add coupon"
 msgstr ""
 
-#: classes/class-install.php:593
+#: classes/class-install.php:596
+msgid "Edit coupon"
+msgstr ""
+
+#: classes/class-install.php:597
+msgid "Delete coupon"
+msgstr ""
+
+#: classes/class-install.php:600
+msgid "View overview report"
+msgstr ""
+
+#: classes/class-install.php:601
+msgid "View daily sales report"
+msgstr ""
+
+#: classes/class-install.php:602
+msgid "View top selling report"
+msgstr ""
+
+#: classes/class-install.php:603
+msgid "View top earning report"
+msgstr ""
+
+#: classes/class-install.php:604
+msgid "View statement report"
+msgstr ""
+
+#: classes/class-install.php:607, classes/class-install.php:610, classes/class-install.php:611
 msgid "View order menu"
 msgstr ""
 
-#: classes/class-install.php:594
+#: classes/class-install.php:608
+msgid "View dashboard menu"
+msgstr ""
+
+#: classes/class-install.php:609
+msgid "View product menu"
+msgstr ""
+
+#: classes/class-install.php:612
+msgid "View ratings menu"
+msgstr ""
+
+#: classes/class-install.php:613
 msgid "View store settings menu"
 msgstr ""
 
@@ -316,6 +376,10 @@ msgstr ""
 
 #: classes/admin/class-admin-menus.php:90, classes/admin/class-admin-menus.php:91
 msgid "Commissions"
+msgstr ""
+
+#: classes/admin/class-admin-menus.php:112
+msgid "WC Vendors Settings"
 msgstr ""
 
 #: classes/admin/class-admin-reports.php:43
@@ -454,23 +518,23 @@ msgstr ""
 msgid "Set primary role to %s "
 msgstr ""
 
-#: classes/admin/class-product-meta.php:142, classes/admin/class-product-meta.php:278
+#: classes/admin/class-product-meta.php:140, classes/admin/class-product-meta.php:256
 msgid "Assign media to %s"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:191, classes/admin/class-product-meta.php:209, classes/admin/class-wcv-commissions-csv-exporter.php:47, classes/admin/class-wcv-commissions-page.php:133, templates/dashboard/reports.php:38, templates/emails/vendor-order-details.php:42, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:194, classes/admin/emails/class-wcv-vendor-notify-order.php:221, classes/admin/settings/class-wcv-settings-commission.php:32, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:81
+#: classes/admin/class-product-meta.php:183, classes/admin/class-product-meta.php:201, classes/admin/class-wcv-commissions-csv-exporter.php:47, classes/admin/class-wcv-commissions-page.php:133, templates/dashboard/reports.php:38, templates/emails/vendor-order-details.php:42, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:194, classes/admin/emails/class-wcv-vendor-notify-order.php:221, classes/admin/settings/class-wcv-settings-commission.php:32, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:81
 msgid "Commission"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:218, classes/admin/views/html-vendor-meta.php:110
+#: classes/admin/class-product-meta.php:210, classes/admin/views/html-vendor-meta.php:110
 msgid "Leave blank for default"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:237
+#: classes/admin/class-product-meta.php:229
 msgid "%s Store "
 msgstr ""
 
-#: classes/admin/class-product-meta.php:322
+#: classes/admin/class-product-meta.php:294
 msgid "— No change —"
 msgstr ""
 
@@ -488,6 +552,56 @@ msgstr ""
 
 #: classes/admin/class-setup-wizard.php:94
 msgid "Ready!"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:114
+msgctxt "enhanced select"
+msgid "No matches found"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:115
+msgctxt "enhanced select"
+msgid "Loading failed"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:116
+msgctxt "enhanced select"
+msgid "Please enter 1 or more characters"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:117
+msgctxt "enhanced select"
+msgid "Please enter %qty% or more characters"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:118
+msgctxt "enhanced select"
+msgid "Please delete 1 character"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:119
+msgctxt "enhanced select"
+msgid "Please delete %qty% characters"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:120
+msgctxt "enhanced select"
+msgid "You can only select 1 item"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:121
+msgctxt "enhanced select"
+msgid "You can only select %qty% items"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:122
+msgctxt "enhanced select"
+msgid "Loading more results&hellip;"
+msgstr ""
+
+#: classes/admin/class-setup-wizard.php:123
+msgctxt "enhanced select"
+msgid "Searching&hellip;"
 msgstr ""
 
 #. translators: %1$s: link to videos, %2$s: link to docs
@@ -656,10 +770,6 @@ msgstr ""
 
 #: classes/admin/class-wcv-admin-help.php:118
 msgid "For more information:"
-msgstr ""
-
-#: classes/admin/class-wcv-admin-help.php:119
-msgid "Upgrade to Pro"
 msgstr ""
 
 #: classes/admin/class-wcv-admin-help.php:120
@@ -879,7 +989,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:45, classes/gateways/PayPal_AdvPayments/paypal_ap.php:179, classes/gateways/PayPal_AdvPayments/paypal_ap.php:213
+#: classes/admin/class-wcv-commissions-sum-csv-exporter.php:45, classes/gateways/PayPal_AdvPayments/paypal_ap.php:183, classes/gateways/PayPal_AdvPayments/paypal_ap.php:217
 msgid "PayPal Email"
 msgstr ""
 
@@ -1849,7 +1959,7 @@ msgstr ""
 msgid "Labels"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-display.php:66, classes/admin/settings/class-wcv-settings-display.php:102, classes/admin/settings/class-wcv-settings-payments.php:67, classes/admin/settings/class-wcv-settings-payments.php:74, classes/admin/settings/class-wcv-settings-payments.php:127
+#: classes/admin/settings/class-wcv-settings-display.php:66, classes/admin/settings/class-wcv-settings-display.php:102, classes/admin/settings/class-wcv-settings-payments.php:71, classes/admin/settings/class-wcv-settings-payments.php:78, classes/admin/settings/class-wcv-settings-payments.php:131
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:68
@@ -2124,75 +2234,75 @@ msgstr ""
 msgid "Payments"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:47, classes/gateways/PayPal_AdvPayments/paypal_ap.php:43
+#: classes/admin/settings/class-wcv-settings-payments.php:51
 msgid "PayPal Adaptive Payments"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:69
+#: classes/admin/settings/class-wcv-settings-payments.php:73
 msgid "<h3>PayPal Adaptive Payments - Please Note: PayPal Adaptive Payments has been deprecated by PayPal as of September 2017. These options are for existing users only. This will be completely removed in a future version.</h3>"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:76
+#: classes/admin/settings/class-wcv-settings-payments.php:80
 msgid "Total Commission due: %s"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:81
+#: classes/admin/settings/class-wcv-settings-payments.php:85
 msgid "Instant Pay"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:82
+#: classes/admin/settings/class-wcv-settings-payments.php:86
 msgid "Enable instantpay"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:83
+#: classes/admin/settings/class-wcv-settings-payments.php:87
 msgid "Instantly pay %1$s their commission when an order is made, and if a %1$s has a valid PayPal email added on their Shop Settings page."
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:90
+#: classes/admin/settings/class-wcv-settings-payments.php:94
 msgid "Payment schedule"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:91
+#: classes/admin/settings/class-wcv-settings-payments.php:95
 msgid "Note: Schedule will only work if instant pay is unchecked"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:95
+#: classes/admin/settings/class-wcv-settings-payments.php:99
 msgid "Daily"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:96
+#: classes/admin/settings/class-wcv-settings-payments.php:100
 msgid "Weekly"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:97
+#: classes/admin/settings/class-wcv-settings-payments.php:101
 msgid "Biweekly"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:98
+#: classes/admin/settings/class-wcv-settings-payments.php:102
 msgid "Monthly"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:99
+#: classes/admin/settings/class-wcv-settings-payments.php:103
 msgid "Manual"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:100
+#: classes/admin/settings/class-wcv-settings-payments.php:104
 msgid "Now"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:105
+#: classes/admin/settings/class-wcv-settings-payments.php:109
 msgid "Email notification"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:106
+#: classes/admin/settings/class-wcv-settings-payments.php:110
 msgid "Enable notify the admin"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:107
+#: classes/admin/settings/class-wcv-settings-payments.php:111
 msgid "Send the marketplace admin an email each time a payment has been made via the payment schedule options above"
 msgstr ""
 
-#: classes/admin/settings/class-wcv-settings-payments.php:129
+#: classes/admin/settings/class-wcv-settings-payments.php:133
 msgid "<strong>Payments controls how your %s commission is paid out. These settings only function if you are using a supported gateway.</strong> "
 msgstr ""
 
@@ -2338,6 +2448,10 @@ msgstr ""
 
 #: classes/admin/views/html-admin-page-extensions.php:116
 msgid "Our list of premium extesnions for WC Vendors can be found on our website. <a href=\"%s\">Click here to view our extensions list.</a>"
+msgstr ""
+
+#: classes/admin/views/html-admin-settings.php:43, classes/admin/views/html-admin-settings.php:43
+msgid "Save changes"
 msgstr ""
 
 #: classes/admin/views/html-vendor-meta.php:15
@@ -2496,119 +2610,123 @@ msgstr ""
 msgid "You must accept the terms and conditions to become a vendor."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:119
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:47
+msgid "PayPal Adaptive Payments - deprecated do not use"
+msgstr ""
+
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:123
 msgid "Something went wrong. Response from PayPal invalidated this order. Status: %s."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:124
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:128
 msgid "IPN payment completed"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:146
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:150
 msgid "Enable PayPal Adaptive Payments"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:152
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:156
 msgid "Method Title"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:153, classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:70
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:157, classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:70
 msgid "This controls the title which the user sees during checkout."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:154
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:158
 msgid "PayPal"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:159, classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:75
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:163, classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:75
 msgid "Description"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:160
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:164
 msgid "This controls the description which the user sees during checkout."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:161
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:165
 msgid "Pay via PayPal!"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:172
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:176
 msgid "Live Credentials"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:174
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:178
 msgid "You must have an <a href=\"%s\">Application ID</a> to process live transactions. You do not need one for testing in Sandbox mode."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:180, classes/gateways/PayPal_AdvPayments/paypal_ap.php:214
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:184, classes/gateways/PayPal_AdvPayments/paypal_ap.php:218
 msgid "The email address main payments should go to."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:185, classes/gateways/PayPal_AdvPayments/paypal_ap.php:219
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:189, classes/gateways/PayPal_AdvPayments/paypal_ap.php:223
 msgid "API Username"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:190, classes/gateways/PayPal_AdvPayments/paypal_ap.php:224
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:194, classes/gateways/PayPal_AdvPayments/paypal_ap.php:228
 msgid "API Password"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:195, classes/gateways/PayPal_AdvPayments/paypal_ap.php:229
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:199, classes/gateways/PayPal_AdvPayments/paypal_ap.php:233
 msgid "API Signature"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:200
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:204
 msgid "Application ID"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:202
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:206
 msgid "Only required when doing live transactions."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:206
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:210
 msgid "Sandbox Credentials"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:208
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:212
 msgid "You can signup for a sandbox developer account <a href=\"%s\">here</a>. You need a developer account if you want to enable Sandbox mode for testing."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:240
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:244
 msgid "Misc. Settings"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:245
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:249
 msgid "Enable PayPal Sandbox mode"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:251
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:255
 msgid "Enable logging"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:269
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:273
 msgid "The PayPal Adaptive Payments gateway can instantly pay your vendors their due commission (if enabled). Also used to mass pay vendors on a schedule / manual method (if enabled)."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:270
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:274
 msgid "Please Note: PayPal has deprecated Adaptive Payments. This will soon cease to function."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:281
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:285
 msgid "Gateway Disabled"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:281
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:285
 msgid "%s does not support your store currency."
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:390, classes/gateways/PayPal_AdvPayments/paypal_ap.php:506, classes/gateways/PayPal_Masspay/class-paypal-masspay.php:156
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:394, classes/gateways/PayPal_AdvPayments/paypal_ap.php:510, classes/gateways/PayPal_Masspay/class-paypal-masspay.php:156
 msgid "Error: %s"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:399, classes/gateways/PayPal_AdvPayments/paypal_ap.php:400
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:403, classes/gateways/PayPal_AdvPayments/paypal_ap.php:404
 msgid "Error ID: %s. %s"
 msgstr ""
 
-#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:514, classes/gateways/PayPal_AdvPayments/paypal_ap.php:515
+#: classes/gateways/PayPal_AdvPayments/paypal_ap.php:518, classes/gateways/PayPal_AdvPayments/paypal_ap.php:519
 msgid "Error ID: %d. %s"
 msgstr ""
 

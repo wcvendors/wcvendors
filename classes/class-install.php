@@ -9,7 +9,9 @@
 
 class WCVendors_Install {
 
-	/**    Updates to be run **/
+	/**
+	 * Updates to be run
+	 */
 	private static $db_updates
 		= array(
 			'2.0.0'  => array(
@@ -27,7 +29,7 @@ class WCVendors_Install {
 			'2.1.4'  => array(
 				'wcv_can_view_customer_shipping_name_option',
 			),
-			'2.1.6'	=> array(
+			'2.1.6'  => array(
 				'wcv_add_vendor_caps',
 			),
 		);
@@ -47,13 +49,13 @@ class WCVendors_Install {
 	 */
 	public static function init() {
 
-		add_action( 'init'                                  , array( __CLASS__, 'check_version' ) );
-		add_action( 'admin_init'                            , array( __CLASS__, 'check_pro_version' ) );
-		add_action( 'init'                                  , array( __CLASS__, 'init_background_updater' ), 5 );
-		add_action( 'admin_init'                            , array( __CLASS__, 'install_actions' ) );
-		add_filter( 'plugin_row_meta'                       , array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
+		add_action( 'init', array( __CLASS__, 'check_version' ) );
+		add_action( 'admin_init', array( __CLASS__, 'check_pro_version' ) );
+		add_action( 'init', array( __CLASS__, 'init_background_updater' ), 5 );
+		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
+		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 		add_filter( 'plugin_action_links_' . wcv_plugin_base, array( __CLASS__, 'plugin_action_links' ) );
-		add_action( 'wcvendors_update_options_display'      , array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
+		add_action( 'wcvendors_update_options_display', array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
 
 	} // init()
 
@@ -197,26 +199,26 @@ class WCVendors_Install {
 	 *
 	 * @since 2.1.6
 	 */
-	public static function create_capabilities(){
+	public static function create_capabilities() {
 
 		global $wp_roles;
 
-        if ( class_exists( 'WP_Roles' ) && ! isset( $wp_roles ) ) {
-            $wp_roles = new WP_Roles();
-        }
+		if ( class_exists( 'WP_Roles' ) && ! isset( $wp_roles ) ) {
+			$wp_roles = new WP_Roles();
+		}
 
 		$capabilities = array();
-        $all_cap      = self::get_vendor_caps();
+		$all_cap      = self::get_vendor_caps();
 
-        foreach ( $all_cap as $key => $cap ) {
-            $capabilities = array_merge( $capabilities, array_keys( $cap ) );
-        }
+		foreach ( $all_cap as $key => $cap ) {
+			$capabilities = array_merge( $capabilities, array_keys( $cap ) );
+		}
 
-        foreach ( $capabilities as $key => $capability ) {
-            $wp_roles->add_cap( 'vendor', $capability );
-            $wp_roles->add_cap( 'administrator', $capability );
-            $wp_roles->add_cap( 'shop_manager', $capability );
-        }
+		foreach ( $capabilities as $key => $capability ) {
+			$wp_roles->add_cap( 'vendor', $capability );
+			$wp_roles->add_cap( 'administrator', $capability );
+			$wp_roles->add_cap( 'shop_manager', $capability );
+		}
 	}
 
 
@@ -304,8 +306,8 @@ class WCVendors_Install {
 	/**
 	 * Is this a brand new WC install?
 	 *
-	 * @since 2.0.0
 	 * @return boolean
+	 * @since 2.0.0
 	 */
 	public static function is_new_install() {
 
@@ -328,8 +330,8 @@ class WCVendors_Install {
 	/**
 	 * Get list of DB update callbacks.
 	 *
-	 * @since  2.0.0
 	 * @return array
+	 * @since  2.0.0
 	 */
 	public static function get_db_update_callbacks() {
 
@@ -339,8 +341,8 @@ class WCVendors_Install {
 	/**
 	 * Is a DB update needed?
 	 *
-	 * @since 2.0.0
 	 * @return boolean
+	 * @since 2.0.0
 	 */
 	private static function needs_db_update() {
 
@@ -470,8 +472,8 @@ class WCVendors_Install {
 	 * Add an install date option so we can track when the plugin was installed
 	 *
 	 */
-	private static function add_install_date(){
-		if ( self::is_new_install() ){
+	private static function add_install_date() {
+		if ( self::is_new_install() ) {
 			add_option( 'wcvendors_install_date', current_time( 'Y-m-d' ) );
 		}
 	}
@@ -480,7 +482,7 @@ class WCVendors_Install {
 	/**
 	 * Show action links on the plugin screen.
 	 *
-	 * @param    mixed $links Plugin Action links
+	 * @param mixed $links Plugin Action links
 	 *
 	 * @return    array
 	 * @since 2.0.0
@@ -497,8 +499,8 @@ class WCVendors_Install {
 	/**
 	 * Show row meta on the plugin screen.
 	 *
-	 * @param    mixed $links Plugin Row Meta
-	 * @param    mixed $file  Plugin Base file
+	 * @param mixed $links Plugin Row Meta
+	 * @param mixed $file Plugin Base file
 	 *
 	 * @return    array
 	 */
@@ -509,7 +511,7 @@ class WCVendors_Install {
 				'docs'         => '<a href="' . esc_url( apply_filters( 'wcvendors_docs_url', 'https://docs.wcvendors.com/' ) ) . '" aria-label="' . esc_attr__( 'View WC Vendors documentation', 'wc-vendors' ) . '">' . esc_html__( 'Docs', 'wc-vendors' ) . '</a>',
 				'free-support' => '<a href="' . esc_url( apply_filters( 'wcvendors_free_support_url', 'https://wordpress.org/plugins/wc-vendors' ) ) . '" aria-label="' . esc_attr__( 'Visit community forums', 'wc-vendors' ) . '">' . esc_html__( 'Free support', 'wc-vendors' ) . '</a>',
 				'support'      => '<a href="' . esc_url( apply_filters( 'wcvendors_support_url', 'https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_medium=settings_page&utm_campaign=premium_support' ) ) . '" aria-label="' . esc_attr__( 'Buy premium customer support', 'wc-vendors' ) . '">' . esc_html__( 'Premium support', 'wc-vendors' ) . '</a>',
-				'pro'          => '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_medium=settings_page&utm_campaign=upgrade_promo" target="_blank">' . __( 'Upgrade to Pro', 'wcvendors' ) . '</a></strong>',
+				'pro'          => '<strong><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_medium=settings_page&utm_campaign=upgrade_promo" target="_blank">' . __( 'Upgrade to Pro', 'wc-vendors' ) . '</a></strong>',
 			);
 
 			if ( class_exists( 'WCVendors_Pro' ) ) {
@@ -536,66 +538,83 @@ class WCVendors_Install {
 	}
 
 	/**
-	 * Define the new capabilties for vendors
+	 * Define the new capabilities for vendors
 	 *
 	 * @since 2.1.6
 	 */
 	public static function get_vendor_caps() {
 
-	    $capabilities = array(
-	    	'vendor'    => array(
-	    		'wcv_vendor_enabled'             => __( 'Vendor is enabled', 'wc-vendors' ),
-	    		'wcv_vendor_verified'            => __( 'Vendor is verified', 'wc-vendors' ),
-	    		'wcv_vendor_trusted'             => __( 'Vendor is trusted', 'wc-vendors' ),
-	    	),
-	        'dashboard' => array(
-	            'wcv_view_sales_overview'        => __( 'View sales overview', 'wc-vendors' ),
-	            'wcv_view_sales_report_chart'    => __( 'View sales report chart', 'wc-vendors' ),
-	            'wcv_view_vendor_notice'         => __( 'View vendor notices', 'wc-vendors' ),
-	            'wcv_view_order_report'          => __( 'View order report', 'wc-vendors' ),
-	            'wcv_view_order_overview'        => __( 'View order overview', 'wc-vendors' ),
-	            'wcv_view_review_reports'        => __( 'View ratings report', 'wc-vendors' ),
-	            'wcv_view_product_status_report' => __( 'View product status report', 'wc-vendors' ),
-	        ),
-	        'order' => array(
-	            'wcv_view_order'        	=> __( 'View order', 'wc-vendors' ),
-	            'wcv_add_order_note' 		=> __( 'Add order notes', 'wc-vendors' ),
-	            'wcv_view_order_note' 		=> __( 'View order notes', 'wc-vendors' ),
-	            'wcv_manage_order_export' 	=> __( 'Export orders', 'wc-vendors' ),
-	            'wcv_manage_order_status' 	=> __( 'Manage order status', 'wc-vendors' ),
-	            'wcv_view_name'        		=> __( 'View customer name', 'wc-vendors' ),
-	            'wcv_view_email'        	=> __( 'View customer email address', 'wc-vendors' ),
-	            'wcv_view_phone'        	=> __( 'View customer phone number', 'wc-vendors' ),
-	            'wcv_view_shipping_name'    => __( 'View customer shipping name', 'wc-vendors' ),
-	            'wcv_view_shipping'     	=> __( 'View customer shipping address fields', 'wc-vendors' ),
-	            'wcv_view_billing'      	=> __( 'View customer billing address fields', 'wc-vendors' ),
-	            'wcv_view_email'      		=> __( 'View customer shipping name', 'wc-vendors' ),
- 	        ),
- 	        'product' => array(
-	            'wcv_add_product'       		=> __( 'Add product', 'wc-vendors' ),
-	            'wcv_edit_product'      		=> __( 'Edit product', 'wc-vendors' ),
-	            'wcv_edit_product_published'    => __( 'Edit published product', 'wc-vendors' ),
-	            'wcv_publish_product'    		=> __( 'Publish product directly without approval', 'wc-vendors' ),
-	            'wcv_delete_product'    		=> __( 'Delete product', 'wc-vendors' ),
-	            'wcv_duplicate_product' 		=> __( 'Duplicate product', 'wc-vendors' ),
-	            'wcv_view_product'      		=> __( 'View product', 'wc-vendors' ),
-	        ),
-	        // Not used yet
-	        'report' => array(
-	            'wcv_view_overview_report'    => __( 'View overview report', 'wc-vendors' ),
-	            'wcv_view_daily_sale_report'  => __( 'View daily sales report', 'wc-vendors' ),
-	            'wcv_view_top_selling_report' => __( 'View top selling report', 'wc-vendors' ),
-	            'wcv_view_top_earning_report' => __( 'View top earning report', 'wc-vendors' ),
-	        ),
-	        'menu' => array(
-	            'wcv_view_dashboard_menu'      => __( 'View dashboard menu', 'wc-vendors' ),
-	            'wcv_view_product_menu'        => __( 'View product menu', 'wc-vendors' ),
-	            'wcv_view_order_menu'          => __( 'View order menu', 'wc-vendors' ),
-	            'wcv_view_store_settings_menu' => __( 'View store settings menu', 'wc-vendors' ),
-	        ),
-	    );
+		$capabilities = array(
+			'vendor'    => array(
+				'wcv_vendor_enabled'  => __( 'Vendor is enabled', 'wc-vendors' ),
+				'wcv_vendor_verified' => __( 'Vendor is verified', 'wc-vendors' ),
+				'wcv_vendor_trusted'  => __( 'Vendor is trusted', 'wc-vendors' ),
+				'wcv_manage_products' => __( 'Manage Products', 'wc-vendors' ),
+				'wcv_manage_orders'   => __( 'Manage orders', 'wc-vendors' ),
+				'wcv_manage_coupons'  => __( 'Manage coupons', 'wc-vendors' ),
+				'wcv_manage_ratings'  => __( 'Manage ratings', 'wc-vendors' ),
+				'wcv_manage_settings' => __( 'Manage Store Settings', 'wc-vendors' ),
+				'wcv_manage_shipping' => __( 'Manage Store Shipping', 'wc-vendors' ),
+				'wcv_view_store'      => __( 'View Store', 'wc-vendors' ),
+			),
+			'dashboard' => array(
+				'wcv_view_sales_overview'        => __( 'View sales overview', 'wc-vendors' ),
+				'wcv_view_sales_report_chart'    => __( 'View sales report chart', 'wc-vendors' ),
+				'wcv_view_vendor_notice'         => __( 'View vendor notices', 'wc-vendors' ),
+				'wcv_view_order_report'          => __( 'View order report', 'wc-vendors' ),
+				'wcv_view_order_overview'        => __( 'View order overview', 'wc-vendors' ),
+				'wcv_view_review_reports'        => __( 'View ratings report', 'wc-vendors' ),
+				'wcv_view_product_status_report' => __( 'View product status report', 'wc-vendors' ),
+			),
+			'product'   => array(
+				'wcv_add_product'            => __( 'Add product', 'wc-vendors' ),
+				'wcv_edit_product'           => __( 'Edit product', 'wc-vendors' ),
+				'wcv_edit_product_published' => __( 'Edit published product', 'wc-vendors' ),
+				'wcv_publish_product'        => __( 'Publish product directly without approval', 'wc-vendors' ),
+				'wcv_delete_product'         => __( 'Delete product', 'wc-vendors' ),
+				'wcv_duplicate_product'      => __( 'Duplicate product', 'wc-vendors' ),
+				'wcv_featured_product'       => __( 'Featured product', 'wc-vendors' ),
+				'wcv_view_product'           => __( 'View product', 'wc-vendors' ),
+				'wcv_import_product'         => __( 'Import product', 'wc-vendors' ),
+				'wcv_export_product'         => __( 'Export product', 'wc-vendors' )
+			),
+			'order'     => array(
+				'wcv_view_order'          => __( 'View order', 'wc-vendors' ),
+				'wcv_add_order_note'      => __( 'Add order notes', 'wc-vendors' ),
+				'wcv_view_order_note'     => __( 'View order notes', 'wc-vendors' ),
+				'wcv_manage_order_export' => __( 'Export orders', 'wc-vendors' ),
+				'wcv_manage_order_status' => __( 'Manage order status', 'wc-vendors' ),
+				'wcv_view_name'           => __( 'View customer name', 'wc-vendors' ),
+				'wcv_view_phone'          => __( 'View customer phone number', 'wc-vendors' ),
+				'wcv_view_shipping_name'  => __( 'View customer shipping name', 'wc-vendors' ),
+				'wcv_view_shipping'       => __( 'View customer shipping address fields', 'wc-vendors' ),
+				'wcv_view_billing'        => __( 'View customer billing address fields', 'wc-vendors' ),
+				'wcv_view_email'          => __( 'View customer shipping name', 'wc-vendors' ),
+			),
+			'coupon'    => array(
+				'wcv_add_coupon'    => __( 'Add coupon', 'wc-vendors' ),
+				'wcv_edit_coupon'   => __( 'Edit coupon', 'wc-vendors' ),
+				'wcv_delete_coupon' => __( 'Delete coupon', 'wc-vendors' ),
+			),
+			'report'    => array(
+				'wcv_view_overview_report'    => __( 'View overview report', 'wc-vendors' ),
+				'wcv_view_daily_sale_report'  => __( 'View daily sales report', 'wc-vendors' ),
+				'wcv_view_top_selling_report' => __( 'View top selling report', 'wc-vendors' ),
+				'wcv_view_top_earning_report' => __( 'View top earning report', 'wc-vendors' ),
+				'wcv_view_statement_report'   => __( 'View statement report', 'wc-vendors' )
+			),
+			'menu'      => array(
+				'wcv_view_overview_menu'       => __( 'View order menu', 'wc-vendors' ),
+				'wcv_view_dashboard_menu'      => __( 'View dashboard menu', 'wc-vendors' ),
+				'wcv_view_product_menu'        => __( 'View product menu', 'wc-vendors' ),
+				'wcv_view_order_menu'          => __( 'View order menu', 'wc-vendors' ),
+				'wcv_view_coupon_menu'         => __( 'View order menu', 'wc-vendors' ),
+				'wcv_view_ratings_menu'        => __( 'View ratings menu', 'wc-vendors' ),
+				'wcv_view_store_settings_menu' => __( 'View store settings menu', 'wc-vendors' ),
+			),
+		);
 
-    	return apply_filters( 'wcv_get_vendor_caps', $capabilities );
+		return apply_filters( 'wcv_get_vendor_caps', $capabilities );
 
 	}
 }
