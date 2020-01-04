@@ -68,6 +68,7 @@ class Plugin {
 	 */
 	private function init_admin_classes() {
 		( new Admin\Admin() )->init_hooks();
+		( new Admin\Assets() )->init_hooks();
 		( new Admin\Menus() )->init_hooks();
 	}
 

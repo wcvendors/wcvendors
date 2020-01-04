@@ -2,7 +2,7 @@
 /**
  * The order class process orders from WooCommerce
  *
- * @package     WCVendors/Classes
+ * @package WCVendors
  */
 
 namespace WCVendors;
