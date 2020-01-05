@@ -56,9 +56,6 @@ class Install {
 			define( 'WCV_INSTALLING', true );
 		}
 
-		// Ensure needed classes are loaded
-		// include_once dirname( __FILE__ ) . '/admin/class-wcv-admin-notices.php';
-
 		$this->create_options();
 		$this->create_tables();
 		$this->create_roles();
@@ -73,16 +70,16 @@ class Install {
 
 		// No versions? This is a new install :)
 		if ( is_null( $current_wcv_version ) && is_null( $current_db_version ) && apply_filters( 'wcvendors_enable_setup_wizard', true ) ) {
-			// WCVendors_Admin_Notices::add_notice( 'install' );
+			Admin\Notices::add_notice( 'install' );
 			set_transient( '_wcv_activation_redirect', 1, 30 );
 
 			// No page? Let user run wizard again..
 		} elseif ( ! get_option( 'wcvendors_dashboard_page_id' ) ) {
-			// WCVendors_Admin_Notices::add_notice( 'install' );
+			Admin\Notices::add_notice( 'install' );
 		}
 
 		if ( ! is_null( $current_db_version ) && version_compare( $current_db_version, max( array_keys( $this->db_updates ) ), '<' ) ) {
-			// WCVendors_Admin_Notices::add_notice( 'update' );
+			Admin\Notices::add_notice( 'update' );
 		} else {
 			$this->update_db_version();
 		}

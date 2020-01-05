@@ -67,6 +67,7 @@ class Plugin {
 	 * Init admin classes.
 	 */
 	private function init_admin_classes() {
+		Admin\Notices::init();
 		( new Admin\Admin() )->init_hooks();
 		( new Admin\Assets() )->init_hooks();
 		( new Admin\Menus() )->init_hooks();
