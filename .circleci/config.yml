@@ -92,6 +92,6 @@ jobs:
       - store_test_results:
           path: /var/www/html/wp-content/plugins/wc-vendors/report
       - store_artifacts:
-          path: /cypress/videos
+          path: /var/www/html/wp-content/plugins/wc-vendors/tests/cypress/videos
       - store_artifacts:
-          path: /cypress/screenshots
+          path: /var/www/html/wp-content/plugins/wc-vendors/tests/cypress/screenshots
