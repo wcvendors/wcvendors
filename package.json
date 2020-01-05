@@ -107,7 +107,7 @@
       "prettier --write",
       "git add"
     ],
-    "**/*.js": [
+    "assets/**/*.js": [
       "prettier --write",
       "eslint",
       "git add"
