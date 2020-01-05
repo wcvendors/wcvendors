@@ -87,12 +87,8 @@ jobs:
           name: e2e tests
           path: /var/www/html/wp-content/plugins/wc-vendors
           command: |
-            ls ./node_modules/.bin/
             ./node_modules/.bin/cypress run
-      - run:
-          name: Copy e2e tests result
-          path: /var/www/html/wp-content/plugins/wc-vendors
-          command: sudo cp -r tests/cypress/ /cypress
+            sudo cp -r tests/cypress/ /cypress
       - store_test_results:
           path: /var/www/html/wp-content/plugins/wc-vendors/report
       - store_artifacts:
