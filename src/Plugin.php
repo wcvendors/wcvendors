@@ -73,6 +73,7 @@ class Plugin {
 		( new Admin\PermalinkSettings() )->init_hooks();
 		( new Admin\PostTypes() )->init_hooks();
 		( new Admin\Vendor() )->init_hooks();
+		( new Admin\MetaBoxes() )->init_hooks();
 	}
 
 	/**
