@@ -17,7 +17,6 @@
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
-    "@wordpress/browserslist-config": "^2.6.0",
     "autoprefixer": "^9.4.7",
     "babel-eslint": "^10.0.1",
     "babelify": "^10.0.0",
@@ -26,6 +25,7 @@
     "browserify": "^16.2.3",
     "browserslist": "^4.7.3",
     "css-mqpacker": "^7.0.0",
+    "cypress": "^3.8.0",
     "del": "^3.0.0",
     "dotenv": "^8.2.0",
     "eslint": "^5.13.0",
@@ -58,7 +58,16 @@
     "prettier": "^1.19.1"
   },
   "browserslist": [
-    "extends @wordpress/browserslist-config"
+    "> 1%",
+    "ie >= 11",
+    "last 1 Android versions",
+    "last 1 ChromeAndroid versions",
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 iOS versions",
+    "last 2 Edge versions",
+    "last 2 Opera versions"
   ],
   "prettier": {
     "singleQuote": true,
