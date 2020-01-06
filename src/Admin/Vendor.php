@@ -27,7 +27,7 @@ class Vendor {
 		if ( wcv_is_vendor( get_current_user_id() ) ) {
 
 			// filter media and products to only show objects owned by the vendor.
-			add_filter( 'parse_query', array( $this, 'filter_vendor' ) );
+			// add_filter( 'parse_query', array( $this, 'filter_vendor' ) );
 			add_action( 'ajax_query_attachments_args', array( $this, 'filter_media_modal' ) );
 
 			// Disable wcvendors restrict admin.
