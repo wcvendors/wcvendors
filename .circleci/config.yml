@@ -58,6 +58,9 @@ jobs:
       - checkout:
           path: /var/www/html/wp-content/plugins/wc-vendors
       - run:
+          name: Build plugins
+          command: npm start
+      - run:
           name: Import data
           path: /var/www/html/wp-content/plugins/wc-vendors
           command: mysql -h 127.0.0.1 -u user -ppassword wordpress < tests/resources/db.sql
@@ -93,5 +96,7 @@ jobs:
           path: /var/www/html/wp-content/plugins/wc-vendors/report
       - store_artifacts:
           path: /var/www/html/wp-content/plugins/wc-vendors/tests/cypress/videos
+          destination: /videos
       - store_artifacts:
           path: /var/www/html/wp-content/plugins/wc-vendors/tests/cypress/screenshots
+          destination: /screenshots
