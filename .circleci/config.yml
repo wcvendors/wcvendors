@@ -58,6 +58,7 @@ jobs:
       - checkout:
           path: /var/www/html/wp-content/plugins/wc-vendors
       - run:
+          path: /var/www/html/wp-content/plugins/wc-vendors
           name: Build plugins
           command: npm start
       - run:
@@ -70,11 +71,6 @@ jobs:
           command: |
             php wp-cli.phar core update-db
             php wp-cli.phar option update admin_email_lifespan $(date -d "+10 days" +%s)
-      - run:
-          name: Install cypress
-          path: /var/www/html/wp-content/plugins/wc-vendors
-          command: |
-            npm i cypress
       - run:
           name: Install cypress dependencies
           command: sudo apt-get install xvfb libgtk-3-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
