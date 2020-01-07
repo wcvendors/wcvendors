@@ -5,6 +5,41 @@ workflows:
     jobs:
       - e2e
 jobs:
+  phpunit:
+    working_directory: /var/www/html
+    docker:
+      - image: php:7.3-apache
+        environment:
+          APP_ENV: test
+    steps:
+      - run:
+          name: Install system packages
+          command: apt-get update && apt-get -y install git && apt-get -y install unzip && apt-get -y install wget
+      - run:
+          name: Install PHP extensions
+          command: docker-php-ext-install pdo
+      - checkout
+      - run:
+          name: Install Composer
+          command: |
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+            php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('https://composer.github.io/installer.sig'))) { echo 'Installer verified'; } else { echo 'Installer invalid'; unlink('composer-setup.php'); } echo PHP_EOL;"
+            php composer-setup.php
+            php -r "unlink('composer-setup.php');"
+      - run:
+          name: Install project dependencies
+          command: php composer.phar install
+      - run:
+          name: Display PHP information
+          command: |
+            php -v
+            php composer.phar --version
+            ./vendor/bin/phpunit --version
+      - run:
+          name: Run Unit tests
+          command: ./vendor/bin/phpunit --log-junit report/junit.xml
+      - store_test_results:
+          path: report
   e2e:
     working_directory: /var/www/html
     docker:
