@@ -6,7 +6,9 @@
     "automattic/jetpack-autoloader": "^1.2.0"
   },
   "require-dev": {
-    "woocommerce/woocommerce-sniffs": "0.0.9"
+    "woocommerce/woocommerce-sniffs": "0.0.9",
+    "brain/monkey": "^2.3",
+    "phpunit/phpunit": "^8.4"
   },
   "autoload": {
     "psr-4": {
@@ -17,9 +19,5 @@
       "./inc/wcv-vendor-functions.php",
       "./inc/wcv-admin-functions.php"
     ]
-  },
-  "scripts": {
-    "lint": "phpcs wc-vendors.php includes templates",
-    "fix": "phpcbf wc-vendors.php includes templates"
   }
 }

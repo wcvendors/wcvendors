@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.4/phpunit.xsd"
+	bootstrap="tests/phpunit/bootstrap.php"
+	backupGlobals="true"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	verbose="true"
+	printerClass="PHPUnit\TextUI\ResultPrinter"
+	>
+	<testsuites>
+		<testsuite name="WC Vendors Pro Unit Test">
+			<directory suffix="test.php">./tests/phpunit</directory>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="false">
+			<directory suffix=".php">./src</directory>
+		</whitelist>
+	</filter>
+</phpunit>
+
