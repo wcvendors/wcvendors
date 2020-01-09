@@ -41,7 +41,7 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 			$this->description    = sprintf( __( 'Email is sent to the customer when a %s marks an order received/paid by a customer.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/customer-notify-shipped.php';
 			$this->template_plain = 'emails/plain/customer-notify-shipped.php';
-			$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
+			$this->template_base  = dirname( dirname( dirname( __FILE__ ) ) ) . '/templates/';
 			$this->placeholders   = array(
 				'{site_title}'   => $this->get_blogname(),
 				'{order_date}'   => '',

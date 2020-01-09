@@ -40,7 +40,7 @@ if ( ! class_exists( 'NotifyShipped' ) ) :
 			$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a %s marks an order shipped.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/admin-notify-shipped.php';
 			$this->template_plain = 'emails/plain/admin-notify-shipped.php';
-			$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
+			$this->template_base  = dirname( dirname( dirname( __FILE__ ) ) ) . '/templates/';
 			$this->placeholders   = array(
 				'{site_title}'   => $this->get_blogname(),
 				'{order_date}'   => '',

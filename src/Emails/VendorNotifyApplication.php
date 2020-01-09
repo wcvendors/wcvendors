@@ -40,7 +40,7 @@ if ( ! class_exists( 'VendorNotifyApplication' ) ) :
 			$this->description    = sprintf( __( 'Notification is sent to the %s that their application has been received', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/vendor-notify-application.php';
 			$this->template_plain = 'emails/plain/vendor-notify-application.php';
-			$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/';
+			$this->template_base  = dirname( dirname( dirname( __FILE__ ) ) ) . '/templates/';
 			$this->placeholders   = array(
 				'{site_title}' => $this->get_blogname(),
 			);
