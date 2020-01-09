@@ -12,7 +12,6 @@
 namespace WCVendors\Emails;
 
 use WC_Email;
-use WC
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
