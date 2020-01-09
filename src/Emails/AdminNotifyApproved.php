@@ -11,11 +11,13 @@
 
 namespace WCVendors\Emails;
 
+use WC_Email;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'NotifyApproved' ) ) :
+if ( ! class_exists( 'AdminNotifyApproved' ) ) :
 
 	/**
 	 * Notify Admin Approved
@@ -27,7 +29,7 @@ if ( ! class_exists( 'NotifyApproved' ) ) :
 	 * @class   WCVendors_Admin_Notify_Approved
 	 * @extends WC_Email
 	 */
-	class NotifyApproved extends WC_Email {
+	class AdminNotifyApproved extends WC_Email {
 
 		/**
 		 * Constructor.

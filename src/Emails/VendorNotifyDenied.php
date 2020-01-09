@@ -11,6 +11,8 @@
 
 namespace WCVendors\Emails;
 
+use WC_Email;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -46,7 +48,6 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 
 			// Call parent constructor
 			parent::__construct();
-
 		}
 
 		/**

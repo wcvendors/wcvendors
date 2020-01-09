@@ -11,6 +11,9 @@
 
 namespace WCVendors\Emails;
 
+use WC_Email;
+use WC
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -46,16 +49,27 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 				'{order_number}' => '',
 			);
 
-			// Triggers
+			// Triggers.
+			$this->init_hooks();
+
+			// Call parent constructor.
+			parent::__construct();
+		}
+
+		/**
+		 * Add hooks to trigger emails
+		 *
+		 * @return void
+		 * @version 3.0.0
+		 * @since   3.0.0
+		 */
+		public function init_hooks() {
 			add_action( 'woocommerce_order_status_pending_to_processing_notification', array( $this, 'trigger' ), 10, 2 );
 			add_action( 'woocommerce_order_status_pending_to_completed_notification' , array( $this, 'trigger' ), 10, 2 );
 			add_action( 'woocommerce_order_status_failed_to_processing_notification' , array( $this, 'trigger' ), 10, 2 );
 			add_action( 'woocommerce_order_status_failed_to_completed_notification'  , array( $this, 'trigger' ), 10, 2 );
 			add_action( 'woocommerce_order_status_on-hold_to_processing_notification', array( $this, 'trigger' ), 10, 2 );
 			add_action( 'woocommerce_order_status_on-hold_to_completed_notification' , array( $this, 'trigger' ), 10, 2 );
-
-			// Call parent constructor
-			parent::__construct();
 		}
 
 		/**

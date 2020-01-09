@@ -11,6 +11,8 @@
 
 namespace WCVendors\Emails;
 
+use WC_Email;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -47,11 +49,22 @@ if ( ! class_exists( 'VendorNotifyCancelledOrder' ) ) :
 			);
 
 			// Triggers for this email.
-			add_action( 'woocommerce_order_status_processing_to_cancelled_notification', array( $this, 'trigger' ), 10, 2 );
-			add_action( 'woocommerce_order_status_on-hold_to_cancelled_notification', array( $this, 'trigger' ), 10, 2 );
-
+			$this->init_hooks();
+		
 			// Call parent constructor.
 			parent::__construct();
+		}
+
+		/**
+		 * Add hooks to trigger this email
+		 *
+		 * @return void
+		 * @version
+		 * @since
+		 */
+		public function init_hooks() {
+			add_action( 'woocommerce_order_status_processing_to_cancelled_notification', array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_on-hold_to_cancelled_notification', array( $this, 'trigger' ), 10, 2 );
 		}
 
 		/**

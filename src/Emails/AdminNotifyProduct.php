@@ -11,6 +11,8 @@
 
 namespace WCVendors\Emails;
 
+use WC_Email;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -22,11 +24,11 @@ if ( ! class_exists( 'NotifyProduct' ) ) :
 	 *
 	 * An email sent to the admin when a vendor adds a new product for approval
 	 *
-	 * @class       Notify_Product
+	 * @class       AdminNotifyProduct
 	 * @author      WC Vendors
 	 * @extends     WC_Email
 	 */
-	class NotifyProduct extends WC_Email {
+	class AdminNotifyProduct extends WC_Email {
 
 		/**
 		 * Constructor.
@@ -46,14 +48,25 @@ if ( ! class_exists( 'NotifyProduct' ) ) :
 			);
 
 			// Triggers for this email
-			add_action( 'pending_product', array( $this, 'trigger' ), 10, 2 );
-			add_action( 'pending_product_variation', array( $this, 'trigger' ), 10, 2 );
+			$this->init_hooks();
 
 			// Call parent constructor
 			parent::__construct();
 
 			// Other settings
 			$this->recipient = $this->get_option( 'recipient', get_option( 'admin_email' ) );
+		}
+
+		/**
+		 * Add hooks to trigger this email
+		 *
+		 * @return void
+		 * @version 3.0.0
+		 * @since   3.0.0
+		 */
+		public function init_hooks() {
+			add_action( 'pending_product', array( $this, 'trigger' ), 10, 2 );
+			add_action( 'pending_product_variation', array( $this, 'trigger' ), 10, 2 );
 		}
 
 		/**

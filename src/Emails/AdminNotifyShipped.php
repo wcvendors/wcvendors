@@ -11,6 +11,8 @@
 
 namespace WCVendors\Emails;
 
+use WC_Email;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -22,7 +24,7 @@ if ( ! class_exists( 'NotifyShipped' ) ) :
 	 *
 	 * An email sent to the admin when the vendor marks the order shipped.
 	 *
-	 * @class       NotifyShipped
+	 * @class       AdminNotifyShipped
 	 * @version     3.0.0
 	 * @extends     WC_Email
 	 */

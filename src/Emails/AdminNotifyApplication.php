@@ -11,21 +11,23 @@
 
 namespace WCVendors\Emails;
 
+use WC_Email;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'WCVendors_Admin_Notify_Application' ) ) :
+if ( ! class_exists( 'AdminNotifyApplication' ) ) :
 
 	/**
 	 * Notify Admin Application
 	 *
 	 * An email sent to the admin when a user applies to be a vendor
 	 *
-	 * @class       NotifyApplication
+	 * @class       AdminNotifyApplication
 	 * @extends     WC_Email
 	 */
-	class NotifyApplication extends WC_Email {
+	class AdminNotifyApplication extends WC_Email {
 
 		/**
 		 * Constructor.
