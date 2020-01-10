@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'NotifyShipped' ) ) :
+if ( ! class_exists( 'AdminNotifyShipped' ) ) :
 
 	/**
 	 * Notify Admin Shipped
@@ -80,6 +80,7 @@ if ( ! class_exists( 'NotifyShipped' ) ) :
 		 * Trigger the sending of this email.
 		 *
 		 * @param int      $order_id The order ID.
+		 * @param int      $user_id  The user's ID.
 		 * @param WC_Order $order    Order object.
 		 */
 		public function trigger( $order_id, $user_id, $order = false ) {
@@ -114,14 +115,17 @@ if ( ! class_exists( 'NotifyShipped' ) ) :
 		public function get_content_html() {
 
 			return wc_get_template_html(
-				$this->template_html, array(
-				'order'         => $this->object,
-				'email_heading' => $this->get_heading(),
-				'sent_to_admin' => true,
-				'plain_text'    => false,
-				'email'         => $this,
-				'vendor_id'     => $this->vendor_id,
-			), 'woocommerce', $this->template_base
+				$this->template_html,
+				array(
+					'order'         => $this->object,
+					'email_heading' => $this->get_heading(),
+					'sent_to_admin' => true,
+					'plain_text'    => false,
+					'email'         => $this,
+					'vendor_id'     => $this->vendor_id,
+				),
+				'woocommerce',
+				$this->template_base
 			);
 		}
 
@@ -134,14 +138,17 @@ if ( ! class_exists( 'NotifyShipped' ) ) :
 		public function get_content_plain() {
 
 			return wc_get_template_html(
-				$this->template_plain, array(
-				'order'         => $this->object,
-				'email_heading' => $this->get_heading(),
-				'sent_to_admin' => true,
-				'plain_text'    => true,
-				'email'         => $this,
-				'vendor_id'     => $this->vendor_id,
-			), 'woocommerce', $this->template_base
+				$this->template_plain,
+				array(
+					'order'         => $this->object,
+					'email_heading' => $this->get_heading(),
+					'sent_to_admin' => true,
+					'plain_text'    => true,
+					'email'         => $this,
+					'vendor_id'     => $this->vendor_id,
+				),
+				'woocommerce',
+				$this->template_base
 			);
 		}
 

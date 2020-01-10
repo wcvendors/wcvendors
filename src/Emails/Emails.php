@@ -3,7 +3,7 @@
  * WC Vendors Emails
  *
  * @package    WC_Vendors
- * @subpackage /Admin/Emails
+ * @subpackage Emails
  * @author WC Vendors
  */
 

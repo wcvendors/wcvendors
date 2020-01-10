@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'NotifyProduct' ) ) :
+if ( ! class_exists( 'AdminNotifyProduct' ) ) :
 
 	/**
 	 * Notify Admin of new vendor product
@@ -94,8 +94,8 @@ if ( ! class_exists( 'NotifyProduct' ) ) :
 		/**
 		 * Trigger the sending of this email.
 		 *
-		 * @param int      $order_id The order ID.
-		 * @param WC_Order $order    Order object.
+		 * @param int      $post_id The order ID.
+		 * @param WC_Order $post    Order object.
 		 */
 		public function trigger( $post_id, $post ) {
 
@@ -131,17 +131,20 @@ if ( ! class_exists( 'NotifyProduct' ) ) :
 		public function get_content_html() {
 
 			return wc_get_template_html(
-				$this->template_html, array(
-				'order'         => $this->object,
-				'email_heading' => $this->get_heading(),
-				'sent_to_admin' => true,
-				'plain_text'    => false,
-				'email'         => $this,
-				'post_id'       => $this->post_id,
-				'vendor_id'     => $this->vendor_id,
-				'vendor_name'   => $this->vendor_name,
-				'product'       => $this->product,
-			), 'woocommerce', $this->template_base
+				$this->template_html,
+				array(
+					'order'         => $this->object,
+					'email_heading' => $this->get_heading(),
+					'sent_to_admin' => true,
+					'plain_text'    => false,
+					'email'         => $this,
+					'post_id'       => $this->post_id,
+					'vendor_id'     => $this->vendor_id,
+					'vendor_name'   => $this->vendor_name,
+					'product'       => $this->product,
+				),
+				'woocommerce',
+				$this->template_base
 			);
 		}
 
@@ -154,17 +157,20 @@ if ( ! class_exists( 'NotifyProduct' ) ) :
 		public function get_content_plain() {
 
 			return wc_get_template_html(
-				$this->template_plain, array(
-				'order'         => $this->object,
-				'email_heading' => $this->get_heading(),
-				'sent_to_admin' => true,
-				'plain_text'    => true,
-				'email'         => $this,
-				'post_id'       => $this->post_id,
-				'vendor_id'     => $this->vendor_id,
-				'vendor_name'   => $this->vendor_name,
-				'product'       => $this->product,
-			), 'woocommerce', $this->template_base
+				$this->template_plain,
+				array(
+					'order'         => $this->object,
+					'email_heading' => $this->get_heading(),
+					'sent_to_admin' => true,
+					'plain_text'    => true,
+					'email'         => $this,
+					'post_id'       => $this->post_id,
+					'vendor_id'     => $this->vendor_id,
+					'vendor_name'   => $this->vendor_name,
+					'product'       => $this->product,
+				),
+				'woocommerce',
+				$this->template_base
 			);
 		}
 

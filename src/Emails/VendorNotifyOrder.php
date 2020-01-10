@@ -64,11 +64,11 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 		 */
 		public function init_hooks() {
 			add_action( 'woocommerce_order_status_pending_to_processing_notification', array( $this, 'trigger' ), 10, 2 );
-			add_action( 'woocommerce_order_status_pending_to_completed_notification' , array( $this, 'trigger' ), 10, 2 );
-			add_action( 'woocommerce_order_status_failed_to_processing_notification' , array( $this, 'trigger' ), 10, 2 );
-			add_action( 'woocommerce_order_status_failed_to_completed_notification'  , array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_pending_to_completed_notification', array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_failed_to_processing_notification', array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_failed_to_completed_notification', array( $this, 'trigger' ), 10, 2 );
 			add_action( 'woocommerce_order_status_on-hold_to_processing_notification', array( $this, 'trigger' ), 10, 2 );
-			add_action( 'woocommerce_order_status_on-hold_to_completed_notification' , array( $this, 'trigger' ), 10, 2 );
+			add_action( 'woocommerce_order_status_on-hold_to_completed_notification', array( $this, 'trigger' ), 10, 2 );
 		}
 
 		/**
@@ -124,23 +124,26 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 					$this->vendor_id      = $vendor_id;
 					$this->totals_display = $this->get_option( 'totals_display' );
 
-					// Remove the customer name from the addresses
+					// Remove the customer name from the addresses.
 					add_filter( 'woocommerce_order_formatted_billing_address', array( $this, 'filter_customer_name' ) );
 					add_filter(
-						'woocommerce_order_formatted_shipping_address', array(
+						'woocommerce_order_formatted_shipping_address',
+						array(
 							$this,
 							'filter_customer_name',
 						)
 					);
 					$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 					remove_filter(
-						'woocommerce_order_formatted_billing_address', array(
+						'woocommerce_order_formatted_billing_address',
+						array(
 							$this,
 							'filter_customer_name',
 						)
 					);
 					remove_filter(
-						'woocommerce_order_formatted_shipping_address', array(
+						'woocommerce_order_formatted_shipping_address',
+						array(
 							$this,
 							'filter_customer_name',
 						)
@@ -161,19 +164,24 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 		public function get_content_html() {
 
 			return apply_filters(
-				'wcv_vendor_notify_order_get_content_html', wc_get_template_html(
-				$this->template_html, array(
-				'order'          => $this->object,
-				'vendor_id'      => $this->vendor_id,
-				'vendor_items'   => $this->order_items,
-				'email_heading'  => $this->get_heading(),
-				'totals_display' => $this->totals_display,
-				'sent_to_admin'  => false,
-				'sent_to_vendor' => true,
-				'plain_text'     => false,
-				'email'          => $this,
-			), 'woocommerce', $this->template_base
-			), $this
+				'wcv_vendor_notify_order_get_content_html',
+				wc_get_template_html(
+					$this->template_html,
+					array(
+						'order'          => $this->object,
+						'vendor_id'      => $this->vendor_id,
+						'vendor_items'   => $this->order_items,
+						'email_heading'  => $this->get_heading(),
+						'totals_display' => $this->totals_display,
+						'sent_to_admin'  => false,
+						'sent_to_vendor' => true,
+						'plain_text'     => false,
+						'email'          => $this,
+					),
+					'woocommerce',
+					$this->template_base
+				),
+				$this
 			);
 		}
 
@@ -187,19 +195,24 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 		public function get_content_plain() {
 
 			return apply_filters(
-				'wcv_vendor_notify_order_get_content_plain', wc_get_template_html(
-				$this->template_plain, array(
-				'order'          => $this->object,
-				'vendor_id'      => $this->vendor_id,
-				'vendor_items'   => $this->order_items,
-				'email_heading'  => $this->get_heading(),
-				'sent_to_admin'  => false,
-				'sent_to_vendor' => true,
-				'totals_display' => $this->totals_display,
-				'plain_text'     => true,
-				'email'          => $this,
-			), 'woocommerce', $this->template_base
-			), $this
+				'wcv_vendor_notify_order_get_content_plain',
+				wc_get_template_html(
+					$this->template_plain,
+					array(
+						'order'          => $this->object,
+						'vendor_id'      => $this->vendor_id,
+						'vendor_items'   => $this->order_items,
+						'email_heading'  => $this->get_heading(),
+						'sent_to_admin'  => false,
+						'sent_to_vendor' => true,
+						'totals_display' => $this->totals_display,
+						'plain_text'     => true,
+						'email'          => $this,
+					),
+					'woocommerce',
+					$this->template_base
+				),
+				$this
 			);
 		}
 
@@ -265,6 +278,14 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 			);
 		}
 
+		/**
+		 * Remove customer name from address
+		 *
+		 * @param array $address The customer's address.
+		 * @return array
+		 * @version 3.0.0
+		 * @since   3.0.0
+		 */
 		public function filter_customer_name( $address ) {
 
 			unset( $address['first_name'] );
@@ -272,7 +293,6 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 
 			return $address;
 		}
-
 	}
 
 endif;

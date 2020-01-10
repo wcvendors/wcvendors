@@ -121,14 +121,17 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 		public function get_content_html() {
 
 			return wc_get_template_html(
-				$this->template_html, array(
-				'order'         => $this->object,
-				'email_heading' => $this->get_heading(),
-				'sent_to_admin' => true,
-				'plain_text'    => false,
-				'email'         => $this,
-				'vendor_id'     => $this->vendor_id,
-			), 'woocommerce', $this->template_base
+				$this->template_html,
+				array(
+					'order'         => $this->object,
+					'email_heading' => $this->get_heading(),
+					'sent_to_admin' => true,
+					'plain_text'    => false,
+					'email'         => $this,
+					'vendor_id'     => $this->vendor_id,
+				),
+				'woocommerce',
+				$this->template_base
 			);
 		}
 
@@ -141,14 +144,17 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 		public function get_content_plain() {
 
 			return wc_get_template_html(
-				$this->template_plain, array(
-				'order'         => $this->object,
-				'email_heading' => $this->get_heading(),
-				'sent_to_admin' => true,
-				'plain_text'    => true,
-				'email'         => $this,
-				'vendor_id'     => $this->vendor_id,
-			), 'woocommerce', $this->template_base
+				$this->template_plain,
+				array(
+					'order'         => $this->object,
+					'email_heading' => $this->get_heading(),
+					'sent_to_admin' => true,
+					'plain_text'    => true,
+					'email'         => $this,
+					'vendor_id'     => $this->vendor_id,
+				),
+				'woocommerce',
+				$this->template_base
 			);
 		}
 

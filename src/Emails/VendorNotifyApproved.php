@@ -116,16 +116,19 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 		public function get_content_html() {
 
 			return wc_get_template_html(
-				$this->template_html, array(
-				'order'         => $this->object,
-				'email_heading' => $this->get_heading(),
-				'sent_to_admin' => true,
-				'plain_text'    => false,
-				'email'         => $this,
-				'user'          => $this->user,
-				'content'       => $this->content,
-				'status'        => $this->status,
-			), 'woocommerce', $this->template_base
+				$this->template_html,
+				array(
+					'order'         => $this->object,
+					'email_heading' => $this->get_heading(),
+					'sent_to_admin' => true,
+					'plain_text'    => false,
+					'email'         => $this,
+					'user'          => $this->user,
+					'content'       => $this->content,
+					'status'        => $this->status,
+				),
+				'woocommerce',
+				$this->template_base
 			);
 		}
 
@@ -138,7 +141,8 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 		public function get_content_plain() {
 
 			return wc_get_template_html(
-				$this->template_plain, array(
+				$this->template_plain,
+				array(
 					'order'         => $this->object,
 					'email_heading' => $this->get_heading(),
 					'sent_to_admin' => true,

@@ -26,7 +26,7 @@ if ( ! class_exists( 'AdminNotifyApproved' ) ) :
 	 *
 	 * @since   3.0.0
 	 * @version 3.0.0
-	 * @class   WCVendors_Admin_Notify_Approved
+	 * @class   AdminNotifyApproved
 	 * @extends WC_Email
 	 */
 	class AdminNotifyApproved extends WC_Email {
