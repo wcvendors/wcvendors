@@ -20,10 +20,11 @@ class Emails {
 
 	/**
 	 * Constructor.
+	 *
+	 * @version 3.0.0
+	 * @since   3.0.0
 	 */
-	public function __construct() {
-		$this->init_hooks();
-	}
+	public function __construct() {}
 
 	/**
 	 * Add WooCommerce email hooks.
