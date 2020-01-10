@@ -103,7 +103,7 @@ if ( ! class_exists( 'VendorNotifyCancelledOrder' ) ) :
 				$order = wc_get_order( $order_id );
 			}
 
-			$this->vendors = WCV_Vendors::get_vendors_from_order( $order );
+			$this->vendors = wcv_get_vendors_from_order( $order );
 
 			if ( is_a( $order, 'WC_Order' ) ) {
 				$this->object                         = $order;

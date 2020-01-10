@@ -101,14 +101,14 @@ if ( ! class_exists( 'NotifyProduct' ) ) :
 
 			$this->setup_locale();
 
-			if ( ! WCV_Vendors::is_vendor( $post->post_author ) ) {
+			if ( ! wcv_is_vendor( $post->post_author ) ) {
 				return;
 			}
 
 			$this->post_id     = $post_id;
 			$this->vendor_id   = $post->post_author;
 			$this->product     = wc_get_product( $post_id );
-			$this->vendor_name = WCV_Vendors::get_vendor_shop_name( $post->post_author );
+			$this->vendor_name = wcv_get_vendor_shop_name( $post->post_author );
 
 			if ( is_object( $this->product ) ) {
 				$this->placeholders['{product_name}'] = $this->product->get_title();

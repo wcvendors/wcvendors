@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo '= ' . $email_heading . " =\n\n";
 
-echo sprintf( __( '%1$s has marked  order #%2$s as shipped.' ), WCV_Vendors::get_vendor_shop_name( $vendor_id ), $order->get_id() ) . "\n\n";
+echo sprintf( __( '%1$s has marked  order #%2$s as shipped.' ), wcv_get_vendor_shop_name( $vendor_id ), $order->get_id() ) . "\n\n";
 
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 

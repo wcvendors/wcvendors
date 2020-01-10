@@ -111,7 +111,7 @@ class Emails {
 
 		$post = get_post( $product->get_id() );
 
-		if ( WCV_Vendors::is_vendor( $post->post_author ) ) {
+		if ( wcv_is_vendor( $post->post_author ) ) {
 			$vendor_data  = get_userdata( $post->post_author );
 			$vendor_email = trim( $vendor_data->user_email );
 			$emails       .= ',' . $vendor_email;
@@ -336,7 +336,7 @@ class Emails {
 	 */
 	public function product_enquiry_compatibility( $send_to, $product_id ) {
 		$author_id = get_post( $product_id )->post_author;
-		if ( WCV_Vendors::is_vendor( $author_id ) ) {
+		if ( wcv_is_vendor( $author_id ) ) {
 			$send_to = get_userdata( $author_id )->user_email;
 		}
 

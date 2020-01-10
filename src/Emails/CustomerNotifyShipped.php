@@ -217,7 +217,7 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 						continue;
 					}
 
-					$product_vendor = WCV_Vendors::get_vendor_from_product( $product_id );
+					$product_vendor = wcv_get_vendor_from_product( $product_id );
 
 					if ( $this->vendor_id != $product_vendor ) {
 						unset( $items[ $item_id ] );
