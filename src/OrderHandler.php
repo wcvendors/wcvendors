@@ -48,35 +48,35 @@ class OrderHandler {
 		// Move these the commissions class.
 		// add_action( 'woocommerce_order_status_processing', 						array( $this, 'process' ), 10, 2 );
 		// add_action( 'woocommerce_order_status_completed', 						array( $this, 'process' ), 10, 2 );
-		add_action( 'wcvendors_commission_added', array( $this, 'add_commission_order_note' ) );
-		add_filter( 'woocommerce_order_actions', array( $this, 'add_order_actions' ) );
+		// add_action( 'wcvendors_commission_added', array( $this, 'add_commission_order_note' ) );
+		// add_filter( 'woocommerce_order_actions', array( $this, 'add_order_actions' ) );
 
 		// Order view screen.
-		add_filter( 'woocommerce_hidden_order_itemmeta', array( $this, 'hide_item_meta' ) );
+		// add_filter( 'woocommerce_hidden_order_itemmeta', array( $this, 'hide_item_meta' ) );
 
 		// Order actions.
-		add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'add_vendor_id_line_item_meta' ), 10, 4 );
-		add_action(
-			'woocommerce_order_action_wcvendors_manual_create_commission',
-			array(
-				$this,
-				'process_manual_create_commission_action',
-			)
-		);
-		add_action(
-			'woocommerce_order_action_wcvendors_manual_create_vendor_orders',
-			array(
-				$this,
-				'process_manual_create_vendor_order_action',
-			)
-		);
+		add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'add_vendor_id_line_item_meta' ) );
+		// add_action(
+			// 'woocommerce_order_action_wcvendors_manual_create_commission',
+			// array(
+				// $this,
+				// 'process_manual_create_commission_action',
+			// )
+		// );
+		// add_action(
+			// 'woocommerce_order_action_wcvendors_manual_create_vendor_orders',
+			// array(
+				// $this,
+				// 'process_manual_create_vendor_order_action',
+			// )
+		// );
 		// add_action( 'woocommerce_checkout_create_order_tax_item', array( $this, 'create_tax_line_item'), 10, 3 );
+
 		// Sync Changes.
 		add_action( 'woocommerce_order_edit_status', array( $this, 'mark_order_status' ), 10, 2 );
-		add_action( 'delete_post', array( $this, 'delete_post' ) );
-		add_action( 'wp_trash_post', array( $this, 'trash_post' ) );
-		add_action( 'untrashed_post', array( $this, 'untrash_post' ) );
-		add_action( 'before_delete_post', array( $this, 'delete_order_items' ) );
+		// add_action( 'delete_post', array( $this, 'delete_post' ) );
+		// add_action( 'wp_trash_post', array( $this, 'trash_post' ) );
+		// add_action( 'untrashed_post', array( $this, 'untrash_post' ) );
 
 		// Add order item.
 		// Delete order Item.
@@ -93,43 +93,42 @@ class OrderHandler {
 	 */
 	public function create_vendor_orders( $order_id, $data ) {
 
-		( $data );
 		$this->logger->log( $order_id );
 
-		$order = new WC_Order( $order_id );
+		$order = wc_get_order( $order_id );
 
 		$vendor_line_items = array();
 
-		foreach ( $order->get_items() as $order_item_product ) {
-			$vendor_id = wc_get_order_item_meta( $order_item_product->get_id(), '_vendor_id', true );
+		foreach ( $order->get_items() as $item_product ) {
+			$vendor_id = $item_product->get_meta( '_vendor_id' );
 			if ( wcv_is_vendor( $vendor_id ) ) {
-				$vendor_line_items[ $vendor_id ][ $order_item_product->get_id() ] = $order_item_product;
+				$vendor_line_items[ $vendor_id ][] = $item_product;
 			}
 		}
 
 		foreach ( $vendor_line_items as $vendor_id => $items ) {
-			if ( ! empty( $items ) ) {
-				$vendor_order = $this->create_vendor_order(
-					array(
-						'parent_order' => $order,
-						'vendor_id'    => $vendor_id,
-						'items'        => $items,
-						'data'         => $data,
-					)
-				);
+			if ( empty( $items ) ) {
+				continue;
 			}
+			$this->create_vendor_order(
+				array(
+					'parent_order' => $order,
+					'vendor_id'    => $vendor_id,
+					'items'        => $items,
+					'data'         => $data,
+				)
+			);
 		}
 
 	}
 
 	/**
 	 * Create a new vendor order programmatically
-	 * Returns a new WCVendors_Vendor_Order object on success which can then be used to add additional data.
+	 * Returns a new VendorOrder object on success which can then be used to add additional data.
 	 *
 	 * @param array $args Order arguments.
 	 *
 	 * @return VendorOrder
-	 * @since
 	 */
 	public function create_vendor_order( $args = array() ) {
 
@@ -144,16 +143,32 @@ class OrderHandler {
 		$args = wp_parse_args( $args, $defaults );
 
 		$vendor_order = new VendorOrder();
+		$vendor_order->set_parent_id( $args['parent_order']->get_id() );
 		$vendor_order->set_parent_order( $args['parent_order'] );
 		$vendor_order->set_vendor_id( $args['vendor_id'] );
-		$vendor_order->add_items( $args['items'] );
-		$vendor_order->set_data( $args['data'] );
+		$vendor_order->update_status( $args['parent_order']->get_status() );
+		foreach ( $args['items'] as $item ) {
+			$vendor_order->add_item( $item );
+		}
 		$vendor_order->calculate_totals();
 		$vendor_order->save();
 
 		do_action( 'wcvendors_vendor_order_created', $vendor_order->get_id(), $vendor_order, $args );
 
 		return $vendor_order;
+	}
+
+	/**
+	 * Add the vendor id to the order. This will remove the need to query the underlying product later on.
+	 *
+	 * @param WC_Order_Item_Product $item Order item.
+	 *
+	 * @todo make the item meta hidden for some reason it is not hidden...
+	 */
+	public function add_vendor_id_line_item_meta( $item ) {
+		$product   = $item->get_product();
+		$vendor_id = get_post_field( 'post_author', $product->get_id() );
+		$item->add_meta_data( '_vendor_id', $vendor_id, true );
 	}
 
 	/**
@@ -187,22 +202,6 @@ class OrderHandler {
 		$actions['wcvendors_manual_create_vendor_orders'] = __( 'Re-Generate Vendor Orders', 'wc-vendors' );
 
 		return $actions;
-	}
-
-	/**
-	 * Add the vendor id to the order. This will remove the need to query the underlying product later on.
-	 *
-	 * @param WC_Order_Item_Product $item Order item.
-	 * @param int                   $cart_item_key Cart item key.
-	 * @param array                 $values Values from the order item product.
-	 * @param WC_Order              $order The order object.
-	 *
-	 * @todo make the item meta hidden for some reason it is not hidden...
-	 */
-	public function add_vendor_id_line_item_meta( $item, $cart_item_key, $values, $order ) {
-		$product   = $item->get_product();
-		$vendor_id = get_post_field( 'post_author', $product->get_id() );
-		$item->add_meta_data( '_vendor_id', $vendor_id, true );
 	}
 
 	/**
@@ -403,32 +402,6 @@ class OrderHandler {
 			foreach ( $vendor_orders as $vendor_order ) {
 				$wpdb->update( $wpdb->posts, array( 'post_status' => 'wc-completed' ), array( 'ID' => $vendor_order->ID ) );
 			}
-		}
-	}
-
-	/**
-	 * Remove item meta on permanent deletion.
-	 *
-	 * @param int $id Order item id.
-	 */
-	public function delete_order_items( $id ) {
-		global $wpdb;
-
-		$post_type = get_post_type( $id );
-
-		if ( 'shop_order_vendor' === $post_type ) {
-			do_action( 'wcvendors_delete_order_items', $id );
-
-			$wpdb->query(
-				"
-				DELETE {$wpdb->prefix}woocommerce_order_items, {$wpdb->prefix}woocommerce_order_itemmeta
-				FROM {$wpdb->prefix}woocommerce_order_items
-				JOIN {$wpdb->prefix}woocommerce_order_itemmeta ON {$wpdb->prefix}woocommerce_order_items.order_item_id = {$wpdb->prefix}woocommerce_order_itemmeta.order_item_id
-				WHERE {$wpdb->prefix}woocommerce_order_items.order_id = '{$id}';
-				"
-			);
-
-			do_action( 'wcvendors_deleted_order_items', $id );
 		}
 	}
 }
