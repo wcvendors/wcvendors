@@ -343,5 +343,4 @@ class Emails {
 
 		return $send_to;
 	}
-
 }

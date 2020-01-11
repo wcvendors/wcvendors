@@ -36,8 +36,10 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 		 */
 		public function __construct() {
 
-			$this->id             = 'vendor_notify_order';
-			$this->title          = sprintf( __( '%s notify order', 'wc-vendors' ), wcv_get_vendor_name() );
+			$this->id = 'vendor_notify_order';
+			/* translators: %s: The name used to refer to a vendor. */
+			$this->title = sprintf( __( '%s notify order', 'wc-vendors' ), wcv_get_vendor_name() );
+			/* translators: %s: The name used to refer to a vendor. */
 			$this->description    = sprintf( __( 'Notification is sent to %s when an order is paid.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/vendor-notify-order.php';
 			$this->template_plain = 'emails/plain/vendor-notify-order.php';

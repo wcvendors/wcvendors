@@ -36,8 +36,10 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 		 */
 		public function __construct() {
 
-			$this->id             = 'vendor_notify_denied';
-			$this->title          = sprintf( __( '%s notify denied', 'wc-vendors' ), wcv_get_vendor_name() );
+			$this->id = 'vendor_notify_denied';
+			/* translators: %s: Name used to refer to a vendor */
+			$this->title = sprintf( __( '%s notify denied', 'wc-vendors' ), wcv_get_vendor_name() );
+			/* translators: %s: Name used to refer to a vendor */
 			$this->description    = sprintf( __( 'Notification is sent to the %s that their application has been denied', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/vendor-notify-denied.php';
 			$this->template_plain = 'emails/plain/vendor-notify-denied.php';
@@ -46,7 +48,7 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 				'{site_title}' => $this->get_blogname(),
 			);
 
-			// Call parent constructor
+			// Call parent constructor.
 			parent::__construct();
 		}
 
@@ -57,7 +59,7 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 		 * @return string
 		 */
 		public function get_default_subject() {
-
+			/* translators: %s: name used to refer to a vendor */
 			return sprintf( __( '[{site_title}] Your %s application has been denied', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		}
 
@@ -68,7 +70,7 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 		 * @return string
 		 */
 		public function get_default_heading() {
-
+			/* translators: %s: name used to refer to a vendor */
 			return sprintf( __( '%s Application Denied', 'wc-vendors' ), wcv_get_vendor_name() );
 		}
 
@@ -79,7 +81,7 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 		 * @return string
 		 */
 		public function get_default_content() {
-
+			/* translators: %s: name used to refer to a vendor */
 			return sprintf( __( 'Your application to become a %s has been denied.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		}
 
@@ -97,8 +99,8 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 		/**
 		 * Trigger the sending of this email.
 		 *
-		 * @param int      $order_id The order ID.
-		 * @param WC_Order $order    Order object.
+		 * @param int    $vendor_id The order ID.
+		 * @param string $reason    The reason or denying the application.
 		 */
 		public function trigger( $vendor_id, $reason = '' ) {
 
@@ -198,6 +200,7 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 					'title'       => __( 'Reason', 'wc-vendors' ),
 					'type'        => 'textarea',
 					'desc_tip'    => true,
+					/* translators: %s: name used to refer to a vendor */
 					'description' => sprintf( __( 'Provide a reason for denying the %s application', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'placeholder' => $this->get_default_reason(),
 					'default'     => $this->get_default_reason(),

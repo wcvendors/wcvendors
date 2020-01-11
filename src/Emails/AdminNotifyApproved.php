@@ -35,8 +35,10 @@ if ( ! class_exists( 'AdminNotifyApproved' ) ) :
 		 * Constructor.
 		 */
 		public function __construct() {
-			$this->id             = 'admin_notify_application';
-			$this->title          = sprintf( __( 'Admin notify %s approved', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+			$this->id = 'admin_notify_application';
+			/* translators: %s: name used to refer to a vendor */
+			$this->title = sprintf( __( 'Admin notify %s approved', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+			/* translators: %s: name used to refer to a vendor */
 			$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when admin approves a user to be a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/admin-notify-approved.php';
 			$this->template_plain = 'emails/plain/admin-notify-approved.php';
@@ -60,6 +62,7 @@ if ( ! class_exists( 'AdminNotifyApproved' ) ) :
 		 * @return string
 		 */
 		public function get_default_subject() {
+			/* translators: %s: name used to refer to a vendor */
 			return sprintf( __( '[{site_title}] {user_name} has been approved to be a %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		}
 
@@ -70,6 +73,7 @@ if ( ! class_exists( 'AdminNotifyApproved' ) ) :
 		 * @return string
 		 */
 		public function get_default_heading() {
+			/* translators: %s: name used to refer to a vendor */
 			return sprintf( __( '%s application approved', 'wc-vendors' ), wcv_get_vendor_name() );
 		}
 
@@ -88,7 +92,7 @@ if ( ! class_exists( 'AdminNotifyApproved' ) ) :
 			$this->placeholders['{user_name}'] = $this->user->user_login;
 
 			$send_if     = $this->get_option( 'notification' );
-			$should_send = $send_if == 'vendor' ? true : ( $send_if == 'vendor' && $status == 'approved' ? true : false );
+			$should_send = 'vendor' === $send_if ? true : ( 'vendor' === $send_if && 'approved' === $status ? true : false );
 
 			if ( $this->is_enabled() && $this->get_recipient() && $should_send ) {
 				$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
@@ -158,6 +162,7 @@ if ( ! class_exists( 'AdminNotifyApproved' ) ) :
 				'recipient'    => array(
 					'title'       => __( 'Recipient(s)', 'wc-vendors' ),
 					'type'        => 'text',
+					/* translators: %s: The default receipient email address for this email */
 					'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'wc-vendors' ), '<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
 					'placeholder' => '',
 					'default'     => '',

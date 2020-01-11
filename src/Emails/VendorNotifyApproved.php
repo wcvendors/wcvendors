@@ -8,6 +8,7 @@
  * @subpackage  Emails
  * @author      WC Vendors
  */
+
 namespace WCVendors\Emails;
 
 use WC_Email;
@@ -37,8 +38,10 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 		 */
 		public function __construct() {
 
-			$this->id             = 'vendor_notify_approved';
-			$this->title          = sprintf( __( '%s notify approved', 'wc-vendors' ), wcv_get_vendor_name() );
+			$this->id = 'vendor_notify_approved';
+			/* translators: %s: Name used to refer to a vendor */
+			$this->title = sprintf( __( '%s notify approved', 'wc-vendors' ), wcv_get_vendor_name() );
+			/* translators: %s: Name used to refer to a vendor */
 			$this->description    = sprintf( __( 'Notification is sent to the %s that their application has been approved', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/vendor-notify-approved.php';
 			$this->template_plain = 'emails/plain/vendor-notify-approved.php';
@@ -47,7 +50,7 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 				'{site_title}' => $this->get_blogname(),
 			);
 
-			// Call parent constructor
+			// Call parent constructor.
 			parent::__construct();
 
 		}
@@ -59,7 +62,7 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 		 * @return string
 		 */
 		public function get_default_subject() {
-
+			/* translators: %s: Name used to refer to a vendor */
 			return sprintf( __( '[{site_title}] Your %s application has been approved', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		}
 
@@ -70,7 +73,7 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 		 * @return string
 		 */
 		public function get_default_heading() {
-
+			/* translators: %s: Name used to refer to a vendor */
 			return sprintf( __( '%s Application Approved', 'wc-vendors' ), wcv_get_vendor_name() );
 		}
 
@@ -81,15 +84,15 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 		 * @return string
 		 */
 		public function get_default_content() {
-
+			/* translators: %s: Name used to refer to a vendor */
 			return sprintf( __( 'Your application to become a %s has been approved.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		}
 
 		/**
 		 * Trigger the sending of this email.
 		 *
-		 * @param int      $order_id The order ID.
-		 * @param WC_Order $order    Order object.
+		 * @param int    $vendor_id The vendor ID.
+		 * @param string $status    The application status.
 		 */
 		public function trigger( $vendor_id, $status = '' ) {
 

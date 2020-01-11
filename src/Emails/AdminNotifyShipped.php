@@ -35,8 +35,10 @@ if ( ! class_exists( 'AdminNotifyShipped' ) ) :
 		 */
 		public function __construct() {
 
-			$this->id             = 'admin_notify_shipped';
-			$this->title          = sprintf( __( 'Admin notify %s shipped', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+			$this->id = 'admin_notify_shipped';
+			/* translators: %s: The name used to refer to a vendor. */
+			$this->title = sprintf( __( 'Admin notify %s shipped', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+			/* translators: %s: The name used to refer to a vendor. */
 			$this->description    = sprintf( __( 'Notification is sent to chosen recipient(s) when a %s marks an order shipped.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/admin-notify-shipped.php';
 			$this->template_plain = 'emails/plain/admin-notify-shipped.php';
@@ -47,10 +49,10 @@ if ( ! class_exists( 'AdminNotifyShipped' ) ) :
 				'{order_number}' => '',
 			);
 
-			// Call parent constructor
+			// Call parent constructor.
 			parent::__construct();
 
-			// Other settings
+			// Other settings.
 			$this->recipient = $this->get_option( 'recipient', get_option( 'admin_email' ) );
 		}
 
@@ -61,7 +63,7 @@ if ( ! class_exists( 'AdminNotifyShipped' ) ) :
 		 * @return string
 		 */
 		public function get_default_subject() {
-
+			/* translators: %s: The name used to refer to a vendor. */
 			return sprintf( __( '[{site_title}] %s has marked shipped ({order_number}) - {order_date}', 'wc-vendors' ), wcv_get_vendor_name() );
 		}
 
@@ -72,7 +74,7 @@ if ( ! class_exists( 'AdminNotifyShipped' ) ) :
 		 * @return string
 		 */
 		public function get_default_heading() {
-
+			/* translators: %s: The name used to refer to a vendor. */
 			return sprintf( __( '%s has shipped', 'wc-vendors' ), wcv_get_vendor_name() );
 		}
 
@@ -167,6 +169,7 @@ if ( ! class_exists( 'AdminNotifyShipped' ) ) :
 				'recipient'  => array(
 					'title'       => __( 'Recipient(s)', 'wc-vendors' ),
 					'type'        => 'text',
+					/* translators: %s: The default email recipient. */
 					'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'wc-vendors' ), '<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
 					'placeholder' => '',
 					'default'     => '',

@@ -35,8 +35,10 @@ if ( ! class_exists( 'VendorNotifyApplication' ) ) :
 		 */
 		public function __construct() {
 
-			$this->id             = 'vendor_notify_application';
-			$this->title          = sprintf( __( '%s notify application', 'wc-vendors' ), wcv_get_vendor_name() );
+			$this->id = 'vendor_notify_application';
+			/* translators: %s: name used to refer to a vendor */
+			$this->title = sprintf( __( '%s notify application', 'wc-vendors' ), wcv_get_vendor_name() );
+			/* translators: %s: name used to refer to a vendor */
 			$this->description    = sprintf( __( 'Notification is sent to the %s that their application has been received', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/vendor-notify-application.php';
 			$this->template_plain = 'emails/plain/vendor-notify-application.php';
@@ -45,7 +47,7 @@ if ( ! class_exists( 'VendorNotifyApplication' ) ) :
 				'{site_title}' => $this->get_blogname(),
 			);
 
-			// Call parent constructor
+			// Call parent constructor.
 			parent::__construct();
 
 		}
@@ -57,7 +59,7 @@ if ( ! class_exists( 'VendorNotifyApplication' ) ) :
 		 * @return string
 		 */
 		public function get_default_subject() {
-
+			/* translators: %s: Name used to refer to a vendor */
 			return sprintf( __( '[{site_title}] Your %s application has been received', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 		}
 
@@ -68,20 +70,27 @@ if ( ! class_exists( 'VendorNotifyApplication' ) ) :
 		 * @return string
 		 */
 		public function get_default_heading() {
-
+			/* translators: %s: name used to refer to a vendor */
 			return sprintf( __( '%s application received', 'wc-vendors' ), wcv_get_vendor_name() );
 		}
 
+		/**
+		 * Get default email content.
+		 *
+		 * @return string
+		 * @version 3.0.0
+		 * @since   2.0.0
+		 */
 		public function get_default_content() {
-
+			/* translators: %s: Name used to refer to a vendor */
 			return sprintf( __( 'Hi there. This is a notification about your %1$s application on %2$s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ), get_option( 'blogname' ) );
 		}
 
 		/**
 		 * Trigger the sending of this email.
 		 *
-		 * @param int      $order_id The order ID.
-		 * @param WC_Order $order    Order object.
+		 * @param int      $vendor_id The order ID.
+		 * @param WC_Order $status    Status of the application.
 		 */
 		public function trigger( $vendor_id, $status = '' ) {
 

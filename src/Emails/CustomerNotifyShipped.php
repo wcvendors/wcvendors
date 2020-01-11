@@ -37,7 +37,9 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 
 			$this->id             = 'customer_notify_shipped';
 			$this->customer_email = true;
-			$this->title          = sprintf( __( 'Customer %s shipped', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+			/* translators: %s: name used to refer to a vendor */
+			$this->title = sprintf( __( 'Customer %s shipped', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
+			/* translators: %s: name used to refer to a vendor */
 			$this->description    = sprintf( __( 'Email is sent to the customer when a %s marks an order received/paid by a customer.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
 			$this->template_html  = 'emails/customer-notify-shipped.php';
 			$this->template_plain = 'emails/plain/customer-notify-shipped.php';
@@ -48,7 +50,7 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 				'{order_number}' => '',
 			);
 
-			// Call parent constructor
+			// Call parent constructor.
 			parent::__construct();
 
 		}
@@ -60,7 +62,7 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 		 * @return string
 		 */
 		public function get_default_subject() {
-
+			/* translators: %s: Name used to refer to a vendor */
 			return sprintf( __( '[{site_title}] %s has marked shipped ({order_number}) - {order_date}', 'wc-vendors' ), wcv_get_vendor_name() );
 		}
 
@@ -71,7 +73,7 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 		 * @return string
 		 */
 		public function get_default_heading() {
-
+			/* translators: %s: Name used to refer to a vendor */
 			return sprintf( __( '%s has shipped', 'wc-vendors' ), wcv_get_vendor_name() );
 		}
 
@@ -79,6 +81,7 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 		 * Trigger the sending of this email.
 		 *
 		 * @param int      $order_id The order ID.
+		 * @param nt       $user_id  The user's id.
 		 * @param WC_Order $order    Order object.
 		 */
 		public function trigger( $order_id, $user_id, $order = false ) {
@@ -104,7 +107,7 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 
 				$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 
-				// Remove filters
+				// Remove filters.
 				remove_filter( 'woocommerce_get_order_item_totals', array( $this, 'udpate_order_totals' ), 10, 3 );
 				remove_filter( 'woocommerce_order_get_items', array( $this, 'filter_vendor_items' ), 10, 3 );
 			}
@@ -204,9 +207,9 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 		/**
 		 * Filter the order to only show vendor products
 		 *
-		 * @param array    $items
-		 * @param WC_Order $order
-		 * @param array    $types
+		 * @param array    $items Order items.
+		 * @param WC_Order $order The order object.
+		 * @param array    $types The item types.
 		 *
 		 * @return array
 		 */
@@ -225,7 +228,7 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 
 					$product_vendor = wcv_get_vendor_from_product( $product_id );
 
-					if ( $this->vendor_id != $product_vendor ) {
+					if ( $this->vendor_id !== $product_vendor ) {
 						unset( $items[ $item_id ] );
 						continue;
 					}
@@ -239,9 +242,9 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 		/**
 		 * Update the order totals to only show the items for the product(s)
 		 *
-		 * @param array    $total_rows
-		 * @param WC_Order $order
-		 * @param string   $tax_display
+		 * @param array    $total_rows Total number of rows.
+		 * @param WC_Order $order The WC_Order object.
+		 * @param string   $tax_display Tax display.
 		 *
 		 * @return array
 		 */
