@@ -6,7 +6,6 @@
  * @since       3.0.0
  * @package     WC_Vendors
  * @subpackage  Emails
- * @author      WC Vendors
  */
 
 namespace WCVendors\Emails;
@@ -118,7 +117,6 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 		/**
 		 * Get content html.
 		 *
-		 * @access public
 		 * @return string
 		 */
 		public function get_content_html() {
@@ -141,7 +139,6 @@ if ( ! class_exists( 'CustomerNotifyShipped' ) ) :
 		/**
 		 * Get content plain.
 		 *
-		 * @access public
 		 * @return string
 		 */
 		public function get_content_plain() {

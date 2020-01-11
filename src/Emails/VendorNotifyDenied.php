@@ -6,7 +6,6 @@
  * @since       3.0.0
  * @package     WC_Vendors
  * @subpackage  Emails
- * @author      WC Vendors
  */
 
 namespace WCVendors\Emails;
@@ -26,7 +25,6 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 	 *
 	 * @class       VendorNotifyDenied
 	 * @version     3.0.0
-	 * @author      WC Vendors
 	 * @extends     WC_Email
 	 */
 	class VendorNotifyDenied extends WC_Email {
@@ -121,7 +119,6 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 		/**
 		 * Get content html.
 		 *
-		 * @access public
 		 * @return string
 		 */
 		public function get_content_html() {
@@ -146,7 +143,6 @@ if ( ! class_exists( 'VendorNotifyDenied' ) ) :
 		/**
 		 * Get content plain.
 		 *
-		 * @access public
 		 * @return string
 		 */
 		public function get_content_plain() {

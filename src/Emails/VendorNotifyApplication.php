@@ -6,7 +6,6 @@
  * @since       3.0.0
  * @package     WC_Vendors
  * @subpackage  Emails
- * @author      WC Vendors
  */
 
 namespace WCVendors\Emails;
@@ -25,7 +24,6 @@ if ( ! class_exists( 'VendorNotifyApplication' ) ) :
 	 * An email sent to the admin when the vendor marks the order shipped.
 	 *
 	 * @class       VendorNotifyApplication
-	 * @author      WC Vendors
 	 * @extends     WC_Email
 	 */
 	class VendorNotifyApplication extends WC_Email {
@@ -110,7 +108,6 @@ if ( ! class_exists( 'VendorNotifyApplication' ) ) :
 		/**
 		 * Get content html.
 		 *
-		 * @access public
 		 * @return string
 		 */
 		public function get_content_html() {
@@ -134,7 +131,6 @@ if ( ! class_exists( 'VendorNotifyApplication' ) ) :
 		/**
 		 * Get content plain.
 		 *
-		 * @access public
 		 * @return string
 		 */
 		public function get_content_plain() {

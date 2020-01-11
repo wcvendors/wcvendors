@@ -6,7 +6,6 @@
  * @since       3.0.0
  * @package     WC_Vendors
  * @subpackage  Emails
- * @author      WC Vendors
  */
 
 namespace WCVendors\Emails;
@@ -28,7 +27,6 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 	 * @version     3.0.0
 	 * @package     WC_Vendors
 	 * @subpackage  Emails
-	 * @author      WC Vendors
 	 * @extends     WC_Email
 	 */
 	class VendorNotifyApproved extends WC_Email {
@@ -113,7 +111,6 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 		/**
 		 * Get content html.
 		 *
-		 * @access public
 		 * @return string
 		 */
 		public function get_content_html() {
@@ -138,7 +135,6 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 		/**
 		 * Get content plain.
 		 *
-		 * @access public
 		 * @return string
 		 */
 		public function get_content_plain() {
@@ -184,7 +180,7 @@ if ( ! class_exists( 'VendorNotifyApproved' ) ) :
 					'type'        => 'textarea',
 					'desc_tip'    => true,
 					/* translators: %s: list of placeholders */
-					'description' => sprintf( __( 'Email body to be included when sent to the %s.', '' ), wcv_get_vendor_name( true, false ) ),
+					'description' => sprintf( __( 'Email body to be included when sent to the %s.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 					'placeholder' => $this->get_default_content(),
 					'default'     => '',
 				),

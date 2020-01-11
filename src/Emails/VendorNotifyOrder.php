@@ -6,7 +6,6 @@
  * @since       3.0.0
  * @package     WC_Vendors
  * @subpackage  Emails
- * @author      WC Vendors
  */
 
 namespace WCVendors\Emails;
@@ -26,7 +25,6 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 	 *
 	 * @class       VendorNotifyOrder
 	 * @version     3.0.0
-	 * @author      WC Vendors
 	 * @extends     WC_Email
 	 */
 	class VendorNotifyOrder extends WC_Email {
@@ -159,7 +157,6 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 		/**
 		 * Get content html.
 		 *
-		 * @access  public
 		 * @return string
 		 * @version 2.1.3
 		 */
@@ -190,7 +187,6 @@ if ( ! class_exists( 'VendorNotifyOrder' ) ) :
 		/**
 		 * Get content plain.
 		 *
-		 * @access  public
 		 * @return string
 		 * @version 2.1.3
 		 */

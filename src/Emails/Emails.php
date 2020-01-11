@@ -4,7 +4,6 @@
  *
  * @package    WC_Vendors
  * @subpackage Emails
- * @author WC Vendors
  */
 
 namespace WCVendors\Emails;
@@ -15,17 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Class to hook to WooCommerce emails
+ *
+ * @since 3.0.0
+ * @version 3.0.0
  */
 class Emails {
-
-	/**
-	 * Constructor.
-	 *
-	 * @version 3.0.0
-	 * @since   3.0.0
-	 */
-	public function __construct() {}
-
 	/**
 	 * Add WooCommerce email hooks.
 	 *
@@ -75,17 +68,6 @@ class Emails {
 		 * @version 3.0.0
 		 * @since   2.0.0
 		 */
-		require_once WCV_ABSPATH_EMAILS . 'CustomerNotifyShipped.php';
-		require_once WCV_ABSPATH_EMAILS . 'AdminNotifyShipped.php';
-		require_once WCV_ABSPATH_EMAILS . 'AdminNotifyProduct.php';
-		require_once WCV_ABSPATH_EMAILS . 'AdminNotifyApplication.php';
-		require_once WCV_ABSPATH_EMAILS . 'AdminNotifyApproved.php';
-		require_once WCV_ABSPATH_EMAILS . 'VendorNotifyApplication.php';
-		require_once WCV_ABSPATH_EMAILS . 'VendorNotifyApproved.php';
-		require_once WCV_ABSPATH_EMAILS . 'VendorNotifyDenied.php';
-		require_once WCV_ABSPATH_EMAILS . 'VendorNotifyOrder.php';
-		require_once WCV_ABSPATH_EMAILS . 'VendorNotifyCancelledOrder.php';
-
 		$emails['CustomerNotifyShipped']      = new CustomerNotifyShipped();
 		$emails['AdminNotifyShipped']         = new AdminNotifyShipped();
 		$emails['AdminNotifyProduct']         = new AdminNotifyProduct();
@@ -102,7 +84,10 @@ class Emails {
 	} // email_classes
 
 	/**
-	 *   Add the vendor email to the low stock emails.
+	 * Add the vendor email to the low stock emails.
+	 *
+	 * @param array $emails The currently registered email.
+	 * @param WC_Product $product The WC_Product object.
 	 */
 	public function vendor_stock_email( $emails, $product ) {
 
@@ -125,8 +110,11 @@ class Emails {
 	/**
 	 *  Handle low stock emails for vendors
 	 *
+	 * @version 3.0.0
 	 * @since 2.1.10
-	 * @version 2.1.0
+	 *
+	 * @param array $emails The currently registered emails.
+	 * @param WC_Product $product The product object.
 	 */
 	public function vendor_low_stock_email( $emails, $product ) {
 		if ( 'no' === get_option( 'wcvendors_notify_low_stock', 'yes' ) ) {
@@ -140,6 +128,9 @@ class Emails {
 	 *
 	 * @since 2.1.10
 	 * @version 2.1.0
+	 *
+	 * @param array $emails The registered emails.
+	 * @param WC_Product $product The WC_Product object.
 	 */
 	public function vendor_no_stock_email( $emails, $product ) {
 		if ( 'no' === get_option( 'wcvendors_notify_low_stock', 'yes' ) ) {
@@ -153,6 +144,10 @@ class Emails {
 	 *
 	 * @since 2.1.10
 	 * @version 2.1.0
+	 *
+	 * @param array $emails The registered emails.
+	 * @param WC_Product The product object.
+	 * @return void.
 	 */
 	public function vendor_backorder_stock_email( $emails, $product ) {
 		if ( 'no' === get_option( 'wcvendors_notify_backorder_stock', 'yes' ) ) {
@@ -163,7 +158,13 @@ class Emails {
 
 
 	/**
-	 *   Filter hook for order actions meta box
+	 * Filter hook for order actions meta box
+	 *
+	 * @version 3.0.0
+	 * @since   2.0.0
+	 *
+	 * @param array $order_actions The currently registered order actions.
+	 * @return array
 	 */
 	public function order_actions( $order_actions ) {
 		$order_actions['send_vendor_new_order'] = sprintf( __( 'Resend %s new order notification', 'wc-vendors' ), wcv_get_vendor_name( true, false ) );
@@ -172,7 +173,14 @@ class Emails {
 	}
 
 	/**
-	 *   Action hook : trigger the notify vendor email
+	 * Action hook : trigger the notify vendor email
+	 *
+	 * @version 3.0.0
+	 * @since   2.0.0
+	 *
+	 * @param WC_Order $order The order object.
+	 *
+	 * @return void.
 	 */
 	public function order_actions_save( $order ) {
 		if ( ! is_a( $order, 'WC_Order' ) ) {
@@ -185,7 +193,12 @@ class Emails {
 	/**
 	 * Trigger the notify vendor shipped emails
 	 *
-	 * @since 2.0.0
+	 * @version 3.0.0
+	 * @since   2.0.0
+	 *
+	 * @param int $order_id The order ID.
+	 * @param int $user_id The user ID
+	 * @param WC_Order $order The order object.
 	 */
 	public function vendor_shipped( $order_id, $user_id, $order ) {
 		if ( ! is_a( $order, 'WC_Order' ) ) {
@@ -202,6 +215,9 @@ class Emails {
 	 *
 	 * @since 2.0.0
 	 * @version 2.1.7
+	 *
+	 * @param int $user_id The user ID.
+	 * @param string $role The user's role. 
 	 */
 	public function vendor_application( $user_id, $role = '' ) {
 
@@ -228,17 +244,31 @@ class Emails {
 	/**
 	 * Trigger the deny application email
 	 *
-	 * @since 2.1.8
+	 * @version 3.0.0
+	 * @since   2.1.8
 	 *
+	 * @param WP_User $user The user object.
 	 */
 	public function deny_application( $user ){
 		$user_id = $user->ID;
 		WC()->mailer()->emails['VendorNotifyDenied']->trigger( $user_id );
 	}
 
-	/*
-	* Show the order details table filtered for each vendor
-	*/
+	/**
+	 * Show the order details table filtered for each vendor.
+	 *
+	 * @param WC_Order $order          The WC_Order object.
+	 * @param array    $vendor_items   Items ordered from the vendor.
+	 * @param mixed    $totals_display Whether to display totals or not.
+	 * @param int      $vendor_id      The vendor's ID
+	 * @param boolean  $sent_to_vendor Whether email is sent to vendor.
+	 * @param boolean  $sent_to_admin  Whether email is sent to admin.
+	 * @param boolean  $plain_text     Whether to send plain text.
+	 * @param string   $email          The email.
+	 * @return void
+	 * @version 3.0.0
+	 * @since   2.0.0
+	 */
 	public function vendor_order_details( $order, $vendor_items, $totals_display, $vendor_id, $sent_to_vendor = false, $sent_to_admin = false, $plain_text = false, $email = '' ) {
 
 		if ( $plain_text ) {
@@ -280,7 +310,15 @@ class Emails {
 	}
 
 	/**
-	 * Show the customer address details based on the capabilities for the vendor
+	 * Show the customer address details based on the capabilities for the vendor.
+	 *
+	 * @param WC_Order $order         The order object.
+	 * @param boolean  $sent_to_admin Whether email is sent to admin or not
+	 * @param boolean  $plain_text    Whether to send plain text or not.
+	 * @param string   $email         The email to send.
+	 * @return void
+	 * @version 3.0.0
+	 * @since   2.0.0
 	 */
 	public function vendor_customer_details( $order, $sent_to_admin, $plain_text, $email ) {
 
@@ -334,6 +372,12 @@ class Emails {
 
 	/**
 	 * WooCommerce Product Enquiry hook - Send email to vendor instead of admin
+	 *
+	 * @param string $send_to    The email address to send email to.
+	 * @param int    $product_id The product ID.
+	 * @return string
+	 * @version 3.0.0
+	 * @since   2.0.0
 	 */
 	public function product_enquiry_compatibility( $send_to, $product_id ) {
 		$author_id = get_post( $product_id )->post_author;
