@@ -46,8 +46,8 @@ class OrderHandler {
 		add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'create_vendor_orders' ), 10, 2 );
 
 		// Move these the commissions class.
-		// add_action( 'woocommerce_order_status_processing', 						array( $this, 'process' ), 10, 2 );
-		// add_action( 'woocommerce_order_status_completed', 						array( $this, 'process' ), 10, 2 );
+		 add_action( 'woocommerce_order_status_processing', array( $this, 'process' ), 10, 2 );
+		 add_action( 'woocommerce_order_status_completed', array( $this, 'process' ), 10, 2 );
 		// add_action( 'wcvendors_commission_added', array( $this, 'add_commission_order_note' ) );
 		// add_filter( 'woocommerce_order_actions', array( $this, 'add_order_actions' ) );
 
@@ -146,7 +146,6 @@ class OrderHandler {
 		$vendor_order->set_parent_id( $args['parent_order']->get_id() );
 		$vendor_order->set_parent_order( $args['parent_order'] );
 		$vendor_order->set_vendor_id( $args['vendor_id'] );
-		$vendor_order->update_status( $args['parent_order']->get_status() );
 		foreach ( $args['items'] as $item ) {
 			$vendor_order->add_item( $item );
 		}
@@ -236,33 +235,43 @@ class OrderHandler {
 	 */
 	public function process( $order_id ) {
 
-		$order = new WC_Order( $order_id );
+		$order         = wc_get_order( $order_id );
+		$vendor_orders = wc_get_orders(
+			array(
+				'parent' => $order_id,
+				'type'   => 'shop_order_vendor',
+			)
+		);
 
-		$commission_calculated = false;
-		$commission_logged     = $order->get_meta( '_wcvendors_commission_logged', true );
-		$vendor_orders         = wcvendors_get_vendor_orders_from_order( $order_id ); // @todo missing function
+		foreach ( $vendor_orders as $vendor_order ) {
+			$vendor_order->update_status( $order->get_status() );
+		}
 
-		if ( $vendor_orders ) {
+		// $commission_calculated = false;
+		// $commission_logged     = $order->get_meta( '_wcvendors_commission_logged', true );
+		// $vendor_orders         = wcvendors_get_vendor_orders_from_order( $order_id ); // @todo missing function
+
+		// if ( $vendor_orders ) {
 
 			// loop through vendor orders.
 			// Create commission object.
-			foreach ( $vendor_orders as $vendor_order_data ) {
+			// foreach ( $vendor_orders as $vendor_order_data ) {
 
-				$vendor_order = new VendorOrder( $vendor_order_data->ID );
-				$commission   = new Commission();
+				// $vendor_order = new VendorOrder( $vendor_order_data->ID );
+				// $commission   = new Commission();
 
-				$commission->set_order_id( $vendor_order->get_parent_id() );
-				$commission->set_order_date( $vendor_order->get_date_created() );
-				$commission->set_order_item_ids( $vendor_order->get_order_item_ids() );
-				$commission->set_vendor_order_id( $vendor_order->get_id() );
-				$commission->set_vendor_id( $vendor_order->get_vendor_id() );
-				$commission->set_vendor_name( wcvendors_get_vendor_display_name( $vendor_order->get_vendor_id() ) ); // @todo missing function
+				// $commission->set_order_id( $vendor_order->get_parent_id() );
+				// $commission->set_order_date( $vendor_order->get_date_created() );
+				// $commission->set_order_item_ids( $vendor_order->get_order_item_ids() );
+				// $commission->set_vendor_order_id( $vendor_order->get_id() );
+				// $commission->set_vendor_id( $vendor_order->get_vendor_id() );
+				// $commission->set_vendor_name( wcvendors_get_vendor_display_name( $vendor_order->get_vendor_id() ) ); // @todo missing function
 
-				$commission->calculate_totals();
+				// $commission->calculate_totals();
 
-				$commission->save();
-			}
-		}
+				// $commission->save();
+			// }
+		// }
 	}
 
 	/**
