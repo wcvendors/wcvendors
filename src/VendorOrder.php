@@ -133,6 +133,15 @@ class VendorOrder extends WC_Order {
 	 */
 
 	/**
+	 * Adds an order item to this order. The order item will not persist until save.
+	 *
+	 * @param \WC_Order_Item $item Order item object (product, shipping, fee, coupon, tax).
+	 * @return false|void
+	 */
+	public function add_item( $item ) {
+	}
+
+	/**
 	 * Set vendor id.
 	 *
 	 * @param int $vendor_id Vendor ID.
@@ -148,5 +157,23 @@ class VendorOrder extends WC_Order {
 	 */
 	public function set_parent_order( $order ) {
 		$this->parent_order = $order;
+	}
+
+	/**
+	 * Vendor order doesn't need payment.
+	 *
+	 * @return bool
+	 */
+	public function needs_payment() {
+		return false;
+	}
+
+	/**
+	 * We don't process order item of vendor order.
+	 *
+	 * @return bool
+	 */
+	public function needs_processing() {
+		return false;
 	}
 }

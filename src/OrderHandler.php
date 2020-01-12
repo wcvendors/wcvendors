@@ -43,7 +43,7 @@ class OrderHandler {
 
 		// Orders required to be created when the order is processed otherwise
 		// the correct data will not be available for the child order creation.
-		add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'create_vendor_orders' ), 10, 2 );
+		add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'create_vendor_orders' ) );
 
 		// Move these the commissions class.
 		 add_action( 'woocommerce_order_status_processing', array( $this, 'process' ), 10, 2 );
@@ -86,75 +86,36 @@ class OrderHandler {
 	/**
 	 * Create a vendor specific order for the parent order_id.
 	 *
-	 * @param int   $order_id Order ID.
-	 * @param mixed $data Order data.
+	 * @param int $order_id Order ID.
 	 *
 	 * @throws Exception Order creation exception.
 	 */
-	public function create_vendor_orders( $order_id, $data ) {
+	public function create_vendor_orders( $order_id ) {
 
-		$this->logger->log( $order_id );
+		$this->logger->log( __( 'Creating vendor order #', 'wc-vendors' ) . $order_id );
 
 		$order = wc_get_order( $order_id );
 
-		$vendor_line_items = array();
+		$vendors = array();
 
 		foreach ( $order->get_items() as $item_product ) {
 			$vendor_id = $item_product->get_meta( '_vendor_id' );
 			if ( wcv_is_vendor( $vendor_id ) ) {
-				$vendor_line_items[ $vendor_id ][] = $item_product;
+				$vendors[] = $vendor_id;
 			}
 		}
 
-		foreach ( $vendor_line_items as $vendor_id => $items ) {
-			if ( empty( $items ) ) {
-				continue;
-			}
-			$this->create_vendor_order(
-				array(
-					'parent_order' => $order,
-					'vendor_id'    => $vendor_id,
-					'items'        => $items,
-					'data'         => $data,
-				)
-			);
+		$vendors = array_unique( $vendors );
+
+		foreach ( $vendors as $vendor_id ) {
+			$vendor_order = new VendorOrder();
+			$vendor_order->set_parent_id( $order->get_id() );
+			$vendor_order->set_parent_order( $order );
+			$vendor_order->set_vendor_id( $vendor_id );
+			$vendor_order->calculate_totals();
+			$vendor_order->save();
 		}
 
-	}
-
-	/**
-	 * Create a new vendor order programmatically
-	 * Returns a new VendorOrder object on success which can then be used to add additional data.
-	 *
-	 * @param array $args Order arguments.
-	 *
-	 * @return VendorOrder
-	 */
-	public function create_vendor_order( $args = array() ) {
-
-		$defaults = array(
-			'parent_order' => 0,
-			'vendor_id'    => 0,
-			'vendor_order' => 0,
-			'items'        => array(),
-			'data'         => array(),
-		);
-
-		$args = wp_parse_args( $args, $defaults );
-
-		$vendor_order = new VendorOrder();
-		$vendor_order->set_parent_id( $args['parent_order']->get_id() );
-		$vendor_order->set_parent_order( $args['parent_order'] );
-		$vendor_order->set_vendor_id( $args['vendor_id'] );
-		foreach ( $args['items'] as $item ) {
-			$vendor_order->add_item( $item );
-		}
-		$vendor_order->calculate_totals();
-		$vendor_order->save();
-
-		do_action( 'wcvendors_vendor_order_created', $vendor_order->get_id(), $vendor_order, $args );
-
-		return $vendor_order;
 	}
 
 	/**
