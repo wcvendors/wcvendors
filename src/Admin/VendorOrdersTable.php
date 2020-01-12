@@ -2,7 +2,7 @@
 /**
  * Manage the Vendor Orders table.
  *
- * @package     WCVendors/Admin
+ * @package WCVendors/Admin
  */
 
 namespace WCVendors\Admin;
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * The vendor admin class handles all vendor related functions in admin view
+ * Manage the Vendor Orders table.
  */
 class VendorOrdersTable {
 	/**
