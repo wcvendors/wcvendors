@@ -76,7 +76,7 @@ class PostTypes {
 					'has_archive'                      => false,
 					// wc_register_order_type() params.
 					'exclude_from_orders_screen'       => false,
-					'add_order_meta_boxes'             => false,
+					'add_order_meta_boxes'             => true,
 					'exclude_from_order_count'         => true,
 					'exclude_from_order_views'         => true,
 					'exclude_from_order_reports'       => true,
