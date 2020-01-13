@@ -61,6 +61,9 @@ class PostTypes {
 					'public'                           => false,
 					'show_ui'                          => true,
 					'capability_type'                  => 'shop_order',
+					'capabilities' => array(
+						'create_posts' => false,
+					),
 					'map_meta_cap'                     => true,
 					'publicly_queryable'               => false,
 					'exclude_from_search'              => true,
