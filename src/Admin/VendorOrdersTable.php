@@ -50,7 +50,11 @@ class VendorOrdersTable {
 	 * @param array $query_args Query arguments.
 	 */
 	public function request( $query_args ) {
-		if ( isset( $query_args['post_status'] ) && empty( $query_args['post_status'] ) ) {
+		if (
+			'shop_order_vendor' === $query_args['post_type'] 
+			&& isset( $query_args['post_status'] )
+			&& empty( $query_args['post_status'] ) 
+		) {
 			$query_args['post_status'] = array_keys( wc_get_order_statuses() );
 		}
 		return $query_args;
