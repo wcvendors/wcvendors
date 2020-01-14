@@ -51,7 +51,8 @@ class VendorOrdersTable {
 	 */
 	public function request( $query_args ) {
 		if (
-			'shop_order_vendor' === $query_args['post_type'] 
+			isset( $query_args['post_type'] )
+			&& 'shop_order_vendor' === $query_args['post_type'] 
 			&& isset( $query_args['post_status'] )
 			&& empty( $query_args['post_status'] ) 
 		) {
