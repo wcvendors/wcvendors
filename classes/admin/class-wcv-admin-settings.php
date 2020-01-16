@@ -547,6 +547,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 								<img class="wcv-image-container-<?php echo $value['id']; ?>" src="<?php echo $option_value; ?>" alt="" style="max-width:100%;" />
 								<br />
 								<input id="wcv-add-<?php echo $value['id']; ?>" type="button" class="<?php echo $value['css']; ?>" value="<?php echo sprintf( __( 'Update %s', 'wc-vendors' ), strtolower( $value['title'] ) ); ?>" data-id="<?php echo $value['id']; ?>" data-save_button="<?php echo sprintf( __( 'Add %s', 'wc-vendors' ), $value['title'] ); ?>" data-window_title="<?php echo sprintf( __( 'Add %s', 'wc-vendors' ), strtolower( $value['title'] ) ); ?>" data-upload_notice="<?php echo sprintf( __( 'Upload an image for the %s', 'wc-vendors' ), strtolower( $value['title'] ) ); ?>" />
+								<?php do_action( 'wcvendors_image_buttons', $value ); ?>
 								<input type="hidden" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="<?php echo $option_value; ?>">
 							</td>
 						</tr>
