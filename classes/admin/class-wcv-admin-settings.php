@@ -202,6 +202,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
+							<?php do_action( 'wcvendors_after_standard_text_input_label', $value ); ?>
 						</th>
 						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
 							<input
@@ -214,6 +215,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo implode( ' ', $custom_attributes ); ?>
 								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo $description; ?>
+							<?php do_action( 'wcvendors_after_standard_text_input_field', $value ); ?>
 						</td>
 					</tr>
 					<?php
@@ -228,6 +230,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
 							<?php echo $tooltip_html; ?>
+							<?php do_action( 'wcvendors_after_color_label', $value ); ?>
 						</th>
 						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">&lrm;
 							<span class="colorpickpreview" style="background: <?php echo esc_attr( $option_value ); ?>"></span>
@@ -242,6 +245,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo implode( ' ', $custom_attributes ); ?>
 								/>&lrm; <?php echo $description; ?>
+								<?php do_action( 'wcvendors_aftor_color_picker', $value ); ?>
 								<div id="colorPickerDiv_<?php echo esc_attr( $value['id'] ); ?>" class="colorpickdiv" style="z-index: 100;background:#eee;border:1px solid #ccc;position:absolute;display:none;"></div>
 						</td>
 					</tr>
@@ -256,6 +260,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+							<?php do_action( 'wcvendors_after_text_area_label', $value ); ?>
 							<?php echo $tooltip_html; ?>
 						</th>
 						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
@@ -267,6 +272,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo implode( ' ', $custom_attributes ); ?>
 								><?php echo esc_textarea( $option_value ); ?></textarea>
+								<?php do_action( 'wcvendors_after_textarea', $value ); ?>
 							<?php echo $description; ?>
 						</td>
 					</tr>
@@ -282,6 +288,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+							<?php do_action( 'wcvendors_after_select_label', $value ); ?>
 							<?php echo $tooltip_html; ?>
 						</th>
 						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
@@ -310,7 +317,9 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 										<?php
 								}
 								?>
-							</select> <?php echo $description; ?>
+							</select>
+							<?php do_action( 'wcvendors_after_select', $value ); ?>
+							<?php echo $description; ?>
 						</td>
 					</tr>
 					<?php
@@ -324,6 +333,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+							<?php do_action( 'wcvendors_after_radio_button_label', $value ); ?>
 							<?php echo $tooltip_html; ?>
 						</th>
 						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ); ?>">
@@ -343,12 +353,14 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 											<?php echo implode( ' ', $custom_attributes ); ?>
 											<?php checked( $key, $option_value ); ?>
 												/> <?php echo $val; ?></label>
+												<?php do_action( 'wcvendors_after_radio_input', $value ); ?>
 										</li>
 										<?php
 								}
 								?>
 								</ul>
 							</fieldset>
+							<?php do_action( 'wcvendors_after_radio_field_set', $value ); ?>
 						</td>
 					</tr>
 					<?php
@@ -378,7 +390,10 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 					if ( ! isset( $value['checkboxgroup'] ) || 'start' == $value['checkboxgroup'] ) {
 						?>
 							<tr valign="top" class="<?php echo esc_attr( implode( ' ', $visibility_class ) ); ?>">
-								<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ); ?></th>
+								<th scope="row" class="titledesc">
+									<?php echo esc_html( $value['title'] ); ?>
+									<?php do_action( 'wcvendors_after_checkbox_label', $value ); ?>
+								</th>
 								<td class="forminp forminp-checkbox">
 									<fieldset>
 						<?php
@@ -404,7 +419,9 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 								value="1"
 								<?php checked( $option_value, 'yes' ); ?>
 								<?php echo implode( ' ', $custom_attributes ); ?>
-							/> <?php echo $description; ?>
+							/>
+							<?php do_action( 'wcvendors_after_checkbox_input', $value ); ?>
+							<?php echo $description; ?>
 						</label> <?php echo $tooltip_html; ?>
 					<?php
 
@@ -419,6 +436,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 							</fieldset>
 						<?php
 					}
+					do_action( 'wcvendors_after_checkbox_field_set', $value );
 					break;
 
 				// Single page selects
@@ -440,9 +458,13 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 
 					?>
 					<tr valign="top" class="single_select_page">
-						<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; ?></th>
+						<th scope="row" class="titledesc">
+							<?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; ?>
+							<?php do_action( 'wcvendors_after_single_select_page_label', $value ); ?>
+						</th>
 						<td class="forminp">
 							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wc-vendors' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' id=", wp_dropdown_pages( $args ) ); ?> <?php echo $description; ?>
+							<?php do_action( 'wcvendors_after_single_select_page', $value ); ?>
 						</td>
 					</tr>
 					<?php
@@ -468,9 +490,13 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 
 					?>
 					<tr valign="top" class="single_select_page">
-						<th scope="row" class="titledesc"><?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; ?></th>
+						<th scope="row" class="titledesc">
+							<?php echo esc_html( $value['title'] ); ?> <?php echo $tooltip_html; ?>
+							<?php do_action( 'wcvendors_after_multi_select_page_label', $value ); ?>
+						</th>
 						<td class="forminp">
 							<?php echo str_replace( ' id=', " data-placeholder='" . esc_attr__( 'Select a page&hellip;', 'wc-vendors' ) . "' style='" . $value['css'] . "' class='" . $value['class'] . "' multiple=\"multiple\" id=", wp_dropdown_pages( $args ) ); ?> <?php echo $description; ?>
+							<?php do_action( 'wcvendors_after_multi_select_page', $value ); ?>
 						</td>
 					</tr>
 					<?php
@@ -492,11 +518,14 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+							<?php do_action( 'wcvendors_after_single_country_select', $value ); ?>
 							<?php echo $tooltip_html; ?>
 						</th>
 						<td class="forminp"><select name="<?php echo esc_attr( $value['id'] ); ?>" style="<?php echo esc_attr( $value['css'] ); ?>" data-placeholder="<?php esc_attr_e( 'Choose a country&hellip;', 'wc-vendors' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wc-vendors' ); ?>" class="wc-enhanced-select">
 							<?php WC()->countries->country_dropdown_options( $country, $state ); ?>
-						</select> <?php echo $description; ?>
+						</select>
+						<?php do_action( 'wcvendors_after_single_country_select', $value ); ?>
+						<?php echo $description; ?>
 						</td>
 					</tr>
 					<?php
@@ -517,6 +546,7 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 					<tr valign="top">
 						<th scope="row" class="titledesc">
 							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+							<?php do_action( 'wcvendors_after_multi_country_select_label', $value ); ?>
 							<?php echo $tooltip_html; ?>
 						</th>
 						<td class="forminp">
@@ -528,7 +558,9 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 									}
 								}
 								?>
-							</select> <?php echo ( $description ) ? $description : ''; ?> <br /><a class="select_all button" href="#"><?php _e( 'Select all', 'wc-vendors' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'wc-vendors' ); ?></a>
+							</select>
+							<?php echo ( $description ) ? $description : ''; ?> <br /><a class="select_all button" href="#"><?php _e( 'Select all', 'wc-vendors' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'wc-vendors' ); ?></a>
+							<?php do_action( 'wcvendors_after_multi_country_select', $value ); ?>
 						</td>
 					</tr>
 					<?php
@@ -541,13 +573,16 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 						<tr valign="top">
 							<th scope="row" class="titledesc">
 								<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+								<?php do_action( 'wcvendors_after_image_label', $value ); ?>
 							<?php echo $tooltip_html; ?>
 							</th>
 							<td class="forminp">
 								<img class="wcv-image-container-<?php echo $value['id']; ?>" src="<?php echo $option_value; ?>" alt="" style="max-width:100%;" />
 								<br />
 								<input id="wcv-add-<?php echo $value['id']; ?>" type="button" class="<?php echo $value['css']; ?>" value="<?php echo sprintf( __( 'Update %s', 'wc-vendors' ), strtolower( $value['title'] ) ); ?>" data-id="<?php echo $value['id']; ?>" data-save_button="<?php echo sprintf( __( 'Add %s', 'wc-vendors' ), $value['title'] ); ?>" data-window_title="<?php echo sprintf( __( 'Add %s', 'wc-vendors' ), strtolower( $value['title'] ) ); ?>" data-upload_notice="<?php echo sprintf( __( 'Upload an image for the %s', 'wc-vendors' ), strtolower( $value['title'] ) ); ?>" />
+								<?php do_action( 'wcvendors_image_buttons', $value ); ?>
 								<input type="hidden" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="<?php echo $option_value; ?>">
+								<?php do_action( 'wcvendors_after_image_input', $value ); ?>
 							</td>
 						</tr>
 						<?php
@@ -561,10 +596,12 @@ class WCVendors_Admin_Settings extends WC_Admin_Settings {
 						<tr valign="top">
 							<th scope="row" class="titledesc">
 								<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+								<?php do_action( 'wcvendors_after_wysiwyg_label', $value ); ?>
 							<?php echo $tooltip_html; ?>
 							</th>
 							<td class="forminp">
 							<?php wp_editor( $option_value, $value['id'], array( 'textarea_name' => $value['id'] ) ); ?>
+							<?php do_action( 'wcvendors_after_wysiwyg', $value ); ?>
 							<?php echo $description; ?>
 							</td>
 						</tr>
