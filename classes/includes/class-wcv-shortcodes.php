@@ -636,9 +636,9 @@ class WCV_Shortcodes {
 
 		if ( isset( $atts['show_products'] ) ) {
 			wc_deprecated_argument(
-				'show_products',
-				'2.1.16',
-				sprintf( __( 'This argument will be removed in %s', 'wcvendors-pro' ), '3.0.0' )
+				'wcv_vendorslist',
+				'2.1.17',
+				sprintf( __( 'The "show_products" argument will be removed in version %s. Please update to use "has_products".', 'wcvendors-pro' ), '3.0.0' )
 			);
 			$atts['has_products'] = $atts['show_products'];
 			unset( $atts['show_products'] );
