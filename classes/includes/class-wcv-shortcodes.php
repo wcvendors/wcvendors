@@ -634,6 +634,16 @@ class WCV_Shortcodes {
 
 		$html = '';
 
+		if ( isset( $atts['show_products'] ) ) {
+			wc_deprecated_argument(
+				'wcv_vendorslist',
+				'2.1.17',
+				sprintf( __( 'The "show_products" argument will be removed in version %s. Please update to use "has_products".', 'wcvendors-pro' ), '3.0.0' )
+			);
+			$atts['has_products'] = $atts['show_products'];
+			unset( $atts['show_products'] );
+		}
+
 		extract(
 			shortcode_atts(
 				array(
@@ -641,7 +651,7 @@ class WCV_Shortcodes {
 					'order'         => 'ASC',
 					'per_page'      => '12',
 					'columns'       => '4',
-					'show_products' => 'yes',
+					'has_products' => 'no',
 				), $atts
 			)
 		);
@@ -650,7 +660,7 @@ class WCV_Shortcodes {
 		$offset = ( $paged - 1 ) * $per_page;
 
 		// Hook into the user query to modify the query to return users that have at least one product
-		if ( $show_products == 'yes' ) {
+		if ( $has_products == 'yes' ) {
 			add_action( 'pre_user_query', array( $this, 'vendors_with_products' ) );
 		}
 
@@ -664,7 +674,7 @@ class WCV_Shortcodes {
 			'order'        => $order,
 		);
 
-		if ( $show_products == 'yes' ) {
+		if ( $has_products == 'yes' ) {
 			$vendor_total_args['query_id'] = 'vendors_with_products';
 		}
 
@@ -683,7 +693,7 @@ class WCV_Shortcodes {
 			'number'       => $per_page,
 		);
 
-		if ( $show_products == 'yes' ) {
+		if ( $has_products == 'yes' ) {
 			$vendor_paged_args['query_id'] = 'vendors_with_products';
 		}
 
