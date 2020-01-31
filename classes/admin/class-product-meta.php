@@ -35,9 +35,9 @@ class WCV_Product_Meta {
 		add_action( 'woocommerce_product_bulk_edit_start', array( $this, 'display_vendor_dropdown_bulk_edit' ) );
 
 
-		add_action( 'woocommerce_product_quick_edit_save', array( $this, 'save_vendor_quick_edit' ), 2, 99 );
-		add_action( 'woocommerce_product_bulk_edit_save',  array( $this, 'save_vendor_bulk_edit' ), 1, 99 );
-		add_action( 'manage_product_posts_custom_column' , array( $this, 'display_vendor_column' ), 2, 99 );
+		add_action( 'woocommerce_product_quick_edit_save', array( $this, 'save_vendor_quick_edit' ), 99, 1 );
+		add_action( 'woocommerce_product_bulk_edit_save',  array( $this, 'save_vendor_bulk_edit' ), 99, 1 );
+		add_action( 'manage_product_posts_custom_column' , array( $this, 'display_vendor_column' ), 99, 2 );
 		add_filter( 'manage_product_posts_columns'       , array( $this, 'vendor_column_quickedit' ) );
 
 		add_action( 'woocommerce_process_product_meta', array( $this, 'update_post_media_author' ) );
@@ -120,14 +120,15 @@ class WCV_Product_Meta {
 			'role__in' => array( 'vendor', 'administrator' ),
 			'number'   => 100,
 		);
-    if ( $selected ) {
-      $user_args['include'] = array( $selected );
-    }
+
+		if ( $selected ) {
+			$user_args['include'] = array( $selected );
+		}
 
 		$users = get_users( $user_args );
 
 		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
-		$output .= "\t<option>$placeholder</option>\n";
+		$output .= "\t<option value='nochange'>$placeholder</option>\n";
 		foreach ( (array) $users as $user ) {
 			$select = selected( $user->ID, $selected, false );
 			$output .= "<option value='$user->ID' $select>$user->display_name</option>";
@@ -315,7 +316,11 @@ class WCV_Product_Meta {
 	*/
 	public function save_vendor_bulk_edit( $product ) {
 
-		if ( isset( $_REQUEST['vendor'] ) && $_REQUEST['vendor'] != ''  ) {
+		if( ! isset( $_REQUEST['vendor'] ) || isset( $_REQUEST['vendor'] ) && 'nochange' === $_REQUEST['vendor'] ) {
+			return;
+		}
+
+		if ( isset( $_REQUEST['vendor'] ) && $_REQUEST['vendor'] != 'nochange'  ) {
 			$vendor            = wc_clean( $_REQUEST['vendor'] );
 			$update_vendor = array(
 				'ID'          => $product->get_id(),
