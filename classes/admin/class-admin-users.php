@@ -107,7 +107,6 @@ class WCV_Admin_Users {
 		return $capability;
 	}
 
-
 	/**
 	 *
 	 *

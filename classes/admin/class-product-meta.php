@@ -24,6 +24,7 @@ class WCV_Product_Meta {
 
 		add_action( 'add_meta_boxes'   , array( $this, 'change_author_meta_box_title' ) );
 		add_action( 'wp_dropdown_users', array( $this, 'author_vendor_roles' ), 0, 1 );
+		add_action( 'restrict_manage_posts', array( $this, 'restrict_manage_posts' ), 12 );
 
 		if ( apply_filters( 'wcv_product_commission_tab', true ) ) {
 			add_action( 'woocommerce_product_write_panel_tabs', array( $this, 'add_tab' ) );
@@ -96,22 +97,59 @@ class WCV_Product_Meta {
 		return $output;
 	}
 
+	/**
+	 * Output a vendor drop down to restrict the product type by
+	 *
+	 * @version 2.1.18
+	 * @since   1.3.0
+	 */
+	public function restrict_manage_posts() {
+
+		global $typenow, $wp_query;
+
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+			return;
+		}
+
+		if ( 'product' == $typenow ) {
+			$selectbox_args = array(
+				'id' => 'vendor',
+				'fields' => array(
+					'ID',
+					'user_login',
+				),
+				'placeholder' => __('— No change —', 'wc-vendors'),
+			);
+			$output = $this->vendor_selectbox( $selectbox_args, false);
+			echo $output;
+		}
+
+	}
 
 	/**
 	 * Create a selectbox to display vendor & administrator roles
 	 *
-	 * @param array $args
-	 * @param bool $media
+	 * @version 2.1.18
+	 * @since   2.
+	 * @param array $args  Arguments used to render user dopdown box.
+	 * @param bool  $media Whether to display assign media checkbox.
 	 *
 	 * @return string
 	 */
-	public function vendor_selectbox( $args, $media = true ) {
+	public static function vendor_selectbox( $args, $media = true ) {
 		$args = wp_parse_args( $args, array(
 			'class'       => '',
 			'id'          => '',
 			'placeholder' => '',
 			'selected'    => '',
 		) );
+
+		/**
+		 * Filter the arguments used to render the selectbox.
+		 *
+		 * @param array $args The arguments to be filtered.
+		 */
+		$args = apply_filters( 'wcv_vendor_selectbox_args', $args );
 
 		extract( $args );
 
@@ -125,6 +163,12 @@ class WCV_Product_Meta {
 			$user_args['include'] = array( $selected );
 		}
 
+		/**
+		 * Filter the arguments used to search for vendors.
+		 *
+		 * @param array $user_args The arguments to be filtered.
+		 */
+		$user_args = apply_filters( 'wcv_vendor_selectbox_user_args',  $user_args );
 		$users = get_users( $user_args );
 
 		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
@@ -135,16 +179,14 @@ class WCV_Product_Meta {
 		}
 		$output .= '</select>';
 
-		if ( ! $media ) {
-		    return $output;
+		if ( $media ) {
+		    $output .= '<p><label class="product_media_author_override">';
+			$output .= '<input name="product_media_author_override" type="checkbox" /> ';
+			$output .= sprintf( __( 'Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() );
+			$output .= '</label></p>';
         }
 
-		$output .= '<p><label class="product_media_author_override">';
-		$output .= '<input name="product_media_author_override" type="checkbox" /> ';
-		$output .= sprintf( __( 'Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() );
-		$output .= '</label></p>';
-
-		return $output;
+		return apply_filters( 'wcv_vendor_selectbox', $output, $user_args, $media );
 	}
 
 	/**
