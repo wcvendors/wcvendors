@@ -117,7 +117,7 @@ class WCVendors_Admin_Help {
 		$screen->set_help_sidebar(
 			'<p><strong>' . __( 'For more information:', 'wc-vendors' ) . '</strong></p>' .
 			'<p><a href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=plugin&utm_medium=help&utm_campaign=settings" target="_blank">' . __( 'Upgrade to Pro', 'wc-vendors' ) . '</a></p>' .
-			'<p><a href="https://www.wcvendors.com/extensions/?utm_source=plugin&utm_medium=help&utm_campaign=settings" target="_blank">' . __( 'Buy extensions', 'wc-vendors' ) . '</a></p>' .
+			'<p><a href="https://www.wcvendors.com/home/compatible-plugins/?utm_source=plugin&utm_medium=help&utm_campaign=settings" target="_blank">' . __( 'Buy extensions', 'wc-vendors' ) . '</a></p>' .
 			'<p><a href="https://woocommerce.com/?utm_source=helptab&utm_medium=product&utm_content=about&utm_campaign=woocommerceplugin" target="_blank">' . __( 'About WC Vendors', 'wc-vendors' ) . '</a></p>' .
 			'<p><a href="https://wordpress.org/plugins/wc-vendors/" target="_blank">' . __( 'WC Vendors on WordPress.org', 'wc-vendors' ) . '</a></p>' .
 			'<p><a href="https://github.com/wcvendors/wcvendors" target="_blank">' . __( 'WC Vendors Github', 'wc-vendors' ) . '</a></p>'
