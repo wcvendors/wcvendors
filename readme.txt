@@ -7,9 +7,9 @@ Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.0.0
 Requires PHP: 5.6
 Tested up to: 5.3.2
-WC requires at least: 3.3.0
-WC tested up to: 3.8.1
-Stable tag: 2.1.17
+WC requires at least: 3.8.0
+WC tested up to: 3.9.1
+Stable tag: 2.1.18
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
@@ -254,7 +254,15 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 
 == Changelog ==
 
-Version 2.1.17 - 2nd January 2020
+= Version 2.1.18 - 5th February 2020 = 
+
+* Added: New action hook to image field. (#620)
+* Fixed: Vendor select box empty for marketplaces which has over 100 vendors #614 (#615)
+* Fixed: Urls in help tab (#623)
+* Updated: Vendor_list shortcode argument to has_products #595
+* Updated: Deploy updates (#616)
+
+= Version 2.1.17 - 2nd January 2020 =
 
 * Added: New template tag for sold by link (#602)
 * Updated: Disabled PayPal Adaptive payments #596
