@@ -24,6 +24,7 @@ class WCV_Product_Meta {
 
 		add_action( 'add_meta_boxes'   , array( $this, 'change_author_meta_box_title' ) );
 		add_action( 'wp_dropdown_users', array( $this, 'author_vendor_roles' ), 0, 1 );
+		add_action( 'restrict_manage_posts', array( $this, 'restrict_manage_posts' ), 12 );
 
 		if ( apply_filters( 'wcv_product_commission_tab', true ) ) {
 			add_action( 'woocommerce_product_write_panel_tabs', array( $this, 'add_tab' ) );
@@ -35,9 +36,9 @@ class WCV_Product_Meta {
 		add_action( 'woocommerce_product_bulk_edit_start', array( $this, 'display_vendor_dropdown_bulk_edit' ) );
 
 
-		add_action( 'woocommerce_product_quick_edit_save', array( $this, 'save_vendor_quick_edit' ), 2, 99 );
-		add_action( 'woocommerce_product_bulk_edit_save',  array( $this, 'save_vendor_bulk_edit' ), 1, 99 );
-		add_action( 'manage_product_posts_custom_column' , array( $this, 'display_vendor_column' ), 2, 99 );
+		add_action( 'woocommerce_product_quick_edit_save', array( $this, 'save_vendor_quick_edit' ), 99, 1 );
+		add_action( 'woocommerce_product_bulk_edit_save',  array( $this, 'save_vendor_bulk_edit' ), 99, 1 );
+		add_action( 'manage_product_posts_custom_column' , array( $this, 'display_vendor_column' ), 99, 2 );
 		add_filter( 'manage_product_posts_columns'       , array( $this, 'vendor_column_quickedit' ) );
 
 		add_action( 'woocommerce_process_product_meta', array( $this, 'update_post_media_author' ) );
@@ -96,22 +97,59 @@ class WCV_Product_Meta {
 		return $output;
 	}
 
+	/**
+	 * Output a vendor drop down to restrict the product type by
+	 *
+	 * @version 2.1.18
+	 * @since   1.3.0
+	 */
+	public function restrict_manage_posts() {
+
+		global $typenow, $wp_query;
+
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+			return;
+		}
+
+		if ( 'product' == $typenow ) {
+			$selectbox_args = array(
+				'id' => 'vendor',
+				'fields' => array(
+					'ID',
+					'user_login',
+				),
+				'placeholder' => __('— No change —', 'wc-vendors'),
+			);
+			$output = $this->vendor_selectbox( $selectbox_args, false);
+			echo $output;
+		}
+
+	}
 
 	/**
 	 * Create a selectbox to display vendor & administrator roles
 	 *
-	 * @param array $args
-	 * @param bool $media
+	 * @version 2.1.18
+	 * @since   2.
+	 * @param array $args  Arguments used to render user dopdown box.
+	 * @param bool  $media Whether to display assign media checkbox.
 	 *
 	 * @return string
 	 */
-	public function vendor_selectbox( $args, $media = true ) {
+	public static function vendor_selectbox( $args, $media = true ) {
 		$args = wp_parse_args( $args, array(
 			'class'       => '',
 			'id'          => '',
 			'placeholder' => '',
 			'selected'    => '',
 		) );
+
+		/**
+		 * Filter the arguments used to render the selectbox.
+		 *
+		 * @param array $args The arguments to be filtered.
+		 */
+		$args = apply_filters( 'wcv_vendor_selectbox_args', $args );
 
 		extract( $args );
 
@@ -121,26 +159,34 @@ class WCV_Product_Meta {
 			'number'   => 100,
 		);
 
-		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
-		$output .= "\t<option>$placeholder</option>\n";
+		if ( $selected ) {
+			$user_args['include'] = array( $selected );
+		}
 
+		/**
+		 * Filter the arguments used to search for vendors.
+		 *
+		 * @param array $user_args The arguments to be filtered.
+		 */
+		$user_args = apply_filters( 'wcv_vendor_selectbox_user_args',  $user_args );
 		$users = get_users( $user_args );
+
+		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
+		$output .= "\t<option value='nochange'>$placeholder</option>\n";
 		foreach ( (array) $users as $user ) {
 			$select = selected( $user->ID, $selected, false );
 			$output .= "<option value='$user->ID' $select>$user->display_name</option>";
 		}
 		$output .= '</select>';
 
-		if ( ! $media ) {
-		    return $output;
+		if ( $media ) {
+		    $output .= '<p><label class="product_media_author_override">';
+			$output .= '<input name="product_media_author_override" type="checkbox" /> ';
+			$output .= sprintf( __( 'Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() );
+			$output .= '</label></p>';
         }
 
-		$output .= '<p><label class="product_media_author_override">';
-		$output .= '<input name="product_media_author_override" type="checkbox" /> ';
-		$output .= sprintf( __( 'Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() );
-		$output .= '</label></p>';
-
-		return $output;
+		return apply_filters( 'wcv_vendor_selectbox', $output, $user_args, $media );
 	}
 
 	/**
@@ -312,7 +358,11 @@ class WCV_Product_Meta {
 	*/
 	public function save_vendor_bulk_edit( $product ) {
 
-		if ( isset( $_REQUEST['vendor'] ) && $_REQUEST['vendor'] != ''  ) {
+		if( ! isset( $_REQUEST['vendor'] ) || isset( $_REQUEST['vendor'] ) && 'nochange' === $_REQUEST['vendor'] ) {
+			return;
+		}
+
+		if ( isset( $_REQUEST['vendor'] ) && $_REQUEST['vendor'] != 'nochange'  ) {
 			$vendor            = wc_clean( $_REQUEST['vendor'] );
 			$update_vendor = array(
 				'ID'          => $product->get_id(),
