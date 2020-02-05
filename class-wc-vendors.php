@@ -7,11 +7,11 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              2.1.17
+ * Version:              2.1.18
  * Requires at least:    5.0.0
  * Tested up to:         5.3.2
- * WC requires at least: 3.3.0
- * WC tested up to:      3.8.1
+ * WC requires at least: 3.8.0
+ * WC tested up to:      3.9.1
  *
  * Text Domain:          wc-vendors
  * Domain Path:          /languages/
@@ -97,7 +97,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	 */
 	class WC_Vendors {
 
-		public $version = '2.1.17';
+		public $version = '2.1.18';
 
 		/**
 		 * @var

@@ -508,7 +508,6 @@ class WCV_Product_Meta {
 
 		$response = new stdClass();
 		$response->results = $wpdb->get_results( $sql );
-		error_log(print_r($response, true));
 		wp_send_json($response);
 	}
 }

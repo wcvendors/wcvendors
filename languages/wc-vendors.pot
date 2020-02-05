@@ -60,7 +60,7 @@ msgstr ""
 msgid "Pending %s"
 msgstr ""
 
-#: classes/class-install.php:175, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:249, classes/admin/class-product-meta.php:300, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:148, classes/admin/class-wcv-admin-setup.php:365, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:229
+#: classes/class-install.php:175, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:295, classes/admin/class-product-meta.php:346, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:148, classes/admin/class-wcv-admin-setup.php:365, classes/admin/class-wcv-commissions-csv-exporter.php:44, classes/admin/class-wcv-commissions-page.php:130, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121, classes/admin/settings/class-wcv-settings-display.php:229
 msgid "%s"
 msgstr ""
 
@@ -510,32 +510,32 @@ msgstr ""
 msgid "You are not allowed to submit products. <a href=\"%s\">Go Back</a>"
 msgstr ""
 
-#: classes/admin/class-admin-users.php:496
+#: classes/admin/class-admin-users.php:495
 msgid "%s Store"
 msgstr ""
 
-#: classes/admin/class-admin-users.php:546
+#: classes/admin/class-admin-users.php:545
 msgid "Set primary role to %s "
 msgstr ""
 
-#: classes/admin/class-product-meta.php:140, classes/admin/class-product-meta.php:256
+#: classes/admin/class-product-meta.php:121, classes/admin/class-product-meta.php:340
+msgid "— No change —"
+msgstr ""
+
+#: classes/admin/class-product-meta.php:185, classes/admin/class-product-meta.php:302
 msgid "Assign media to %s"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:183, classes/admin/class-product-meta.php:201, classes/admin/class-wcv-commissions-csv-exporter.php:47, classes/admin/class-wcv-commissions-page.php:133, templates/dashboard/reports.php:38, templates/emails/vendor-order-details.php:42, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:194, classes/admin/emails/class-wcv-vendor-notify-order.php:221, classes/admin/settings/class-wcv-settings-commission.php:32, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:81
+#: classes/admin/class-product-meta.php:229, classes/admin/class-product-meta.php:247, classes/admin/class-wcv-commissions-csv-exporter.php:47, classes/admin/class-wcv-commissions-page.php:133, templates/dashboard/reports.php:38, templates/emails/vendor-order-details.php:42, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:194, classes/admin/emails/class-wcv-vendor-notify-order.php:221, classes/admin/settings/class-wcv-settings-commission.php:32, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:81
 msgid "Commission"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:210, classes/admin/views/html-vendor-meta.php:110
+#: classes/admin/class-product-meta.php:256, classes/admin/views/html-vendor-meta.php:110
 msgid "Leave blank for default"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:229
+#: classes/admin/class-product-meta.php:275
 msgid "%s Store "
-msgstr ""
-
-#: classes/admin/class-product-meta.php:294
-msgid "— No change —"
 msgstr ""
 
 #: classes/admin/class-setup-wizard.php:79
@@ -808,39 +808,39 @@ msgstr ""
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:445, classes/admin/class-wcv-admin-settings.php:473, classes/includes/class-functions.php:63
+#: classes/admin/class-wcv-admin-settings.php:466, classes/admin/class-wcv-admin-settings.php:498, classes/includes/class-functions.php:63
 msgid "Select a page&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:497
+#: classes/admin/class-wcv-admin-settings.php:524
 msgid "Choose a country&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:497, classes/admin/class-wcv-admin-settings.php:523
+#: classes/admin/class-wcv-admin-settings.php:524, classes/admin/class-wcv-admin-settings.php:553
 msgid "Country"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:523
+#: classes/admin/class-wcv-admin-settings.php:553
 msgid "Choose countries&hellip;"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:531
+#: classes/admin/class-wcv-admin-settings.php:562
 msgid "Select all"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:531
+#: classes/admin/class-wcv-admin-settings.php:562
 msgid "Select none"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:549
+#: classes/admin/class-wcv-admin-settings.php:582
 msgid "Update %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:549, classes/admin/class-wcv-admin-settings.php:549
+#: classes/admin/class-wcv-admin-settings.php:582, classes/admin/class-wcv-admin-settings.php:582
 msgid "Add %s"
 msgstr ""
 
-#: classes/admin/class-wcv-admin-settings.php:549
+#: classes/admin/class-wcv-admin-settings.php:582
 msgid "Upload an image for the %s"
 msgstr ""
 
