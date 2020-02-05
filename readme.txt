@@ -257,10 +257,10 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 = Version 2.1.18 - 5th February 2020 = 
 
 * Added: New action hook to image field. (#620)
-* Fixed: Vendor select box empty for marketplaces which has over 100 vendors #614 (#615)
-* Fixed: Urls in help tab (#623)
 * Updated: Vendor_list shortcode argument to has_products #595
 * Updated: Deploy updates (#616)
+* Fixed: Vendor select box empty for marketplaces which has over 100 vendors #614 (#615)
+* Fixed: Urls in help tab (#623)
 
 = Version 2.1.17 - 2nd January 2020 =
 
