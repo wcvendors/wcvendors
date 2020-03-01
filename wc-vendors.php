@@ -44,6 +44,7 @@ define( 'WCV_MIN_WC_VER', '3.0.0' );
 define( 'WCV_PLUGIN_PATH', dirname( __FILE__ ) . '/' );
 define( 'WCV_PLUGIN_FILE', __FILE__ );
 define( 'WCV_ABSPATH_ADMIN', dirname( __FILE__ ) . '/src/Admin/' );
+define( 'WCV_ABSPATH_EMAILS', dirname( __FILE__ ) . '/src/Emails/' );
 define( 'WCV_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WCV_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WCV_TEMPLATE_DEBUG_MODE', false );

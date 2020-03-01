@@ -3,10 +3,10 @@
   "prefer-stable": true,
   "minimum-stability": "dev",
   "require": {
-    "automattic/jetpack-autoloader": "^1.2.0"
+    "automattic/jetpack-autoloader": "^1.2.0",
+    "woocommerce/woocommerce-sniffs": "^0.0.9"
   },
   "require-dev": {
-    "woocommerce/woocommerce-sniffs": "0.0.9",
     "brain/monkey": "^2.3",
     "phpunit/phpunit": "^8.4"
   },

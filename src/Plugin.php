@@ -75,6 +75,7 @@ class Plugin {
 		( new Admin\PostTypes() )->init_hooks();
 		( new Admin\Vendor() )->init_hooks();
 		( new Admin\MetaBoxes() )->init_hooks();
+		( new Emails\Emails() )->init_hooks();
 	}
 
 	/**
