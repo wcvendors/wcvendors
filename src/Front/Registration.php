@@ -32,7 +32,7 @@ class Registration {
 		add_action( 'woocommerce_register_form', 	array( $this, 'add_vendor_registration' ) );
 		add_action( 'woocommerce_register_post', 	array( $this, 'validate_registration' ), 10, 3 );
 		add_action( 'woocommerce_created_customer', array( $this, 'save_registration' ), 10, 2 );
-		
+
 	}
 
 	/**
@@ -42,6 +42,8 @@ class Registration {
 
 		$become_a_vendor_label = strtolower( __( get_option( 'wcvendors_label_become_a_vendor', __( 'Become a ', 'wc-vendors' ) ), 'wc-vendors' ) );
 		$terms_page = get_option( 'wcvendors_vendor_terms_page_id', '' );
+
+		error_log( $terms_page ); 
 
 		wc_get_template( 
 			'vendor-registration.php', array( 
@@ -96,7 +98,7 @@ class Registration {
 				$wp_user_object->add_role( $role );
 
 				do_action( 'wcvendors_application_submited', $user_id );
-				add_filter( 'woocommerce_registration_redirect', array( $this, 'redirect_to_vendor_dash' ) );
+				add_filter( 'woocommerce_registration_redirect', array( $this, 'redirect_to_dashboard' ) );
 			}
 		}
 	}
@@ -107,9 +109,9 @@ class Registration {
 	 * 
 	 * @param string $redirect - the redirect URL. 
 	 */
-	public function redirect_to_vendor_dash( $redirect ) {
+	public function redirect_to_dashboard( $redirect ) {
 
-		$vendor_dashboard_page = get_option( 'wcvendors_vendor_dashboard_page_id' );
+		$vendor_dashboard_page = get_option( 'wcvendors_vendor_dashboard_page_id', get_option( 'woocommerce_myaccount_page_id' ) );
 		return apply_filters( 'wcvendors_signup_redirect', get_permalink( $vendor_dashboard_page ) );
 	}
 

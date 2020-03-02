@@ -44,7 +44,7 @@
 			<input class="input-checkbox"
 				   id="agree_to_terms" <?php checked( isset( $_POST['agree_to_terms'] ), true ); ?> type="checkbox"
 				   name="agree_to_terms" value="1"/>
-			<?php apply_filters( 'wcvendors_vendor_registration_terms', printf( __( 'I have read and accepted the <a target="top" href="%s">terms and conditions</a>.', 'wc-vendors' ), get_permalink( $this->terms_page ) ) ); ?>
+			<?php apply_filters( 'wcvendors_vendor_registration_terms', printf( __( 'I have read and accepted the <a target="top" href="%s">terms and conditions</a>.', 'wc-vendors' ), get_permalink( $terms_page ) ) ); ?>
 		</label>
 	</p>
 
