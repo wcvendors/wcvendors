@@ -77,7 +77,7 @@ if ( ! function_exists( 'wcv_create_new_vendor' ) ) {
 			return $vendor_id;
 		}
 
-		do_action( 'woocommerce_created_customer', $vendor_id, $new_vendor_data );
+		do_action( 'wcvendors_created_vendor', $vendor_id, $new_vendor_data );
 
 		return $vendor_id;
 	}
