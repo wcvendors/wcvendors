@@ -208,8 +208,6 @@ function wcv_get_vendor_display_name( $vendor_id ) {
 
 }
 
-
-
 /**
  * Set the primary role of the specified user to vendor while retaining all other roles after
  *
