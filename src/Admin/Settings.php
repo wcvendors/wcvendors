@@ -1,4 +1,11 @@
 <?php
+/**
+ * The admin settings class handles all settings in the admin area. This is a modified version of the WooCommerce Admin Settings class
+ *
+ * @package     WCVendors/Admin
+ * @version     3.0.0
+ */
+ 
 namespace WCVendors\Admin;
 
 use WC_Admin_Settings;
@@ -6,15 +13,6 @@ use WC_Admin_Settings;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-/**
- * The admin settings class handles all settings in the admin area. This is a modified version of the WooCommerce Admin Settings class
- *
- * @author      WooCommerce, Jamie Madden, WC Vendors
- * @category    Admin
- * @package     WCVendors/Admin
- * @version     2.0.0
- */
 
 class Settings extends WC_Admin_Settings {
 
