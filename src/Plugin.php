@@ -80,13 +80,13 @@ class Plugin {
 		( new Admin\Vendor() )->init_hooks();
 		( new Admin\MetaBoxes() )->init_hooks();
 		( new Admin\Users() )->init_hooks();
+		( new Emails\Emails() )->init_hooks();
 	}
 
 	/**
 	 * Init frontend classes. 
 	 */
 	private function frontend_includes(){ 
-
 		( new Front\Registration() )->init_hooks(); 
 	}
 
