@@ -52,15 +52,23 @@ class General extends Base {
 		$settings = array(
 			// General Options.
 			array(
-				'type' => 'title',
-				'desc' => __( 'These are the general settings for your marketplace', 'wc-vendors' ),
-				'id'   => 'general_options',
+				'title' => __( 'Marketplace Options', 'wc-vendors' ),
+				'type'  => 'title',
+				'desc'  => __( 'These are the general settings for your marketplace', 'wc-vendors' ),
+				'id'    => 'general_options',
 			),
 			array(
 				'title'   => sprintf( __( '%s Registration', 'wc-vendors' ), wcv_get_vendor_name() ),
 				'desc'    => sprintf( __( 'Allow users to apply to become a %s', 'wc-vendors' ), lcfirst( wcv_get_vendor_name() ) ),
 				'id'      => 'wcvendors_vendor_allow_registration',
 				'default' => 'no',
+				'type'    => 'checkbox',
+			),
+			array(
+				'title'   => __( 'Terms & Conditions', 'wc-vendors' ),
+				'desc'    => sprintf( __( 'Make the terms and conditions checkbox always visible even if become a %s is not checked', 'wc-vendors' ), wcv_get_vendor_name() ),
+				'id'      => 'wcvendors_terms_and_conditions_visibility',
+				'default' => 'yes',
 				'type'    => 'checkbox',
 			),
 			array(
