@@ -63,7 +63,7 @@ class Plugin {
 		$this->init_admin_classes();
 
 		if ( $this->is_request( 'frontend' ) ) {
-			$this->frontend_includes();
+			$this->init_frontend_classes();
 		}
 	}
 
@@ -86,7 +86,7 @@ class Plugin {
 	/**
 	 * Init frontend classes. 
 	 */
-	private function frontend_includes(){ 
+	private function init_frontend_classes(){ 
 		( new Front\Registration() )->init_hooks(); 
 	}
 
