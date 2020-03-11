@@ -254,6 +254,10 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 
 == Changelog ==
 
+= Version 2.1.19 - 11th March 2020 =
+
+* Confirm WordPress 5.4 and WooCommerce 4.0
+
 = Version 2.1.18 - 5th February 2020 = 
 
 * Added: New action hook to image field. (#620)

@@ -1,4 +1,7 @@
 Changelog for WC Vendors Marketplace
+Version 2.1.19 - 11th March 2020
+
+* Confirm WordPress 5.4 and WooCommerce 4.0
 
 Version 2.1.18 - 5th February 2020 
 
