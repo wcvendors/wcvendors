@@ -16,7 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<title><?php esc_html_e( 'WC Vendors &rsaquo; Setup Wizard', 'wc-vendors' ); ?></title>
 	<?php wp_print_scripts( 'wcv-setup' ); ?>
 	<?php do_action( 'admin_print_styles' ); ?>
-	<?php do_action( 'admin_head' ); ?>
 </head>
 <body class="wcv-setup wp-core-ui">
 <h1 id="wcv-logo"><a href="https://www.wcvendors.com/"><img
