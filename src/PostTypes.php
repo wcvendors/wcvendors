@@ -61,6 +61,9 @@ class PostTypes {
 					'public'                           => false,
 					'show_ui'                          => true,
 					'capability_type'                  => 'shop_order',
+					'capabilities' => array(
+						'create_posts' => false,
+					),
 					'map_meta_cap'                     => true,
 					'publicly_queryable'               => false,
 					'exclude_from_search'              => true,
@@ -73,7 +76,7 @@ class PostTypes {
 					'has_archive'                      => false,
 					// wc_register_order_type() params.
 					'exclude_from_orders_screen'       => false,
-					'add_order_meta_boxes'             => false,
+					'add_order_meta_boxes'             => true,
 					'exclude_from_order_count'         => true,
 					'exclude_from_order_views'         => true,
 					'exclude_from_order_reports'       => true,

@@ -43,13 +43,6 @@ class VendorOrder extends WC_Order {
 	protected $object_type = 'shop_order_vendor';
 
 	/**
-	 * Stores the $this->is_editable() returned value in memory
-	 *
-	 * @var bool
-	 */
-	private $editable;
-
-	/**
 	 * Parent order of this vendor order.
 	 *
 	 * @var WC_Order $parent_order Parent order object.
@@ -81,9 +74,6 @@ class VendorOrder extends WC_Order {
 
 		parent::__construct( $vendor_order );
 
-		// @todo what is this property used for?
-		$this->order_type = 'shop_order_vendor';
-
 		if ( is_numeric( $vendor_order ) && $vendor_order > 0 ) {
 			$this->set_id( $vendor_order );
 		} elseif ( $vendor_order instanceof self ) {
@@ -101,20 +91,6 @@ class VendorOrder extends WC_Order {
 		}
 	}
 
-	// @todo finish these to make the market place functionality complete.
-	// Shipping
-	// $this->set_shipping_total( WC()->cart->shipping_total );
-	// $this->set_shipping_tax( WC()->cart->shipping_tax_total );
-	// Coupons
-	// $this->set_discount_total( WC()->cart->get_cart_discount_total() );
-	// $this->set_discount_tax( WC()->cart->get_cart_discount_tax_total() );
-
-	// @todo need to make these work for the sub orders where required.
-	// $this->create_order_fee_lines( $parent_order, WC()->cart );
-	// $this->create_order_shipping_lines( $parent_order, WC()->session->get( 'chosen_shipping_methods' ), WC()->shipping->get_packages() );
-	// $this->create_order_coupon_lines( $parent_order, WC()->cart );
-
-
 	/**
 	 * Getters
 	 */
@@ -128,7 +104,6 @@ class VendorOrder extends WC_Order {
 		return 'shop_order_vendor';
 	}
 
-
 	/**
 	 * Get vendor id.
 	 *
@@ -138,18 +113,6 @@ class VendorOrder extends WC_Order {
 	 */
 	public function get_vendor_id( $context = 'view' ) {
 		return $this->get_prop( 'vendor_id', $context );
-	}
-
-	/**
-	 * Get commission total
-	 *
-	 * @param string $context Context, view or edit.
-	 *
-	 * @return mixed
-	 */
-	public function get_commission( $context = 'view' ) {
-		// Need to get the relevant commission object from the database for this.
-		return $this->get_prop( 'commission', $context );
 	}
 
 	/**
@@ -166,205 +129,51 @@ class VendorOrder extends WC_Order {
 	}
 
 	/**
-	 * Get items
-	 *
-	 * @param string|array $types Item types.
-	 *
-	 * @return mixed|void
-	 */
-	public function get_items( $types = 'line_item' ) {
-
-		$parent_items = $this->get_parent_order()->get_items( $types );
-		$items        = array();
-
-		foreach ( $parent_items as $key => $item ) {
-			foreach ( $this->get_order_item_ids() as $order_item_id ) {
-				if ( $item->get_id() === $order_item_id ) {
-					$items[ $key ] = $item;
-				}
-			}
-		}
-
-		return apply_filters( 'wcvendors_vendor_order_get_items', $items, $this );
-	}
-
-	/**
-	 * Get the order item ids for this order
-	 *
-	 * @param string $context Context, view or edit.
-	 *
-	 * @return mixed
-	 */
-	public function get_order_item_ids( $context = 'view' ) {
-		return $this->get_prop( 'order_item_ids', $context );
-	}
-
-	/**
 	 * Setters
 	 */
 
 	/**
-	 * Set the parent order
+	 * Adds an order item to this order. The order item will not persist until save.
 	 *
-	 * @param WC_Order $order WC Order instance.
+	 * @param \WC_Order_Item $item Order item object (product, shipping, fee, coupon, tax).
+	 * @return false|void
+	 */
+	public function add_item( $item ) {
+	}
+
+	/**
+	 * Set vendor id.
+	 *
+	 * @param int $vendor_id Vendor ID.
+	 */
+	public function set_vendor_id( $vendor_id ) {
+		$this->set_prop( 'vendor_id', $vendor_id );
+	}
+
+	/**
+	 * Set parent order of vendor order.
+	 *
+	 * @param WC_Order $order WC Order object.
 	 */
 	public function set_parent_order( $order ) {
 		$this->parent_order = $order;
-		if ( $order instanceof WC_Order ) {
-			$this->create_parent_order_details();
-		}
 	}
 
 	/**
-	 * Anything that relys on the parent order to get data, set it here
-	 */
-	private function create_parent_order_details() {
-
-		// Get details from parent order, don't store details in child order? ..
-		$this->set_parent_id( $this->parent_order->get_id() );
-		$this->set_created_via( $this->parent_order->get_created_via() );
-		$this->set_cart_hash( $this->parent_order->get_cart_hash() );
-		$this->set_customer_id( $this->parent_order->get_customer_id() );
-		$this->set_currency( $this->parent_order->get_currency() );
-		$this->set_prices_include_tax( $this->parent_order->get_prices_include_tax() );
-		$this->set_customer_ip_address( $this->parent_order->get_customer_ip_address() );
-		$this->set_customer_user_agent( $this->parent_order->get_customer_user_agent() );
-		$this->set_customer_note( $this->parent_order->get_customer_note() );
-		$this->set_payment_method( $this->parent_order->get_payment_method() );
-	}
-
-	/**
-	 * Set extra order data information, same as parent order for now
-	 *
-	 * @param array $data Order data.
-	 */
-	public function set_data( $data ) {
-		foreach ( $data as $key => $value ) {
-			if ( is_callable( array( __CLASS__, "set_{$key}" ) ) ) {
-				$this->{"set_{$key}"}( $value );
-			}
-		}
-	}
-
-	/**
-	 * Set parent order id
-	 *
-	 * @param int $value Parent order ID.
-	 */
-	public function set_parent_id( $value ) {
-		$this->set_prop( 'parent_id', $value );
-	}
-
-	/**
-	 * Set vendor id
-	 *
-	 * @param int $value Vendor ID.
-	 */
-	public function set_vendor_id( $value ) {
-		$this->set_prop( 'vendor_id', $value );
-	}
-
-	/**
-	 * Set commission
-	 *
-	 * @param float $value Commission value.
-	 */
-	public function set_commission( $value ) {
-		$this->set_prop( 'commission', $value );
-	}
-
-	/**
-	 * Set the order item ids for the order
-	 *
-	 * @todo Data duplication?
-	 *
-	 * @param array $value Item ids.
-	 */
-	public function set_order_item_ids( $value ) {
-		$this->set_prop( 'order_item_ids', $value );
-	}
-
-	/**
-	 * Utils
-	 */
-
-	/**
-	 * Add the filtered order items to the order
-	 *
-	 * @param array $items Order items of a vendor.
-	 */
-	public function add_items( $items ) {
-		$this->set_order_item_ids( array_keys( $items ) );
-
-		foreach ( $items as $key => $item ) {
-			$this->add_item( $item );
-		}
-	}
-
-	/**
-	 * Calculate the totals for the vendor order based on only the order items relevant to this vendor.
-	 *
-	 * @param bool $and_taxes Whether to calculate tax when calculating total.
-	 *
-	 * @throws WC_Data_Exception WooCommerce Data Exception.
-	 */
-	public function calculate_totals( $and_taxes = true ) {
-
-		$total     = 0;
-		$total_tax = 0;
-
-		// Don't calculate anything if there are no items.
-		if ( is_null( $this->get_items() ) ) {
-			return;
-		}
-
-		foreach ( $this->get_items() as $item ) {
-			$total     += $item->get_total();
-			$total_tax += $item->get_total_tax();
-		}
-
-		$this->set_total( (float) $total );
-		$this->set_total_tax( (float) $total_tax );
-
-		$this->create_order_tax_line_item();
-	}
-
-	/**
-	 * Create the tax lines for the vendor order
-	 */
-	public function create_order_tax_line_item() {
-
-		// short circuit the function if the parent id hasn't been set.
-		if ( ! $this->get_parent_id() ) {
-			return;
-		}
-
-		$parent_tax_items = $this->parent_order->get_items( 'tax' );
-
-		foreach ( $parent_tax_items as $tax_item_id => $tax_item ) {
-			$item = new WC_Order_Item_Tax();
-			$item->set_rate( $tax_item->get_rate_id() );
-			$item->set_rate_id( $tax_item->get_rate_id() );
-			$item->set_tax_total( $this->get_total_tax() );
-			// phpcs:ignore
-			// $item->set_shipping_tax_total( );
-			$item->apply_changes();
-			$this->add_item( $item );
-		}
-
-	}
-
-	/**
-	 * Conditionals
-	 */
-
-	/**
-	 * Get if the commission is paid
+	 * Vendor order doesn't need payment.
 	 *
 	 * @return bool
 	 */
-	public function is_commission_paid() {
-		return $this->get_commission_paid();
+	public function needs_payment() {
+		return false;
 	}
 
+	/**
+	 * We don't process order item of vendor order.
+	 *
+	 * @return bool
+	 */
+	public function needs_processing() {
+		return false;
+	}
 }

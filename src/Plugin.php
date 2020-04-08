@@ -75,6 +75,8 @@ class Plugin {
 		( new Admin\PostTypes() )->init_hooks();
 		( new Admin\Vendor() )->init_hooks();
 		( new Admin\MetaBoxes() )->init_hooks();
+		( new Admin\VendorOrdersTable() )->init_hooks();
+		( new Admin\VendorOrdersMetaBoxes() )->init_hooks();
 		( new Emails\Emails() )->init_hooks();
 	}
 
@@ -87,7 +89,7 @@ class Plugin {
 	 * @since 1.0.0
 	 */
 	public function add_data_stores( $data_stores ) {
-		$data_stores['shop-order-vendor'] = new DataStores\VendorOrder();
+		$data_stores['shop-order-vendor'] = new DataStores\VendorOrderCPT();
 		$data_stores['vendor-commission'] = new DataStores\VendorCommission();
 
 		return $data_stores;
