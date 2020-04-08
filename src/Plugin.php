@@ -77,6 +77,7 @@ class Plugin {
 		( new Admin\MetaBoxes() )->init_hooks();
 		( new Admin\VendorOrdersTable() )->init_hooks();
 		( new Admin\VendorOrdersMetaBoxes() )->init_hooks();
+		( new Emails\Emails() )->init_hooks();
 	}
 
 	/**
