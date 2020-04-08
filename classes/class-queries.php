@@ -271,8 +271,6 @@ class WCV_Queries {
 		$start_date = WC()->session->get( 'wcv_order_start_date', strtotime( current_time( 'Y-M' ) . '-01' ) );
 		$end_date   = WC()->session->get( 'wcv_order_end_date', strtotime( current_time( 'mysql' ) ) );
 
-		error_log( "End date: $end_date, Start date: $start_date");
-
 		$after  = gmdate( 'Y-m-d', $start_date );
 		$before = gmdate( 'Y-m-d', strtotime( '+1 day', $end_date ) );
 
