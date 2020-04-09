@@ -1,4 +1,10 @@
 <?php
+/**
+ * Admin class file.
+ *
+ * @package     WCVendors/Admin
+ * @version     3.0.0
+ */
 
 namespace WCVendors\Admin;
 
@@ -7,17 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * The admin class handles all related functions for admin view
+ * The admin class handles all related functions for admin view.
  *
- * @author      Jamie Madden, WC Vendors
- * @category    Admin
- * @package     WCVendors/Admin
- * @version     2.0.0
+ * @version     3.0.0
  */
 class Admin {
 
 	/**
-	 * Constructor
+	 * Init hooks
 	 */
 	public function init_hooks() {
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), 1 );
@@ -27,10 +30,9 @@ class Admin {
 	/**
 	 * Change the admin footer text on WooCommerce admin pages.
 	 *
-	 * @param string $footer_text
-	 *
+	 * @param string $footer_text text to display in the footer.
 	 * @return string
-	 * @since  2.0.0
+	 * @since  3.0.0
 	 */
 	public function admin_footer_text( $footer_text ) {
 		if ( ! current_user_can( 'manage_woocommerce' ) || ! function_exists( 'wcv_get_screen_ids' ) ) {
@@ -40,10 +42,9 @@ class Admin {
 		$current_screen = get_current_screen();
 		$wcv_pages      = wcv_get_screen_ids();
 
-		// Set only WCV pages.
 		// Check to make sure we're on a WC Vendors admin page.
-		if ( isset( $current_screen->id ) && apply_filters( 'wcvendors_display_admin_footer_text', in_array( $current_screen->id, $wcv_pages ) ) ) {
-			// Change the footer text
+		if ( isset( $current_screen->id ) && apply_filters( 'wcvendors_display_admin_footer_text', in_array( $current_screen->id, $wcv_pages, true ) ) ) {
+			// Change the footer text.
 			if ( ! get_option( 'wcvendors_admin_footer_text_rated' ) ) {
 				$footer_text = sprintf(
 				/* translators: 1: WC Vendors 2:: five stars */
