@@ -171,7 +171,7 @@ class WCV_Commission {
 					'total_shipping' => ! empty( $insert_due[ $product_id ]['total_shipping'] ) ? ( $detail['shipping'] + $insert_due[ $product_id ]['total_shipping'] ) : $detail['shipping'],
 					'tax'            => ! empty( $insert_due[ $product_id ]['tax'] ) ? ( $detail['tax'] + $insert_due[ $product_id ]['tax'] ) : $detail['tax'],
 					'qty'            => ! empty( $insert_due[ $product_id ]['qty'] ) ? ( $detail['qty'] + $insert_due[ $product_id ]['qty'] ) : $detail['qty'],
-					'time'           => date( 'Y-m-d H:i:s', strtotime( $order_date ) ),
+					'time'           => gmdate( 'Y-m-d H:i:s', strtotime( $order_date ) ),
 				);
 			}
 

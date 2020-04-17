@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'placeholder' => 'YYYY-MM-DD',
 			'description' => '',
 			'class'       => 'date-picker-field',
-			'value'       => ( $date = get_post_meta( $order_id, '_date_shipped', true ) ) ? date( 'Y-m-d', $date ) : '',
+			'value'       => ( $date = get_post_meta( $order_id, '_date_shipped', true ) ) ? gmdate( 'Y-m-d', $date ) : '',
 		)
 	);
 
