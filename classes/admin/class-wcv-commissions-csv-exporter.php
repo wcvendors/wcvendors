@@ -2,7 +2,11 @@
 /**
  * Handles commission CSV export.
  *
- * @version  1.9.14
+ * @version 2.1.20
+ * @since   2.0.0
+ *
+ * @package    WC_Vendors
+ * @subpackage Classes/Admin
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -39,17 +43,19 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 	public function get_default_column_names() {
 
 		return apply_filters(
-			'wcv_commissions_export_columns', array(
-				'order_id'       	=> __( 'Order ID', 'wc-vendors' ),
-				'vendor_id'     	=> sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ),
-				'product_id'     	=> __( 'Product', 'wc-vendors' ),
-				'qty'				=> __( 'QTY', 'wc-vendors' ),
-				'total_due'      	=> __( 'Commission', 'wc-vendors' ),
-				'total_shipping' 	=> __( 'Shipping', 'wc-vendors' ),
-				'tax'            	=> __( 'Tax', 'wc-vendors' ),
-				'totals'         	=> __( 'Total', 'wc-vendors' ),
-				'status'         	=> __( 'Status', 'wc-vendors' ),
-				'time'           	=> __( 'Date', 'wc-vendors' ),
+			'wcv_commissions_export_columns',
+			array(
+				'order_id'       => __( 'Order ID', 'wc-vendors' ),
+				// translators: The name used to refer to a vendor.
+				'vendor_id'      => sprintf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ), // phpcs:ignore WordPress.WP.I18n.NoEmptyStrings
+				'product_id'     => __( 'Product', 'wc-vendors' ),
+				'qty'            => __( 'QTY', 'wc-vendors' ),
+				'total_due'      => __( 'Commission', 'wc-vendors' ),
+				'total_shipping' => __( 'Shipping', 'wc-vendors' ),
+				'tax'            => __( 'Tax', 'wc-vendors' ),
+				'totals'         => __( 'Total', 'wc-vendors' ),
+				'status'         => __( 'Status', 'wc-vendors' ),
+				'time'           => __( 'Date', 'wc-vendors' ),
 			)
 		);
 	}
@@ -69,10 +75,10 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 			return;
 		}
 
-		$order      = ( ! empty( $_REQUEST['order'] ) && $_REQUEST['order'] == 'asc' ) ? 'ASC' : 'DESC';
-		$orderby    = ! empty( $_REQUEST['orderby']    ) ? esc_attr( $_REQUEST['orderby'] )    : 'time';
-		$com_status = ! empty( $_REQUEST['com_status'] ) ? esc_attr( $_REQUEST['com_status'] ) : '';
-		$vendor_id  = ! empty( $_REQUEST['vendor_id']  ) ? esc_attr( $_REQUEST['vendor_id'] )  : '';
+		$order      = ( ! empty( $_REQUEST['order'] ) && 'asc' === $_REQUEST['order'] ) ? 'ASC' : 'DESC';
+		$orderby    = ! empty( $_REQUEST['orderby'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['orderby'] ) ) : 'time';
+		$com_status = ! empty( $_REQUEST['com_status'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['com_status'] ) ) : '';
+		$vendor_id  = ! empty( $_REQUEST['vendor_id'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['vendor_id'] ) ) : '';
 		$status_sql = '';
 		$time_sql   = '';
 
@@ -81,22 +87,17 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 		 */
 		$sql = "SELECT COUNT(id) FROM {$wpdb->prefix}pv_commission";
 
-		if ( ! empty( $_GET['m'] ) ) {
-
-			$year  = substr( $_GET['m'], 0, 4 );
-			$month = substr( $_GET['m'], 4, 2 );
-
-			$time_sql = "
-				WHERE MONTH(`time`) = '$month'
-				AND YEAR(`time`) = '$year'
-			";
+		if ( ! empty( $_REQUEST['from_date'] ) && ! empty( $_REQUEST['to_date'] ) ) {
+			$from_date = sanitize_text_field( wp_unslash( $_REQUEST['from_date'] ) );
+			$to_date   = sanitize_text_field( wp_unslash( $_REQUEST['to_date'] ) );
+			$time_sql  = " WHERE time BETWEEN '$from_date' AND '$to_date'";
 
 			$sql .= $time_sql;
 		}
 
 		if ( ! empty( $_GET['com_status'] ) ) {
 
-			if ( $time_sql == '' ) {
+			if ( '' === $time_sql ) {
 				$status_sql = "
 				WHERE status = '$com_status'
 				";
@@ -111,7 +112,7 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 
 		if ( ! empty( $_GET['vendor_id'] ) ) {
 
-			if ( $time_sql == '' && $status_sql == '' ) {
+			if ( '' === $time_sql && '' === $status_sql ) {
 				$vendor_sql = "
 				WHERE vendor_id = '$vendor_id'
 				";
@@ -124,14 +125,14 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 			$sql .= $vendor_sql;
 		}
 
-		$max = $wpdb->get_var( $sql );
+		$max = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
 		$sql
 			= "
 			SELECT * FROM {$wpdb->prefix}pv_commission
 		";
 
-		if ( ! empty( $_GET['m'] ) ) {
+		if ( ! empty( $_GET['from_date'] ) ) {
 			$sql .= $time_sql;
 		}
 
@@ -143,12 +144,11 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 			$sql .= $vendor_sql;
 		}
 
-		// $offset = ( $current_page - 1 ) * $per_page;
 		$sql .= "
 			ORDER BY `{$orderby}` {$order}
 		";
 
-		$commissions = $wpdb->get_results( $sql );
+		$commissions = $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
 		$this->total_rows = count( $commissions );
 		$this->row_data   = array();
@@ -169,7 +169,7 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 						break;
 					case 'order_id':
 						$order = wc_get_order( $commission->order_id );
-						$value = ( $order )? $order->get_order_number() :  $commission->order_id;
+						$value = ( $order ) ? $order->get_order_number() : $commission->order_id;
 						break;
 					case 'product_id':
 						$parent          = get_post_ancestors( $commission->product_id );
