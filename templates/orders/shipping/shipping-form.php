@@ -14,15 +14,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<form method="post" name="track_shipment" id="track-shipment_<?php echo $order_id; ?>">
+<form method="post" name="track_shipment" id="track-shipment_<?php echo esc_attr( $order_id ); ?>">
 
 	<?php
 	wp_nonce_field( 'track-shipment' );
 
-	// Providers
-	echo '<p class="form-field tracking_provider_field"><label for="tracking_provider">' . __( 'Provider:', 'wc_shipment_tracking' ) . '</label><br/><select id="tracking_provider" name="tracking_provider" class="tracking_provider" style="width:100%;">';
+	// Providers.
+	echo '<p class="form-field tracking_provider_field"><label for="tracking_provider">' . esc_attr__( 'Provider:', 'wc-vendors' ) . '</label><br/><select id="tracking_provider" name="tracking_provider" class="tracking_provider" style="width:100%;">';
 
-	echo '<option value="">' . __( 'Custom Provider', 'wc_shipment_tracking' ) . '</option>';
+	echo '<option value="">' . esc_attr__( 'Custom Provider', 'wc-vendors' ) . '</option>';
 
 	$selected_provider = get_post_meta( $order_id, '_tracking_provider', true );
 
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	woocommerce_wp_text_input(
 		array(
 			'id'            => 'custom_tracking_provider_name',
-			'label'         => __( 'Provider Name:', 'wc_shipment_tracking' ),
+			'label'         => __( 'Provider Name:', 'wc-vendors' ),
 			'wrapper_class' => $class,
 			'placeholder'   => '',
 			'description'   => '',
@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	woocommerce_wp_text_input(
 		array(
 			'id'          => 'tracking_number',
-			'label'       => __( 'Tracking number:', 'wc_shipment_tracking' ),
+			'label'       => __( 'Tracking number:', 'wc-vendors' ),
 			'placeholder' => '',
 			'description' => '',
 			'value'       => get_post_meta( $order_id, '_tracking_number', true ),
@@ -69,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	woocommerce_wp_text_input(
 		array(
 			'id'            => 'custom_tracking_url',
-			'label'         => __( 'Tracking link:', 'wc_shipment_tracking' ),
+			'label'         => __( 'Tracking link:', 'wc-vendors' ),
 			'placeholder'   => 'http://',
 			'wrapper_class' => $class,
 			'description'   => '',
@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		array(
 			'type'        => 'date',
 			'id'          => 'date_shipped',
-			'label'       => __( 'Date shipped:', 'wc_shipment_tracking' ),
+			'label'       => __( 'Date shipped:', 'wc-vendors' ),
 			'placeholder' => 'YYYY-MM-DD',
 			'description' => '',
 			'class'       => 'date-picker-field',
@@ -89,18 +89,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-	// Live preview
-	echo '<p class="preview_tracking_link" style="display:none;">' . __( 'Preview:', 'wc_shipment_tracking' ) . ' <a href="" target="_blank">' . __( 'Click here to track your shipment', 'wc_shipment_tracking' ) . '</a></p>';
+	// Live preview.
+	echo '<p class="preview_tracking_link" style="display:none;">' . esc_attr__( 'Preview:', 'wc-vendors' ) . ' <a href="" target="_blank">' . __( 'Click here to track your shipment', 'wc-vendors' ) . '</a></p>';
 
 	?>
 
 
-	<input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-	<input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
+	<input type="hidden" name="product_id" value="<?php echo esc_attr( $product_id ); ?>">
+	<input type="hidden" name="order_id" value="<?php echo esc_attr( $order_id ); ?>">
 
 	<input class="button" type="submit" name="update_tracking"
-	       value="<?php _e( 'Update tracking number', 'wc-vendors' ); ?>">
+		value="<?php esc_attr_e( 'Update tracking number', 'wc-vendors' ); ?>">
 	<input class="button" type="submit" name="mark_shipped"
-	       value="<?php _e( 'Mark as shipped', 'wc-vendors' ); ?>">
+		value="<?php esc_attr_e( 'Mark as shipped', 'wc-vendors' ); ?>">
 
 </form>
