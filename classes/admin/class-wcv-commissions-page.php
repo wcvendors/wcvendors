@@ -305,7 +305,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 		<label for="from_date">
 			<?php echo esc_attr_e( 'From:', 'wc-vendors' ); ?>
 			<input
-				type="date"
+				type="text"
 				size="9"
 				min="<?php echo esc_attr( gmdate( 'Y-m-d', strtotime( '-2 years' ) ) ); ?>"
 				max="<?php echo esc_attr( gmdate( 'Y-m-d', time() ) ); ?>"
@@ -320,7 +320,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 		<label for="from_date">
 			<?php echo esc_attr_e( 'To:', 'wc-vendors' ); ?>
 			<input
-				type="date"
+				type="text"
 				size="9"
 				min="<?php echo esc_attr( gmdate( 'Y-m-d', strtotime( '-2 years' ) ) ); ?>"
 				max="<?php echo esc_attr( gmdate( 'Y-m-d', time() ) ); ?>"
