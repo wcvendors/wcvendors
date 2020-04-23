@@ -220,7 +220,7 @@ class WCV_Admin_Setup {
 
 			$exporter = new WCV_Commissions_CSV_Export();
 
-			$date = date( 'Y-M-d' );
+			$date = gmdate( 'Y-M-d' );
 
 			if ( ! empty( $_GET['com_status'] ) ) { // WPCS: input var ok.
 				$exporter->set_filename( 'wcv_commissions_' . wp_unslash( $_GET['com_status'] ) . '-' . $date . '.csv' ); // WPCS: input var ok, sanitization ok.
@@ -245,7 +245,7 @@ class WCV_Admin_Setup {
 
 			$exporter = new WCV_Commissions_Sum_CSV_Export();
 
-			$date = date( 'Y-M-d' );
+			$date = gmdate( 'Y-M-d' );
 
 			if ( ! empty( $_GET['com_status'] ) ) { // WPCS: input var ok.
 				$exporter->set_filename( 'wcv_commissions_sum_' . wp_unslash( $_GET['com_status'] ) . '-' . $date . '.csv' ); // WPCS: input var ok, sanitization ok.
