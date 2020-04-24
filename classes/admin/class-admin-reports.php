@@ -79,8 +79,8 @@ class WCV_Admin_Reports {
 
 		$commission_status_labels = WCV_Commission::commission_status();
 
-		$start_date = ! empty( $_POST['start_date'] ) ? $_POST['start_date'] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
-		$end_date   = ! empty( $_POST['end_date'] ) ? $_POST['end_date'] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
+		$start_date = ! empty( $_POST['start_date'] ) ? $_POST['start_date'] : strtotime( gmdate( 'Ymd', strtotime( gmdate( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
+		$end_date   = ! empty( $_POST['end_date'] ) ? $_POST['end_date'] : strtotime( gmdate( 'Ymd', current_time( 'timestamp' ) ) );
 
 		if ( ! empty( $_POST['start_date'] ) ) {
 			$start_date = strtotime( $_POST['start_date'] );
@@ -90,8 +90,8 @@ class WCV_Admin_Reports {
 			$end_date = strtotime( $_POST['end_date'] );
 		}
 
-		$after  = date( 'Y-m-d', $start_date );
-		$before = date( 'Y-m-d', strtotime( '+1 day', $end_date ) );
+		$after  = gmdate( 'Y-m-d', $start_date );
+		$before = gmdate( 'Y-m-d', strtotime( '+1 day', $end_date ) );
 
 		$commission_due = $wpdb->get_var(
 			"
@@ -122,11 +122,11 @@ class WCV_Admin_Reports {
 		<form method="post" action="">
 			<p><label for="from"><?php _e( 'From:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( date( 'Y-m-d', $start_date ) ); ?>" name="start_date"
+				       value="<?php echo esc_attr( gmdate( 'Y-m-d', $start_date ) ); ?>" name="start_date"
 				       class="range_datepicker from" id="from"/>
 				<label for="to"><?php _e( 'To:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( date( 'Y-m-d', $end_date ) ); ?>" name="end_date"
+				       value="<?php echo esc_attr( gmdate( 'Y-m-d', $end_date ) ); ?>" name="end_date"
 				       class="range_datepicker to" id="to"/>
 				<input type="submit" class="button" value="<?php _e( 'Show', 'wc-vendors' ); ?>"/></p>
 		</form>
@@ -271,8 +271,8 @@ class WCV_Admin_Reports {
 		$latest_woo = version_compare( $woocommerce->version, '2.3', '>' );
 
 		$first_year   = $wpdb->get_var( "SELECT time FROM {$wpdb->prefix}pv_commission ORDER BY time ASC LIMIT 1;" );
-		$first_year   = $first_year ? date( 'Y', strtotime( $first_year ) ) : date( 'Y' );
-		$current_year = isset( $_POST['show_year'] ) ? $_POST['show_year'] : date( 'Y', current_time( 'timestamp' ) );
+		$first_year   = $first_year ? gmdate( 'Y', strtotime( $first_year ) ) : gmdate( 'Y' );
+		$current_year = isset( $_POST['show_year'] ) ? $_POST['show_year'] : gmdate( 'Y', current_time( 'mysql' ) );
 		$start_date   = strtotime( $current_year . '0101' );
 
 		$vendors         = get_users( array( 'role' => 'vendor' ) );
@@ -286,7 +286,7 @@ class WCV_Admin_Reports {
 			<label for="show_year"><?php _e( 'Show:', 'wc-vendors' ); ?></label>
 			<select name="show_year" id="show_year">
 				<?php
-				for ( $i = $first_year; $i <= date( 'Y' ); $i ++ ) {
+				for ( $i = $first_year; $i <= gmdate( 'Y' ); $i ++ ) {
 					printf( '<option value="%s" %s>%s</option>', $i, selected( $current_year, $i, false ), $i );
 				}
 				?>
@@ -374,12 +374,12 @@ class WCV_Admin_Reports {
 			$date_sql     = " AND date_format(`time`,'%%Y%%m') = %d";
 
 			for ( $count = 0; $count < 12; $count ++ ) {
-				$time = strtotime( date( 'Ym', strtotime( '+ ' . $count . ' MONTH', $start_date ) ) . '01' );
+				$time = strtotime( gmdate( 'Ym', strtotime( '+ ' . $count . ' MONTH', $start_date ) ) . '01' );
 				if ( $time > current_time( 'timestamp' ) ) {
 					continue;
 				}
 
-				$month = date( 'Ym', strtotime( date( 'Ym', strtotime( '+ ' . $count . ' MONTH', $start_date ) ) . '01' ) );
+				$month = gmdate( 'Ym', strtotime( gmdate( 'Ym', strtotime( '+ ' . $count . ' MONTH', $start_date ) ) . '01' ) );
 
 				$fetch_results = $wpdb->prepare( $sql . $filter . $date_sql, $month );
 
@@ -391,7 +391,7 @@ class WCV_Admin_Reports {
 				$paid     = $wpdb->get_var( $wpdb->prepare( $paid_sql . $date_sql, $month ) );
 				$reversed = $wpdb->get_var( $wpdb->prepare( $reversed_sql . $date_sql, $month ) );
 
-				$commissions[ date( 'M', strtotime( $month . '01' ) ) ] = array(
+				$commissions[ gmdate( 'M', strtotime( $month . '01' ) ) ] = array(
 					'commission' => $commission,
 					'tax'        => $tax,
 					'shipping'   => $shipping,
@@ -479,8 +479,8 @@ class WCV_Admin_Reports {
 
 		global $wpdb;
 
-		$total_start_date  = ! empty( $_POST['total_start_date'] ) ? $_POST['total_start_date'] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
-		$total_end_date    = ! empty( $_POST['total_end_date'] ) ? $_POST['total_end_date'] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
+		$total_start_date  = ! empty( $_POST['total_start_date'] ) ? $_POST['total_start_date'] : strtotime( gmdate( 'Ymd', strtotime( gmdate( 'Ym', current_time( 'mysql' ) ) . '01' ) ) );
+		$total_end_date    = ! empty( $_POST['total_end_date'] ) ? $_POST['total_end_date'] : strtotime( gmdate( 'Ymd', current_time( 'mysql' ) ) );
 		$commission_status = ! empty( $_POST['commission_status'] ) ? $_POST['commission_status'] : 'due';
 		$date_sql          = ( ! empty( $_POST['total_start_date'] ) && ! empty( $_POST['total_end_date'] ) ) ? " time BETWEEN '$total_start_date 00:00:00' AND '$total_end_date 23:59:59' AND" : '';
 
@@ -504,11 +504,11 @@ class WCV_Admin_Reports {
 		<form method="post" action="">
 			<p><label for="from"><?php _e( 'From:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( date( 'Y-m-d', $total_start_date ) ); ?>" name="total_start_date"
+				       value="<?php echo esc_attr( gmdate( 'Y-m-d', $total_start_date ) ); ?>" name="total_start_date"
 				       class="range_datepicker from" id="from"/>
 				<label for="to"><?php _e( 'To:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( date( 'Y-m-d', $total_end_date ) ); ?>" name="total_end_date"
+				       value="<?php echo esc_attr( gmdate( 'Y-m-d', $total_end_date ) ); ?>" name="total_end_date"
 				       class="range_datepicker to" id="to"/>
 
 				<select name="commission_status">
