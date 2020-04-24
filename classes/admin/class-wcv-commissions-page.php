@@ -281,20 +281,6 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 
 		$table_name = $wpdb->prefix . 'pv_commission';
 
-		$months = $wpdb->get_results(
-			"
-			SELECT DISTINCT YEAR( time ) AS year, MONTH( time ) AS month
-			FROM $table_name 
-			ORDER BY time DESC
-		" 
-		);
-
-		$month_count = count( $months );
-
-		if ( ! $month_count || ( 1 == $month_count && 0 == $months[0]->month ) ) {
-			return;
-		}
-
 		$from_date = isset( $_GET['from_date'] ) ? sanitize_text_field( wp_unslash( $_GET['from_date'] ) ) : '';
 		$to_date   = isset( $_GET['to_date'] ) ? sanitize_text_field( wp_unslash( $_GET['to_date'] ) ) : '';
 
@@ -346,12 +332,12 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 
 		$com_status = isset( $_GET['com_status'] ) ? sanitize_text_field( wp_unslash( $_GET['com_status'] ) ) : '';
 		?>
-		<select name="com_status" class="wc-enhanced-select">
+		<select id="com_status_dropdown" name="com_status" class="wc-enhanced-select">
 			<option <?php selected( $com_status, '' ); ?> value=''><?php esc_attr_e( 'Show all Statuses', 'wc-vendors' ); ?></option>
 			<option <?php selected( $com_status, 'due' ); ?> value="due"><?php esc_attr_e( 'Due', 'wc-vendors' ); ?></option>
 			<option <?php selected( $com_status, 'paid' ); ?> value="paid"><?php esc_attr_e( 'Paid', 'wc-vendors' ); ?></option>
 			<option <?php selected( $com_status, 'reversed' ); ?>
-					value="reversed"><?php esc_attr_e( 'Reversed', 'wc-vendors' ); ?></option>
+				value="reversed"><?php esc_attr_e( 'Reversed', 'wc-vendors' ); ?></option>
 		</select>
 		<?php
 	}
@@ -377,7 +363,6 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 		$output .= '<option></option>';
 		$output .= wcv_vendor_drop_down_options( $users, $vendor_id );
 		$output .= '</select>';
-		$output .= '<script type="text/javascript">jQuery(function() { jQuery("#vendor_id").select2(); } );</script>';
 
 		echo $output; // phpcs:ignore
 

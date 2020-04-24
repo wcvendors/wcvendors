@@ -235,6 +235,16 @@ class WCVendors_Admin_Menus {
 					jQuery('#from_date, #to_date').datepicker({
 						dateFormat: 'yy-mm-dd'
 					});
+
+					jQuery("#vendor_id").select2();
+
+					jQuery('#reset').click( function(e){
+						e.preventDefault();
+						jQuery('#from_date, #to_date').val('');
+						jQuery('#com_status_dropdown, #vendor_id').val('').select2();
+
+						jQuery('#posts-filter').submit();
+					});
 				}
 			);
 		</script>
