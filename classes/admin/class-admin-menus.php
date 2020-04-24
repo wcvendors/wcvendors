@@ -232,7 +232,9 @@ class WCVendors_Admin_Menus {
 		<script>
 			jQuery(document).ready(
 				function() {
-					jQuery('#from_date, #to_date').datepicker();
+					jQuery('#from_date, #to_date').datepicker({
+						dateFormat: 'yy-mm-dd'
+					});
 				}
 			);
 		</script>
