@@ -630,16 +630,10 @@ class WCV_Commission {
 		$status_sql = '';
 		$time_sql   = '';
 
-		if ( ! empty( $_GET['m'] ) ) {
-
-			$year  = substr( $_GET['m'], 0, 4 );
-			$month = substr( $_GET['m'], 4, 2 );
-
-			$time_sql
-				= "
-				WHERE MONTH(`time`) = '$month'
-				AND YEAR(`time`) = '$year'
-			";
+		if ( ! empty( $_REQUEST['from_date'] ) && ! empty( $_REQUEST['to_date'] ) ) {
+			$from_date = sanitize_text_field( wp_unslash( $_REQUEST['from_date'] ) );
+			$to_date   = sanitize_text_field( wp_unslash( $_REQUEST['to_date'] ) );
+			$time_sql  = " WHERE time BETWEEN '$from_date' AND '$to_date'";
 
 			$query .= $time_sql;
 		}
