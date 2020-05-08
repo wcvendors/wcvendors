@@ -18,7 +18,6 @@ class WCV_Vendor_Shop {
 	function __construct() {
 
 		add_action( 'woocommerce_product_query', array( $this, 'vendor_shop_query' ), 10, 2 );
-		// add_filter( 'init', array( $this, 'add_rewrite_rules' ), 0 );
 		add_action( 'woocommerce_before_main_content', array( 'WCV_Vendor_Shop', 'shop_description' ), 30 );
 		add_filter( 'woocommerce_product_tabs', array( 'WCV_Vendor_Shop', 'seller_info_tab' ) );
 		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
@@ -106,6 +105,10 @@ class WCV_Vendor_Shop {
 	public static function seller_info_tab( $tabs ) {
 
 		global $post;
+
+		if ( ! wc_string_to_bool( get_option( 'wcvendors_label_store_info_enable', 'no' ) ) ){
+			return $tabs;
+		}
 
 		if ( WCV_Vendors::is_vendor( $post->post_author ) ) {
 
