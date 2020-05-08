@@ -97,7 +97,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	 */
 	class WC_Vendors {
 
-		public $version = '2.1.18';
+		public $version = '2.1.19';
 
 		/**
 		 * @var
