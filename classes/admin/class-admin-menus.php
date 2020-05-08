@@ -26,6 +26,7 @@ class WCVendors_Admin_Menus {
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 70 );
 		add_action( 'admin_menu', array( $this, 'extensions_menu' ), 80 );
 		add_action( 'admin_head', array( $this, 'commission_table_header_styles' ) );
+		add_action( 'admin_footer', array( $this, 'commission_table_script' ) );
 
 		add_filter( 'set-screen-option', array( __CLASS__, 'set_commissions_screen' ), 10, 3 );
 
@@ -216,9 +217,39 @@ class WCVendors_Admin_Menus {
 		echo '.wp-list-table .column-time { width: 10%;}';
 		echo '</style>';
 
-	} //table_header_styles()
+	} //table_header_styles
 
+	/**
+	 * Print script required by commission.
+	 *
+	 * @return  void
+	 * @version 2.1.20
+	 * @since   2.1.20
+	 */
+	public function commission_table_script() {
+		wp_enqueue_script( 'jquery-ui-datepicker' );
+		?>
+		<script>
+			jQuery(document).ready(
+				function() {
+					jQuery('#from_date, #to_date').datepicker({
+						dateFormat: 'yy-mm-dd'
+					});
 
+					jQuery("#vendor_id").select2();
+
+					jQuery('#reset').click( function(e){
+						e.preventDefault();
+						jQuery('#from_date, #to_date').val('');
+						jQuery('#com_status_dropdown, #vendor_id').val('').select2();
+
+						jQuery('#posts-filter').submit();
+					});
+				}
+			);
+		</script>
+		<?php
+	}
 }
 
 new WCVendors_Admin_Menus();
