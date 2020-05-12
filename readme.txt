@@ -6,10 +6,10 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.0.0
 Requires PHP: 5.6
-Tested up to: 5.4
+Tested up to: 5.4.1
 WC requires at least: 3.8.0
-WC tested up to: 4.0
-Stable tag: 2.1.19
+WC tested up to: 4.1
+Stable tag: 2.1.20
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
@@ -254,11 +254,21 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 
 == Changelog ==
 
+= Version 2.1.20 - 8th of May 2020 =
+
+* Added: Add date range filters for commissions table #649 (#651)
+* Updated: Tested to WooCommerce 4.1 (#654)
+* Updated: Update filter names in WCV_Shortcodes class #644 (#647)
+* Fixed: Front-end issues of Store Info option ( Enabled/Disabled ) not working #599 (#653)
+* Fixed: Timezone display for commissions #625 (#648)
+* Fixed: Order date query bug. (#646)
+* Fixed: get current page error on setup wizard #640 (#641)
+
 = Version 2.1.19 - 11th March 2020 =
 
 * Confirm WordPress 5.4 and WooCommerce 4.0
 
-= Version 2.1.18 - 5th February 2020 = 
+= Version 2.1.18 - 5th February 2020 =
 
 * Added: New action hook to image field. (#620)
 * Updated: Vendor_list shortcode argument to has_products #595
