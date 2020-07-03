@@ -492,7 +492,7 @@ class WCV_Product_Meta {
 	  FROM  $wpdb->users
 		INNER JOIN $wpdb->usermeta as mt1 ON $wpdb->users.ID = mt1.user_id
 		INNER JOIN $wpdb->usermeta as mt2 ON $wpdb->users.ID = mt2.user_id
-	  WHERE ( mt1.meta_key = '$wpdb->prefix" . "capabilities' AND mt1.meta_value LIKE '%vendor%' )
+	  WHERE ( mt1.meta_key = '$wpdb->prefix" . "capabilities' AND ( mt1.meta_value LIKE '%vendor%' OR mt1.meta_value LIKE '%administrator%' ) )
 	  AND (
 		user_login LIKE $search_string
 		OR user_nicename LIKE $search_string
