@@ -490,7 +490,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 		$http_referer           = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
 		$_SERVER['REQUEST_URI'] = remove_query_arg( '_wp_http_referer', $http_referer );
 
-		$per_page     = $this->get_items_per_page( 'commissions_per_page', 10 );
+		$per_page     = $this->get_items_per_page( 'wcvendor_commissions_perpage', 10 );
 		$current_page = $this->get_pagenum();
 
 		$orderby    = ! empty( $_REQUEST['orderby'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['orderby'] ) ) : 'time';
