@@ -2,7 +2,7 @@
 
 /**
  * Vendor functions
- *
+ * @version 2.2.0
  * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
  * @package WCVendors
  */
@@ -16,7 +16,6 @@ class WCV_Vendors {
 	function __construct() {
 
 		add_action( 'woocommerce_checkout_order_processed', array( __CLASS__, 'create_child_orders' ), 10, 1 );
-		add_filter( 'init', array( $this, 'add_rewrite_rules' ), 0 );
 		add_action( 'delete_post', array( $this, 'remove_child_orders' ), 10, 1 );
 	}
 
@@ -790,26 +789,6 @@ class WCV_Vendors {
 		foreach ( $child_orders as $child_order ) {
 			wp_delete_post( $child_order->ID, true );
 		}
-	}
-
-	/**
-	 * Moved to vendors class
-	 *
-	 * @since 2.0.9
-	 */
-	public static function add_rewrite_rules() {
-
-		$permalink = untrailingslashit( get_option( 'wcvendors_vendor_shop_permalink' ) );
-
-		// Remove beginning slash
-		if ( '/' == substr( $permalink, 0, 1 ) ) {
-			$permalink = substr( $permalink, 1, strlen( $permalink ) );
-		}
-
-		add_rewrite_tag( '%vendor_shop%', '([^&]+)' );
-
-		add_rewrite_rule( $permalink . '/([^/]*)/page/([0-9]+)', 'index.php?post_type=product&vendor_shop=$matches[1]&paged=$matches[2]', 'top' );
-		add_rewrite_rule( $permalink . '/([^/]*)', 'index.php?post_type=product&vendor_shop=$matches[1]', 'top' );
 	}
 
 } // WCV_Vendors
