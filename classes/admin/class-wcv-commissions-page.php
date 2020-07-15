@@ -352,17 +352,16 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 	 */
 	public function vendor_dropdown( $post_type ) {
 
-		$user_args        = array( 'fields' => array( 'ID', 'display_name' ) );
-		$vendor_id        = isset( $_GET['vendor_id'] ) ? sanitize_text_field( wp_unslash( $_GET['vendor_id'] ) ) : '';
-		$new_args         = $user_args;
-		$new_args['role'] = 'vendor';
-		$users            = get_users( $new_args );
+		$selectbox_args = array(
+			'id'          => 'vendor_id',
+			'placeholder' => sprintf( __( 'Filer by %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+		);
 
-		// Generate the drop down.
-		$output = '<select style="width:250px;" name="vendor_id" id="vendor_id" class="wc-enhanced-select">';
-		$output .= '<option></option>';
-		$output .= wcv_vendor_drop_down_options( $users, $vendor_id );
-		$output .= '</select>';
+		if ( isset( $_GET['vendor_id'] ) ) {
+			$selectbox_args['selected'] = sanitize_text_field( wp_unslash( $_GET['vendor_id'] ) );
+		}
+
+		$output = WCV_Product_Meta::vendor_selectbox( $selectbox_args, false );
 
 		echo $output; // phpcs:ignore
 
