@@ -28,7 +28,7 @@ class WCVendors_Admin_Menus {
 		add_action( 'admin_head', array( $this, 'commission_table_header_styles' ) );
 		add_action( 'admin_footer', array( $this, 'commission_table_script' ) );
 
-		add_filter( 'set-screen-option', array( __CLASS__, 'set_commissions_screen' ), 10, 3 );
+		add_filter( 'set_screen_option_wcvendor_commissions_perpage', array( __CLASS__, 'set_commissions_screen' ), 10, 3 );
 
 	}
 
@@ -178,7 +178,7 @@ class WCVendors_Admin_Menus {
 		$args   = [
 			'label'   => 'Commissions',
 			'default' => 10,
-			'option'  => 'commissions_per_page',
+			'option'  => 'wcvendor_commissions_perpage',
 		];
 
 		add_screen_option( $option, $args );
