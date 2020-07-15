@@ -46,6 +46,8 @@ class WCV_Product_Meta {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_script' ) );
 
 		add_action( 'wp_ajax_wcv_search_vendors', array( $this, 'search_vendors' ) );
+
+		add_filter( 'posts_clauses', array( $this, 'filter_by_vendor' ) );
 	}
 
 	public function enqueue_script() {
@@ -100,7 +102,7 @@ class WCV_Product_Meta {
 	/**
 	 * Output a vendor drop down to restrict the product type by
 	 *
-	 * @version 2.1.18
+	 * @version 2.1.21
 	 * @since   1.3.0
 	 */
 	public function restrict_manage_posts() {
@@ -111,7 +113,7 @@ class WCV_Product_Meta {
 			return;
 		}
 
-		if ( 'product' == $typenow ) {
+		if ( 'product' === $typenow ) {
 			$selectbox_args = array(
 				'id' => 'vendor',
 				'fields' => array(
@@ -120,8 +122,13 @@ class WCV_Product_Meta {
 				),
 				'placeholder' => __('— No change —', 'wc-vendors'),
 			);
-			$output = $this->vendor_selectbox( $selectbox_args, false);
-			echo $output;
+
+			if ( isset( $_GET['vendor'] ) ) {
+				$selectbox_args['selected'] = sanitize_text_field( wp_unslash( $_GET['vendor'] ) );
+			}
+
+			$output = $this->vendor_selectbox( $selectbox_args, false );
+			echo $output; // phpcs:ignore
 		}
 
 	}
@@ -509,5 +516,33 @@ class WCV_Product_Meta {
 		$response = new stdClass();
 		$response->results = $wpdb->get_results( $sql );
 		wp_send_json($response);
+	}
+
+	/**
+	 * Add posts clauses to filter products by vendor ID
+	 *
+	 * @param array $args The current posts search args.
+	 * @return array
+	 * @version 2.1.21
+	 * @since   2.1.21
+	 */
+	public function filter_by_vendor( $args ) {
+		global $wpdb;
+
+		if ( ! isset( $_GET['vendor'] ) ) {
+			return $args;
+		}
+
+		$vendor_id = sanitize_text_field( wp_unslash( $_GET['vendor'] ) );
+		$post_type = '';
+		if ( isset( $_GET['post_type'] ) ) {
+			$post_type = sanitize_text_field( wp_unslash( $_GET['post_type'] ) );
+		}
+
+		if ( $vendor_id && 'product' === $post_type ) {
+			$args['where'] .= $wpdb->prepare( " AND {$wpdb->posts}.post_author=%d", $vendor_id );
+		}
+
+		return $args;
 	}
 }
