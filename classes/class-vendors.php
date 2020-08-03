@@ -2,7 +2,7 @@
 
 /**
  * Vendor functions
- *
+ * @version 2.2.0
  * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
  * @package WCVendors
  */
@@ -793,8 +793,9 @@ class WCV_Vendors {
 	}
 
 	/**
-	 * Moved to vendors class
-	 *
+	 * Moved to vendors class.
+	 * 
+	 * @version 2.2.0
 	 * @since 2.0.9
 	 */
 	public static function add_rewrite_rules() {
@@ -805,9 +806,10 @@ class WCV_Vendors {
 		if ( '/' == substr( $permalink, 0, 1 ) ) {
 			$permalink = substr( $permalink, 1, strlen( $permalink ) );
 		}
-
+		
 		add_rewrite_tag( '%vendor_shop%', '([^&]+)' );
 
+		add_rewrite_rule( $permalink . '/page/([0-9]+)', 'index.php?pagename='.$permalink.'&paged=$matches[1]', 'top' );
 		add_rewrite_rule( $permalink . '/([^/]*)/page/([0-9]+)', 'index.php?post_type=product&vendor_shop=$matches[1]&paged=$matches[2]', 'top' );
 		add_rewrite_rule( $permalink . '/([^/]*)', 'index.php?post_type=product&vendor_shop=$matches[1]', 'top' );
 	}
