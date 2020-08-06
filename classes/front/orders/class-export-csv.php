@@ -42,7 +42,7 @@ class WCV_Export_CSV {
 
 				$product_id = ! empty( $item['variation_id'] ) ? $item['variation_id'] : $item['product_id'];
 
-				$_product = $order->get_product_from_item( $item );
+				$_product = $item->get_product();
 
 				$new_row_with_meta = $new_row;
 

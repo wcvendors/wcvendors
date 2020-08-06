@@ -2,7 +2,7 @@
 
 /**
  * Vendor functions
- * @version 2.2.0
+ *
  * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
  * @package WCVendors
  */
@@ -668,7 +668,8 @@ class WCV_Vendors {
 										'tax_data'     => $vendor_order_item['tax_data'],
 									),
 								);
-								$new_item_id    = $vendor_order->add_product( $order->get_product_from_item( $order_items[ $vendor_order_item_id ] ), isset( $vendor_order_item['qty'] ) ? $vendor_order_item['qty'] : 0, $line_item_args );
+								$line_item = new WC_Order_Item_Product( $vendor_order_item_id ); 
+								$new_item_id    = $vendor_order->add_product( $line_item->get_product(), isset( $vendor_order_item['qty'] ) ? $vendor_order_item['qty'] : 0, $line_item_args );
 								wc_add_order_item_meta( $new_item_id, '_vendor_order_item_id', $vendor_order_item_id );
 								wc_add_order_item_meta( $new_item_id, '_vendor_commission', $vendor_order_item['commission'] );
 								break;
@@ -793,9 +794,8 @@ class WCV_Vendors {
 	}
 
 	/**
-	 * Moved to vendors class.
-	 * 
-	 * @version 2.2.0
+	 * Moved to vendors class
+	 *
 	 * @since 2.0.9
 	 */
 	public static function add_rewrite_rules() {
@@ -806,10 +806,9 @@ class WCV_Vendors {
 		if ( '/' == substr( $permalink, 0, 1 ) ) {
 			$permalink = substr( $permalink, 1, strlen( $permalink ) );
 		}
-		
+
 		add_rewrite_tag( '%vendor_shop%', '([^&]+)' );
 
-		add_rewrite_rule( $permalink . '/page/([0-9]+)', 'index.php?pagename='.$permalink.'&paged=$matches[1]', 'top' );
 		add_rewrite_rule( $permalink . '/([^/]*)/page/([0-9]+)', 'index.php?post_type=product&vendor_shop=$matches[1]&paged=$matches[2]', 'top' );
 		add_rewrite_rule( $permalink . '/([^/]*)', 'index.php?post_type=product&vendor_shop=$matches[1]', 'top' );
 	}
