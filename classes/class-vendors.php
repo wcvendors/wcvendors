@@ -809,6 +809,7 @@ class WCV_Vendors {
 
 		add_rewrite_tag( '%vendor_shop%', '([^&]+)' );
 
+		add_rewrite_rule( $permalink . '/page/([0-9]+)', 'index.php?pagename='.$permalink.'&paged=$matches[1]', 'top' );
 		add_rewrite_rule( $permalink . '/([^/]*)/page/([0-9]+)', 'index.php?post_type=product&vendor_shop=$matches[1]&paged=$matches[2]', 'top' );
 		add_rewrite_rule( $permalink . '/([^/]*)', 'index.php?post_type=product&vendor_shop=$matches[1]', 'top' );
 	}
