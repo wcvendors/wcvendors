@@ -1,10 +1,10 @@
 {
   "name": "wc-vendors",
-  "version": "2.1.20",
+  "version": "2.2.0",
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "cypress": "^3.8.0",
+    "cypress": "^3.8.3",
     "del": "latest",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "latest",

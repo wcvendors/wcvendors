@@ -5,11 +5,11 @@ Donate link: https://www.wcvendors.com/
 Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.0.0
-Requires PHP: 5.6
-Tested up to: 5.4.1
-WC requires at least: 3.8.0
-WC tested up to: 4.1
-Stable tag: 2.1.20
+Requires PHP: 7.2
+Tested up to: 5.5
+WC requires at least: 4.0.0
+WC tested up to: 4.3
+Stable tag: 2.2.0
 License: GPLv2 or later
 
 The number one most downloaded marketplace plugin for WooCommerce. Now you can allow anyone to open a store on your WooCommerce site!
@@ -253,6 +253,15 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.2.0 - 13th August 2020 =
+
+* Added: Support for WC4.4 and WP5.5 (#674)
+* Fixed: Page 2 of the vendors pro list pagination returns a page 404 not found #667 (#668)
+* Fixed: Vendor assignment in product edit only recognizes vendors #661
+* Fixed: Filter products by vendor on products page in wp admin. (#664)
+* Fixed: Performance issue on commissions page (#663)
+* Fixed: Commissions page in the admin panel, page pagination does not work. #660
 
 = Version 2.1.20 - 8th of May 2020 =
 
