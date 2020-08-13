@@ -796,6 +796,7 @@ class WCV_Vendors {
 	/**
 	 * Moved to vendors class
 	 *
+	 * @version 2.2.0
 	 * @since 2.0.9
 	 */
 	public static function add_rewrite_rules() {
