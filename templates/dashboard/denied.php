@@ -6,7 +6,7 @@
  *
  * @author        Jamie Madden, WC Vendors
  * @package       WCVendors/Templates/dashboard
- * @version       2.1.1
+ * @version       2.2.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<?php wc_print_notices(); ?>
+<?php if ( function_exists( 'wc_print_notices' ) ) { wc_print_notices(); } ?>
 
 <?php if ( WCV_Vendors::is_pending( get_current_user_id() ) ) { ?>
 
