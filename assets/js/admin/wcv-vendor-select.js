@@ -1,7 +1,9 @@
 (function ($) {
     var debouncedInit = debounce(initSelect2, 100);
 
-    $(document).on('ready', initSelect2);
+    $( 'document' ).ready( function () {
+        initSelect2();
+    });
     $('button.editinline').on('click', debouncedInit);
     $('#doaction').on('click', function () {
         if ($('#bulk-action-selector-top').val() === 'edit')
