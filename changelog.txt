@@ -1,5 +1,10 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.2.1 - September 2020 
+
+emplates Updated:
+	templates/dashboard/denied.php
+
 Version 2.2.0 - 13th August 2020
 
 * Added: Support for WC4.4 and WP5.5 (#674)

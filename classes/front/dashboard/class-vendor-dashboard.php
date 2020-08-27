@@ -232,9 +232,21 @@ class WCV_Vendor_Dashboard {
 	 * @return unknown
 	 */
 	public function display_vendor_products( $atts ) {
+
 		ob_start();
 
 		global $start_date, $end_date;
+
+		// Need to check if the session exists and if it doesn't create it 
+		if ( null === WC()->session ) {
+            $session_class = apply_filters( 'woocommerce_session_handler', 'WC_Session_Handler' );
+            // Prefix session class with global namespace if not already namespaced
+            if ( false === strpos( $session_class, '\\' ) ) {
+                $session_class = '\\' . $session_class;
+            }
+            WC()->session = new $session_class();
+            WC()->session->init();
+        }
 
 		$start_date = WC()->session->get( 'wcv_order_start_date', strtotime( current_time( 'Y-M' ) . '-01' ) );
 		$end_date   = WC()->session->get( 'wcv_order_end_date', current_time( 'timestamp' ) );
@@ -242,6 +254,7 @@ class WCV_Vendor_Dashboard {
 		$can_view_orders = wc_string_to_bool( get_option( 'wcvendors_capability_orders_enabled', 'no' ) );
 
 		if ( ! $this->can_view_vendor_page() ) {
+			wc_get_template( 'denied.php', array(), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 			return ob_get_clean();
 		}
 
@@ -444,24 +457,18 @@ class WCV_Vendor_Dashboard {
 	}
 
 	/**
+	 * Can the user view this page. 
 	 *
-	 *
-	 * @return unknown
+	 * @version 2.2.1 
+	 * 
+	 * @return bool 
 	 */
 	public static function can_view_vendor_page() {
-		if ( ! is_user_logged_in() ) {
-
+		if ( ! is_user_logged_in() || ! WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			return false;
-
-		} elseif ( ! WCV_Vendors::is_vendor( get_current_user_id() ) ) {
-
-			wc_get_template( 'denied.php', array(), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
-
-			return false;
-
+		} else { 
+			return true;
 		}
-
-		return true;
 	}
 
 	/**
