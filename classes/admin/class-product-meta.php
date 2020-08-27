@@ -179,7 +179,7 @@ class WCV_Product_Meta {
 		$users = get_users( $user_args );
 
 		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
-		$output .= "\t<option value='nochange'>$placeholder</option>\n";
+		$output .= "\t<option value=''>$placeholder</option>\n";
 		foreach ( (array) $users as $user ) {
 			$select = selected( $user->ID, $selected, false );
 			$output .= "<option value='$user->ID' $select>$user->display_name</option>";
