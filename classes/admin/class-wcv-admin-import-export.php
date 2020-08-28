@@ -54,6 +54,8 @@ class WCV_Admin_Import_Export {
 		add_filter( 'woocommerce_product_export_product_default_columns', array( $this, 'add_export_column' ));
 		add_filter( 'woocommerce_product_export_product_column_vendor_id', array( $this, 'add_export_data'), 10, 2 );
 		add_filter( 'woocommerce_product_import_inserted_product_object', array( $this, 'process_import'), 10, 2 );
+		add_filter( 'woocommerce_product_import_process_item_data', array( $this, 'check_product_owner' ) );
+		add_filter( 'woocommerce_new_product_data', array( $this, 'avoid_empty_product' ) );
 	}
 
 	/**
@@ -98,11 +100,15 @@ class WCV_Admin_Import_Export {
 	 */
 	function process_import( $object, $data ) {
 
+		if ( ! $this->is_product_author( $data ) ) {
+			return $object;
+		}
+
 		if ( is_a( $object, 'WC_Product' ) || is_a( $object, 'WC_Product_Variation' ) ) {
 
 			$post = array(
 				'ID'          => $object->get_id(),
-				'post_author' => $data['vendor_id'],
+				'post_author' => isset( $data['vendor_id'] ) ? $data['vendor_id'] : get_current_user_id(),
 			);
 
 			$update = wp_update_post( $post );
@@ -110,6 +116,60 @@ class WCV_Admin_Import_Export {
 		}
 
 		return $object;
+	}
+
+	/**
+	 * Check product owner
+	 *
+	 * Check who owns the product. If the current user is not the owner of the product,
+	 * create a new product for the current user, or do nothing.
+	 *
+	 * @param data $data The product raw data.
+	 * @return object
+	 * @version 2.2.1
+	 * @since   2.2.1
+	 */
+	public function check_product_owner( $data ) {
+		
+		if ( ! $this->is_product_author( $data ) ) {
+			return array();
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Avoid creating an empty product
+	 *
+	 * @param bool  $data Product args.
+	 * @return bool
+	 * @version 2.2.1
+	 * @since   2.2.1
+	 */
+	public function avoid_empty_product( $data ) {
+		if ( ! $this->is_product_author( $data ) && isset( $data['post_title'] ) && __( 'Product', 'woocommerce' ) === $data['post_title'] ) {
+			return array();
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Check if the current user is the product vendor
+	 *
+	 * @param array $data The product data.
+	 * @return boolean
+	 * @version 2.2.1
+	 * @since   2.2.1
+	 */
+	public function is_product_author( $data ) {
+		$vendor_id = get_current_user_id();
+		
+		if ( isset( $data['vendor_id'] ) && $vendor_id == $data['vendor_id'] ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**
