@@ -1,8 +1,13 @@
 Changelog for WC Vendors Marketplace
 
-Version 2.2.1 - September 2020 
+Version 2.2.1 - 28th August 2020 
 
-emplates Updated:
+* Fixed: Permission check for product imports (#685)
+* Fixed: Depreciated JS in WP 5.5 #680 (#684)
+* Fixed: Product and category search not working on Products Page (#679)
+* Fixed: Solve error on Gutenberg save
+
+Templates Updated:
 	templates/dashboard/denied.php
 
 Version 2.2.0 - 13th August 2020
