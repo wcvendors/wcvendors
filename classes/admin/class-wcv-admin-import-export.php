@@ -165,7 +165,7 @@ class WCV_Admin_Import_Export {
 	public function is_product_author( $data ) {
 		$vendor_id = get_current_user_id();
 		
-		if ( isset( $data['vendor_id'] ) && $vendor_id == $data['vendor_id'] ) {
+		if ( ( isset( $data['vendor_id'] ) && $vendor_id == $data['vendor_id'] ) || is_admin() ) {
 			return true;
 		}
 
