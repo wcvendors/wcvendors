@@ -230,7 +230,7 @@ class WCV_Emails {
 		WC()->mailer()->emails['WCVendors_Admin_Notify_Shipped']->trigger( $order->get_id(), $user_id, $order );
 
 		// Notify the customer
-		if( 'yes' === apply_filters( 'wcvendors_customer_email_notification_shipped', 'yes' ) ) {
+		if( apply_filters( 'wcvendors_vendor_shipped_customer_notification', true ) ) {
 			WC()->mailer()->emails['WCVendors_Customer_Notify_Shipped']->trigger( $order->get_id(), $user_id, $order );
 		}
 	}
