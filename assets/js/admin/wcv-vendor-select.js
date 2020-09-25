@@ -18,7 +18,7 @@
         var $selectBox = $('.wcv-vendor-select:visible');
 
         $selectBox.select2({
-            minimumInputLength: wcv_vendors_select.minimum_input_length,
+            minimumInputLength: wcv_vendor_select.minimum_input_length,
             ajax: {
                 url: ajaxurl,
                 type: 'POST',
