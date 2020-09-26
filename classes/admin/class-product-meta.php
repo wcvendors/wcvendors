@@ -508,6 +508,7 @@ class WCV_Product_Meta {
 		OR user_url LIKE $search_string
 		OR ( mt2.meta_key = 'first_name' AND mt2.meta_value LIKE $search_string )
 		OR ( mt2.meta_key = 'last_name' AND mt2.meta_value LIKE $search_string )
+		OR ( mt2.meta_key = 'pv_shop_name' AND mt2.meta_value LIKE $search_string )
 	  )
 	  ORDER BY display_name
 	";
@@ -515,6 +516,7 @@ class WCV_Product_Meta {
 
 		$response = new stdClass();
 		$response->results = $wpdb->get_results( $sql );
+
 		wp_send_json($response);
 	}
 
