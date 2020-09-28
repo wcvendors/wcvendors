@@ -509,10 +509,12 @@ class WCV_Product_Meta {
 		OR ( mt2.meta_key = 'first_name' AND mt2.meta_value LIKE $search_string )
 		OR ( mt2.meta_key = 'last_name' AND mt2.meta_value LIKE $search_string )
 		OR ( mt2.meta_key = 'pv_shop_name' AND mt2.meta_value LIKE $search_string )
+		OR ( mt2.meta_key = 'pv_shop_slug' AND mt2.meta_value LIKE $search_string )
+		OR ( mt2.meta_key = 'pv_seller_info' AND mt2.meta_value LIKE $search_string )
+		OR ( mt2.meta_key = 'pv_shop_description' AND mt2.meta_value LIKE $search_string )
 	  )
 	  ORDER BY display_name
 	";
-
 
 		$response = new stdClass();
 		$response->results = $wpdb->get_results( $sql );
