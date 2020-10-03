@@ -52,6 +52,13 @@ class WCV_Product_Meta {
 
 	public function enqueue_script() {
 		wp_enqueue_script('wcv-vendor-select', wcv_assets_url . 'js/admin/wcv-vendor-select.js', array( 'select2' ), WCV_VERSION, true );
+		wp_localize_script(
+			'wcv-vendor-select',
+			'wcv_vendor_select',
+			array(
+				'minimum_input_length' => apply_filters( 'wcvndors_vendor_select_minimum_input_length', 4 ),
+			)
+		);
 	}
 
 	/**
