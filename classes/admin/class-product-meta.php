@@ -328,7 +328,7 @@ class WCV_Product_Meta {
 
 		if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) ) {
 
-			if ( isset( $_REQUEST['_vendor'] ) ) {
+			if ( isset( $_REQUEST['_vendor'] ) && '' !== $_REQUEST['vendor'] ) {
 				$vendor            = wc_clean( $_REQUEST['_vendor'] );
 				$post              = get_post( $product->get_id() );
 				$post->post_author = $vendor;
@@ -372,11 +372,11 @@ class WCV_Product_Meta {
 	*/
 	public function save_vendor_bulk_edit( $product ) {
 
-		if( ! isset( $_REQUEST['vendor'] ) || isset( $_REQUEST['vendor'] ) && 'nochange' === $_REQUEST['vendor'] ) {
+		if( ! isset( $_REQUEST['vendor'] ) || isset( $_REQUEST['vendor'] ) && '' !== $_REQUEST['vendor'] ) {
 			return;
 		}
 
-		if ( isset( $_REQUEST['vendor'] ) && $_REQUEST['vendor'] != 'nochange'  ) {
+		if ( isset( $_REQUEST['vendor'] ) && '' !== $_REQUEST['vendor'] ) {
 			$vendor            = wc_clean( $_REQUEST['vendor'] );
 			$update_vendor = array(
 				'ID'          => $product->get_id(),
