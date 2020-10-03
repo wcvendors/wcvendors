@@ -219,7 +219,8 @@ class WCV_Emails {
 	/**
 	 * Trigger the notify vendor shipped emails
 	 *
-	 * @since 2.0.0
+	 * @version 2.2.2
+	 * @since   2.0.0
 	 */
 	public function vendor_shipped( $order_id, $user_id, $order ) {
 		if ( ! is_a( $order, 'WC_Order' ) ) {
@@ -227,8 +228,11 @@ class WCV_Emails {
 		}
 		// Notify the admin
 		WC()->mailer()->emails['WCVendors_Admin_Notify_Shipped']->trigger( $order->get_id(), $user_id, $order );
+
 		// Notify the customer
-		WC()->mailer()->emails['WCVendors_Customer_Notify_Shipped']->trigger( $order->get_id(), $user_id, $order );
+		if( apply_filters( 'wcvendors_vendor_shipped_customer_notification', true ) ) {
+			WC()->mailer()->emails['WCVendors_Customer_Notify_Shipped']->trigger( $order->get_id(), $user_id, $order );
+		}
 	}
 
 	/**
