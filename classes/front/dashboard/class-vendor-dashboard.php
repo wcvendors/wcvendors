@@ -294,7 +294,9 @@ class WCV_Vendor_Dashboard {
 
 		do_action( 'wcvendors_before_dashboard' );
 
-		wc_print_notices();
+		if( function_exists ( 'wc_print_notices' ) ){ 
+			wc_print_notices();
+		}
 
 		wc_get_template(
 			'navigation.php',
