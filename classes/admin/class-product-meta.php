@@ -52,6 +52,13 @@ class WCV_Product_Meta {
 
 	public function enqueue_script() {
 		wp_enqueue_script('wcv-vendor-select', wcv_assets_url . 'js/admin/wcv-vendor-select.js', array( 'select2' ), WCV_VERSION, true );
+		wp_localize_script(
+			'wcv-vendor-select',
+			'wcv_vendor_select',
+			array(
+				'minimum_input_length' => apply_filters( 'wcvndors_vendor_select_minimum_input_length', 4 ),
+			)
+		);
 	}
 
 	/**
@@ -321,7 +328,7 @@ class WCV_Product_Meta {
 
 		if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) ) {
 
-			if ( isset( $_REQUEST['_vendor'] ) ) {
+			if ( isset( $_REQUEST['_vendor'] ) && '' !== $_REQUEST['vendor'] ) {
 				$vendor            = wc_clean( $_REQUEST['_vendor'] );
 				$post              = get_post( $product->get_id() );
 				$post->post_author = $vendor;
@@ -365,11 +372,11 @@ class WCV_Product_Meta {
 	*/
 	public function save_vendor_bulk_edit( $product ) {
 
-		if( ! isset( $_REQUEST['vendor'] ) || isset( $_REQUEST['vendor'] ) && 'nochange' === $_REQUEST['vendor'] ) {
+		if( ! isset( $_REQUEST['vendor'] ) || isset( $_REQUEST['vendor'] ) && '' !== $_REQUEST['vendor'] ) {
 			return;
 		}
 
-		if ( isset( $_REQUEST['vendor'] ) && $_REQUEST['vendor'] != 'nochange'  ) {
+		if ( isset( $_REQUEST['vendor'] ) && '' !== $_REQUEST['vendor'] ) {
 			$vendor            = wc_clean( $_REQUEST['vendor'] );
 			$update_vendor = array(
 				'ID'          => $product->get_id(),
