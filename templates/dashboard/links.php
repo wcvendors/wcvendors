@@ -15,7 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<?php wc_print_notices(); ?>
+<?php
+
+if( function_exists ( 'wc_print_notices' ) ){
+	wc_print_notices();
+}
+
+?>
 
 <center>
 	<p>
