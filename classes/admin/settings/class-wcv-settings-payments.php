@@ -28,10 +28,13 @@ if ( ! class_exists( 'WCVendors_Settings_Payments', false ) ) :
 		 */
 		public function __construct() {
 
-			$this->id    = 'payments';
-			$this->label = __( 'Payments', 'wc-vendors' );
+			if ( $paypalap_settings && array_key_exists('username_live', $paypalap_settings ) && $paypalap_settings[ 'username_live' ] !== '' ) {
+				$this->id    = 'payments';
+				$this->label = __( 'Payments', 'wc-vendors' );
 
-			parent::__construct();
+				parent::__construct();	
+			}
+			
 		}
 
 
