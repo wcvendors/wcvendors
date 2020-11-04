@@ -92,8 +92,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 				if ( ! get_post_status( $product_id ) ) {
 					$product_id = WCV_Vendors::find_parent_id_from_order( $item->order_id, $product_id );
 				}
-
-				if( '' !== get_the_title( $product_id ) ) {
+				if ( '' !== get_the_title( $product_id ) ) {
 					$product_url = '<a href="' . admin_url( 'post.php?post=' . $product_id . '&action=edit' ) . '">' . get_the_title( $product_id ) . '</a> (<span title="' . get_the_title( $product_id ) . ' has sold ' . $wcv_total_sales . ' times total.">' . $wcv_total_sales . '</span>)';
 				} else {
 					$order = wc_get_order( $item->order_id );
