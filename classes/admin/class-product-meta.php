@@ -127,7 +127,7 @@ class WCV_Product_Meta {
 					'ID',
 					'user_login',
 				),
-				'placeholder' => __('— No change —', 'wc-vendors'),
+				'placeholder' => sprintf( __( 'Search  %s', 'wc-vendors' ), wcv_get_vendor_name() ),
 			);
 
 			if ( isset( $_GET['vendor'] ) ) {
