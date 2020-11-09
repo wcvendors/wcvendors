@@ -180,10 +180,6 @@ class WCV_Admin_Users {
 			}
 		}
 
-		echo '<style>';
-		echo $css;
-		echo '</style>';
-
 		// Filter product type drop down
 		foreach ( $types as $key => $value ) {
 			if ( in_array( $key, $product_types ) ) {
