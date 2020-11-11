@@ -45,7 +45,7 @@
  */
 function wc_vendors_wc_missing_notice() {
 	/* translators: %s WooCommerce download URL link. */
-	echo '<div class="error"><p><strong>' . sprintf( esc_html__(  'WC Vendors Marketplace requires WooCommerce to run. You can download %s here.', 'wc-vendors' ), '<a href="https://woocommerce.com/" target="_blank">WooCommerce</a>' ) . '</strong></p></div>';
+	echo '<div class="error"><p><strong>' . sprintf( esc_html__(  'WC Vendors Marketplace requires WooCommerce to run. You can download %s here.', 'wc-vendors' ), '<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a>' ) . '</strong></p></div>';
 }
 
 /**
