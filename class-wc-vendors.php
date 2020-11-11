@@ -39,16 +39,27 @@
 
 
 /**
+ * WooCommerce fallback notice.
+ *
+ * @since 2.2.2
+ */
+function wc_vendors_wc_missing_notice() {
+	/* translators: %s WooCommerce download URL link. */
+	echo '<div class="error"><p><strong>' . sprintf( esc_html__(  'WC Vendors Marketplace requires WooCommerce to run. You can download %s here.', 'wc-vendors' ), '<a href="https://woocommerce.com/" target="_blank">WooCommerce</a>' ) . '</strong></p></div>';
+}
+
+/**
  *   Plugin activation hook
  */
 function wcvendors_activate() {
 	/**
-	 *  Requires woocommerce to be installed and active
+	 *  Requires WooCommerce to be installed and active
 	 */
 	if ( ! class_exists( 'WooCommerce' ) ) {
-		deactivate_plugins( plugin_basename( __FILE__ ) );
-		wp_die( __( 'WC Vendors Marketplace requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again.', 'wc-vendors' ) );
+		add_action( 'admin_notices', 'wc_vendors_wc_missing_notice' );
+		return;
 	}
+
 	// Flush rewrite rules when activating plugin
 	flush_rewrite_rules();
 } // wcvendors_activate()
@@ -62,7 +73,6 @@ function wcvendors_deactivate() {
 }
 
 register_activation_hook( __FILE__, 'wcvendors_activate' );
-
 register_deactivation_hook( __FILE__, 'wcvendors_deactivate' );
 
 
@@ -450,4 +460,9 @@ if ( wcv_is_woocommerce_activated() ) {
 
 	$wc_vendors = new WC_Vendors();
 
+} else { 
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		add_action( 'admin_notices', 'wc_vendors_wc_missing_notice' );
+		return;
+	}
 }
