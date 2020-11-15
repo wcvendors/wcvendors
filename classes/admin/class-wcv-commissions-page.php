@@ -97,7 +97,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 				} else {
 					$order = wc_get_order( $item->order_id );
 					foreach ( $order->get_items() as $item_id => $items ) {
-						if( $product_id == $order->get_item_meta( $item_id, '_product_id', true) ) {
+						if( $product_id == wc_get_order_item_meta( $item_id, '_product_id', true) ) {
 							$product_url = $items->get_name();
 						}
 					}
