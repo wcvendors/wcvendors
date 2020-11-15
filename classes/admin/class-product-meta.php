@@ -15,6 +15,10 @@ class WCV_Product_Meta {
 	 */
 	function __construct() {
 
+		if ( current_user_can( 'vendor' ) ) {
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		}
+
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
 			return;
 		}
@@ -59,6 +63,52 @@ class WCV_Product_Meta {
 				'minimum_input_length' => apply_filters( 'wcvndors_vendor_select_minimum_input_length', 4 ),
 			)
 		);
+	}
+
+	/**
+	 * Print inline script for product add or edit page
+	 *
+	 * @return void
+	 * @version 2.2.2
+	 * @since   2.2.2
+	 */
+	public function enqueue_styles( $hook_suffix ) {
+		$screen = get_current_screen();
+
+		if ( 'product' !== $screen->post_type ) {
+			return;
+		}
+
+		wp_register_style( 'wcv-inline', false ); // phpcs:ignore
+		wp_enqueue_style( 'wcv-inline' );
+
+		$styles = $this->get_inline_style();
+		wp_add_inline_style( 'wcv-inline', $styles );
+	}
+
+	/**
+	 * Get the inline styles
+	 *
+	 * @return string
+	 * @version 2.2.2
+	 * @since   2.2.2
+	 */
+	public function get_inline_style() {
+		$product_misc = self::get_product_capabilities();
+		// Add any custom css
+		$css = get_option( 'wcvendors_display_advanced_stylesheet' );
+		// Filter taxes
+		if ( ! empty( $product_misc['taxes'] ) ) {
+			$css .= '.form-field._tax_status_field, .form-field._tax_class_field{display:none !important;}';
+		}
+		// Filter the rest of the fields
+		foreach ( $product_misc as $key => $value ) {
+			if ( $value ) {
+				$css .= sprintf( '._%s_field{display:none !important;}', $key );
+			}
+		}
+
+		return apply_filters( 'wcvendors_display_advanced_styles', $css );
 	}
 
 	/**
@@ -555,5 +605,25 @@ class WCV_Product_Meta {
 		}
 
 		return $args;
+	}
+
+	/**
+	 * Get product capabilities.
+	 *
+	 * @return void
+	 * @version 2.2.2
+	 * @since   2.2.2
+	 */
+	public static function get_product_capabilities() {
+		return apply_filters(
+			'wcvendors_product_capabilities',
+			array(
+				'taxes'     => wc_string_to_bool( get_option( 'wcvendors_capability_product_taxes', 'no' ) ),
+				'sku'       => wc_string_to_bool( get_option( 'wcvendors_capability_product_sku', 'no' ) ),
+				'duplicate' => wc_string_to_bool( get_option( 'wcvendors_capability_product_duplicate', 'no' ) ),
+				'delete'    => wc_string_to_bool( get_option( 'wcvendors_capability_product_delete', 'no' ) ),
+				'featured'  => wc_string_to_bool( get_option( 'wcvendors_capability_product_featured', 'no' ) ),
+			)
+		);
 	}
 }

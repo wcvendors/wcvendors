@@ -65,7 +65,7 @@ class WCV_Admin_Users {
 			add_filter( 'manage_product_posts_columns', array( $this, 'manage_product_columns' ), 99 );
 
 			// Check allowed product types and hide controls
-			add_filter( 'product_type_options', array( $this, 'check_allowed_product_type_options' ) );
+			add_filter( 'product_type_options', array( $this, 'check_allowed_product_type_options' ) );			
 		}
 
 	}
@@ -157,28 +157,9 @@ class WCV_Admin_Users {
 	function filter_product_types( $types ) {
 
 		$product_types = (array) get_option( 'wcvendors_capability_product_types', array() );
-		$product_misc  = array(
-			'taxes'     => wc_string_to_bool( get_option( 'wcvendors_capability_product_taxes', 'no' ) ),
-			'sku'       => wc_string_to_bool( get_option( 'wcvendors_capability_product_sku', 'no' ) ),
-			'duplicate' => wc_string_to_bool( get_option( 'wcvendors_capability_product_duplicate', 'no' ) ),
-			'delete'    => wc_string_to_bool( get_option( 'wcvendors_capability_product_delete', 'no' ) ),
-			'featured'  => wc_string_to_bool( get_option( 'wcvendors_capability_product_featured', 'no' ) ),
-		);
+		$product_misc  = WCV_Product_Meta::get_product_capabilities();
 
-		// Add any custom css
-		$css = get_option( 'wcvendors_display_advanced_stylesheet' );
-		// Filter taxes
-		if ( ! empty( $product_misc['taxes'] ) ) {
-			$css .= '.form-field._tax_status_field, .form-field._tax_class_field{display:none !important;}';
-		}
 		unset( $product_misc['taxes'] );
-
-		// Filter the rest of the fields
-		foreach ( $product_misc as $key => $value ) {
-			if ( $value ) {
-				$css .= sprintf( '._%s_field{display:none !important;}', $key );
-			}
-		}
 
 		// Filter product type drop down
 		foreach ( $types as $key => $value ) {
