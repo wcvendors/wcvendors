@@ -24,7 +24,7 @@ class WCVendors_Admin_Help {
 	 */
 	public function __construct() {
 
-		add_action( 'current_screen', array( $this, 'add_tabs' ), 60 );
+		add_action( 'current_screen', array( $this, 'add_tabs' ), 99 );
 	}
 
 	/**
