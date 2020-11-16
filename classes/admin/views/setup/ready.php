@@ -51,49 +51,5 @@ if ( ! defined( 'ABSPATH' ) ) {
     	<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c70c537d05355fa9ec97e8134_462e6aa9c6" tabindex="-1" value=""></div>
 	</form>
 </div>
-
-<ul class="wcv-wizard-next-steps">
-	<li class="wcv-wizard-next-step-item">
-		<div class="wcv-wizard-next-step-description">
-			<p class="next-step-heading"><?php esc_html_e( 'Make your life easy', 'wc-vendors' ); ?></p>
-			<h2 class="next-step-description"><?php esc_html_e( 'Upgrade to Pro!', 'wc-vendors' ); ?></h2>
-			<p class="next-step-extra-info"><?php esc_html_e( 'Upgrade today to enhance your marketplace for the best chance of success.', 'wc-vendors' ); ?></p>
-			<p class="next-step-heading"><?php esc_html_e( 'Features', 'wc-vendors' ); ?></p>
-			<ul>
-				<li><?php _e( 'Remove the need for vendors to access the WordPress dmin with a complete frontend dashboard', 'wc-vendors' ); ?></li>
-				<li><?php _e( 'Flat rate & table rate shipping module', 'wc-vendors' ); ?></li>
-				<li><?php _e( 'Coupons, ratings, reports, orders and more.', 'wc-vendors' ); ?></li>
-				<li><?php _e( 'Advanced commission including fixed and tiered', 'wc-vendors' ); ?></li>
-				<li><?php _e( 'Premium support & updates', 'wc-vendors' ); ?></li>
-				<li><?php _e( 'Starting from $199 annually', 'wc-vendors' ); ?></li>
-			</ul>
-		</div>
-		<div class="wcv-wizard-next-step-action">
-			<p class="wcv-setup-actions step">
-				<a class="button button-primary button-large"
-				   href="https://www.wcvendors.com/product/wc-vendors-pro/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete"
-				   target="_blank">
-					<?php _e( 'Upgrade Today', 'wc-vendors' ); ?>
-				</a>
-			</p>
-		</div>
-	</li>
-	<li class="wcv-wizard-next-step-item">
-		<div class="wcv-wizard-next-step-description">
-			<p class="next-step-heading"><?php _e( 'Extend your marketplace', 'wc-vendors' ); ?></p>
-			<h2 class="next-step-description"><?php _e( 'Premium Extensions', 'wc-vendors' ); ?></h2>
-			<p class="next-step-extra-info"><?php _e( 'Turn your marketplace into an auction or subscription site, charge your vendors a monthly membership and more with our awesome premium extensions.', 'wc-vendors' ); ?></p>
-		</div>
-		<div class="wcv-wizard-next-step-action">
-			<p class="wcv-setup-actions step">
-				<a class="button button-large"
-				   href="https://www.wcvendors.com/plugins/?utm_source=setup_wizard&utm_medium=plugin&utm_campaign=setup_complete"
-				   target="_blank">
-					<?php _e( 'Buy Premium Extensions', 'wc-vendors' ); ?>
-				</a>
-			</p>
-		</div>
-	</li>
-</ul>
 <h4 class="help-title"><?php _e( 'Need Help?', 'wc-vendors' ); ?></h4>
 <p class="next-steps-help-text"><?php echo wp_kses_post( $help_text ); ?></p>
