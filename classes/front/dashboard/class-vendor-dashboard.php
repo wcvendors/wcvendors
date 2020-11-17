@@ -44,7 +44,7 @@ class WCV_Vendor_Dashboard {
 			|| has_shortcode( $post->post_content, 'wcv_orders' )
 			|| has_shortcode( $post->post_content, 'wcv_vendor_dashboard_nav' )
 		) {
-			wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
+			wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );			
 		}
 	}
 
