@@ -114,6 +114,10 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 				return $item->status;
 			case 'time':
 				return date_i18n( get_option( 'date_format' ), strtotime( $item->time ) );
+
+			default: 
+				$value = ''; 
+				return apply_filters( 'wcvendors_commissions_column_default_' . $column_name, $value, $item, $column_name );
 		}
 	}
 
@@ -166,7 +170,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			unset( $columns['tax'] );
 		}
 
-		return $columns;
+		return apply_filters( 'wcvendors_commissions_columns', $columns );
 	}
 
 
@@ -196,7 +200,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			unset( $sortable_columns['tax'] );
 		}
 
-		return $sortable_columns;
+		return apply_filters( 'wcvendors_commissions_columns_sortable', $sortable_columns );
 	}
 
 
@@ -214,9 +218,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			// 'delete' => __('Delete', 'wc-vendors'),
 		);
 
-		$actions = apply_filters( 'wcv_edit_bulk_actions', $actions );
-
-		return $actions;
+		return apply_filters( 'wcv_edit_bulk_actions', $actions, '2.2.2', 'wcvendors_edit_bulk_actions' );
 	}
 
 
@@ -601,7 +603,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			'comm_status'  => $com_status,
 			'vendor_id'    => $vendor_id,
 		);
-		$sql = apply_filters( 'wcv_get_commissions_sql', $sql, $sql_args );
+		$sql = apply_filters_deprecated( 'wcv_get_commissions_sql', array( $sql, $sql_args ), '2.2.2', 'wcvendors_get_commissions_sql' );
 
 		$this->items = $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
