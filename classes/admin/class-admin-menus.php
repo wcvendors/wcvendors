@@ -25,6 +25,11 @@ class WCVendors_Admin_Menus {
 		add_action( 'admin_menu', array( $this, 'commissions_menu' ), 50 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 70 );
 		add_action( 'admin_menu', array( $this, 'extensions_menu' ), 80 );
+		if ( ! class_exists( 'WCVendors_Pro' ) ){ 
+			add_action( 'admin_menu', array( $this, 'go_pro_menu' ), 80 );
+		}
+		
+
 		add_action( 'admin_head', array( $this, 'commission_table_header_styles' ) );
 		add_action( 'admin_footer', array( $this, 'commission_table_script' ) );
 
@@ -74,8 +79,34 @@ class WCVendors_Admin_Menus {
 	 *    Addons Page
 	 */
 	public function extensions_page() {
-
 		WCVendors_Admin_Extensions::output();
+	}
+
+	/**
+	 * Go Pro Menu.
+	 * 
+	 * @since 2.2.2 
+	 */
+	public function go_pro_menu() {
+
+		add_submenu_page(
+			'wc-vendors',
+			__( 'Upgrade To WC Vendors Pro Today', 'wc-vendors' ),
+			__( 'Go PRO', 'wc-vendors' ),
+			'manage_woocommerce',
+			'wcv-go-pro',
+			array( $this, 'go_pro_page' )
+		);
+		remove_submenu_page( 'wc-vendors', 'wc-vendors' );
+	}
+
+	/**
+	 * Go Pro Page output
+	 *
+	 * @since 2.2.2
+	 */
+	public function go_pro_page(){ 
+		WCVendors_Admin_GoPro::output();
 	}
 
 	/**
