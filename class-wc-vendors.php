@@ -251,7 +251,7 @@ if ( wcv_is_woocommerce_activated() ) {
 				include_once wcv_plugin_dir . 'classes/admin/class-setup-wizard.php';
 				include_once wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php';
 				include_once wcv_plugin_dir . 'classes/admin/class-admin-media.php';
-				include_once wcv_plugin_dir . 'classes/admin/class-wcv-admin-import-export.php';
+				// include_once wcv_plugin_dir . 'classes/admin/class-wcv-admin-import-export.php';
 
 				new WCV_Vendor_Applicants();
 				new WCV_Admin_Setup();
