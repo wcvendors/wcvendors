@@ -16,39 +16,40 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: class-wc-vendors.php:50
-msgid "WC Vendors Marketplace requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again."
+#. translators: %s WooCommerce download URL link.
+#: class-wc-vendors.php:48
+msgid "WC Vendors Marketplace requires WooCommerce to run. You can download %s here."
 msgstr ""
 
-#: class-wc-vendors.php:116
+#: class-wc-vendors.php:126
 msgid "WC Vendors Marketplace"
 msgstr ""
 
-#: class-wc-vendors.php:151
+#: class-wc-vendors.php:161
 msgid "<b>WC Vendors Marketplace is inactive</b>. WC Vendors Marketplace requires a minimum of WooCommerce 3.0.0 to operate."
 msgstr ""
 
-#: class-wc-vendors.php:323
+#: class-wc-vendors.php:333
 msgid "Are you sure you want mark all commissions paid?"
 msgstr ""
 
-#: class-wc-vendors.php:427
+#: class-wc-vendors.php:437
 msgid "WC Vendors 2.0 is a major update. This is not compatible with any of our existing extensions. You should test this update on a staging server before updating. Backup your site and update your theme and extensions, and <a href=\"%s\">review update details here</a> before upgrading."
 msgstr ""
 
-#: class-wc-vendors.php:442
+#: class-wc-vendors.php:452
 msgid "WC Vendors Pro 1.5.0 is required to run WC Vendors 2.0.0. Your current version %s will be deactivated. Please upgrade to the latest version."
 msgstr ""
 
-#: classes/class-commission.php:61, classes/admin/class-admin-reports.php:417, classes/admin/class-admin-reports.php:515, classes/admin/class-wcv-commissions-page.php:346, classes/admin/class-wcv-commissions-page.php:627
+#: classes/class-commission.php:61, classes/admin/class-admin-reports.php:417, classes/admin/class-admin-reports.php:515, classes/admin/class-wcv-commissions-page.php:348, classes/admin/class-wcv-commissions-page.php:629
 msgid "Due"
 msgstr ""
 
-#: classes/class-commission.php:62, classes/admin/class-admin-reports.php:416, classes/admin/class-admin-reports.php:516, classes/admin/class-wcv-commissions-page.php:347, classes/admin/class-wcv-commissions-page.php:628
+#: classes/class-commission.php:62, classes/admin/class-admin-reports.php:416, classes/admin/class-admin-reports.php:516, classes/admin/class-wcv-commissions-page.php:349, classes/admin/class-wcv-commissions-page.php:630
 msgid "Paid"
 msgstr ""
 
-#: classes/class-commission.php:63, classes/admin/class-admin-reports.php:415, classes/admin/class-admin-reports.php:517, classes/admin/class-wcv-commissions-page.php:349, classes/admin/class-wcv-commissions-page.php:629
+#: classes/class-commission.php:63, classes/admin/class-admin-reports.php:415, classes/admin/class-admin-reports.php:517, classes/admin/class-wcv-commissions-page.php:351, classes/admin/class-wcv-commissions-page.php:631
 msgid "Reversed"
 msgstr ""
 
@@ -62,7 +63,7 @@ msgstr ""
 
 #. translators: The name used to refer to a vendor.
 #. translators: %s - The name used to refer to a vendor.
-#: classes/class-install.php:175, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:309, classes/admin/class-product-meta.php:360, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:148, classes/admin/class-wcv-admin-setup.php:365, classes/admin/class-wcv-commissions-csv-exporter.php:50, classes/admin/class-wcv-commissions-page.php:154, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:229, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121
+#: classes/class-install.php:175, classes/admin/class-admin-reports.php:207, classes/admin/class-admin-reports.php:530, classes/admin/class-product-meta.php:359, classes/admin/class-product-meta.php:410, classes/admin/class-setup-wizard.php:349, classes/admin/class-wcv-admin-setup.php:148, classes/admin/class-wcv-admin-setup.php:365, classes/admin/class-wcv-commissions-csv-exporter.php:50, classes/admin/class-wcv-commissions-page.php:158, classes/admin/class-wcv-commissions-sum-csv-exporter.php:43, classes/admin/settings/class-wcv-settings-display.php:229, classes/admin/settings/class-wcv-settings-display.php:113, classes/admin/settings/class-wcv-settings-display.php:121
 msgid "%s"
 msgstr ""
 
@@ -412,11 +413,11 @@ msgstr ""
 msgid "Commission totals for all vendors includes shipping and taxes. By default no date range is used and all due commissions are returned. Use the date range to filter."
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:123, classes/admin/class-admin-reports.php:505, classes/admin/class-wcv-commissions-page.php:301, templates/dashboard/date-picker.php:19
+#: classes/admin/class-admin-reports.php:123, classes/admin/class-admin-reports.php:505, classes/admin/class-wcv-commissions-page.php:303, templates/dashboard/date-picker.php:19
 msgid "From:"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:127, classes/admin/class-admin-reports.php:509, classes/admin/class-wcv-commissions-page.php:316, templates/dashboard/date-picker.php:23
+#: classes/admin/class-admin-reports.php:127, classes/admin/class-admin-reports.php:509, classes/admin/class-wcv-commissions-page.php:318, templates/dashboard/date-picker.php:23
 msgid "To:"
 msgstr ""
 
@@ -452,11 +453,11 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:206, classes/admin/class-wcv-commissions-csv-exporter.php:51, classes/admin/class-wcv-commissions-page.php:155, templates/dashboard/reports.php:36, templates/emails/notify-vendor-shipped.php:30, templates/emails/vendor-new-order.php:35, templates/emails/vendor-order-details.php:37, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:195, classes/admin/emails/class-wcv-vendor-notify-order.php:222
+#: classes/admin/class-admin-reports.php:206, classes/admin/class-wcv-commissions-csv-exporter.php:51, classes/admin/class-wcv-commissions-page.php:159, templates/dashboard/reports.php:36, templates/emails/notify-vendor-shipped.php:30, templates/emails/vendor-new-order.php:35, templates/emails/vendor-order-details.php:37, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:195, classes/admin/emails/class-wcv-vendor-notify-order.php:222
 msgid "Product"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:208, classes/admin/class-admin-reports.php:441, classes/admin/class-vendor-admin-dashboard.php:381, classes/admin/class-wcv-commissions-csv-exporter.php:56, classes/admin/class-wcv-commissions-page.php:160, classes/admin/class-wcv-commissions-sum-csv-exporter.php:44, templates/dashboard/orders.php:56
+#: classes/admin/class-admin-reports.php:208, classes/admin/class-admin-reports.php:441, classes/admin/class-vendor-admin-dashboard.php:381, classes/admin/class-wcv-commissions-csv-exporter.php:56, classes/admin/class-wcv-commissions-page.php:164, classes/admin/class-wcv-commissions-sum-csv-exporter.php:44, templates/dashboard/orders.php:56
 msgid "Total"
 msgstr ""
 
@@ -464,7 +465,7 @@ msgstr ""
 msgid "Date &amp; Time"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:210, classes/admin/class-admin-reports.php:533, classes/admin/class-wcv-commissions-csv-exporter.php:57, classes/admin/class-wcv-commissions-page.php:161
+#: classes/admin/class-admin-reports.php:210, classes/admin/class-admin-reports.php:533, classes/admin/class-wcv-commissions-csv-exporter.php:57, classes/admin/class-wcv-commissions-page.php:165
 msgid "Status"
 msgstr ""
 
@@ -492,11 +493,11 @@ msgstr ""
 msgid "Month"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:413, classes/admin/class-wcv-commissions-csv-exporter.php:55, classes/admin/class-wcv-commissions-page.php:159
+#: classes/admin/class-admin-reports.php:413, classes/admin/class-wcv-commissions-csv-exporter.php:55, classes/admin/class-wcv-commissions-page.php:163
 msgid "Tax"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:414, classes/admin/class-wcv-commissions-csv-exporter.php:54, classes/admin/class-wcv-commissions-page.php:158, templates/dashboard/orders.php:54, templates/orders/orders.php:148, classes/admin/settings/class-wcv-settings-capabilities.php:107
+#: classes/admin/class-admin-reports.php:414, classes/admin/class-wcv-commissions-csv-exporter.php:54, classes/admin/class-wcv-commissions-page.php:162, templates/dashboard/orders.php:54, templates/orders/orders.php:148, classes/admin/settings/class-wcv-settings-capabilities.php:107
 msgid "Shipping"
 msgstr ""
 
@@ -520,35 +521,35 @@ msgstr ""
 msgid "You are not allowed to submit products. <a href=\"%s\">Go Back</a>"
 msgstr ""
 
-#: classes/admin/class-admin-users.php:495
+#: classes/admin/class-admin-users.php:472
 msgid "%s Store"
 msgstr ""
 
-#: classes/admin/class-admin-users.php:545
+#: classes/admin/class-admin-users.php:522
 msgid "Set primary role to %s "
 msgstr ""
 
-#: classes/admin/class-product-meta.php:130
+#: classes/admin/class-product-meta.php:180
 msgid "Search  %s"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:199, classes/admin/class-product-meta.php:316
+#: classes/admin/class-product-meta.php:249, classes/admin/class-product-meta.php:366
 msgid "Assign media to %s"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:243, classes/admin/class-product-meta.php:261, classes/admin/class-wcv-commissions-csv-exporter.php:53, classes/admin/class-wcv-commissions-page.php:157, templates/dashboard/reports.php:38, templates/emails/vendor-order-details.php:42, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:194, classes/admin/emails/class-wcv-vendor-notify-order.php:221, classes/admin/settings/class-wcv-settings-commission.php:32, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:81
+#: classes/admin/class-product-meta.php:293, classes/admin/class-product-meta.php:311, classes/admin/class-wcv-commissions-csv-exporter.php:53, classes/admin/class-wcv-commissions-page.php:161, templates/dashboard/reports.php:38, templates/emails/vendor-order-details.php:42, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:194, classes/admin/emails/class-wcv-vendor-notify-order.php:221, classes/admin/settings/class-wcv-settings-commission.php:32, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:81
 msgid "Commission"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:270, classes/admin/views/html-vendor-meta.php:110
+#: classes/admin/class-product-meta.php:320, classes/admin/views/html-vendor-meta.php:110
 msgid "Leave blank for default"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:289
+#: classes/admin/class-product-meta.php:339
 msgid "%s Store "
 msgstr ""
 
-#: classes/admin/class-product-meta.php:354
+#: classes/admin/class-product-meta.php:404
 msgid "— No change —"
 msgstr ""
 
@@ -651,7 +652,7 @@ msgstr ""
 msgid "orders"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:378, classes/admin/class-wcv-commissions-csv-exporter.php:48, classes/admin/class-wcv-commissions-page.php:152
+#: classes/admin/class-vendor-admin-dashboard.php:378, classes/admin/class-wcv-commissions-csv-exporter.php:48, classes/admin/class-wcv-commissions-page.php:156
 msgid "Order ID"
 msgstr ""
 
@@ -663,7 +664,7 @@ msgstr ""
 msgid "Products"
 msgstr ""
 
-#: classes/admin/class-vendor-admin-dashboard.php:383, classes/admin/class-wcv-commissions-csv-exporter.php:58, classes/admin/class-wcv-commissions-page.php:162, templates/dashboard/orders.php:57, classes/front/orders/class-orders.php:219
+#: classes/admin/class-vendor-admin-dashboard.php:383, classes/admin/class-wcv-commissions-csv-exporter.php:58, classes/admin/class-wcv-commissions-page.php:166, templates/dashboard/orders.php:57, classes/front/orders/class-orders.php:219
 msgid "Date"
 msgstr ""
 
@@ -943,63 +944,63 @@ msgstr ""
 msgid "QTY"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:156, templates/dashboard/reports.php:37, templates/emails/notify-vendor-shipped.php:31, templates/emails/vendor-new-order.php:36, templates/emails/vendor-order-details.php:39, classes/front/orders/class-export-csv.php:17
+#: classes/admin/class-wcv-commissions-page.php:160, templates/dashboard/reports.php:37, templates/emails/notify-vendor-shipped.php:31, templates/emails/vendor-new-order.php:36, templates/emails/vendor-order-details.php:39, classes/front/orders/class-export-csv.php:17
 msgid "Quantity"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:211
+#: classes/admin/class-wcv-commissions-page.php:215
 msgid "Mark paid"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:212
+#: classes/admin/class-wcv-commissions-page.php:216
 msgid "Mark due"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:213
+#: classes/admin/class-wcv-commissions-page.php:217
 msgid "Mark reversed"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:261
+#: classes/admin/class-wcv-commissions-page.php:263
 msgid "Filter"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:270
+#: classes/admin/class-wcv-commissions-page.php:272
 msgid "Clear"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:272
+#: classes/admin/class-wcv-commissions-page.php:274
 msgid "Export to CSV"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:273
+#: classes/admin/class-wcv-commissions-page.php:275
 msgid "Export Totals to CSV"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:274
+#: classes/admin/class-wcv-commissions-page.php:276
 msgid "Mark all paid"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:345
+#: classes/admin/class-wcv-commissions-page.php:347
 msgid "Show all Statuses"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:366
+#: classes/admin/class-wcv-commissions-page.php:368
 msgid "Filer by %s"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:399
+#: classes/admin/class-wcv-commissions-page.php:401
 msgid "Commission marked paid."
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:407
+#: classes/admin/class-wcv-commissions-page.php:409
 msgid "Commission marked due."
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:415
+#: classes/admin/class-wcv-commissions-page.php:417
 msgid "Commission marked reversed."
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:626
+#: classes/admin/class-wcv-commissions-page.php:628
 msgid "All"
 msgstr ""
 
@@ -2460,7 +2461,7 @@ msgstr ""
 msgid "What's included in WC Vendors Pro?"
 msgstr ""
 
-#: classes/admin/views/html-admin-page-go-pro.php:101, classes/admin/views/setup/ready.php:61
+#: classes/admin/views/html-admin-page-go-pro.php:101
 msgid "Features"
 msgstr ""
 
@@ -3205,63 +3206,7 @@ msgstr ""
 msgid "Subscribe me"
 msgstr ""
 
-#: classes/admin/views/setup/ready.php:58
-msgid "Make your life easy"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:59
-msgid "Upgrade to Pro!"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:60
-msgid "Upgrade today to enhance your marketplace for the best chance of success."
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:63
-msgid "Remove the need for vendors to access the WordPress dmin with a complete frontend dashboard"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:64
-msgid "Flat rate & table rate shipping module"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:65
-msgid "Coupons, ratings, reports, orders and more."
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:66
-msgid "Advanced commission including fixed and tiered"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:67
-msgid "Premium support & updates"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:68
-msgid "Starting from $199 annually"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:76
-msgid "Upgrade Today"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:83
-msgid "Extend your marketplace"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:84
-msgid "Premium Extensions"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:85
-msgid "Turn your marketplace into an auction or subscription site, charge your vendors a monthly membership and more with our awesome premium extensions."
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:92
-msgid "Buy Premium Extensions"
-msgstr ""
-
-#: classes/admin/views/setup/ready.php:98
+#: classes/admin/views/setup/ready.php:54
 msgid "Need Help?"
 msgstr ""
 
