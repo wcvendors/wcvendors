@@ -7,11 +7,11 @@
  * Author URI:           https://www.wcvendors.com
  * GitHub Plugin URI:    https://github.com/wcvendors/wcvendors
  *
- * Version:              2.2.1
+ * Version:              2.2.2
  * Requires at least:    5.3.0
- * Tested up to:         5.5
+ * Tested up to:         5.6
  * WC requires at least: 4.0
- * WC tested up to:      4.4.1
+ * WC tested up to:      4.8
  *
  * Text Domain:          wc-vendors
  * Domain Path:          /languages/
@@ -107,7 +107,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	 */
 	class WC_Vendors {
 
-		public $version = '2.2.1';
+		public $version = '2.2.2';
 
 		/**
 		 * @var
@@ -251,13 +251,13 @@ if ( wcv_is_woocommerce_activated() ) {
 				include_once wcv_plugin_dir . 'classes/admin/class-setup-wizard.php';
 				include_once wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php';
 				include_once wcv_plugin_dir . 'classes/admin/class-admin-media.php';
-				include_once wcv_plugin_dir . 'classes/admin/class-wcv-admin-import-export.php';
+				//include_once wcv_plugin_dir . 'classes/admin/class-wcv-admin-import-export.php';
 
 				new WCV_Vendor_Applicants();
 				new WCV_Admin_Setup();
 				new WCV_Vendor_Admin_Dashboard();
 				new WCV_Admin_Reports();
-				new WCV_Admin_Import_Export();
+				//new WCV_Admin_Import_Export();
 
 			} else {
 
