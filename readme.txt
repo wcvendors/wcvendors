@@ -274,11 +274,11 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 * Updated: Update vendor drop downs place holder #701 (#706)
 * Updated: User store name or user id for vendor search in wp admin #669 (#697)
 * Updated: Add a filter to handle customer email notification for the mark received shipping #691
+* Updated: Reverted products import code
 * Fixed: Yith Wishlist Conflict for vendor roles. #707 (#708)
 * Fixed: Deprecated WooCommerce call #709 (#710)
 * Fixed: Deleted products don't have a title on the commissions table #702 (#703)
 * Fixed: Advanced option - Delete all data, requires the Wizard to be completed before users can use the shortcodes on the pages #681 (#700)
-* Fixed: Importing WooCommerce products via CSV file using the default WooCommerce importer does not work if the WC Vendors Marketplace is activated. #689
 * Fixed: Bulk editing products and adding tags would cause the assigned vendor store on those bulk edited products to disappear #687
 
 = Version 2.2.1 - 28th August 2020  =
