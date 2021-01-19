@@ -422,11 +422,11 @@ class WCV_Product_Meta {
 	*/
 	public function save_vendor_bulk_edit( $product ) {
 
-		if( ! isset( $_REQUEST['vendor'] ) || isset( $_REQUEST['vendor'] ) && '' !== $_REQUEST['vendor'] ) {
+		if( ! isset( $_REQUEST['vendor'] ) || isset( $_REQUEST['vendor'] ) && '' == $_REQUEST['vendor'] ) {
 			return;
 		}
 
-		if ( isset( $_REQUEST['vendor'] ) && '' !== $_REQUEST['vendor'] ) {
+		if ( isset( $_REQUEST['vendor'] ) && '' != $_REQUEST['vendor'] ) {
 			$vendor            = wc_clean( $_REQUEST['vendor'] );
 			$update_vendor = array(
 				'ID'          => $product->get_id(),
