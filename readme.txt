@@ -140,7 +140,7 @@ Pay your vendors their commissions with these gateways and payment solutions
 **Vendor Stores**
 
 * Sellers get their own store and unique URL
-* Store fronts can be customised through templates
+* Store fronts can be customized through templates
 * Multiple store front styles (Pro feature)
 * 10 great pro widgets for store fronts (pro feature)
 * Vendor store notices to advertise coupons or sales (Pro Feature)
@@ -157,7 +157,7 @@ Pay your vendors their commissions with these gateways and payment solutions
 * Export orders
 * Complete frontend dashboard with no WordPress admin access for vendors (Pro feature)
 * Complete product, order, coupon management (Pro Feature)
-* Add tracking numbers to ordres (Pro Feature)
+* Add tracking numbers to orders (Pro Feature)
 * Print shipping labels (Pro Feature)
 
 **Earn in multiple ways**
@@ -199,7 +199,7 @@ Pay your vendors their commissions with these gateways and payment solutions
 	* Hide any field or section from the vendors
 * And much much more..
 
-[Learn more](https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=description&utm_source=wporg&utm_medium=web))
+[Learn more](https://www.wcvendors.com/product/wc-vendors-pro/?utm_campaign=description&utm_source=wporg&utm_medium=web)
 
 = Found a bug or Want to contribute? =
 
@@ -219,11 +219,11 @@ There is a chance that you might find a bug or need a new action/filter added. I
 
 = What payment gateways are supported ? == 
 
-All WooCommerce payment gateways are supported. You can read more about difference between payment gateways and vendor payouts [here] (https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=faq&utm_source=wporg?utm_medium )
+All WooCommerce payment gateways are supported. You can read more about difference between payment gateways and vendor payouts [here](https://www.wcvendors.com/2018/05/payments-explained/?utm_campaign=faq&utm_source=wporg?utm_medium)
 
 = What themes are supported ? = 
 
-You can use any theme that is 100% WooCommerce compatible. We have a [list] (https://www.wcvendors.com/themes/) of free and paid themes on our website that are known to work with our plugins. 
+You can use any theme that is 100% WooCommerce compatible. We have a [list](https://www.wcvendors.com/themes/) of free and paid themes on our website that are known to work with our plugins. 
 
 = Can we give taxes to vendors? = 
 
