@@ -99,6 +99,15 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 			}
 		}
 
+		// Commission subtotal
+		if ( 'commission' === $totals_display || 'both' === $totals_display ) {
+			// Commission Subtotal
+			$total_rows['commission_subtotal'] = array(
+				'label' => __( 'Commission subtotal:', 'wc-vendors' ),
+				'value' => wc_price( $commission_subtotal, array( 'currency' => $order->get_currency() ) ),
+			);
+		}
+
 		// Product subtotals
 		if ( 'product' === $totals_display || 'both' === $totals_display ) {
 
@@ -109,14 +118,6 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 			$total_rows['product_subtotal'] = array(
 				'label' => __( 'Product subtotal:', 'wc-vendors' ),
 				'value' => wc_price( $product_subtotal, array( 'currency' => $order->get_currency() ) ),
-			);
-		}
-
-		// Discount.
-		if ( wc_string_to_bool( get_option( 'wcvendors_vendor_give_shipping', 'no' ) ) ) {
-			$total_rows['discount'] = array(
-				'label' => __( 'Discount:', 'wc-vendors' ),
-				'value' => '-' . wc_price( $discount, array( 'currency' => $order->get_currency() ) ),
 			);
 		}
 
@@ -149,16 +150,17 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 			// Commission Subtotal
 			$total_rows['commission_total'] = array(
 				'label' => __( 'Commission total:', 'wc-vendors' ),
-				'value' => wc_price( $commission_subtotal, array( 'currency' => $order->get_currency() ) ),
+				'value' => wc_price( $commission_total, array( 'currency' => $order->get_currency() ) ),
 			);
 		}
 
 		// Product totals
 		if ( 'both' === $totals_display || 'product' === $totals_display ) {
+			$product_total = $product_subtotal + $shipping + $tax - $discount;
 
 			$total_rows['product_total'] = array(
 				'label' => __( 'Product total:', 'wc-vendors' ),
-				'value' => wc_price( $commission_total, array( 'currency' => $order->get_currency() ) ),
+				'value' => wc_price( $product_total, array( 'currency' => $order->get_currency() ) ),
 			);
 		}
 
