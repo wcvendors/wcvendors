@@ -157,7 +157,9 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 		// Product totals
 		if ( 'both' === $totals_display || 'product' === $totals_display ) {
 			$product_total = $product_subtotal + $shipping + $tax - $discount;
-
+			if ( 0 > $product_total ) {
+				$product_total = 0;
+			} 
 			$total_rows['product_total'] = array(
 				'label' => __( 'Product total:', 'wc-vendors' ),
 				'value' => wc_price( $product_total, array( 'currency' => $order->get_currency() ) ),
