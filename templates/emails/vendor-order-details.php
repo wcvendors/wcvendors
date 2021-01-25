@@ -23,13 +23,15 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 	<?php
 	$before = '';
 	$after  = '';
-	if ( class_exists( 'WCVendors_Pro' ) ) {
-		$dashboard_page_ids = (array) get_option( 'wcvendors_dashboard_page_id', array() );
-		$dashboard_page_id  = reset( $dashboard_page_ids );
-		$dashboard_url      = apply_filters( 'wcv_my_account_dashboard_url', get_permalink( $dashboard_page_id ) );
-		$before = '<a style="font-weight: bold;" href="' . $dashboard_url . 'order/">';
-		$after  = '</a>';
+	
+	$order_before_after = apply_filters( 'wcvendors_order_number_link_in_email_template', $before, $after );
+	if ( isset( $order_before_after ) && '' != $order_before_after['before'] ) {
+		$before = $order_before_after['before'];
 	}
+	if ( isset( $order_before_after ) && '' != $order_before_after['after'] ) {
+		$after = $order_before_after['after'];
+	}
+	
 	/* translators: %s: Order ID. */
 	echo wp_kses_post( $before . sprintf( __( 'Order #%s', 'wc-vendors' ) . $after . ' (<time datetime="%s">%s</time>)', $order->get_order_number(), $order->get_date_created()->format( 'c' ), wc_format_datetime( $order->get_date_created() ) ) );
 	?>
