@@ -71,7 +71,8 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 	 * @param WC_Order $order Order object.
 	 * @param array    $args  Arguments.
 	 *
-	 * @since 2.0.0
+	 * @since   2.0.0
+	 * @version 2.2.3
 	 * @return string
 	 */
 	function wcv_get_vendor_item_totals( $order, $items, $vendor_id, $email, $totals_display = 'both' ) {
@@ -83,7 +84,20 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 		$shipping            = 0;
 		$total               = 0;
 		$total_rows          = array();
-		$discount 			 = $order->get_total_discount();
+		$discount 			 = 0;
+		$coupons 			 = $order->get_items( 'coupon' );
+		
+		if ( ! empty( $coupons ) ) {
+			foreach ( $coupons as $coupon ) {
+				$coupon_obj    = new WC_Coupon( $coupon['name'] );
+				$coupon_id     = $coupon_obj->get_id();
+				$object        = get_post( $coupon_id );
+				$author        = $object ? $object->post_author : 1;
+				if ( $author == $vendor_id ) {
+					$discount = $order->get_total_discount();
+				}
+			}
+		}
 
 		$vendor_commissions = WCV_Vendors::get_vendor_dues_from_order( $order );
 
