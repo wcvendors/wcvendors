@@ -1,4 +1,4 @@
-# Copyright (C) 2020 WC Vendors Marketplace
+# Copyright (C) 2021 WC Vendors Marketplace
 # This file is distributed under the same license as the WC Vendors Marketplace package.
 msgid ""
 msgstr ""
@@ -453,7 +453,7 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: classes/admin/class-admin-reports.php:206, classes/admin/class-wcv-commissions-csv-exporter.php:51, classes/admin/class-wcv-commissions-page.php:159, templates/dashboard/reports.php:36, templates/emails/notify-vendor-shipped.php:30, templates/emails/vendor-new-order.php:35, templates/emails/vendor-order-details.php:37, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:195, classes/admin/emails/class-wcv-vendor-notify-order.php:222
+#: classes/admin/class-admin-reports.php:206, classes/admin/class-wcv-commissions-csv-exporter.php:51, classes/admin/class-wcv-commissions-page.php:159, templates/dashboard/reports.php:36, templates/emails/notify-vendor-shipped.php:30, templates/emails/vendor-new-order.php:35, templates/emails/vendor-order-details.php:46, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:195, classes/admin/emails/class-wcv-vendor-notify-order.php:222
 msgid "Product"
 msgstr ""
 
@@ -537,7 +537,7 @@ msgstr ""
 msgid "Assign media to %s"
 msgstr ""
 
-#: classes/admin/class-product-meta.php:293, classes/admin/class-product-meta.php:311, classes/admin/class-wcv-commissions-csv-exporter.php:53, classes/admin/class-wcv-commissions-page.php:161, templates/dashboard/reports.php:38, templates/emails/vendor-order-details.php:42, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:194, classes/admin/emails/class-wcv-vendor-notify-order.php:221, classes/admin/settings/class-wcv-settings-commission.php:32, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:81
+#: classes/admin/class-product-meta.php:293, classes/admin/class-product-meta.php:311, classes/admin/class-wcv-commissions-csv-exporter.php:53, classes/admin/class-wcv-commissions-page.php:161, templates/dashboard/reports.php:38, templates/emails/vendor-order-details.php:51, classes/admin/emails/class-wcv-vendor-notify-cancelled-order.php:194, classes/admin/emails/class-wcv-vendor-notify-order.php:221, classes/admin/settings/class-wcv-settings-commission.php:32, classes/admin/views/html-admin-commission-page.php:23, classes/admin/views/setup/general.php:81
 msgid "Commission"
 msgstr ""
 
@@ -944,7 +944,7 @@ msgstr ""
 msgid "QTY"
 msgstr ""
 
-#: classes/admin/class-wcv-commissions-page.php:160, templates/dashboard/reports.php:37, templates/emails/notify-vendor-shipped.php:31, templates/emails/vendor-new-order.php:36, templates/emails/vendor-order-details.php:39, classes/front/orders/class-export-csv.php:17
+#: classes/admin/class-wcv-commissions-page.php:160, templates/dashboard/reports.php:37, templates/emails/notify-vendor-shipped.php:31, templates/emails/vendor-new-order.php:36, templates/emails/vendor-order-details.php:48, classes/front/orders/class-export-csv.php:17
 msgid "Quantity"
 msgstr ""
 
@@ -1220,7 +1220,7 @@ msgstr ""
 msgid "Order: %s"
 msgstr ""
 
-#: templates/emails/notify-vendor-shipped.php:32, templates/emails/vendor-new-order.php:37, templates/emails/vendor-order-details.php:46
+#: templates/emails/notify-vendor-shipped.php:32, templates/emails/vendor-new-order.php:37, templates/emails/vendor-order-details.php:55
 msgid "Price"
 msgstr ""
 
@@ -1269,11 +1269,11 @@ msgid "Shipping address"
 msgstr ""
 
 #. translators: %s: Order ID.
-#: templates/emails/vendor-order-details.php:27
+#: templates/emails/vendor-order-details.php:36
 msgid "Order #%s"
 msgstr ""
 
-#: templates/emails/vendor-order-details.php:97, templates/emails/plain/vendor-order-details.php:50
+#: templates/emails/vendor-order-details.php:106, templates/emails/plain/vendor-order-details.php:50
 msgid "Note:"
 msgstr ""
 
