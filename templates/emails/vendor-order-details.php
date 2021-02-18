@@ -23,14 +23,8 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 	<?php
 	$before = '';
 	$after  = '';
-	
-	$order_before_after = apply_filters( 'wcvendors_order_number_link_in_email_template', $before, $after );
-	if ( isset( $order_before_after ) && '' != $order_before_after['before'] ) {
-		$before = $order_before_after['before'];
-	}
-	if ( isset( $order_before_after ) && '' != $order_before_after['after'] ) {
-		$after = $order_before_after['after'];
-	}
+	$before = apply_filters( 'wcvendors_order_number_link_in_email_template_before', $before );
+	$after 	= apply_filters( 'wcvendors_order_number_link_in_email_template_after', $after );
 	
 	/* translators: %s: Order ID. */
 	echo wp_kses_post( $before . sprintf( __( 'Order #%s', 'wc-vendors' ) . $after . ' (<time datetime="%s">%s</time>)', $order->get_order_number(), $order->get_date_created()->format( 'c' ), wc_format_datetime( $order->get_date_created() ) ) );
