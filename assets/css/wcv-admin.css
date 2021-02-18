@@ -4,8 +4,6 @@
 
 .bulk-edit-product .post_author { display: none; }
 
-.update-plugins .update-count { background-color: #d54e21; border-radius: 10px; color: #fff; display: inline-block; font-size: 9px; font-weight: 600; line-height: 17px; margin: 1px 0 0 2px; padding: 0 6px; vertical-align: text-top; }
-
 .wcv_addons_wrap { max-width: 1200px; margin: auto; /*Carousel*/ }
 
 .wcv_addons_wrap h1.search-form-title { clear: left; padding: 0; }
