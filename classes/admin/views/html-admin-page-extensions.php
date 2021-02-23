@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</ul>
 	<ul class="products">
 		<li class="product">
-			<a href="https://www.wcvendors.com/product/woocommerce-simple-auctions-integration/?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
+			<a href="https://www.wcvendors.com/product/wc-vendors-woocommerce-simple-auctions//?utm_source=plugin&utm_medium=addons&utm_campaign=extensions">
 				<h2><?php _e( 'WooCommerce Simple Auctions', 'wc-vendors' ); ?></h2>
 				<p><?php _e( 'Allow vendors to create auctions. Integreate WooCommerce Simple Auctions into the WC Vendors Pro dashboard.', 'wc-vendors' ); ?> </p>
 				<span class="product-addons-button product-addons-button-solid"><?php _e( 'From $49', 'wc-vendors' ); ?></span>
