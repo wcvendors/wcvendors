@@ -479,8 +479,8 @@ class WCV_Admin_Reports {
 
 		global $total_start_date, $total_end_date, $wpdb;
 
-		$total_start_date  = ! empty( $_POST['total_start_date'] ) ? $_POST['total_start_date'] : strtotime( gmdate( 'Ymd', strtotime( gmdate( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
-		$total_end_date    = ! empty( $_POST['total_end_date'] ) ? $_POST['total_end_date'] : strtotime( gmdate( 'Ymd', current_time( 'timestamp' ) ) );
+		$total_start_date  = ! empty( $_POST['total_start_date'] ) ? $_POST['total_start_date'] : '';
+		$total_end_date    = ! empty( $_POST['total_end_date'] ) ? $_POST['total_end_date'] : '';
 		$commission_status = ! empty( $_POST['commission_status'] ) ? $_POST['commission_status'] : 'due';
 		$date_sql          = ( ! empty( $_POST['total_start_date'] ) && ! empty( $_POST['total_end_date'] ) ) ? " time BETWEEN '$total_start_date 00:00:00' AND '$total_end_date 23:59:59' AND" : '';
 
@@ -504,11 +504,11 @@ class WCV_Admin_Reports {
 		<form method="post" action="">
 			<p><label for="from"><?php _e( 'From:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( gmdate( 'Y-m-d', $total_start_date ) ); ?>" name="total_start_date"
+				       value="<?php echo esc_attr( wp_date( 'Y-m-d', $total_start_date ) ); ?>" name="total_start_date"
 				       class="range_datepicker from" id="from"/>
 				<label for="to"><?php _e( 'To:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( gmdate( 'Y-m-d', $total_end_date ) ); ?>" name="total_end_date"
+				       value="<?php echo esc_attr( wp_date( 'Y-m-d', $total_end_date ) ); ?>" name="total_end_date"
 				       class="range_datepicker to" id="to"/>
 
 				<select name="commission_status">
