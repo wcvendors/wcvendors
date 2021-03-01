@@ -1,5 +1,15 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.2.3 - 1st March 2021
+
+* Added: PHP8 support
+* Updated: enhancement for New customer order vendor notification - Add link in the order number redirecting to /pro-dashboard/orders page #729 (#730)
+* Updated: Tested WP Version 5.6.2 & WC version 5.1
+* Fixed: Order total incorrect in vendor order emails when coupon is used #726 (#727)
+* Fixed: Commission Total loads 1970 as the start and the end date (#736)
+* Fixed: CSS Issue in admin update bubbles (#735)
+* Fixed: Bulk assigning products to a vendor does not work #724
+
 Version 2.2.2 - 25th November 2020
 
 * Added: Make commissions table in WP Admin filterable (#717)
