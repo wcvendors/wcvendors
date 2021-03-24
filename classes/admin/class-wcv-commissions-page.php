@@ -71,7 +71,6 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 				return $item->id;
 			case 'vendor_id':
 				$user = get_userdata( $item->vendor_id );
-
 				return '<a href="' . admin_url( 'user-edit.php?user_id=' . $item->vendor_id ) . '">' . WCV_Vendors::get_vendor_shop_name( $item->vendor_id ) . '</a>';
 			case 'total_due':
 				return wc_price( $item->total_due );
@@ -83,7 +82,6 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 				return $item->qty;
 			case 'totals':
 				$totals = ( wc_tax_enabled() ) ? $item->total_due + $item->total_shipping + $item->tax : $item->total_due + $item->total_shipping;
-
 				return wc_price( $totals );
 			case 'product_id':
 				$parent          = get_post_ancestors( $item->product_id );
@@ -114,7 +112,11 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 				return $item->status;
 			case 'time':
 				return date_i18n( get_option( 'date_format' ), strtotime( $item->time ) );
-
+			case 'shipped': 
+				$order = wc_get_order( $item->order_id );
+				$shipped = get_post_meta( $order->get_id(), 'wc_pv_shipped', true ); 
+				$has_shipped = ! empty( $shipped ) && in_array( $item->vendor_id, $shipped ) ? __( 'Yes', 'wc-vendors' ) : __( 'No', 'wc-vendors'); 
+				return $has_shipped;
 			default: 
 				$value = ''; 
 				return apply_filters( 'wcvendors_commissions_column_default_' . $column_name, $value, $item, $column_name );
@@ -163,6 +165,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			'tax'            => __( 'Tax', 'wc-vendors' ),
 			'totals'         => __( 'Total', 'wc-vendors' ),
 			'status'         => __( 'Status', 'wc-vendors' ),
+			'shipped'        => __( 'Shipped', 'wc-vendors' ),
 			'time'           => __( 'Date', 'wc-vendors' ),
 		);
 
@@ -193,7 +196,6 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			'totals'         => array( 'totals', false ),
 			'status'         => array( 'status', false ),
 			'vendor_id'      => array( 'vendor_id', false ),
-			'status'         => array( 'status', false ),
 		);
 
 		if ( ! wc_tax_enabled() ) {
@@ -215,7 +217,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			'mark_paid'     => __( 'Mark paid', 'wc-vendors' ),
 			'mark_due'      => __( 'Mark due', 'wc-vendors' ),
 			'mark_reversed' => __( 'Mark reversed', 'wc-vendors' ),
-			// 'delete' => __('Delete', 'wc-vendors'),
+			// 'delete' 		=> __( 'Delete', 'wc-vendors'),
 		);
 
 		return apply_filters( 'wcv_edit_bulk_actions', $actions, '2.2.2', 'wcvendors_edit_bulk_actions' );
