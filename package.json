@@ -1,8 +1,7 @@
 {
   "name": "wc-vendors",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "cypress": "^3.8.3",
     "del": "latest",
