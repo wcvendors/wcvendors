@@ -245,6 +245,7 @@ class WCVendors_Admin_Menus {
 		echo '.wp-list-table .column-tax { width: 5%;}';
 		echo '.wp-list-table .column-totals { width: 6%;}';
 		echo '.wp-list-table .column-status { width: 7%;}';
+		echo '.wp-list-table .column-shipped { width: 7%;}';
 		echo '.wp-list-table .column-time { width: 10%;}';
 		echo '</style>';
 

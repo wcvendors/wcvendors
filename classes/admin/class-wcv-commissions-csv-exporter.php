@@ -54,6 +54,7 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 				'total_shipping' => __( 'Shipping', 'wc-vendors' ),
 				'tax'            => __( 'Tax', 'wc-vendors' ),
 				'totals'         => __( 'Total', 'wc-vendors' ),
+				'shipped'        => __( 'Shipped', 'wc-vendors' ),
 				'status'         => __( 'Status', 'wc-vendors' ),
 				'time'           => __( 'Date', 'wc-vendors' ),
 			)
@@ -87,10 +88,12 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 		 */
 		$sql = "SELECT COUNT(id) FROM {$wpdb->prefix}pv_commission";
 
-		if ( ! empty( $_REQUEST['from_date'] ) && ! empty( $_REQUEST['to_date'] ) ) {
+		WC_Vendors::log( $_REQUEST );
+
+		if ( ! empty( $_GET['from_date'] ) && ! empty( $_REQUEST['to_date'] ) ) {
 			$from_date = sanitize_text_field( wp_unslash( $_REQUEST['from_date'] ) );
 			$to_date   = sanitize_text_field( wp_unslash( $_REQUEST['to_date'] ) );
-			$time_sql  = " WHERE time BETWEEN '$from_date' AND '$to_date'";
+			$time_sql  = " WHERE time BETWEEN ' $from_date 00:00:00' AND ' $to_date 23:59:59'";
 
 			$sql .= $time_sql;
 		}
@@ -180,6 +183,11 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 						}
 						$value = get_the_title( $product_id ) . '(' . $wcv_total_sales . ')';
 						break;
+					case 'shipped': 
+						$order = wc_get_order( $commission->order_id );
+						$shipped = get_post_meta( $order->get_id(), 'wc_pv_shipped', true ); 
+						$value = ! empty( $shipped ) && in_array( $commission->vendor_id, $shipped ) ? __( 'Yes', 'wc-vendors' ) : __( 'No', 'wc-vendors'); 
+						break; 
 					default:
 						$value = $commission->$column_id;
 				}
