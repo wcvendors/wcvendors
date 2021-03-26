@@ -6,10 +6,10 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.0.0
 Requires PHP: 7.2
-Tested up to: 5.6.2
+Tested up to: 5.7
 WC requires at least: 4.0.0
-WC tested up to: 5.1
-Stable tag: 2.2.3
+WC tested up to: 5.2
+Stable tag: 2.2.4
 License: GPLv2 or later
 
 The original multi-vendor marketplace plugin for WordPress and WooCommerce. Best support available. 
@@ -263,6 +263,11 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.2.4 - 25th March 2021 =
+
+* Added: New column on commissions page for shipped (#743)
+* Updated: Tested to WP and WooCommerce
 
 = Version 2.2.3 - 1st March 2021 = 
 

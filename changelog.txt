@@ -1,5 +1,10 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.2.4 - 25th March 2021
+
+* Added: New column on commissions page for shipped (#743)
+* Updated: Tested to WP and WooCommerce
+
 Version 2.2.3 - 1st March 2021
 
 * Added: PHP8 support
