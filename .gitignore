@@ -10,3 +10,5 @@ node_modules
 .sass-cache
 .sublime-gulp.cache
 bower_components
+
+/vendor/
