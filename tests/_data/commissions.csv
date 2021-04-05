@@ -1,0 +1,4 @@
+﻿Vendor,Total,"PayPal Email","Bank Account Name","Bank Account Number","Bank Name","Routing Number",IBAN,BIC/SWIFT,"Commission Status"
+vendor.xyz@yopmail.com,166.25,,,,,,,,due
+"Local Shop",21.4,,,,,,,,paid
+vendor.xyz@yopmail.com,166.25,,,,,,,,reversed
