@@ -4,6 +4,7 @@
 # Perform tests in browser using the WPWebDriver or WPBrowser.
 # Use WPDb to set up your initial database fixture.
 # If you need both WPWebDriver and WPBrowser tests - create a separate suite.
+# With capabilities commented out we are launching the chrome browser to test, which is more time consuming then headless mode.
 
 actor: AcceptanceTester
 modules:
@@ -16,10 +17,9 @@ modules:
       adminPassword: '123456'
       adminPath: '/wp-admin'
       browser: chrome
-      #host: localhost
       port: 9515
       window_size: maximize #disabled for Chrome driver
       #capabilities:
         #chromeOptions:
           #args: ["--headless", "--disable-gpu", "--proxy-server='direct://'", "--proxy-bypass-list=*"]
-step_decorators: ~        
+step_decorators: ~
