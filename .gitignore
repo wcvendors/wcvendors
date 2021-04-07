@@ -12,4 +12,3 @@ node_modules
 bower_components
 
 /vendor/
-.env.testing

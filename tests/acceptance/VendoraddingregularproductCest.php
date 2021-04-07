@@ -7,7 +7,7 @@ class VendoraddingregularproductCest
         $I->amOnPage('/');
 		$I->click('My account');
 		$I->fillField('#username', 'vendor1');
-		$I->fillField('#password', 'mr4Xk)R2l)W^XuI^P85jP');
+		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P*85jP');
 		$I->click('#customer_login > div.u-column1.col-1 > form > p:nth-child(3) > button');
     }
 
@@ -16,23 +16,24 @@ class VendoraddingregularproductCest
     {
 		$I->amOnPage('/wp-admin');//Launching the WordPress Admin panel for vendor as adding products using the admin panel.
 		$I->click('Products');
-		$I->see('Search Products');
-		$I->click('#wpbody-content > div.wrap > a:nth-child(2)');//Clicking on to add a new products
-		$I->fillField('#title', 'Automated Product Y KOne');
+		$I->see('Add New');
+		$I->doubleClick('#wpbody-content > div.wrap > a:nth-child(2)');//Clicking on to add a new products
+		$I->fillField('#title', 'Automated Product Y2K KOne');
 		$I->click('#in-product_cat-15'); //Setting uncategorized category for automation.
 		$I->fillField('#_regular_price', '200');//Setting the price for automated product.
-		$I->scrollTo('#title');
+		$I->scrollTo('#show-settings-link');
+		$I->waitForElement('#publish', 30);
 		$I->click('#publish');
 		$I->see('Product published. View Product');
 		$I->click('View Product');
-		$I->see('Automated Product Y KOne');
+		$I->see('Automated Product Y2K KOne');
 		$I->click('My account');
 		$I->click('Log out');
 		$I->fillField('#username', 'customer1');
 		$I->fillField('#password', 'dM^gc87RPE&Osuj(EKPY)X8(');
 		$I->click('Log in');
-		$I->fillField('#woocommerce-product-search-field-0', 'Automated Product Y KOne');//searching for the product added by vendor.
-		$I->pressKey('#input', WebDriverKeys::ENTER);
+		$I->fillField('#woocommerce-product-search-field-0', 'Automated Product Y2K KOne');//searching for the product added by vendor.
+		$I->pressKey('#woocommerce-product-search-field-0', \Facebook\WebDriver\WebDriverKeys::ENTER);//Was difficult to find the exact syntax to pass enter key lol.
 		$I->click('Add to cart');
 		$I->see('has been added to your cart.');
 		$I->click('View cart');
