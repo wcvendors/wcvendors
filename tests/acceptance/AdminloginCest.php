@@ -6,10 +6,9 @@ class AdminloginCest
     {
         $I->amOnPage('/');
         $I->see('wcvendors');
-		//$I->wait(5); // secs
     }
 
-    // tests
+    // Simple admin login test.
     public function frontpageWorks(AcceptanceTester $I)
     {
 		$I->click('My account');

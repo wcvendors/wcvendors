@@ -6,12 +6,12 @@ class VirtualproductadditionCest
     {
         $I->amOnPage('/');
 		$I->click('My account');
-		$I->fillField('#username', 'howdyvendor');
-		$I->fillField('#password', 'k@sperskyPure3.0');
+		$I->fillField('#username', 'vendor1');
+		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P85jP');
 		$I->click('#customer_login > div.u-column1.col-1 > form > p:nth-child(3) > button');
     }
 
-    // tests
+    // Vendors adds a virtual product.
     public function frontpageWorks(AcceptanceTester $I)
     {
 		$I->amOnPage('/wp-admin');
