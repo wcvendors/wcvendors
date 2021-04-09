@@ -75,6 +75,7 @@ class DownloadableproductadditionCest
 		$I->click('Log out');
 		//Product purchased by the customer
 		//Loggin in as Admin to complete the purchase.
+		//$I->amOnPage('/my-account');//Navigation to accounts page to log out.
 		$I->fillField('#username', 'admin');
 		$I->fillField('#password', '123456');
 		$I->click('Log in');
@@ -84,16 +85,19 @@ class DownloadableproductadditionCest
 		$I->fillField('#post-search-input', 'ADP 1');//searching for the product added by vendor.
 		$I->pressKey('#post-search-input', \Facebook\WebDriver\WebDriverKeys::ENTER);
 		$I->wait(3);
-		$I->executeJS('document.querySelector("#order_date > a > span.sorting-indicator").click()');
-		$I->wait(3);
-		$I->executeJS('document.querySelector("#cb-select-all-1").click()');
-		$I->wait(3);
-		$I->executeJS('document.querySelector("#bulk-action-selector-top").click()');
+		$I->executeJS('document.querySelector("#cb-select-345").click()');
+		$I->click('#bulk-action-selector-top');
 		$I->wait(2);
-		$I->executeJS('document.querySelector("#bulk-action-selector-top > option:nth-child(6)").click()');
+		$I->click('#bulk-action-selector-top > option:nth-child(6)');
 		$I->wait(2);
 		$I->executeJS('document.querySelector("#doaction").click()');
-		$I->waitForText('');
+		$I->waitForText('order status changed.', 300);
+		$I->amOnPage('/my-account');
+		$I->click('Log out');//Admin login out
+		//logging back in as customer to check the product is downloadable.
+		$I->fillField('#username', 'customer1');
+		$I->fillField('#password', 'dM^gc87RPE&Osuj(EKPY)X8(');
+		$I->click('Log in');
 		
     }
 }
