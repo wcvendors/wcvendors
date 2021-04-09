@@ -95,9 +95,12 @@ class DownloadableproductadditionCest
 		$I->amOnPage('/my-account');
 		$I->click('Log out');//Admin login out
 		//logging back in as customer to check the product is downloadable.
+		$I->amOnPage('/my-account');
 		$I->fillField('#username', 'customer1');
 		$I->fillField('#password', 'dM^gc87RPE&Osuj(EKPY)X8(');
 		$I->click('Log in');
-		
+		$I->click('#post-9 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads > a');//Clicking on download to check all the download options.
+		$I->see('Downloads remaining');
+		$I->see('auto downloadable');
     }
 }
