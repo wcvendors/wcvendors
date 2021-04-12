@@ -28,7 +28,7 @@ class DownloadableproductadditionCest
 		$I->executeJS('document.querySelector("#general_product_data > div.options_group.show_if_downloadable.hidden > div > table > tfoot > tr > th > a").click()');
 		$I->wait(5);
 		$I->fillField('#general_product_data > div.options_group.show_if_downloadable.hidden > div > table > tbody > tr > td.file_name > input.input_text', 'auto downloadable');
-		$I->fillField('#general_product_data > div.options_group.show_if_downloadable.hidden > div > table > tbody > tr > td.file_url > input', 'http://localhost/wordpress/wp-content/uploads/woocommerce_uploads/2021/03/wcv_commissions_sum-2021-Feb-11-3n6sds.csv'); // You will need to upload a file and change the path porting to that file.
+		$I->fillField('#general_product_data > div.options_group.show_if_downloadable.hidden > div > table > tbody > tr > td.file_url > input', 'http://localhost/wordpress/wp-content/uploads/woocommerce_uploads/2021/03/wcv_commissions_sum-2021-Feb-11-3n6sds.csv'); // You will need to upload a file and change the path accroding to your local setup.
 		$I->scrollTo('#title');
 		$I->doubleClick('#publish');
 		$I->scrollTo('#wpbody-content > div.wrap > h1');

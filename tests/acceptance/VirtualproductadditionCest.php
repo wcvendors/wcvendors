@@ -7,7 +7,7 @@ class VirtualproductadditionCest
         $I->amOnPage('/');
 		$I->click('My account');
 		$I->fillField('#username', 'vendor1');
-		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P85jP');
+		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P*85jP');
 		$I->click('#customer_login > div.u-column1.col-1 > form > p:nth-child(3) > button');
     }
 
@@ -15,10 +15,9 @@ class VirtualproductadditionCest
     public function frontpageWorks(AcceptanceTester $I)
     {
 		$I->amOnPage('/wp-admin');
-		$I->click('Products');//clicking on products
-		$I->see('Search Products');
+		$I->executeJS('document.querySelector("#menu-posts-product > a > div.wp-menu-name")');//clicking on products
+		$I->see('Import');
 		$I->doubleClick('#wpbody-content > div.wrap > a:nth-child(2)');//Clicking on to add a new products
-		$I->wait(10);
 		$I->fillField('#title', 'Automated Virtual Product 1');
 		$I->click('#in-product_cat-15'); //Adding uncategorized category for automation.
 		$I->fillField('#_regular_price', '233');//Setting the price for automated product.
