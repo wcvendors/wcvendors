@@ -83,6 +83,66 @@ if ( ! function_exists( 'wcv_create_new_vendor' ) ) {
 	}
 }
 
+/**
+ * The vendor store defaults
+ *
+ * @return array $vendor_store_defaults
+ */
+function wcv_vendor_store_defaults(){
+
+	$store_defaults = apply_filters( 
+		array(  
+			'name' => '',
+			'info' => '',
+			'description' => '',
+			'permalink' => '',
+			'icon'     => '',
+			'banner' => '',
+			'phone' => '',
+			'address' => array(),
+			'payment' => array(
+				'paypal' => array(
+					'email' => ''
+				), 
+				'bank'   => array(
+					'account_name'   => '',
+					'account_number' => '',
+					'bank_name'      => '',
+					'iban'           => '',
+					'bic_swift'      => '',  
+				),
+			),
+			'give_tax'      => 'no',
+			'give_shipping' => 'no',
+			'commission_rate' => '', 
+		) 
+	);
+
+	return apply_filters( 'wcv_store_data_defaults', $store_defaults );
+}
+
+/**
+ * Format the wp user meta removing any empty values
+ *
+ * @since 3.0.0
+ * @param int $vendor_id Vendor ID to look up 
+ * @return array $wp_user_meta cleand array 
+ */
+function wcv_format_user_data( $vendor_id ){ 
+
+	// user array_filter to remove empty values
+	$wp_user_meta = array_filter( 
+		array_map( 
+			function( $a ) {
+				return $a[0];
+			}, 
+			get_user_meta( $vendor_id ) 
+		)
+	);
+
+	return apply_filters( 'wcv_formatted_user_data', $wp_user_meta, $vendor_id );
+}
+
 
 /**
  * Check to see if the user_id is a vendor. Based on capability and role.

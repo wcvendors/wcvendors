@@ -69,7 +69,7 @@ node_modules
 
 ### Composer ###
 composer.phar
-vendor/
+vendor/*
 
 
 # Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file

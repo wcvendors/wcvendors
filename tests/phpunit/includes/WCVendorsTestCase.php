@@ -2,16 +2,19 @@
 /**
  * Ready to use test case which set up Brain Monkey.
  *
- * @package WCVendors_Pro
+ * @package WCVendors
  */
 
+use PHPUnit\Framework\TestCase;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Brain\Monkey;
-use Mockery;
-
 /**
  * Base test case for WC Vendors Component.
  */
 class WCVendorsTestCase extends \PHPUnit\Framework\TestCase {
+
+	use MatchesSnapshots;
+	use MockeryPHPUnitIntegration;
 
 	/**
 	 * Set up test case.

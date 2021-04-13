@@ -389,7 +389,7 @@ export const release = gulp.series(copyBuild, zipBuild, cleanBuild);
 export default gulp.parallel(
 	copyIcons,
 	copyImages,
-	i18n,
+	// i18n,
 	compileStyles,
 	compileScripts
 );

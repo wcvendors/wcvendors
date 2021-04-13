@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 // Define fake PLUGIN_ABSPATH.
 if ( ! defined( 'PLUGIN_ABSPATH' ) ) {
-	define( 'PLUGIN_ABSPATH', sys_get_temp_dir() . '/wp-content/plugins/wc-vendors-pro/' );
+	define( 'PLUGIN_ABSPATH', sys_get_temp_dir() . '/wp-content/plugins/wcvendors/' );
 }
 
 require_once __DIR__ . '/../../vendor/autoload.php';
