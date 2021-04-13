@@ -8,7 +8,7 @@ class VirtualproductadditionCest
 		$I->click('My account');
 		$I->fillField('#username', 'vendor1');
 		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P*85jP');
-		$I->click('#customer_login > div.u-column1.col-1 > form > p:nth-child(3) > button');
+		$I->click('Log in');
     }
 
     // Vendors adds a virtual product and customer purchase the virtual product successfully and checks after the purchase made.
@@ -20,7 +20,7 @@ class VirtualproductadditionCest
 		$I->fillField('#title', 'AVP1');
 		$I->click('#in-product_cat-15'); //Adding uncategorized category for automation.
 		$I->fillField('#_regular_price', '233');//Setting the price for automated product.
-		$I->scrollTo('#wp-word-count');//This function is not working
+		$I->scrollTo('#wp-word-count');
 		$I->click("//*[@id='_virtual']"); //Setting the product to be virtual
 		$I->wait(4);
 		$I->dontSee('Shipping');
