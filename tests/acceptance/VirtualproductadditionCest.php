@@ -11,7 +11,7 @@ class VirtualproductadditionCest
 		$I->click('#customer_login > div.u-column1.col-1 > form > p:nth-child(3) > button');
     }
 
-    // Vendors adds a virtual product.
+    // Vendors adds a virtual product and customer purchase the virtual product successfully and checks after the purchase made.
     public function frontpageWorks(AcceptanceTester $I)
     {
 		$I->amOnPage('/wp-admin/edit.php?post_type=product');//Navigating to the product listing page.
@@ -98,8 +98,5 @@ class VirtualproductadditionCest
 		$I->click('#post-9 > div > div > div > table > tbody > tr:nth-child(1) > td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions > a');//Clicking to view the order details
 		$I->see('order details');
 		$I->see('AVP1');
-		//$I->click('#post-9 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads > a');//Clicking on download to check all the download options.
-		//$I->see('Downloads remaining');
-		//$I->see('auto downloadable');
     }
 }
