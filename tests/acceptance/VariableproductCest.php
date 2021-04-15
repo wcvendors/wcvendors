@@ -6,10 +6,12 @@ class VariableproductCest
     {
 		$I->amOnPage('/');
         $I->see('wcvendors');
+		$I->wait(10);
 		$I->click('My account');
 		$I->fillField('#username', 'vendor1');
 		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P*85jP');
 		$I->click('Log in');
+		
     }
 
     // Adding a variable product and will be bought by customer and made sure is delivered after the purchase is marked completed by Admin.
@@ -26,8 +28,6 @@ class VariableproductCest
 		$I->dontSee('General');
 		$I->click('#_manage_stock');
 		$I->fillField('#_stock', '100');
-		//$I->click('Variations');
-		//$I->see('Before you can add a variation you need to add some variation attributes on the Attributes tab.');
 		$I->click('Attributes');
 		$I->click('//*[@id="product_attributes"]/div[1]/button');
 		$I->waitForText('Used for variations', 300);//Will also make sure that we have the product type set as variable.
@@ -47,8 +47,8 @@ class VariableproductCest
 		$I->click('#field_to_edit > option:nth-child(2)');
 		$I->click('Go');
 		$I->acceptPopup();
-		$I->wait(30);
-		//$I->executeJS('if(window.alert()) window.alert().accept(); sleep(1)');
+		$I->wait(60);
+		//$I->executeJS('{window.alert()? window.alert().accept() : sleep(1)}');
 		$I->wait(2);
 		$I->acceptPopup();
 		$I->waitForText('variations do not have prices. Variations (and their attributes) that do not have prices will not be shown in your store.', 300);
@@ -66,8 +66,8 @@ class VariableproductCest
 		$I->wait(3);
 		$I->scrollTo('#title');
 		$I->doubleClick('#publish');
-		$I->scrollTo('#wpbody-content > div.wrap > h1');
-		$I->see('Product published. View Product');
+		$I->scrollTo('#show-settings-link');
+		$I->waitForText('Product published. View Product', 300);
 		$I->click('View Product');
 		$I->see('Var Pro 1');
 		$I->amOnPage('/my-account');
@@ -80,9 +80,15 @@ class VariableproductCest
 		$I->pressKey('#woocommerce-product-search-field-0', \Facebook\WebDriver\WebDriverKeys::ENTER);//Was difficult to find the exact syntax to pass enter key lol.
 		$I->wait(5);
 		$I->scrollTo('#main > div:nth-child(2) > form > select');//This will require 2 products with same name or simply run the script twice to add the product twice.
+		$I->click('Select options');
+		$I->waitForText('Var Pro 1', 300);
+		$I->scrollTo('#product-547 > div.summary.entry-summary > h1');
+		$I->click('#sizes');
+		$I->wait(2);
+		$I->click('#sizes > option:nth-child(2)');
 		$I->click('Add to cart');
-		$I->wait(10);
-		$I->amOnPage('/cart');//Change in URL was the only option left
+		$I->waitForText('has been added to your cart.', 300);
+		$I->amOnPage('/cart');
 		$I->click('Proceed to checkout');
 		$I->scrollTo('#billing_first_name');
 		$I->fillField('#billing_first_name', 'Customer');
@@ -119,6 +125,24 @@ class VariableproductCest
 		$I->executeJS('document.querySelector("#toplevel_page_woocommerce > ul > li:nth-child(3) > a").click()');
 		$I->fillField('#post-search-input', 'Var Pro 1');//searching for the product added by vendor.
 		$I->pressKey('#post-search-input', \Facebook\WebDriver\WebDriverKeys::ENTER);
-		$I->wait(3);		
+		$I->wait(3);
+		$I->click('//*[@name="post[]"][1]');//Clicking the first order that is visible after searching for the product AVP1
+		$I->click('#bulk-action-selector-top');
+		$I->wait(2);
+		$I->click('#bulk-action-selector-top > option:nth-child(6)');
+		$I->wait(2);
+		$I->executeJS('document.querySelector("#doaction").click()');
+		$I->waitForText('order status changed.', 300);
+		$I->amOnPage('/my-account');
+		$I->click('Log out');//Admin login out
+		//logging back in as customer to check the product is downloadable.
+		$I->amOnPage('/my-account');
+		$I->fillField('#username', 'customer1');
+		$I->fillField('#password', 'dM^gc87RPE&Osuj(EKPY)X8(');
+		$I->click('Log in');
+		$I->amOnPage('/my-account/orders/');//navigating to the orders page.
+		$I->click('#post-9 > div > div > div > table > tbody > tr:nth-child(1) > td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions > a');//Clicking to view the order details
+		$I->see('order details');
+		$I->see('Var Pro 1');		
     }
 }
