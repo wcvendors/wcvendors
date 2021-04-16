@@ -9,7 +9,7 @@ class GroupedproductCest
 		$I->click('My account');
 		$I->fillField('#username', 'vendor1');
 		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P*85jP');
-		$I->click('Log in');		
+		$I->click('Log in');
     }
 
     // Adding the grouped product.
@@ -84,6 +84,32 @@ class GroupedproductCest
 		$I->amOnPage('/my-account');//Navigation to accounts page to log out.
 		$I->click('Log out');
 		//Product purchased by the customer
-		//Loggin in as Admin to complete the purchase.		
+		//Loggin in as Admin to complete the purchase.
+		$I->fillField('#username', 'admin');
+		$I->fillField('#password', '123456');
+		$I->click('Log in');
+		$I->amOnPage('/wp-admin');
+		$I->executeJS('document.querySelector("#toplevel_page_woocommerce > a > div.wp-menu-name").click()');
+		$I->executeJS('document.querySelector("#toplevel_page_woocommerce > ul > li:nth-child(3) > a").click()');
+		//$I->fillField('#post-search-input', 'Grouped 1');//searching for the product added by vendor.
+		//$I->pressKey('#post-search-input', \Facebook\WebDriver\WebDriverKeys::ENTER);
+		//$I->wait(3);
+		$I->click('//*[@name="post[]"][1]');//Clicking the first order that is visible after searching for the product AVP1
+		$I->click('#bulk-action-selector-top');
+		$I->wait(2);
+		$I->click('#bulk-action-selector-top > option:nth-child(6)');
+		$I->wait(2);
+		$I->executeJS('document.querySelector("#doaction").click()');
+		$I->waitForText('order status changed.', 300);
+		$I->amOnPage('/my-account');
+		$I->click('Log out');//Admin login out 
+		//logging back in as customer to check the product is downloadable.
+		$I->fillField('#username', 'customer1');
+		$I->fillField('#password', 'dM^gc87RPE&Osuj(EKPY)X8(');
+		$I->click('Log in');
+		$I->amOnPage('/my-account/orders/');//navigating to the orders page.
+		$I->click('#post-9 > div > div > div > table > tbody > tr:nth-child(1) > td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions > a');//Clicking to view the order details
+		$I->see('order details');
+		$I->see('Var Pro 1');			
     }
 }
