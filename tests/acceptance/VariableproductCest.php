@@ -6,7 +6,6 @@ class VariableproductCest
     {
 		$I->amOnPage('/');
         $I->see('wcvendors');
-		$I->wait(10);
 		$I->click('My account');
 		$I->fillField('#username', 'vendor1');
 		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P*85jP');
