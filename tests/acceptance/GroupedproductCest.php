@@ -91,9 +91,6 @@ class GroupedproductCest
 		$I->amOnPage('/wp-admin');
 		$I->executeJS('document.querySelector("#toplevel_page_woocommerce > a > div.wp-menu-name").click()');
 		$I->executeJS('document.querySelector("#toplevel_page_woocommerce > ul > li:nth-child(3) > a").click()');
-		//$I->fillField('#post-search-input', 'Grouped 1');//searching for the product added by vendor.
-		//$I->pressKey('#post-search-input', \Facebook\WebDriver\WebDriverKeys::ENTER);
-		//$I->wait(3);
 		$I->click('//*[@name="post[]"][1]');//Clicking the first order that is visible after searching for the product AVP1
 		$I->click('#bulk-action-selector-top');
 		$I->wait(2);
