@@ -1,0 +1,23 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+actor: AcceptanceTester
+modules:
+  enabled:
+    - WPWebDriver
+  config:
+    WPWebDriver:
+      url: 'http://localhost/wordpress'
+      adminUsername: 'admin'
+      adminPassword: '123456'
+      adminPath: '/wp-admin'
+      browser: chrome
+      port: 9515
+      window_size: maximize #disabled for Chrome driver
+      #capabilities:
+        #chromeOptions:
+          #args: ["--headless", "--disable-gpu", "--proxy-server='direct://'", "--proxy-bypass-list=*"]
+step_decorators: ~       
