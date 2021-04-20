@@ -28,8 +28,13 @@ class Menus {
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 70 );
 		add_action( 'admin_menu', array( $this, 'addons_menu' ), 80 );
 
+		// Add Vendor Management Page
+		add_action( 'admin_menu', array( $this, 'vendor_manager_menu' ), 90 );
+
 		// Add Screen Options
 		add_filter( 'set-screen-option', array( $this, 'set_screen_option' ), 99, 3 );
+
+		//add_filter( 'set-screen-option', array( $this, 'set_vendors_screen_option' ), 100, 3 );
 	}
 
 	/**
@@ -168,6 +173,41 @@ class Menus {
 
 		return true;
 	}
+	public function vendors_screen_option() {
+
+		$option = 'per_page';
+		$args   = [
+			'label'   => __('Vendors','wc-vendor'),
+			'default' => 5,
+			'option'  => 'vendor_per_page'
+		];
+	
+		add_screen_option( $option, $args );
+
+		new VendorsManagementTable();
+	}
+	/**
+	 * Add Vendors Management Menu
+	 * @access public
+	 * @return mixed
+	 * @version 1.0.0
+	 * @since 1.0.0
+	 */
+	public function vendor_manager_menu(){
+		$vendors_mamagement = add_submenu_page(
+			'wc-vendors',
+			__( 'WC Vendors Management', 'wc-vendor' ),
+			__( 'Vendors Management', 'wc-vendor' ),
+			'manage_woocommerce',
+			'wcv-vendors-management',
+			array(
+				$this,
+				'vendors_management_page',
+			)
+		);
+
+		add_action("load-$vendors_mamagement",array($this,'vendors_screen_option'));
+	}
 
 	/**
 	 * Sets screen options for this page
@@ -182,15 +222,19 @@ class Menus {
 		if ( 'commissions_per_page' === $option ) {
 			return $value;
 		}
-
+		if ( 'vendor_per_page' === $option ) {
+			return $value;
+		}
 		return $status;
 	}
+
 
 	/**
 	 * Vendors Page
 	 */
 	public function vendors_page() {
 		// WCVendors_Admin_Vendors::output();
+		VendorsManagement::output();
 	}
 
 	/**
@@ -213,5 +257,10 @@ class Menus {
 	public function addons_page() {
 		// WCVendors_Admin_Addons::output();
 	}
-
+	/**
+	 *   Vendors Management Page
+	 */
+	public function vendors_management_page(){
+		VendorsManagement::output();
+	}
 }

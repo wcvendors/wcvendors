@@ -29,7 +29,8 @@ class Assets {
 	 * Enqueue the styles
 	 */
 	public function admin_styles() {
-
+		wp_register_style('wcv_vendors_style',WCV_PLUGIN_URL.'assets/src/scss/vendors-css.css');
+		wp_enqueue_style('wcv_vendors_style');
 	}
 
 	/**
@@ -47,6 +48,12 @@ class Assets {
 		if ( in_array( $screen_id, array( 'edit-product' ), true ) ) {
 			wp_register_script( 'wcv_quick-edit', WCV_PLUGIN_URL . 'assets/js/admin/product-quick-edit.js', array( 'jquery' ), WCV_VERSION, true );
 			wp_enqueue_script( 'wcv_quick-edit' );
+		}
+
+		// Vendor Management screen.
+		if ( in_array( $screen_id, array( 'wc-vendors_page_wcv-vendors-management' ), true ) ) {
+			wp_register_script( 'wcv_vendor-edit', WCV_PLUGIN_URL . 'assets/src/js/admin/vendor-edit.js', array( 'jquery' ), WCV_VERSION, true );
+			wp_enqueue_script( 'wcv_vendor-edit' );
 		}
 	}
 
