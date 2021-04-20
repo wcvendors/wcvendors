@@ -37,10 +37,12 @@ class ProductwithattributesCest
 		$I->click('#select2-upsell_ids-results > li:nth-child(1)');
 		$I->scrollTo('#title');
 		$I->doubleClick('#publish');
-		$I->scrollTo('#title');
+		//$I->scrollTo('#title');
+		$I->executeJS('window.scrollTo(0, 0)');
 		$I->doubleClick('#publish');
 		$I->scrollTo('#wpbody-content > div.wrap > h1');
 		$I->see('Product published. View Product');
+		$I->executeJS('window.scrollTo(0, 0)');
 		$I->click('View Product');
 		$I->see('AttributesP1');
     }

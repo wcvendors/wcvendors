@@ -26,6 +26,7 @@ class VendoraddingregularproductCest
 		$I->wait(5);//Multiple wait statement because of waiting for the same element.
 		$I->doubleClick('#publish');
 		$I->waitForText('Product published. View Product', 30);
+		$I->executeJS('window.scrollTo(0, 0)');
 		$I->click('View Product');
 		$I->see('Automated Product Y2K2 J');
 		$I->click('My account');

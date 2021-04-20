@@ -63,10 +63,12 @@ class VariableproductCest
 		$I->click('#postimagediv > div.postbox-header > h2');
 		$I->click('Save changes');
 		$I->wait(3);
-		$I->scrollTo('#title');
+		//$I->scrollTo('#title');
+		$I->executeJS('window.scrollTo(0, 0)');
 		$I->doubleClick('#publish');
 		$I->scrollTo('#show-settings-link');
 		$I->waitForText('Product published. View Product', 300);
+		$I->executeJS('window.scrollTo(0, 0)');
 		$I->click('View Product');
 		$I->see('Var Pro 1');
 		$I->amOnPage('/my-account');

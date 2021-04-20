@@ -36,6 +36,6 @@ class VendorResetPasswordCest
 		$I->scrollTo('#body_content_inner > p:nth-child(2)');
 		$I->see('Click here to reset your password');
 		$I->click('Click here to reset your password');
-		I.switchToNextTab();
+		$I->switchToNextTab();
     }
 }

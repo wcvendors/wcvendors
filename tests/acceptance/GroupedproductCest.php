@@ -30,10 +30,12 @@ class GroupedproductCest
 		//$I->waitForElement('#select2-grouped_products-results > li:nth-child(1)', 30);
 		$I->wait(30);
 		$I->click('#select2-grouped_products-results > li:nth-child(1)');
-		$I->scrollTo('#title');
+		//$I->scrollTo('#title');
+		$I->executeJS('window.scrollTo(0, 0)');
 		$I->doubleClick('#publish');
 		$I->scrollTo('#show-settings-link');
 		$I->waitForText('Product published. View Product', 300);
+		$I->executeJS('window.scrollTo(0, 0)');
 		$I->click('View Product');
 		$I->see('Grouped 1');
 		$I->amOnPage('/my-account');

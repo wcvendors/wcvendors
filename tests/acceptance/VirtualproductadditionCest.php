@@ -20,7 +20,7 @@ class VirtualproductadditionCest
 		$I->fillField('#title', 'AVP1');
 		$I->click('#in-product_cat-15'); //Adding uncategorized category for automation.
 		$I->fillField('#_regular_price', '233');//Setting the price for automated product.
-		$I->scrollTo('#wp-word-count');
+		$I->scrollTo('#product_catdiv > div.postbox-header > h2');
 		$I->click("//*[@id='_virtual']"); //Setting the product to be virtual
 		$I->wait(4);
 		$I->dontSee('Shipping');
@@ -28,6 +28,8 @@ class VirtualproductadditionCest
 		$I->doubleClick('#publish');
 		$I->scrollTo('#wpbody-content > div.wrap > h1');
 		$I->see('Product published. View Product');
+		//$I->executeJS('document.querySelector("#show-settings-link").scrollIntoView()');
+		$I->executeJS('window.scrollTo(0, 0)');
 		$I->click('View Product');
 		$I->see('AVP1');
 		//Logging out as Vendor and logging in as Customer to place order.
