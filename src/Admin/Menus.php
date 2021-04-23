@@ -177,7 +177,7 @@ class Menus {
 		$option = 'per_page';
 		$args   = [
 			'label'   => __('Vendors','wc-vendors'),
-			'default' => 5,
+			'default' => apply_filters( 'wcv_venodrs_list_default_item_per_page', 20 ),
 			'option'  => 'vendor_per_page'
 		];
 	
@@ -234,10 +234,5 @@ class Menus {
 	public function addons_page() {
 		// WCVendors_Admin_Addons::output();
 	}
-	/**
-	 *   Vendors Management Page
-	 */
-	public function vendors_management_page(){
-		VendorsManagement::output();
-	}
+
 }
