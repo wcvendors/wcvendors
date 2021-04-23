@@ -23,7 +23,8 @@
 
 		<?php $vendors_mamagement_table->search_box( esc_html__( 'Search Vendor', 'wc-vendors' ), 'search_id' ); ?>
 		<?php $vendors_mamagement_table->display(); ?>
-		<input type="hidden" name="page" value="wcv-vendors-management"/>
+		<input type="hidden" name="page" value="wcv-vendors"/>
+		
 	</form>
 
 </div>
