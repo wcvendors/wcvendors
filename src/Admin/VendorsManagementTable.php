@@ -18,8 +18,8 @@ if (!class_exists('WP_List_Table')) {
 class VendorsManagementTable extends \WP_List_Table {
 	public function __construct() {
 		parent::__construct([
-			'singular' => __('vendor', 'wc-vendor'),
-			'plural' => __('vendors', 'wc-vendor'),
+			'singular' => __('vendor', 'wc-vendors'),
+			'plural' => __('vendors', 'wc-vendors'),
 			'ajax' => false,
 
 		]);
@@ -170,9 +170,9 @@ class VendorsManagementTable extends \WP_List_Table {
 			'cb' => '<input type="checkbox" />',
 			'user_nicename' => __('Name', 'wc-vendors'),
 			'user_email' => __('Email', 'wc-vendors'),
-			'user_registered' => __('Registered Date', 'wc-vendor'),
-			'user_shop_name' => __('Shop Name', 'wc-vendor'),
-			'vendor_enable' => __('Vendor Enable', 'wc-vendor'),
+			'user_registered' => __('Registered Date', 'wc-vendors'),
+			'user_shop_name' => __('Shop Name', 'wc-vendors'),
+			'vendor_enable' => __('Vendor Enable', 'wc-vendors'),
 		];
 
 		return $columns;
@@ -216,16 +216,16 @@ class VendorsManagementTable extends \WP_List_Table {
 	 * @return bool
 	 */
 	public function process_bulk_action() {
-		
+
 		if (isset($_REQUEST['_wpnonce']) && !empty($_REQUEST['_wpnonce'])) {
 
-			if (isset($_REQUEST['action2']) && isset($_REQUEST['action'])) {
+			if (isset($_REQUEST['action2']) && isset($_REQUEST['action']) && $_REQUEST['action']!== '-1') {
 
-      $nonce = filter_input(INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING);
+				$nonce = filter_input(INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING);
 
-      if (!wp_verify_nonce($nonce, 'bulk-' . $this->_args['plural'])) {
-        wp_die('Nope! Security check failed!');
-      }
+				if (!wp_verify_nonce($nonce, 'bulk-' . $this->_args['plural'])) {
+					wp_die('Nope! Security check failed!');
+				}
 				$vendor_ids = isset($_REQUEST[$this->_args['singular']]) ? $_REQUEST[$this->_args['singular']] : '';
 				$action = $this->current_action();
 
@@ -247,21 +247,21 @@ class VendorsManagementTable extends \WP_List_Table {
 				case 'deny':
 					do_action('wcvendors_bulkdeny_vendor', $vendor_ids);
 					break;
-          case 'delete':
-            do_action('wcvendors_bulkdelete_vendor', $vendor_ids);
-            break;
+				case 'delete':
+					do_action('wcvendors_bulkdelete_vendor', $vendor_ids);
+					break;
 				}
 
 			}
 
 			if (!isset($_REQUEST['action2']) && isset($_REQUEST['action'])) {
 
-      $nonce = filter_input(INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING);
-      $action_name = 'vendor_action_nonce';
+				$nonce = filter_input(INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING);
+				$action_name = 'vendor_action_nonce';
 
-        if (!wp_verify_nonce($nonce, $action_name)) {
-          wp_die('Nope! Security check failed!');
-        }
+				if (!wp_verify_nonce($nonce, $action_name)) {
+					wp_die('Nope! Security check failed!');
+				}
 				$action = $this->current_action();
 				$vendor_id = isset($_REQUEST['vendor_id']) ? $_REQUEST['vendor_id'] : '';
 
@@ -282,11 +282,10 @@ class VendorsManagementTable extends \WP_List_Table {
 					break;
 				}
 
-			
 			}
 
 		}
-    return true;
+		return true;
 
 	}
 
@@ -315,7 +314,7 @@ class VendorsManagementTable extends \WP_List_Table {
  * @return string
  */
 	public function no_items() {
-		_e('No vendor avaliable.', 'wc-vendor');
+		_e('No vendor avaliable.', 'wc-vendors');
 	}
 
 	/**
@@ -364,22 +363,6 @@ class VendorsManagementTable extends \WP_List_Table {
 	}
 
 	/**
-	 * Delete a Vendor record.
-	 *@since 3.0.0
-	 *@version 1.0.0
-	 * @param int $id Vendors ID
-	 */
-	public static function delete_customer($id) {
-		global $wpdb;
-
-		$wpdb->delete(
-			"{$wpdb->prefix}customers",
-			['ID' => $id],
-			['%d']
-		);
-	}
-
-	/**
 	 * Returns an associative array containing the bulk action
 	 *@since 3.0.0 [<description>]
 	 *@version 1.0.0 [<description>]
@@ -403,10 +386,11 @@ class VendorsManagementTable extends \WP_List_Table {
  * @return array of views
  */
 	public function get_views() {
+		$page = esc_attr($_REQUEST['page']);
 		$views = array(
-			'all' => '<li class="all"><a href="' . admin_url('admin.php?page=wcv-vendors-management') . '">' . __('All', 'wc-vendors') . '</a></li>',
-			'accepted' => '<li class="all"><a href="' . admin_url('admin.php?page=wcv-vendors-management&vendor_status=approved') . '">' . __('Approved Vendors', 'wc-vendors') . '</a></li>',
-			'pendding' => '<li class="all"><a href="' . admin_url('admin.php?page=wcv-vendors-management&vendor_status=pending') . '">' . __('Pending Vendors', 'wc-vendors') . '</a></li>',
+			'all' => sprintf('<li class="all"><a href="' . admin_url('admin.php?page=%s') . '">' . __('All', 'wc-vendors') . '</a></li>', $page),
+			'accepted' => sprintf('<li class="all"><a href="' . admin_url('admin.php?page=%s&vendor_status=approved') . '">' . __('Approved Vendors', 'wc-vendors') . '</a></li>', $page),
+			'pendding' => sprintf('<li class="all"><a href="' . admin_url('admin.php?page=%s&vendor_status=pending') . '">' . __('Pending Vendors', 'wc-vendors') . '</a></li>', $page),
 		);
 
 		return $views;
