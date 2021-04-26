@@ -84,22 +84,24 @@ if ( ! function_exists( 'wcv_create_new_vendor' ) ) {
 }
 
 /**
- * The vendor store defaults
+ * The vendor store info defaults plugins can hook into this to add more data to a vendor store. 
  *
  * @return array $vendor_store_defaults
  */
-function wcv_vendor_store_defaults(){
+function wcv_vendor_store_info_defaults(){
 
-	$store_defaults = apply_filters( 
-		array(  
+	$store_defaults =  array(  
 			'name' => '',
 			'info' => '',
 			'description' => '',
 			'permalink' => '',
-			'icon'     => '',
+			'slug' => '',
+			'icon' => '',
 			'banner' => '',
 			'phone' => '',
+			'email' => '', 
 			'address' => array(),
+			'location' => array(), 
 			'payment' => array(
 				'paypal' => array(
 					'email' => ''
@@ -112,10 +114,9 @@ function wcv_vendor_store_defaults(){
 					'bic_swift'      => '',  
 				),
 			),
-			'give_tax'      => 'no',
-			'give_shipping' => 'no',
+			'give_tax'      => 'no', // Capability? 
+			'give_shipping' => 'no', // Capability? 
 			'commission_rate' => '', 
-		) 
 	);
 
 	return apply_filters( 'wcv_store_data_defaults', $store_defaults );
@@ -386,7 +387,7 @@ function wcv_get_vendor_from_product( $product_id ) {
 		$author = $post ? $post->post_author : 1;
 		$author = apply_filters( 'pv_product_author', $author, $product_id );
 	} else {
-		$author = - 1;
+		$author = -1;
 	}
 
 	return $author;
