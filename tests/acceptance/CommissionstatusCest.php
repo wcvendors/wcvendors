@@ -103,7 +103,6 @@ class CommissionstatusCest
 		$I->scrollTo('#billing_email');
 		$I->fillField('#billing_email', 'automation.customer.one@yopmail.com');
 		$I->wait(5);
-		//$I->scrollTo('#order_review > table > tfoot > tr.woocommerce-shipping-totals.shipping > th');
 		$I->executeJS('document.querySelector("#payment > ul > li.wc_payment_method.payment_method_cheque > label").click()');//Check payments
 		$I->waitForText('Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.', 20);//Make sure that the test gateway is set correct.
 		$I->executeJS('document.querySelector("#place_order").click()');
@@ -158,14 +157,13 @@ class CommissionstatusCest
 		$I->wait(2);
 		$I->click('#bulk-action-selector-top > option:nth-child(6)');
 		$I->click('#doaction');
-		$I->waitForText('order status changed.', 300);
-		$I->amOnPage('/wp-admin/admin.php?page=wcv-commissions');
-		//$I->dontSee('No items found.');
-		$I->executeJS('document.querySelector("#cb-select-all-1").click()');
-		$I->executeJS('document.querySelector("#bulk-action-selector-top").click()');
+		$I->waitForText('order statuses changed.', 300);
+		$I->amOnPage('/wp-admin/admin.php?page=wcv-commissions&com_status=due');
+		$I->click('#cb-select-all-1');
+		$I->click('#bulk-action-selector-top');
 		$I->wait(2);
-		$I->executeJS('document.querySelector("#bulk-action-selector-top > option:nth-child(2)").click()');
-		$I->executeJS('document.querySelector("#doaction").click()');
+		$I->click('#bulk-action-selector-top > option:nth-child(2)');
+		$I->click('#doaction');
 		$I->waitForText('Commission marked paid.', 300);
     }
 }
