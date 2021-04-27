@@ -11,8 +11,8 @@ class GeneralVendorApprovalCest
     //Vendor approval process manually, validation will includes vendor login success and failiour messages.
     public function tryToTest(AcceptanceTester $I)
     {
-		$I->fillField('#reg_username', 'QATest1');
-		$I->fillField('#reg_email', 'QA.test1.mail@yopmail.com');
+		$I->executeJS('document.querySelector("#reg_username").value = (Math.random().toString(36).substring(7)');
+		$I->executeJS('document.querySelector("#reg_email").value = (Math.random().toString(36).substring(7) + ".QA.test.mail@yopmail.com");');
 		$I->fillField('#reg_password', 'p@ssw0rd@123P@$%');
 		$I->click('#apply_for_vendor');
 		$I->click('#agree_to_terms');
@@ -31,8 +31,8 @@ class GeneralVendorApprovalCest
 		$I->click('Save changes');
 		$I->amOnPage('/my-account');
 		$I->click('Log out');
-		$I->fillField('#reg_username', 'QATestFail1');
-		$I->fillField('#reg_email', 'QA.test.mail.fail1@yopmail.com');
+		$I->executeJS('document.querySelector("#reg_username").value = (Math.random().toString(36).substring(7)');
+		$I->executeJS('document.querySelector("#reg_email").value = (Math.random().toString(36).substring(7) + ".QA.test.mail@yopmail.com");');
 		$I->fillField('#reg_password', 'p@ssw0rd@123P@$%1');
 		$I->click('#apply_for_vendor');
 		$I->click('#agree_to_terms');
