@@ -711,7 +711,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table {
 				)
 			);
 		}
-
+		$vendor_products = apply_filters('wcvendors_get_vendor_products', $vendor_products);
 		return $vendor_products;
 	}
 
