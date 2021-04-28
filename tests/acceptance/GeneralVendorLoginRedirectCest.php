@@ -6,17 +6,17 @@ class GeneralVendorLoginRedirectCest
     {
 		$I->amOnPage('/');
 		$I->click('My account');
-		/*$I->fillField('#username', 'vendor1');
+		$I->fillField('#username', 'vendor1');
 		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P85jP');
-		$I->click('Log in');*/
+		$I->click('Log in');
     }
 
 
     //Validating after vendor login the landing page set is open correct.
     public function tryToTest(AcceptanceTester $I)
     {
-		//$I->see('To add or edit products, view sales and orders for your vendor account, or to configure your store, visit your Vendor Dashboard.');
-		//$I->click('Log out');
+		$I->see('To add or edit products, view sales and orders for your vendor account, or to configure your store, visit your Vendor Dashboard.');
+		$I->click('Log out');
 		$I->fillField('#username', 'admin');
 		$I->fillField('#password', '123456');
 		$I->click('Log in');
