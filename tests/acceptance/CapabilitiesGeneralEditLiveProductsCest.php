@@ -28,8 +28,8 @@ class CapabilitiesGeneralEditLiveProductsCest
 		$I->waitForText('Product published. View Product', 120);
 		//Vendore modifying publishd product.
 		$I->fillField('#title', 'Automated Product name modified');
-		$I->doubleClick('#publish');
-		$I->waitForText('Product updated. View Product', 30);
+		$I->click('Update');
+		$I->waitForText('Product updated. View Product', 310);
 		$I->amOnPage('/my-account');
 		$I->click('Log out');
 		$I->fillField('#username', 'admin');
