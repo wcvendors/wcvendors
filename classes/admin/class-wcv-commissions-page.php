@@ -94,10 +94,14 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 					$product_url = '<a href="' . admin_url( 'post.php?post=' . $product_id . '&action=edit' ) . '">' . get_the_title( $product_id ) . '</a> (<span title="' . get_the_title( $product_id ) . ' has sold ' . $wcv_total_sales . ' times total.">' . $wcv_total_sales . '</span>)';
 				} else {
 					$order = wc_get_order( $item->order_id );
-					foreach ( $order->get_items() as $item_id => $items ) {
-						if( $product_id == wc_get_order_item_meta( $item_id, '_product_id', true) ) {
-							$product_url = $items->get_name();
+					if ( $order ) {
+						foreach ( $order->get_items() as $item_id => $items ) {
+							if( $product_id == wc_get_order_item_meta( $item_id, '_product_id', true) ) {
+								$product_url = $items->get_name();
+							}
 						}
+					} else {
+						$product_url = '-';
 					}
 				}
 				return $product_url;
@@ -114,9 +118,13 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 				return date_i18n( get_option( 'date_format' ), strtotime( $item->time ) );
 			case 'shipped': 
 				$order = wc_get_order( $item->order_id );
-				$shipped = get_post_meta( $order->get_id(), 'wc_pv_shipped', true ); 
-				$has_shipped = ! empty( $shipped ) && in_array( $item->vendor_id, $shipped ) ? __( 'Yes', 'wc-vendors' ) : __( 'No', 'wc-vendors'); 
-				return $has_shipped;
+				if ( $order ) {
+					$shipped = get_post_meta( $order->get_id(), 'wc_pv_shipped', true ); 
+					$has_shipped = ! empty( $shipped ) && in_array( $item->vendor_id, $shipped ) ? __( 'Yes', 'wc-vendors' ) : __( 'No', 'wc-vendors'); 
+					return $has_shipped;
+				} else {
+					return '-';
+				}
 			default: 
 				$value = ''; 
 				return apply_filters( 'wcvendors_commissions_column_default_' . $column_name, $value, $item, $column_name );
