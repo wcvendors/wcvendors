@@ -54,6 +54,7 @@ class CapabilitiesGeneralViewOrdersCest
     // Validating -  Allow vendors to view orders
     public function tryToTest(AcceptanceTester $I)
     {
+		//Vendor checking for the Show Orders link to be present.
 		$I->fillField('#username', 'vendor1');
 		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P85jP');
 		$I->click('Log in');
@@ -63,6 +64,7 @@ class CapabilitiesGeneralViewOrdersCest
 		$I->click('Show');
 		$I->see('Show Orders');
 		
+		//Admin removing the permission to display orders to vendor.
 		$I->click('My account');
 		$I->click('Log out');
 		$I->fillField('#username', 'admin');
@@ -75,6 +77,7 @@ class CapabilitiesGeneralViewOrdersCest
 		$I->click('Save changes');
 		$I->waitForText('Your settings have been saved.', 300);
 		
+		//Vendor does not view Show Orders link at the Vendor Dashboard
 		$I->amOnPage('/my-account');
 		$I->click('Log out');
 		$I->fillField('#username', 'vendor1');
@@ -86,6 +89,7 @@ class CapabilitiesGeneralViewOrdersCest
 		$I->click('Show');
 		$I->dontSee('Show Orders');
 		
+		//Before exit Admin making sure that the Show Orders permission check box is set to its default state.
 		$I->click('My account');
 		$I->click('Log out');
 		$I->fillField('#username', 'admin');
