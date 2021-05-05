@@ -4,9 +4,18 @@ class VendorResetPasswordCest
 {
     public function _before(AcceptanceTester $I)
     {
+		//Before trying to test make sure that the plug is installed - WP Mail Log Plugin
 		$I->amOnPage('/');
         $I->see('wcvendors');
 		$I->click('My account');
+		$I->fillField('#username', 'admin');
+		$I->fillField('#password', '123456');
+		$I->click('Log in');
+		$I->amOnPage('/wp-admin/plugins.php');
+		//$I->executeJS('function myfunction(){{if ((document.documentElement.textContent && document.documentElement.innerText).indexOf("WP Mail Log Y") > -1) {return;}}} myfunction();');
+		$I->see('WP Mail Log');
+		$I->amOnPage('/my-account');
+		$I->click('Log out');
     }
 
     // Restting password for Vendor {You will need WP Mail Logging plugin installed and running before running these script}
