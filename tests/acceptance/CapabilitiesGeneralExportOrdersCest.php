@@ -87,7 +87,7 @@ class CapabilitiesGeneralExportOrdersCest
 		$I->click('Show');
 		$I->waitForText('Show Orders', 30);
 		$I->click('Show Orders');
-		$I->dontSeeElement('//*[@name="export_orders"]', 30);
+		$I->dontSeeElement('//*[@name="export_orders"]');
 		
 		//Admin settings default permission.
 		$I->click('My account');
