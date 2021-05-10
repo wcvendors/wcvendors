@@ -55,8 +55,6 @@ class WCVendors_Install {
 		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
 		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 		add_filter( 'plugin_action_links_' . wcv_plugin_base, array( __CLASS__, 'plugin_action_links' ) );
-		add_action( 'wcvendors_update_options_display', array( __CLASS__, 'maybe_flush_rewrite_rules' ) );
-
 	} // init()
 
 	/**
@@ -428,7 +426,6 @@ class WCVendors_Install {
 		add_option( 'wcvendors_db_version', is_null( $version ) ? $wc_vendors->version : $version );
 	}
 
-
 	/**
 	 * Update WC version to current.
 	 */
@@ -437,8 +434,10 @@ class WCVendors_Install {
 		global $wc_vendors;
 		delete_option( 'wcvendors_version' );
 		add_option( 'wcvendors_version', $wc_vendors->version );
-	}
 
+		// Schedules flush rewrite rules.
+		update_option( 'wcvendors_queue_flush_rewrite_rules', 'yes' );
+	}
 
 	/**
 	 * Push all needed DB updates to the queue for processing.
@@ -477,7 +476,6 @@ class WCVendors_Install {
 			add_option( 'wcvendors_install_date', current_time( 'Y-m-d' ) );
 		}
 	}
-
 
 	/**
 	 * Show action links on the plugin screen.

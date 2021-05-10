@@ -60,8 +60,8 @@ function wcvendors_activate() {
 		return;
 	}
 
-	// Flush rewrite rules when activating plugin
-	flush_rewrite_rules();
+	// Schedules flush rewrite rules when activating plugin
+	update_option( 'wcvendors_queue_flush_rewrite_rules', 'yes' );
 } // wcvendors_activate()
 
 /**
@@ -151,7 +151,6 @@ if ( wcv_is_woocommerce_activated() ) {
 
 			// Add become a vendor rewrite endpoint
 			add_action( 'init'              , array( $this, 'add_rewrite_endpoint' ) );
-			add_action( 'after_switch_theme', array( $this, 'flush_rewrite_rules' ) );
 		}
 
 		/**
@@ -373,7 +372,6 @@ if ( wcv_is_woocommerce_activated() ) {
 		 */
 		public function add_rewrite_endpoint() {
 			add_rewrite_endpoint( 'become-a-vendor', EP_PAGES );
-			$this->flush_rewrite_rules();
 		}
 
 		/**

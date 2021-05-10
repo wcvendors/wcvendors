@@ -42,6 +42,8 @@ class WCVendors_Uninstall {
 			}
 		}
 
+		self::unregister_post_types();
+
 		self::flush_rewrite_rules();
 	}
 
@@ -132,6 +134,17 @@ class WCVendors_Uninstall {
 		delete_option( 'wcvendors_wizard_complete' );
 		delete_option( 'wcvendors_queue_flush_rewrite_rules' );
 		delete_option( 'wcvendors_admin_notice_email_updates' );
+	}
+
+	/**
+	 * Unregister custom post types.
+	 *
+	 * @return void
+	 * @since 2.2.5
+	 */
+	public static function unregister_post_types() {
+
+		unregister_post_type( 'shop_order_vendor' );
 	}
 
 	/**

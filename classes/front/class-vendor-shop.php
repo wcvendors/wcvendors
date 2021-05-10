@@ -182,20 +182,9 @@ class WCV_Vendor_Shop {
 	 * @moved      to WCV_Vendors class
 	 */
 	public static function add_rewrite_rules() {
-
-		$permalink = untrailingslashit( get_option( 'wcvendors_vendor_shop_permalink' ) );
-
-		// Remove beginning slash
-		if ( substr( $permalink, 0, 1 ) == '/' ) {
-			$permalink = substr( $permalink, 1, strlen( $permalink ) );
-		}
-
-		add_rewrite_tag( '%vendor_shop%', '([^&]+)' );
-
-		add_rewrite_rule( $permalink . '/([^/]*)/page/([0-9]+)', 'index.php?post_type=product&vendor_shop=$matches[1]&paged=$matches[2]', 'top' );
-		add_rewrite_rule( $permalink . '/([^/]*)', 'index.php?post_type=product&vendor_shop=$matches[1]', 'top' );
+		wc_deprecated_function( 'WCV_Vendor_Shop::add_rewrite_rules', '2.0.9' );
+		WCV_Vendors::add_rewrite_rules();
 	}
-
 
 	public static function page_title( $page_title = '' ) {
 
