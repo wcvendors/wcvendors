@@ -307,9 +307,9 @@ class WCV_Vendor_Dashboard {
 			wcv_plugin_dir . 'templates/dashboard/'
 		);
 
-		if ( $can_view_sales = get_option( 'wcvendors_capability_frontend_reports' ) ) {
+		if ( wc_string_to_bool( get_option( 'wcvendors_capability_frontend_reports', 'yes' ) ) ) {
 
-			$can_view_address = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping' ) );
+			$can_view_address = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping', 'yes' ) );
 
 			wc_get_template(
 				'reports.php',
