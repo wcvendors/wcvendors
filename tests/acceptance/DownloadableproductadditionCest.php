@@ -7,7 +7,7 @@ class DownloadableproductadditionCest
         $I->amOnPage('/');
 		$I->click('My account');
 		$I->fillField('#username', 'vendor1');
-		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P*85jP');
+		$I->fillField('#password', '#*mr4Xk)R2l)W^XuI^P85jP');
 		$I->click('#customer_login > div.u-column1.col-1 > form > p:nth-child(3) > button');
     }
 
