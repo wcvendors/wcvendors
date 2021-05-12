@@ -382,7 +382,8 @@ class WCV_Vendor_Dashboard {
 			);
 		}
 
-		return apply_filters( 'wcv_dashboard_nav_items', $items );
+		$items = apply_filters_deprecated( 'wcv_dashboard_nav_items', array( $items ), '3.0.0', 'wcvendors_dashboard_nav_items' );
+		return apply_filters( 'wcvendors_dashboard_nav_items', $items );
 	}
 
 	/**

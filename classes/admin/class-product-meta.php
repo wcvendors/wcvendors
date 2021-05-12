@@ -30,7 +30,9 @@ class WCV_Product_Meta {
 		add_action( 'wp_dropdown_users', array( $this, 'author_vendor_roles' ), 0, 1 );
 		add_action( 'restrict_manage_posts', array( $this, 'restrict_manage_posts' ), 12 );
 
-		if ( apply_filters( 'wcv_product_commission_tab', true ) ) {
+		$product_commission_tab = apply_filters_deprecated( 'wcv_product_commission_tab', array( true ), '3.0.0', 'wcvendors_product_commission_tab' );
+		$product_commission_tab = apply_filters( 'wcvendors_product_commission_tab', $product_commission_tab );
+		if ( $product_commission_tab ) {
 			add_action( 'woocommerce_product_write_panel_tabs', array( $this, 'add_tab' ) );
 			add_action( 'woocommerce_product_data_panels'     , array( $this, 'add_panel' ) );
 			add_action( 'woocommerce_process_product_meta'    , array( $this, 'save_panel' ) );

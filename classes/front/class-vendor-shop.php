@@ -128,9 +128,11 @@ class WCV_Vendor_Shop {
 
 				$seller_info       = do_shortcode( $seller_info );
 				self::$seller_info = '<div class="pv_seller_info">';
-				self::$seller_info .= apply_filters( 'wcv_before_seller_info_tab', '' );
+				self::$seller_info .= apply_filters_deprecated( 'wcv_before_seller_info_tab', array( '' ), '3.0.0', 'wcvendors_before_seller_info_tab' );
+				self::$seller_info .= apply_filters( 'wcvendors_before_seller_info_tab', self::$seller_info );
 				self::$seller_info .= ( $global_html || $has_html ) ? wpautop( wptexturize( $seller_info ) ) : sanitize_text_field( $seller_info );
-				self::$seller_info .= apply_filters( 'wcv_after_seller_info_tab', '' );
+				self::$seller_info .= apply_filters_deprecated( 'wcv_after_seller_info_tab', array( '' ), '3.0.0', 'wcvendors_after_seller_info_tab' );
+				self::$seller_info .= apply_filters( 'wcvendors_after_seller_info_tab', self::$seller_info );
 				self::$seller_info .= '</div>';
 
 				$tabs['seller_info'] = array(

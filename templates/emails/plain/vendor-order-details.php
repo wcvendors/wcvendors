@@ -37,7 +37,8 @@ do_action( 'wcv_email_vendor_notify_order_after_order_items' ) . "\n";
 echo "==========\n\n";
 
 $totals = wcv_get_vendor_item_totals( $order, $vendor_items, $vendor_id, $email, $totals_display );
-$totals = apply_filters( 'wcv_vendor_notify_order_item_totals', $totals, $order, $vendor_items, $vendor_id, $email, $totals_display );
+$totals = apply_filters_deprecated( 'wcv_vendor_notify_order_item_totals', array( $totals, $order, $vendor_items, $vendor_id, $email, $totals_display ), '3.0.0', 'wcvendors_vendor_notify_order_item_totals' );
+$totals = apply_filters( 'wcvendors_vendor_notify_order_item_totals', $totals, $order, $vendor_items, $vendor_id, $email, $totals_display );
 
 if ( $totals ) {
 	foreach ( $totals as $total ) {

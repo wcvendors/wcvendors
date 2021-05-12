@@ -228,7 +228,8 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			// 'delete' 		=> __( 'Delete', 'wc-vendors'),
 		);
 
-		return apply_filters( 'wcv_edit_bulk_actions', $actions, '2.2.2', 'wcvendors_edit_bulk_actions' );
+		$actions = apply_filters_deprecated( 'wcv_edit_bulk_actions', array( $actions, '2.2.2', 'wcvendors_edit_bulk_actions' ), '3.0.0', 'wcvendors_edit_bulk_actions' );
+		return apply_filters( 'wcvendors_edit_bulk_actions', $actions, '2.2.2', 'wcvendors_edit_bulk_actions' );
 	}
 
 
@@ -614,6 +615,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			'vendor_id'    => $vendor_id,
 		);
 		$sql = apply_filters_deprecated( 'wcv_get_commissions_sql', array( $sql, $sql_args ), '2.2.2', 'wcvendors_get_commissions_sql' );
+		$sql = apply_filters( 'wcvendors_get_commissions_sql', $sql, $sql_args );
 
 		$this->items = $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
