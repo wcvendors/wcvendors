@@ -107,7 +107,8 @@ if ( !function_exists( 'wcv_vendor_drop_down_options' ) ){
 			$select = selected( $user->ID, $vendor_id, false );
 			$output .= "<option value='$user->ID' $select>$display_name</option>";
 		}
-		return apply_filters('wcv_vendor_drop_down_options', $output );
+		$output = apply_filters_deprecated( 'wcv_vendor_drop_down_options', array( $output ), '3.0.0', 'wcvendors_vendor_drop_down_options' );
+		return apply_filters( 'wcvendors_vendor_drop_down_options', $output );
 	}
 }
 

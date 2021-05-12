@@ -213,7 +213,8 @@ class WCV_Product_Meta {
 		 *
 		 * @param array $args The arguments to be filtered.
 		 */
-		$args = apply_filters( 'wcv_vendor_selectbox_args', $args );
+		$args = apply_filters_deprecated( 'wcv_vendor_selectbox_args', array( $args ), '3.0.0', 'wcvendors_vendor_selectbox_args' );
+		$args = apply_filters( 'wcvendors_vendor_selectbox_args', $args );
 
 		extract( $args );
 
@@ -232,7 +233,8 @@ class WCV_Product_Meta {
 		 *
 		 * @param array $user_args The arguments to be filtered.
 		 */
-		$user_args = apply_filters( 'wcv_vendor_selectbox_user_args',  $user_args );
+		$user_args = apply_filters_deprecated( 'wcv_vendor_selectbox_user_args',  array( $user_args ), '3.0.0', 'wcvendors_vendor_selectbox_user_args' );
+		$user_args = apply_filters( 'wcvendors_vendor_selectbox_user_args',  $user_args );
 		$users = get_users( $user_args );
 
 		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
@@ -250,7 +252,8 @@ class WCV_Product_Meta {
 			$output .= '</label></p>';
         }
 
-		return apply_filters( 'wcv_vendor_selectbox', $output, $user_args, $media );
+		$output = apply_filters_deprecated( 'wcv_vendor_selectbox', array( $output, $user_args, $media ), '3.0.0', 'wcvendors_vendor_selectbox' );
+		return apply_filters( 'wcvendors_vendor_selectbox', $output, $user_args, $media );
 	}
 
 	/**

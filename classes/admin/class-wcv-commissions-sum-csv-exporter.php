@@ -115,7 +115,8 @@ class WCV_Commissions_Sum_CSV_Export extends WC_CSV_Exporter {
 					$row[ $column_id ] = $value;
 				}
 
-				$this->row_data[] = apply_filters( 'wcv_sum_commissions_export_row_data', $row, $vendor_id, $total, $status );
+				$row = apply_filters_deprecated( 'wcv_sum_commissions_export_row_data', array( $row, $vendor_id, $total, $status ), '3.0.0', 'wcvendors_sum_commissions_export_row_data' );
+				$this->row_data[] = apply_filters( 'wcvendors_sum_commissions_export_row_data', $row, $vendor_id, $total, $status );
 			}
 		}
 

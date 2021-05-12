@@ -97,7 +97,8 @@ class WCVendors_Admin_Setup_Wizard {
 			),
 		);
 
-		$this->steps = apply_filters( 'wcv_setup_wizard_steps', $default_steps );
+		$this->steps = apply_filters_deprecated( 'wcv_setup_wizard_steps', array( $default_steps ), '3.0.0', 'wcvendors_setup_wizard_steps' );
+		$this->steps = apply_filters( 'wcvendors_setup_wizard_steps', $this->steps );
 		$this->step  = isset( $_GET['step'] ) ? sanitize_key( $_GET['step'] ) : current( array_keys( $this->steps ) );
 		$suffix      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
