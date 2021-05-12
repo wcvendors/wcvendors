@@ -101,8 +101,11 @@ if ( function_exists( 'wc_print_notices' ) ) {
 				<td>
 					<?php
 					$sum    = WCV_Queries::sum_for_orders( array( $order_id ), array( 'vendor_id' => get_current_user_id() ) );
-					$total  = $sum[0]->line_total;
-					$totals += $total;
+					$total = 0;
+					if ( 0 < count( $sum ) ) {
+						$total  = $sum[0]->line_total;
+						$totals += $total;
+					}
 					echo wc_price( $total );
 					?>
 				</td>
