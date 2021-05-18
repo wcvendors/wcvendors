@@ -121,7 +121,7 @@ class WC_Email_Notify_Vendor extends WC_Email {
 	 */
 	function check_order_totals( $total_rows, $order ) {
 
-		$commission_label                 = apply_filters_deprecated( 'wcv_notify_vendor_commission_label', array( __( 'Commission Subtotal:', 'wc-vendors' ) ), '3.0.0', 'wcvendors_notify_vendor_commission_label');
+		$commission_label                 = apply_filters_deprecated( 'wcv_notify_vendor_commission_label', array( __( 'Commission Subtotal:', 'wc-vendors' ) ), '2.3.0', 'wcvendors_notify_vendor_commission_label');
 		$commission_label                 = apply_filters( 'wcvendors_notify_vendor_commission_label', $commission_label );
 		$return['cart_subtotal']          = $total_rows['cart_subtotal'];
 		$return['cart_subtotal']['label'] = $commission_label;
@@ -131,7 +131,7 @@ class WC_Email_Notify_Vendor extends WC_Email {
 				'label' => '',
 				'value' => '',
 			);
-			$return['tax_subtotal']['label'] = apply_filters_deprecated( 'wcv_notify_vendor_tax_label', array( __( 'Tax Subtotal:', 'wc-vendors' ) ), '3.0.0', 'wcvendors_notify_vendor_tax_label' );
+			$return['tax_subtotal']['label'] = apply_filters_deprecated( 'wcv_notify_vendor_tax_label', array( __( 'Tax Subtotal:', 'wc-vendors' ) ), '2.3.0', 'wcvendors_notify_vendor_tax_label' );
 			$return['tax_subtotal']['label'] = apply_filters( 'wcvendors_notify_vendor_tax_label', $return['tax_subtotal']['label'] );
 		}
 

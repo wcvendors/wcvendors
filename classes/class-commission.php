@@ -328,7 +328,7 @@ class WCV_Commission {
 			$commission = $default_commission;
 		}
 
-		$commission = apply_filters_deprecated( 'wcv_commission_rate_percent', array( $commission, $product_id ), '3.0.0', 'wcvendors_commission_rate_percent' );
+		$commission = apply_filters_deprecated( 'wcv_commission_rate_percent', array( $commission, $product_id ), '2.3.0', 'wcvendors_commission_rate_percent' );
 		return apply_filters( 'wcvendors_commission_rate_percent', $commission, $product_id );
 	}
 
@@ -351,7 +351,7 @@ class WCV_Commission {
 		$commission      = $product_price * ( $commission_rate / 100 );
 		$commission      = round( $commission, 2 );
 
-		$commission = apply_filters_deprecated( 'wcv_commission_rate', array( $commission, $product_id, $product_price, $order, $qty, $item ), '3.0.0', 'wcvendors_commission_rate' );
+		$commission = apply_filters_deprecated( 'wcv_commission_rate', array( $commission, $product_id, $product_price, $order, $qty, $item ), '2.3.0', 'wcvendors_commission_rate' );
 		return apply_filters( 'wcvendors_commission_rate', $commission, $product_id, $product_price, $order, $qty, $item );
 	}
 
@@ -401,7 +401,7 @@ class WCV_Commission {
 			}
 		}
 
-		do_action_deprecated( 'wcv_commissions_inserted', array( $orders ), '3.0.0', 'wcvendors_commissions_inserted' );
+		do_action_deprecated( 'wcv_commissions_inserted', array( $orders ), '2.3.0', 'wcvendors_commissions_inserted' );
 		do_action( 'wcvendors_commissions_inserted', $orders );
 	}
 

@@ -614,7 +614,7 @@ class WCVendors_Install {
 			),
 		);
 
-		$capabilities = apply_filters_deprecated( 'wcv_get_vendor_caps', array( $capabilities ), '3.0.0', 'wcvendors_get_vendor_caps' );
+		$capabilities = apply_filters_deprecated( 'wcv_get_vendor_caps', array( $capabilities ), '2.3.0', 'wcvendors_get_vendor_caps' );
 		return apply_filters( 'wcvendors_get_vendor_caps', $capabilities );
 
 	}

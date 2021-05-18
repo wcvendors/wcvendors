@@ -128,7 +128,7 @@ if ( ! class_exists( 'WCVendors_Vendor_Notify_Cancelled_Order' ) ) :
 				'sent_to_vendor' => true,
 				'plain_text'     => false,
 				'email'          => $this,
-			), 'woocommerce', $this->template_base ), $this ), '3.0.0', 'wcvendors_vendor_notify_order_get_content_html' );
+			), 'woocommerce', $this->template_base ), $this ), '2.3.0', 'wcvendors_vendor_notify_order_get_content_html' );
 
 			return apply_filters( 'wcvendors_vendor_notify_order_get_content_html', wc_get_template_html( $this->template_html, array(
 				'order'          => $this->object,
@@ -162,7 +162,7 @@ if ( ! class_exists( 'WCVendors_Vendor_Notify_Cancelled_Order' ) ) :
 				'totals_display' => $this->totals_display,
 				'plain_text'     => true,
 				'email'          => $this,
-			), 'woocommerce', $this->template_base ), $this ), '3.0.0', 'wcvendors_vendor_notify_order_get_content_plain' );
+			), 'woocommerce', $this->template_base ), $this ), '2.3.0', 'wcvendors_vendor_notify_order_get_content_plain' );
 
 			return apply_filters( 'wcvendors_vendor_notify_order_get_content_plain', wc_get_template_html( $this->template_plain, array(
 				'order'          => $this->object,

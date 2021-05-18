@@ -87,7 +87,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '3.0.0', 'wcvendors_shortcode_products_query' );
+		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -174,7 +174,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '3.0.0', 'wcvendors_shortcode_products_query' );
+		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -254,7 +254,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '3.0.0', 'wcvendors_shortcode_products_query' );
+		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -332,7 +332,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '3.0.0', 'wcvendors_shortcode_products_query' );
+		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -405,7 +405,7 @@ class WCV_Shortcodes {
 
 		add_filter( 'posts_clauses', array( 'WC_Shortcodes', 'order_by_rating_post_clauses' ) );
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '3.0.0', 'wcvendors_shortcode_products_query' );
+		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		remove_filter( 'posts_clauses', array( 'WC_Shortcodes', 'order_by_rating_post_clauses' ) );
@@ -479,7 +479,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '3.0.0', 'wcvendors_shortcode_products_query' );
+		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -574,7 +574,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '3.0.0', 'wcvendors_shortcode_products_query' );
+		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;

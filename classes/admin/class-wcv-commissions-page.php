@@ -228,7 +228,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			// 'delete' 		=> __( 'Delete', 'wc-vendors'),
 		);
 
-		$actions = apply_filters_deprecated( 'wcv_edit_bulk_actions', array( $actions, '2.2.2', 'wcvendors_edit_bulk_actions' ), '3.0.0', 'wcvendors_edit_bulk_actions' );
+		$actions = apply_filters_deprecated( 'wcv_edit_bulk_actions', array( $actions, '2.2.2', 'wcvendors_edit_bulk_actions' ), '2.3.0', 'wcvendors_edit_bulk_actions' );
 		return apply_filters( 'wcvendors_edit_bulk_actions', $actions, '2.2.2', 'wcvendors_edit_bulk_actions' );
 	}
 
@@ -431,7 +431,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 
 			default:
 				// code...
-				do_action_deprecated( 'wcv_edit_process_bulk_actions', array( $this->current_action(), $ids ), '3.0.0', 'wcvendors_edit_process_bulk_actions' );
+				do_action_deprecated( 'wcv_edit_process_bulk_actions', array( $this->current_action(), $ids ), '2.3.0', 'wcvendors_edit_process_bulk_actions' );
 				do_action( 'wcvendors_edit_process_bulk_actions', $this->current_action(), $ids );
 				break;
 		}

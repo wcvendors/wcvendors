@@ -128,10 +128,10 @@ class WCV_Vendor_Shop {
 
 				$seller_info       = do_shortcode( $seller_info );
 				self::$seller_info = '<div class="pv_seller_info">';
-				self::$seller_info .= apply_filters_deprecated( 'wcv_before_seller_info_tab', array( '' ), '3.0.0', 'wcvendors_before_seller_info_tab' );
+				self::$seller_info .= apply_filters_deprecated( 'wcv_before_seller_info_tab', array( '' ), '2.3.0', 'wcvendors_before_seller_info_tab' );
 				self::$seller_info .= apply_filters( 'wcvendors_before_seller_info_tab', self::$seller_info );
 				self::$seller_info .= ( $global_html || $has_html ) ? wpautop( wptexturize( $seller_info ) ) : sanitize_text_field( $seller_info );
-				self::$seller_info .= apply_filters_deprecated( 'wcv_after_seller_info_tab', array( '' ), '3.0.0', 'wcvendors_after_seller_info_tab' );
+				self::$seller_info .= apply_filters_deprecated( 'wcv_after_seller_info_tab', array( '' ), '2.3.0', 'wcvendors_after_seller_info_tab' );
 				self::$seller_info .= apply_filters( 'wcvendors_after_seller_info_tab', self::$seller_info );
 				self::$seller_info .= '</div>';
 
@@ -266,7 +266,7 @@ class WCV_Vendor_Shop {
 			$vendor_email     = $vendor->user_email;
 			$vendor_login     = $vendor->user_login;
 
-			do_action_deprecated( 'wcv_before_main_header', array( $vendor_id ), '3.0.0', 'wcvendors_before_main_header' );
+			do_action_deprecated( 'wcv_before_main_header', array( $vendor_id ), '2.3.0', 'wcvendors_before_main_header' );
 			do_action( 'wcvendors_before_main_header', $vendor_id );
 
 			wc_get_template(
@@ -281,7 +281,7 @@ class WCV_Vendor_Shop {
 			), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/'
 			);
 
-			do_action_deprecated( 'wcv_after_main_header', array( $vendor_id ), '3.0.0', 'wcvendors_after_main_header' );
+			do_action_deprecated( 'wcv_after_main_header', array( $vendor_id ), '2.3.0', 'wcvendors_after_main_header' );
 			do_action( 'wcvendors_after_main_header', $vendor_id );
 
 		}
@@ -311,7 +311,7 @@ class WCV_Vendor_Shop {
 			$vendor_email     = $vendor->user_email;
 			$vendor_login     = $vendor->user_login;
 
-			do_action_deprecated( 'wcv_before_mini_header', array( $vendor->ID ), '3.0.0', 'wcvendors_before_mini_header' );
+			do_action_deprecated( 'wcv_before_mini_header', array( $vendor->ID ), '2.3.0', 'wcvendors_before_mini_header' );
 			do_action( 'wcvendors_before_mini_header', $vendor->ID );
 
 			wc_get_template(
@@ -328,7 +328,7 @@ class WCV_Vendor_Shop {
 			), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/'
 			);
 
-			do_action_deprecated( 'wcv_after_mini_header', array( $vendor->ID ), '3.0.0', 'wcvendors_after_mini_header' );
+			do_action_deprecated( 'wcv_after_mini_header', array( $vendor->ID ), '2.3.0', 'wcvendors_after_mini_header' );
 			do_action( 'wcvendors_after_mini_header', $vendor->ID );
 
 		}

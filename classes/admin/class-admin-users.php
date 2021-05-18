@@ -494,9 +494,9 @@ class WCV_Admin_Users {
 					$shop_name 		= WCV_Vendors::get_vendor_sold_by( $user_id  );
 					$display_name 	= empty( $shop_name ) ? get_the_author() : $shop_name;
 					$store_url 		= WCV_Vendors::get_vendor_shop_page( $user_id );
-					$target 		= apply_filters_deprecated( 'wcv_users_view_store_url_target', array( 'target="_blank"' ), '3.0.0', 'wcvendors_users_view_store_url_target' );
+					$target 		= apply_filters_deprecated( 'wcv_users_view_store_url_target', array( 'target="_blank"' ), '2.3.0', 'wcvendors_users_view_store_url_target' );
 					$target 		= apply_filters( 'wcvendors_users_view_store_url_target', $target );
-					$class 			= apply_filters_deprecated( 'wcv_users_view_store_url_class', array( 'class=""' ), '3.0.0', 'wcvendors_users_view_store_url_class' );
+					$class 			= apply_filters_deprecated( 'wcv_users_view_store_url_class', array( 'class=""' ), '2.3.0', 'wcvendors_users_view_store_url_class' );
 					$class 			= apply_filters( 'wcvendors_users_view_store_url_class', $class );
 					return sprintf(
 						'<a href="%s"%s%s>%s</a>',
