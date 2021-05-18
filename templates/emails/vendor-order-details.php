@@ -50,7 +50,8 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 		</tr>
 		</thead>
 		<tbody>
-		<?php do_action( 'wcv_email_vendor_notify_order_before_order_items', $order, $sent_to_admin, $plain_text, $email ); ?>
+		<?php do_action_deprecated( 'wcv_email_vendor_notify_order_before_order_items', array( $order, $sent_to_admin, $plain_text, $email ), '3.0.0', 'wcvendors_email_vendor_notify_order_before_order_items' ); ?>
+		<?php do_action( 'wcvendors_email_vendor_notify_order_before_order_items', $order, $sent_to_admin, $plain_text, $email ); ?>
 		<?php
 		echo wcv_get_vendor_order_items(
 			$order, array( // WPCS: XSS ok.
@@ -66,13 +67,15 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 			)
 		);
 		?>
-		<?php do_action( 'wcv_email_vendor_notify_order_after_order_items', $order, $sent_to_admin, $plain_text, $email ); ?>
+		<?php do_action_deprecated( 'wcv_email_vendor_notify_order_after_order_items', array( $order, $sent_to_admin, $plain_text, $email ), '3.0.0', 'wcvendors_email_vendor_notify_order_after_order_items' ); ?>
+		<?php do_action( 'wcvendors_email_vendor_notify_order_after_order_items', $order, $sent_to_admin, $plain_text, $email ); ?>
 		</tbody>
 		<tfoot>
 		<?php
 		$totals = wcv_get_vendor_item_totals( $order, $vendor_items, $vendor_id, $email, $totals_display );
 
-		do_action( 'wcv_before_vendor_item_totals', $order, $vendor_id, $email, $totals, $colspan, $text_align );
+		do_action_deprecated( 'wcv_before_vendor_item_totals', array( $order, $vendor_id, $email, $totals, $colspan, $text_align ), '3.0.0', 'wcvendors_before_vendor_item_totals' );
+		do_action( 'wcvendors_before_vendor_item_totals', $order, $vendor_id, $email, $totals, $colspan, $text_align );
 
 		if ( $totals ) {
 			$i = 0;
@@ -89,7 +92,8 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 			}
 		}
 
-		do_action( 'wcv_before_vendor_item_totals', $order, $vendor_id, $email, $totals, $colspan, $text_align );
+		do_action_deprecated( 'wcv_after_vendor_item_totals', array( $order, $vendor_id, $email, $totals, $colspan, $text_align ), '3.0.0', 'wcvendors_after_vendor_item_totals' );
+		do_action( 'wcvendors_after_vendor_item_totals', $order, $vendor_id, $email, $totals, $colspan, $text_align );
 
 		if ( $order->get_customer_note() ) {
 			?>
@@ -99,7 +103,8 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 				<td class="td"
 				    style="text-align:<?php echo esc_attr( $text_align ); ?>;"><?php echo wp_kses_post( wptexturize( $order->get_customer_note() ) ); ?></td>
 			</tr>
-			<?php do_action( 'wcv_vendor_notify_order_after_customer_note', $order, $vendor_id, $email ); ?>
+			<?php do_action_deprecated( 'wcv_vendor_notify_order_after_customer_note', array( $order, $vendor_id, $email ), '3.0.0', 'wcvendors_vendor_notify_order_after_customer_note' ); ?>
+			<?php do_action( 'wcvendors_vendor_notify_order_after_customer_note', $order, $vendor_id, $email ); ?>
 			<?php
 		}
 		?>

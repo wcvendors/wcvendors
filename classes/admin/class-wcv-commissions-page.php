@@ -431,7 +431,8 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 
 			default:
 				// code...
-				do_action( 'wcv_edit_process_bulk_actions', $this->current_action(), $ids );
+				do_action_deprecated( 'wcv_edit_process_bulk_actions', array( $this->current_action(), $ids ), '3.0.0', 'wcvendors_edit_process_bulk_actions' );
+				do_action( 'wcvendors_edit_process_bulk_actions', $this->current_action(), $ids );
 				break;
 		}
 

@@ -401,7 +401,8 @@ class WCV_Commission {
 			}
 		}
 
-		do_action( 'wcv_commissions_inserted', $orders );
+		do_action_deprecated( 'wcv_commissions_inserted', array( $orders ), '3.0.0', 'wcvendors_commissions_inserted' );
+		do_action( 'wcvendors_commissions_inserted', $orders );
 	}
 
 
