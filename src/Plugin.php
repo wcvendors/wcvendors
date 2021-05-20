@@ -59,7 +59,7 @@ class Plugin {
 		( new PostTypes() )->init_hooks();
 		( new Install() )->init_hooks();
 		( new OrderHandler( $logger ) )->init_hooks();
-
+		( new VendorHandler() )->init_hooks();
 		$this->init_admin_classes();
 
 		if ( $this->is_request( 'frontend' ) ) {
@@ -81,6 +81,7 @@ class Plugin {
 		( new Admin\MetaBoxes() )->init_hooks();
 		( new Admin\Users() )->init_hooks();
 		( new Emails\Emails() )->init_hooks();
+		
 	}
 
 	/**
