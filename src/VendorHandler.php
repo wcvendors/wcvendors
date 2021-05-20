@@ -1,10 +1,12 @@
 <?php
-namespace WCVendors;
-
 /**
  * Class VendorHandler
  * Handle Vendor Table Action
+ *
+ * @package WCVendors
  */
+
+namespace WCVendors;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -12,16 +14,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use WP_User;
 
+/**
+ * VendorHandler, Handle action for Vendors list
+ */
 class VendorHandler {
 
-	public function __construct() {
-	}
 	/**
 	 * Init all hook for vendor action
 	 *
 	 * @since 3.0.0
 	 * @version 1.0.0
-	 * @return bool
 	 */
 	public function init_hooks() {
 		add_action( 'wcvendors_throw_message', array( $this, 'throw_message' ), 10, 2 );
@@ -36,13 +38,10 @@ class VendorHandler {
 		add_action( 'wcvendors_bulkdelete_vendor', array( $this, 'bulk_delete' ), 10, 1 );
 	}
 
-	public function test( $vendor_id ) {
-		return $vendor_id;
-	}
 	/**
 	 * Delete single vendor
 	 *
-	 * @param int $vendor_id
+	 * @param Vendor $vendor_id Vendor ids.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
@@ -57,7 +56,7 @@ class VendorHandler {
 	/**
 	 * Handle bulk delete vendor
 	 *
-	 * @param array $vendor_ids
+	 * @param Vendors $vendor_ids Vendor ids.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
@@ -66,42 +65,40 @@ class VendorHandler {
 		foreach ( $vendor_ids as $vendor_id ) {
 			$this->delete( $vendor_id );
 		}
-		$this->throw_message( __( 'Deleted all selected user', 'wcv-vendors' ), 'success' );
+		$this->throw_message( __( 'Deleted all selected user', 'wc-vendors' ), 'success' );
 		return true;
 	}
 
 	/**
 	 * Deny single vendor
 	 *
-	 * @param int $vendor_id
+	 * @param Vendor $vendor_id Vendor ID.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
 	 */
-
 	public function deny( $vendor_id ) {
 		$user      = new WP_User( $vendor_id );
 		$user_role = $user->roles;
-		if ( in_array( 'pending_vendor', $user_role ) ) {
+		if ( in_array( 'pending_vendor', $user_role, true ) ) {
 			$user->remove_role( 'pending_vendor' );
 			$user->set_role( 'subscriber' );
-			$this->throw_message( __( sprintf( 'Denied %s', $user->user_nicename ), 'wcv-vendors' ), 'success' );
+			$this->throw_message( /* translators: Notice deny success. */ sprintf( __( 'Denied %s', 'wc-vendors' ), $user->user_nicename ), 'success' );
 			return true;
 		}
 
-		$this->throw_message( __( sprintf( 'Cannot deny %s', $user->user_nicename ), 'wcv-vendors' ), 'error' );
+		$this->throw_message( /* translators: Notice deny error. */ sprintf( __( 'Cannot deny %s', 'wc-vendors' ), $user->user_nicename ), 'error' );
 		return false;
 	}
 
 	/**
 	 * Handle bulk delete vendor
 	 *
-	 * @param array $vendor_ids
+	 * @param Vendors $vendor_ids Vendor IDs.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
 	 */
-
 	public function bulk_deny( $vendor_ids ) {
 		$users_args = array(
 			'include' => $vendor_ids,
@@ -109,41 +106,40 @@ class VendorHandler {
 		$users      = get_users( $users_args );
 
 		foreach ( $users as $user ) {
-			if ( in_array( 'pending_vendor', (array) $user->roles ) ) {
+			if ( in_array( 'pending_vendor', (array) $user->roles, true ) ) {
 				$user->remove_role( 'pending_vendor' );
 				$user->set_role( 'subscriber' );
 			}
 		}
-		$this->throw_message( __( 'Denied all selected vendor', 'wcv-vendors' ), 'success' );
+		$this->throw_message( __( 'Denied all selected vendor', 'wc-vendors' ), 'success' );
 		return true;
 	}
 	/**
 	 * Approve single vendor
 	 *
-	 * @param int $vendor_id
+	 * @param Vendor $vendor_id Vendor ID.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
 	 */
-
 	public function approve( $vendor_id ) {
 		$user      = new WP_User( $vendor_id );
 		$user_role = $user->roles;
 
-		if ( in_array( 'pending_vendor', $user_role ) ) {
+		if ( in_array( 'pending_vendor', $user_role, true ) ) {
 			$user->remove_role( 'pending_vendor' );
 			$user->set_role( 'vendor' );
-			$this->throw_message( __( sprintf( 'Approved %s', $user->user_nicename ), 'wcv-vendors' ), 'success' );
+			$this->throw_message( /* translators: Notice approve success. */ sprintf( __( 'Approved %s', 'wc-vendors' ), $user->user_nicename ), 'success' );
 			return true;
 		}
 
-		$this->throw_message( __( sprintf( 'Cannot approve %s', $user->user_nicename ), 'wcv-vendors' ), 'error' );
+		$this->throw_message( /* translators: Notice approve success. */ sprintf( __( 'Cannot approve %s', 'wc-vendors' ), $user->user_nicename ), 'error' );
 		return false;
 	}
 	/**
 	 * Hanlde bulk approve vendor
 	 *
-	 * @param array $vendor_ids
+	 * @param Vendors $vendor_ids Vendor IDs.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
@@ -155,24 +151,23 @@ class VendorHandler {
 		$users      = get_users( $users_args );
 
 		foreach ( $users as $user ) {
-			if ( in_array( 'pending_vendor', (array) $user->roles ) ) {
+			if ( in_array( 'pending_vendor', (array) $user->roles, true ) ) {
 				$user->remove_role( 'pending_vendor' );
 				$user->set_role( 'vendor' );
 			}
 		}
-		$this->throw_message( __( 'Approved all selected vendor', 'wcv-vendors' ), 'success' );
+		$this->throw_message( __( 'Approved all selected vendor', 'wc-vendors' ), 'success' );
 		return true;
 	}
 
 	/**
 	 * Disable single vendor
 	 *
-	 * @param int $vendor_id
+	 * @param Vendor $vendor_id Vendor ID.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
 	 */
-
 	public function disable( $vendor_id ) {
 		$is_vendor_enabled = get_user_meta( absint( $vendor_id ), 'is_vendor_enabled', true );
 
@@ -187,17 +182,16 @@ class VendorHandler {
 	/**
 	 * Handle bulk disable vendor
 	 *
-	 * @param array $vendor_ids
+	 * @param Vendors $vendor_ids Vendor IDs.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
 	 */
-
 	public function bulk_disable( $vendor_ids ) {
 		foreach ( $vendor_ids as $id ) {
 			$this->disable( $id );
 		}
-		$this->throw_message( __( 'Disable all selected vendor', 'wcv-vendors' ), 'success' );
+		$this->throw_message( __( 'Disable all selected vendor', 'wc-vendors' ), 'success' );
 		return true;
 	}
 
@@ -206,9 +200,7 @@ class VendorHandler {
 	 *
 	 * @since 3.0.0
 	 * @version 1.0.0
-	 * @return bool
 	 */
-
 	public function toogle_enable() {
 		if ( ! check_ajax_referer( 'wcv_toogle_vendor_nonce', 'security', false ) ) {
 			wp_send_json_error( 'Invalid security token sent.' );
@@ -226,7 +218,7 @@ class VendorHandler {
 			$result = $this->disable( $vendor_id );
 		}
 
-		echo $result;
+		echo esc_html( $result );
 
 		wp_die();
 	}
@@ -234,12 +226,11 @@ class VendorHandler {
 	/**
 	 * Enable single vendor
 	 *
-	 * @param string $vendor_id
+	 * @param Vendor $vendor_id Vendor ID.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
 	 */
-
 	public function enable( $vendor_id ) {
 		$is_vendor_enabled = get_user_meta( absint( $vendor_id ), 'is_vendor_enabled', true );
 
@@ -254,43 +245,39 @@ class VendorHandler {
 	/**
 	 * Handle bulk enable vendor
 	 *
-	 * @param array $vendor_ids
+	 * @param Vendors $vendor_ids .
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
 	 */
-
 	public function bulk_enable( $vendor_ids ) {
 		foreach ( $vendor_ids as $id ) {
 			$this->enable( $id );
 		}
-		$this->throw_message( __( 'Enable all selected vendor', 'wcv-vendors' ), 'success' );
+		$this->throw_message( __( 'Enable all selected vendor', 'wc-vendors' ), 'success' );
 		return true;
 	}
 
 	/**
 	 * Display message
 	 *
-	 * @param string $message
-	 * @param string $type type of WordPress notice
+	 * @param String $message message to show.
+	 * @param String $type type of WordPress notice.
 	 * @since 3.0.0
 	 * @version 1.0.0
-	 * @return string
 	 */
-
 	public function throw_message( $message = '', $type = 'success' ) {
-		echo sprintf( '<div class="notice notice-%s is-dismissible"><p><strong>%s</strong></p></div>', $type, $message );
+		echo sprintf( '<div class="notice notice-%s is-dismissible"><p><strong>%s</strong></p></div>', esc_attr( $type ), esc_html( $message ) );
 	}
 
 	/**
 	 * Check if user exists
 	 *
-	 * @param int $user_id
+	 * @param Interger $user_id id of user.
 	 * @since 3.0.0
 	 * @version 1.0.0
 	 * @return bool
 	 */
-
 	public function user_id_exists( $user_id ) {
 		global $wpdb;
 		$count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(ID) FROM $wpdb->users WHERE ID = %d", $user_id ) );

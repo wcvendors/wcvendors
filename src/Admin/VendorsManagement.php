@@ -10,7 +10,16 @@ namespace WCVendors\Admin;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+/**
+ * VendorsManagement
+ */
 class VendorsManagement {
+	/**
+	 * Output of Vendors table
+	 *
+	 * @return bool
+	 */
 	public static function output() {
 		$vendors_mamagement_table = new VendorsManagementTable();
 		$vendors_mamagement_table->prepare_items();

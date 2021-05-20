@@ -15,7 +15,16 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
 	include_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
+/**
+ * VendorsManagementTable
+ * All function for Vendors table
+ */
 class VendorsManagementTable extends \WP_List_Table {
+	/**
+	 * __construct
+	 *
+	 * @return void
+	 */
 	public function __construct() {
 		parent::__construct(
 			array(
@@ -39,23 +48,22 @@ class VendorsManagementTable extends \WP_List_Table {
 	}
 
 	/**
-	 *
 	 * Get all vendor
 	 *
 	 * @since 1.0.0
 	 * @version 1.0.0
-	 * @param mixed
+	 * @param Integer $page_number Number of current page.
+	 * @param Integer $per_page Number of item per page.
 	 * @return array
 	 */
-
 	private function get_vendors( $page_number = 1, $per_page = 1 ) {
 		global $wpdb;
 
 		$offset        = ( $page_number - 1 ) * $per_page;
-		$order         = isset( $_REQUEST['order'] ) ? trim( $_REQUEST['order'] ) : '';
-		$orderby       = isset( $_REQUEST['orderby'] ) ? trim( $_REQUEST['orderby'] ) : '';
-		$search_term   = isset( $_REQUEST['s'] ) ? trim( $_REQUEST['s'] ) : '';
-		$vendor_status = isset( $_REQUEST['vendor_status'] ) ? ( $_REQUEST['vendor_status'] ) : '';
+		$order         = isset( $_GET['order'] ) ? sanitize_text_field( wp_unslash( $_GET['order'] ) ) : '';
+		$orderby       = isset( $_GET['orderby'] ) ? sanitize_text_field( wp_unslash( $_GET['orderby'] ) ) : '';
+		$search_term   = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
+		$vendor_status = isset( $_GET['vendor_status'] ) ? sanitize_text_field( wp_unslash( $_GET['vendor_status'] ) ) : '';
 
 		$roles = $this::get_vendor_roles();
 
@@ -132,7 +140,6 @@ class VendorsManagementTable extends \WP_List_Table {
 	/**
 	 * Prepare items for table
 	 *
-	 * @access public
 	 * @since 3.0.0
 	 * @version  1.0.0
 	 * @return bool
@@ -166,7 +173,7 @@ class VendorsManagementTable extends \WP_List_Table {
 	 *
 	 * @since 3.0.0
 	 * @version 1.0.0
-	 * @param  $item
+	 * @param Object $item data for column callback.
 	 * @return string
 	 */
 	public function column_cb( $item ) {
@@ -202,8 +209,8 @@ class VendorsManagementTable extends \WP_List_Table {
 	 *
 	 * @since 3.0.0
 	 * @version 1.0.0
-	 * @param  array  $item
-	 * @param  string $columns_name
+	 * @param  Array  $item data for column default.
+	 * @param  String $columns_name each column name.
 	 * @return string
 	 */
 	public function column_default( $item, $columns_name ) {
@@ -238,15 +245,17 @@ class VendorsManagementTable extends \WP_List_Table {
 
 		if ( isset( $_REQUEST['_wpnonce'] ) && ! empty( $_REQUEST['_wpnonce'] ) ) {
 
-			if ( isset( $_REQUEST['action2'] ) && isset( $_REQUEST['action'] ) && $_REQUEST['action'] !== '-1' ) {
+			if ( isset( $_REQUEST['action2'] ) && isset( $_REQUEST['action'] ) && '-1' !== $_REQUEST['action'] ) {
 
 				$nonce = filter_input( INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING );
 
 				if ( ! wp_verify_nonce( $nonce, 'bulk-' . $this->_args['plural'] ) ) {
 					wp_die( 'Nope! Security check failed!' );
 				}
-				$vendor_ids = isset( $_REQUEST[ $this->_args['singular'] ] ) ? $_REQUEST[ $this->_args['singular'] ] : '';
-				$action     = $this->current_action();
+
+				$vendor_ids = isset( $_REQUEST[ $this->_args['singular'] ] ) ? array_map( 'absint', $_REQUEST[ $this->_args['singular'] ] ) : '';
+
+				$action = $this->current_action();
 
 				if ( ! is_array( $vendor_ids ) ) {
 					do_action( 'wcvendors_throw_message', 'Please select vendor for this action', 'warning' );
@@ -281,7 +290,7 @@ class VendorsManagementTable extends \WP_List_Table {
 					wp_die( 'Nope! Security check failed!' );
 				}
 				$action    = $this->current_action();
-				$vendor_id = isset( $_REQUEST['vendor_id'] ) ? $_REQUEST['vendor_id'] : '';
+				$vendor_id = isset( $_REQUEST['vendor_id'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['vendor_id'] ) ) : '';
 
 				switch ( $action ) {
 
@@ -326,10 +335,9 @@ class VendorsManagementTable extends \WP_List_Table {
 	 *
 	 * @since 3.0.0
 	 * @version 1.0.0
-	 * @return string
 	 */
 	public function no_items() {
-		_e( 'No vendor avaliable.', 'wc-vendors' );
+		_esc_html_e( 'No vendor avaliable.', 'wc-vendors' );
 	}
 
 	/**
@@ -337,18 +345,19 @@ class VendorsManagementTable extends \WP_List_Table {
 	 *
 	 * @since 3.0.0
 	 * @version 1.0.0
-	 * @param array $item an array of DB data
+	 * @param Array $item an array of DB data.
 	 *
 	 * @return string
 	 */
-	function column_user_nicename( $item ) {
+	public function column_user_nicename( $item ) {
 
 		$action_nonce = wp_create_nonce( 'vendor_action_nonce' );
+		$page         = isset( $_GET['page'] ) ? filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) : '';
 		$actions      = array(
-			'delete'         => sprintf( '<a href="?page=%s&action=%s&vendor_id=%s&_wpnonce=%s">Delete</a>', esc_attr( $_REQUEST['page'] ), 'delete', absint( $item['ID'] ), $action_nonce ),
-			'edit'           => sprintf( '<a href="%s?user_id=%s&">Edit</a>', admin_url() . 'user-edit.php', absint( $item['ID'] ) ),
-			'approve_vendor' => sprintf( '<a href="?page=%s&action=%s&vendor_id=%s&_wpnonce=%s">Approve</a>', esc_attr( $_REQUEST['page'] ), 'approve_vendor', absint( $item['ID'] ), $action_nonce ),
-			'deny_vendor'    => sprintf( '<a href="?page=%s&action=%s&vendor_id=%s&_wpnonce=%s">Deny</a>', esc_attr( $_REQUEST['page'] ), 'deny_vendor', absint( $item['ID'] ), $action_nonce ),
+			'delete'         => sprintf( '<a href="?page=%s&action=%s&vendor_id=%s&_wpnonce=%s">Delete</a>', esc_attr( $page ), 'delete', absint( $item['ID'] ), $action_nonce ),
+			'edit'           => sprintf( '<a href="%s?user_id=%s&">Edit</a>', admin_url() . 'user-edit.php', $item['ID'] ),
+			'approve_vendor' => sprintf( '<a href="?page=%s&action=%s&vendor_id=%s&_wpnonce=%s">Approve</a>', esc_attr( $page ), 'approve_vendor', absint( $item['ID'] ), $action_nonce ),
+			'deny_vendor'    => sprintf( '<a href="?page=%s&action=%s&vendor_id=%s&_wpnonce=%s">Deny</a>', esc_attr( $page ), 'deny_vendor', absint( $item['ID'] ), $action_nonce ),
 		);
 
 		return $item['user_nicename'] . $this->row_actions( $actions );
@@ -357,13 +366,12 @@ class VendorsManagementTable extends \WP_List_Table {
 	/**
 	 * Defines the hidden columns
 	 *
-	 * @access public
 	 * @since 1.0.0
 	 * @version 1.0.0
 	 * @return array $columns
 	 */
 	public function get_hidden_columns() {
-		// get user hidden columns
+		// get user hidden columns.
 		$hidden = get_hidden_columns( $this->screen );
 
 		$new_hidden = array();
@@ -403,7 +411,7 @@ class VendorsManagementTable extends \WP_List_Table {
 	 * @return array of views
 	 */
 	public function get_views() {
-		$page  = esc_attr( $_REQUEST['page'] );
+		$page  = isset( $_GET['page'] ) ? esc_attr( absint( $_GET['page'] ) ) : 0;
 		$views = array(
 			'all'      => sprintf( '<li class="all"><a href="' . admin_url( 'admin.php?page=%s' ) . '">' . __( 'All', 'wc-vendors' ) . '</a></li>', $page ),
 			'accepted' => sprintf( '<li class="all"><a href="' . admin_url( 'admin.php?page=%s&vendor_status=approved' ) . '">' . __( 'Approved Vendors', 'wc-vendors' ) . '</a></li>', $page ),
