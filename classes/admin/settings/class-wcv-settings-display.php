@@ -70,8 +70,8 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 						array(
 							'title'    => __( 'Product Page Stylesheet', 'wc-vendors' ),
-							'desc'     => sprintf( __( 'You can add CSS in this textarea, which will be loaded on the product add/edit page for %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
-							'desc_tip' => sprintf( __( 'This enables the sold by labels used to show which %s shop the product belongs to', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'desc'     => sprintf( __( 'You can add CSS in this textarea, which will be loaded on the WooCommerce product edit page for %s in the WordPress admin.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'desc_tip' => sprintf( __( 'This will output custom CSS on the product edit page ', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'       => 'wcvendors_display_advanced_stylesheet',
 							'css'      => 'width: 700px;min-height:100px',
 							'default'  => '',
