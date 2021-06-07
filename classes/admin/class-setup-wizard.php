@@ -43,7 +43,9 @@ class WCVendors_Admin_Setup_Wizard {
 	 */
 	public function __construct() {
 
-		if ( apply_filters( 'wcv_enable_setup_wizard', true ) && current_user_can( 'manage_woocommerce' ) ) {
+		$enable_setup_wizard = apply_filters_deprecated( 'wcv_enable_setup_wizard', array( true ), '2.3.0', 'wcvendors_enable_setup_wizard' );
+		$enable_setup_wizard = apply_filters( 'wcvendors_enable_setup_wizard', $enable_setup_wizard );
+		if ( $enable_setup_wizard && current_user_can( 'manage_woocommerce' ) ) {
 			add_action( 'admin_menu', array( $this, 'admin_menus' ) );
 			add_action( 'admin_init', array( $this, 'setup_wizard' ) );
 			add_action( 'admin_head', array( $this, 'hide_setup_wizard' ) );
@@ -97,7 +99,8 @@ class WCVendors_Admin_Setup_Wizard {
 			),
 		);
 
-		$this->steps = apply_filters( 'wcv_setup_wizard_steps', $default_steps );
+		$this->steps = apply_filters_deprecated( 'wcv_setup_wizard_steps', array( $default_steps ), '2.3.0', 'wcvendors_setup_wizard_steps' );
+		$this->steps = apply_filters( 'wcvendors_setup_wizard_steps', $this->steps );
 		$this->step  = isset( $_GET['step'] ) ? sanitize_key( $_GET['step'] ) : current( array_keys( $this->steps ) );
 		$suffix      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 

@@ -219,7 +219,8 @@ if ( ! function_exists( 'wcv_get_sold_by_link' )  ){
 			? sprintf( '<a href="%s" %s>%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), $class, WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 
-		return apply_filters( 'wcv_sold_by_link', $sold_by, $vendor_id );
+		$sold_by = apply_filters_deprecated( 'wcv_sold_by_link', array( $sold_by, $vendor_id ), '2.3.0', 'wcvendors_sold_by_link' );
+		return apply_filters( 'wcvendors_sold_by_link', $sold_by, $vendor_id );
 
 	}
 }

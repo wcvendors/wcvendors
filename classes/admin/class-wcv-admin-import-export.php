@@ -70,7 +70,8 @@ class WCV_Admin_Import_Export {
 		// column slug => column name
 		$options['vendor_id'] = __( 'Vendor ID', 'wc-vendors');
 
-		return apply_filters( 'wcv_csv_product_import_mapping_options', $options );
+		$options =  apply_filters_deprecated( 'wcv_csv_product_import_mapping_options', array( $options ), '2.3.0', 'wcvendors_csv_product_import_mapping_options' );
+		return apply_filters( 'wcvendors_csv_product_import_mapping_options', $options );
 	}
 
 	/**
