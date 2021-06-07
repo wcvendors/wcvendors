@@ -7,4 +7,25 @@
 		}
 	});
 
+	$( '.delete_commission' ).each( function( i, commission) {
+		$(commission).on( 'click', function(e) {
+			if( ! window.confirm( wcv_admin_commissions_params.confirm_delete_commission ) ){
+				e.preventDefault();
+			}
+		});
+	});
+
+	$( '#posts-filter' ).on( 'submit', function(e) {
+		 
+		const action = document.getElementById( 'bulk-action-selector-top' );
+		const action_value = action.value;
+
+		if( 'delete' === action_value ) {
+			if( ! window.confirm( wcv_admin_commissions_params.confirm_delete_commission ) ) {
+				
+				e.preventDefault();
+			}
+		}
+	});
+
 })( jQuery );
