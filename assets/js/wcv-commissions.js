@@ -7,5 +7,4 @@ jQuery(function(){
   		 allowClear: wcv_commissions_select.allowclear
   	}
   	);
-
 });

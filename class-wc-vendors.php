@@ -330,7 +330,14 @@ if ( wcv_is_woocommerce_activated() ) {
 					break;
 				case 'wc-vendors_page_wcv-commissions':
 					wp_register_script( 'wcv_admin_commissions', wcv_assets_url . 'js/admin/wcv-admin-commissions.js', array( 'jquery' ), WCV_VERSION , true );
-					$param_args = apply_filters( 'wcv_admin_commissions_params', array( 'confirm_prompt' => __( 'Are you sure you want mark all commissions paid?', 'wc-vendors' ) ) );
+					$param_args = apply_filters(
+						'wcv_admin_commissions_params',
+						array(
+							'confirm_prompt' => __( 'Are you sure you want mark all commissions paid?', 'wc-vendors' ),
+							'confirm_delete_commission' => __( 'Are you sure delete this commission?', 'wc-vendors' ),
+							'confirm_bulk_delete_commission' => __( 'Are you sure delete these commissions?', 'wc-vendors' ),
+						)
+					);
 					wp_localize_script( 'wcv_admin_commissions', 'wcv_admin_commissions_params', $param_args );
 					wp_enqueue_script( 'wcv_admin_commissions' );
 					break;
