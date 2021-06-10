@@ -20,7 +20,7 @@
 		const action_value = action.value;
 
 		if( 'delete' === action_value ) {
-			if( ! window.confirm( wcv_admin_commissions_params.confirm_delete_commission ) ) {
+			if( ! window.confirm( wcv_admin_commissions_params.confirm_bulk_delete_commission ) ) {
 				
 				e.preventDefault();
 			}
