@@ -165,13 +165,15 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 
 		$action_nonce = wp_create_nonce( 'delete_commission_nonce' );
 		$page         = isset( $_GET['page'] ) ? filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) : '';
+		$paged        = isset( $_GET['paged'] ) ? filter_input( INPUT_GET, 'paged', FILTER_SANITIZE_STRING ) : 1;
 		$actions      = array(
 			'delete' => sprintf(
-				'<a class="delete_commission" href="?page=%s&action=%s&id[]=%s&_wpnonce=%s">Delete</a>',
+				'<a class="delete_commission" href="?page=%s&action=%s&id[]=%s&_wpnonce=%s&paged=%s">Delete</a>',
 				esc_attr( $page ),
 				'delete',
 				absint( $item->id ),
-				$action_nonce
+				$action_nonce,
+				$paged
 			),
 		);
 		if ( $order ) {
@@ -409,8 +411,8 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 	public function vendor_dropdown( $post_type ) {
 
 		$selectbox_args = array(
-			'id'          => 'vendor_id',
-			'placeholder' => sprintf( __( 'Filer by %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+			'id'          => 'vendor_id', /* translators: Filter by terms*/
+			'placeholder' => sprintf( __( 'Filter by %s', 'wc-vendors' ), wcv_get_vendor_name() ),
 		);
 
 		if ( isset( $_GET['vendor_id'] ) ) {
