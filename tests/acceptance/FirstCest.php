@@ -19,5 +19,8 @@ class FirstCest
 		$I->fillField('#password', 'Invalidpassword');
 		$I->click('Log in');
 		$I->waitForText('Error: The password you entered for the username admin is incorrect. Lost your password?', 300);
+		$I->fillField('#password', '123456');
+		$I->click('Log in');
+		$I->waitForText('Hello admin (not admin? Log out)', 100);
     }
 }
