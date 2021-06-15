@@ -3,6 +3,8 @@
  * Cron class
  *
  * @package WC_Vendors
+ * @deprecated 1.9 
+ * 
  */
 
 
@@ -18,12 +20,9 @@ class WCV_Cron {
 		if ( $settings && array_key_exists('username_live', $settings ) && $settings[ 'username_live' ] !== '' ) {
 			add_filter( 'cron_schedules'                  , array( 'WCV_Cron', 'custom_cron_intervals' ) );
 			add_action( 'wcvendors_settings_save_payments', array( 'WCV_Cron', 'check_schedule'        ) );
-
 			add_filter( 'wcvendors_admin_settings_sanitize_option_wcvendors_payments_paypal_schedule', array( 'WCV_Cron', 'check_schedule_now' ) );
 		}
-
-		
-		// add_filter( WC_Vendors::$id . '_options_on_update', array( 'WCV_Cron', 'check_schedule_now' ) );
+	
 	}
 
 
