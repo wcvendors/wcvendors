@@ -173,7 +173,7 @@ if ( ! class_exists( 'WCVendors_Settings_Capabilities', false ) ) :
 						),
 
 						array(
-							'title'   => __( 'Add Order notes', 'wc-vendors' ),
+							'title'   => __( 'Add Order Notes', 'wc-vendors' ),
 							'desc'    => sprintf( __( 'Allow %s to add order notes.', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 							'id'      => 'wcvendors_capability_order_update_notes',
 							'default' => 'yes',
