@@ -375,7 +375,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 
 		$selectbox_args = array(
 			'id'          => 'vendor_id',
-			'placeholder' => sprintf( __( 'Filer by %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+			'placeholder' => sprintf( __( 'Filter by %s', 'wc-vendors' ), wcv_get_vendor_name() ),
 		);
 
 		if ( isset( $_GET['vendor_id'] ) ) {
