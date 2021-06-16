@@ -236,6 +236,9 @@ class WCV_Vendor_Dashboard {
 		ob_start();
 
 		global $start_date, $end_date;
+		
+		// WC 3.6+ - Cart and other frontend functions are not included for REST requests.
+		include_once WC()->plugin_path() . '/includes/wc-notice-functions.php';
 
 		// Need to check if the session exists and if it doesn't create it 
 		if ( null === WC()->session ) {
