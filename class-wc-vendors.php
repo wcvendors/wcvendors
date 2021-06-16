@@ -45,7 +45,7 @@
  */
 function wc_vendors_wc_missing_notice() {
 	/* translators: %s WooCommerce download URL link. */
-	echo '<div class="error"><p><strong>' . sprintf( esc_html__(  'WC Vendors Marketplace requires WooCommerce to run. You can download %s here.', 'wc-vendors' ), '<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a>' ) . '</strong></p></div>';
+	echo '<div class="error"><p><strong>' . sprintf( esc_html__( 'WC Vendors Marketplace requires WooCommerce to run. You can download %s here.', 'wc-vendors' ), '<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a>' ) . '</strong></p></div>';
 }
 
 /**
@@ -129,19 +129,19 @@ if ( wcv_is_woocommerce_activated() ) {
 
 			// Install & upgrade
 			add_action( 'admin_init', array( $this, 'check_install' ) );
-			add_action( 'init'      , array( $this, 'maybe_flush_permalinks' ), 99 );
+			add_action( 'init', array( $this, 'maybe_flush_permalinks' ), 99 );
 			add_action( 'admin_init', array( $this, 'wcv_required_ignore_notices' ) );
 
 			add_action( 'wcvendors_flush_rewrite_rules', array( $this, 'flush_rewrite_rules' ) );
 
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_core' ) );
-			add_action( 'init'          , array( $this, 'include_init' ) );
+			add_action( 'init', array( $this, 'include_init' ) );
 			add_action( 'current_screen', array( $this, 'include_assets' ) );
 
 			// // Legacy settings
-			add_action( 'admin_init'    , array( 'WCVendors_Install', 'check_pro_version' ) );
-			add_action( 'plugins_loaded', array( $this              , 'load_legacy_settings' ) );
+			add_action( 'admin_init', array( 'WCVendors_Install', 'check_pro_version' ) );
+			add_action( 'plugins_loaded', array( $this, 'load_legacy_settings' ) );
 
 			// Show update notices
 			$file   = basename( __FILE__ );
@@ -150,7 +150,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( $hook, array( $this, 'show_upgrade_notification' ), 10, 2 );
 
 			// Add become a vendor rewrite endpoint
-			add_action( 'init'              , array( $this, 'add_rewrite_endpoint' ) );
+			add_action( 'init', array( $this, 'add_rewrite_endpoint' ) );
 			add_action( 'after_switch_theme', array( $this, 'flush_rewrite_rules' ) );
 		}
 
@@ -329,13 +329,25 @@ if ( wcv_is_woocommerce_activated() ) {
 					);
 					break;
 				case 'wc-vendors_page_wcv-commissions':
-					wp_register_script( 'wcv_admin_commissions', wcv_assets_url . 'js/admin/wcv-admin-commissions.js', array( 'jquery' ), WCV_VERSION , true );
-					$param_args = apply_filters( 'wcv_admin_commissions_params', array( 'confirm_prompt' => __( 'Are you sure you want mark all commissions paid?', 'wc-vendors' ) ) );
+					wp_register_script( 'wcv_admin_commissions', wcv_assets_url . 'js/admin/wcv-admin-commissions.js', array( 'jquery' ), WCV_VERSION, true );
+					$param_args = apply_filters_deprecated(
+						'wcv_admin_commissions_params',
+						array(
+							array(
+								'confirm_prompt' => __( 'Are you sure you want mark all commissions paid?', 'wc-vendors' ),
+								'confirm_delete_commission' => __( 'Are you sure delete this commission?', 'wc-vendors' ),
+								'confirm_bulk_delete_commission' => __( 'Are you sure delete these commissions?', 'wc-vendors' ),
+							),
+						),
+						'2.3.0',
+						'wcvendors_admin_commissions_params',
+					);
+					$param_args = apply_filters( 'wcvendors_admin_commissions_params', $param_args );
 					wp_localize_script( 'wcv_admin_commissions', 'wcv_admin_commissions_params', $param_args );
 					wp_enqueue_script( 'wcv_admin_commissions' );
 					break;
 				default:
-					# code...
+					// code...
 					break;
 			}
 
@@ -461,7 +473,7 @@ if ( wcv_is_woocommerce_activated() ) {
 
 	$wc_vendors = new WC_Vendors();
 
-} else { 
+} else {
 	if ( ! class_exists( 'WooCommerce' ) ) {
 		add_action( 'admin_notices', 'wc_vendors_wc_missing_notice' );
 		return;

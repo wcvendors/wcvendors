@@ -42,7 +42,8 @@ function wcv_get_vendor_name( $singluar = true, $upper_case = true ) {
 	$vendor_label = $singluar ? __( $vendor_singular, 'wc-vendors' ) : __( $vendor_plural, 'wc-vendors' );
 	$vendor_label = $upper_case ? ucfirst( $vendor_label ) : lcfirst( $vendor_label );
 
-	return apply_filters( 'wcv_vendor_display_name', $vendor_label, $vendor_singular, $vendor_plural, $singluar, $upper_case );
+	$vendor_label = apply_filters_deprecated( 'wcv_vendor_display_name', array( $vendor_label, $vendor_singular, $vendor_plural, $singluar, $upper_case), '2.3.0', 'wcvendors_vendor_display_name' );
+	return apply_filters( 'wcvendors_vendor_display_name', $vendor_label, $vendor_singular, $vendor_plural, $singluar, $upper_case );
 
 }
 
@@ -86,7 +87,8 @@ function wcv_get_dashboard_nav_item_classes( $item_id ) {
 
 	$classes = array( 'button' );
 
-	$classes = apply_filters( 'wcv_dashboard_nav_item_classes', $classes, $item_id );
+	$classes = apply_filters_deprecated( 'wcv_dashboard_nav_item_classes', array( $classes, $item_id ), '2.3.0', 'wcvendors_dashboard_nav_item_classes' );
+	$classes = apply_filters( 'wcvendors_dashboard_nav_item_classes', $classes, $item_id );
 
 	return implode( ' ', array_map( 'sanitize_html_class', $classes ) );
 }
@@ -107,7 +109,8 @@ if ( !function_exists( 'wcv_vendor_drop_down_options' ) ){
 			$select = selected( $user->ID, $vendor_id, false );
 			$output .= "<option value='$user->ID' $select>$display_name</option>";
 		}
-		return apply_filters('wcv_vendor_drop_down_options', $output );
+		$output = apply_filters_deprecated( 'wcv_vendor_drop_down_options', array( $output ), '2.3.0', 'wcvendors_vendor_drop_down_options' );
+		return apply_filters( 'wcvendors_vendor_drop_down_options', $output );
 	}
 }
 

@@ -30,7 +30,9 @@ class WCV_Product_Meta {
 		add_action( 'wp_dropdown_users', array( $this, 'author_vendor_roles' ), 0, 1 );
 		add_action( 'restrict_manage_posts', array( $this, 'restrict_manage_posts' ), 12 );
 
-		if ( apply_filters( 'wcv_product_commission_tab', true ) ) {
+		$product_commission_tab = apply_filters_deprecated( 'wcv_product_commission_tab', array( true ), '2.3.0', 'wcvendors_product_commission_tab' );
+		$product_commission_tab = apply_filters( 'wcvendors_product_commission_tab', $product_commission_tab );
+		if ( $product_commission_tab ) {
 			add_action( 'woocommerce_product_write_panel_tabs', array( $this, 'add_tab' ) );
 			add_action( 'woocommerce_product_data_panels'     , array( $this, 'add_panel' ) );
 			add_action( 'woocommerce_process_product_meta'    , array( $this, 'save_panel' ) );
@@ -213,7 +215,8 @@ class WCV_Product_Meta {
 		 *
 		 * @param array $args The arguments to be filtered.
 		 */
-		$args = apply_filters( 'wcv_vendor_selectbox_args', $args );
+		$args = apply_filters_deprecated( 'wcv_vendor_selectbox_args', array( $args ), '2.3.0', 'wcvendors_vendor_selectbox_args' );
+		$args = apply_filters( 'wcvendors_vendor_selectbox_args', $args );
 
 		extract( $args );
 
@@ -232,7 +235,8 @@ class WCV_Product_Meta {
 		 *
 		 * @param array $user_args The arguments to be filtered.
 		 */
-		$user_args = apply_filters( 'wcv_vendor_selectbox_user_args',  $user_args );
+		$user_args = apply_filters_deprecated( 'wcv_vendor_selectbox_user_args',  array( $user_args ), '2.3.0', 'wcvendors_vendor_selectbox_user_args' );
+		$user_args = apply_filters( 'wcvendors_vendor_selectbox_user_args',  $user_args );
 		$users = get_users( $user_args );
 
 		$output = "<select style='width:200px;' name='$id' id='$id' class='wcv-vendor-select $class'>\n";
@@ -250,7 +254,8 @@ class WCV_Product_Meta {
 			$output .= '</label></p>';
         }
 
-		return apply_filters( 'wcv_vendor_selectbox', $output, $user_args, $media );
+		$output = apply_filters_deprecated( 'wcv_vendor_selectbox', array( $output, $user_args, $media ), '2.3.0', 'wcvendors_vendor_selectbox' );
+		return apply_filters( 'wcvendors_vendor_selectbox', $output, $user_args, $media );
 	}
 
 	/**

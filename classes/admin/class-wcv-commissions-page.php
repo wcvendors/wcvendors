@@ -96,7 +96,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 					$order = wc_get_order( $item->order_id );
 					if ( $order ) {
 						foreach ( $order->get_items() as $item_id => $items ) {
-							if( $product_id == wc_get_order_item_meta( $item_id, '_product_id', true) ) {
+							if ( $product_id == wc_get_order_item_meta( $item_id, '_product_id', true ) ) {
 								$product_url = $items->get_name();
 							}
 						}
@@ -116,17 +116,17 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 				return $item->status;
 			case 'time':
 				return date_i18n( get_option( 'date_format' ), strtotime( $item->time ) );
-			case 'shipped': 
+			case 'shipped':
 				$order = wc_get_order( $item->order_id );
 				if ( $order ) {
-					$shipped = get_post_meta( $order->get_id(), 'wc_pv_shipped', true ); 
-					$has_shipped = ! empty( $shipped ) && in_array( $item->vendor_id, $shipped ) ? __( 'Yes', 'wc-vendors' ) : __( 'No', 'wc-vendors'); 
+					$shipped     = get_post_meta( $order->get_id(), 'wc_pv_shipped', true );
+					$has_shipped = ! empty( $shipped ) && in_array( $item->vendor_id, $shipped ) ? __( 'Yes', 'wc-vendors' ) : __( 'No', 'wc-vendors' );
 					return $has_shipped;
 				} else {
 					return '-';
 				}
-			default: 
-				$value = ''; 
+			default:
+				$value = '';
 				return apply_filters( 'wcvendors_commissions_column_default_' . $column_name, $value, $item, $column_name );
 		}
 	}
@@ -152,6 +152,42 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 		);
 	}
 
+	/**
+	 * Add delete action to commission row .
+	 *
+	 * @param  Object $item .
+	 * @return  String
+	 */
+	public function column_order_id( $item ) {
+
+		$order           = wc_get_order( $item->order_id );
+		$order_edit_link = $order ? $order->get_edit_order_url() : $item->order_id;
+
+		$action_nonce = wp_create_nonce( 'delete_commission_nonce' );
+		$page         = isset( $_GET['page'] ) ? filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) : '';
+		$paged        = isset( $_GET['paged'] ) ? filter_input( INPUT_GET, 'paged', FILTER_SANITIZE_STRING ) : 1;
+		$actions      = array(
+			'delete' => sprintf(
+				'<a class="delete_commission" href="?page=%s&action=%s&id[]=%s&_wpnonce=%s&paged=%s">Delete</a>',
+				esc_attr( $page ),
+				'delete',
+				absint( $item->id ),
+				$action_nonce,
+				$paged
+			),
+		);
+		if ( $order ) {
+			return sprintf(
+				'<a href="%s">%s</a>%s',
+				esc_attr( $order_edit_link ),
+				$item->order_id,
+				$this->row_actions( $actions )
+			);
+		} else {
+			return $item->order_id . $this->row_actions( $actions );
+		}
+
+	}
 
 	/**
 	 * The get_columns function.
@@ -225,10 +261,11 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			'mark_paid'     => __( 'Mark paid', 'wc-vendors' ),
 			'mark_due'      => __( 'Mark due', 'wc-vendors' ),
 			'mark_reversed' => __( 'Mark reversed', 'wc-vendors' ),
-			// 'delete' 		=> __( 'Delete', 'wc-vendors'),
+			'delete'        => __( 'Delete', 'wc-vendors' ),
 		);
 
-		return apply_filters( 'wcv_edit_bulk_actions', $actions, '2.2.2', 'wcvendors_edit_bulk_actions' );
+		$actions = apply_filters_deprecated( 'wcv_edit_bulk_actions', array( $actions, '2.2.2', 'wcvendors_edit_bulk_actions' ), '2.3.0', 'wcvendors_edit_bulk_actions' );
+		return apply_filters( 'wcvendors_edit_bulk_actions', $actions, '2.2.2', 'wcvendors_edit_bulk_actions' );
 	}
 
 
@@ -374,7 +411,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 	public function vendor_dropdown( $post_type ) {
 
 		$selectbox_args = array(
-			'id'          => 'vendor_id',
+			'id'          => 'vendor_id', /* translators: Filter by terms*/
 			'placeholder' => sprintf( __( 'Filter by %s', 'wc-vendors' ), wcv_get_vendor_name() ),
 		);
 
@@ -427,10 +464,16 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 					echo '<div class="updated"><p>' . esc_attr__( 'Commission marked reversed.', 'wc-vendors' ) . '</p></div>';
 				}
 				break;
-
+			case 'delete':
+				$result = $this->delete_commissions( $ids );
+				if ( $result ) {
+					echo '<div class="updated"><p>' . esc_attr__( 'Commission(s) deleted.', 'wc-vendors' ) . '</p></div>';
+				}
+				break;
 			default:
 				// code...
-				do_action( 'wcv_edit_process_bulk_actions', $this->current_action(), $ids );
+				do_action_deprecated( 'wcv_edit_process_bulk_actions', array( $this->current_action(), $ids ), '2.3.0', 'wcvendors_edit_process_bulk_actions' );
+				do_action( 'wcvendors_edit_process_bulk_actions', $this->current_action(), $ids );
 				break;
 		}
 
@@ -496,6 +539,23 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 		return $result;
 	}
 
+	/**
+	 * Handle delete commission(s).
+	 *
+	 * @param  Array $ids .
+	 * @return Bool
+	 */
+	public function delete_commissions( $ids = array() ) {
+
+		global $wpdb;
+		$table_name = $wpdb->prefix . 'pv_commission';
+
+		$query = "DELETE FROM `{$table_name}` WHERE id IN($ids)";
+
+		$result = $wpdb->query( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+
+		return $result;
+	}
 
 	/**
 	 * The function to prepare_items.
@@ -613,7 +673,8 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 			'comm_status'  => $com_status,
 			'vendor_id'    => $vendor_id,
 		);
-		$sql = apply_filters_deprecated( 'wcv_get_commissions_sql', array( $sql, $sql_args ), '2.2.2', 'wcvendors_get_commissions_sql' );
+		$sql      = apply_filters_deprecated( 'wcv_get_commissions_sql', array( $sql, $sql_args ), '2.2.2', 'wcvendors_get_commissions_sql' );
+		$sql      = apply_filters( 'wcvendors_get_commissions_sql', $sql, $sql_args );
 
 		$this->items = $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 

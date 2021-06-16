@@ -79,11 +79,10 @@ if ( function_exists( 'wc_print_notices' ) ) {
 			foreach ( $items as $key => $value ) {
 				if ( in_array( $value['variation_id'], $valid_items ) || in_array( $value['product_id'], $valid_items ) ) {
 					$valid[] = $value;
+					// See if product needs shipping.
+					$product        = wc_get_product( $value['product_id'] );
+					$needs_shipping = ( ! $product->needs_shipping() || $product->is_downloadable( 'yes' ) ) ? $needs_shipping : true;
 				}
-				// See if product needs shipping
-				$product        = new WC_Product( $value['product_id'] );
-				$needs_shipping = ( ! $product->needs_shipping() || $product->is_downloadable( 'yes' ) ) ? false : true;
-
 			}
 
 			$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
@@ -101,8 +100,11 @@ if ( function_exists( 'wc_print_notices' ) ) {
 				<td>
 					<?php
 					$sum    = WCV_Queries::sum_for_orders( array( $order_id ), array( 'vendor_id' => get_current_user_id() ) );
-					$total  = $sum[0]->line_total;
-					$totals += $total;
+					$total = 0;
+					if ( 0 < count( $sum ) ) {
+						$total  = $sum[0]->line_total;
+						$totals += $total;
+					}
 					echo wc_price( $total );
 					?>
 				</td>

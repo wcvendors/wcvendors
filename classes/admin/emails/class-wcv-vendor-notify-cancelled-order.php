@@ -118,7 +118,19 @@ if ( ! class_exists( 'WCVendors_Vendor_Notify_Cancelled_Order' ) ) :
 		 */
 		public function get_content_html() {
 
-			return apply_filters( 'wcv_vendor_notify_order_get_content_html', wc_get_template_html( $this->template_html, array(
+			$this->template_html = apply_filters_deprecated( 'wcv_vendor_notify_order_get_content_html', array( wc_get_template_html( $this->template_html, array(
+				'order'          => $this->object,
+				'vendor_id'      => $this->vendor_id,
+				'vendor_items'   => $this->order_items,
+				'email_heading'  => $this->get_heading(),
+				'totals_display' => $this->totals_display,
+				'sent_to_admin'  => false,
+				'sent_to_vendor' => true,
+				'plain_text'     => false,
+				'email'          => $this,
+			), 'woocommerce', $this->template_base ), $this ), '2.3.0', 'wcvendors_vendor_notify_order_get_content_html' );
+
+			return apply_filters( 'wcvendors_vendor_notify_order_get_content_html', wc_get_template_html( $this->template_html, array(
 				'order'          => $this->object,
 				'vendor_id'      => $this->vendor_id,
 				'vendor_items'   => $this->order_items,
@@ -140,7 +152,19 @@ if ( ! class_exists( 'WCVendors_Vendor_Notify_Cancelled_Order' ) ) :
 		 */
 		public function get_content_plain() {
 
-			return apply_filters( 'wcv_vendor_notify_order_get_content_plain', wc_get_template_html( $this->template_plain, array(
+			$this->template_plain = apply_filters_deprecated( 'wcv_vendor_notify_order_get_content_plain', array( wc_get_template_html( $this->template_plain, array(
+				'order'          => $this->object,
+				'vendor_id'      => $this->vendor_id,
+				'vendor_items'   => $this->order_items,
+				'email_heading'  => $this->get_heading(),
+				'sent_to_admin'  => false,
+				'sent_to_vendor' => true,
+				'totals_display' => $this->totals_display,
+				'plain_text'     => true,
+				'email'          => $this,
+			), 'woocommerce', $this->template_base ), $this ), '2.3.0', 'wcvendors_vendor_notify_order_get_content_plain' );
+
+			return apply_filters( 'wcvendors_vendor_notify_order_get_content_plain', wc_get_template_html( $this->template_plain, array(
 				'order'          => $this->object,
 				'vendor_id'      => $this->vendor_id,
 				'vendor_items'   => $this->order_items,

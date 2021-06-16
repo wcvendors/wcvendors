@@ -237,7 +237,8 @@ class WCV_Vendors {
 
 		// Reset the array keys
 		// $receivers = array_values( $receiver );
-		return apply_filters( 'wcv_vendor_dues', $receiver, $order, $group );
+		$receiver = apply_filters_deprecated( 'wcv_vendor_dues', array( $receiver, $order, $group ), '2.3.0', 'wcvendors_vendor_dues' );
+		return apply_filters( 'wcvendors_vendor_dues', $receiver, $order, $group );
 	}
 
 

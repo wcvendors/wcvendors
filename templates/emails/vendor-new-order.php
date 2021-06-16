@@ -38,7 +38,8 @@ $order_date         = $order->get_date_created();
 	</tr>
 	</thead>
 	<tbody>
-	<?php do_action( 'wcv_after_vendor_new_order_items' ); ?>
+	<?php do_action_deprecated( 'wcv_before_vendor_new_order_items', array(), '2.3.0', 'wcvendors_before_vendor_new_order_items' ); ?>
+	<?php do_action( 'wcvendors_before_vendor_new_order_items' ); ?>
 	<?php
 	echo wc_get_email_order_items(
 		$order, array(
@@ -50,7 +51,8 @@ $order_date         = $order->get_date_created();
 		)
 	);
 	?>
-	<?php do_action( 'wcv_after_vendor_new_order_items' ); ?>
+	<?php do_action_deprecated( 'wcv_after_vendor_new_order_items', array(), '2.3.0', 'wcvendors_after_vendor_new_order_items' ); ?>
+	<?php do_action( 'wcvendors_after_vendor_new_order_items' ); ?>
 	</tbody>
 	<tfoot>
 	<?php
