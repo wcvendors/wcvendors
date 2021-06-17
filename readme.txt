@@ -18,8 +18,8 @@ The original multi-vendor marketplace plugin for WordPress and WooCommerce. Best
 
 = WC Vendors Marketplace plugin for WooCommerce =
 
-- Try our free demo today: [Launch your own demo today](http://www.wcvendors.com/home/demo/?utm_campaign=wporg_details&utm_source=wporg)
-- Learn about WC Vendors Pro: [All the features of WC Vendors Pro](https://www.wcvendors.com/home/features/?utm_campaign=wporg_details&utm_source=wporg)
+- Try our free demo today: [Launch your own demo today](http://www.wcvendors.com/home/demo/?utm_campaign=wporg_details&utm_source=wporg&utm_medium=web)
+- Learn about WC Vendors Pro: [All the features of WC Vendors Pro](https://www.wcvendors.com/home/features/?utm_campaign=wporg_details&utm_source=wporg&utm_medium=web)
 
 = POWERED BY WOOCOMMERCE  =
 
