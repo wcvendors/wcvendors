@@ -69,21 +69,21 @@ if ( ! class_exists( 'WCVendors_Settings_Advanced', false ) ) :
 							'id'    => 'advanced_options',
 						),
 						array(
-							'title'   => __( 'Delete all data', 'wc-vendors' ),
+							'title'   => __( 'Delete All Data', 'wc-vendors' ),
 							'desc'    => __( 'Delete all WC Vendors data when deactivating the plugin.', 'wc-vendors' ),
 							'id'      => 'wcvendors_uninstall_delete_all_data',
 							'default' => 'no',
 							'type'    => 'checkbox',
 						),
 						array(
-							'title'   => __( 'Delete custom table', 'wc-vendors' ),
+							'title'   => __( 'Delete Custom Table', 'wc-vendors' ),
 							'desc'    => __( 'Delete all data included in the custom tables. This will delete all commissions', 'wc-vendors' ),
 							'id'      => 'wcvendors_uninstall_delete_custom_table',
 							'default' => 'no',
 							'type'    => 'checkbox',
 						),
 						array(
-							'title'   => __( 'Delete settings options', 'wc-vendors' ),
+							'title'   => __( 'Delete Settings Options', 'wc-vendors' ),
 							'desc'    => __( 'Delete all plugin options when uninstalling the plugin.', 'wc-vendors' ),
 							'id'      => 'wcvendors_uninstall_delete_settings_options',
 							'default' => 'no',
@@ -97,7 +97,7 @@ if ( ! class_exists( 'WCVendors_Settings_Advanced', false ) ) :
 							'type'    => 'checkbox',
 						),
 						array(
-							'title'   => __( 'Remove custom Roles', 'wc-vendors' ),
+							'title'   => __( 'Remove Custom Roles', 'wc-vendors' ),
 							'desc'    => __( 'Remove custom roles registered by WC Vendors.', 'wc-vendors' ),
 							'id'      => 'wcvendors_uninstall_delete_vendor_roles',
 							'default' => 'no',
