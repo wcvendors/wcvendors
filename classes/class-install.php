@@ -136,6 +136,7 @@ class WCVendors_Install {
 		self::create_roles();
 		self::create_tables();
 		self::create_options();
+		self::create_pages();
 		self::add_install_date();
 		self::maybe_run_setup_wizard();
 		self::update_wcv_version();
