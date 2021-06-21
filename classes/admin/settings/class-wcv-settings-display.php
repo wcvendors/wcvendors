@@ -70,8 +70,8 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 						array(
 							'title'    => __( 'Product Page Stylesheet', 'wc-vendors' ),
-							'desc'     => sprintf( __( 'You can add CSS in this textarea, which will be loaded on the product add/edit page for %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
-							'desc_tip' => sprintf( __( 'This enables the sold by labels used to show which %s shop the product belongs to', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'desc'     => sprintf( __( 'You can add CSS in this textarea, which will be loaded on the WooCommerce product edit page for %s in the WordPress admin.', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'desc_tip' => sprintf( __( 'This will output custom CSS on the product edit page ', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'       => 'wcvendors_display_advanced_stylesheet',
 							'css'      => 'width: 700px;min-height:100px',
 							'default'  => '',
@@ -122,7 +122,7 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
-							'title'    => __( 'Sold by', 'wc-vendors' ),
+							'title'    => __( 'Sold By', 'wc-vendors' ),
 							'desc'     => __( 'Enable sold by labels', 'wc-vendors' ),
 							'desc_tip' => sprintf( __( 'This enables the sold by labels used to show which %s shop the product belongs to', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'       => 'wcvendors_display_label_sold_by_enable',
@@ -131,7 +131,7 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
-							'title'    => __( 'Sold by separator', 'wc-vendors' ),
+							'title'    => __( 'Sold By Separator', 'wc-vendors' ),
 							'desc_tip' => __( 'The sold by separator', 'wc-vendors' ),
 							'id'       => 'wcvendors_label_sold_by_separator',
 							'type'     => 'text',
@@ -139,7 +139,7 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
-							'title'    => __( 'Sold by label', 'wc-vendors' ),
+							'title'    => __( 'Sold By Label', 'wc-vendors' ),
 							'desc_tip' => __( 'The sold by label', 'wc-vendors' ),
 							'id'       => 'wcvendors_label_sold_by',
 							'type'     => 'text',
@@ -147,7 +147,7 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
-							'title'   => sprintf( __( 'Become a %s', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'title'   => sprintf( __( 'Become A %s', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'desc'    => sprintf( __( 'Show the "Become a %s" link on WooCommerce my-account page', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'id'      => 'wcvendors_become_a_vendor_my_account_link_visibility',
 							'default' => 'yes',
@@ -155,7 +155,7 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
-							'title'   => sprintf( __( 'Become a %s label', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'title'   => sprintf( __( 'Become A %s Label', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'desc_tip' => sprintf( __( 'The become a %s label', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'id'       => 'wcvendors_label_become_a_vendor',
 							'type'     => 'text',
@@ -171,7 +171,7 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
-							'title'   => sprintf( __( '%s store info label', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'title'   => sprintf( __( '%s Store Info Label', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'desc'    => sprintf( __( 'The %s store info label', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
 							'id'      => 'wcvendors_display_label_store_info',
 							'type'    => 'text',

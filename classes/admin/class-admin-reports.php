@@ -46,13 +46,13 @@ class WCV_Admin_Reports {
 					'function'    => array( $this, 'sales' ),
 				),
 				array(
-					'title'       => sprintf( __( 'Commission by %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+					'title'       => sprintf( __( 'Commission By %s', 'wc-vendors' ), wcv_get_vendor_name( true, true ) ),
 					'description' => '',
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission' ),
 				),
 				array(
-					'title'       => __( 'Commission by product', 'wc-vendors' ),
+					'title'       => __( 'Commission By Product', 'wc-vendors' ),
 					'description' => '',
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission' ),
@@ -134,7 +134,7 @@ class WCV_Admin_Reports {
 		<div id="poststuff" class="woocommerce-reports-wrap">
 			<div class="woocommerce-reports-sidebar">
 				<div class="postbox">
-					<h3><span><?php _e( 'Total paid in range', 'wc-vendors' ); ?></span></h3>
+					<h3><span><?php _e( 'Total Paid In Range', 'wc-vendors' ); ?></span></h3>
 
 					<div class="inside">
 						<p class="stat">
@@ -149,7 +149,7 @@ class WCV_Admin_Reports {
 					</div>
 				</div>
 				<div class="postbox">
-					<h3><span><?php _e( 'Total due in range', 'wc-vendors' ); ?></span></h3>
+					<h3><span><?php _e( 'Total Due In Range', 'wc-vendors' ); ?></span></h3>
 
 					<div class="inside">
 						<p class="stat">
@@ -164,7 +164,7 @@ class WCV_Admin_Reports {
 					</div>
 				</div>
 				<div class="postbox">
-					<h3><span><?php _e( 'Total reversed in range', 'wc-vendors' ); ?></span></h3>
+					<h3><span><?php _e( 'Total Reversed In Range', 'wc-vendors' ); ?></span></h3>
 
 					<div class="inside">
 						<p class="stat">
