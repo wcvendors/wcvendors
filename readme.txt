@@ -4,12 +4,12 @@ Tags: WooCommerce multivendor marketplace, multivendor marketplace, multi seller
 Donate link: https://www.wcvendors.com/
 Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
-Requires at least: 5.0.0
+Requires at least: 5.3.0
 Requires PHP: 7.2
-Tested up to: 5.7
+Tested up to: 5.7.2
 WC requires at least: 4.0.0
-WC tested up to: 5.2
-Stable tag: 2.2.4
+WC tested up to: 5.4.1
+Stable tag: 2.3.0
 License: GPLv2 or later
 
 The original multi-vendor marketplace plugin for WordPress and WooCommerce. Best support available. 
