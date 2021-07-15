@@ -6,9 +6,9 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.3.0
 Requires PHP: 7.2
-Tested up to: 5.7.2
+Tested up to: 5.8
 WC requires at least: 4.0.0
-WC tested up to: 5.4.1
+WC tested up to: 5.5.1
 Stable tag: 2.3.0
 License: GPLv2 or later
 
