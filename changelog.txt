@@ -1,6 +1,6 @@
 Changelog for WC Vendors Marketplace
 
-Verison 2.3.0 - 14th July 2021
+Verison 2.3.0 - 19th July 2021
 
 * Added: New filter to allow custom order visibilities (#754)
 * Added: Ability to delete commission rows (#765)
