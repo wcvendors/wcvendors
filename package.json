@@ -1,6 +1,6 @@
 {
   "name": "wc-vendors",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "private": true,
   "devDependencies": {
     "cypress": "^3.8.3",
@@ -17,7 +17,7 @@
     "gulp-notify": "latest",
     "gulp-rename": "latest",
     "gulp-ruby-sass": "latest",
-    "gulp-sass": "latest",
+    "gulp-sass": "^4.1.1",
     "gulp-sort": "latest",
     "gulp-uglify": "latest",
     "gulp-wp-pot": "latest",

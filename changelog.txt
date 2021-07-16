@@ -1,5 +1,18 @@
 Changelog for WC Vendors Marketplace
 
+Verison 2.3.0 - 19th July 2021
+
+* Added: New filter to allow custom order visibilities (#754)
+* Added: Ability to delete commission rows (#765)
+* Updated: UI titles to use title case (#768)
+* Updated: Various strings in the codebase (#767)
+* Updated: Disabled cron system if deprecated PayPal settings not active (#769)
+* Updated: Action/Filter names need to be made consistent #716 (#760)
+* Fixed: Orders in order template #757 (#761)
+* Fixed: Vendor sales report table should get hidden as per permission set by admin. #756 (#758)
+* Fixed: Wordpress REST API (Pages asset) & WC Vendors Marketplace (#770)
+* Fixed: Call to a member function get_id() on boolean #745 (#755)
+
 Version 2.2.4 - 25th March 2021
 
 * Added: New column on commissions page for shipped (#743)
